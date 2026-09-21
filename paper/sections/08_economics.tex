@@ -1,0 +1,61 @@
+\section{From workload to enterprise economics}
+\label{sec:economics}
+
+\subsection{Comparable resource costs}
+
+Let $w_s$ be a human-hour valuation, $a_s$ variable nonlabor cost per visit, $F_s$ fixed nonlabor
+cost, and $\ell_s$ expected attributed error loss per visit under regime $s$. A common-boundary
+average cost is
+\begin{equation}
+\bar c_s = w_s\bar h_s + a_s + \frac{w_sB_s+F_s}{\lambda_s} + \ell_s. \label{eq:avgcost}
+\end{equation}
+Human upkeep is included through $B_s$, not charged again in $F_s$. Both regimes bear error losses.
+Different $w_s$ values allow a more highly paid specialist residual. For mixed roles, the labor
+valuation becomes a sum of hours times role-specific costs.
+
+For the IT Production and Standards population under S2 ($h_0=30$ hours, $q=0.24$), $\bar h_A=17.18$
+and $B_A/\lambda=1.2$ hours. Take artificial monetary
+units with $w_H=80$, $w_A=100$, $a_H=20$, $a_A=50$, $F_H=1000$, $F_A=4000$, and $\ell_H=30$,
+$\ell_A=50$ at 100 monthly visits. Then
+\begin{equation}
+\bar c_H = 2460.00, \qquad \bar c_A = 1978.00. \label{eq:costexample}
+\end{equation}
+Holding the other terms fixed, $\ell_A=532.00$ is the error-loss value at which the costs equalize. A
+separate security or safety constraint can still prohibit deployment below this financial threshold.
+The numbers illustrate opportunity costs, not market salaries, purchase prices, or payroll reductions.
+
+\subsection{Average cost, scale, and system return}
+
+When variable cost $v_s=w_s\bar h_s+a_s+\ell_s$ is constant and fixed cost is $J_s=w_sB_s+F_s$, total
+period cost is $T_s(\lambda)=J_s+\lambda v_s$. Average cost is $J_s/\lambda+v_s$ and marginal cost is
+$v_s$. Fixed assurance becomes cheaper per case as volume grows, but capacity thresholds or
+congestion can change this relationship. A high-volume standardized route may justify an investment
+that is uneconomic for a rare project type; Section~\ref{sec:routes} gives the workload counterpart.
+
+At pipeline level, a shared incident must be counted once. An aggregate comparison is
+\begin{equation}
+C_s=\sum_i\bigl[w_{si}L_{si}+\lambda_{si}a_{si}+F_{si}\bigr]+\mathbb{E}[\mathcal{L}_s], \label{eq:pipeline}
+\end{equation}
+where $\mathcal{L}_s$ is total process loss over the period. Shared labor and technology are
+allocated once; local losses are not added again to the aggregate loss. The comparison covers the
+same requested business outputs and includes any different numbers of visits required to produce them.
+
+For an investment horizon $0,\dots,T$, let $V_t$ be nonduplicated attributable monetary benefits,
+$I_t$ incremental implementation and operating expenditure, and $d$ the discount rate. One explicit
+ROI convention is
+\begin{equation}
+\mathrm{ROI}=\frac{\sum_{t=0}^{T}(V_t-I_t)/(1+d)^t}{\sum_{t=0}^{T}I_t/(1+d)^t},
+\qquad \sum_{t=0}^{T}I_t/(1+d)^t>0. \label{eq:roi}
+\end{equation}
+Benefits already net of a cost cannot subtract that same cost again. Resource savings and cash
+savings require distinct benefit series when salaries remain committed. Transition work, migration,
+training, and any redundancy costs belong to the investment comparison.
+
+Upstream gains can reach several departments, but their returns are not automatically superadditive.
+If $B(S)=C(\varnothing)-C(S)$ is net saving for intervention set $S$, the interaction
+\begin{equation}
+B(\{u,v\})-B(\{u\})-B(\{v\}) \label{eq:interaction}
+\end{equation}
+is positive only when the joint intervention saves more than the isolated gains combined. Shared
+information, integration costs, or overlapping work can make the interaction negative. This test is
+the economic basis for investigating upstream leverage, rather than assuming it from process order.

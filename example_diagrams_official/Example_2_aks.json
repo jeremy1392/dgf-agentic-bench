@@ -1,0 +1,203 @@
+{
+  "project": {
+    "project_id": "PRJ-V5-002",
+    "project_name": "Digital Banking API",
+    "project_type": "ma_integration",
+    "business_unit": "Technology",
+    "sponsor": "Maya Dubois",
+    "project_manager": "Jeremy Garcia",
+    "target_start": "2026-09-13",
+    "target_go_live": "2027-01-06",
+    "users_impacted": 900,
+    "budget_eur": 1200000,
+    "data_classification": "Internal",
+    "business_criticality": "Critical",
+    "hosting_model": "On-premises",
+    "primary_region": "West Europe",
+    "vendor_name": "Contoso",
+    "architecture_pattern": "Batch integration",
+    "workflow_type": "new_project"
+  },
+  "architecture_profile": {
+    "seed": 51002,
+    "solution_type": "api_platform",
+    "edge_pattern": "frontdoor_waf_cdn",
+    "edge_services": [
+      "Azure Front Door Premium",
+      "WAF + CDN"
+    ],
+    "compute_profile": "aks",
+    "compute_services": [
+      "AKS System Pool",
+      "AKS App Pool",
+      "Ingress Controller",
+      "Worker Pods"
+    ],
+    "data_profile": "transactional",
+    "data_services": [
+      "Azure SQL Database",
+      "Azure Storage Account",
+      "Azure Cache for Redis"
+    ],
+    "network_profile": "hub_spoke",
+    "resilience_profile": "multi_region_active_passive",
+    "primary_region": "West Europe",
+    "secondary_region": "North Europe",
+    "multi_region": true,
+    "multi_az": true,
+    "availability_zones": [
+      1,
+      2,
+      3
+    ],
+    "dr_mode": "Warm standby",
+    "rto_hours": 2,
+    "rpo_minutes": 30,
+    "internet_facing": true,
+    "private_endpoints": false,
+    "azure_firewall": true,
+    "bastion": false,
+    "ddos_protection": true,
+    "expressroute": false,
+    "vpn": false,
+    "nat_gateway": false,
+    "api_management": true,
+    "messaging": true,
+    "entra_id": true,
+    "managed_identity": true,
+    "pim": true,
+    "conditional_access": false,
+    "key_vault": true,
+    "sentinel": true,
+    "defender_for_cloud": true,
+    "application_insights": false,
+    "logs_to_siem": true,
+    "backup_enabled": true,
+    "restore_tested": true,
+    "dr_tested": true,
+    "azure_site_recovery": true,
+    "data_replication": "Geo-replication",
+    "defects": [
+      {
+        "id": "missing_private_endpoint",
+        "description": "A data service expected to be private is reachable through a public endpoint.",
+        "severity": "medium"
+      },
+      {
+        "id": "stale_diagram",
+        "description": "Architecture diagram version is older than the security review package.",
+        "severity": "high"
+      }
+    ],
+    "inconsistencies": [],
+    "version": "2.3",
+    "diagram_age_days": 101
+  },
+  "flows": [
+    {
+      "source": "Users",
+      "destination": "Azure Front Door Premium",
+      "protocol": "HTTPS 443",
+      "purpose": "User / API traffic",
+      "trust": "external"
+    },
+    {
+      "source": "Azure Front Door Premium",
+      "destination": "WAF + CDN",
+      "protocol": "HTTPS 443",
+      "purpose": "Edge forwarding",
+      "trust": "external"
+    },
+    {
+      "source": "WAF + CDN",
+      "destination": "Azure API Management",
+      "protocol": "HTTPS 443",
+      "purpose": "API gateway / policy enforcement",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure API Management",
+      "destination": "AKS System Pool",
+      "protocol": "HTTPS 443",
+      "purpose": "Application request",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "AKS App Pool",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Ingress Controller",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Worker Pods",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure SQL Database",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Storage Account",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Cache for Redis",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Service Bus",
+      "protocol": "AMQP/TLS",
+      "purpose": "Commands / async work",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Event Hubs",
+      "protocol": "AMQP/TLS",
+      "purpose": "Events / telemetry",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Key Vault",
+      "protocol": "HTTPS 443",
+      "purpose": "Secrets / keys",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Log Analytics / Sentinel",
+      "protocol": "HTTPS 443",
+      "purpose": "Logs and detections",
+      "trust": "internal"
+    },
+    {
+      "source": "Primary Region",
+      "destination": "Secondary Region",
+      "protocol": "Replication",
+      "purpose": "DR replication / failover",
+      "trust": "internal"
+    }
+  ]
+}

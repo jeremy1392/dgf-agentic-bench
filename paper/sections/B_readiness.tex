@@ -1,0 +1,76 @@
+\section{Readiness, interfaces, and process accounting}
+\label{app:readiness}
+
+\subsection{Prospective readiness measurement}
+
+For a case class, enumerate required facts, decision criteria, evidence claims, actions, and
+acceptance tests independently of the evaluated agent. Define
+$d_i=(O_i,C_i,V_i,X_i,Y_i)\in[0,1]^5$ using Table~\ref{tab:readiness}. Undefined denominators are
+reported as such. They do not become perfect scores.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Candidate readiness dimensions. Ratios are measured before evaluated outcomes.}
+\label{tab:readiness}
+\begin{tabularx}{\linewidth}{@{}l LL@{}}
+\toprule
+Score & Numerator / denominator & Distinction\\
+\midrule
+$O$ & Accessible required facts / all required facts. & Authorized accessibility, not truth.\\
+$C$ & Explicit testable criteria / enumerated criteria. & Auditable requirements and ambiguity
+handling, not a complete encoding of expert thought.\\
+$V$ & Claims with independent checking routes / material claims. & Verification access, not a claim
+that every check passed.\\
+$X$ & Executable scoped actions / required actions. & Technical capability, not authority to approve.\\
+$Y$ & Outcomes with independent tests or adjudication / required outcomes. & Evaluation coverage,
+not observed success.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A candidate summary is $A_i=(O_iC_iV_iX_iY_i)^{1/5}$. It is a descriptive readiness index, not a
+success probability. Its value for $(0.01,1,1,1,1)$ is about 0.398; a minimum index and individual
+hard blockers provide useful alternative predictors. An unavailable mandatory action can block
+deployment even if most scored actions are accessible. Institutional permission $\Gamma_i$ is
+recorded separately. The formalization need not encode every step of tacit expert reasoning:
+independent outcome adjudication can exist where procedural rules are incomplete.
+
+For an artifact change $\Delta z_{ij}=\max(0,z^1_{ij}-z^0_{ij})$, a bounded positive-change
+representation is
+\begin{equation}
+d'_{ja}=d_{ja}+(1-d_{ja})\beta_{ija}\Delta z_{ij},\qquad 0\le\beta_{ija}\le 1. \label{eq:readiness-update}
+\end{equation}
+Here $z_{ij}$ is normalized to $[0,1]$, so that $\Delta z_{ij}\in[0,1]$ and the updated
+dimension stays in $[0,1]$. Only dimensions affected by the artifact receive nonzero sensitivity. The readiness index is
+recomputed from the new vector. An unchanged artifact makes no change, an unaffected zero
+dimension remains zero, and authority remains separate. Degradation is evaluated as its own
+outcome rather than inferred from this positive-change representation. The labor response remains
+Equation~\eqref{eq:response} and requires estimation.
+
+\subsection{Visits, allocation, and baseline coherence}
+
+For a stable expected-flow model, $\lambda=v+R^{\top}\lambda$, hence $\lambda=(I-R^{\top})^{-1}v$
+when the spectral radius of $R$ is below one. $v$ counts exogenous visits and $R_{ij}$ expected
+follow-on visits to $j$ from one visit to $i$. Branching and remediation can make visits exceed new
+projects. Direct logs are preferred when an expected routing model is inappropriate.
+
+The synthetic case partitions in Table~\ref{tab:partition} satisfy Equation~\eqref{eq:partition}.
+The frozen partition separates baseline concentration from subsequent inflation; post-deployment
+multipliers are $k=\kappa\eta$. The reproduction code checks this constraint, the four workload
+totals, the fragility margins, and the route illustration.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Baseline partition, symmetric review effort, and fragility margin. $q\kappa=\phi$ is retained
+baseline case labor. $\mu=h_R/h_S^H=m/\sigma$ measures review against its own group's baseline, with
+$m=0.10$ in S0--S2 and $m=0.35$ in S3. $\eta^{*}$ is the exception-effort ratio at which workload
+equals the baseline under the S2 review, rework, and upkeep (Equation~\ref{eq:etastar}).}
+\label{tab:partition}
+\begin{tabular}{@{}l r r r r r r r@{}}
+\toprule
+Pool & $q$ & $\kappa$ & $\sigma$ & $q\kappa$ & $\mu$ (S0--S2) & $\mu$ (S3) & $\eta^{*}$ (S2)\\
+\midrule
+\rowsinput{generated/table_partition_rows}
+\bottomrule
+\end{tabular}
+\end{table}

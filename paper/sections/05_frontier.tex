@@ -1,0 +1,141 @@
+\section{The instrument: a complete labor account and the workload frontier}
+\label{sec:frontier}
+
+\subsection{Count the complete human workload}
+
+Compare a human operating regime $H$ with an agent-assisted regime $A$. For one work package, let
+$\lambda$ be visits per period and $h_0>0$ mean baseline case-handling hours. In the agent regime,
+$q$ is the fraction requiring substantive human exception handling; $h_E$ is the complete human time
+on an exception; $h_R$ is mean human review on a non-exception case; and $h_W$ is additional rework
+per visit. Fixed, case-independent human upkeep is $B_H$ or $B_A$.
+\begin{align}
+\bar h_A &= q h_E + (1-q) h_R + h_W, \label{eq:hbar}\\
+L_H &= \lambda_H h_0 + B_H, \qquad L_A = \lambda_A \bar h_A + B_A, \label{eq:hours}\\
+N_s &= L_s / K_s, \qquad s\in\{H,A\}. \label{eq:fte}
+\end{align}
+$N_s$ is workload-equivalent FTE at $K_s$ useful hours per period. Exception effort includes any
+preliminary human review on those same cases. $h_R$ includes the expected cost of sampled audits
+and mandatory approvals on the ordinary path. $h_W$ excludes work already attributed to these
+terms or to repeat visits in $\lambda$. $B_A$ includes policy maintenance, agent evaluation, training,
+and incident review within the comparison boundary. Shared teams are allocated once. The
+account is invariant to the way an enterprise partitions its gates: the same activities, hours, and
+costs give the same total whether they are called one gate or three, so splitting or merging gates
+cannot create or hide labor.
+
+This boundary follows the business process rather than a single department's dashboard. A system
+that reduces one team's reading time but transfers more remediation to project engineers
+has not necessarily reduced enterprise work. Likewise, a human waiting exclusively on an agent
+consumes capacity; inference that runs without human attention does not.
+
+\subsection{Separate selection from post-deployment effort}
+\label{sec:selection}
+
+A high exception cost has two different explanations: the routed cases were expensive already, or
+deployment made them more expensive. Let $h_E^H$ and $h_S^H$ be their conditional baseline means
+under a frozen case partition. Define
+\begin{equation}
+\kappa = \frac{h_E^H}{h_0}, \qquad \sigma = \frac{h_S^H}{h_0}, \qquad
+\eta = \frac{h_E}{h_E^H}, \qquad k = \kappa\eta. \label{eq:ratios}
+\end{equation}
+Here $\kappa$ measures baseline selection; $\eta$ measures post-deployment effort inflation or
+assistance for that group. For $0<q<1$ and positive $h_E^H$,
+\begin{equation}
+q\kappa + (1-q)\sigma = 1, \qquad \sigma = \frac{1-q\kappa}{1-q}\ge 0. \label{eq:partition}
+\end{equation}
+Consequently $q\kappa\le 1$. This constraint applies to $\kappa$, not to the post-deployment
+multiplier $k$. The same baseline exception group can take longer after deployment, so $qk$ may
+exceed one. A fixed routing rule can be applied in shadow mode to historical cases to estimate this
+partition; changing the rule requires a new partition or explicit reweighting.
+
+\begin{proposition}[Residual selection and retained baseline labor]
+\label{prop:selection}
+Let $T\ge 0$ denote integrable baseline handling time with $\mathbb{E}[T]=h_0>0$. Let
+$J\in\{0,1\}$ indicate assignment to the human residual and $e(T)=\Pr(J=1\mid T)$, with
+$q=\mathbb{E}[e(T)]>0$. Then
+\begin{align}
+\mathbb{E}[T\mid J=1]-h_0 &= \frac{\operatorname{Cov}(T,e(T))}{q}, \label{eq:selection}\\
+\phi := \frac{\mathbb{E}[TJ]}{h_0} &= q\kappa = q+\frac{\operatorname{Cov}(T,e(T))}{h_0}. \label{eq:phi}
+\end{align}
+Thus the residual's baseline labor share exceeds its case share exactly when routing is positively
+associated with baseline effort. If $e$ is nondecreasing, this covariance is nonnegative. No ordering
+of conditional variances follows.
+\end{proposition}
+
+\begin{proof}
+The law of iterated expectations gives $\mathbb{E}[TJ]=\mathbb{E}[Te(T)]$. Subtracting $h_0q$ and
+dividing by $q$ gives Equation~\eqref{eq:selection}; dividing by $h_0$ instead gives
+Equation~\eqref{eq:phi}. For independent copies $T,T'$, the covariance has the representation
+\[
+2\operatorname{Cov}(T,e(T)) = \mathbb{E}\bigl[(T-T')(e(T)-e(T'))\bigr].
+\]
+A nondecreasing $e$ makes the integrand nonnegative. The identities involve means and a
+cross-moment, not a constraint ordering the variances of $T$ and $T\mid J=1$.
+\end{proof}
+
+The economically important quantity is $\phi$, not $q$ alone. A residual containing 20\% of cases can
+retain 40\% of baseline labor when $\kappa=2$. With post-deployment inflation $\eta=1.5$, that group's
+effort becomes 60\% of the entire baseline case workload before review, rework, and upkeep are
+counted. The selection identity supplies the bridge between exception routing and the capacity
+calculation. The empirical question in Hypothesis~H3 is whether actual routing produces the positive
+covariance.
+
+\subsection{Compression versus expansion}
+\label{sec:compression}
+
+For positive baseline means in both groups, define $\mu=h_R/h_S^H$: the fraction of the standard
+group's baseline effort required for review. Like $\eta$ for exceptions, $\mu$ measures
+post-deployment effort against that group's own baseline. Retain $m=h_R/h_0=\sigma\mu$ for
+comparisons in overall-mean units, and set $r=h_W/h_0$, $b_s=B_s/(\lambda h_0)$. At common visits and
+useful hours,
+\begin{equation}
+\rho := \frac{N_A}{N_H}
+ = \frac{q\kappa\eta+(1-q)\sigma\mu+r+b_A}{1+b_H}
+ = \frac{\phi\eta+(1-\phi)\mu+r+b_A}{1+b_H}. \label{eq:rho}
+\end{equation}
+The second form reads directly. The share of baseline labor held by the exception group is multiplied
+by the change in its effort; the share held by the standard group is multiplied by the fraction of
+that effort still spent on review; rework and upkeep are added. $\phi$ can be measured on historical
+work before any deployment, whereas $\eta$ and $\mu$ are what the deployment determines.
+
+If $h_S^H=0$, $\mu$ is undefined and the dimensional form~\eqref{eq:hbar} applies. Effort ratios can
+exceed one; $q\kappa\le 1$ remains the baseline partition constraint. For fixed $k=\kappa\eta>m$ and
+fixed assurance ratios, the equivalent exception-share threshold is
+\begin{equation}
+q<q^{*}=\frac{1+b_H-m-r-b_A}{k-m}. \label{eq:qstar}
+\end{equation}
+A negative $q^{*}$ allows no saving at nonnegative $q$; a value above one places the boundary beyond
+the feasible case-share range. If $k=m$, the case share has no direct effect. If $k<m$, the inequality
+reverses. These are algebraic boundaries, not fitted empirical thresholds.
+
+The same boundary can be read as a margin on exception effort. For $\phi>0$, workload stays below
+the baseline only while
+\begin{equation}
+\eta<\eta^{*}=\frac{1+b_H-(1-\phi)\mu-r-b_A}{\phi}
+=\mu+\frac{1+b_H-\mu-r-b_A}{\phi}. \label{eq:etastar}
+\end{equation}
+Whenever the standard path alone would save labor ($\mu+r+b_A<1+b_H$), the larger the residual's
+share of baseline labor, the smaller this margin.
+
+At $q>0$, the boundary is $k^{*}=m+(1+b_H-m-r-b_A)/q$. Figure~\ref{fig:frontier} draws it separately
+for each route: fixed upkeep per visit differs with volume, so a single curve cannot classify both.
+Workload increases above the applicable curve. A lower escalation rate can thus be outweighed by
+costly exception resolution or assurance.
+
+The same equation states what the law of gate substitution requires. Complete substitution drives each weighted
+contribution in the numerator of Equation~\eqref{eq:rho} to zero: exception labor, standard-path labor,
+rework, and support. The law predicts that endpoint; the equation measures the distance to it, term by
+term, and names the term that blocks each route. Tracking the origin of each residual term over time,
+which interventions disappeared, which moved, and which are new, is what Hypothesis~H6 tests.
+
+\subsection{Workload, staffing, and cash are distinct outcomes}
+\label{sec:staffing}
+
+A workload-equivalent FTE is an effort unit. Staff needed to meet deadlines also depend on arrival
+variability, specialization, minimum coverage, and availability of approvers. A utilization constraint
+$L\le unK$, with target $u<1$ and staff $n$, is only a starting point; a delay target needs a queueing
+or scheduling model. The present calculations hold useful-hour conversion constant, not a measured
+waiting-time distribution.
+
+Similarly, saved hours are not automatically avoidable salaries: the component model identifies a
+resource change, and a financial counterfactual determines which part becomes cash or additional
+output. Section~\ref{sec:workforce} derives the staffing consequence.

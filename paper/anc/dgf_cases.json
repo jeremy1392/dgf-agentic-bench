@@ -1,0 +1,299 @@
+{
+  "note": "Structured restatement of the three DGF cases as they are described in the manuscript. Page locators refer to the printed pagination of Canale (2026), Security Architect Survival Kit. Framework facts are separated from this paper's analytical additions. Nothing in this file is a measurement.",
+  "framework": {
+    "title": "Security Architect Survival Kit: Role, Expectations and Journey within the Digital Governance Framework (DGF)",
+    "author": "Jeremy Canale",
+    "date": "September 2026",
+    "pages": 124
+  },
+  "cited_pages": [
+    14,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    28,
+    32,
+    33,
+    34,
+    35,
+    36,
+    38,
+    90,
+    98,
+    100,
+    101,
+    103,
+    104,
+    105
+  ],
+  "formal_gates": [
+    {
+      "gate": "IT",
+      "pages": [
+        16,
+        22,
+        32,
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "gate": "Security & Architecture",
+      "pages": [
+        16,
+        21,
+        22
+      ]
+    },
+    {
+      "gate": "Tech Readiness",
+      "pages": [
+        16,
+        22,
+        90
+      ]
+    },
+    {
+      "gate": "Governance",
+      "pages": [
+        16,
+        22
+      ]
+    },
+    {
+      "gate": "Sign-off",
+      "pages": [
+        16,
+        19,
+        20
+      ],
+      "scope": "internal-project path only"
+    }
+  ],
+  "paths": {
+    "ma_integration": {
+      "pages": [
+        18
+      ],
+      "sequence": [
+        "IT",
+        "Security & Architecture",
+        "Tech Readiness",
+        "Governance"
+      ],
+      "return": "remediation and renewed review"
+    },
+    "new_internal_project": {
+      "pages": [
+        19
+      ],
+      "sequence": [
+        "IT",
+        "Security & Architecture",
+        "Tech Readiness",
+        "Governance",
+        "Sign-off"
+      ],
+      "return": "redesign"
+    },
+    "supplier_platform": {
+      "pages": [
+        17
+      ],
+      "sequence": [
+        "Business need (trigger)",
+        "Procurement",
+        "Vendor",
+        "Security & Architecture",
+        "IT",
+        "Tech Readiness",
+        "Governance"
+      ],
+      "note": "Security precedes IT only on this route"
+    }
+  },
+  "cases": {
+    "W1_new_platform": {
+      "pages": [
+        17,
+        103
+      ],
+      "framework_facts": [
+        "SaaS CRM serving 2,000 sales users; confidential customer data",
+        "SSO planned with optional MFA",
+        "No contractual SIEM log export",
+        "Backup restoration untested; recovery-time objective undefined"
+      ],
+      "framework_outcome": {
+        "opinion": "red",
+        "conditions": [
+          "log export negotiated before signature",
+          "MFA and recovery conditions before go-live"
+        ]
+      },
+      "analytical_handoff_design": "Table of W1 contracts in the manuscript (this paper's addition)"
+    },
+    "W2_ma_integration": {
+      "pages": [
+        18,
+        104
+      ],
+      "framework_facts": [
+        "Acquired entity of 400 people",
+        "Own on-premises Active Directory, cloud mail, provider-hosted ERP",
+        "Payroll motivates a request for network interconnection within 30 days",
+        "Account inventories absent; a past incident undocumented; EDR missing; logs local"
+      ],
+      "framework_outcome": {
+        "opinion": "conditional (yellow)",
+        "exception": "filtered partner-zone connection during the audit, without joining directories",
+        "conditions": [
+          "EDR before any interconnection",
+          "account inventory within 30 days",
+          "SIEM log integration within 60 days",
+          "risk card signed by the integration director",
+          "directories joined only after the audit"
+        ]
+      },
+      "analytical_handoff_design": "Table 3 of the manuscript (this paper's addition, not a measured deployment)",
+      "parameter_mapping": {
+        "kappa": "undocumented incident: expensive to investigate before any automation (baseline selection)",
+        "eta": "missing provider reports: an agent cannot create absent evidence; discovering gaps can inflate exception effort",
+        "mu": "conditions register with the EDR precondition and the 30- and 60-day obligations (ordinary-path review)",
+        "B_A": "integration playbooks, routing rules and agent evaluations maintained whatever the number of acquisitions"
+      }
+    },
+    "W3_new_internal_project": {
+      "pages": [
+        19,
+        105
+      ],
+      "framework_facts": [
+        "Internal IT-support agent built with Copilot Studio and Microsoft Foundry (formerly Azure AI Foundry)",
+        "Reads tickets and SharePoint through its integrations; accesses Microsoft Graph",
+        "Uses the developer's identity and service principal",
+        "Can reset passwords without approval",
+        "No prompt or action logs; retrieval across the whole SharePoint index",
+        "Tickets contain personal data"
+      ],
+      "framework_outcome": {
+        "opinion": "red (rejected)",
+        "alternative": "read-only knowledge-base pilot without Graph"
+      },
+      "analytical_handoff_design": "Table 4 of the manuscript (this paper's addition; later rows apply only if a revised design proceeds)",
+      "parameter_mapping": {
+        "kappa": "the rejected design is an exception whose baseline effort is already high",
+        "mu": "comparing declared with actual permissions is standard-path work; its review ratio depends on how far the tests can be trusted",
+        "B_A": "keeping the assessed agent separate from the reviewing agents adds identity and monitoring work"
+      }
+    }
+  },
+  "populations": [
+    {
+      "id": "R1",
+      "name": "Procurement",
+      "people": 10,
+      "ma": "Hosted ERP provider evidence.",
+      "new_project": "External service evidence, if required."
+    },
+    {
+      "id": "R2",
+      "name": "Legal / Contracts",
+      "people": 10,
+      "ma": "Inherited service obligations.",
+      "new_project": "Service terms and data-use obligations."
+    },
+    {
+      "id": "R3",
+      "name": "IT / Enterprise Architecture",
+      "people": 30,
+      "ma": "Inherited-system scope and integration options.",
+      "new_project": "Target design and integration constraints."
+    },
+    {
+      "id": "R4",
+      "name": "Security Architecture",
+      "people": 20,
+      "ma": "Acquisition audit, exposure, risk conditions.",
+      "new_project": "Design assessment and security conditions."
+    },
+    {
+      "id": "R5",
+      "name": "Privacy / GRC",
+      "people": 10,
+      "ma": "Inherited data and access scope.",
+      "new_project": "Ticket-data and access requirements."
+    },
+    {
+      "id": "R6",
+      "name": "Operations / Tech Readiness",
+      "people": 25,
+      "ma": "Protection, logging, recovery evidence.",
+      "new_project": "Tests, runbooks, operational handover."
+    },
+    {
+      "id": "R7",
+      "name": "PMO / Governance Support",
+      "people": 15,
+      "ma": "Integration milestones and conditions.",
+      "new_project": "Project schedule and decision package."
+    },
+    {
+      "id": "R8",
+      "name": "Risk Committee Support",
+      "people": 10,
+      "ma": "Integration risk-card records.",
+      "new_project": "Residual-risk and escalation records."
+    },
+    {
+      "id": "R9",
+      "name": "Finance / Cost Control",
+      "people": 10,
+      "ma": "Integration-option costs.",
+      "new_project": "Project budget and cost assumptions."
+    }
+  ],
+  "risk_scale": {
+    "pages": [
+      38,
+      98,
+      100,
+      101
+    ],
+    "rule": "ordinal impact (1-4) x ordinal likelihood (1-4); 12-16 is critical and calls for rejection or competent governance arbitration; above-tolerance acceptance requires a business risk owner and a dated acceptance record",
+    "caveat": "the ordinal product is not an expected monetary loss"
+  },
+  "generic_routes": {
+    "W1_Buy": [
+      "Procurement",
+      "Legal",
+      "Compliance",
+      "Security",
+      "IT",
+      "General"
+    ],
+    "W2_Integrate": [
+      "IT",
+      "Architecture",
+      "Security architecture",
+      "Legal",
+      "Compliance",
+      "General"
+    ],
+    "W3_Build": [
+      "IT",
+      "Architecture",
+      "Security architecture",
+      "Tech readiness",
+      "General"
+    ],
+    "note": "Illustrative orders used in the manuscript. The 'paths' entry above records the orders of the practitioner framework; enterprises define their own gates, orders and tasks."
+  }
+}

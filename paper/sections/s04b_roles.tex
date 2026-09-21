@@ -1,0 +1,114 @@
+\section{Every role has the same shape: documents in, an artifact out}
+\label{sec:roles}
+
+Whatever the role, the work of a DGF has one shape. The input is a set of documents and records that
+an agent can read: a design, a diagram, a contract, a test report, a register of findings. The output
+is an artifact that an agent can write: an opinion, a list of findings, a redlined clause, a readiness
+verdict, a risk card, a decision record. A security architect reviewing an architecture diagram, a
+readiness expert reviewing a recovery, resilience, and backup dossier, and a GRC expert proposing a
+risk card perform the same kind of transformation. What differs between them is the policy applied
+and the evidence required, not the form of the work. Table~\ref{tab:roles} states that shape for every
+population and for the general gate.
+
+\begin{table}[!htb]
+\centering\small\renewcommand{\arraystretch}{1.18}
+\caption{Documents in, artifact out: the input each role reads and the output it returns.}
+\label{tab:roles}
+\begin{tabularx}{\linewidth}{@{}P{3.3cm}LL@{}}
+\toprule
+Role & Input the agent can read & Output the agent can return\\
+\midrule
+Procurement (R1) & Business need, vendor proposals, price lists, supplier questionnaire. & Supplier
+comparison, normalized commercial terms, sourcing recommendation, contract draft.\\
+Legal / Contracts (R2) & Contract draft, data-processing agreement, SLA and security annexes,
+subprocessor list. & Redlined clauses, accepted and rejected terms, legal exceptions, obligations
+register.\\
+Architecture (R3) & Requirements, high-level and detailed architecture, integration and flow diagrams,
+network matrix. & Architecture opinion, integration pattern, network conditions, recorded decisions and
+waivers.\\
+Security Architecture (R4) & Architecture diagram, flow matrix, data classification, identity and
+access model, supplier evidence. & Findings with severity, required controls, risk scenarios, opinion.\\
+Compliance / Privacy / GRC (R5) & Data categories, purposes, processors and locations, control assessments, gate
+findings. & Assessment requirements, transfer and retention conditions, risk card with owner and
+treatment.\\
+IT Production and Standards (R6) & Catalog conformity sheet, licence inventory, operations dossier,
+support model. & Conformity opinion, waivers with a convergence plan, run
+acceptance.\\
+Tech Readiness (R7) & Pilot, load-test, and code-quality results; recovery, resilience, and backup
+dossier: backup policy, restoration test report, recovery objectives, runbooks. & Readiness verdict,
+open conditions, retest dates.\\
+General Gate Support (R8) & Gate opinions, reservations register, schedule, risk cards, residual risks.
+& Consolidated gate dossier, dated action plan, acceptance package.\\
+Finance / Cost Control (R9) & Solution design, usage assumptions, quotes, budget envelope. & Budget
+opinion, cost guardrails, variance alerts.\\
+General gate (committee and sponsors) & Gate dossier, opinions, residual risks, budget, schedule. &
+Recorded decision: go, go with reservations, rework, suspension, or no-go, with owners, dates, and the
+sponsors' commitment.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The three worked routes of Section~\ref{sec:routes-worked} come from a security practitioner's
+framework, so their blocking findings are security findings. Table~\ref{tab:rolecases} therefore adds
+eight examples, one per gate type of Table~\ref{tab:gates}, in which the blocking finding arises at a
+different gate each time. They are illustrative examples written for this paper, not cases from the
+framework.
+
+\begin{table}[!htb]
+\centering\footnotesize\renewcommand{\arraystretch}{1.15}
+\caption{Eight illustrative reviews, one per gate type. In each, the expert reads documents and returns
+an artifact; nothing in the transformation requires that the reader be a person.}
+\label{tab:rolecases}
+\begin{tabularx}{\linewidth}{@{}P{2.4cm}P{3.5cm}LL@{}}
+\toprule
+Gate and role & Documents read & Blocking finding & Artifact returned\\
+\midrule
+General: portfolio committee & Gate dossier: opinions of the specialized gates, risk cards, updated
+business case, budget, schedule. & Cost above the approved envelope and one reservation still open, while
+the business asks to proceed. & Recorded decision: go with reservations under a budget cap, a named risk
+owner, and a review date, or no-go.\\
+IT: production and standards lead & Catalog conformity sheet, licence inventory, operations dossier,
+support model. & Database engine outside the catalog and out of vendor support; no on-call model defined.
+& Opinion with reservations: waiver request with a convergence plan; support model required before
+the change advisory board.\\
+Architecture: enterprise architect & High-level architecture, flow diagram, interface list, network
+matrix. & Point-to-point file transfer bypassing the integration platform; inter-site bandwidth
+insufficient for nightly volumes. & Architecture decision record: required integration pattern, network
+sizing condition, waiver recorded with a remediation date.\\
+Security architecture: security architect & Architecture diagram, flow matrix, data classification. &
+Administration interface exposed to the internet; unencrypted flow carrying confidential data. &
+Findings with severity, required controls, unfavorable opinion or opinion with reservations.\\
+Tech readiness: readiness expert & Pilot and load-test results, code-quality report, recovery,
+resilience, and backup dossier, runbooks. & Load test stopped at half the target volume; last restoration
+test older than twelve months. & Not-ready verdict, tests requested with dates, handover blocked until
+the evidence is attached.\\
+Procurement: buyer & Need statement, supplier proposals, pricing grids, third-party due-diligence report.
+& Lowest bid has the highest total cost once licences and exit costs are counted; one supplier fails
+financial due diligence. & Multi-criteria scoring, sourcing recommendation, negotiation points for the
+commitment committee.\\
+Legal: contract lawyer & Supplier contract, data-processing agreement, service-level annex. & Liability
+cap below policy; no audit right; subprocessor change without notice. & Redlined clauses, legal
+exceptions with positions, obligations register for the supplier file.\\
+Compliance: GRC expert & Gate findings, control assessment, processing description, applicable
+regulations. & Residual risk above tolerance after the proposed controls; impact assessment missing for a
+new processing of personal data. & Risk card: scenario, impact and likelihood classes, score, treatment
+options, proposed risk owner, acceptance record to be signed; impact assessment required.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Three remarks follow. First, when a document is missing or insufficient, the output is a request for
+evidence, an unresolved status, or a refusal; that is still an artifact, and producing it is part of the
+contract of Definition~1. Second, some inputs are obtained rather than received: a restoration test is
+launched, a supplier is asked, a configuration is queried. Those are actions an agent can take through
+tools, within its mandate. Third, the artifact of one role is the document of the next: the
+IT opinion is read by Architecture and Security, the findings are read by Compliance, the risk card is read
+by the committee, the decision
+is read by the sponsors. A DGF is a chain of documents read and artifacts returned, which is the form
+of work that agents already perform. This is the practical content of Law~1.
+
+The shape of the work is not a proof that all its requirements can be executed. Two situations that
+look identical in the accessible documents can require different decisions; no reader, human or
+machine, can then decide correctly without further inquiry (Appendix~\ref{app:limits}). The shape says
+where inquiry must go and what must be returned; whether every requirement can be met without a person
+is what the hypotheses of Section~\ref{sec:hypotheses} test.

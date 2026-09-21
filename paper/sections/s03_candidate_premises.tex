@@ -1,0 +1,250 @@
+\section{Why the DGF is the most likely first candidate for agentic automation}
+\label{sec:candidate}
+
+Alongside the law, we state a separate comparative hypothesis: \textbf{among the expert control
+functions of an enterprise, the DGF will be the first to be completely executed by agents.} The law
+does not depend on it; the DGF could close after another function and the law would still hold. The
+hypothesis rests on seven properties that few other functions combine.
+
+\textbf{Its objects are already digital.} A DGF reviews software systems, configurations, contracts,
+evidence, and institutional commitments. Repositories, identity systems, cloud control planes, ticketing
+tools, and APIs already supply most of the observations and actions a gate needs. Nothing has to be lifted, driven, or examined at a bedside: every role reads documents and returns an
+artifact (Table~\ref{tab:roles}).
+
+\textbf{It is already a paved road} (Section~\ref{sec:dgf}). The representation work that blocks
+automation elsewhere has been done here for human reasons.
+
+\textbf{Its decisions concern systems and projects.} An architecture approval is not a hiring, credit,
+or medical decision about a person. This does not exempt it from law (Section~\ref{sec:mandate}), but it
+places the DGF further from the strictest regimes on automated decisions than most candidate functions.
+
+\textbf{It is a cost center and a bottleneck.} Review queues delay every project of the enterprise. An internal review is not
+a product feature: customers buy the firm's products, not the identity of whoever performed its
+internal reviews. Where a contract or a regulator does require a named human reviewer, that is an
+institutional constraint of the kind discussed in Section~\ref{sec:mandate}, not a commercial
+preference. Management therefore faces both a speed incentive and a cost incentive.
+
+\textbf{Its work is specialist work, and much of it is repetition.} The same facts are extracted from the
+same documents by Procurement, Legal, Security, and IT production. How many visits are standard is an empirical frequency, measurable on historical logs. Hypothesis~H3
+makes a separate prediction: the residual holds a larger share of the hours than of the cases
+(Section~\ref{sec:selection}), whether or not standard cases are the majority.
+
+\textbf{Its outputs are checkable downstream.} A condition such as ``EDR before interconnection'' or
+``log export in the contract'' can be verified by the next gate or by the production system itself. A
+function whose outputs can be tested is a function whose automated executor can be qualified.
+
+\textbf{Its neighbors are already software.} Bounded governance decisions around the DGF already execute
+without a fresh human judgment (Table~\ref{tab:precedents}).
+
+The comparison class matters. Transactional back-office functions, such as invoice processing, order
+creation, post-trade matching, and first-level service desks, are already largely executed by software;
+they are the precedents of Section~\ref{sec:precedents}, not rivals for this hypothesis. The rivals are
+the other expert control functions staffed by senior specialists: legal review, financial control and
+audit, credit and underwriting decisions, human-resources decisions, clinical review. The criterion is
+execution closure as defined in Section~\ref{sec:conditions}, reached for every gate of the function at
+a participating site. Human-resources, credit, and clinical decisions concern persons and meet the
+strictest legal regimes; legal work carries privilege and professional liability; audit is bound by
+independence rules. The DGF combines high structure, digital evidence, internal impact, and management
+pressure. The hypothesis fails if another expert control function reaches execution closure first. On
+this hypothesis, the populations of Table~\ref{tab:populations} are the first specialist workforce
+exposed.
+
+\section{Why believe complete automation will extend to every gate?}
+\label{sec:premises}
+
+The argument is inductive and compositional, rather than a deduction from notation.
+Table~\ref{tab:premises} distinguishes evidence already available from the extension that the thesis
+needs.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Five premises, with their evidential boundary. The final column contains the substantive
+burden of the complete-automation thesis.}
+\label{tab:premises}
+\begin{tabularx}{\linewidth}{@{}P{3.0cm}LL@{}}
+\toprule
+Premise & Evidence or mechanism & Remaining claim to test\\
+\midrule
+Contract, not occupation & Each DGF specifies evidence, criteria, outputs, and the order chosen for its
+routes. & Contracts
+capture material inquiry and judgment without concealing a necessary human.\\
+Capability reaches gate scale & Measured software-task horizons have increased substantially. &
+Comparable progress transfers to messy gate work and the required reliability tail.\\
+Gates already become software & CI quality rules, cloud policy, standard changes, and transaction
+processing execute bounded controls. & Automation extends from these controls to the full judgment and
+exception loop.\\
+Authority becomes a mandate & Authorized rules can release changes or orders without another per-case
+decision. & Required commitments can be validly delegated on each DGF route.\\
+Provision scales & Reusable services can spread common engineering and assurance costs. & Local
+adaptation and risk costs do not preserve an economic or human-support floor.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Capability is moving toward longer coherent work}
+\label{sec:capability}
+
+\citet{kwa2025} introduce a task-completion horizon measured in human expert time, not in the agent's
+runtime. Their 2019--2025 results show an approximately seven-month doubling of the 50\% horizon on
+software-related tasks, and a similar trend for the 80\% horizon at roughly one fifth of the length.
+They associate the increase with better reliability, error recovery, reasoning, and tool use. This is
+the strongest measured trend supporting the move from individual instructions to extended work
+packages.
+
+The later METR dashboard, updated on 8 May 2026, reports for its best-performing model a 50\% horizon
+of at least sixteen hours, with a 95\% interval of 8.5--55 hours, and warns that measurements above
+sixteen hours exceed the reliable range of its task suite \citep{metr2026a}. The reported point is not
+a guarantee that every sixteen-hour activity can be completed.
+
+The inference to gates requires care. A twelve-, twenty-four-, or thirty-six-hour dossier can contain
+parallel work by several specialists; it is not automatically one coherent task of that duration. The
+12--36-hour examples below are synthetic reference workloads, not measured DGF horizons. METR's tasks
+are mainly self-contained software engineering, machine-learning, and cybersecurity problems; its
+documentation emphasizes domain variation over orders of magnitude, low-context human baselines, worse
+transfer to messy work, and error bars of roughly a factor of two \citep{metr2026a,metr2026b}. It does
+not estimate 99\% horizons.
+
+These qualifications change how the evidence is used, not its relevance. A trend from short tasks to
+multi-hour, tool-using work is evidence against a fixed boundary at a document summary. The thesis is
+that the same combination of improved reasoning, access, recovery, and verification closes the larger
+contracts. Sections~\ref{sec:milestones} and~\ref{sec:testing} expose the additional assumptions and
+tests.
+
+\subsection{The inductive precedent: some decisions already run as software}
+\label{sec:precedents}
+
+Table~\ref{tab:precedents} documents operational mechanisms in the same organizational neighborhood as
+the DGF. The important observation is not a vendor's adoption claim. It is that an input can already be
+checked against an authorized condition and cause an effective action without a fresh human judgment
+in that bounded case.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Existing automation near the gate boundary. Documentation supports the stated mechanism,
+without implying zero supporting labor or full automation of the wider function.}
+\label{tab:precedents}
+\begin{tabularx}{\linewidth}{@{}P{3.3cm}LL@{}}
+\toprule
+Primary example & Software-executed transformation & Boundary of the precedent\\
+\midrule
+CI/CD quality gates \citep{sonar2026} & Code-analysis measurements and conditions produce pass/fail;
+pipeline or merge policy can enforce the result. & Encoded quality criteria, not every design or
+security judgment.\\
+Cloud policy-as-code \citep{mspolicy2025} & A resource request matching a deny policy is rejected
+before resource-provider execution. & Enforces a rule; does not establish that the rule covers all
+risks.\\
+Standard changes \citep{atlassian2026} & A repeatable, documented, low-risk change can be
+pre-authorized rather than approved anew. & Preauthorization supplies the mandate; automated execution
+still needs an implementation.\\
+Continuous deployment \citep{awscd2026} & A qualifying change proceeds automatically into production,
+unlike delivery awaiting explicit release approval. & Tests, configuration, rollback, and supporting
+operations remain relevant.\\
+Touchless purchasing \citep{oracle2026} & An approved requisition can become a purchase order and be
+communicated without a procurement agent's intervention. & Requisition approval and agreement formation
+are prior inputs, not shown to be autonomous.\\
+Compliance evidence \citep{awsaudit2026} & Service data are collected and associated with control
+evidence. & The service explicitly does not assess compliance itself.\\
+Post-trade processing \citep{dtcc2026} & Matching enables automatic trade affirmation and downstream
+processing. & A bounded post-trade path, not the entire back office or all exceptions.\\
+Automated underwriting \citep{fanniemae2026} & Application and credit information produce a risk
+assessment and recommendation. & The lender retains underwriting judgment and responsibility.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+These precedents refute the proposition that a governance-related decision necessarily requires an
+employee to handle every instance. Some implement the decision itself; others automate evidence or
+recommend an outcome while retaining a human. That contrast is useful: it identifies which part of the
+contract remains open instead of labelling every use of software a completed gate.
+
+The next step is therefore an extension, not a new direction of history. Deterministic controls
+already translate accepted requirements into executable tests. Agents add interpretation, evidence
+pursuit, exception diagnosis, and revision of a proposed plan. The favorable induction is that a
+growing composition of such operations replaces the whole gate. Its strongest rival is that
+unstructured judgment or assurance remains an irreducible last task. Section~\ref{sec:objections} tests
+that rival rather than assuming it away.
+
+\subsection{From an individual signature to a standing mandate}
+\label{sec:mandate}
+
+Authorization is not the same as a handwriting event. Continuous deployment and touchless order
+creation illustrate execution under rules and prior approvals \citep{awscd2026,oracle2026}. A DGF can
+similarly move an eligible class of decisions from repeated individual approval to a standing
+delegation. The delegation specifies case class, allowed actions, budget and risk limits, evidence
+requirements, expiry, suspension, and the principal on whose behalf the system acts.
+
+At the general gate, the go decision and the sponsors' commitment are then a recorded, valid exercise of
+that mandate. The gate remains and the commitment is effective; no person is impersonated and no machine declares itself a corporate officer. Cases
+outside the mandate remain unresolved or are refused under the contract. A mandate with a required
+human exception path has only partially automated the gate; its extension to every case class is part
+of the thesis.
+
+The legal limit is substantive. NIS2 Article~20 requires management bodies to approve and oversee
+cybersecurity risk-management measures and addresses their liability and training. DORA Article~5
+assigns management bodies responsibility for the ICT risk-management framework; Article~6(10) permits
+outsourcing verification tasks while retaining the financial entity's responsibility
+\citep{nis2,dora}. These texts support distinguishing execution from responsibility, but do not
+authorize eliminating all human governance. Required continuing board work belongs in $B_A$. Under a
+regime that retains it, a zero-support claim for that broad boundary fails unless the requirement
+itself validly changes.
+
+Nor is ``a decision about systems'' a general exemption. GDPR Article~22 concerns solely automated
+decisions about people with legal or similarly significant effects, subject to specified exceptions and
+safeguards; ordinary architecture approval is not automatically such a decision, but a DGF service can
+affect access, employment, or other protected interests \citep{gdpr}. The AI Act's high-risk
+classification and human-oversight provisions also depend on intended use and applicable conditions,
+not the label DGF \citep[Arts.~6, 14 and Annex~III]{aiact}. Jurisdiction, national implementation,
+effective dates, and sector rules must be assessed for the actual service. No legal opinion or
+universal permission is asserted here.
+
+The argument for migration is thus operational: the authorized principal can define a class-level rule
+and let software execute it. The argument against complete support closure is institutional: some
+continuing human obligations may survive that migration. Both are observable. Maintaining this
+distinction strengthens the automation thesis by identifying what must change, rather than treating
+liability as either a magical human advantage or an irrelevant detail.
+
+\subsection{Shared provision can make a low-volume route economical}
+\label{sec:provision}
+
+A five-visit Integrate route may be uneconomic when it must build and maintain its own agent
+platform. That does not imply that it remains uneconomic when buying a common service. Let $F_s$ be
+fixed, shareable nonlabor platform cost, $N$ comparable customers, $F_c$ customer-specific fixed cost,
+$a$ variable nonlabor cost per visit, and $\lambda_c$ visits at customer $c$. Under an equal allocation
+convention,
+\begin{equation}
+\bar c_{c,\mathrm{platform}} = a + \frac{F_s/N + F_c}{\lambda_c}. \label{eq:platformcost}
+\end{equation}
+The common term falls with scale, while local integration does not. Falling provider cost reaches the
+customer only if pricing passes through some of the saving. The same distinction applies to human
+upkeep. Allocating shared hours $B_s$ and customer-specific hours $B_c$ gives
+\begin{equation}
+b_{A,c} = \frac{B_s/N + B_c}{\lambda_c h_{0,c}}. \label{eq:sharedupkeep}
+\end{equation}
+
+\begin{table}[!htb]
+\centering\small
+\caption{Synthetic low-volume provision: 60 common human upkeep hours per month plus six
+customer-specific hours, five visits per customer, and 24 baseline hours per visit. Provider labor has
+not disappeared; it is allocated explicitly.}
+\label{tab:provision}
+\begin{tabular}{@{}r r r r r@{}}
+\toprule
+Customers & Support hours/month/customer & Support hours/visit & Total hours/visit & $\rho$\\
+\midrule
+\rowsinput{generated/table_provision_rows}
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:provision} applies Equation~\eqref{eq:sharedupkeep} to the five-visit Integrate route of
+Section~\ref{sec:routes}, whose direct residual effort is 21.62 hours per visit. Alone, the customer
+faces a workload ratio of 1.451; sharing the sixty common hours across 1,000 customers while keeping
+all six local hours lowers it to 0.951. The verdict on a low-volume route therefore turns on
+whether it must carry its own policies, tests, and evaluations or can share them. The table holds the
+sixty common hours constant as customers are added, which is the favorable case: the empirical
+question is whether shared support hours grow less than proportionally with the number of customers.
+
+Amortization lowers a buyer's allocated burden; it does not eliminate the provider's workers. Across
+all customers the shared hours still sum to $B_s$, and the local hours to $\sum_c B_c$. Full support
+closure requires automating or removing the required work itself. Economies of scale make the
+investment plausible; they are not a shortcut to zero global labor.

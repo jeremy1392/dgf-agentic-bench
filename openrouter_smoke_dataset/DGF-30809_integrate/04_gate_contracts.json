@@ -1,0 +1,368 @@
+{
+  "general": {
+    "gate_label": "General Gate",
+    "objective": "Consolidate specialist opinions and decide whether resources and the next phase can be committed.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "BUSINESS_CASE",
+      "BUDGET_APPROVAL",
+      "ACTION_REGISTER",
+      "BENEFITS_PLAN",
+      "PORTFOLIO_SNAPSHOT",
+      "COMMITTEE_BRIEFING",
+      "SUPPORT_RACI",
+      "ITSM_CHANGE",
+      "ARCH_DEBT",
+      "RESTORE_TEST",
+      "FAILOVER_TEST",
+      "RUNBOOK",
+      "SLO_SLI",
+      "VENDOR_OFFERS",
+      "SCORING_MATRIX",
+      "PRICING_TCO",
+      "SIGNING_AUTHORITY",
+      "REG_MAPPING",
+      "ACCESSIBILITY",
+      "CONTROL_MATRIX"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  },
+  "it": {
+    "gate_label": "IT Gate",
+    "objective": "Assess technology standards, catalog fit, operability, support, lifecycle, capacity and ITSM readiness.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "ACTION_REGISTER",
+      "CMDB_EXPORT",
+      "TECH_CATALOG",
+      "LICENSE_POSITION",
+      "LIFECYCLE_REGISTER",
+      "SUPPORT_RACI",
+      "ITSM_CHANGE",
+      "CAPACITY_REPORT",
+      "TECH_WAIVER",
+      "HLD",
+      "FLOW_MATRIX",
+      "OPENAPI",
+      "IP_PLAN",
+      "ADR_REGISTER",
+      "AZURE_RESOURCE_GRAPH",
+      "IAM_EXPORT",
+      "BACKUP_JOBS",
+      "RUNBOOK",
+      "ROLLBACK_TEST"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  },
+  "architecture": {
+    "gate_label": "Architecture Gate",
+    "objective": "Assess HLD/LLD coherence, APIs, flows, data ownership, network constraints, performance, availability and reversibility.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "ACTION_REGISTER",
+      "CMDB_EXPORT",
+      "TECH_CATALOG",
+      "LIFECYCLE_REGISTER",
+      "TECH_WAIVER",
+      "HLD",
+      "LLD",
+      "FLOW_MATRIX",
+      "OPENAPI",
+      "DATA_MODEL",
+      "DATA_LINEAGE",
+      "IP_PLAN",
+      "ADR_REGISTER",
+      "ARCH_DEBT",
+      "AZURE_RESOURCE_GRAPH",
+      "NSG_RULES",
+      "WAF_POLICY",
+      "FIREWALL_POLICY",
+      "THREAT_MODEL",
+      "FAILOVER_TEST",
+      "LOAD_TEST",
+      "DATA_INVENTORY"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  },
+  "security": {
+    "gate_label": "Security Architecture Gate",
+    "objective": "Assess cybersecurity risk, segmentation, IAM, encryption, hardening, detection, testing and residual risk.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "ACTION_REGISTER",
+      "CMDB_EXPORT",
+      "HLD",
+      "LLD",
+      "FLOW_MATRIX",
+      "OPENAPI",
+      "DATA_MODEL",
+      "IP_PLAN",
+      "AZURE_RESOURCE_GRAPH",
+      "IAM_EXPORT",
+      "CONDITIONAL_ACCESS",
+      "NSG_RULES",
+      "WAF_POLICY",
+      "SENTINEL_STATUS",
+      "FIREWALL_POLICY",
+      "KEYVAULT_CONFIG",
+      "DEFENDER_FINDINGS",
+      "VULN_SCAN",
+      "PENTEST",
+      "THREAT_MODEL",
+      "BACKUP_JOBS",
+      "RESTORE_TEST",
+      "CI_PIPELINE",
+      "MONITOR_ALERTS",
+      "RFP",
+      "DUE_DILIGENCE",
+      "VENDOR_EVIDENCE_REQUEST",
+      "MSA",
+      "DPA",
+      "DATA_INVENTORY",
+      "DPIA",
+      "AI_IMPACT"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  },
+  "tech_readiness": {
+    "gate_label": "Tech Readiness Gate",
+    "objective": "Assess test maturity, resilience, backups, recovery, observability, operational handover and aptitude for production.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "ACTION_REGISTER",
+      "SUPPORT_RACI",
+      "ITSM_CHANGE",
+      "CAPACITY_REPORT",
+      "HLD",
+      "LLD",
+      "SENTINEL_STATUS",
+      "DEFENDER_FINDINGS",
+      "VULN_SCAN",
+      "PENTEST",
+      "BACKUP_JOBS",
+      "RESTORE_TEST",
+      "FAILOVER_TEST",
+      "LOAD_TEST",
+      "CI_PIPELINE",
+      "RUNBOOK",
+      "ROLLBACK_TEST",
+      "SLO_SLI",
+      "MONITOR_ALERTS",
+      "SLA_ANNEX"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  },
+  "procurement": {
+    "gate_label": "Procurement Gate",
+    "objective": "Assess make/buy, tender quality, supplier scoring, TCO and third-party due diligence.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "BUSINESS_CASE",
+      "BUDGET_APPROVAL",
+      "ACTION_REGISTER",
+      "LICENSE_POSITION",
+      "RFP",
+      "VENDOR_OFFERS",
+      "SCORING_MATRIX",
+      "DUE_DILIGENCE",
+      "PRICING_TCO",
+      "VENDOR_EVIDENCE_REQUEST",
+      "MSA",
+      "SLA_ANNEX",
+      "INSURANCE",
+      "NEGOTIATION_LOG",
+      "EXPORT_CONTROL"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  },
+  "legal": {
+    "gate_label": "Legal Gate",
+    "objective": "Assess contractual conformity including liability, SLA, reversibility, IP, data clauses, insurance and signing powers.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "ACTION_REGISTER",
+      "LICENSE_POSITION",
+      "RFP",
+      "MSA",
+      "DPA",
+      "SLA_ANNEX",
+      "INSURANCE",
+      "SIGNING_AUTHORITY",
+      "CONTRACT_PLAYBOOK",
+      "NEGOTIATION_LOG",
+      "DATA_INVENTORY",
+      "ROPA",
+      "DPIA",
+      "RETENTION",
+      "AI_IMPACT"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  },
+  "compliance": {
+    "gate_label": "Compliance Gate",
+    "objective": "Assess applicable regulations and standards, privacy, controls, ethics, accessibility, retention and audit evidence.",
+    "admissible_inputs": [
+      "PROJECT_CHARTER",
+      "ACTION_REGISTER",
+      "DATA_MODEL",
+      "DATA_LINEAGE",
+      "DUE_DILIGENCE",
+      "MSA",
+      "DPA",
+      "DATA_INVENTORY",
+      "ROPA",
+      "DPIA",
+      "REG_MAPPING",
+      "RETENTION",
+      "ACCESSIBILITY",
+      "CONTROL_MATRIX",
+      "EXPORT_CONTROL",
+      "AI_IMPACT"
+    ],
+    "required_output": {
+      "expert_opinion": [
+        "FAVORABLE",
+        "FAVORABLE_WITH_RESERVATIONS",
+        "UNFAVORABLE"
+      ],
+      "disposition": [
+        "GO",
+        "GO_WITH_RESERVATIONS",
+        "REWORK",
+        "SUSPENSION",
+        "NO_GO"
+      ],
+      "findings": "list",
+      "required_actions": "list",
+      "risk_owner": "role/person",
+      "authorization_required": "boolean",
+      "evidence_refs": "list[evidence_id]"
+    }
+  }
+}

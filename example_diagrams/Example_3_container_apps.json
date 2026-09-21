@@ -1,0 +1,213 @@
+{
+  "project": {
+    "project_id": "PRJ-V53-003",
+    "project_name": "Post-Merger Integration Platform",
+    "project_type": "ma_integration",
+    "business_unit": "Technology",
+    "sponsor": "Thomas Ivanov",
+    "project_manager": "Sofia Garcia",
+    "target_start": "2027-01-08",
+    "target_go_live": "2028-05-18",
+    "users_impacted": 150,
+    "budget_eur": 5000000,
+    "data_classification": "Restricted",
+    "business_criticality": "Critical",
+    "hosting_model": "Azure",
+    "primary_region": "UK South",
+    "vendor_name": "Northwind",
+    "architecture_pattern": "3-tier web",
+    "workflow_type": "ma_integration"
+  },
+  "architecture_profile": {
+    "seed": 63003,
+    "solution_type": "api_platform",
+    "edge_pattern": "waf_then_cdn",
+    "edge_services": [
+      "Application Gateway WAF",
+      "Azure CDN"
+    ],
+    "compute_profile": "container_apps",
+    "compute_services": [
+      "Azure Container Apps Environment",
+      "Frontend Container",
+      "API Container",
+      "Worker Container"
+    ],
+    "data_profile": "ai",
+    "data_services": [
+      "Azure AI Search",
+      "Azure Storage Account",
+      "Azure Cosmos DB",
+      "Azure Key Vault"
+    ],
+    "network_profile": "virtual_wan",
+    "resilience_profile": "multi_region_active_passive",
+    "primary_region": "UK South",
+    "secondary_region": "West US 2",
+    "multi_region": true,
+    "multi_az": true,
+    "availability_zones": [
+      1,
+      2,
+      3
+    ],
+    "dr_mode": "Warm standby",
+    "rto_hours": 2,
+    "rpo_minutes": 1440,
+    "internet_facing": true,
+    "private_endpoints": false,
+    "azure_firewall": true,
+    "bastion": false,
+    "ddos_protection": true,
+    "expressroute": true,
+    "vpn": false,
+    "nat_gateway": true,
+    "api_management": true,
+    "messaging": true,
+    "entra_id": true,
+    "managed_identity": true,
+    "pim": true,
+    "conditional_access": true,
+    "key_vault": true,
+    "sentinel": true,
+    "defender_for_cloud": true,
+    "application_insights": true,
+    "logs_to_siem": true,
+    "backup_enabled": true,
+    "restore_tested": true,
+    "dr_tested": true,
+    "azure_site_recovery": true,
+    "data_replication": "GRS/RA-GRS",
+    "defects": [
+      {
+        "id": "stale_diagram",
+        "description": "Architecture diagram version is older than the security review package.",
+        "severity": "critical"
+      }
+    ],
+    "inconsistencies": [],
+    "version": "1.7",
+    "diagram_age_days": 12
+  },
+  "flows": [
+    {
+      "source": "Users",
+      "destination": "Application Gateway WAF",
+      "protocol": "HTTPS 443",
+      "purpose": "User / API traffic",
+      "trust": "external"
+    },
+    {
+      "source": "Application Gateway WAF",
+      "destination": "Azure CDN",
+      "protocol": "HTTPS 443",
+      "purpose": "Edge forwarding",
+      "trust": "external"
+    },
+    {
+      "source": "Azure CDN",
+      "destination": "Azure API Management",
+      "protocol": "HTTPS 443",
+      "purpose": "API gateway / policy enforcement",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure API Management",
+      "destination": "Azure Container Apps Environment",
+      "protocol": "HTTPS 443",
+      "purpose": "Application request",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Frontend Container",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "API Container",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Worker Container",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure AI Search",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Storage Account",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Cosmos DB",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Key Vault",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Service Bus",
+      "protocol": "AMQP/TLS",
+      "purpose": "Commands / async work",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Event Hubs",
+      "protocol": "AMQP/TLS",
+      "purpose": "Events / telemetry",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Key Vault",
+      "protocol": "HTTPS 443",
+      "purpose": "Secrets / keys",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Log Analytics / Sentinel",
+      "protocol": "HTTPS 443",
+      "purpose": "Logs and detections",
+      "trust": "internal"
+    },
+    {
+      "source": "Corporate Network",
+      "destination": "Hub VNet",
+      "protocol": "ExpressRoute/VPN",
+      "purpose": "Private hybrid connectivity",
+      "trust": "internal"
+    },
+    {
+      "source": "Primary Region",
+      "destination": "Secondary Region",
+      "protocol": "Replication",
+      "purpose": "DR replication / failover",
+      "trust": "internal"
+    }
+  ]
+}

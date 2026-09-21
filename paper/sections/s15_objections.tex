@@ -1,0 +1,175 @@
+\section{The objections that could break the argument}
+\label{sec:objections}
+
+\subsection{Reliability and distribution shift}
+
+An 80\% task horizon is not 99.9\% gate reliability. Even zero failures in a trial cannot establish
+universal safety. With $n$ independent, representative Bernoulli trials and no failures, the one-sided
+95\% binomial upper bound is $1-0.05^{1/n}$. Reaching $10^{-3}$ needs 2,995 such trials; reaching
+$5\times10^{-5}$ needs 59,914. Repeated prompts on the same few dossiers do not create that many
+independent cases. Volume is the practical difficulty: a route with five visits a month yields sixty
+visits a year, and sixty visits without failure bound the error rate only below 4.9\%. A year without
+incident on a low-volume route therefore cannot support a 0.1\% ceiling. The qualification plan must
+say where the volume comes from, off-production dossiers, dedicated campaigns, or several sites, and
+why those cases are representative and independent; sharing a service across customers helps to
+accumulate observations without making their contexts identical. Changes in policy, supplier population, or tools can invalidate transport of the
+estimate.
+
+A defensible system is qualified on declared domains and monitored for drift; unknown cases trigger a
+valid recovery, inquiry, or refusal. If the accepted contract requires a human recovery, the
+replacement definition has not been met. If the system merely refuses an expanding fraction of
+legitimate work, its false-refusal and utility metrics fail. Neither a high average score nor an
+unlimited abstention policy closes a gate.
+
+Reliability is also a path property. Let $\mathcal{C}_i$ be correctness of gate $i$ under an
+independent reference standard. The probability of no gate errors is exactly
+\begin{equation}
+\Pr\Bigl(\bigcap_{i=1}^{n}\mathcal{C}_i\Bigr)=\Pr(\mathcal{C}_1)\prod_{i=2}^{n}
+\Pr\Bigl(\mathcal{C}_i \,\Big|\, \bigcap_{j<i}\mathcal{C}_j\Bigr), \label{eq:chain}
+\end{equation}
+when the conditioning events have positive probability. Twenty marginal accuracies of 0.99 imply a
+no-error probability of $0.99^{20}\simeq 0.818$ under independence, but only the Fr\'echet bounds
+0.80--0.99 without a dependence model. Two agents using the same model, policy interpretation, or false
+source may agree and fail together. Common failures can have worse severity despite a higher
+probability of an entirely correct run. Route tests must measure dependence and loss, not infer
+diversity from the number of agent instances. Published evaluations cover pieces of this problem:
+enterprise web tasks \citep{drouin2024}, operational IT scenarios \citep{jha2025}, long software-task
+completion \citep{kwa2025}, and contextual integrity in enterprise workflows \citep{fu2026}. They
+motivate separate utility, reliability, and information-flow evaluation; they do not supply the DGF
+scenario parameters, and they establish present limits, not permanent ones.
+
+\subsection{The adversary and the project seeking approval}
+\label{sec:strategic}
+
+A supplier document is also an attack surface. AgentDojo evaluates how untrusted tool-returned data can
+redirect agents toward malicious actions \citep{debenedetti2024}. A DGF agent reads contracts, tickets,
+and inventories supplied by parties with interests in its disposition. Instruction filtering alone is
+not an assurance argument; external text must not gain the authority to change rules or grant tools.
+
+Projects can also optimize the measured criteria without any injection. The allocation of effort across
+differently rewarded activities connects to multitask incentives \citep{holmstrom1991}; the distinction
+between improvement and gaming is explicit in \citet{kleinberg2019}; strategic classification supplies
+the broader setting in which evaluated people change the features presented to a decision rule
+\citep{hardt2016}. Consider a minimal gate model. A project begins with true compliance $\xi$. It
+chooses substantive remediation $u\ge 0$ and cosmetic reporting effort $g\ge 0$, producing observable
+score $y=\xi+u+g+\varepsilon$. A threshold $\tau$ determines preliminary approval. Let $V$ be the
+project value of that approval, $c_u(u)$ and $c_g(g)$ the two effort costs, and $D(g,a)$ the expected
+sanction, lost approval value, and remediation cost from detecting misleading reporting under assurance
+intensity $a$. The project chooses
+\begin{equation}
+\max_{u,g\ge 0}\; V\Pr(y\ge\tau)-c_u(u)-c_g(g)-D(g,a). \label{eq:strategic}
+\end{equation}
+Let $p(s)=\Pr(s+\varepsilon\ge\tau)$ and $s=\xi+u+g$. At a differentiable interior optimum,
+$Vp'(s)=c_u'(u)=c_g'(g)+D_g(g,a)$. Assurance raises the marginal cost of gaming when $D_{ga}>0$. With
+$\omega_u=c_u''>0$, $\omega_g=c_g''+D_{gg}>0$, $t=Vp''(s)\le 0$, and
+$\Delta=\omega_u\omega_g-t(\omega_u+\omega_g)>0$, implicit differentiation gives
+\begin{equation}
+\frac{\partial u^{*}}{\partial a}=-\frac{tD_{ga}}{\Delta}\ge 0,\qquad
+\frac{\partial g^{*}}{\partial a}=\frac{(t-\omega_u)D_{ga}}{\Delta}<0,\qquad
+\frac{\partial s^{*}}{\partial a}=-\frac{\omega_uD_{ga}}{\Delta}<0 . \label{eq:statics}
+\end{equation}
+Stronger assurance reduces cosmetic effort and, with diminishing marginal approval returns, weakly
+increases genuine remediation. The observable score still falls, so a lower pass rate after assurance
+is strengthened is not by itself evidence of worse projects. For smooth zero-centered symmetric noise
+with density $f$ strictly decreasing away from its mode, $p''(s)=-f'(\tau-s)$; hence $t\le 0$ when
+$s\ge\tau$, where preliminary passage probability is at least one half. Below the threshold, where
+$t>0$, both efforts can fall. This predicts heterogeneous responses by pre-intervention distance to the
+threshold. Flat density segments and corner solutions require separate treatment; clearer criteria can
+lower both effort costs, leaving their allocation effect ambiguous. The ancillary mathematical notes
+give the derivation and boundary checks.
+
+The model identifies a testable failure mode: declining escalations can coexist with concealed defects.
+A falling exception rate can reflect improved systems, better extraction, or concealed exceptions.
+Readiness inferred only from submitted documentation becomes less informative as projects learn the
+gate. An enterprise test compares claimed and independently verified compliance, uses hidden holdout
+checks of stable requirements, and records post-approval defects. Provenance checks, random audits,
+independent validation, and restricted authority all enter the assurance cost. The law requires
+automation that remains effective against adaptation, not a faster route to approving misleading
+evidence.
+
+\subsection{Who verifies the automated verifier?}
+
+The assurance argument is a division of mechanisms, not an infinite stack of identical language-model
+opinions. Typed outputs and capability-limited workers enforce action constraints. Independent
+retrieval checks provenance against authoritative systems. Deterministic tests establish narrow
+invariants. Differently constructed verifiers and held-out adversarial tests address correlated
+interpretation errors. Recorded outcomes expose deterioration over time. Model diversity only helps
+when the relevant errors actually differ; a shared false policy can defeat every model. An agent must
+not be able to create its own policy exception, alter the evidence against which its output is tested,
+or confer on itself a privileged tool.
+
+A safety case then states the accepted residual risk, domains, fallback, revocation conditions,
+evidence of performance, and accountable operator. Vendor responsibility, contractual remedies, and
+insurance can allocate loss and create incentives; they do not establish correctness or independence.
+A mandatory human audit or intervention remains human work in $B_A$ or $h_E$. Bainbridge's analysis
+explains why supervisory and recovery costs cannot be ignored and argues for continuing human
+involvement \citep[pp.~775--777]{bainbridge1983}. The law of gate substitution challenges the permanence of that
+residual, not the existence of those costs.
+
+The strong thesis predicts that this recurring assurance work itself becomes executable under accepted
+rules. It can fail: new policies or distribution shifts may continually require human judgments that
+no validated procedure replaces. A standing mandate solves the authority of execution only within its
+scope; it does not solve the epistemology of assurance or discharge statutory management duties.
+
+\subsection{Why not repeat profession-wide automation predictions?}
+
+A diagnostic classification is not a whole radiology practice, and vehicle control is not every
+function in road transport. The same warning applies here: passing a checklist is not the whole DGF.
+The advantage of the gate unit is that it enumerates the inquiry, output, authority, and support that
+remain before claiming replacement. It also provides a finite case registry against which failure can
+be observed.
+
+The informational character of the work is an advantage, not a metaphysical guarantee. Many DGF inputs
+and actions are already digital; others require new observations, negotiation, or physical inspection.
+A human collecting indispensable evidence outside the buyer's boundary still performs necessary work.
+Appendix~\ref{app:limits} makes the information limitation precise. The Integrate route is included because inherited evidence and low repetition test this weakness rather than allowing the thesis to be demonstrated only
+on a clean software pipeline.
+
+\subsection{A difficult residual is not a permanently human residual}
+
+Knowledge hierarchies concentrate expert work on problems that other workers cannot resolve
+\citep[Sections~1 and~3]{garicano2015}. Automation can initially reproduce that arrangement: machines
+handle standard cases and people absorb exceptions. The law does not confuse this intermediate
+allocation with its endpoint. The exception handler has its own observations, hypotheses, tests, and
+outputs; it belongs to the substitution target. An undocumented acquisition incident may require fresh
+evidence, not better text generation. Supplier negotiations require interaction with another party. A
+new project's failure can reveal an unknown architecture rather than a missing checklist field. The
+fact that a current system cannot close these activities is evidence about the remaining technical
+work, not a proof that the role must always be human. Hypothesis~H6 turns this objection into a
+measurement.
+
+\subsection{Exhaustion or renewal: the rival dynamics}
+\label{sec:renewal}
+
+Continual automation is not enough to reach zero. Let $R_t$ be the residual human load, $a$ the
+fraction of it closed in each period, and $b$ the new human needs that appear in each period, some of
+them created by the automation itself:
+\begin{equation}
+R_{t+1}=(1-a)R_t+b,\qquad 0<a<1,\qquad R_\infty=\frac{b}{a}. \label{eq:renewal}
+\end{equation}
+With constant $b>0$, automation keeps progressing and the human requirement never disappears. The law
+therefore needs more than $a>0$: it needs $b_t\to 0$, new indispensable human work that stops
+appearing. Convergence is also weaker than closure: a load that tends to zero can still be positive at
+the cohort deadline, as Section~\ref{sec:workforce} notes for posts.
+
+The reason to expect exhaustion rather than renewal is that the work created by automation has the
+same shape as the work it replaces. Supervising, evaluating, triaging exceptions, and maintaining
+agents all read records and return artifacts, so the same substitution applies to them, one level up.
+If each unit of automated work creates $s<1$ units of supervisory work and each level of supervision
+can in turn be executed under mandate, the human need that remains after $k$ levels is of order $s^k$,
+not a constant. The rival is a level at which $s\ge 1$, or at which no mandate is accepted, for
+instance a statutory duty of the management body. This is an argument, not evidence, and it is an argument about contraction, not about closure: it
+explains why the residual can become small. Closure is the architectural condition of
+Section~\ref{sec:conditions}, an implementation in which no necessary human step remains, including
+for its maintenance, and it is established contract by contract, not as the limit of a sequence.
+Hypothesis~H6 and the intervention registry of Section~\ref{sec:testing} are how the contraction is
+checked.
+
+\subsection{The economic rival: a small but valuable human residual}
+
+The strongest rival is not that inputs and outputs are absent. \citet{gans2026} emphasize O-ring task
+complementarity: improving automated tasks can increase the importance of remaining manual bottlenecks
+and change the incentive to automate them. This gives a serious rival endpoint: a small but valuable
+human residual may remain economically preferable. The law of gate substitution needs the quality-adjusted machine
+frontier eventually to overtake that residual too. It cannot derive that crossing from the current
+size of a department. Section~\ref{sec:positioning} places this rival among the closest economic models.

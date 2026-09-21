@@ -1,0 +1,85 @@
+{
+  "get_cmdb_record": {
+    "args": {
+      "application": "string?"
+    },
+    "returns": "authoritative CMDB record"
+  },
+  "get_azure_resource": {
+    "args": {
+      "name": "string?"
+    },
+    "returns": "authoritative synthetic Azure resource inventory"
+  },
+  "get_iam_assignments": {
+    "args": {},
+    "returns": "authoritative IAM assignments"
+  },
+  "get_contract_version": {
+    "args": {},
+    "returns": "authoritative contract metadata"
+  },
+  "request_vendor_evidence": {
+    "args": {
+      "vendor": "string?",
+      "evidence_type": "string?"
+    },
+    "returns": "supplier evidence response"
+  },
+  "get_backup_job": {
+    "args": {},
+    "returns": "authoritative backup state"
+  },
+  "get_restore_test": {
+    "args": {},
+    "returns": "authoritative restore-test state"
+  },
+  "get_failover_test": {
+    "args": {},
+    "returns": "authoritative DR failover state"
+  },
+  "get_siem_connector_status": {
+    "args": {},
+    "returns": "authoritative SIEM connector state"
+  },
+  "get_vulnerability_findings": {
+    "args": {},
+    "returns": "authoritative vulnerability state"
+  },
+  "get_regulatory_applicability": {
+    "args": {},
+    "returns": "authoritative regulatory applicability facts"
+  },
+  "request_evidence": {
+    "args": {
+      "evidence_id": "string",
+      "reason": "string?"
+    },
+    "returns": "evidence request acknowledgement"
+  },
+  "create_risk_card": {
+    "args": {
+      "finding_id": "string",
+      "risk_owner": "string",
+      "rationale": "string",
+      "expiry_date": "string?"
+    },
+    "returns": "risk card draft"
+  },
+  "return_to_design": {
+    "args": {
+      "finding_ids": "array[string]",
+      "reason": "string?"
+    },
+    "returns": "workflow action"
+  },
+  "approve_with_conditions": {
+    "args": {
+      "gate": "string",
+      "finding_ids": "array[string]",
+      "conditions": "array[string]",
+      "approval_reference": "string"
+    },
+    "returns": "authorized or rejected action"
+  }
+}

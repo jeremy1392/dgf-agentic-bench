@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "description": "Synthetic parameters for 'Every Gate Becomes Software'.",
+    "status": "All values are illustrative assumptions. None is an enterprise measurement or an estimate."
+  },
+  "useful_hours_per_fte": 120,
+  "visits_per_population": 100,
+  "baseline_upkeep_hours": 0,
+  "kappa": 2.0,
+  "populations": [
+    {
+      "id": "R1",
+      "name": "Procurement",
+      "people": 10,
+      "q": 0.22,
+      "w1": 7.5,
+      "w2": 1.0,
+      "gate": "Procurement"
+    },
+    {
+      "id": "R2",
+      "name": "Legal / Contracts",
+      "people": 10,
+      "q": 0.33,
+      "w1": 5.0,
+      "w2": 3.0,
+      "gate": "Legal"
+    },
+    {
+      "id": "R3",
+      "name": "Architecture",
+      "people": 30,
+      "q": 0.18,
+      "w1": 9.0,
+      "w2": 7.5,
+      "gate": "Architecture"
+    },
+    {
+      "id": "R4",
+      "name": "Security Architecture",
+      "people": 20,
+      "q": 0.16,
+      "w1": 6.0,
+      "w2": 5.0,
+      "gate": "Security architecture"
+    },
+    {
+      "id": "R5",
+      "name": "Compliance / Privacy / GRC",
+      "people": 10,
+      "q": 0.22,
+      "w1": 4.5,
+      "w2": 2.5,
+      "gate": "Compliance"
+    },
+    {
+      "id": "R6",
+      "name": "IT Production and Standards",
+      "people": 25,
+      "q": 0.24,
+      "w1": 6.25,
+      "w2": 7.5,
+      "gate": "IT"
+    },
+    {
+      "id": "R7",
+      "name": "Tech Readiness",
+      "people": 15,
+      "q": 0.26,
+      "w1": 6.0,
+      "w2": 3.0,
+      "gate": "Tech readiness"
+    },
+    {
+      "id": "R8",
+      "name": "General Gate Support (PMO, Portfolio, Risk)",
+      "people": 10,
+      "q": 0.33,
+      "w1": 3.0,
+      "w2": 4.0,
+      "gate": "General"
+    },
+    {
+      "id": "R9",
+      "name": "Finance / Cost Control",
+      "people": 10,
+      "q": 0.33,
+      "w1": 4.0,
+      "w2": 2.5,
+      "gate": "General"
+    }
+  ],
+  "regimes": {
+    "S0": {
+      "eta": 0.5,
+      "m": 0.1,
+      "hW": 0.0,
+      "BA": 0.0
+    },
+    "S1": {
+      "eta": 1.0,
+      "m": 0.1,
+      "hW": 0.0,
+      "BA": 120.0
+    },
+    "S2": {
+      "eta": 1.0,
+      "m": 0.1,
+      "hW": 0.5,
+      "BA": 120.0
+    },
+    "S3": {
+      "eta": 1.5,
+      "m": 0.35,
+      "hW": 2.0,
+      "BA": 240.0
+    }
+  },
+  "fragility_regime": "S2",
+  "cost_example": {
+    "population": "R6",
+    "regime": "S2",
+    "wH": 80.0,
+    "wA": 100.0,
+    "aH": 20.0,
+    "aA": 50.0,
+    "FH": 1000.0,
+    "FA": 4000.0,
+    "lH": 30.0,
+    "lA": 50.0
+  },
+  "route_illustration": {
+    "h0": 24.0,
+    "m": 0.1,
+    "hW": 0.5,
+    "shared_upkeep_hours": 60.0,
+    "local_upkeep_hours": 6.0,
+    "customers": [
+      1,
+      10,
+      100,
+      1000
+    ],
+    "routes": [
+      {
+        "id": "MA",
+        "label": "Integrate (W2)",
+        "visits": 5,
+        "q": 0.6,
+        "kappa": 1.4,
+        "eta": 1.0
+      },
+      {
+        "id": "NP",
+        "label": "Build (W3)",
+        "visits": 95,
+        "q": 0.14,
+        "kappa": 2.0,
+        "eta": 0.8
+      }
+    ],
+    "team": "one specialist team of 20 FTE with 100 monthly review visits"
+  },
+  "trajectory": {
+    "configurations": [
+      {
+        "name": "Manual baseline",
+        "remaining": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "support": 0.0
+      },
+      {
+        "name": "Uneven substitution",
+        "remaining": [
+          0.3,
+          0.75,
+          0.25
+        ],
+        "support": 5.0
+      },
+      {
+        "name": "All routes advanced",
+        "remaining": [
+          0.05,
+          0.2,
+          0.03
+        ],
+        "support": 5.0
+      },
+      {
+        "name": "Full gate execution",
+        "remaining": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "support": 5.0
+      },
+      {
+        "name": "Closed-support endpoint",
+        "remaining": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "support": 0.0
+      }
+    ],
+    "displaced": [
+      0.0,
+      0.5,
+      0.9,
+      0.99,
+      1.0
+    ],
+    "floors": [
+      0.0,
+      5.0,
+      15.0
+    ]
+  },
+  "milestones": {
+    "anchor_hours_80": 3.0,
+    "doubling_months": 7.0,
+    "targets": [
+      12,
+      24,
+      36
+    ],
+    "alternative_doublings": [
+      7,
+      10,
+      14
+    ]
+  },
+  "tail": {
+    "e0": 0.2,
+    "targets": [
+      0.001,
+      5e-05
+    ],
+    "nu": [
+      6,
+      12,
+      24
+    ],
+    "c": [
+      2,
+      4,
+      10
+    ],
+    "evaluation_months": 12,
+    "institution_months": 12,
+    "cohort_months": 112,
+    "cohort_months_note": "Months from the 8 May 2026 anchor to 20 September 2035: the 20 September 2036 deadline minus the twelve-month observation window."
+  },
+  "reliability_example": {
+    "gates": 20,
+    "p_correct": 0.99
+  },
+  "readiness_example": [
+    0.01,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "routes": {
+    "W1": {
+      "name": "Buy",
+      "sequence": [
+        "Procurement",
+        "Legal",
+        "Compliance",
+        "Security",
+        "IT",
+        "General"
+      ]
+    },
+    "W2": {
+      "name": "Integrate",
+      "sequence": [
+        "IT",
+        "Architecture",
+        "Security architecture",
+        "Legal",
+        "Compliance",
+        "General"
+      ]
+    },
+    "W3": {
+      "name": "Build",
+      "sequence": [
+        "IT",
+        "Architecture",
+        "Security architecture",
+        "Tech readiness",
+        "General"
+      ]
+    },
+    "note": "Illustrative configuration: enterprises define their own gates, orders and tasks. In Buy the security gate is a supplier security review, drawn as 'Security'; it is counted under the Security architecture gate type.",
+    "gate_type_of_label": {
+      "Security": "Security architecture"
+    }
+  }
+}

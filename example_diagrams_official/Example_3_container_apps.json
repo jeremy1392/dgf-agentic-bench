@@ -1,0 +1,204 @@
+{
+  "project": {
+    "project_id": "PRJ-V5-003",
+    "project_name": "Post-Merger Integration Platform",
+    "project_type": "ma_integration",
+    "business_unit": "Customer Service",
+    "sponsor": "Thomas Martin",
+    "project_manager": "Maya Garcia",
+    "target_start": "2026-12-14",
+    "target_go_live": "2028-06-06",
+    "users_impacted": 150,
+    "budget_eur": 10000000,
+    "data_classification": "Confidential",
+    "business_criticality": "Critical",
+    "hosting_model": "On-premises",
+    "primary_region": "UK South",
+    "vendor_name": "Adventure Works",
+    "architecture_pattern": "Agentic AI",
+    "workflow_type": "ma_integration"
+  },
+  "architecture_profile": {
+    "seed": 51003,
+    "solution_type": "enterprise_backoffice",
+    "edge_pattern": "cdn_then_waf",
+    "edge_services": [
+      "Azure CDN",
+      "Application Gateway WAF"
+    ],
+    "compute_profile": "container_apps",
+    "compute_services": [
+      "Azure Container Apps Environment",
+      "Frontend Container",
+      "API Container",
+      "Worker Container"
+    ],
+    "data_profile": "analytics",
+    "data_services": [
+      "Azure Data Lake Storage",
+      "Azure Synapse / Fabric Endpoint",
+      "Azure SQL Database"
+    ],
+    "network_profile": "hub_spoke",
+    "resilience_profile": "multi_region_active_passive",
+    "primary_region": "UK South",
+    "secondary_region": "France Central",
+    "multi_region": true,
+    "multi_az": true,
+    "availability_zones": [
+      1,
+      2,
+      3
+    ],
+    "dr_mode": "Warm standby",
+    "rto_hours": 4,
+    "rpo_minutes": 0,
+    "internet_facing": true,
+    "private_endpoints": true,
+    "azure_firewall": true,
+    "bastion": true,
+    "ddos_protection": false,
+    "expressroute": false,
+    "vpn": true,
+    "nat_gateway": false,
+    "api_management": false,
+    "messaging": false,
+    "entra_id": true,
+    "managed_identity": true,
+    "pim": true,
+    "conditional_access": true,
+    "key_vault": true,
+    "sentinel": true,
+    "defender_for_cloud": true,
+    "application_insights": false,
+    "logs_to_siem": true,
+    "backup_enabled": true,
+    "restore_tested": true,
+    "dr_tested": true,
+    "azure_site_recovery": false,
+    "data_replication": "Geo-replication",
+    "defects": [
+      {
+        "id": "shared_service_principal",
+        "description": "A shared service principal is used across environments.",
+        "severity": "high"
+      },
+      {
+        "id": "backup_not_restored",
+        "description": "Backups exist but no successful restore test is available.",
+        "severity": "critical"
+      },
+      {
+        "id": "overprivileged_identity",
+        "description": "Workload identity has broader Graph / Azure permissions than required.",
+        "severity": "high"
+      },
+      {
+        "id": "missing_private_endpoint",
+        "description": "A data service expected to be private is reachable through a public endpoint.",
+        "severity": "critical"
+      },
+      {
+        "id": "stale_diagram",
+        "description": "Architecture diagram version is older than the security review package.",
+        "severity": "medium"
+      }
+    ],
+    "inconsistencies": [],
+    "version": "4.4",
+    "diagram_age_days": 75
+  },
+  "flows": [
+    {
+      "source": "Users",
+      "destination": "Azure CDN",
+      "protocol": "HTTPS 443",
+      "purpose": "User / API traffic",
+      "trust": "external"
+    },
+    {
+      "source": "Azure CDN",
+      "destination": "Application Gateway WAF",
+      "protocol": "HTTPS 443",
+      "purpose": "Edge forwarding",
+      "trust": "external"
+    },
+    {
+      "source": "Application Gateway WAF",
+      "destination": "Azure Container Apps Environment",
+      "protocol": "HTTPS 443",
+      "purpose": "Application request",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Frontend Container",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "API Container",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Worker Container",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Data Lake Storage",
+      "protocol": "Private Link / TLS",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Synapse / Fabric Endpoint",
+      "protocol": "Private Link / TLS",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure SQL Database",
+      "protocol": "Private Link / TLS",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Azure Key Vault",
+      "protocol": "HTTPS 443",
+      "purpose": "Secrets / keys",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure Container Apps Environment",
+      "destination": "Log Analytics / Sentinel",
+      "protocol": "HTTPS 443",
+      "purpose": "Logs and detections",
+      "trust": "internal"
+    },
+    {
+      "source": "Corporate Network",
+      "destination": "Hub VNet",
+      "protocol": "ExpressRoute/VPN",
+      "purpose": "Private hybrid connectivity",
+      "trust": "internal"
+    },
+    {
+      "source": "Primary Region",
+      "destination": "Secondary Region",
+      "protocol": "Replication",
+      "purpose": "DR replication / failover",
+      "trust": "internal"
+    }
+  ]
+}

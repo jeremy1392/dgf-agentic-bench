@@ -1,0 +1,130 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{parskip}
+\title{\textbf{Mathematical notes}\\[0.3em]\large Ancillary material for
+``Every Gate Becomes Software''}
+\author{Jeremy Canale}
+\date{September 2026}
+\newtheorem{lemma}{Lemma}
+\begin{document}
+\maketitle
+
+These notes derive the algebraic statements used in the paper. Results are referred to by name, as in the manuscript. Nothing here is estimated from data.
+
+\section{Workload ratio and break-even thresholds}
+
+With common visits $\lambda$ and useful hours $K$, the labor account gives
+\[
+\rho=\frac{N_A}{N_H}=\frac{\lambda\bar h_A+B_A}{\lambda h_0+B_H}
+=\frac{\bar h_A/h_0+b_A}{1+b_H},\qquad b_s=\frac{B_s}{\lambda h_0}.
+\]
+Write $h_E=\kappa\eta h_0$, $h_R=\mu h_S^H=\mu\sigma h_0=mh_0$ and $h_W=rh_0$. Then
+$\bar h_A/h_0=q\kappa\eta+(1-q)\sigma\mu+r$. The baseline partition states
+$q\kappa+(1-q)\sigma=1$, so $(1-q)\sigma=1-\phi$ with $\phi=q\kappa$. Substituting gives both forms of
+the workload ratio:
+\[
+\rho=\frac{q\kappa\eta+(1-q)\sigma\mu+r+b_A}{1+b_H}=\frac{\phi\eta+(1-\phi)\mu+r+b_A}{1+b_H}.
+\]
+
+\paragraph{Exception-share threshold.} In overall-mean units, $\rho<1$ is
+$qk+(1-q)m+r+b_A<1+b_H$, that is $q(k-m)<1+b_H-m-r-b_A$. For $k>m$ this is the exception-share threshold $q<q^{*}$;
+for $k<m$ the inequality reverses; for $k=m$ the case share drops out. Solving the same equality for
+$k$ at a given $q>0$ gives $k^{*}=m+(1+b_H-m-r-b_A)/q$, the line drawn in the frontier figure, once per route.
+
+\paragraph{Exception-effort margin.} In group-relative units, $\rho<1$ is
+$\phi\eta<1+b_H-(1-\phi)\mu-r-b_A$. For $\phi>0$,
+\[
+\eta^{*}=\frac{1+b_H-(1-\phi)\mu-r-b_A}{\phi}=\mu+\frac{1+b_H-\mu-r-b_A}{\phi},
+\qquad
+\frac{\partial\eta^{*}}{\partial\phi}=-\frac{1+b_H-\mu-r-b_A}{\phi^{2}} .
+\]
+The margin therefore falls with $\phi$ exactly when $\mu+r+b_A<1+b_H$, that is, when a process made
+only of standard cases would save labor. In the synthetic example $m$ is held common, so
+$(1-\phi)\mu=(1-q)m$ and the code evaluates $\eta^{*}=[1+b_H-(1-q)m-r-b_A]/\phi$.
+
+\section{Selection identity}
+
+Let $T\ge 0$ be baseline handling time with $\mathbb{E}[T]=h_0>0$, $J\in\{0,1\}$ the residual
+indicator, $e(T)=\Pr(J=1\mid T)$ and $q=\mathbb{E}[e(T)]>0$. Iterated expectations give
+$\mathbb{E}[TJ]=\mathbb{E}[Te(T)]=\operatorname{Cov}(T,e(T))+h_0q$. Dividing by $q$ yields
+$\mathbb{E}[T\mid J=1]-h_0=\operatorname{Cov}(T,e(T))/q$; dividing by $h_0$ yields
+$\phi=q+\operatorname{Cov}(T,e(T))/h_0$. Since $\kappa=\mathbb{E}[T\mid J=1]/h_0$, also $\phi=q\kappa$.
+For independent copies $T,T'$,
+$2\operatorname{Cov}(T,e(T))=\mathbb{E}[(T-T')(e(T)-e(T'))]\ge 0$ when $e$ is nondecreasing, because
+the two factors then share a sign. The identities restrict first moments and one cross-moment only:
+truncating a distribution to a narrow band of difficult cases raises the conditional mean and can
+lower the conditional variance.
+
+\section{Strategic gate model}
+
+\paragraph{Setup.} Let $\varepsilon$ have distribution function $F$ and density $f$. With
+$s=\xi+u+g$, approval probability is $p(s)=\Pr(s+\varepsilon\ge\tau)=1-F(\tau-s)$, so
+$p'(s)=f(\tau-s)\ge 0$ and $p''(s)=-f'(\tau-s)$. The project maximizes
+$\Pi(u,g)=Vp(s)-c_u(u)-c_g(g)-D(g,a)$ over $u,g\ge 0$.
+
+\paragraph{First- and second-order conditions.} At an interior optimum,
+\[
+Vp'(s)-c_u'(u)=0,\qquad Vp'(s)-c_g'(g)-D_g(g,a)=0 .
+\]
+Put $t=Vp''(s)$, $\omega_u=c_u''(u)>0$ and $\omega_g=c_g''(g)+D_{gg}(g,a)>0$. The Hessian is
+\[
+H=\begin{pmatrix} t-\omega_u & t\\ t & t-\omega_g\end{pmatrix},\qquad
+\det H=\omega_u\omega_g-t(\omega_u+\omega_g)=\Delta .
+\]
+A strict local maximum requires $t-\omega_u<0$ and $\Delta>0$. Both hold automatically when $t\le 0$.
+
+\paragraph{Assurance intensity.} Differentiating the two conditions with respect to $a$,
+\[
+H\begin{pmatrix}du\\ dg\end{pmatrix}=\begin{pmatrix}0\\ D_{ga}\,da\end{pmatrix}
+\quad\Longrightarrow\quad
+\frac{\partial u^{*}}{\partial a}=-\frac{tD_{ga}}{\Delta},\qquad
+\frac{\partial g^{*}}{\partial a}=\frac{(t-\omega_u)D_{ga}}{\Delta},\qquad
+\frac{\partial s^{*}}{\partial a}=-\frac{\omega_uD_{ga}}{\Delta}.
+\]
+With $D_{ga}>0$: cosmetic effort falls whenever the second-order conditions hold; the observable score
+falls as well; genuine remediation rises weakly if and only if $t\le 0$. If $t>0$ (and the
+second-order conditions hold), both efforts fall.
+
+\begin{lemma}
+If $f$ is differentiable and unimodal with mode zero, then $p''(s)\le 0$ if and only if $s\ge\tau$.
+\end{lemma}
+\begin{proof}
+Unimodality with mode zero means $f'(x)\ge 0$ for $x\le 0$ and $f'(x)\le 0$ for $x\ge 0$. Since
+$p''(s)=-f'(\tau-s)$, the sign condition is $\tau-s\le 0$.
+\end{proof}
+The redirection result therefore applies to projects whose expected score already meets the
+threshold; below it, stronger assurance can discourage both kinds of effort.
+
+\paragraph{Corner solutions.} If $g^{*}=0$ because $Vp'(s)\le c_g'(0)+D_g(0,a)$, a marginal increase
+in $a$ leaves $(u^{*},g^{*})$ unchanged. If $u^{*}=0$ is binding and $g^{*}>0$, the single remaining
+condition gives $\partial g^{*}/\partial a=D_{ga}/(t-\omega_g)<0$ under its second-order condition
+$t-\omega_g<0$.
+
+\paragraph{Clearer criteria.} Let a clarity parameter $\theta$ lower both marginal costs:
+$c'_{u\theta}<0$ and $c'_{g\theta}<0$. Then
+\[
+\frac{\partial u^{*}}{\partial\theta}=\frac{c'_{u\theta}(t-\omega_g)-t\,c'_{g\theta}}{\Delta},\qquad
+\frac{\partial g^{*}}{\partial\theta}=\frac{(t-\omega_u)\,c'_{g\theta}-t\,c'_{u\theta}}{\Delta}.
+\]
+For $t\le 0$ the first term of each numerator is positive and the second is nonpositive, so neither
+sign is determined: clearer criteria can raise genuine work, cosmetic work, or both.
+
+\paragraph{Numerical check.} \texttt{test\_reproduce.py} solves the model with quadratic costs,
+logistic noise and $D(g,a)=ag^{2}/2$ at two assurance levels and confirms the predicted signs in the
+region $s>\tau$.
+
+\section{Reliability bounds and the readiness example}
+
+For events $\mathcal{C}_1,\dots,\mathcal{C}_n$ with $\Pr(\mathcal{C}_i)=p_i$, the Fr\'echet
+inequalities give
+$\max\bigl(0,1-\sum_i(1-p_i)\bigr)\le\Pr(\bigcap_i\mathcal{C}_i)\le\min_ip_i$. With $n=20$ and
+$p_i=0.99$ the bounds are $0.80$ and $0.99$; independence gives $0.99^{20}\approx 0.8179$.
+
+The geometric readiness index of $(0.01,1,1,1,1)$ is $0.01^{1/5}=10^{-0.4}\approx 0.398$, which shows
+that the index is only partially sensitive to a near-zero dimension and motivates reporting a minimum
+index and hard blockers alongside it.
+\end{document}

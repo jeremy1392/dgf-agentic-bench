@@ -1,0 +1,64 @@
+\section{A worked gate-contract specification (illustrative)}
+\label{app:contract}
+
+Seventeen boxes in a figure are not seventeen benchmark contracts. Table~\ref{tab:contract} works one
+contract through, the Tech readiness gate of the Build route before production, as a model for the
+others. It is an illustration written for this paper, not a contract from the framework; its thresholds
+are examples. The same gate also intervenes at framing, to assess the maturity of candidate
+technologies (Table~\ref{tab:lifecycle}); that intervention is a separate contract version with its own
+inputs and criteria. Closing this contract would close one case population and one intervention of the
+Tech readiness gate, not the gate class.
+
+\begin{table}[!htb]
+\centering\footnotesize\renewcommand{\arraystretch}{1.15}
+\caption{A worked contract specification: Tech readiness on the Build route, before production.}
+\label{tab:contract}
+\begin{tabularx}{\linewidth}{@{}P{3.2cm}L@{}}
+\toprule
+Field & Specification\\
+\midrule
+Identity & Route W3 (Build), gate Tech readiness, pre-production intervention; contract version and
+policy version recorded on every visit.\\
+Admissible cases & Internal builds hosted on enterprise platforms, classified up to confidential.
+Safety-critical systems are outside the declared population: they are refused with a reason, and a
+refusal of an admissible case counts as a false refusal.\\
+Accessible information & Revised design after security re-review; reservations register of earlier
+gates; pilot results; load-test report; code-quality report; recovery, resilience, and backup dossier
+(backup policy, last restoration test report, recovery objectives); runbooks; monitoring plan. Read
+access to the configuration database, delivery pipeline, and ticketing.\\
+Tools and actions & Read repositories, pipelines, and test reports; launch a restoration test in the
+pre-production environment; request evidence from the project; open and close reservations. The agent
+cannot modify tests or thresholds, change policy, or approve its own exceptions.\\
+Decision criteria & Load test at or above the target volume with latency under its threshold;
+restoration test less than twelve months old with measured recovery time within its objective;
+code-quality gate passed; every blocking reservation of earlier gates lifted with evidence; runbooks
+present and exercised. Thresholds are read, not embedded: target volume and latency from the versioned
+non-functional requirements of the project, recovery objectives from the service record in the
+configuration database. The version referenced by the reservations register at the date of the visit
+is authoritative, and each value is written to the trace with its source.\\
+Allowed dispositions & Ready; ready with dated reservations; not ready, with the rework required;
+evidence requested, leaving the case unresolved; refusal as out of scope.\\
+Quality margins & Against an independently adjudicated reference, with stated denominators:
+unsupported ``ready'' among visits adjudicated not ready, ceiling $10^{-3}$; false ``not ready'' among
+visits adjudicated ready, ceiling 5\%; omitted blocking findings among the blocking findings of the
+reference, ceiling 1\%; no leakage of dossier content; 95\% of visits decided within two working days.
+Acceptance requires a one-sided 95\% upper confidence bound below each ceiling on a qualification set
+whose size is fixed in advance, for instance 2,995 failure-free not-ready cases for the first
+ceiling.\\
+Mandate & Standing delegation from the production release committee for the admissible case class;
+principal: the chief technology officer; validity twelve months; suspended by any unsupported ``ready''
+or by a drift alarm; cases outside the mandate stay unresolved or are refused. Renewal, and
+reinstatement after a suspension, are decided by the same committee on a requalification report
+produced from the evaluation set; that committee time and any human requalification work are recorded
+in $B_A$.\\
+Human work counted & Per visit: exception handling $h_E$, sampled review $h_R$, rework $h_W$. Recurring
+support $B_A$: maintenance of criteria and thresholds, upkeep of the evaluation set, incident review.
+Supplier labor, for instance from a test-tooling vendor, is recorded in a separate supplier account.
+Shared platform support is allocated once, by a stated rule such as visits, and never counted in two
+contracts.\\
+Qualification plan & Volume from historical dossiers replayed off production, dedicated campaigns, and
+several sites; a statement of why those cases are representative and independent; drift monitoring
+after deployment; requalification after any change of policy, tools, or model.\\
+\bottomrule
+\end{tabularx}
+\end{table}

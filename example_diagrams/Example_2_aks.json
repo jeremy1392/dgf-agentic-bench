@@ -1,0 +1,185 @@
+{
+  "project": {
+    "project_id": "PRJ-V53-002",
+    "project_name": "Digital Banking API",
+    "project_type": "new_platform",
+    "business_unit": "Sales",
+    "sponsor": "Nadia Petrescu",
+    "project_manager": "Nadia Martin",
+    "target_start": "2026-12-04",
+    "target_go_live": "2028-01-23",
+    "users_impacted": 2000,
+    "budget_eur": 5000000,
+    "data_classification": "Confidential",
+    "business_criticality": "Low",
+    "hosting_model": "On-premises",
+    "primary_region": "West Europe",
+    "vendor_name": "Litware",
+    "architecture_pattern": "Microservices",
+    "workflow_type": "new_project"
+  },
+  "architecture_profile": {
+    "seed": 63002,
+    "solution_type": "web_platform",
+    "edge_pattern": "cdn_then_waf",
+    "edge_services": [
+      "Azure CDN",
+      "Application Gateway WAF"
+    ],
+    "compute_profile": "aks",
+    "compute_services": [
+      "AKS System Pool",
+      "AKS App Pool",
+      "Ingress Controller",
+      "Worker Pods"
+    ],
+    "data_profile": "transactional",
+    "data_services": [
+      "Azure SQL Database",
+      "Azure Storage Account",
+      "Azure Cache for Redis"
+    ],
+    "network_profile": "single_vnet",
+    "resilience_profile": "backup_only",
+    "primary_region": "West Europe",
+    "secondary_region": null,
+    "multi_region": false,
+    "multi_az": false,
+    "availability_zones": [
+      1
+    ],
+    "dr_mode": "Backup restore only",
+    "rto_hours": 8,
+    "rpo_minutes": 240,
+    "internet_facing": true,
+    "private_endpoints": false,
+    "azure_firewall": true,
+    "bastion": true,
+    "ddos_protection": true,
+    "expressroute": false,
+    "vpn": true,
+    "nat_gateway": false,
+    "api_management": true,
+    "messaging": false,
+    "entra_id": true,
+    "managed_identity": true,
+    "pim": true,
+    "conditional_access": true,
+    "key_vault": true,
+    "sentinel": false,
+    "defender_for_cloud": true,
+    "application_insights": true,
+    "logs_to_siem": false,
+    "backup_enabled": false,
+    "restore_tested": false,
+    "dr_tested": false,
+    "azure_site_recovery": false,
+    "data_replication": "None",
+    "defects": [
+      {
+        "id": "no_siem_export",
+        "description": "Application logs are retained locally and not exported to SIEM.",
+        "severity": "high"
+      },
+      {
+        "id": "region_mismatch",
+        "description": "HLD names a DR region that differs from the recovery plan.",
+        "severity": "critical"
+      },
+      {
+        "id": "stale_diagram",
+        "description": "Architecture diagram version is older than the security review package.",
+        "severity": "medium"
+      }
+    ],
+    "inconsistencies": [],
+    "version": "3.0",
+    "diagram_age_days": 58
+  },
+  "flows": [
+    {
+      "source": "Users",
+      "destination": "Azure CDN",
+      "protocol": "HTTPS 443",
+      "purpose": "User / API traffic",
+      "trust": "external"
+    },
+    {
+      "source": "Azure CDN",
+      "destination": "Application Gateway WAF",
+      "protocol": "HTTPS 443",
+      "purpose": "Edge forwarding",
+      "trust": "external"
+    },
+    {
+      "source": "Application Gateway WAF",
+      "destination": "Azure API Management",
+      "protocol": "HTTPS 443",
+      "purpose": "API gateway / policy enforcement",
+      "trust": "internal"
+    },
+    {
+      "source": "Azure API Management",
+      "destination": "AKS System Pool",
+      "protocol": "HTTPS 443",
+      "purpose": "Application request",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "AKS App Pool",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Ingress Controller",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Worker Pods",
+      "protocol": "Internal TCP/HTTPS",
+      "purpose": "Workload communication",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure SQL Database",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Storage Account",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Cache for Redis",
+      "protocol": "TLS / public service endpoint",
+      "purpose": "Application data",
+      "trust": "internal"
+    },
+    {
+      "source": "AKS System Pool",
+      "destination": "Azure Key Vault",
+      "protocol": "HTTPS 443",
+      "purpose": "Secrets / keys",
+      "trust": "internal"
+    },
+    {
+      "source": "Corporate Network",
+      "destination": "Hub VNet",
+      "protocol": "ExpressRoute/VPN",
+      "purpose": "Private hybrid connectivity",
+      "trust": "internal"
+    }
+  ]
+}
