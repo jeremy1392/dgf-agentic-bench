@@ -1,0 +1,190 @@
+{
+  "project": {
+    "project_id": "DGF-BLD-012012",
+    "generation_seed": 12012,
+    "project_name": "Project Titan — Payments API Hub [C2052]",
+    "project_code": "C2052",
+    "project_type": "new_project",
+    "route": "build",
+    "business_unit": "Risk",
+    "sponsor": "Thomas Benali-12012-SP",
+    "project_manager": "Amira Rossi-12012-PM",
+    "business_owner": "Samir Meyer-12012-BO",
+    "service_owner": "Ines Smith-12012-SO",
+    "risk_owner": "Lucas Volkov-12012-RO",
+    "start_date": "2026-09-24",
+    "target_go_live": "2027-10-27",
+    "users_impacted": 2000,
+    "budget_requested_eur": 500000,
+    "data_classification": "Public",
+    "business_criticality": "Critical",
+    "primary_region": "UAE North",
+    "personal_data": false,
+    "payment_data": false,
+    "employee_data": true,
+    "ai_enabled": false,
+    "external_users": true
+  },
+  "architecture_profile": {
+    "seed": 22012,
+    "case_seed": 12012,
+    "architecture_id": "ARCH-C2052-22012",
+    "resource_prefix": "c2052-22012",
+    "solution_type": "web_platform",
+    "edge_pattern": "frontdoor_waf_cdn",
+    "edge_services": [
+      "Azure Front Door Premium",
+      "WAF + CDN"
+    ],
+    "compute_profile": "mixed",
+    "compute_services": [
+      "Azure App Service",
+      "AKS App Pool",
+      "Azure Functions",
+      "Batch VM"
+    ],
+    "data_profile": "postgres",
+    "data_services": [
+      "Azure Database for PostgreSQL",
+      "Azure Storage Account",
+      "Azure Cache for Redis"
+    ],
+    "platform_services": [
+      "Azure API Management"
+    ],
+    "network_profile": "hub_spoke",
+    "resilience_profile": "single_region_multi_az",
+    "primary_region": "UAE North",
+    "secondary_region": null,
+    "multi_region": false,
+    "multi_az": true,
+    "availability_zones": [
+      1,
+      2,
+      3
+    ],
+    "dr_mode": "Zone-resilient / same-region",
+    "rto_hours": 24,
+    "rpo_minutes": 60,
+    "internet_facing": true,
+    "private_endpoints": false,
+    "azure_firewall": true,
+    "bastion": true,
+    "ddos_protection": true,
+    "expressroute": false,
+    "vpn": true,
+    "nat_gateway": true,
+    "api_management": true,
+    "messaging": false,
+    "entra_id": true,
+    "managed_identity": true,
+    "pim": false,
+    "conditional_access": true,
+    "key_vault": true,
+    "sentinel": true,
+    "defender_for_cloud": true,
+    "application_insights": true,
+    "logs_to_siem": true,
+    "backup_enabled": true,
+    "restore_tested": false,
+    "dr_tested": false,
+    "azure_site_recovery": false,
+    "data_replication": "ZRS",
+    "defects": [
+      {
+        "id": "public_database",
+        "description": "Data service exposes a public endpoint despite private-network design.",
+        "severity": "high"
+      },
+      {
+        "id": "backup_not_restored",
+        "description": "Backup policy exists but restore evidence is missing.",
+        "severity": "high"
+      },
+      {
+        "id": "data_public_endpoint",
+        "description": "One or more data services use public network access.",
+        "severity": "high",
+        "layer": "data"
+      }
+    ],
+    "inconsistencies": [],
+    "version": "4.6",
+    "diagram_age_days": 81,
+    "architecture_signature": "88dec46a340c71aebddf",
+    "semantic_compute": {
+      "health_probes": true,
+      "autoscale": true,
+      "min_instances": 2,
+      "max_instances": 20,
+      "managed_identity": true,
+      "private_ingress": false,
+      "components": {
+        "web": "Azure App Service",
+        "api": "AKS",
+        "async": "Azure Functions",
+        "batch": "Azure VM"
+      },
+      "component_isolation": false,
+      "shared_identity": false,
+      "cross_component_private_network": true,
+      "centralized_secrets": true,
+      "centralized_logs": true
+    },
+    "semantic_edge": {
+      "pattern": "frontdoor_waf_cdn",
+      "services": [
+        "Azure Front Door Premium",
+        "WAF + CDN"
+      ],
+      "waf_present": true,
+      "waf_mode": "Prevention",
+      "managed_rules": true,
+      "bot_protection": true,
+      "rate_limiting": true,
+      "geo_filtering": false,
+      "custom_rules": 3,
+      "tls_min": "1.3",
+      "origin_restriction": "Origin secret header",
+      "cdn_cache_ttl_seconds": 30,
+      "cdn_compression": true,
+      "frontdoor_health_probe": true
+    },
+    "semantic_data": {
+      "private_endpoints": false,
+      "encryption_at_rest": true,
+      "cmk": true,
+      "auditing": true,
+      "postgres_ha": true,
+      "geo_replica": false,
+      "backup_retention_days": 35,
+      "read_replicas": 3
+    },
+    "semantic_network": {
+      "profile": "hub_spoke",
+      "hub_cidr": "10.166.192.0/24",
+      "app_cidr": "10.166.193.0/24",
+      "data_cidr": "10.166.194.0/24",
+      "azure_firewall_tier": "Standard",
+      "firewall_tls_inspection": true,
+      "dns_private_resolver": false,
+      "ddos_plan": true,
+      "bastion": true,
+      "expressroute": false,
+      "vpn": true,
+      "nat_gateway": true,
+      "nsg_per_subnet": false,
+      "udr_forced_tunneling": false,
+      "private_dns_zones": 0
+    },
+    "semantic_faults": [
+      {
+        "id": "data_public_endpoint",
+        "description": "One or more data services use public network access.",
+        "severity": "high",
+        "layer": "data"
+      }
+    ],
+    "source_of_truth": "synthetic_resource_inventory"
+  }
+}

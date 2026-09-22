@@ -1,5 +1,5 @@
 from __future__ import annotations
-import random
+import random, hashlib
 from datetime import date, timedelta
 from typing import Any, Dict, List
 from azure_architecture import generate_architecture_profile
@@ -7,18 +7,41 @@ from semantic_profiles import enrich_profile
 
 REFERENCE_DATE = date(2026, 9, 21)
 
-FIRST = ["Nadia","Jeremy","Sofia","Omar","Leila","Thomas","Marc","Elena","David","Amira","Lucas","Maya","Noor","Adam"]
-LAST = ["Martin","Canale","Ivanov","Moreau","Benali","Rossi","Smith","Petrescu","Dubois","Khan","Garcia","Nguyen","Haddad"]
-UNITS = ["Finance","Retail","HR","Operations","Sales","Risk","Procurement","Customer Service","Technology"]
-PROJECT_NAMES = ["Customer 360 CRM","Payments API Hub","AI Service Desk","Regulatory Reporting Modernization","Data Governance Platform","Secure Vendor Portal","Digital Treasury Hub","Enterprise Workflow Platform"]
+FIRST = ["Nadia","Jeremy","Sofia","Omar","Leila","Thomas","Marc","Elena","David","Amira","Lucas","Maya","Noor","Adam","Ines","Victor","Daria","Samir","Clara","Yusuf"]
+LAST = ["Martin","Canale","Ivanov","Moreau","Benali","Rossi","Smith","Petrescu","Dubois","Khan","Garcia","Nguyen","Haddad","Laurent","Meyer","Santos","Volkov","Rahman","Costa","Bennett"]
+UNITS = ["Finance","Retail","HR","Operations","Sales","Risk","Procurement","Customer Service","Technology","Treasury","Data Office","Corporate Services"]
+PROJECT_DOMAINS = [
+    "Customer 360 CRM", "Payments API Hub", "AI Service Desk", "Regulatory Reporting Modernization",
+    "Data Governance Platform", "Secure Vendor Portal", "Digital Treasury Hub", "Enterprise Workflow Platform",
+    "Identity Modernization", "Risk Analytics Platform", "Supply Chain Integration", "Claims Automation",
+    "Employee Experience Portal", "Fraud Detection Platform", "Digital Onboarding", "Observability Platform",
+    "Contract Intelligence", "Enterprise Search", "Cloud Landing Zone Extension", "Data Quality Modernization",
+]
+CODENAMES = [
+    "Aster", "Boreal", "Cobalt", "Delta", "Ember", "Falcon", "Gaia", "Helix", "Ion", "Juno",
+    "Kepler", "Lumen", "Meridian", "Nova", "Orion", "Pulse", "Quartz", "Raven", "Solstice", "Titan",
+    "Umbra", "Vega", "Willow", "Xenon", "Yotta", "Zephyr", "Atlas", "Nimbus", "Saffron", "Vertex",
+]
 REGIONS = ["UAE North","UAE Central","West Europe","North Europe","UK South","France Central","East US","West US 2"]
 
 
-def person(rng): return f"{rng.choice(FIRST)} {rng.choice(LAST)}"
+def _stable_code(*parts:str, n:int=8) -> str:
+    raw='|'.join(map(str,parts)).encode('utf-8')
+    return hashlib.sha256(raw).hexdigest()[:n].upper()
+
+
+def person(rng, unique_tag:str|None=None):
+    # Human-readable synthetic identity. unique_tag is deliberately part of the
+    # visible name so two generated DGF dossiers never accidentally reuse the
+    # same person and leak a cross-case shortcut to an evaluated model.
+    name=f"{rng.choice(FIRST)} {rng.choice(LAST)}"
+    return f"{name}-{unique_tag}" if unique_tag else name
+
 
 def w(rng, pairs):
     vals, weights = zip(*pairs)
     return rng.choices(vals, weights=weights, k=1)[0]
+
 
 def boolp(rng,p): return rng.random() < p
 
@@ -27,21 +50,31 @@ def _project(seed:int, route_key:str) -> Dict[str,Any]:
     rng=random.Random(seed)
     start=REFERENCE_DATE + timedelta(days=rng.randint(-20,90))
     ptype={"buy":"new_platform","integrate":"ma_integration","build":"new_project","full_lifecycle":"new_project"}[route_key]
-    name = "M&A Integration Wave" if route_key=="integrate" else rng.choice(PROJECT_NAMES)
+    route_code={"buy":"BUY","integrate":"INT","build":"BLD","full_lifecycle":"FUL"}[route_key]
+    project_id=f"DGF-{route_code}-{seed:06d}"
+    code=_stable_code(route_key,seed,n=5)
+    codename=CODENAMES[(seed*7 + len(route_key)*11) % len(CODENAMES)]
+    domain=PROJECT_DOMAINS[(seed*13 + len(route_key)*5) % len(PROJECT_DOMAINS)]
+    if route_key=="integrate":
+        name=f"{codename} Acquisition Integration — {domain} [{code}]"
+    else:
+        name=f"Project {codename} — {domain} [{code}]"
     criticality=w(rng,[("Low",1),("Medium",3),("High",5),("Critical",3)])
     classification=w(rng,[("Internal",3),("Confidential",5),("Restricted",3),("Public",1)])
     primary=rng.choice(REGIONS)
     return {
-        "project_id":f"DGF-{rng.randint(10000,99999)}",
+        "project_id":project_id,
+        "generation_seed":seed,
         "project_name":name,
+        "project_code":code,
         "project_type":ptype,
         "route":route_key,
         "business_unit":rng.choice(UNITS),
-        "sponsor":person(rng),
-        "project_manager":person(rng),
-        "business_owner":person(rng),
-        "service_owner":person(rng),
-        "risk_owner":person(rng),
+        "sponsor":person(rng,f"{seed}-SP"),
+        "project_manager":person(rng,f"{seed}-PM"),
+        "business_owner":person(rng,f"{seed}-BO"),
+        "service_owner":person(rng,f"{seed}-SO"),
+        "risk_owner":person(rng,f"{seed}-RO"),
         "start_date":start.isoformat(),
         "target_go_live":(start+timedelta(days=rng.randint(120,420))).isoformat(),
         "users_impacted":rng.choice([80,250,500,1000,2000,5000,12000]),
@@ -56,10 +89,13 @@ def _project(seed:int, route_key:str) -> Dict[str,Any]:
         "external_users":boolp(rng,.48),
     }
 
-
-def _architecture(seed:int, project:Dict[str,Any], difficulty:int) -> Dict[str,Any]:
-    profile=generate_architecture_profile(seed+10_000,project,difficulty,max(.06,.04*difficulty))
-    profile=enrich_profile(profile,seed+10_100,difficulty)
+def _architecture(seed:int, project:Dict[str,Any], difficulty:int, architecture_attempt:int=0) -> Dict[str,Any]:
+    # architecture_attempt is used by the balanced dataset generator for
+    # deterministic rejection-sampling when a visual topology signature has
+    # already occurred in the same dataset.
+    arch_seed=seed+10_000+(architecture_attempt*104_729)
+    profile=generate_architecture_profile(arch_seed,project,difficulty,max(.06,.04*difficulty))
+    profile=enrich_profile(profile,arch_seed+100,difficulty)
     # Canonical facts are authoritative. Random defects in profile are retained as actual architecture defects.
     profile["source_of_truth"]="synthetic_resource_inventory"
     return profile
@@ -83,7 +119,7 @@ def _general(seed:int, project:Dict[str,Any], difficulty:int):
         "fte_available":round(rng.uniform(2,28),1),
         "change_plan_status":rng.choice(["complete","partial","draft","missing"]),
         "benefits_kpi":rng.choice(["availability","processing_time","cost_to_serve","NPS","conversion_rate"]),
-        "benefits_owner":person(rng),
+        "benefits_owner":person(rng,f"{seed}-BEN"),
     }
 
 
@@ -112,8 +148,8 @@ def _it(seed:int, project:Dict[str,Any], arch:Dict[str,Any], difficulty:int):
 def _architecture_facts(seed:int, project:Dict[str,Any], arch:Dict[str,Any], difficulty:int):
     rng=random.Random(seed+40_000)
     return {
-        "hld_version":f"{rng.randint(1,4)}.{rng.randint(0,9)}",
-        "lld_version":f"{rng.randint(1,4)}.{rng.randint(0,9)}",
+        "hld_version":f"HLD-{project['project_code']}-v{rng.randint(1,4)}.{rng.randint(0,9)}",
+        "lld_version":f"LLD-{project['project_code']}-v{rng.randint(1,4)}.{rng.randint(0,9)}",
         "api_gateway_required":project["external_users"] or arch["solution_type"] in ("api_platform","integration_platform"),
         "api_gateway_present":bool(arch.get("api_management")),
         "ip_overlap":boolp(rng,.08 + .03*difficulty),
@@ -126,7 +162,7 @@ def _architecture_facts(seed:int, project:Dict[str,Any], arch:Dict[str,Any], dif
         "adr_count":rng.randint(2,16),
         "reversibility_status":rng.choice(["tested","documented","draft","missing"]),
         "data_export_supported":boolp(rng,.86),
-        "private_cidrs":["10.10.0.0/16","10.20.0.0/16","10.30.0.0/16"],
+        "private_cidrs":[arch.get("semantic_network",{}).get("hub_cidr"),arch.get("semantic_network",{}).get("app_cidr"),arch.get("semantic_network",{}).get("data_cidr")],
         "dns_zone":f"{project['project_id'].lower()}.corp.example",
     }
 
@@ -197,7 +233,10 @@ def _tech(seed:int, project:Dict[str,Any], arch:Dict[str,Any], difficulty:int):
 
 def _vendors(seed:int, project:Dict[str,Any], difficulty:int):
     rng=random.Random(seed+70_000)
-    names=["Contoso Cloud","Fabrikam Systems","Northwind Digital","Litware Technologies"]
+    roots=["Asterion Cloud","BlueMesa Systems","CedarPoint Digital","DeltaForge Technologies","Everline Software","Fluxbridge Labs","GranitePeak Systems","HelioStack Cloud"]
+    code=project.get("project_code",str(seed))
+    offset=seed % len(roots)
+    names=[f"{roots[(offset+i)%len(roots)]} {code}-{i+1}" for i in range(4)]
     offers=[]
     for i,n in enumerate(names):
         mandatory_fail=rng.randint(0,2 if difficulty>=3 else 1)
@@ -219,7 +258,7 @@ def _vendors(seed:int, project:Dict[str,Any], difficulty:int):
 def _legal(seed:int, project:Dict[str,Any], procurement:Dict[str,Any], difficulty:int):
     rng=random.Random(seed+80_000)
     return {
-        "contract_version":f"MSA-{rng.randint(3,12)}.{rng.randint(0,9)}",
+        "contract_version":f"MSA-{project['project_code']}-{rng.randint(3,12)}.{rng.randint(0,9)}",
         "governing_law":rng.choice(["UAE","England & Wales","France","Ireland"]),
         "dpa_status":rng.choice(["signed","signed","draft","missing"]) if project["personal_data"] else "not_required",
         "liability_cap_multiplier":rng.choice([.5,1,1,2,5,"unlimited"]),
@@ -273,9 +312,9 @@ def _compliance(seed:int, project:Dict[str,Any], arch:Dict[str,Any], difficulty:
     }
 
 
-def generate_canonical_case(seed:int, route_key:str="build", difficulty:int=3) -> Dict[str,Any]:
+def generate_canonical_case(seed:int, route_key:str="build", difficulty:int=3, architecture_attempt:int=0) -> Dict[str,Any]:
     project=_project(seed,route_key)
-    arch=_architecture(seed,project,difficulty)
+    arch=_architecture(seed,project,difficulty,architecture_attempt)
     general=_general(seed,project,difficulty)
     it=_it(seed,project,arch,difficulty)
     architecture=_architecture_facts(seed,project,arch,difficulty)

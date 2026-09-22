@@ -71,6 +71,13 @@ ALIASES = {
     "hub vnet": ["virtual networks", "virtual network"],
     "primary region": ["azure", "regions"],
     "secondary region": ["azure", "regions"],
+    "azure virtual wan": ["virtual wans", "virtual wan"],
+    "azure data factory": ["data factories", "data factory"],
+    "azure ai foundry": ["ai foundry", "machine learning", "cognitive services"],
+    "azure openai service": ["azure openai", "cognitive services", "ai services"],
+    "internet users": ["users", "web"],
+    "corporate users": ["users", "active directory"],
+    "corporate network": ["virtual networks", "network watcher"],
 }
 
 STOP = {"azure","microsoft","service","services","app","apps","and","for","the","premium","environment","az1","az2","az3","primary","secondary"}

@@ -55,6 +55,7 @@ class OpenRouterClient:
         self.retries = retries
         self.http_referer = os.environ.get("OPENROUTER_HTTP_REFERER", "")
         self.x_title = os.environ.get("OPENROUTER_X_TITLE", "DGF-Bench")
+        self._stats = {"http_attempts": 0, "retries": 0, "rate_limits": 0, "transient_http_errors": 0, "network_errors": 0}
 
     def _headers(self, auth: bool = True) -> dict[str, str]:
         h = {"Content-Type": "application/json", "Accept": "application/json"}
@@ -71,6 +72,9 @@ class OpenRouterClient:
         data = None if body is None else json.dumps(body).encode("utf-8")
         last = None
         for attempt in range(self.retries + 1):
+            self._stats["http_attempts"] += 1
+            if attempt > 0:
+                self._stats["retries"] += 1
             req = request.Request(url, data=data, headers=self._headers(auth), method=method)
             try:
                 with request.urlopen(req, timeout=self.timeout) as resp:
@@ -79,15 +83,23 @@ class OpenRouterClient:
             except error.HTTPError as e:
                 raw = e.read().decode("utf-8", errors="replace")
                 last = f"HTTP {e.code}: {raw[:2000]}"
+                if e.code == 429:
+                    self._stats["rate_limits"] += 1
+                elif e.code in (408, 409, 500, 502, 503, 504):
+                    self._stats["transient_http_errors"] += 1
                 if e.code not in (408, 409, 429, 500, 502, 503, 504) or attempt >= self.retries:
                     raise OpenRouterError(last) from e
             except (error.URLError, TimeoutError) as e:
+                self._stats["network_errors"] += 1
                 last = str(e)
                 if attempt >= self.retries:
                     raise OpenRouterError(last) from e
             delay = min(30.0, (2 ** attempt) + random.random())
             time.sleep(delay)
         raise OpenRouterError(last or "OpenRouter request failed")
+
+    def stats_snapshot(self) -> dict[str, int]:
+        return dict(self._stats)
 
     def list_models(self) -> list[dict[str, Any]]:
         payload = self._json_request("GET", "/models", None, auth=True)

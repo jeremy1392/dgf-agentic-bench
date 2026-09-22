@@ -41,7 +41,7 @@ class SyntheticDGFEnvironment:
         if not self._available('AZURE_RESOURCE_GRAPH'): return self._not_yet('AZURE_RESOURCE_GRAPH')
         a=self.case['architecture_profile']
         resources=[]
-        for svc in a['compute_services']+a['data_services']+a['edge_services']:
+        for svc in a['compute_services']+a['data_services']+a.get('platform_services',[])+a['edge_services']:
             resources.append({"name":svc,"region":a['primary_region'],"publicNetworkAccess":(not a['private_endpoints']) if svc in a['data_services'] else a['internet_facing'],"multiAz":a['multi_az']})
         if name:
             return [r for r in resources if name.lower() in r['name'].lower()]

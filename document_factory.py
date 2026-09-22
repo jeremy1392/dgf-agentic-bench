@@ -155,7 +155,7 @@ def emit_all(case_dir:Path, case:Dict[str,Any], graph:Dict[str,Any], occurrences
     # SECURITY raw evidence
     sec=case['security']
     resources=[]
-    for svc in arch['compute_services']+arch['data_services']+arch['edge_services']:
+    for svc in arch['compute_services']+arch['data_services']+arch.get('platform_services',[])+arch['edge_services']:
         resources.append({"name":svc,"publicNetworkAccess":not arch['private_endpoints'] if svc in arch['data_services'] else arch['internet_facing'],"region":arch['primary_region'],"multiAz":arch['multi_az']})
     write_json(case_dir/'gate_evidence/security/azure_resource_graph.json',{"resources":resources,"private_endpoints":arch['private_endpoints'],"firewall":arch['azure_firewall']})
     write_csv(case_dir/'gate_evidence/security/entra_role_assignments.csv',[{"principal":"workload-mi" if sec['managed_identity'] else "svc-shared","type":"ManagedIdentity" if sec['managed_identity'] else "ServicePrincipal","role":"Contributor" if sec['shared_service_principal'] else "Reader","scope":"subscription" if sec['shared_service_principal'] else "resource-group"}])

@@ -201,11 +201,17 @@ def _data_details(profile,rng,difficulty):
 
 def _network_details(profile,rng,difficulty):
     n=profile["network_profile"]
+    # Give every synthetic DGF its own non-overlapping-looking private ranges.
+    # For consecutive benchmark seeds the /24s below are unique, preventing
+    # accidental cross-case reuse of the same network values.
+    seed=int(profile.get("case_seed",profile.get("seed",0)))
+    second=16 + ((seed // 16) % 200)
+    third=(seed % 16) * 16
     return {
         "profile":n,
-        "hub_cidr":"10.0.0.0/16",
-        "app_cidr":"10.1.0.0/16",
-        "data_cidr":"10.2.0.0/16",
+        "hub_cidr":f"10.{second}.{third}.0/24",
+        "app_cidr":f"10.{second}.{third+1}.0/24",
+        "data_cidr":f"10.{second}.{third+2}.0/24",
         "azure_firewall_tier":_choice(rng,["Premium","Standard"]) if profile.get("azure_firewall") else "None",
         "firewall_tls_inspection":profile.get("azure_firewall",False) and _bool(rng,.46),
         "dns_private_resolver":_bool(rng,.64),

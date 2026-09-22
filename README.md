@@ -61,6 +61,9 @@ This distinction is intentional: the paper states the theory and its falsifiable
 ## What is in this repository
 
 - **Facts-first case generation**: canonical enterprise facts are generated first; documents, evidence, omissions, stale versions, and contradictions are derived from that latent state.
+- **Dataset uniqueness enforcement**: project identities, named people, vendors, CIDRs, contract/HLD/LLD versions, canonical case hashes, and structural architecture signatures are unique within each generated dataset; `dataset_uniqueness_report.json` records the checks.
+- **Topology-aware HLD rendering**: `hub_spoke`, `single_vnet`, and `virtual_wan` are drawn as genuinely different network topologies, with distinct resilience layouts and case-specific resource instance names.
+  A generated 15-case visual preview is available at `docs/architecture_diversity_preview.png`.
 - **Eight governance gate families**: General, IT, Architecture, Security Architecture, Tech Readiness, Procurement, Legal, and Compliance.
 - **Route-aware execution**: Buy, Integrate, Build, and full-lifecycle cases.
 - **Multi-phase governance**: the same gate can reappear with a different contract at Opportunity, Framing, Design, Build/Acceptance, and Closure.
@@ -209,7 +212,115 @@ python prepare_openrouter_experiment.py \
   --output-dir experiments/dataset_150
 ```
 
+## One-command OpenRouter experiment
+
+If you only want to provide an OpenRouter key and model IDs and receive paper-ready results, use:
+
+```bash
+python run_full_experiment.py \
+  --api-key YOUR_OPENROUTER_KEY \
+  --models z-ai/glm-5.3 z-ai/glm-5.3-flashx
+```
+
+The safe default is the `pilot` preset (5 cases per Buy/Integrate/Build route). For the frozen main experiment used in a paper:
+
+```bash
+python run_full_experiment.py \
+  --models MODEL_A MODEL_B MODEL_C \
+  --preset paper \
+  --workers 6 \
+  --max-cost-usd 150
+```
+
+If `--api-key` is omitted, the script prompts for the key without echoing it, which avoids placing the key in shell history. The key is never written to the experiment files.
+
+The script automatically:
+
+1. validates the exact model IDs against the live OpenRouter catalog and requires tool support;
+2. creates a balanced Buy/Integrate/Build dataset unless `--dataset` is supplied;
+3. runs every selected model under the same protocol;
+4. scores all gate and route executions;
+5. aggregates OpenRouter token/cost usage;
+6. calculates Wilson 95% confidence intervals for strict gate CSR and route-complete execution;
+7. writes paper-ready JSON, CSV, Markdown, and LaTeX results.
+
+Main outputs appear under `experiments/run_<timestamp>/paper_outputs/`:
+
+```text
+PAPER_RESULTS.md
+paper_overall.csv
+paper_by_gate.csv
+paper_results.json
+paper_table_overall.tex
+aggregate.json
+```
+
+Presets:
+
+```text
+smoke  = 1 case per route  (3 cases total)
+pilot  = 5 cases per route (15 cases total)
+paper  = 50 cases per route (150 cases total)
+```
+
 ## OpenRouter evaluation
+
+### Concurrent multi-model execution (v7.7)
+
+DGF-Bench now runs independent **model × DGF case** jobs concurrently. The default is `--workers 6`. For three models, the automatic per-model limit is two simultaneous cases per model. Gates inside one route are **not** parallelized in `handoff_mode=agent`: IT → Architecture → Security → Readiness → General (or the equivalent route) remains sequential so downstream gates receive the tested model's actual upstream handoff.
+
+Example:
+
+```bash
+python run_full_experiment.py \
+  --models MODEL_A MODEL_B MODEL_C \
+  --preset pilot \
+  --workers 6 \
+  --max-cost-usd 25
+```
+
+Useful controls:
+
+```text
+--workers 6                    total concurrent model×DGF jobs
+--max-workers-per-model 0      0 = auto ceil(workers / models)
+--job-budget-reserve-usd 0.50  reserve before each concurrent job is launched
+```
+
+The cost cap is enforced with a thread-safe observed-cost ledger plus reservations for in-flight jobs. Because provider cost is known only after a response completes, already-running requests can still cross the nominal cap; the harness prevents new jobs from being launched once the cap/reservation guard binds. OpenRouter 429/5xx/network retries are recorded in each case score.
+
+Interrupted runs also resume at the **gate level**: a contiguous prefix of completed gates is reused, preserving route handoffs and avoiding unnecessary paid reruns. Previous failed attempts are retained for complete cost accounting.
+
+On Windows, `run_parallel_pilot.ps1` launches the default three-model pilot with the project `.venv` and six workers.
+
+### Multi-model fairness and typed finalization (v7.6)
+
+`round_robin` is now the default schedule. Models are interleaved across cases rather than running all 15/150 cases for model A before model B starts. This makes progress visibly multi-model and prevents an interrupted or global-budget-limited run from systematically favoring the first model. Use `--schedule model_major` only to reproduce the legacy order.
+
+Each gate now exposes a typed `submit_gate_decision` tool. The model investigates with the normal evidence tools and then submits the final contract through that tool. The last investigation turn is forced to finalize, and a JSON-schema structured-output fallback is used if necessary. This reduces incidental `Agent did not produce valid JSON` failures without relaxing the semantic scoring contract. Any remaining model protocol failure is retained as failed execution rather than silently removed from aggregate results. Infrastructure failures remain separately labeled and excluded from model-quality estimates.
+
+Every successful API response records the requested model and OpenRouter's resolved `model` field. A mismatch counter is surfaced in paper outputs so model identity can be audited.
+
+
+### One-command runner progress on Windows
+
+The v7.6 one-command runner streams child-process output live and uses a balanced round-robin multi-model schedule by default. You should see explicit stages such as:
+
+```text
+[1/5] Validating OpenRouter models...
+[2/5] Using bundled smoke dataset...
+[3/5] Running agent benchmark through OpenRouter...
+[benchmark] schedule=round_robin | models=3 | cases=15 | jobs=45 | pending=45 | workers=6 | per_model=2
+[job 1/45 | MODEL_A | DGF-...] START (case 1/15, model 1/3)
+[job 1/45 | MODEL_A | DGF-...] gate 1/6 procurement (...) ...
+[job 1/45 | MODEL_A | DGF-...] gate 1/6 -> REWORK | turns=... | tools=... | resolved=MODEL_A | cost=$...
+[job 2/45 | MODEL_B | DGF-...] START (case 1/15, model 2/3)
+[4/5] Aggregating benchmark results...
+[5/5] Creating paper-ready outputs...
+```
+
+For `--preset smoke`, the bundled three-case smoke dataset is used by default, so the connectivity test does not regenerate DOCX/HLD artifacts. Add `--regenerate-smoke` only when you specifically want to rebuild those three cases.
+
 
 Do not commit API keys. Copy the environment template:
 

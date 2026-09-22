@@ -8,6 +8,8 @@ install:
 test:
 	$(PYTHON) self_test_v6.py
 	$(PYTHON) smoke_test_openrouter_harness.py
+	$(PYTHON) self_test_uniqueness.py
+	$(PYTHON) self_test_multimodel_protocol.py
 
 paper:
 	cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex

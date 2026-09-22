@@ -43,6 +43,7 @@ python run_openrouter_benchmark.py \
   --dataset /path/to/hidden_cases \
   --models MODEL_ID_1 MODEL_ID_2 MODEL_ID_3 \
   --max-cases 100 \
+  --workers 6 \
   --max-cost-usd 100 \
   --vision auto \
   --output-dir openrouter_results/experiment_001
@@ -97,7 +98,13 @@ The runner requests OpenRouter usage accounting and records:
 - provider field when returned;
 - tool calls and public evidence reads.
 
-`--max-cost-usd` is a hard run budget based on observed response cost. It cannot prevent the request that crosses the threshold, so use a conservative value for smoke tests.
+`--max-cost-usd` is enforced from observed response cost plus a reservation for every in-flight concurrent job. New jobs stop launching when the cap/reservation guard binds. Since provider cost is known only after a response completes, requests already in flight can still cross the nominal cap; use a conservative cap and `--job-budget-reserve-usd` for expensive models.
+
+## Concurrency
+
+Independent `(model × DGF case)` jobs run concurrently. The default is `--workers 6`. Gates inside one DGF route remain sequential under `--handoff-mode agent`, so causal handoffs are preserved. `--max-workers-per-model 0` automatically chooses `ceil(workers / number_of_models)`; set an explicit lower value if a provider rate-limits a model. HTTP 429/5xx/network retries are recorded in the score output.
+
+A partial interrupted case is checkpointed per gate. On resume, only a contiguous successful gate prefix is reused; downstream gates are rerun if their required upstream prefix is incomplete. Previously paid partial/failed calls remain in the experiment cost account.
 
 For scientific comparisons:
 - use exact model IDs rather than an automatic cross-model router;

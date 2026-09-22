@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse, json, shutil, uuid
 from pathlib import Path
 from facts_engine import generate_canonical_case
+from azure_architecture import architecture_signature
 from routes import ROUTES, build_occurrences, GATE_LABELS, PHASE_ORDER
 from evaluator import evaluate_route
 from evidence_graph import build_evidence_graph, public_graph
@@ -30,8 +31,8 @@ TOOL_SCHEMAS={
 
 def _write(path:Path,obj): path.parent.mkdir(parents=True,exist_ok=True); path.write_text(json.dumps(obj,ensure_ascii=False,indent=2),encoding='utf-8')
 
-def build_case(out_root:Path, seed:int, difficulty:int, route_key:str):
-    case=generate_canonical_case(seed,route_key,difficulty)
+def build_case(out_root:Path, seed:int, difficulty:int, route_key:str, architecture_attempt:int=0):
+    case=generate_canonical_case(seed,route_key,difficulty,architecture_attempt=architecture_attempt)
     case_id=str(uuid.uuid5(uuid.NAMESPACE_URL,f"dgfbench-v6:{seed}:{route_key}:{difficulty}"))
     case['case_id']=case_id
     occ=build_occurrences(route_key)
@@ -46,6 +47,8 @@ def build_case(out_root:Path, seed:int, difficulty:int, route_key:str):
         "case_id":case_id,
         "seed":seed,
         "difficulty":difficulty,
+        "architecture_attempt":architecture_attempt,
+        "architecture_signature":case['architecture_profile'].get("architecture_signature"),
         "project":case['project'],
         "route":{"key":route_key,"label":ROUTES[route_key]['label'],"trigger":ROUTES[route_key]['trigger']},
     }
@@ -112,8 +115,18 @@ def main():
     ns=ap.parse_args(); ns.output_dir.mkdir(parents=True,exist_ok=True)
     created=[]
     route_keys=['buy','integrate','build']
+    used_signatures=set()
     for i in range(ns.count):
-        route=route_keys[(ns.seed+i)%len(route_keys)] if ns.route=='random' else ns.route
-        created.append(str(build_case(ns.output_dir,ns.seed+i,ns.difficulty,route)))
-    print(json.dumps({'created_cases':created},indent=2))
+        seed=ns.seed+i
+        route=route_keys[seed%len(route_keys)] if ns.route=='random' else ns.route
+        attempt=0
+        while True:
+            preview=generate_canonical_case(seed,route,ns.difficulty,architecture_attempt=attempt)
+            sig=architecture_signature(preview['architecture_profile'])
+            if sig not in used_signatures:
+                break
+            attempt+=1
+        used_signatures.add(sig)
+        created.append(str(build_case(ns.output_dir,seed,ns.difficulty,route,architecture_attempt=attempt)))
+    print(json.dumps({'created_cases':created,'unique_architecture_signatures':len(used_signatures)},indent=2))
 if __name__=='__main__': main()

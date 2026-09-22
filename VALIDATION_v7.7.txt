@@ -1,0 +1,70 @@
+DGF-Bench v7.7 validation
+========================
+Date: 2026-09-22
+
+Primary change
+--------------
+Independent (model × DGF case) jobs can now execute concurrently.
+Default concurrency:
+- --workers 6
+- --max-workers-per-model 0 (auto = ceil(workers / active_models))
+- --job-budget-reserve-usd 0.50
+
+Scientific constraint preserved
+-------------------------------
+Gates inside one DGF route remain sequential in handoff_mode=agent.
+Only independent model×case jobs are concurrent. Therefore downstream gates still receive
+that model's actual upstream handoff in route order.
+
+Concurrency / reliability additions
+-----------------------------------
+- ThreadPoolExecutor-based job execution.
+- Balanced round-robin queue order retained.
+- Thread-safe cost ledger.
+- Per-in-flight-job budget reservation before paid work starts.
+- Per-model concurrency cap.
+- OpenRouter 429/5xx/network retry counters recorded per case.
+- Gate-level checkpoint resume for interrupted cases.
+- Previous failed attempts are retained instead of overwritten.
+- Previous partial/failed API costs stay in resumed experiment accounting.
+- OK and AGENT_FAILURE cases resume as final; INFRA_ERROR and BUDGET_STOP are retryable.
+- benchmark_run_stats.json records elapsed time, concurrency and budget state.
+
+Offline concurrency regression test
+-----------------------------------
+Synthetic test: 3 models × 3 DGF cases = 9 jobs
+Configured workers: 4
+Configured per-model maximum: 2
+Observed maximum parallel jobs: 4
+Observed maximum per model: 2
+Result: PASS
+
+Full validation
+---------------
+make test: PASS
+  self_test_v6: PASS (320 profiles)
+  smoke_test_openrouter_harness: PASS (8 gates / 61 findings)
+  self_test_uniqueness: PASS
+    150 cases / 150 unique project names
+    150 unique structural architecture signatures
+    900 / 900 unique named people
+    600 / 600 unique vendors
+    450 / 450 unique private CIDRs
+    hub_spoke / single_vnet / virtual_wan verified
+  self_test_multimodel_protocol: PASS
+    typed submit_gate_decision: PASS
+    structured-output fallback: PASS
+    round-robin scheduling: PASS
+    concurrent execution: PASS
+    budget reservation: PASS
+    missing-gate zero-credit scoring: PASS
+
+pytest: 10 / 10 PASS
+run_full_experiment.py --dry-run, 3 models, workers=6: PASS
+Default max output tokens: 8192
+Secret scan before packaging: required
+
+Note
+----
+The concurrency regression test is offline and uses fake model workers, so it does not spend
+OpenRouter credits. Live throughput and rate limits depend on the selected OpenRouter providers.
