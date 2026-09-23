@@ -7,7 +7,7 @@
 <h1 align="center">DGF-Bench</h1>
 
 <p align="center">
-  <strong>Investigate evidence. Make a decision. Account for every gate.</strong><br />
+  <strong>Research artifacts for evidence-grounded governance decisions.</strong><br />
   A synthetic enterprise governance benchmark and research companion to <em>The Last Human Gate</em>.
 </p>
 
@@ -17,7 +17,7 @@
 
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf"><strong>Read the paper ↗</strong></a> &nbsp; · &nbsp;
-  <a href="#how-the-benchmark-works">Explore the benchmark</a> &nbsp; · &nbsp;
+  <a href="#research-framework">Research framework</a> &nbsp; · &nbsp;
   <a href="#get-started">Get started</a> &nbsp; · &nbsp;
   <a href="CITATION.cff">Cite this work</a>
 </p>
@@ -30,31 +30,60 @@ DGF-Bench evaluates tool-using AI agents on governance review tasks: inspect evi
 |---|---|---|
 | **The Last Human Gate** | **Governance as a testable task** | **Inspect the assumptions** |
 | A theoretical framework for governance automation and residual human work. | Synthetic dossiers, evidence tools, authorization rules, and route-level evaluation. | LaTeX sources, numerical parameters, generated tables, and model traces. |
-| [Read the manuscript](paper/The_Last_Human_Gate.pdf) | [Explore the protocol](#how-the-benchmark-works) | [Open the research package](paper/anc/) |
+| [Read the manuscript](paper/The_Last_Human_Gate.pdf) | [Explore the protocol](#research-framework) | [Open the research package](paper/anc/) |
 
 *Jeremy Canale · September 2026. The paper's workforce calculations are synthetic scenarios, not measured deployments. Model evaluations are separate empirical results.*
 
-## How the benchmark works
+## Research framework
 
-A case is a synthetic project dossier. A route is an ordered sequence of governance reviews; each review is a gate occurrence. Agents work with documents, factual exports, architecture diagrams, a published policy, and tools for evidence requests and simulated governance actions.
+A **Digital Governance Framework (DGF)** organizes the reviews through which an enterprise change is assessed and authorized. Specialist gates issue findings and opinions; a General gate consolidates them and arbitrates commitments. Gate families, ordering, and tasks can vary across organizations.
 
-<p align="center">
-  <img src="assets/readme/benchmark-flow.svg" alt="Generated facts produce public evidence. An agent investigates and submits a decision. The evaluator scores it against reference outcomes kept outside agent observations." width="1200" />
-</p>
-
-### Follow the routes
+### 1. Position gates across the lifecycle
 
 <p align="center">
-  <img src="assets/readme/governance-routes.svg" alt="Buy: Procurement, Legal, Compliance, Security, IT, General. Integrate: IT, Architecture, Security, Legal, Compliance, General. Build: IT, Architecture, Security, Tech Readiness, General." width="1200" />
+  <a href="assets/readme/dgf-lifecycle-matrix.svg"><img src="assets/readme/dgf-lifecycle-matrix.svg" alt="DGF activity matrix: eight gate families across Opportunity, Framing, Design, Build and Acceptance, and Deployment and Closure. General arbitration occurs in each phase. The full-lifecycle example contains 26 gate occurrences." width="1200" /></a>
 </p>
 
-These routes cover eight gate families. A separate `full_lifecycle` mode repeats gates across project phases. The five possible dispositions are `GO`, `GO_WITH_RESERVATIONS`, `REWORK`, `SUSPENSION`, and `NO_GO`; applicability depends on the gate and phase.
+**Figure 1 — A configurable DGF lifecycle.** Generated from the `full_lifecycle` definition in [routes.py](routes.py). Filled circles identify specialist reviews; diamonds identify General arbitration. The same gate family can return under a different phase contract. This example is separate from the three shorter routes used in the main comparison. See the [paper's framework definition](paper/sections/s02_dgf.tex).
 
-The benchmark reports decision accuracy, finding/action precision and recall, evidence support, authorization correctness, critical misses, false approvals, strict gate success, route success, and token/cost usage. A route succeeds only when every required gate meets the specified scoring contract. Always identify the scoring version when publishing results.
+### 2. Define an explicit review contract
 
-> **What a score means**
+<p align="center">
+  <a href="assets/readme/gate-contract.svg"><img src="assets/readme/gate-contract.svg" alt="Gate contract: a dossier owner provides versioned evidence; an agent or expert investigates it; the review yields findings, a disposition, proposed actions, citations, and authorization state. A separately validated mandate controls permitted actions. Rework can return the dossier for revision." width="1200" /></a>
+</p>
+
+**Figure 2 — Inputs, obligations, authority, and outputs.** The unit of analysis is a gate occurrence, not a job title. A favorable assessment and permission to commit are distinct. The dashed return illustrates the governance meaning of `REWORK`; it does not claim that the fixed-route benchmark completes a real remediation cycle. See the [gate-contract appendix](paper/sections/s_appF_contract.tex).
+
+### 3. Compose and evaluate routes
+
+<p align="center">
+  <a href="assets/readme/dgf-main-routes.svg"><img src="assets/readme/dgf-main-routes.svg" alt="Buy has six reviews: Procurement, Legal, Compliance, Security, IT, General. Integrate has six: IT, Architecture, Security, Legal, Compliance, General. Build has five: IT, Architecture, Security, Tech Readiness, General. Each node also identifies its review phase." width="1200" /></a>
+</p>
+
+**Figure 3 — Main benchmark routes and phases.** Sequences and phase labels are generated directly from [routes.py](routes.py). Within a route, gates run sequentially. In `agent` handoff mode, downstream gates receive the model's upstream outputs; `oracle` and `none` provide comparison conditions.
+
+## Experimental design
+
+<p align="center">
+  <a href="assets/readme/research-design.svg"><img src="assets/readme/research-design.svg" alt="Example experimental design: 100 Buy, 100 Integrate, and 100 Build dossiers evaluated by three models on the same cases. This schedules 900 model-case runs and 5,100 gate occurrences. These are planned counts, not reported completion or performance results." width="1200" /></a>
+</p>
+
+**Figure 4 — A matched comparison on shared dossiers.** The illustrated configuration uses 300 cases and three models. Its counts describe the design, not experiment completion. Gate counts are derived from the route definitions. Model comparisons retain the dossier as the sampling unit and report technical exclusions separately.
+
+| Research question | Observable quantities |
+|---|---|
+| **RQ1. Can an agent produce a correct gate review?** | Disposition accuracy, finding/action precision and recall, evidence support |
+| **RQ2. Does it respect authorization boundaries?** | Authorization correctness, false approvals, critical misses |
+| **RQ3. How does reliability change across a route?** | Strict gate success, complete-route success, handoff-condition comparisons |
+| **RQ4. What resources does the evaluation require?** | Calls, tokens, cost, availability, and unfinished or excluded cases |
+
+The five dispositions are `GO`, `GO_WITH_RESERVATIONS`, `REWORK`, `SUSPENSION`, and `NO_GO`; applicability depends on the gate and phase. A valid refusal can be the correct answer. Report the scoring version and sampling policy alongside every result.
+
+> **Study boundary**
 >
-> This is an evaluation of review decisions, proposed actions, and simulated authorization. It does not measure completed enterprise remediation, production deployment, hours saved, or workforce replacement. A valid refusal can be the correct answer. Strong performance on synthetic cases does not establish the paper's broader automation thesis.
+> The benchmark measures review decisions, proposed actions, and simulated authorization. It does not establish completed enterprise remediation, production deployment, hours saved, or workforce replacement. A high score on this synthetic population does not by itself establish the paper's broader automation thesis.
+
+The figures are available as editable SVGs and high-resolution PNGs. Their [sources, definitions, and regeneration command](assets/readme/README.md) are included in the repository.
 
 ## Get started
 

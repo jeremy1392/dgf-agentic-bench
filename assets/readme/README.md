@@ -1,12 +1,33 @@
 # README visuals
 
-These assets are illustrations and explanatory diagrams, not experimental results.
+These assets are illustrations and explanatory diagrams, not experimental results. The four numbered research figures use a restrained light background, numbered panels, descriptive captions, and source references. SVG sources remain editable; PNG exports are 2,100 pixels wide.
+
+## Research figures
+
+| Figure | SVG / PNG | Grounding |
+|---|---|---|
+| 1. DGF lifecycle | [SVG](dgf-lifecycle-matrix.svg) · [PNG](dgf-lifecycle-matrix.png) | Gate/phase activity generated from `ROUTES['full_lifecycle']` in [routes.py](../../routes.py): 26 occurrences over five phases |
+| 2. Gate contract | [SVG](gate-contract.svg) · [PNG](gate-contract.png) | Conceptual synthesis of the [framework definition](../../paper/sections/s02_dgf.tex) and [gate-contract appendix](../../paper/sections/s_appF_contract.tex); simulated actions and conceptual rework are identified as such |
+| 3. Main routes | [SVG](dgf-main-routes.svg) · [PNG](dgf-main-routes.png) | Gate order and phase for Buy, Integrate, and Build generated directly from [routes.py](../../routes.py) |
+| 4. Experimental design | [SVG](research-design.svg) · [PNG](research-design.png) | An example configuration of 100 cases per main route and three models; 900 model/case runs and 5,100 gates are design counts, not completion or performance measurements |
+
+Rebuild the figures from the repository root:
+
+```text
+python assets/readme/build_research_figures.py --render-png
+```
+
+SVG generation uses Python's standard library. PNG rendering uses CairoSVG, already declared in the project dependencies. The script makes no network or model calls. It does not read experiment results or change the benchmark's Python sources. Source: [build_research_figures.py](build_research_figures.py).
+
+For a paper or slide, use the SVG when possible; all labels remain vector text. The main comparison and full-lifecycle example are distinct configurations and must not be combined into a single case count. The research questions in the README are proposed evaluation questions, not established findings.
+
+## Editorial assets
 
 | Asset | Purpose | Production |
 |---|---|---|
 | `last-human-gate-hero.png` | Editorial banner linking to the paper | Built-in ImageGen; original generated pixels copied into the repository |
-| `benchmark-flow.svg` | Facts, public evidence, agent review, and evaluator-only reference flow | Hand-authored SVG with accessible title and description |
-| `governance-routes.svg` | Exact Buy, Integrate, and Build gate sequences | Hand-authored SVG with accessible title and description |
+| `benchmark-flow.svg` | Supplemental overview of facts, public evidence, agent review, and evaluator-only reference flow | Hand-authored SVG with accessible title and description |
+| `governance-routes.svg` | Earlier compact overview of Buy, Integrate, and Build, retained as a supplemental asset | Hand-authored SVG with accessible title and description |
 
 The diagrams use the same navy, cyan, and amber palette as the banner. They contain no model performance numbers. The banner is conceptual art, not a representation of an enterprise deployment.
 
