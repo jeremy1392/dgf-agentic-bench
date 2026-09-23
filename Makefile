@@ -13,7 +13,7 @@ test:
 
 paper:
 	cd paper && latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-	cp paper/main.pdf paper/Every_Gate_Becomes_Software.pdf
+	cp paper/main.pdf paper/The_Last_Human_Gate.pdf
 
 clean:
 	find . -type d -name __pycache__ -prune -exec rm -rf {} +

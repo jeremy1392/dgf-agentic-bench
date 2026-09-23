@@ -1,44 +1,27 @@
-# Paper and benchmark relationship
+# Paper and benchmark
 
-The paper and DGF-Bench serve different roles.
+**[The Last Human Gate: Can AI Automate Enterprise Governance?](../paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), and DGF-Bench address different research questions.
 
-## Paper
+## The paper
 
-`paper/Every_Gate_Becomes_Software.pdf` develops the theoretical argument that Digital Governance Framework gates are information-transforming contracts and formalizes complete execution, labor accounting, handoff effects, route composition, and a falsifiable long-horizon claim.
+The manuscript treats governance gates as information-transforming contracts. It develops a theoretical argument about their automation, a model of residual human work, route composition and handoff hypotheses, and a proposed ten-year frozen-cohort test.
 
-The paper does **not** claim that the current repository proves universal real-world substitution. Its numerical workforce examples are synthetic calculations.
+Its workforce figures are reproducible synthetic calculations. They are not measurements of deployed systems, and no completed enterprise cohort study is claimed. Sources and assumptions are in [paper/anc](../paper/anc/).
 
-## DGF-Bench
+## The benchmark
 
-DGF-Bench operationalizes the unit of analysis from the paper:
+DGF-Bench tests agents on synthetic dossiers, explicit rules, evidence tools, authorization boundaries, and structured downstream handoffs. Correct outcomes are derived from generated case facts.
 
-- a versioned case state;
-- admissible evidence;
-- gate-specific rules;
-- inquiry and evidence requests;
-- findings and dispositions;
-- required actions;
-- authority/authorization state;
-- downstream handoff artifacts.
+Experiments can measure decision reliability, finding/action accuracy, evidence support, authorization correctness, route-level success, and model cost under a specified protocol. Scores concern review decisions, proposed actions and simulated governance operations. They do not establish completed remediation or human labor savings in production.
 
-Cases are generated facts-first. Hidden reference outcomes are derived from the latent state rather than being independently randomized.
+## Reporting experimental results
 
-## What experiments can establish
+Declare the code and scoring versions, sampling policy, model settings, case counts by route, technical exclusions, and costs. Compare models on the same cases. Analyze uncertainty at the case level, retaining dependencies between gates.
 
-Controlled model experiments can establish performance **within the declared synthetic case population**, for example:
+A sample conditioned to cover decisions answers a different question from a sample following the generator's natural distribution. Neither automatically represents enterprise prevalence. A public-observation baseline that shares the reference evaluator checks internal consistency; independent expert review is needed to assess business validity.
 
-- which gate families are easier or harder for current agents;
-- whether agents miss critical evidence;
-- how often agents falsely approve unsafe/incomplete cases;
-- whether structured handoffs improve downstream execution;
-- how gate-level reliability compounds across routes;
-- quality/cost tradeoffs across model families.
+Keep empirical benchmark tables separate from the manuscript's synthetic workforce examples. An incomplete run is a partial evaluation, even if every scheduled job has ended with a success or error status. Observational improvements across model generations do not by themselves prove universal governance automation.
 
-These are empirical benchmark results. They are not by themselves proof that every real-world enterprise DGF can be fully automated.
+## Publication scope
 
-## Suggested publication split
-
-A natural publication strategy is:
-
-1. **Every Gate Becomes Software** - theory, definitions, economics, workforce consequences, and falsifiable claim.
-2. **DGF-Bench: Measuring Complete Automation of Enterprise Governance** - benchmark design, synthetic environment, model evaluations, ablations, and reproducibility artifacts.
+The theory paper can be accompanied by a benchmark evaluation with explicitly limited claims. Tests of actual workforce effects, institutional delegation, downstream operational acceptance, or complete enterprise automation require additional empirical designs and data.

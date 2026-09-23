@@ -1,6 +1,6 @@
 # Ancillary material
 
-Reproduction package for *Every Gate Becomes Software*
+Reproduction package for *The Last Human Gate*
 (Jeremy Canale, September 2026). Every number, table row and chart is deterministic arithmetic on the
 assumptions in `parameters.json`. No enterprise data are used and nothing is estimated.
 

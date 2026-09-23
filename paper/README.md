@@ -2,12 +2,12 @@
 
 ## Title
 
-**Every Gate Becomes Software: Agentic Automation of Enterprise Governance and the Contraction of Its Workforce**
+**The Last Human Gate: Can AI Automate Enterprise Governance?**
 
 Author: Jeremy Canale  
 Date: September 2026
 
-The arXiv-ready LaTeX source is contained in this directory. The paper provides the theoretical framework that DGF-Bench operationalizes: governance gates as information-transforming contracts, complete execution, route composition, handoff effects, labor accounting, and a falsifiable long-horizon automation claim.
+The LaTeX source is contained in this directory. The paper provides the theoretical framework that DGF-Bench operationalizes: governance gates as information-transforming contracts, complete execution, route composition, handoff effects, labor accounting, and a falsifiable long-horizon automation claim.
 
 DGF-Bench itself lives at the repository root and is the **experimental companion**. It generates controlled synthetic governance cases and evaluates whether an AI agent can investigate evidence, identify findings, produce gate dispositions, respect authorization boundaries, and execute route-aware handoffs.
 
@@ -26,11 +26,12 @@ or directly:
 ```bash
 cd paper
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+cp main.pdf The_Last_Human_Gate.pdf
 ```
 
 The repository includes a verified compiled copy at:
 
-`Every_Gate_Becomes_Software.pdf`
+`The_Last_Human_Gate.pdf`
 
 The `anc/` directory contains the reproducibility scripts and synthetic calculations used by the paper.
 
