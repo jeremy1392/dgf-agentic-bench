@@ -1,0 +1,478 @@
+{
+  "usage": {
+    "prompt_tokens": 29834,
+    "completion_tokens": 6118,
+    "total_tokens": 35952,
+    "reasoning_tokens": 5845,
+    "cached_tokens": 0,
+    "cost": 0.045318,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 62,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 38,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 47,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 162,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 68,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 49,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 91,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 37,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 127,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 67,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012000",
+            "generation_seed": 12000,
+            "project_name": "Project Delta — Observability Platform [F2EE0]",
+            "project_code": "F2EE0",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Sales",
+            "sponsor": "Yusuf Costa-12000-SP",
+            "project_manager": "Victor Dubois-12000-PM",
+            "business_owner": "Marc Volkov-12000-BO",
+            "service_owner": "Noor Dubois-12000-SO",
+            "risk_owner": "Noor Meyer-12000-RO",
+            "start_date": "2026-09-05",
+            "target_go_live": "2027-03-15",
+            "users_impacted": 250,
+            "budget_requested_eur": 1500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "Internal policy baseline"
+            ],
+            "dpia_required": false,
+            "dpia_status": "not_required",
+            "required_residency": "UK",
+            "residency_compliant": false,
+            "retention_years": 3,
+            "legal_hold_supported": false,
+            "deletion_enforced": false,
+            "audit_trail": "complete",
+            "accessibility_status": "pass",
+            "ethics_review": "passed",
+            "regulatory_mapping": "partial",
+            "third_party_monitoring": "onboarding_only",
+            "export_control": "clear"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-03-COMPLIANCE-1",
+            "occurrence_id": "BUY-03-COMPLIANCE-1",
+            "gate": "compliance",
+            "phase": "design",
+            "authority": "Noor Meyer-12000-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_INVENTORY"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_INVENTORY",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 91,
+        "path": "gate_evidence/compliance/data_inventory.csv",
+        "content": [
+          {
+            "actual_region": "East US",
+            "classification": "Confidential",
+            "dataset": "Core business data",
+            "personal_data": "False",
+            "required_residency": "UK"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_109667",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4977,
+        "completion_tokens": 601,
+        "total_tokens": 5578,
+        "reasoning_tokens": 591,
+        "cached_tokens": 0,
+        "cost": 0.0059865,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_6770",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5741,
+        "completion_tokens": 39,
+        "total_tokens": 5780,
+        "reasoning_tokens": 14,
+        "cached_tokens": 0,
+        "cost": 0.004452,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_263857",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6238,
+        "completion_tokens": 1072,
+        "total_tokens": 7310,
+        "reasoning_tokens": 1059,
+        "cached_tokens": 0,
+        "cost": 0.0086985,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_226391",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"DATA_INVENTORY\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6378,
+        "completion_tokens": 1594,
+        "total_tokens": 7972,
+        "reasoning_tokens": 1573,
+        "cached_tokens": 0,
+        "cost": 0.010761,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_180261",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"finding_ids\":[\"COMP-RESID-001\"],\"disposition\":\"NO_GO\",\"rationale\":\"Data residency is non-compliant (\\\"residency_compliant\\\": false, required UK hosting while primary region is East US), triggering candidate finding COMP-RESID-001 with action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS and resulting in a NO_GO disposition.\",\"confidence\":1,\"actions\":[\"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\"],\"authorization_required\":true,\"evidence_refs\":[\"REVIEW_FACTS_COMPLIANCE\"],\"evidence_support\":[{\"evidence_id\":\"REVIEW_FACTS_COMPLIANCE\",\"finding_id\":\"COMP-RESID-001\",\"quote\":\"\\\"required_residency\\\": \\\"UK\\\", \\\"residency_compliant\\\": false\"}]}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6500,
+        "completion_tokens": 2812,
+        "total_tokens": 9312,
+        "reasoning_tokens": 2608,
+        "cached_tokens": 0,
+        "cost": 0.01542,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 5,
+  "tool_call_count": 4,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-03-COMPLIANCE-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "COMP-RESID-001"
+    ],
+    "actions": [
+      "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE"
+    ],
+    "authorization_required": true,
+    "rationale": "Data residency is non-compliant (\"residency_compliant\": false, required UK hosting while primary region is East US), triggering candidate finding COMP-RESID-001 with action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS and resulting in a NO_GO disposition.",
+    "confidence": 1.0,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-RESID-001",
+        "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 13,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

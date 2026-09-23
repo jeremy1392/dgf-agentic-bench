@@ -1,0 +1,204 @@
+{
+  "case_id": "756a54cd-def8-5054-9ecc-a45ddb686b05",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT",
+        "DUE_DILIGENCE",
+        "SCORING_MATRIX",
+        "PRICING_TCO"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_PROCUREMENT shows the selected vendor Fluxbridge Labs C8CCC-3 passes every procurement predicate: mandatory_criteria_failed=0 (no PROC-MAND-001), sanctions='clear' (no PROC-SAN-001/002), due_diligence='complete' (no PROC-DD-001), references_checked=true (no PROC-REF-001), and tco_3y_eur=1,031,922 is within the purchasing envelope of 900,000*1.5=1,350,000 (no PROC-BUDGET-001). The authoritative DUE_DILIGENCE report corroborates all four vendor states, and the non-authoritative SCORING_MATRIX and PRICING_TCO documents agree (Fluxbridge selected=True, weighted_score 78.4, highest of the four offers). No findings trigger, so the disposition is GO with no actions and no authorization required.",
+      "confidence": 0.95,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-EXIT-001",
+        "LEGAL-IP-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE",
+        "CLARIFY_IP_OWNERSHIP"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA",
+        "NEGOTIATION_LOG"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_LEGAL (v1, age 0) triggers exactly two findings: exit_assistance_days=0 → LEGAL-EXIT-001 (medium, ADD_EXIT_ASSISTANCE) and ip_ownership=ambiguous → LEGAL-IP-001 (high, CLARIFY_IP_OWNERSHIP). Both are corroborated by the non-authoritative MSA (§9 'Exit assistance: 0 days'; §8 'IP ownership: ambiguous') and the negotiation log's open points. All other predicates fail: personal_data=false with dpa_status='not_required' (no LEGAL-DPA-001); liability_cap_multiplier=1, not 0.5 (no LEGAL-LIAB-001); audit_right='limited' is not 'reports_only'/'none' (no LEGAL-AUDIT-001); insurance_valid=true (no LEGAL-INS-001); signing_authority_valid=true (no LEGAL-SIGN-001); log_export_clause='missing' but business_criticality='Medium' is not High/Critical (no LEGAL-LOG-001). Highest-priority triggered disposition is REWORK. Authorization is not required for REWORK; no risk acceptance is exercised — remediation of the IP clause and addition of exit assistance are proposed actions, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-EXIT-001",
+          "quote": "\"exit_assistance_days\": 0"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-IP-001",
+          "quote": "\"ip_ownership\": \"ambiguous\""
+        },
+        {
+          "evidence_id": "MSA",
+          "finding_id": "LEGAL-EXIT-001",
+          "quote": "9. Exit and Reversibility\nExit assistance: 0 days."
+        },
+        {
+          "evidence_id": "MSA",
+          "finding_id": "LEGAL-IP-001",
+          "quote": "8. Intellectual Property\nIP ownership: ambiguous."
+        },
+        {
+          "evidence_id": "NEGOTIATION_LOG",
+          "finding_id": "LEGAL-EXIT-001",
+          "quote": "Exit assistance: 0 days."
+        },
+        {
+          "evidence_id": "NEGOTIATION_LOG",
+          "finding_id": "LEGAL-IP-001",
+          "quote": "Liability cap currently 1x annual fees.\nAudit right currently: limited.\nExit assistance: 0 days.\nSecurity log export: missing."
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY",
+        "REG_MAPPING"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_COMPLIANCE (v1, age 0) triggers exactly one predicate: residency_compliant=false with required_residency='UK' → COMP-RESID-001 (critical, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, disposition NO_GO, risk_acceptance_allowed=false). The authoritative DATA_INVENTORY corroborates the violation: Core business data actual_region='East US' vs required_residency='UK'. All other compliance predicates fail to trigger: dpia_required=false with dpia_status='not_required' (no COMP-DPIA-001); audit_trail='partial', not 'missing' (no COMP-AUDIT-001); regulatory_mapping='partial', not 'missing', corroborated by authoritative REG_MAPPING mapping_status='partial' (no COMP-MAP-001); accessibility_status='not_assessed', not 'major_findings' (no COMP-A11Y-001); export_control='clear' (no COMP-EXPORT-001/002). Highest-priority triggered disposition is NO_GO. Risk acceptance is not permitted for this finding, so no risk card is created; NO_GO requires authorization, which is flagged here and not self-granted. Proposed relocation or obtaining a valid residency basis is remediation to be executed, not completed remediation. Upstream decisions (procurement GO, legal REWORK) do not alter this gate's outcome.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+        },
+        {
+          "evidence_id": "DATA_INVENTORY",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"actual_region\": \"East US\", \"dataset\": \"Core business data\", \"required_residency\": \"UK\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "VULN_SCAN",
+        "CONDITIONAL_ACCESS",
+        "SENTINEL_STATUS",
+        "KEYVAULT_CONFIG",
+        "AZURE_RESOURCE_GRAPH",
+        "IAM_EXPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_SECURITY (v1, age 0) triggers zero security predicates. Internet exposure is mitigated: internet_exposed=true but waf_present=true with waf_mode='Prevention' (no SEC-WAF-001/002), corroborated by authoritative WAF_POLICY ('present': true, 'mode': 'Prevention', OWASP managed rules, bot protection). SEC-NET-001 does not trigger: data_classification='Internal' is not Confidential/Restricted and private_endpoints=true, corroborated by AZURE_RESOURCE_GRAPH ('private_endpoints': true; Cosmos DB, Service Bus, Event Hubs, Storage all publicNetworkAccess=false behind Azure Firewall). SEC-IAM-001 does not trigger: mfa='mandatory', corroborated by CONDITIONAL_ACCESS ('mfa': 'mandatory', 'policy_state': 'enabled'). SEC-IAM-002 does not trigger: shared_service_principal=false, corroborated by IAM_EXPORT showing only the 'workload-mi' ManagedIdentity. SEC-LOG-001 does not trigger: logs_to_siem=true and sentinel=true, corroborated by SENTINEL_STATUS (Azure Activity, Entra ID, Application connectors). SEC-VULN-001 does not trigger: critical_vulns_open=0, corroborated by VULN_SCAN (four High findings open, none Critical) and the vulnerability tool (critical_open=0, high_open=4); the policy triggers only on critical findings. SEC-PENTEST-001 does not trigger: phase is 'design', not 'build_acceptance', and pentest_status='pass'. SEC-KEY-001 does not trigger: key_rotation_days=90 is neither None nor 365, corroborated by KEYVAULT_CONFIG ('key_rotation_days': 90, secrets in Key Vault, managed identity). Additional controls present: encryption in transit and at rest, Defender, EDR, image scanning. Highest-priority triggered disposition is therefore GO with no actions. GO does not require authorization; the standing mandate MANDATE-756a54cd-...-BUY-04-SECURITY-1 (Maya Khan-12003-RO, scope 'all and only risk-acceptable findings') is not exercised because no findings — and hence no risk-acceptable findings — exist. Observation (non-triggering): 4 high-severity vulnerabilities remain open and should be tracked to closure by the Product Team, but no catalog finding or policy predicate applies to high-severity items at this gate.",
+      "confidence": 0.95,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CMDB-001",
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "CREATE_CMDB_RECORD",
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "CMDB_EXPORT",
+        "CAPACITY_REPORT",
+        "TECH_CATALOG",
+        "LICENSE_POSITION",
+        "LIFECYCLE_REGISTER",
+        "SUPPORT_RACI"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_IT (v1, age 0) at phase build_acceptance triggers exactly two predicates: cmdb_record_present=false → IT-CMDB-001 (medium, CREATE_CMDB_RECORD, GO_WITH_RESERVATIONS), corroborated by authoritative CMDB_EXPORT (record_present=False, run_owner Lucas Rahman-12003-SO); and capacity_headroom_pct=8 < 15 → IT-CAPACITY-001 (medium, INCREASE_CAPACITY_HEADROOM, GO_WITH_RESERVATIONS), corroborated by authoritative CAPACITY_REPORT (headroom 8). All other predicates fail to trigger: catalog_status='standard' with waiver_present=true (expiry 180 days) so no IT-CATALOG-001; duplicate_capability=false so no IT-RATIONAL-001; license_compliant=true (annual cost EUR 500,199) so no IT-LICENSE-001, corroborated by LICENSE_POSITION; run_owner_present=true so no IT-RUN-001, corroborated by SUPPORT_RACI; technology_eol_months=36 ≥ 12 so no IT-EOL-001, corroborated by LIFECYCLE_REGISTER; change_record_status='draft' but phase is build_acceptance, not deployment_closure, so IT-CHANGE-001 does not apply at this phase. Highest-priority triggered disposition is GO_WITH_RESERVATIONS. Both findings are risk-acceptable; authorization is required and was exercised via the active standing mandate MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1 (Maya Khan-12003-RO, scope 'all and only risk-acceptable findings') through a conditional approval requiring CMDB record creation before deployment_closure and capacity headroom ≥ 15% before go-live. These are proposed remediation conditions, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-CMDB-001",
+          "quote": "\"cmdb_record_present\": false"
+        },
+        {
+          "evidence_id": "CMDB_EXPORT",
+          "finding_id": "IT-CMDB-001",
+          "quote": "\"record_present\": \"False\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-CAPACITY-001",
+          "quote": "\"capacity_headroom_pct\": 8"
+        },
+        {
+          "evidence_id": "CAPACITY_REPORT",
+          "finding_id": "IT-CAPACITY-001",
+          "quote": "\"capacity_headroom_pct\": \"8\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS",
+        "BUDGET_APPROVAL",
+        "PORTFOLIO_SNAPSHOT",
+        "BUSINESS_CASE",
+        "REG_MAPPING",
+        "CONTROL_MATRIX"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_GENERAL (v1, age 0) triggers no direct general predicates: strategic_alignment='strong' (no GEN-STRAT-001), budget_requested_eur=900000 <= budget_approved_eur=990000 (no GEN-BUDGET-001), roi=0.297 >= 0.05 (no GEN-BC-001), and phase='governance' with change_plan_status='complete' (no GEN-BENEFITS-001). These are corroborated by authoritative BUDGET_APPROVAL (status APPROVED, 900000 requested / 990000 approved) and authoritative PORTFOLIO_SNAPSHOT (priority P1, strategic_alignment strong), with non-authoritative BUSINESS_CASE agreeing (ROI 0.297, NPV 948400). However, the upstream rule triggers GEN-UPSTREAM-NOGO (critical): 1 upstream gate returned NO_GO — compliance (BUY-03-COMPLIANCE-1) on COMP-RESID-001 (required_residency UK, residency_compliant false), an unresolved blocker whose action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS is proposed remediation, not completed remediation. In the policy's if/elif chain NO_GO takes precedence over the legal gate's REWORK and the IT gate's GO_WITH_RESERVATIONS, so the consolidated disposition is NO_GO. GEN-UPSTREAM-NOGO has risk_acceptance_allowed=false, so the standing mandate MANDATE-756a54cd-...-BUY-06-GENERAL-1 (Maya Khan-12003-RO, scope 'all and only risk-acceptable findings') cannot be exercised and no risk card is created; NO_GO requires authorization, which is flagged here and not self-granted. Resolution of the upstream compliance NO_GO by the Project Manager is the required action before resources and the next phase can be committed.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"gate\": \"compliance\", \"phase\": \"design\", \"disposition\": \"NO_GO\""
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"finding_ids\": [\"COMP-RESID-001\"], \"actions\": [\"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\"]"
+        }
+      ]
+    }
+  ]
+}

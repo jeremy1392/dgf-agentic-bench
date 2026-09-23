@@ -1,0 +1,65 @@
+{
+  "case_id": "c0eebffe-87e5-582a-88a2-ab0eeaa573ea",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-SAN-002",
+        "PROC-DD-001"
+      ],
+      "actions": [
+        "COMPLETE_SANCTIONS_SCREENING",
+        "COMPLETE_VENDOR_DUE_DILIGENCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_PROCUREMENT (age 0 days) shows the selected vendor CedarPoint Digital 85431-2 has sanctions screening \"pending\" (PROC-SAN-002, high, SUSPENSION) and due diligence \"pending\" (PROC-DD-001, high, REWORK). No mandatory RFP criteria were failed (mandatory_criteria_failed: 0), TCO of 535,507 EUR is well within the 7,000,000 EUR purchasing envelope (no PROC-BUDGET-001), and references were checked (no PROC-REF-001). Applying DGF-decision-v8 priority ordering, the highest-priority triggered disposition is SUSPENSION, which requires authorization. Proposed actions are COMPLETE_SANCTIONS_SCREENING and COMPLETE_VENDOR_DUE_DILIGENCE; these are required remediation, not completed remediation, and risk acceptance is not permitted for either finding.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "finding_id": "PROC-SAN-002",
+          "quote": "\"selected_vendor\": \"CedarPoint Digital 85431-2\" ... {\"vendor\": \"CedarPoint Digital 85431-2\", \"functional_score\": 87, \"security_score\": 84, \"tco_3y_eur\": 535507, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 85.6}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "finding_id": "PROC-DD-001",
+          "quote": "{\"vendor\": \"CedarPoint Digital 85431-2\", \"functional_score\": 87, \"security_score\": 84, \"tco_3y_eur\": 535507, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 85.6}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-IP-001"
+      ],
+      "actions": [
+        "CLARIFY_IP_OWNERSHIP"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_LEGAL (age 0 days, v1) triggers exactly one rule: ip_ownership = \"ambiguous\" → LEGAL-IP-001 (high, REWORK, risk_acceptance_allowed=false), corroborated by MSA-85431-8.3 §8 (\"IP ownership: ambiguous\"). All other legal predicates pass on the authoritative snapshot: dpa_status \"signed\" (personal_data true, so no LEGAL-DPA-001), liability_cap_multiplier 2 with security_carveout true (no LEGAL-LIAB-001), audit_right \"full\" (no LEGAL-AUDIT-001), exit_assistance_days 180 (no LEGAL-EXIT-001), insurance_valid true (no LEGAL-INS-001), signing_authority_valid true (no LEGAL-SIGN-001), and log_export_clause \"limited\" — not \"missing\" — so the LEGAL-LOG-001 predicate is not met despite business_criticality High. Applying DGF-decision-v8 priority ordering, the highest-priority triggered disposition is REWORK, which does not require authorization. CLARIFY_IP_OWNERSHIP is proposed remediation by Legal, not completed remediation; risk acceptance is not permitted for this finding. Upstream procurement occurrence BUY-01-PROCUREMENT-1 recorded a separate SUSPENSION (sanctions/due-diligence pending) that does not alter this gate's legal findings.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-IP-001",
+          "quote": "\"legal\": {\"contract_version\": \"MSA-85431-8.3\", ... \"ip_ownership\": \"ambiguous\", ...}"
+        },
+        {
+          "evidence_id": "MSA",
+          "finding_id": "LEGAL-IP-001",
+          "quote": "8. Intellectual Property\nIP ownership: ambiguous."
+        }
+      ]
+    }
+  ]
+}

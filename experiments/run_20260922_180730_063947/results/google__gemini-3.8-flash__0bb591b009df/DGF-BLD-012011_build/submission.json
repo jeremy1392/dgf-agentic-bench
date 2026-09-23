@@ -1,0 +1,173 @@
+{
+  "case_id": "ebf3ae65-da69-56d5-8a8a-9505d2f43748",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative review facts indicate a duplicate capability exists (shared_api_platform) triggering IT-RATIONAL-001 (ASSESS_EXISTING_CAPABILITY), and technology end-of-life is within 8 months (< 12 months) triggering IT-EOL-001 (CREATE_CONVERGENCE_PLAN). Both findings mandate a REWORK disposition at the opportunity phase.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "quote": "\"duplicate_capability\": true",
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 8"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": false,
+      "rationale": "All architecture governance criteria are satisfied in the authoritative review facts: no IP address overlap (ip_overlap=false), governed API gateway is present (api_gateway_present=true), accountable data owner is defined (data_owner_present=true), measured latency of 15ms is well within the 100ms target (measured_latency_ms=15, latency_target_ms=100), workload business criticality is Medium (not High or Critical), and reversibility design is documented (reversibility_status='documented'). No candidate architecture findings apply, resulting in a GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-LOG-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CONNECT_LOGS_TO_SIEM",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "SENTINEL_STATUS",
+        "VULN_SCAN"
+      ],
+      "authorization_required": true,
+      "rationale": "Security architecture review identified 1 open critical vulnerability requiring remediation (critical_vulns_open: 1), security logs not exported to SIEM (logs_to_siem: false), and WAF operating in detection-only mode for an internet-exposed workload (waf_mode: Detection). Per the decision policy, open critical vulnerabilities require a NO_GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"waf_mode\": \"Detection\"",
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"logs_to_siem\": false"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"critical_vulns_open\": 1",
+          "finding_id": "SEC-VULN-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RTO-001",
+        "TR-RPO-001",
+        "TR-LOAD-001",
+        "TR-CODE-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "REMEDIATE_RECOVERY_TIME",
+        "REMEDIATE_RECOVERY_POINT",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS",
+        "RESTORE_TEST",
+        "LOAD_TEST"
+      ],
+      "authorization_required": false,
+      "rationale": "Technical readiness assessment identified multiple failures against operational and quality thresholds: measured restore time of 42 hours exceeds the 24-hour RTO (TR-RTO-001), measured data loss of 2880 minutes exceeds the 1440-minute RPO (TR-RPO-001), load testing only reached 50% of expected peak (TR-LOAD-001), 2 critical static-analysis code findings remain unresolved (TR-CODE-001), and 3 production blockers remain open (TR-BLOCKER-001). Under the normative policy, these findings mandate a REWORK disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"measured_restore_hours\": 42",
+          "finding_id": "TR-RTO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"measured_data_loss_minutes\": 2880"
+        },
+        {
+          "quote": "\"load_test_pct_of_peak\": 50",
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-CODE-001",
+          "quote": "\"critical_static_findings\": 2"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"open_blockers\": 3"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts reveal that requested funding exceeds the approved envelope (budget_requested_eur: 1500000 > budget_approved_eur: 1275000), triggering GEN-BUDGET-001 (SUSPENSION). In addition, upstream decisions show that the security gate returned NO_GO, triggering GEN-UPSTREAM-NOGO (NO_GO). Under the priority ordering of the normative policy, NO_GO supersedes SUSPENSION. Authorization is required for NO_GO.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "quote": "\"budget_approved_eur\": 1275000, \"budget_requested_eur\": 1500000",
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"disposition\": \"NO_GO\"",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

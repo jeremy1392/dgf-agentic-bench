@@ -1,0 +1,516 @@
+{
+  "usage": {
+    "prompt_tokens": 33341,
+    "completion_tokens": 1400,
+    "total_tokens": 34741,
+    "reasoning_tokens": 599,
+    "cached_tokens": 25600,
+    "cost": 0.0019903300000000002,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 62,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 38,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 47,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 162,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 68,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 49,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 91,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 37,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 127,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 67,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-03-COMPLIANCE-1",
+            "occurrence_id": "BUY-03-COMPLIANCE-1",
+            "gate": "compliance",
+            "phase": "design",
+            "authority": "Noor Meyer-12000-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012000",
+            "generation_seed": 12000,
+            "project_name": "Project Delta — Observability Platform [F2EE0]",
+            "project_code": "F2EE0",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Sales",
+            "sponsor": "Yusuf Costa-12000-SP",
+            "project_manager": "Victor Dubois-12000-PM",
+            "business_owner": "Marc Volkov-12000-BO",
+            "service_owner": "Noor Dubois-12000-SO",
+            "risk_owner": "Noor Meyer-12000-RO",
+            "start_date": "2026-09-05",
+            "target_go_live": "2027-03-15",
+            "users_impacted": 250,
+            "budget_requested_eur": 1500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "Internal policy baseline"
+            ],
+            "dpia_required": false,
+            "dpia_status": "not_required",
+            "required_residency": "UK",
+            "residency_compliant": false,
+            "retention_years": 3,
+            "legal_hold_supported": false,
+            "deletion_enforced": false,
+            "audit_trail": "complete",
+            "accessibility_status": "pass",
+            "ethics_review": "passed",
+            "regulatory_mapping": "partial",
+            "third_party_monitoring": "onboarding_only",
+            "export_control": "clear"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_INVENTORY"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_INVENTORY",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 91,
+        "path": "gate_evidence/compliance/data_inventory.csv",
+        "content": [
+          {
+            "actual_region": "East US",
+            "classification": "Confidential",
+            "dataset": "Core business data",
+            "personal_data": "False",
+            "required_residency": "UK"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REG_MAPPING"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REG_MAPPING",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 127,
+        "path": "gate_evidence/compliance/regulatory_mapping.csv",
+        "content": [
+          {
+            "mapping_status": "partial",
+            "owner": "GRC",
+            "regulation": "Internal policy baseline"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_8d5ca7349a0f43a7bcd973c9",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "call_83eee57d738c4f1598c69e08",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5520,
+        "completion_tokens": 53,
+        "total_tokens": 5573,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00074516,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_14d691f13acd4420acb24805",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6463,
+        "completion_tokens": 62,
+        "total_tokens": 6525,
+        "reasoning_tokens": 16,
+        "cached_tokens": 5376,
+        "cost": 0.00022731,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_bdc4bbed33af4f6e95f334d1",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DATA_INVENTORY\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6970,
+        "completion_tokens": 287,
+        "total_tokens": 7257,
+        "reasoning_tokens": 233,
+        "cached_tokens": 6400,
+        "cost": 0.00028734,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot shows a critical residency violation. Let me confirm the supporting evidence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_13461d3871034aa5a2bdb840",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REG_MAPPING\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7119,
+        "completion_tokens": 256,
+        "total_tokens": 7375,
+        "reasoning_tokens": 195,
+        "cached_tokens": 6912,
+        "cost": 0.00022915,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot yields exactly one finding: the residency violation. All other predicates are negative.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_f2e26e7fd7c849248ad78d7c",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-RESID-001\"], \"actions\": [\"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\", \"DATA_INVENTORY\"], \"evidence_support\": [{\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"\\\"required_residency\\\": \\\"UK\\\", \\\"residency_compliant\\\": false\"}, {\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"DATA_INVENTORY\", \"quote\": \"{\\\"actual_region\\\": \\\"East US\\\", \\\"classification\\\": \\\"Confidential\\\", \\\"dataset\\\": \\\"Core business data\\\", \\\"personal_data\\\": \\\"False\\\", \\\"required_residency\\\": \\\"UK\\\"}\"}], \"authorization_required\": true, \"rationale\": \"Evaluating the authoritative REVIEW_FACTS_COMPLIANCE snapshot against the compliance decision policy, exactly one predicate fires. compliance.residency_compliant = false (required_residency = \\\"UK\\\" but actual data region is \\\"East US\\\", corroborated by the authoritative DATA_INVENTORY) triggers COMP-RESID-001 (critical): actual data region violates the required residency constraint, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, disposition NO_GO. All other predicates are negative: dpia_required = false and dpia_status = \\\"not_required\\\" (no COMP-DPIA-001); audit_trail = \\\"complete\\\" (no COMP-AUDIT-001); regulatory_mapping = \\\"partial\\\" (not \\\"missing\\\", no COMP-MAP-001); accessibility_status = \\\"pass\\\" (no COMP-A11Y-001); export_control = \\\"clear\\\" (no COMP-EXPORT-001/002). The single critical residency finding mandates NO_GO, which requires authorization under the standing mandate (scope: all and only risk-acceptable findings; COMP-RESID-001 has risk_acceptance_allowed = false).\", \"confidence\": 0.95}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7269,
+        "completion_tokens": 742,
+        "total_tokens": 8011,
+        "reasoning_tokens": 137,
+        "cached_tokens": 6912,
+        "cost": 0.00050137,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "Relace",
+    "Relace",
+    "Relace",
+    "Relace",
+    "Relace"
+  ],
+  "turns": 5,
+  "tool_call_count": 5,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-03-COMPLIANCE-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "COMP-RESID-001"
+    ],
+    "actions": [
+      "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE",
+      "DATA_INVENTORY"
+    ],
+    "authorization_required": true,
+    "rationale": "Evaluating the authoritative REVIEW_FACTS_COMPLIANCE snapshot against the compliance decision policy, exactly one predicate fires. compliance.residency_compliant = false (required_residency = \"UK\" but actual data region is \"East US\", corroborated by the authoritative DATA_INVENTORY) triggers COMP-RESID-001 (critical): actual data region violates the required residency constraint, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, disposition NO_GO. All other predicates are negative: dpia_required = false and dpia_status = \"not_required\" (no COMP-DPIA-001); audit_trail = \"complete\" (no COMP-AUDIT-001); regulatory_mapping = \"partial\" (not \"missing\", no COMP-MAP-001); accessibility_status = \"pass\" (no COMP-A11Y-001); export_control = \"clear\" (no COMP-EXPORT-001/002). The single critical residency finding mandates NO_GO, which requires authorization under the standing mandate (scope: all and only risk-acceptable findings; COMP-RESID-001 has risk_acceptance_allowed = false).",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "finding_id": "COMP-RESID-001",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+      },
+      {
+        "finding_id": "COMP-RESID-001",
+        "evidence_id": "DATA_INVENTORY",
+        "quote": "{\"actual_region\": \"East US\", \"classification\": \"Confidential\", \"dataset\": \"Core business data\", \"personal_data\": \"False\", \"required_residency\": \"UK\"}"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 11,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

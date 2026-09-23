@@ -1,0 +1,199 @@
+{
+  "case_id": "da9b8fee-8f26-5194-815e-e810b5795228",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-BUDGET-001",
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_ARBITRATION",
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": true,
+      "rationale": "The selected vendor HelioStack Cloud 8BB11-4 has a 3-year TCO of 1,800,280 EUR which materially exceeds the purchasing envelope of 500,000 EUR (threshold: 750,000 EUR), triggering PROC-BUDGET-001 (SUSPENSION). In addition, vendor references have not been checked ('references_checked': false), triggering PROC-REF-001 (GO_WITH_RESERVATIONS). Following the priority low-to-high scale, the gate disposition is SUSPENSION. A standing mandate covers risk-acceptable findings and conditions were registered.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "\"tco_3y_eur\": 1800280",
+          "finding_id": "PROC-BUDGET-001"
+        },
+        {
+          "finding_id": "PROC-REF-001",
+          "quote": "\"references_checked\": false",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-AUDIT-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative review facts indicate that the target contract provides no contractual audit rights (\"audit_right\": \"none\"). Under normative legal gate policy, this triggers LEGAL-AUDIT-001 with disposition REWORK and required action REDLINE_AUDIT_RIGHT. All other evaluated contractual conditions (DPA status, liability cap, exit assistance, IP ownership, insurance validity, and signing authority) conform to policy requirements. Rework does not require standing authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"audit_right\": \"none\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative compliance review facts reveal that actual data hosting violates required residency constraints (\"residency_compliant\": false), triggering COMP-RESID-001 with disposition NO_GO. In addition, the compliance audit trail is missing (\"audit_trail\": \"missing\"), triggering COMP-AUDIT-001 with disposition REWORK. Under the decision policy priority scale, NO_GO is the binding disposition, requiring formal authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"residency_compliant\": false"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"audit_trail\": \"missing\"",
+          "finding_id": "COMP-AUDIT-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative security review facts show that the workload is internet-exposed without any Web Application Firewall control (\"waf_present\": false), triggering SEC-WAF-001 with disposition NO_GO. Furthermore, security-relevant logs are not connected to the SIEM (\"logs_to_siem\": false), triggering SEC-LOG-001 with disposition REWORK. Under the normative decision hierarchy, NO_GO is the highest-priority disposition and requires formal authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"waf_present\": false",
+          "finding_id": "SEC-WAF-001"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"logs_to_siem\": false"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001",
+        "IT-CMDB-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION",
+        "CREATE_CMDB_RECORD",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative IT review facts indicate that the license position is not compliant (\"license_compliant\": false), triggering IT-LICENSE-001 (REWORK). Furthermore, the required CMDB record is missing in build_acceptance phase (\"cmdb_record_present\": false), triggering IT-CMDB-001 (GO_WITH_RESERVATIONS), and the technology reaches end-of-life within 12 months (\"technology_eol_months\": 8), triggering IT-EOL-001 (REWORK). Under the decision policy priority scale, REWORK is the binding disposition and does not require formal authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "quote": "\"license_compliant\": false",
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        {
+          "finding_id": "IT-CMDB-001",
+          "quote": "\"cmdb_record_present\": false",
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"technology_eol_months\": 8"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-BC-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "REVISE_BUSINESS_CASE",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts show that the requested funding of 500,000 EUR exceeds the approved envelope of 425,000 EUR (\"budget_requested_eur\": 500000, \"budget_approved_eur\": 425000), triggering GEN-BUDGET-001 (SUSPENSION). In addition, the business-case ROI of 0.048 is below the 0.05 threshold (\"roi\": 0.048), triggering GEN-BC-001 (REWORK). Furthermore, two upstream specialist gates (Compliance and Security) returned NO_GO decisions (\"disposition\": \"NO_GO\"), triggering GEN-UPSTREAM-NOGO (NO_GO). Under the normative decision hierarchy, NO_GO is the highest-priority disposition and requires formal authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 500000"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_approved_eur\": 425000"
+        },
+        {
+          "finding_id": "GEN-BC-001",
+          "quote": "\"roi\": 0.048",
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        {
+          "quote": "\"disposition\": \"NO_GO\"",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

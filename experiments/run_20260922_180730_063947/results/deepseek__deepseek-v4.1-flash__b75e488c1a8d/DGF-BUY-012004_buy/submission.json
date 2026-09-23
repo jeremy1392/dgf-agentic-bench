@@ -1,0 +1,253 @@
+{
+  "case_id": "da9b8fee-8f26-5194-815e-e810b5795228",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-BUDGET-001",
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_ARBITRATION",
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT",
+        "DUE_DILIGENCE",
+        "PRICING_TCO",
+        "VENDOR_OFFERS"
+      ],
+      "authorization_required": true,
+      "rationale": "Selected supplier HelioStack Cloud 8BB11-4 has 3-year TCO of 1,800,280 EUR against a purchasing envelope of 500,000 EUR (threshold 750,000 EUR = 1.5x), materially exceeding the envelope → PROC-BUDGET-001 (SUSPENSION, OBTAIN_BUDGET_ARBITRATION). Its references_checked is false → PROC-REF-001 (GO_WITH_RESERVATIONS, CHECK_VENDOR_REFERENCES). Mandatory criteria (0 failed), sanctions (clear) and due diligence (complete) are all satisfied, so no critical findings apply. Highest-priority applicable disposition is SUSPENSION, which requires authorization.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "PROC-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "\"selected_vendor\": \"HelioStack Cloud 8BB11-4\" ... \"tco_3y_eur\": 1800280 ... \"purchasing_budget_eur\": 500000"
+        },
+        {
+          "finding_id": "PROC-REF-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"vendor\": \"HelioStack Cloud 8BB11-4\", ... \"references_checked\": false, ...}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-AUDIT-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA",
+        "CONTRACT_PLAYBOOK"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the legal decision policy to the authoritative REVIEW_FACTS_LEGAL snapshot: dpa_status=\"signed\" (personal_data=true) → no LEGAL-DPA-001; liability_cap_multiplier=2 with security_carveout=true → no LEGAL-LIAB-001; exit_assistance_days=90 → no LEGAL-EXIT-001; ip_ownership=\"shared\" → no LEGAL-IP-001; insurance_valid=true → no LEGAL-INS-001; signing_authority_valid=true → no LEGAL-SIGN-001; log_export_clause=\"included\" → no LEGAL-LOG-001. The only applicable finding is LEGAL-AUDIT-001: audit_right=\"none\" (MSA clause 7 \"Customer audit rights: none.\") is insufficient against the playbook requirement of \"full or limited\". This is a high-severity REWORK finding (action REDLINE_AUDIT_RIGHT), so the highest-priority applicable disposition is REWORK. REWORK is not in authorization_required_for, so no authorization is required.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"audit_right\": \"none\""
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "MSA",
+          "quote": "7. Audit Rights\nCustomer audit rights: none."
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "CONTRACT_PLAYBOOK",
+          "quote": "\"audit_right\": \"full or limited\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the compliance decision policy to the authoritative REVIEW_FACTS_COMPLIANCE snapshot: dpia_required=true and dpia_status=\"complete\" → no COMP-DPIA-001; regulatory_mapping=\"complete\" → no COMP-MAP-001; accessibility_status=\"pass\" → no COMP-A11Y-001; export_control=\"clear\" → no COMP-EXPORT-001/002. Two findings apply. (1) residency_compliant=false with required_residency=\"EU\" while the authoritative DATA_INVENTORY shows actual_region=\"UAE Central\" → COMP-RESID-001 (critical, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, disposition NO_GO). (2) audit_trail=\"missing\" → COMP-AUDIT-001 (high, action IMPLEMENT_AUDIT_TRAIL, disposition REWORK). The highest-priority applicable disposition is NO_GO, which requires authorization. Note: the standing mandate covers only risk-acceptable findings, and neither of these findings permits risk acceptance, so no conditional approval is available.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"required_residency\": \"EU\", \"residency_compliant\": false"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "DATA_INVENTORY",
+          "quote": "{\"actual_region\": \"UAE Central\", ... \"required_residency\": \"EU\"}"
+        },
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"audit_trail\": \"missing\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "SENTINEL_STATUS"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the security decision policy (DGF-decision-v8) to the authoritative REVIEW_FACTS_SECURITY snapshot (v1, age 0 days): internet_exposed=true with waf_present=false → SEC-WAF-001 (critical, IMPLEMENT_WAF, disposition NO_GO), corroborated by the authoritative WAF_POLICY (present=false, mode=None). Because waf_present is false, the detection-mode predicate for SEC-WAF-002 does not apply. logs_to_siem=false (sentinel=false, connectors=[]) → SEC-LOG-001 (high, CONNECT_LOGS_TO_SIEM, REWORK), corroborated by SENTINEL_STATUS. The remaining predicates do not fire: data_classification=Confidential with private_endpoints=true → no SEC-NET-001; mfa=mandatory → no SEC-IAM-001; shared_service_principal=false → no SEC-IAM-002; critical_vulns_open=0 → no SEC-VULN-001; key_rotation_days=90 (not None/365) → no SEC-KEY-001; phase is 'design', so the build_acceptance pentest predicate is not applicable (and pentest_status=pass anyway). Highest-priority applicable disposition is NO_GO, which requires authorization. The active standing mandate (MANDATE-...-BUY-04-SECURITY-1) covers 'all and only risk-acceptable findings'; SEC-WAF-001 has risk_acceptance_allowed=false, so no conditional approval/risk acceptance is available and no approval reference can substitute for remediation. Upstream same-phase decisions (procurement SUSPENSION, legal REWORK, compliance NO_GO) are consistent with a non-GO security outcome; this gate's decision rests on the security snapshot itself.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\""
+        },
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "WAF_POLICY",
+          "quote": "{\"present\": false, \"mode\": \"None\", \"managed_rules\": \"OWASP\", \"bot_protection\": false}"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"logs_to_siem\": false, \"sentinel\": false, \"defender\": false"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "SENTINEL_STATUS",
+          "quote": "{\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001",
+        "IT-EOL-001",
+        "IT-CMDB-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION",
+        "CREATE_CONVERGENCE_PLAN",
+        "CREATE_CMDB_RECORD"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "LICENSE_POSITION",
+        "LIFECYCLE_REGISTER",
+        "SUPPORT_RACI",
+        "TECH_CATALOG",
+        "CAPACITY_REPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the IT decision policy (DGF-decision-v8) to the authoritative REVIEW_FACTS_IT snapshot (v1, age 0 days) at phase build_acceptance. Predicates that do NOT fire: catalog_status=\\\"standard\\\" with waiver_present=true (waiver_expiry_days=365), corroborated by TECH_CATALOG (\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true) → no IT-CATALOG-001; duplicate_capability=false → no IT-RATIONAL-001; run_owner_present=true (Support RACI: \\\"Run owner | Maya Rossi-12004-SO\\\") → no IT-RUN-001; capacity_headroom_pct=20 (not <15), corroborated by CAPACITY_REPORT (\\\"capacity_headroom_pct\\\": \\\"20\\\") → no IT-CAPACITY-001; change_record_status=\\\"draft\\\" only applies at phase deployment_closure, and this occurrence is build_acceptance → no IT-CHANGE-001. Three findings apply: (1) IT-LICENSE-001 (high) — license_compliant=false, corroborated by the authoritative LICENSE_POSITION (license_compliant=\\\"False\\\") → REMEDIATE_LICENSE_POSITION; (2) IT-EOL-001 (high) — technology_eol_months=8 < 12, corroborated by LIFECYCLE_REGISTER (eol_months=\\\"8\\\" for container_apps) → CREATE_CONVERGENCE_PLAN; (3) IT-CMDB-001 (medium) — cmdb_record_present=false in build_acceptance, and CMDB is required per Support RACI → CREATE_CMDB_RECORD. The highest-priority applicable disposition is REWORK (from the two high-severity findings); REWORK is not in authorization_required_for, so no authorization is required and no conditional approval under the standing mandate (which covers only risk-acceptable findings) is available or needed.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"license_compliant\": false, \"annual_license_cost_eur\": 216101"
+        },
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "LICENSE_POSITION",
+          "quote": "{\"annual_cost_eur\": \"216101\", \"license_compliant\": \"False\"}"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"technology_eol_months\": 8"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "LIFECYCLE_REGISTER",
+          "quote": "{\"capacity_headroom_pct\": \"20\", \"eol_months\": \"8\", \"technology\": \"container_apps\"}"
+        },
+        {
+          "finding_id": "IT-CMDB-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"cmdb_record_present\": false"
+        },
+        {
+          "finding_id": "IT-CMDB-001",
+          "evidence_id": "SUPPORT_RACI",
+          "quote": "CMDB required | Yes"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO",
+        "GEN-BUDGET-001",
+        "GEN-BC-001"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO",
+        "OBTAIN_BUDGET_APPROVAL",
+        "REVISE_BUSINESS_CASE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "BUDGET_APPROVAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the general decision policy (DGF-decision-v8) to the authoritative REVIEW_FACTS_GENERAL snapshot (v1, age 0 days) at phase governance. strategic_alignment=\\\"strong\\\" → no GEN-STRAT-001. Three findings apply. (1) GEN-UPSTREAM-NOGO (critical): UPSTREAM_DECISIONS shows BUY-03-COMPLIANCE-1 returned disposition \\\"NO_GO\\\", so at least one upstream gate returned NO_GO → RESOLVE_UPSTREAM_NO_GO, disposition NO_GO. (2) GEN-BUDGET-001 (high): budget_requested_eur=500000 exceeds budget_approved_eur=425000, corroborated by the authoritative BUDGET_APPROVAL (requested_eur=500000, approved_eur=425000, status=PARTIAL) → OBTAIN_BUDGET_APPROVAL, disposition SUSPENSION. (3) GEN-BC-001 (medium): roi=0.048 < 0.05 threshold and phase is governance (not deployment_closure) → REVISE_BUSINESS_CASE, disposition REWORK. change_plan_status=\\\"missing\\\" does not fire because the phase is not deployment_closure, so GEN-BENEFITS-001 does not apply. The highest-priority applicable disposition is NO_GO, which requires authorization. GEN-UPSTREAM-NOGO has risk_acceptance_allowed=false, so no conditional approval or risk acceptance is available.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"gate\": \"compliance\", \"phase\": \"design\", \"disposition\": \"NO_GO\""
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 500000, \"budget_approved_eur\": 425000"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "BUDGET_APPROVAL",
+          "quote": "{\"approved_eur\": \"425000\", \"approver\": \"CFO Office\", \"requested_eur\": \"500000\", \"status\": \"PARTIAL\"}"
+        },
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"roi\": 0.048"
+        }
+      ]
+    }
+  ]
+}

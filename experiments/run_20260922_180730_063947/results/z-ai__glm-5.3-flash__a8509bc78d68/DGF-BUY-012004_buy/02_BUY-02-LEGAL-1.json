@@ -1,0 +1,596 @@
+{
+  "usage": {
+    "prompt_tokens": 45505,
+    "completion_tokens": 10566,
+    "total_tokens": 56071,
+    "reasoning_tokens": 10762,
+    "cached_tokens": 36800,
+    "cost": 0.00916475,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 82,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 70,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 43,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 106,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 110,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 161,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 7,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 99,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 152,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 23,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012004",
+            "generation_seed": 12004,
+            "project_name": "Project Boreal — Enterprise Workflow Platform [8BB11]",
+            "project_code": "8BB11",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Customer Service",
+            "sponsor": "Maya Laurent-12004-SP",
+            "project_manager": "Leila Volkov-12004-PM",
+            "business_owner": "Clara Costa-12004-BO",
+            "service_owner": "Maya Rossi-12004-SO",
+            "risk_owner": "Omar Petrescu-12004-RO",
+            "start_date": "2026-10-17",
+            "target_go_live": "2027-09-10",
+            "users_impacted": 1000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "UAE Central",
+            "personal_data": true,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "legal": {
+            "contract_version": "MSA-8BB11-3.3",
+            "governing_law": "England & Wales",
+            "dpa_status": "signed",
+            "liability_cap_multiplier": 2,
+            "security_carveout": true,
+            "audit_right": "none",
+            "termination_for_convenience": true,
+            "exit_assistance_days": 90,
+            "ip_ownership": "shared",
+            "insurance_valid": true,
+            "cyber_insurance_m": 20,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "missing",
+            "sla_penalties": true,
+            "log_export_clause": "included"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "MSA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "MSA",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 43,
+        "path": "gate_evidence/legal/MSA.docx",
+        "content": "Master Services Agreement\nSynthetic contract MSA-8BB11-3.3\n1. Services\nSupplier shall provide the services described in the Order Form for Project Boreal — Enterprise Workflow Platform [8BB11].\nSupplier comment: Clause accepted subject to final commercial approval.\n2. Term\nInitial term 36 months with renewal subject to the Order Form.\nSupplier comment: Clause accepted subject to final commercial approval.\n3. Service Levels\nService credits and penalties: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n4. Data Processing\nDPA status: signed. Transfer clause: missing.\nSupplier comment: Clause accepted subject to final commercial approval.\n5. Confidentiality\nEach party protects confidential information using reasonable safeguards.\nSupplier comment: Clause accepted subject to final commercial approval.\n6. Security\nSecurity logs export: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n7. Audit Rights\nCustomer audit rights: none.\nSupplier comment: Clause accepted subject to final commercial approval.\n8. Intellectual Property\nIP ownership: shared.\nSupplier comment: Clause accepted subject to final commercial approval.\n9. Exit and Reversibility\nExit assistance: 90 days.\nSupplier comment: Clause accepted subject to final commercial approval.\n10. Insurance\nCyber insurance: EUR 20m. Certificate valid: True.\nSupplier comment: Clause accepted subject to final commercial approval.\n11. Liability\nAggregate liability cap: 2x annual fees. Security carve-out: True.\nSupplier comment: Current liability position is commercially sensitive.\n12. Governing Law\nEngland & Wales\nSupplier comment: Clause accepted subject to final commercial approval."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CONTRACT_PLAYBOOK"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 161,
+        "path": "gate_evidence/legal/contract_playbook.json",
+        "content": {
+          "required": {
+            "DPA": "signed if personal data",
+            "audit_right": "full or limited",
+            "exit_assistance_days": ">=30",
+            "security_log_export": "included for high/critical services",
+            "signing_authority": "valid"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "NEGOTIATION_LOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "NEGOTIATION_LOG",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 7,
+        "path": "gate_evidence/legal/negotiation_log.docx",
+        "content": "Contract Negotiation Log\nOpen negotiation points\nLiability cap currently 2x annual fees.\nAudit right currently: none.\nExit assistance: 90 days.\nSecurity log export: included.\nDPA status: signed."
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-da9b8fee-8f26-5194-815e-e810b5795228-BUY-02-LEGAL-1",
+            "occurrence_id": "BUY-02-LEGAL-1",
+            "gate": "legal",
+            "phase": "design",
+            "authority": "Omar Petrescu-12004-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e6efb76dcc174e44a2aaf497",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5017,
+        "completion_tokens": 28,
+        "total_tokens": 5045,
+        "reasoning_tokens": 18,
+        "cached_tokens": 1792,
+        "cost": 0.00062319,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ca9c29c7b7a947bfa50d3744",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5789,
+        "completion_tokens": 53,
+        "total_tokens": 5842,
+        "reasoning_tokens": 36,
+        "cached_tokens": 2048,
+        "cost": 0.00073101,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is available. Let me evaluate the rule predicates against it and corroborate with the contract documents.\n\nRule evaluation against `REVIEW_FACTS_LEGAL.legal`:\n- `dpa_status = \"signed\"` → LEGAL-DPA-001 not triggered\n- `liability_cap_multiplier = 2`, `security_carveout = true` → LEGAL-LIAB-001 not triggered\n- `audit_right = \"none\"` → **LEGAL-AUDIT-001 triggered**\n- `exit_assistance_days = 90` → LEGAL-EXIT-001 not triggered\n- `ip_ownership = \"shared\"` → LEGAL-IP-001 not triggered\n- `insurance_valid = true` → LEGAL-INS-001 not triggered\n- `signing_authority_valid = true` → LEGAL-SIGN-001 not triggered\n- `log_export_clause = \"included\"` → LEGAL-LOG-001 not triggered\n\nLet me corroborate the audit-rights finding against the MSA and the authoritative contract playbook.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_33a8611599eb4b0690665320",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"MSA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6250,
+        "completion_tokens": 2037,
+        "total_tokens": 8287,
+        "reasoning_tokens": 2096,
+        "cached_tokens": 5760,
+        "cost": 0.0014952,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_6033915fd1bd4946a70e9d06",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CONTRACT_PLAYBOOK\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6890,
+        "completion_tokens": 18,
+        "total_tokens": 6908,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6208,
+        "cost": 0.00054586,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative playbook requires `audit_right` to be \"full or limited\"; both the snapshot and MSA show \"none\". Let me check the recent negotiation log for any in-flight remediation context before deciding.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_52acf290812a4cdbae29c932",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"NEGOTIATION_LOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7020,
+        "completion_tokens": 514,
+        "total_tokens": 7534,
+        "reasoning_tokens": 524,
+        "cached_tokens": 6848,
+        "cost": 0.00076216,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "The negotiation log (7 days old) confirms audit right remains \"none\" as an open negotiation point — no in-flight fix. Let me check whether any standing mandate applies to this occurrence before finalizing.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ea4e466d9a6949f3aef07114",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7190,
+        "completion_tokens": 906,
+        "total_tokens": 8096,
+        "reasoning_tokens": 995,
+        "cached_tokens": 6976,
+        "cost": 0.00097342,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "content": "All predicates are now corroborated. Summary of the evaluation:\n\n**Triggered:** LEGAL-AUDIT-001 — `audit_right = \"none\"` in the authoritative snapshot, violating the authoritative playbook requirement (`\"audit_right\": \"full or limited\"`), corroborated by MSA clause 7 and the recent negotiation log (still an open point, no fix in flight).\n\n**Not triggered:** DPA signed (personal_data satisfied); liability 2x with security carve-out; exit assistance 90 days (≥30); IP \"shared\" (not \"ambiguous\"); insurance valid; signing authority valid; log export included (and criticality is Medium anyway).\n\n**Disposition:** The single finding carries REWORK. REWORK is not in `authorization_required_for`, so no authorization is needed — the active standing mandate (scoped to risk-acceptable findings) was checked but is not required for this disposition.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_4d1fe81334434008977e54f5",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"REDLINE_AUDIT_RIGHT\"], \"authorization_required\": false, \"confidence\": 0.95, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\", \"CONTRACT_PLAYBOOK\", \"MSA\", \"NEGOTIATION_LOG\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"finding_id\": \"LEGAL-AUDIT-001\", \"quote\": \"\\\"liability_cap_multiplier\\\": 2, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\"\"}, {\"evidence_id\": \"CONTRACT_PLAYBOOK\", \"finding_id\": \"LEGAL-AUDIT-001\", \"quote\": \"\\\"required\\\": { \\\"DPA\\\": \\\"signed if personal data\\\", \\\"audit_right\\\": \\\"full or limited\\\"\"}, {\"evidence_id\": \"MSA\", \"finding_id\": \"LEGAL-AUDIT-001\", \"quote\": \"7. Audit Rights Customer audit rights: none.\"}, {\"evidence_id\": \"NEGOTIATION_LOG\", \"finding_id\": \"LEGAL-AUDIT-001\", \"quote\": \"Audit right currently: none.\"}], \"finding_ids\": [\"LEGAL-AUDIT-001\"], \"rationale\": \"Authoritative REVIEW_FACTS_LEGAL (v1, age 0) shows audit_right=\\\"none\\\" for contract MSA-8BB11-3.3, while the authoritative CONTRACT_PLAYBOOK requires audit_right \\\"full or limited\\\"; MSA clause 7 (\\\"Customer audit rights: none\\\") and the 7-day-old NEGOTIATION_LOG (\\\"Audit right currently: none\\\", listed as an open negotiation point) corroborate that no audit rights exist and no fix is in flight. This triggers LEGAL-AUDIT-001 (high, REWORK, risk-acceptable) with action REDLINE_AUDIT_RIGHT. All other legal predicates pass on the authoritative snapshot: dpa_status=\\\"signed\\\" (satisfies personal_data=true), liability_cap_multiplier=2 with security_carveout=true, exit_assistance_days=90 (playbook requires >=30), ip_ownership=\\\"shared\\\" (not \\\"ambiguous\\\"), insurance_valid=true, signing_authority_valid=true, and log_export_clause=\\\"included\\\" (business_criticality is \\\"Medium\\\" in any case), so LEGAL-DPA-001, LEGAL-LIAB-001, LEGAL-EXIT-001, LEGAL-IP-001, LEGAL-INS-001, LEGAL-SIGN-001 and LEGAL-LOG-001 do not apply. Highest-priority disposition is REWORK; REWORK is not in authorization_required_for, so authorization_required=false and the active standing mandate MANDATE-da9b8fee-8f26-5194-815e-e810b5795228-BUY-02-LEGAL-1 (scoped to risk-acceptable findings) was checked but is not needed for this disposition. The snapshot's data_transfer_clause=\\\"missing\\\" has no corresponding candidate finding or rule predicate in this gate catalog and is recorded as an observation only. The proposed action is remediation (redline the MSA audit clause to grant at least limited audit rights before signature), not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7349,
+        "completion_tokens": 7010,
+        "total_tokens": 14359,
+        "reasoning_tokens": 7093,
+        "cached_tokens": 7168,
+        "cost": 0.00403391,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 7,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-02-LEGAL-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "LEGAL-AUDIT-001"
+    ],
+    "actions": [
+      "REDLINE_AUDIT_RIGHT"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL",
+      "CONTRACT_PLAYBOOK",
+      "MSA",
+      "NEGOTIATION_LOG"
+    ],
+    "authorization_required": false,
+    "rationale": "Authoritative REVIEW_FACTS_LEGAL (v1, age 0) shows audit_right=\"none\" for contract MSA-8BB11-3.3, while the authoritative CONTRACT_PLAYBOOK requires audit_right \"full or limited\"; MSA clause 7 (\"Customer audit rights: none\") and the 7-day-old NEGOTIATION_LOG (\"Audit right currently: none\", listed as an open negotiation point) corroborate that no audit rights exist and no fix is in flight. This triggers LEGAL-AUDIT-001 (high, REWORK, risk-acceptable) with action REDLINE_AUDIT_RIGHT. All other legal predicates pass on the authoritative snapshot: dpa_status=\"signed\" (satisfies personal_data=true), liability_cap_multiplier=2 with security_carveout=true, exit_assistance_days=90 (playbook requires >=30), ip_ownership=\"shared\" (not \"ambiguous\"), insurance_valid=true, signing_authority_valid=true, and log_export_clause=\"included\" (business_criticality is \"Medium\" in any case), so LEGAL-DPA-001, LEGAL-LIAB-001, LEGAL-EXIT-001, LEGAL-IP-001, LEGAL-INS-001, LEGAL-SIGN-001 and LEGAL-LOG-001 do not apply. Highest-priority disposition is REWORK; REWORK is not in authorization_required_for, so authorization_required=false and the active standing mandate MANDATE-da9b8fee-8f26-5194-815e-e810b5795228-BUY-02-LEGAL-1 (scoped to risk-acceptable findings) was checked but is not needed for this disposition. The snapshot's data_transfer_clause=\"missing\" has no corresponding candidate finding or rule predicate in this gate catalog and is recorded as an observation only. The proposed action is remediation (redline the MSA audit clause to grant at least limited audit rights before signature), not completed remediation.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "finding_id": "LEGAL-AUDIT-001",
+        "quote": "\"liability_cap_multiplier\": 2, \"security_carveout\": true, \"audit_right\": \"none\""
+      },
+      {
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "finding_id": "LEGAL-AUDIT-001",
+        "quote": "\"required\": { \"DPA\": \"signed if personal data\", \"audit_right\": \"full or limited\""
+      },
+      {
+        "evidence_id": "MSA",
+        "finding_id": "LEGAL-AUDIT-001",
+        "quote": "7. Audit Rights Customer audit rights: none."
+      },
+      {
+        "evidence_id": "NEGOTIATION_LOG",
+        "finding_id": "LEGAL-AUDIT-001",
+        "quote": "Audit right currently: none."
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 16,
+    "retries": 2,
+    "rate_limits": 2,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

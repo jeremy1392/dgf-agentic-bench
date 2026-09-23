@@ -1,0 +1,180 @@
+{
+  "case_id": "5d8bb3b5-f441-5613-97ae-b69c2f6113ad",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": true,
+      "rationale": "Technology reaches end-of-life within 12 months (technology_eol_months is 4). IT-EOL-001 is risk-acceptable and approved conditionally under standing mandate MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1, resulting in GO_WITH_RESERVATIONS with action CREATE_CONVERGENCE_PLAN.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"technology_eol_months\": 4"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": false,
+      "rationale": "Review facts confirm that business criticality is High while multi_az and multi_region are both false, triggering ARCH-HA-001 (disposition REWORK, not risk-acceptable). Additionally, reversibility_status is 'missing', triggering ARCH-REV-001 (disposition GO_WITH_RESERVATIONS, risk-acceptable). By policy precedence (REWORK > GO_WITH_RESERVATIONS), the overall gate disposition is REWORK, requiring actions REDESIGN_FOR_HIGH_AVAILABILITY and COMPLETE_EXIT_ARCHITECTURE. Authorization is not required for REWORK under the gate contract policy.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\\\"business_criticality\\\": \\\"High\\\", \\\"multi_az\\\": false, \\\"multi_region\\\": false",
+          "finding_id": "ARCH-HA-001"
+        },
+        {
+          "quote": "\\\"reversibility_status\\\": \\\"missing\\\"",
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-IAM-002",
+        "SEC-LOG-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+        "CONNECT_LOGS_TO_SIEM",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "Review of authoritative security facts indicates three non-compliant conditions: a shared service principal is in use (SEC-IAM-002, REWORK), security-relevant logs are not exported to SIEM (SEC-LOG-001, REWORK), and 2 critical vulnerabilities remain open (SEC-VULN-001, NO_GO). None of these findings permit risk acceptance under the policy. Following the gate precedence hierarchy, the presence of SEC-VULN-001 dictates an overall gate disposition of NO_GO. Per the gate contract policy, NO_GO decisions require authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"shared_service_principal\": true",
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"logs_to_siem\": false",
+          "finding_id": "SEC-LOG-001"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "quote": "\"critical_vulns_open\": 2",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts confirm that log_export_clause is 'missing' while business criticality is 'High', which triggers LEGAL-LOG-001. All other legal criteria are compliant (dpa_status is 'signed', liability_cap_multiplier is 1 with security_carveout true, audit_right is 'full', exit_assistance_days is 90, ip_ownership is 'customer', insurance_valid is true, and signing_authority_valid is true). LEGAL-LOG-001 is risk-acceptable and has been approved with conditions under the active standing mandate from risk owner Lucas Martin-12006-RO (MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-04-LEGAL-1), resulting in a GO_WITH_RESERVATIONS disposition requiring action ADD_LOG_EXPORT_CLAUSE.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "quote": "\"log_export_clause\": \"missing\"",
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-A11Y-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "REMEDIATE_ACCESSIBILITY",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative compliance review facts indicate that accessibility_status is 'major_findings' (triggering COMP-A11Y-001, REWORK) and export_control is 'pending' (triggering COMP-EXPORT-002, SUSPENSION). COMP-EXPORT-002 does not permit risk acceptance, so the standing mandate covering only risk-acceptable findings cannot resolve all findings. Per decision policy priority (GO < GO_WITH_RESERVATIONS < REWORK < SUSPENSION < NO_GO), the overall gate disposition is SUSPENSION, requiring authorization and the actions REMEDIATE_ACCESSIBILITY and COMPLETE_EXPORT_CONTROL_REVIEW.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"accessibility_status\": \"major_findings\"",
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        {
+          "quote": "\"export_control\": \"pending\"",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-EXPORT-002"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Review of authoritative general review facts shows requested funding (€500,000) exceeds approved budget (€350,000), triggering GEN-BUDGET-001 (disposition SUSPENSION). Additionally, the upstream Security gate returned NO_GO, triggering GEN-UPSTREAM-NOGO (disposition NO_GO). Per the normative decision hierarchy (GO < GO_WITH_RESERVATIONS < REWORK < SUSPENSION < NO_GO), the overall gate disposition is NO_GO. GEN-UPSTREAM-NOGO does not permit risk acceptance, precluding conditional approval under the standing mandate. NO_GO dispositions require authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "quote": "\"budget_approved_eur\": 350000, \"budget_requested_eur\": 500000",
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        {
+          "quote": "\"disposition\": \"NO_GO\"",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

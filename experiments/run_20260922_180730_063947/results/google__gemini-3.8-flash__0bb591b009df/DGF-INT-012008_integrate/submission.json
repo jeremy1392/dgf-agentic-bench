@@ -1,0 +1,160 @@
+{
+  "case_id": "d105d6fd-4d96-5545-aa68-27c4fb280616",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "LIFECYCLE_REGISTER"
+      ],
+      "authorization_required": false,
+      "rationale": "The IT review identified duplicate enterprise capability ('duplicate_capability': true) with an existing alternative ('shared_api_platform'), triggering IT-RATIONAL-001. Additionally, the technology reaches end-of-life in 4 months ('technology_eol_months': 4), which is below the 12-month threshold and triggers IT-EOL-001. Both findings require REWORK with associated actions.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"duplicate_capability\": true",
+          "finding_id": "IT-RATIONAL-001"
+        },
+        {
+          "quote": "\"technology_eol_months\": 4",
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative review facts confirm all architecture gate criteria are satisfied: no IP overlap exists (ip_overlap=false), required API gateway is present (api_gateway_present=true), data ownership is established (data_owner_present=true), measured latency of 95 ms meets the 100 ms target, business criticality is Medium with multi-AZ deployment in place, and reversibility is tested. With no findings triggered, the disposition is GO.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-IAM-001",
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "ENFORCE_MFA",
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of authoritative review facts (REVIEW_FACTS_SECURITY) identified three security findings: 1) SEC-NET-001 (critical / NO_GO) due to data classification being Confidential while private endpoints are disabled (\"private_endpoints\": false); 2) SEC-IAM-001 (high / REWORK) because MFA is not mandatory (\"mfa\": \"optional\"); 3) SEC-LOG-001 (high / REWORK) because security-relevant logs are not connected to SIEM (\"logs_to_siem\": false). Under DGF decision policy v8, the highest priority finding determines the gate disposition of NO_GO, and authorization is required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"private_endpoints\": false"
+        },
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"mfa\": \"optional\""
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"logs_to_siem\": false",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative legal review facts confirm that all contractual and legal criteria meet policy thresholds: personal data is not processed and dpa_status is not_required; liability_cap_multiplier is 1.0 (not low/0.5); audit_right is limited (not reports_only or none); exit_assistance_days is 90 (> 0); ip_ownership is shared (not ambiguous); insurance_valid and signing_authority_valid are both true; and log_export_clause is included. No candidate legal findings are triggered, resulting in a GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": false,
+      "rationale": "Evaluation of authoritative review facts (REVIEW_FACTS_COMPLIANCE) indicates that the required compliance audit trail is missing (\"audit_trail\": \"missing\"), triggering high-severity finding COMP-AUDIT-001 with required action IMPLEMENT_AUDIT_TRAIL. Risk acceptance is not permitted for this finding. All other compliance parameters satisfy policy (DPIA not required, residency compliant in UAE, regulatory mapping complete, and export control clear). Consequently, the gate disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"audit_trail\": \"missing\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts (REVIEW_FACTS_GENERAL) indicate that requested funding exceeds the approved envelope (budget_requested_eur: 500000 vs. budget_approved_eur: 350000), triggering high-severity finding GEN-BUDGET-001 with action OBTAIN_BUDGET_APPROVAL. Furthermore, evaluation of UPSTREAM_DECISIONS shows that 1 upstream specialist gate (security) returned a NO_GO disposition, triggering critical-severity finding GEN-UPSTREAM-NOGO with action RESOLVE_UPSTREAM_NO_GO. Under DGF decision policy v8, the highest priority finding determines the final gate disposition of NO_GO, and formal authorization is required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 500000"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-BUDGET-001",
+          "quote": "\"budget_approved_eur\": 350000"
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"disposition\": \"NO_GO\"",
+          "finding_id": "GEN-UPSTREAM-NOGO"
+        }
+      ]
+    }
+  ]
+}

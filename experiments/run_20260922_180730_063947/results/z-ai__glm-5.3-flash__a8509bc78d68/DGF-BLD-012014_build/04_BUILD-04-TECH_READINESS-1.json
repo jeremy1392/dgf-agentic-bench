@@ -1,0 +1,845 @@
+{
+  "usage": {
+    "prompt_tokens": 108609,
+    "completion_tokens": 3909,
+    "total_tokens": 112518,
+    "reasoning_tokens": 2334,
+    "cached_tokens": 95616,
+    "cost": 0.01059657,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "tech_readiness",
+        "phase": "build_acceptance",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 42,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "SUPPORT_RACI",
+            "path": "gate_evidence/it/support_raci.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 60,
+            "consumers": [
+              "it",
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 49,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 82,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "LLD",
+            "path": "gate_evidence/architecture/LLD_Architecture_Notes.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 114,
+            "consumers": [
+              "architecture",
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "SENTINEL_STATUS",
+            "path": "gate_evidence/security/sentinel_connectors.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 87,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "DEFENDER_FINDINGS",
+            "path": "gate_evidence/security/defender_findings.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 1,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "VULN_SCAN",
+            "path": "gate_evidence/security/vulnerability_scan.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 126,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "PENTEST",
+            "path": "gate_evidence/security/pentest_report.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 133,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "BACKUP_JOBS",
+            "path": "gate_evidence/tech_readiness/backup_jobs.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 97,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "RESTORE_TEST",
+            "path": "gate_evidence/tech_readiness/restore_test.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 62,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "FAILOVER_TEST",
+            "path": "gate_evidence/tech_readiness/failover_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 83,
+            "consumers": [
+              "tech_readiness",
+              "architecture",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "LOAD_TEST",
+            "path": "gate_evidence/tech_readiness/load_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 70,
+            "consumers": [
+              "tech_readiness",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CI_PIPELINE",
+            "path": "gate_evidence/tech_readiness/ci_pipeline.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 63,
+            "consumers": [
+              "tech_readiness",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "RUNBOOK",
+            "path": "gate_evidence/tech_readiness/production_runbook.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 3,
+            "consumers": [
+              "tech_readiness",
+              "it",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ROLLBACK_TEST",
+            "path": "gate_evidence/tech_readiness/rollback_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 114,
+            "consumers": [
+              "tech_readiness",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "SLO_SLI",
+            "path": "gate_evidence/tech_readiness/slo_sli.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 18,
+            "consumers": [
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "MONITOR_ALERTS",
+            "path": "gate_evidence/tech_readiness/monitor_alerts.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 23,
+            "consumers": [
+              "tech_readiness",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 85,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+            "path": "gate_evidence/tech_readiness/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "tech_readiness"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/tech_readiness/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012014",
+            "generation_seed": 12014,
+            "project_name": "Project Delta — Enterprise Workflow Platform [0166D]",
+            "project_code": "0166D",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Corporate Services",
+            "sponsor": "David Smith-12014-SP",
+            "project_manager": "Marc Rossi-12014-PM",
+            "business_owner": "Leila Haddad-12014-BO",
+            "service_owner": "David Santos-12014-SO",
+            "risk_owner": "Jeremy Ivanov-12014-RO",
+            "start_date": "2026-11-25",
+            "target_go_live": "2027-05-10",
+            "users_impacted": 250,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "France Central",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "tech_readiness": {
+            "test_completion_pct": 65,
+            "pilot_completed": true,
+            "load_test_pct_of_peak": 125,
+            "p95_ms": 1587,
+            "unit_test_coverage_pct": 37,
+            "critical_static_findings": 1,
+            "observability_metrics": true,
+            "observability_logs": true,
+            "observability_traces": true,
+            "backup_enabled": true,
+            "restore_tested": true,
+            "target_rto_hours": 0.25,
+            "measured_restore_hours": 0.21,
+            "target_rpo_minutes": 1440,
+            "measured_data_loss_minutes": 1440,
+            "dr_required": true,
+            "dr_tested": false,
+            "runbook_status": "draft",
+            "on_call_defined": true,
+            "handover_signed": true,
+            "rollback_tested": true,
+            "open_blockers": 0
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "FAILOVER_TEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "FAILOVER_TEST",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 83,
+        "path": "gate_evidence/tech_readiness/failover_test.csv",
+        "content": [
+          {
+            "dr_required": "True",
+            "result": "NOT_RUN",
+            "secondary_region": "North Europe",
+            "tested": "False"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CI_PIPELINE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CI_PIPELINE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 63,
+        "path": "gate_evidence/tech_readiness/ci_pipeline.json",
+        "content": {
+          "unit_test_coverage_pct": 37,
+          "critical_static_findings": 1,
+          "build_reproducible": true
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "RUNBOOK"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "RUNBOOK",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 3,
+        "path": "gate_evidence/tech_readiness/production_runbook.docx",
+        "content": "Production Runbook & Handover\nOperations\nOperational procedures\nIncident triage and escalation\nBackup verification\nRestore execution\nRollback deployment\nFailover to secondary region\nField | Value\nRunbook status | draft\nOn-call defined | True\nHandover signed | True\nService owner | David Santos-12014-SO"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LOAD_TEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LOAD_TEST",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 70,
+        "path": "gate_evidence/tech_readiness/load_test.csv",
+        "content": [
+          {
+            "p95_ms": "1587",
+            "peak_test_pct": "125",
+            "test_completion_pct": "65"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "ROLLBACK_TEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "ROLLBACK_TEST",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 114,
+        "path": "gate_evidence/tech_readiness/rollback_test.csv",
+        "content": [
+          {
+            "result": "PASS",
+            "rollback_tested": "True"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "BACKUP_JOBS"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "BACKUP_JOBS",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 97,
+        "path": "gate_evidence/tech_readiness/backup_jobs.csv",
+        "content": [
+          {
+            "enabled": "True",
+            "job": "daily-backup",
+            "last_status": "Succeeded",
+            "retention_days": "35"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing the available evidence for this gate occurrence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e386e5b63eaf463f89c28d06",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10094,
+        "completion_tokens": 105,
+        "total_tokens": 10199,
+        "reasoning_tokens": 80,
+        "cached_tokens": 0,
+        "cost": 0.0015666,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "content": "Now let me read the authoritative review snapshot and the key authoritative evidence for this gate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_826fd34a2762434b9ebe23c2",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 11506,
+        "completion_tokens": 90,
+        "total_tokens": 11596,
+        "reasoning_tokens": 53,
+        "cached_tokens": 10048,
+        "cost": 0.00096706,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is clear. Let me verify against the corroborating authoritative evidence for the findings that appear to fire: FAILOVER_TEST (TR-DR-001), CI_PIPELINE (TR-CODE-001), and RUNBOOK (TR-OPS-001).",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1f13a4d389bb41ef88439aa3",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"FAILOVER_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12035,
+        "completion_tokens": 1101,
+        "total_tokens": 13136,
+        "reasoning_tokens": 961,
+        "cached_tokens": 11456,
+        "cost": 0.00143927,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_6d047eccd1684bcfa3abbeac",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CI_PIPELINE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12198,
+        "completion_tokens": 16,
+        "total_tokens": 12214,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12032,
+        "cost": 0.00087514,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_6581487af03b4e9a928826c9",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"RUNBOOK\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12297,
+        "completion_tokens": 16,
+        "total_tokens": 12313,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12160,
+        "cost": 0.00087975,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "The RUNBOOK corroborates the snapshot. Let me verify the remaining authoritative evidence for the predicates that do NOT fire (LOAD_TEST, ROLLBACK_TEST, BACKUP_JOBS) to confirm the negative determinations.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_65f4374cf81a4f738cf60146",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LOAD_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12442,
+        "completion_tokens": 521,
+        "total_tokens": 12963,
+        "reasoning_tokens": 427,
+        "cached_tokens": 12288,
+        "cost": 0.00114376,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b18f376c936145009d6f56dc",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"ROLLBACK_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12583,
+        "completion_tokens": 17,
+        "total_tokens": 12600,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12416,
+        "cost": 0.00090267,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_77879c667af44dd6bf4f1fd8",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"BACKUP_JOBS\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12673,
+        "completion_tokens": 18,
+        "total_tokens": 12691,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12544,
+        "cost": 0.00090643,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "content": "All evidence is now verified. My analysis of the authoritative snapshot against the decision policy:\n\n**Predicates that fire:**\n1. **TR-DR-001** (high, REWORK): `dr_required: true` and `dr_tested: false` — corroborated by authoritative FAILOVER_TEST (`result: NOT_RUN`, `tested: False`). The HLD confirms a multi-region active/passive design with \"FAILOVER NOT TESTED\".\n2. **TR-CODE-001** (high, REWORK): `critical_static_findings: 1` (> 0) — corroborated by authoritative CI_PIPELINE.\n3. **TR-OPS-001** (medium, GO_WITH_RESERVATIONS): `runbook_status: \"draft\"` (≠ approved) — corroborated by RUNBOOK (\"Runbook status | draft\"), though on_call_defined and handover_signed are true.\n\n**Predicates that do NOT fire (verified):**\n- TR-BACKUP-001: `backup_enabled: true` (BACKUP_JOBS: enabled True, Succeeded)\n- TR-RESTORE-001 / TR-RTO-001: `restore_tested: true`, measured 0.21h ≤ target 0.25h\n- TR-RPO-001: measured 1440 = target 1440 (not strictly greater)\n- TR-LOAD-001: `load_test_pct_of_peak: 125` (≥ 100, LOAD_TEST confirms)\n- TR-ROLLBACK-001: `rollback_tested: true` (ROLLBACK_TEST: PASS)\n- TR-BLOCKER-001: `open_blockers: 0`\n\nHighest applicable disposition is **REWORK**, which is not in `authorization_required_for`, so no authorization is required. TR-OPS-001 is risk-acceptance-allowed, but remediation (not risk acceptance) is the appropriate path, and no approval reference exists to support acceptance.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_9ec0d61a66df4408ab902e7e",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"RUN_DR_FAILOVER_TEST\", \"REMEDIATE_BUILD_FINDINGS\", \"COMPLETE_OPERATIONAL_HANDOVER\"], \"authorization_required\": false, \"confidence\": 0.95, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\", \"FAILOVER_TEST\", \"CI_PIPELINE\", \"RUNBOOK\", \"LOAD_TEST\", \"ROLLBACK_TEST\", \"BACKUP_JOBS\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"finding_id\": \"TR-DR-001\", \"quote\": \"\\\"dr_required\\\": true, \\\"dr_tested\\\": false\"}, {\"evidence_id\": \"FAILOVER_TEST\", \"finding_id\": \"TR-DR-001\", \"quote\": \"\\\"dr_required\\\": \\\"True\\\", \\\"result\\\": \\\"NOT_RUN\\\", \\\"secondary_region\\\": \\\"North Europe\\\", \\\"tested\\\": \\\"False\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"finding_id\": \"TR-CODE-001\", \"quote\": \"\\\"critical_static_findings\\\": 1\"}, {\"evidence_id\": \"CI_PIPELINE\", \"finding_id\": \"TR-CODE-001\", \"quote\": \"\\\"critical_static_findings\\\": 1, \\\"build_reproducible\\\": true\"}, {\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"finding_id\": \"TR-OPS-001\", \"quote\": \"\\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true\"}, {\"evidence_id\": \"RUNBOOK\", \"finding_id\": \"TR-OPS-001\", \"quote\": \"Runbook status | draft\"}], \"finding_ids\": [\"TR-DR-001\", \"TR-CODE-001\", \"TR-OPS-001\"], \"rationale\": \"Authoritative REVIEW_FACTS_TECH_READINESS (age 0 days) triggers three tech-readiness predicates. TR-DR-001 (high, REWORK): dr_required true with dr_tested false for the multi-region active/passive design, corroborated by authoritative FAILOVER_TEST showing result NOT_RUN and tested False; action RUN_DR_FAILOVER_TEST (SRE). TR-CODE-001 (high, REWORK): critical_static_findings 1 remains open, corroborated by authoritative CI_PIPELINE; action REMEDIATE_BUILD_FINDINGS (Engineering). TR-OPS-001 (medium, GO_WITH_RESERVATIONS): runbook_status is \\\"draft\\\" rather than approved, corroborated by the RUNBOOK document, although on_call_defined and handover_signed are true; action COMPLETE_OPERATIONAL_HANDOVER (Operations). All other predicates fail to fire: backup_enabled true (BACKUP_JOBS: enabled True, last_status Succeeded); restore_tested true with measured_restore_hours 0.21 within target_rto_hours 0.25; measured_data_loss_minutes 1440 equals (not exceeds) target_rpo_minutes 1440; load_test_pct_of_peak 125 reached peak (LOAD_TEST confirms); rollback_tested true (ROLLBACK_TEST: PASS); open_blockers 0. Highest applicable disposition is REWORK, which is not in authorization_required_for, so no authorization is required; risk acceptance is not pursued for TR-OPS-001 despite being risk-acceptance-allowed because remediation is the appropriate path and risk acceptance is a distinct action. Proposed actions are remediation to be completed, not completed remediation. Upstream REWORK decisions (IT-CATALOG-001/IT-RATIONAL-001, ARCH-DATA-001/ARCH-REV-001, SEC-WAF-002/SEC-LOG-001/SEC-KEY-001) remain open but do not alter this gate's disposition.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12781,
+        "completion_tokens": 2025,
+        "total_tokens": 14806,
+        "reasoning_tokens": 813,
+        "cached_tokens": 12672,
+        "cost": 0.00191589,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 9,
+  "tool_call_count": 8,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-04-TECH_READINESS-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "TR-DR-001",
+      "TR-CODE-001",
+      "TR-OPS-001"
+    ],
+    "actions": [
+      "RUN_DR_FAILOVER_TEST",
+      "REMEDIATE_BUILD_FINDINGS",
+      "COMPLETE_OPERATIONAL_HANDOVER"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_TECH_READINESS",
+      "FAILOVER_TEST",
+      "CI_PIPELINE",
+      "RUNBOOK",
+      "LOAD_TEST",
+      "ROLLBACK_TEST",
+      "BACKUP_JOBS"
+    ],
+    "authorization_required": false,
+    "rationale": "Authoritative REVIEW_FACTS_TECH_READINESS (age 0 days) triggers three tech-readiness predicates. TR-DR-001 (high, REWORK): dr_required true with dr_tested false for the multi-region active/passive design, corroborated by authoritative FAILOVER_TEST showing result NOT_RUN and tested False; action RUN_DR_FAILOVER_TEST (SRE). TR-CODE-001 (high, REWORK): critical_static_findings 1 remains open, corroborated by authoritative CI_PIPELINE; action REMEDIATE_BUILD_FINDINGS (Engineering). TR-OPS-001 (medium, GO_WITH_RESERVATIONS): runbook_status is \"draft\" rather than approved, corroborated by the RUNBOOK document, although on_call_defined and handover_signed are true; action COMPLETE_OPERATIONAL_HANDOVER (Operations). All other predicates fail to fire: backup_enabled true (BACKUP_JOBS: enabled True, last_status Succeeded); restore_tested true with measured_restore_hours 0.21 within target_rto_hours 0.25; measured_data_loss_minutes 1440 equals (not exceeds) target_rpo_minutes 1440; load_test_pct_of_peak 125 reached peak (LOAD_TEST confirms); rollback_tested true (ROLLBACK_TEST: PASS); open_blockers 0. Highest applicable disposition is REWORK, which is not in authorization_required_for, so no authorization is required; risk acceptance is not pursued for TR-OPS-001 despite being risk-acceptance-allowed because remediation is the appropriate path and risk acceptance is a distinct action. Proposed actions are remediation to be completed, not completed remediation. Upstream REWORK decisions (IT-CATALOG-001/IT-RATIONAL-001, ARCH-DATA-001/ARCH-REV-001, SEC-WAF-002/SEC-LOG-001/SEC-KEY-001) remain open but do not alter this gate's disposition.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "finding_id": "TR-DR-001",
+        "quote": "\"dr_required\": true, \"dr_tested\": false"
+      },
+      {
+        "evidence_id": "FAILOVER_TEST",
+        "finding_id": "TR-DR-001",
+        "quote": "\"dr_required\": \"True\", \"result\": \"NOT_RUN\", \"secondary_region\": \"North Europe\", \"tested\": \"False\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "finding_id": "TR-CODE-001",
+        "quote": "\"critical_static_findings\": 1"
+      },
+      {
+        "evidence_id": "CI_PIPELINE",
+        "finding_id": "TR-CODE-001",
+        "quote": "\"critical_static_findings\": 1, \"build_reproducible\": true"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "finding_id": "TR-OPS-001",
+        "quote": "\"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true"
+      },
+      {
+        "evidence_id": "RUNBOOK",
+        "finding_id": "TR-OPS-001",
+        "quote": "Runbook status | draft"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 26,
+    "retries": 2,
+    "rate_limits": 2,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "case_id": "7bf8888c-be32-5674-9b74-f95d9ae5f4bd",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "LIFECYCLE_REGISTER",
+        "CMDB_EXPORT",
+        "CAPACITY_REPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "IT gate framing snapshot satisfies every predicate of DGF-decision-v8 evaluate_it, so no candidate finding applies. REVIEW_FACTS_IT shows catalog_status=non_standard WITH waiver_present=true (waiver_expiry_days=365), so IT-CATALOG-001 is not triggered; duplicate_capability=false; license_compliant=true; cmdb_record_present=true; run_owner_present=true; technology_eol_months=18 (>=12); capacity_headroom_pct=30 (>=15); change_record_status=approved. Authoritative corroboration: TECH_CATALOG (waiver_present true, hosting_model functions), LIFECYCLE_REGISTER (eol_months 18), CMDB_EXPORT (record_present True, run_owner Leila Rossi-12005-SO), CAPACITY_REPORT (capacity_headroom_pct 30). Upstream decisions list is empty. Phase is framing, so design/build/deployment-only predicates (CMDB, run owner, capacity, change) are not in scope regardless. Negative/rework outcomes are not required here; GO is the evidence-supported disposition and no standing-mandate authorization is needed.",
+      "confidence": 0.96,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-PERF-001",
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY",
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "HLD",
+        "LLD",
+        "AZURE_RESOURCE_GRAPH",
+        "IP_PLAN",
+        "DATA_MODEL",
+        "ADR_REGISTER",
+        "OPENAPI"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying DGF-decision-v8 evaluate_architecture to the authoritative REVIEW_FACTS_ARCHITECTURE snapshot (design phase) yields three triggered predicates and three non-triggered ones. Triggered: (1) ARCH-PERF-001 — measured_latency_ms 700 > latency_target_ms 50, corroborated by LLD 'Measured latency ms | 701' (vs target 50); medium severity, action REMEDIATE_LATENCY, disposition GO_WITH_RESERVATIONS, risk-acceptance allowed. (2) ARCH-HA-001 — project business_criticality = 'High' while architecture_profile shows multi_az false AND multi_region false; the HLD confirms 'Single-AZ / no AZ guarantee' and 'Resilience: backup_only ... DR tested: False', and AZURE_RESOURCE_GRAPH shows every resource multiAz=false with private_endpoints=false. High severity, action REDESIGN_FOR_HIGH_AVAILABILITY, disposition REWORK, risk acceptance NOT allowed. (3) ARCH-REV-001 — reversibility_status = 'missing' (LLD: 'Reversibility | missing (declared)'); medium severity, action COMPLETE_EXIT_ARCHITECTURE, GO_WITH_RESERVATIONS, risk-acceptance allowed. Not triggered: ARCH-IP-001 (ip_overlap false; IP_PLAN shows overlap_detected False for all three CIDRs 10.166.80.0/24, 10.166.81.0/24, 10.166.82.0/24 — no conflict with the authoritative IPAM record); ARCH-API-001 (api_gateway_required = false, so the absent gateway is not a gap — the LLD's contradictory 'API gateway present | True' is non-authoritative and irrelevant here, and OPENAPI exposes only an internal /health and OAuth-secured /v1/items); ARCH-DATA-001 (data_owner_present = true; DATA_MODEL names data_owner 'Sofia Ivanov-12005-BO' and lineage_complete true). Gate rollup is the highest-severity triggered disposition: REWORK (from ARCH-HA-001), which outranks the two GO_WITH_RESERVATIONS findings; REWORK is not in the policy's authorization_required_for list, so no standing-mandate authorization is required (the mandate covers only risk-acceptable findings, and the blocking ARCH-HA-001 finding explicitly does not permit risk acceptance). No upstream specialist decisions exist for this gate beyond the framing-phase IT gate (GO, no findings), which is not relevant to architecture predicates.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 50"
+        },
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"business_criticality\": \"High\" ... \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"reversibility_status\": \"missing\", \"data_export_supported\": true"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-NET-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "ENABLE_PRIVATE_ENDPOINTS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "AZURE_RESOURCE_GRAPH",
+        "NSG_RULES",
+        "SENTINEL_STATUS",
+        "IAM_EXPORT",
+        "VULN_SCAN"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying DGF-decision-v8 evaluate_security to the authoritative REVIEW_FACTS_SECURITY snapshot (design phase) yields two triggered predicates. (1) SEC-WAF-001 (critical): the workload is internet-facing — \\\"internet_exposed\\\": true — while \\\"waf_present\\\": false and \\\"waf_mode\\\": \\\"None\\\"; the authoritative WAF_POLICY corroborates this (\\\"present\\\": false, \\\"mode\\\": \\\"None\\\"), and the HLD/ingress path (Azure Front Door edge-622c2-22005-01) terminates public traffic with no WAF in front, while NSG_RULES shows an Internet-sourced inbound Allow on 443. Action IMPLEMENT_WAF, owner Security Architect, disposition NO_GO, risk acceptance NOT allowed. (2) SEC-NET-001 (critical): the project data_classification is \\\"Restricted\\\" (with personal_data true and payment_data true) yet \\\"private_endpoints\\\": false; AZURE_RESOURCE_GRAPH confirms \\\"private_endpoints\\\": false with every sensitive service (Azure SQL Database, Azure Storage Account, Azure Cache for Redis, Data Factory) still publicNetworkAccess true. Action ENABLE_PRIVATE_ENDPOINTS, owner Cloud Platform, disposition NO_GO, risk acceptance NOT allowed. Non-triggered predicates verified: SEC-WAF-002 (requires waf_present true — it is false); SEC-IAM-001 (\\\"mfa\\\": \\\"mandatory\\\"); SEC-IAM-002 (\\\"shared_service_principal\\\": false — the stale IAM_EXPORT svc-shared entry is not authoritative over the snapshot); SEC-LOG-001 (\\\"logs_to_siem\\\": true, SENTINEL_STATUS shows sentinel true with connectors Azure Activity/Entra ID/Application); SEC-VULN-001 (\\\"critical_vulns_open\\\": 0 — VULN_SCAN shows only 7 High findings, no Critical); SEC-PENTEST-001 (phase is design, not build_acceptance, so the \\\"pentest_status\\\": \\\"missing\\\" field is not yet applicable at this gate); SEC-KEY-001 (\\\"key_rotation_days\\\": 90, not None or 365). Gate rollup is the highest-severity triggered disposition: NO_GO from both critical findings, which outranks all others. NO_GO is in the policy's authorization_required_for list, so standing-mandate authorization is required; the active mandate MANDATE-7bf8888c-...-INTEGRATE-03-SECURITY-1 covers 'all and only risk-acceptable findings', and both triggered findings have risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of them — no conditional approval is available and the gate must return to design. Proposed actions are remediations, not completed remediation, and the snapshot reflects the submitted state only.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\""
+        },
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "WAF_POLICY",
+          "quote": "{\"present\": false, \"mode\": \"None\", \"managed_rules\": \"OWASP\", \"bot_protection\": false}"
+        },
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"data_classification\": \"Restricted\" ... \"private_endpoints\": false"
+        },
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "quote": "\"private_endpoints\": false, \"firewall\": true"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-AUDIT-001",
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "REDLINE_AUDIT_RIGHT",
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA",
+        "DPA",
+        "CONTRACT_PLAYBOOK"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying DGF-decision-v8 evaluate_legal to the authoritative REVIEW_FACTS_LEGAL snapshot (design phase) yields three triggered predicates. (1) LEGAL-DPA-001 (critical): project personal_data = true while dpa_status = \"missing\"; the DPA document corroborates (\"Status | missing\") and the MSA clause 4 states \"DPA status: missing\". Action EXECUTE_DPA, owner Legal / Privacy, disposition REWORK, risk acceptance NOT allowed. (2) LEGAL-AUDIT-001 (high): audit_right = \"reports_only\", which is in the insufficient set ('reports_only','none'); MSA clause 7 confirms \"Customer audit rights: reports_only\", and the authoritative CONTRACT_PLAYBOOK requires audit_right \"full or limited\". Action REDLINE_AUDIT_RIGHT, owner Legal, disposition REWORK, risk acceptance allowed. (3) LEGAL-INS-001 (high): insurance_valid = false; MSA clause 10 confirms \"Certificate valid: False\". Action OBTAIN_VALID_INSURANCE, owner Supplier, disposition SUSPENSION, risk acceptance NOT allowed. Non-triggered predicates verified: LEGAL-LIAB-001 (liability_cap_multiplier = 5, not 0.5, and security_carveout = true); LEGAL-EXIT-001 (exit_assistance_days = 180, not 0); LEGAL-IP-001 (ip_ownership = \"vendor\", not \"ambiguous\"); LEGAL-SIGN-001 (signing_authority_valid = true); LEGAL-LOG-001 (log_export_clause = \"limited\", not \"missing\"). Gate rollup is the highest-severity triggered disposition: SUSPENSION (from LEGAL-INS-001) outranks REWORK. SUSPENSION is in the policy's authorization_required_for list, so standing-mandate authorization is required; however the active mandate MANDATE-...-INTEGRATE-04-LEGAL-1 covers 'all and only risk-acceptable findings', and the blocking LEGAL-INS-001 (and LEGAL-DPA-001) have risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of them and no conditional approval is available. Proposed actions are remediations, not completed remediation; the snapshot reflects the submitted state only.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"personal_data\": true ... \"dpa_status\": \"missing\""
+        },
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "DPA",
+          "quote": "Status | missing"
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"audit_right\": \"reports_only\""
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "MSA",
+          "quote": "7. Audit Rights\nCustomer audit rights: reports_only."
+        },
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"insurance_valid\": false, \"cyber_insurance_m\": 20"
+        },
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "MSA",
+          "quote": "10. Insurance\nCyber insurance: EUR 20m. Certificate valid: False."
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-RESID-001",
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY",
+        "DPIA",
+        "REG_MAPPING"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying DGF-decision-v8 evaluate_compliance to the authoritative REVIEW_FACTS_COMPLIANCE snapshot (design phase) yields three triggered predicates. (1) COMP-DPIA-001 (high): dpia_required = true while dpia_status = \\\"missing\\\"; the DPIA document corroborates (\\\"Required | True\\\", \\\"Status | missing\\\"). Action COMPLETE_DPIA, owner DPO, disposition REWORK, risk acceptance NOT allowed. (2) COMP-RESID-001 (critical): required_residency = \\\"EU\\\" but residency_compliant = false; the authoritative DATA_INVENTORY confirms actual_region \\\"West US 2\\\" against required_residency \\\"EU\\\" for Restricted personal data. Action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, owner DPO / Architecture, disposition NO_GO, risk acceptance NOT allowed. (3) COMP-AUDIT-001 (high): audit_trail = \\\"missing\\\". Action IMPLEMENT_AUDIT_TRAIL, owner Product Team, disposition REWORK, risk acceptance NOT allowed. Non-triggered predicates verified: COMP-MAP-001 (regulatory_mapping = \\\"complete\\\"; REG_MAPPING shows mapping_status complete for PCI-DSS); COMP-A11Y-001 (accessibility_status = \\\"not_assessed\\\", not \\\"major_findings\\\"); COMP-EXPORT-001/002 (export_control = \\\"clear\\\", neither restricted nor pending). Gate rollup is the highest-severity triggered disposition: NO_GO (from the critical COMP-RESID-001), which outranks REWORK. NO_GO is in the policy's authorization_required_for list, so standing-mandate authorization is required; however the active mandate MANDATE-7bf8888c-...-INTEGRATE-05-COMPLIANCE-1 covers 'all and only risk-acceptable findings', and the blocking COMP-RESID-001 (and COMP-DPIA-001, COMP-AUDIT-001) have risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of them and no conditional approval is available. Proposed actions are remediations, not completed remediation; the snapshot reflects the submitted state only.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"dpia_required\": true, \"dpia_status\": \"missing\""
+        },
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "DPIA",
+          "quote": "Required | True\nStatus | missing"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"required_residency\": \"EU\", \"residency_compliant\": false"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "DATA_INVENTORY",
+          "quote": "{\"actual_region\": \"West US 2\", \"classification\": \"Restricted\", \"dataset\": \"Core business data\", \"personal_data\": \"True\", \"required_residency\": \"EU\"}"
+        },
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"audit_trail\": \"missing\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS",
+        "BUDGET_APPROVAL",
+        "PORTFOLIO_SNAPSHOT"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying DGF-decision-v8 evaluate_general to the authoritative REVIEW_FACTS_GENERAL snapshot (governance phase) yields three triggered predicates. (1) GEN-STRAT-001 (high): strategic_alignment = \"weak\"; PORTFOLIO_SNAPSHOT corroborates strategic_alignment \"weak\" for DGF-INT-012005. Action OBTAIN_STRATEGIC_ARBITRATION, owner Sponsor, disposition SUSPENSION. (2) GEN-BUDGET-001 (high): budget_requested_eur 3000000 > budget_approved_eur 2550000; the authoritative BUDGET_APPROVAL confirms requested_eur 3000000 vs approved_eur 2550000 with status PARTIAL. Action OBTAIN_BUDGET_APPROVAL, owner CFO / Sponsor, disposition SUSPENSION. (3) GEN-UPSTREAM-NOGO (critical): two upstream gates returned NO_GO — INTEGRATE-03-SECURITY-1 (security) and INTEGRATE-05-COMPLIANCE-1 (compliance). Action RESOLVE_UPSTREAM_NO_GO, owner Project Manager, disposition NO_GO. Non-triggered predicates verified: GEN-BC-001 (roi 0.342 >= 0.05 threshold); GEN-BENEFITS-001 (phase is governance, not deployment_closure, so change_plan_status \"draft\" is not in scope). Gate rollup is the highest-severity triggered disposition: NO_GO (from the critical GEN-UPSTREAM-NOGO), which outranks the two SUSPENSION findings. NO_GO is in the policy's authorization_required_for list, so standing-mandate authorization is required; the active mandate MANDATE-...-INTEGRATE-06-GENERAL-1 covers 'all and only risk-acceptable findings', and the blocking GEN-UPSTREAM-NOGO has risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of it and no conditional approval is available. Proposed actions are remediations, not completed remediation; the snapshot reflects the submitted state only.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\""
+        },
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "PORTFOLIO_SNAPSHOT",
+          "quote": "{\"approved_eur\": \"2550000\", \"priority\": \"P1\", \"project_id\": \"DGF-INT-012005\", \"requested_eur\": \"3000000\", \"strategic_alignment\": \"weak\"}"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 3000000, \"budget_approved_eur\": 2550000"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "BUDGET_APPROVAL",
+          "quote": "{\"approved_eur\": \"2550000\", \"approver\": \"CFO Office\", \"requested_eur\": \"3000000\", \"status\": \"PARTIAL\"}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"gate\": \"security\", \"disposition\": \"NO_GO\""
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"gate\": \"compliance\", \"disposition\": \"NO_GO\""
+        }
+      ]
+    }
+  ]
+}

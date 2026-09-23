@@ -1,0 +1,954 @@
+{
+  "usage": {
+    "prompt_tokens": 142322,
+    "completion_tokens": 5739,
+    "total_tokens": 148061,
+    "reasoning_tokens": 4153,
+    "cached_tokens": 130048,
+    "cost": 0.01381396,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "tech_readiness",
+        "phase": "build_acceptance",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 109,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "SUPPORT_RACI",
+            "path": "gate_evidence/it/support_raci.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 89,
+            "consumers": [
+              "it",
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 20,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 176,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "LLD",
+            "path": "gate_evidence/architecture/LLD_Architecture_Notes.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 99,
+            "consumers": [
+              "architecture",
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "SENTINEL_STATUS",
+            "path": "gate_evidence/security/sentinel_connectors.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 63,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "DEFENDER_FINDINGS",
+            "path": "gate_evidence/security/defender_findings.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 164,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "VULN_SCAN",
+            "path": "gate_evidence/security/vulnerability_scan.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 146,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "PENTEST",
+            "path": "gate_evidence/security/pentest_report.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 35,
+            "consumers": [
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "BACKUP_JOBS",
+            "path": "gate_evidence/tech_readiness/backup_jobs.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 85,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "RESTORE_TEST",
+            "path": "gate_evidence/tech_readiness/restore_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 28,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "FAILOVER_TEST",
+            "path": "gate_evidence/tech_readiness/failover_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 4,
+            "consumers": [
+              "tech_readiness",
+              "architecture",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "LOAD_TEST",
+            "path": "gate_evidence/tech_readiness/load_test.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 126,
+            "consumers": [
+              "tech_readiness",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CI_PIPELINE",
+            "path": "gate_evidence/tech_readiness/ci_pipeline.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 117,
+            "consumers": [
+              "tech_readiness",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "RUNBOOK",
+            "path": "gate_evidence/tech_readiness/production_runbook.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 136,
+            "consumers": [
+              "tech_readiness",
+              "it",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ROLLBACK_TEST",
+            "path": "gate_evidence/tech_readiness/rollback_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 132,
+            "consumers": [
+              "tech_readiness",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "SLO_SLI",
+            "path": "gate_evidence/tech_readiness/slo_sli.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 134,
+            "consumers": [
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "MONITOR_ALERTS",
+            "path": "gate_evidence/tech_readiness/monitor_alerts.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 167,
+            "consumers": [
+              "tech_readiness",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 170,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+            "path": "gate_evidence/tech_readiness/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "tech_readiness"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/tech_readiness/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012013",
+            "generation_seed": 12013,
+            "project_name": "Project Atlas — Digital Onboarding [566E0]",
+            "project_code": "566E0",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Sales",
+            "sponsor": "Marc Bennett-12013-SP",
+            "project_manager": "Thomas Canale-12013-PM",
+            "business_owner": "Sofia Meyer-12013-BO",
+            "service_owner": "Yusuf Meyer-12013-SO",
+            "risk_owner": "Ines Rossi-12013-RO",
+            "start_date": "2026-10-20",
+            "target_go_live": "2027-06-30",
+            "users_impacted": 12000,
+            "budget_requested_eur": 900000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "tech_readiness": {
+            "test_completion_pct": 89,
+            "pilot_completed": true,
+            "load_test_pct_of_peak": 100,
+            "p95_ms": 1532,
+            "unit_test_coverage_pct": 63,
+            "critical_static_findings": 0,
+            "observability_metrics": true,
+            "observability_logs": true,
+            "observability_traces": true,
+            "backup_enabled": true,
+            "restore_tested": true,
+            "target_rto_hours": 24,
+            "measured_restore_hours": 13.2,
+            "target_rpo_minutes": 1440,
+            "measured_data_loss_minutes": 2015,
+            "dr_required": false,
+            "dr_tested": false,
+            "runbook_status": "missing",
+            "on_call_defined": false,
+            "handover_signed": true,
+            "rollback_tested": true,
+            "open_blockers": 0
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "RESTORE_TEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "RESTORE_TEST",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 28,
+        "path": "gate_evidence/tech_readiness/restore_test.csv",
+        "content": [
+          {
+            "measured_data_loss_minutes": "2015",
+            "measured_restore_hours": "13.2",
+            "target_rpo_minutes": "1440",
+            "target_rto_hours": "24",
+            "tested": "True"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "RUNBOOK"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "RUNBOOK",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 136,
+        "path": "gate_evidence/tech_readiness/production_runbook.docx",
+        "content": "Production Runbook & Handover\nOperations\nOperational procedures\nIncident triage and escalation\nBackup verification\nRestore execution\nRollback deployment\nSame-region recovery\nField | Value\nRunbook status | missing (declared)\nOn-call defined | True\nHandover signed | False\nService owner | Yusuf Meyer-12013-SO"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "BACKUP_JOBS"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "BACKUP_JOBS",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 85,
+        "path": "gate_evidence/tech_readiness/backup_jobs.csv",
+        "content": [
+          {
+            "enabled": "True",
+            "job": "daily-backup",
+            "last_status": "Succeeded",
+            "retention_days": "35"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-04-TECH_READINESS-1",
+            "occurrence_id": "BUILD-04-TECH_READINESS-1",
+            "gate": "tech_readiness",
+            "phase": "build_acceptance",
+            "authority": "Ines Rossi-12013-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CI_PIPELINE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CI_PIPELINE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 117,
+        "path": "gate_evidence/tech_readiness/ci_pipeline.json",
+        "content": {
+          "unit_test_coverage_pct": 63,
+          "critical_static_findings": 0,
+          "build_reproducible": true
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "ROLLBACK_TEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "ROLLBACK_TEST",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 132,
+        "path": "gate_evidence/tech_readiness/rollback_test.csv",
+        "content": [
+          {
+            "result": "PASS",
+            "rollback_tested": "True"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "FAILOVER_TEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "FAILOVER_TEST",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 4,
+        "path": "gate_evidence/tech_readiness/failover_test.csv",
+        "content": [
+          {
+            "dr_required": "False",
+            "result": "PASS",
+            "secondary_region": "N/A",
+            "tested": "False"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LOAD_TEST"
+      },
+      "result": {
+        "status": "UNAVAILABLE",
+        "evidence_id": "LOAD_TEST",
+        "authoritative": true
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing the available evidence for this gate occurrence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ff038127392b41ddaf037dfd",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10622,
+        "completion_tokens": 149,
+        "total_tokens": 10771,
+        "reasoning_tokens": 135,
+        "cached_tokens": 1792,
+        "cost": 0.00152444,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "content": "Now let me read the authoritative review snapshot for this gate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d6058090c24d4867b6447a3a",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12033,
+        "completion_tokens": 116,
+        "total_tokens": 12149,
+        "reasoning_tokens": 87,
+        "cached_tokens": 10560,
+        "cost": 0.00101815,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is in. Let me evaluate the policy predicates against it:\n\n- `backup_enabled: true` → TR-BACKUP-001 does not apply\n- `restore_tested: true` → TR-RESTORE-001 does not apply\n- `measured_restore_hours: 13.2` vs `target_rto_hours: 24` → 13.2 ≤ 24, TR-RTO-001 does not apply\n- `measured_data_loss_minutes: 2015` vs `target_rpo_minutes: 1440` → **2015 > 1440, TR-RPO-001 TRIGGERS**\n- `dr_required: false` → TR-DR-001 does not apply\n- `load_test_pct_of_peak: 100` → not < 100, TR-LOAD-001 does not apply\n- `critical_static_findings: 0` → TR-CODE-001 does not apply\n- `runbook_status: \"missing\"` (≠ approved), `on_call_defined: false` → **TR-OPS-001 TRIGGERS**\n- `rollback_tested: true` → TR-ROLLBACK-001 does not apply\n- `open_blockers: 0` → TR-BLOCKER-001 does not apply\n\nNow let me corroborate the two triggered findings with the underlying evidence and check the standing mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_66fb8f0ea0e14c219c0c66e7",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"RESTORE_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12558,
+        "completion_tokens": 1316,
+        "total_tokens": 13874,
+        "reasoning_tokens": 989,
+        "cached_tokens": 12032,
+        "cost": 0.00157914,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_852b2f7765b64b14bee3cd61",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"RUNBOOK\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12968,
+        "completion_tokens": 16,
+        "total_tokens": 12984,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12544,
+        "cost": 0.00094968,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_dd869b1ce7164eb08bb19459",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"BACKUP_JOBS\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13116,
+        "completion_tokens": 18,
+        "total_tokens": 13134,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12928,
+        "cost": 0.00094216,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d6e1d082fcee482cb168b33d",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13224,
+        "completion_tokens": 10,
+        "total_tokens": 13234,
+        "reasoning_tokens": 0,
+        "cached_tokens": 13056,
+        "cost": 0.00094412,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "content": "The standing mandate for this occurrence is active, covering \"all and only risk-acceptable findings.\" Let me corroborate a few non-triggered predicates before finalizing.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b6bc36f243464b53939ec6c0",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CI_PIPELINE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13349,
+        "completion_tokens": 1335,
+        "total_tokens": 14684,
+        "reasoning_tokens": 1405,
+        "cached_tokens": 13184,
+        "cost": 0.00161513,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c6fb95d4cdb546aabfd057e7",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"ROLLBACK_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13481,
+        "completion_tokens": 17,
+        "total_tokens": 13498,
+        "reasoning_tokens": 0,
+        "cached_tokens": 13312,
+        "cost": 0.00096569,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_f577effe95fd4803bd957c20",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"FAILOVER_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13571,
+        "completion_tokens": 19,
+        "total_tokens": 13590,
+        "reasoning_tokens": 0,
+        "cached_tokens": 13440,
+        "cost": 0.00096995,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 9,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_198a245ac7c24b82a724289a",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LOAD_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13679,
+        "completion_tokens": 16,
+        "total_tokens": 13695,
+        "reasoning_tokens": 0,
+        "cached_tokens": 13568,
+        "cost": 0.00097441,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 10,
+      "assistant": {
+        "role": "assistant",
+        "content": "I now have sufficient evidence to decide. Let me summarize the evaluation:\n\n**Predicate evaluation against the authoritative REVIEW_FACTS_TECH_READINESS snapshot:**\n\n| Predicate | Snapshot value | Result |\n|---|---|---|\n| backup_enabled | true | Pass (BACKUP_JOBS: enabled=True, Succeeded) |\n| restore_tested | true | Pass |\n| measured_restore_hours (13.2) ≤ target_rto_hours (24) | Pass — TR-RTO-001 not triggered |\n| measured_data_loss_minutes (2015) > target_rpo_minutes (1440) | **TRIGGER — TR-RPO-001** |\n| dr_required | false | Pass (FAILOVER_TEST: dr_required=False) |\n| load_test_pct_of_peak | 100 | Pass (snapshot authoritative; LOAD_TEST file unavailable but snapshot field resolves predicate) |\n| critical_static_findings | 0 | Pass (CI_PIPELINE corroborates) |\n| runbook_status ≠ approved / on_call_defined false | **TRIGGER — TR-OPS-001** |\n| rollback_tested | true | Pass (ROLLBACK_TEST: PASS) |\n| open_blockers | 0 | Pass |\n\n**Triggered findings:** TR-RPO-001 (high, REWORK, risk-acceptable) and TR-OPS-001 (medium, GO_WITH_RESERVATIONS, risk-acceptable). Overall disposition = REWORK (highest priority among triggered findings). REWORK is not in `authorization_required_for`, so no authorization is required — consistent with the BUILD-03 precedent where a standing mandate existed but no conditional approval was executed for a REWORK disposition. Note the non-authoritative RUNBOOK doc (136 days old) contradicts the snapshot on on_call_defined/handover_signed, but the authoritative snapshot governs, and TR-OPS-001 triggers on runbook_status=\"missing\" in both sources regardless.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a2422d6bbd2048b889f0398d",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"REMEDIATE_RECOVERY_POINT\", \"COMPLETE_OPERATIONAL_HANDOVER\"], \"authorization_required\": false, \"confidence\": 0.95, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\", \"RESTORE_TEST\", \"RUNBOOK\", \"BACKUP_JOBS\", \"CI_PIPELINE\", \"ROLLBACK_TEST\", \"FAILOVER_TEST\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"finding_id\": \"TR-RPO-001\", \"quote\": \"\\\"measured_data_loss_minutes\\\": 2015, \\\"target_rpo_minutes\\\": 1440\"}, {\"evidence_id\": \"RESTORE_TEST\", \"finding_id\": \"TR-RPO-001\", \"quote\": \"\\\"measured_data_loss_minutes\\\": \\\"2015\\\", \\\"target_rpo_minutes\\\": \\\"1440\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"finding_id\": \"TR-OPS-001\", \"quote\": \"\\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": false\"}, {\"evidence_id\": \"RUNBOOK\", \"finding_id\": \"TR-OPS-001\", \"quote\": \"Runbook status | missing (declared)\"}, {\"evidence_id\": \"BACKUP_JOBS\", \"finding_id\": \"TR-BACKUP-001\", \"quote\": \"\\\"enabled\\\": \\\"True\\\", \\\"job\\\": \\\"daily-backup\\\", \\\"last_status\\\": \\\"Succeeded\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"finding_id\": \"TR-RTO-001\", \"quote\": \"\\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 13.2\"}, {\"evidence_id\": \"CI_PIPELINE\", \"finding_id\": \"TR-CODE-001\", \"quote\": \"\\\"critical_static_findings\\\": 0\"}, {\"evidence_id\": \"ROLLBACK_TEST\", \"finding_id\": \"TR-ROLLBACK-001\", \"quote\": \"\\\"result\\\": \\\"PASS\\\", \\\"rollback_tested\\\": \\\"True\\\"\"}, {\"evidence_id\": \"FAILOVER_TEST\", \"finding_id\": \"TR-DR-001\", \"quote\": \"\\\"dr_required\\\": \\\"False\\\"\"}], \"finding_ids\": [\"TR-RPO-001\", \"TR-OPS-001\"], \"rationale\": \"Evaluating the authoritative REVIEW_FACTS_TECH_READINESS snapshot (age 0 days) against the DGF-decision-v8 tech_readiness predicates yields exactly two triggered findings. TR-RPO-001 (high): measured_data_loss_minutes is 2015, exceeding target_rpo_minutes 1440 (corroborated by authoritative RESTORE_TEST: measured_data_loss_minutes 2015 vs target_rpo_minutes 1440), action REMEDIATE_RECOVERY_POINT owned by SRE, disposition REWORK. TR-OPS-001 (medium): runbook_status is 'missing' (not 'approved') and on_call_defined is false (corroborated by RUNBOOK 'Runbook status | missing (declared)'), action COMPLETE_OPERATIONAL_HANDOVER owned by Operations, disposition GO_WITH_RESERVATIONS. All other predicates pass: backup_enabled true (BACKUP_JOBS daily-backup enabled=True, last_status Succeeded), restore_tested true with measured_restore_hours 13.2 within target_rto_hours 24 so TR-RTO-001 does not apply, dr_required false so the untested failover (FAILOVER_TEST tested=False) does not trigger TR-DR-001, load_test_pct_of_peak 100 so TR-LOAD-001 does not apply (LOAD_TEST file is unavailable, but the authoritative snapshot field resolves the predicate), critical_static_findings 0 (CI_PIPELINE corroborates), rollback_tested true (ROLLBACK_TEST PASS), and open_blockers 0. The overall disposition is REWORK per the highest-priority triggered finding's assigned disposition. REWORK is not in authorization_required_for, so authorization_required is false; the active standing mandate MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-04-TECH_READINESS-1 covers 'all and only risk-acceptable findings' but no conditional approval is executed because the overall disposition does not require authorization. The non-authoritative RUNBOOK document (136 days old) contradicts the snapshot on on_call_defined and handover_signed; the authoritative snapshot governs, and TR-OPS-001 triggers on runbook_status 'missing' under either source. Proposed actions are not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13721,
+        "completion_tokens": 2727,
+        "total_tokens": 16448,
+        "reasoning_tokens": 1537,
+        "cached_tokens": 13632,
+        "cost": 0.00233109,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 11,
+  "tool_call_count": 10,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-04-TECH_READINESS-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "TR-RPO-001",
+      "TR-OPS-001"
+    ],
+    "actions": [
+      "REMEDIATE_RECOVERY_POINT",
+      "COMPLETE_OPERATIONAL_HANDOVER"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_TECH_READINESS",
+      "RESTORE_TEST",
+      "RUNBOOK",
+      "BACKUP_JOBS",
+      "CI_PIPELINE",
+      "ROLLBACK_TEST",
+      "FAILOVER_TEST"
+    ],
+    "authorization_required": false,
+    "rationale": "Evaluating the authoritative REVIEW_FACTS_TECH_READINESS snapshot (age 0 days) against the DGF-decision-v8 tech_readiness predicates yields exactly two triggered findings. TR-RPO-001 (high): measured_data_loss_minutes is 2015, exceeding target_rpo_minutes 1440 (corroborated by authoritative RESTORE_TEST: measured_data_loss_minutes 2015 vs target_rpo_minutes 1440), action REMEDIATE_RECOVERY_POINT owned by SRE, disposition REWORK. TR-OPS-001 (medium): runbook_status is 'missing' (not 'approved') and on_call_defined is false (corroborated by RUNBOOK 'Runbook status | missing (declared)'), action COMPLETE_OPERATIONAL_HANDOVER owned by Operations, disposition GO_WITH_RESERVATIONS. All other predicates pass: backup_enabled true (BACKUP_JOBS daily-backup enabled=True, last_status Succeeded), restore_tested true with measured_restore_hours 13.2 within target_rto_hours 24 so TR-RTO-001 does not apply, dr_required false so the untested failover (FAILOVER_TEST tested=False) does not trigger TR-DR-001, load_test_pct_of_peak 100 so TR-LOAD-001 does not apply (LOAD_TEST file is unavailable, but the authoritative snapshot field resolves the predicate), critical_static_findings 0 (CI_PIPELINE corroborates), rollback_tested true (ROLLBACK_TEST PASS), and open_blockers 0. The overall disposition is REWORK per the highest-priority triggered finding's assigned disposition. REWORK is not in authorization_required_for, so authorization_required is false; the active standing mandate MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-04-TECH_READINESS-1 covers 'all and only risk-acceptable findings' but no conditional approval is executed because the overall disposition does not require authorization. The non-authoritative RUNBOOK document (136 days old) contradicts the snapshot on on_call_defined and handover_signed; the authoritative snapshot governs, and TR-OPS-001 triggers on runbook_status 'missing' under either source. Proposed actions are not completed remediation.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "finding_id": "TR-RPO-001",
+        "quote": "\"measured_data_loss_minutes\": 2015, \"target_rpo_minutes\": 1440"
+      },
+      {
+        "evidence_id": "RESTORE_TEST",
+        "finding_id": "TR-RPO-001",
+        "quote": "\"measured_data_loss_minutes\": \"2015\", \"target_rpo_minutes\": \"1440\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "finding_id": "TR-OPS-001",
+        "quote": "\"runbook_status\": \"missing\", \"on_call_defined\": false"
+      },
+      {
+        "evidence_id": "RUNBOOK",
+        "finding_id": "TR-OPS-001",
+        "quote": "Runbook status | missing (declared)"
+      },
+      {
+        "evidence_id": "BACKUP_JOBS",
+        "finding_id": "TR-BACKUP-001",
+        "quote": "\"enabled\": \"True\", \"job\": \"daily-backup\", \"last_status\": \"Succeeded\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+        "finding_id": "TR-RTO-001",
+        "quote": "\"target_rto_hours\": 24, \"measured_restore_hours\": 13.2"
+      },
+      {
+        "evidence_id": "CI_PIPELINE",
+        "finding_id": "TR-CODE-001",
+        "quote": "\"critical_static_findings\": 0"
+      },
+      {
+        "evidence_id": "ROLLBACK_TEST",
+        "finding_id": "TR-ROLLBACK-001",
+        "quote": "\"result\": \"PASS\", \"rollback_tested\": \"True\""
+      },
+      {
+        "evidence_id": "FAILOVER_TEST",
+        "finding_id": "TR-DR-001",
+        "quote": "\"dr_required\": \"False\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 49,
+    "retries": 1,
+    "rate_limits": 1,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

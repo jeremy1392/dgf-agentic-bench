@@ -1,0 +1,214 @@
+{
+  "case_id": "815b7c08-da19-5688-9c61-1e6dfdbfa6cf",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "PROC-MAND-001"
+      ],
+      "actions": [
+        "REOPEN_VENDOR_SELECTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": true,
+      "rationale": "The authoritative REVIEW_FACTS_PROCUREMENT snapshot shows the selected vendor BlueMesa Systems F2EE0-2 has mandatory_criteria_failed = 2 (> 0), triggering PROC-MAND-001 (critical): the selected supplier failed mandatory RFP criteria. Per the decision policy this yields NO_GO with action REOPEN_VENDOR_SELECTION. Other predicates do not fire: sanctions = \"clear\" (no PROC-SAN-001/002), due_diligence = \"complete\" (no PROC-DD-001), references_checked = true (no PROC-REF-001), and tco_3y_eur = 861069 is below the 1.5x purchasing envelope threshold of 2,250,000 (no PROC-BUDGET-001). NO_GO requires authorization.",
+      "confidence": 0.97,
+      "evidence_support": [
+        {
+          "finding_id": "PROC-MAND-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "\"selected_vendor\": \"BlueMesa Systems F2EE0-2\" ... {\"vendor\": \"BlueMesa Systems F2EE0-2\", ... \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", ... \"due_diligence\": \"complete\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_LEGAL snapshot against the legal decision policy, only one predicate fires. legal.insurance_valid = false triggers LEGAL-INS-001 (high): the required insurance certificate is invalid or expired, action OBTAIN_VALID_INSURANCE, disposition SUSPENSION. All other predicates are negative: personal_data = false and dpa_status = \"not_required\" (no LEGAL-DPA-001); liability_cap_multiplier = 2 (not 0.5, no LEGAL-LIAB-001); audit_right = \"limited\" (not reports_only/none, no LEGAL-AUDIT-001); exit_assistance_days = 180 (not 0, no LEGAL-EXIT-001); ip_ownership = \"shared\" (not ambiguous, no LEGAL-IP-001); signing_authority_valid = true (no LEGAL-SIGN-001); log_export_clause = \"missing\" but business_criticality = \"Medium\" (not High/Critical, so LEGAL-LOG-001 does not fire). The single high-severity insurance finding mandates SUSPENSION, which requires authorization under the standing mandate (scope: all and only risk-acceptable findings; LEGAL-INS-001 has risk_acceptance_allowed = false).",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"insurance_valid\": false, \"cyber_insurance_m\": 20"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_COMPLIANCE snapshot against the compliance decision policy, exactly one predicate fires. compliance.residency_compliant = false (required_residency = \"UK\" but actual data region is \"East US\", corroborated by the authoritative DATA_INVENTORY) triggers COMP-RESID-001 (critical): actual data region violates the required residency constraint, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, disposition NO_GO. All other predicates are negative: dpia_required = false and dpia_status = \"not_required\" (no COMP-DPIA-001); audit_trail = \"complete\" (no COMP-AUDIT-001); regulatory_mapping = \"partial\" (not \"missing\", no COMP-MAP-001); accessibility_status = \"pass\" (no COMP-A11Y-001); export_control = \"clear\" (no COMP-EXPORT-001/002). The single critical residency finding mandates NO_GO, which requires authorization under the standing mandate (scope: all and only risk-acceptable findings; COMP-RESID-001 has risk_acceptance_allowed = false).",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "DATA_INVENTORY",
+          "quote": "{\"actual_region\": \"East US\", \"classification\": \"Confidential\", \"dataset\": \"Core business data\", \"personal_data\": \"False\", \"required_residency\": \"UK\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "SENTINEL_STATUS",
+        "KEYVAULT_CONFIG",
+        "AZURE_RESOURCE_GRAPH",
+        "HLD"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_SECURITY snapshot (version 1, age 0 days) against the security decision policy (DGF-decision-v8), exactly three predicates fire and one critical finding drives the disposition.\n\n(1) SEC-WAF-001 (critical, NO_GO, risk_acceptance_allowed=False): security.internet_exposed = true and security.waf_present = false, with waf_mode = \"None\". The authoritative WAF_POLICY corroborates: present = false, mode = \"None\". The workload is genuinely internet-facing — the HLD shows public consumers reaching \"Azure Front Door\" (edge-f2ee0-22000-01) in the Ingress/Edge tier — yet no WAF control exists. Action IMPLEMENT_WAF, owner Security Architect.\n\n(2) SEC-LOG-001 (high, REWORK): security.logs_to_siem = false and sentinel = false. Corroborated by the authoritative SENTINEL_STATUS: sentinel = false, logs_to_siem = false, connectors = []. Action CONNECT_LOGS_TO_SIEM, owner SOC.\n\n(3) SEC-KEY-001 (medium, GO_WITH_RESERVATIONS, risk_acceptance_allowed=True): security.key_rotation_days = null, which the rule treats as \"absent\". Corroborated by KEYVAULT_CONFIG: key_rotation_days = null despite secrets_in_keyvault = true. Action IMPROVE_KEY_ROTATION, owner Cloud Security.\n\nPredicates that do NOT fire, verified against the snapshot: private_endpoints = true and data_classification = \"Confidential\" (SEC-NET-001 negative — corroborated by AZURE_RESOURCE_GRAPH showing publicNetworkAccess=false for Azure SQL Managed Instance, Azure Storage Account and Azure Key Vault, and private_endpoints=true); mfa = \"mandatory\" (SEC-IAM-001 negative — corroborated by CONDITIONAL_ACCESS \"mfa\": \"mandatory\", policy_state \"enabled\"); shared_service_principal = false and IAM_EXPORT shows a single ManagedIdentity \"workload-mi\" (SEC-IAM-002 negative); critical_vulns_open = 0 (SEC-VULN-001 negative — corroborated by get_vulnerability_findings critical_open = 0, high_open = 9); pentest_status = \"pass\" with pentest_age_days = 60 and the gate phase is design, not build_acceptance, so SEC-PENTEST-001 is inapplicable (the phase predicate \"phase == 'build_acceptance'\" is false). SEC-WAF-002 is not reachable because waf_present = false.\n\nDisposition: SEC-WAF-001 carries disposition NO_GO, which is the highest-priority outcome among the fired findings, so the gate disposition is NO_GO. NO_GO is in authorization_required_for under the standing mandate; note the active mandate MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-04-SECURITY-1 (scope \"all and only risk-acceptable findings\") cannot cover SEC-WAF-001, which has risk_acceptance_allowed=False, and per policy a missing/insufficient approval does not create authorization. No risk card is created: the gate fails on a non-risk-acceptable critical control gap, and proposed remediation actions are not completed remediation.\n\nUpstream decisions (procurement NO_GO / PROC-MAND-001, legal SUSPENSION / LEGAL-INS-001, compliance NO_GO / COMP-RESID-001) are noted for context but their findings are not in this gate's candidate catalog and do not alter the security predicate evaluation.",
+      "confidence": 0.92,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true"
+        },
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "WAF_POLICY",
+          "quote": "{\"present\": false, \"mode\": \"None\", \"managed_rules\": \"OWASP\", \"bot_protection\": false}"
+        },
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "HLD",
+          "quote": "\"Internet Users\", \"Public consumers\" ... \"Ingress / Edge\", \"Azure Front Door\", \"edge-f2ee0-22000-01\", \"DDoS Protection\""
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"logs_to_siem\": false, \"sentinel\": false, \"defender\": true"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "SENTINEL_STATUS",
+          "quote": "{\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"key_rotation_days\": null, \"secrets_in_keyvault\": true, \"encryption_at_rest\": true"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "KEYVAULT_CONFIG",
+          "quote": "{\"secrets_in_keyvault\": true, \"key_rotation_days\": null, \"private_endpoint\": true, \"managed_identity\": true}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "LIFECYCLE_REGISTER",
+        "CMDB_EXPORT",
+        "LICENSE_POSITION",
+        "CAPACITY_REPORT",
+        "SUPPORT_RACI"
+      ],
+      "authorization_required": false,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_IT snapshot (version 1, age 0 days) against the IT decision policy (DGF-decision-v8) at phase build_acceptance, exactly two predicates fire.\\n\\n(1) IT-CATALOG-001 (high, REWORK, risk_acceptance_allowed=False): it.catalog_status = \"non_standard\" with it.waiver_present = false — non-standard technology with no approved waiver. Action SUBMIT_TECHNOLOGY_WAIVER, owner IT Architecture. (The authoritative TECH_CATALOG artefact itself is UNAVAILABLE at this snapshot, but the governing snapshot field carries the observed status, so the finding stands on REVIEW_FACTS_IT.)\\n\\n(2) IT-EOL-001 (high, REWORK, risk_acceptance_allowed=True): it.technology_eol_months = 8, which is < 12. Corroborated by the authoritative LIFECYCLE_REGISTER (technology container_apps, eol_months = 8). Action CREATE_CONVERGENCE_PLAN, owner Technology Owner.\\n\\nPredicates that do NOT fire, verified against the snapshot and corroborating authoritative evidence: duplicate_capability = false (no IT-RATIONAL-001, despite existing_alternative = \"legacy_crm\"); license_compliant = true (no IT-LICENSE-001 — LICENSE_POSITION shows license_compliant = True, annual_cost_eur = 53261); cmdb_record_present = true (no IT-CMDB-001 — CMDB_EXPORT shows record_present = True, run_owner = Noor Dubois-12000-SO, continuity_class = silver); run_owner_present = true with support_model = product_team (no IT-RUN-001 — SUPPORT_RACI records \"Run owner | Noor Dubois-12000-SO\"); capacity_headroom_pct = 20, i.e. ≥ 15 (no IT-CAPACITY-001 — CAPACITY_REPORT shows capacity_headroom_pct = 20); change_record_status = \"approved\" and the phase is build_acceptance, not deployment_closure, so IT-CHANGE-001 is doubly inapplicable.\\n\\nDisposition: the highest-priority outcome among the fired findings is REWORK, so the gate disposition is REWORK. REWORK is not in authorization_required_for, and the active mandate MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-05-IT-1 (scope \"all and only risk-acceptable findings\") is not needed here; no risk acceptance is proposed since IT-CATALOG-001 has risk_acceptance_allowed=False. No risk card is created and proposed remediation actions are not completed remediation. Upstream decisions (procurement NO_GO/PROC-MAND-001, legal SUSPENSION/LEGAL-INS-001, compliance NO_GO/COMP-RESID-001, security NO_GO/SEC-WAF-001 etc.) are noted for context; their findings are not in this gate's candidate catalog and do not alter the IT predicate evaluation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"technology_eol_months\": 8, \"change_record_status\": \"approved\""
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "LIFECYCLE_REGISTER",
+          "quote": "{\"capacity_headroom_pct\": \"20\", \"eol_months\": \"8\", \"technology\": \"container_apps\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS",
+        "BUDGET_APPROVAL",
+        "BUSINESS_CASE"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_GENERAL snapshot (version 1, age 0 days) against the general decision policy (DGF-decision-v8) at phase governance, exactly one predicate fires.\\n\\n(1) GEN-UPSTREAM-NOGO (critical, NO_GO, risk_acceptance_allowed=False): UPSTREAM_DECISIONS records three upstream gates returning NO_GO — procurement (BUY-01-PROCUREMENT-1, PROC-MAND-001), compliance (BUY-03-COMPLIANCE-1, COMP-RESID-001), and security (BUY-04-SECURITY-1, SEC-WAF-001). Since upstream_no is non-empty, the policy emits GEN-UPSTREAM-NOGO with action RESOLVE_UPSTREAM_NO_GO, owner Project Manager. The elif branches for SUSPENSION/REWORK are not reached.\\n\\nPredicates that do NOT fire, verified against the snapshot: general.strategic_alignment = \\\"strong\\\" (not \\\"weak\\\", no GEN-STRAT-001); general.budget_requested_eur = 1500000 is not greater than general.budget_approved_eur = 1500000 (no GEN-BUDGET-001, corroborated by the authoritative BUDGET_APPROVAL: requested_eur 1500000, approved_eur 1500000, status APPROVED); general.roi = 0.293 is not < 0.05 (no GEN-BC-001, corroborated by BUSINESS_CASE ROI 0.293); and the phase is governance, not deployment_closure, so GEN-BENEFITS-001 is inapplicable (change_plan_status = \\\"partial\\\" is noted but the closure predicate is false).\\n\\nDisposition: GEN-UPSTREAM-NOGO carries disposition NO_GO, the highest-priority outcome, so the gate disposition is NO_GO. NO_GO is in authorization_required_for; the active mandate MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-06-GENERAL-1 (scope \\\"all and only risk-acceptable findings\\\") cannot cover GEN-UPSTREAM-NOGO, which has risk_acceptance_allowed=False, and a missing/insufficient approval does not create authorization. No risk card is created; proposed remediation actions are not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"gate\": \"procurement\", ... \"disposition\": \"NO_GO\" ... \"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"gate\": \"compliance\", ... \"disposition\": \"NO_GO\" ... \"occurrence_id\": \"BUY-04-SECURITY-1\", \"gate\": \"security\", ... \"disposition\": \"NO_GO\""
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"strategic_alignment\": \"strong\", \"budget_requested_eur\": 1500000, \"budget_approved_eur\": 1500000, \"roi\": 0.293, \"change_plan_status\": \"partial\""
+        }
+      ]
+    }
+  ]
+}

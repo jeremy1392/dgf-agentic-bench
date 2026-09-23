@@ -1,0 +1,188 @@
+{
+  "case_id": "756a54cd-def8-5054-9ecc-a45ddb686b05",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": false,
+      "rationale": "The authoritative REVIEW_FACTS_PROCUREMENT snapshot shows selected_vendor \"Fluxbridge Labs C8CCC-3\" with mandatory_criteria_failed=0, sanctions=\"clear\", due_diligence=\"complete\", references_checked=true, and tco_3y_eur=1031922 which is below the 1.5x purchasing envelope threshold (900000*1.5=1350000). None of the procurement rule predicates fire, so no candidate findings apply and the gate passes cleanly.",
+      "confidence": 0.95,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-EXIT-001",
+        "LEGAL-IP-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE",
+        "CLARIFY_IP_OWNERSHIP"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the legal decision policy to the authoritative REVIEW_FACTS_LEGAL snapshot: personal_data=false so the DPA rule does not fire (dpa_status=\"not_required\"); liability_cap_multiplier=1 (not 0.5) so LEGAL-LIAB-001 does not fire; audit_right=\"limited\" (not reports_only/none) so LEGAL-AUDIT-001 does not fire; insurance_valid=true and signing_authority_valid=true so LEGAL-INS-001 and LEGAL-SIGN-001 do not fire; log_export_clause=\"missing\" but business_criticality=\"Medium\" (not High/Critical) so LEGAL-LOG-001 does not fire. Two predicates fire: exit_assistance_days=0 → LEGAL-EXIT-001 (medium, GO_WITH_RESERVATIONS, risk-acceptable) and ip_ownership=\"ambiguous\" → LEGAL-IP-001 (high, REWORK, not risk-acceptable). The MSA corroborates both (\"Exit assistance: 0 days.\"; \"IP ownership: ambiguous.\"). The highest-priority disposition among the fired findings is REWORK, so the gate disposition is REWORK. REWORK is not in authorization_required_for, so no authorization is required.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"exit_assistance_days\": 0"
+        },
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"ip_ownership\": \"ambiguous\""
+        },
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "MSA",
+          "quote": "9. Exit and Reversibility\nExit assistance: 0 days."
+        },
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "MSA",
+          "quote": "8. Intellectual Property\nIP ownership: ambiguous."
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the compliance decision policy to the authoritative REVIEW_FACTS_COMPLIANCE snapshot: dpia_required=false and dpia_status=\\\"not_required\\\" so COMP-DPIA-001 does not fire; audit_trail=\\\"partial\\\" (not \\\"missing\\\") so COMP-AUDIT-001 does not fire; regulatory_mapping=\\\"partial\\\" (not \\\"missing\\\") so COMP-MAP-001 does not fire; accessibility_status=\\\"not_assessed\\\" (not \\\"major_findings\\\") so COMP-A11Y-001 does not fire; export_control=\\\"clear\\\" so neither COMP-EXPORT-001 nor COMP-EXPORT-002 fires. The single firing predicate is residency_compliant=false: the required residency is \\\"UK\\\" but the authoritative DATA_INVENTORY shows actual_region \\\"East US\\\" for the Core business data dataset, so the actual data region violates the required residency constraint. This yields COMP-RESID-001 (critical, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, owner DPO / Architecture, disposition NO_GO, risk_acceptance_allowed=False). The highest-priority disposition among fired findings is NO_GO, so the gate disposition is NO_GO. NO_GO is in authorization_required_for, so authorization is required; the standing mandate covers only risk-acceptable findings and this finding is not risk-acceptable, so no conditional approval is available.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "DATA_INVENTORY",
+          "quote": "\"actual_region\": \"East US\", \"required_residency\": \"UK\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "CONDITIONAL_ACCESS",
+        "SENTINEL_STATUS",
+        "VULN_SCAN",
+        "KEYVAULT_CONFIG",
+        "IAM_EXPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the DGF-decision-v8 security policy to the authoritative REVIEW_FACTS_SECURITY snapshot, no candidate finding predicate fires. WAF: internet_exposed=true and waf_present=true so SEC-WAF-001 does not fire; waf_mode=\"Prevention\" (not \"detection\") so SEC-WAF-002 does not fire (WAF_POLICY confirms mode \"Prevention\"). Network: data_classification=\"Internal\" (not Confidential/Restricted) and private_endpoints=true so SEC-NET-001 does not fire. IAM: mfa=\"mandatory\" so SEC-IAM-001 does not fire (CONDITIONAL_ACCESS confirms); shared_service_principal=false so SEC-IAM-002 does not fire (IAM_EXPORT shows only a dedicated workload-mi ManagedIdentity). Logging: logs_to_siem=true so SEC-LOG-001 does not fire (SENTINEL_STATUS confirms sentinel/connectors). Vulnerabilities: critical_vulns_open=0 so SEC-VULN-001 does not fire (VULN_SCAN lists only 4 High/Open, no Critical). Pentest: SEC-PENTEST-001 is gated on phase=='build_acceptance'; current phase is design, so it is not applicable. Keys: key_rotation_days=90 (not None or 365) so SEC-KEY-001 does not fire (KEYVAULT_CONFIG confirms 90). The 4 open High vulnerabilities and pentest_age_days=365 have no matching predicate in the design-phase policy and therefore generate no finding. With zero fired findings the gate disposition is GO, which is not in authorization_required_for, so no authorization is required. The standing mandate covers only risk-acceptable findings and no conditional approval is needed here.",
+      "confidence": 0.93,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CMDB-001",
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "CREATE_CMDB_RECORD",
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "CMDB_EXPORT",
+        "CAPACITY_REPORT",
+        "TECH_CATALOG",
+        "LICENSE_POSITION",
+        "LIFECYCLE_REGISTER",
+        "SUPPORT_RACI"
+      ],
+      "authorization_required": true,
+      "rationale": "Phase is build_acceptance; authoritative snapshot REVIEW_FACTS_IT (v1, age_days=0). Evaluating the policy predicates: catalog_status=\"standard\" and waiver_present=true → IT-CATALOG-001 does not fire (TECH_CATALOG confirms catalog_status \"standard\", waiver_present true, waiver_expiry_days 180). duplicate_capability=false → IT-RATIONAL-001 does not fire. license_compliant=true → IT-LICENSE-001 does not fire (LICENSE_POSITION confirms license_compliant \"True\", annual_cost_eur 500199). run_owner_present=true → IT-RUN-001 does not fire (CMDB_EXPORT and SUPPORT_RACI both record run owner Lucas Rahman-12003-SO). technology_eol_months=36, not <12 → IT-EOL-001 does not fire (LIFECYCLE_REGISTER confirms eol_months \"36\"). change_record_status=\"draft\" fires IT-CHANGE-001 only when phase=='deployment_closure'; current phase is build_acceptance, so IT-CHANGE-001 is not applicable. Two predicates fire: cmdb_record_present=false → IT-CMDB-001 (medium, GO_WITH_RESERVATIONS, action CREATE_CMDB_RECORD, owner ITSM), corroborated by CMDB_EXPORT record_present \"False\" and SUPPORT_RACI \"CMDB required | Yes\"; and capacity_headroom_pct=8 (<15) → IT-CAPACITY-001 (medium, GO_WITH_RESERVATIONS, action INCREASE_CAPACITY_HEADROOM, owner Platform Operations), corroborated by CAPACITY_REPORT capacity_headroom_pct \"8\". The highest-priority disposition among the fired findings is GO_WITH_RESERVATIONS (both findings are medium, risk-acceptance allowed=True). GO_WITH_RESERVATIONS is in authorization_required_for, so authorization is required; both findings are risk-acceptable and the active standing mandate MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1 (authority Maya Khan-12003-RO, scope \"all and only risk-acceptable findings\") covers them, so the conditional approval was executed with the two conditions (create CMDB record; raise headroom above 15% or obtain documented risk acceptance) before production go-live. These are proposed actions for this review snapshot, not completed remediation. Upstream decisions (procurement GO, legal REWORK, compliance NO_GO, security GO) concern other gates' evidence and do not add or remove IT findings; the only IT-relevant upstream signal is the compliance NO_GO on data residency, which is outside this gate's finding catalog.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "finding_id": "IT-CMDB-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"cmdb_record_present\": false"
+        },
+        {
+          "finding_id": "IT-CMDB-001",
+          "evidence_id": "CMDB_EXPORT",
+          "quote": "\"application\": \"Project Yotta — Digital Onboarding [C8CCC]\", \"continuity_class\": \"silver\", \"record_present\": \"False\", \"run_owner\": \"Lucas Rahman-12003-SO\""
+        },
+        {
+          "finding_id": "IT-CMDB-001",
+          "evidence_id": "SUPPORT_RACI",
+          "quote": "CMDB required | Yes"
+        },
+        {
+          "finding_id": "IT-CAPACITY-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"capacity_headroom_pct\": 8"
+        },
+        {
+          "finding_id": "IT-CAPACITY-001",
+          "evidence_id": "CAPACITY_REPORT",
+          "quote": "\"capacity_headroom_pct\": \"8\", \"continuity_class\": \"silver\", \"service\": \"Project Yotta — Digital Onboarding [C8CCC]\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the DGF-decision-v8 general policy to the authoritative REVIEW_FACTS_GENERAL snapshot (v1, age_days=0): strategic_alignment=\\\"strong\\\" so GEN-STRAT-001 does not fire; budget_requested_eur=900000 is not greater than budget_approved_eur=990000 so GEN-BUDGET-001 does not fire; roi=0.297 is not below 0.05 so GEN-BC-001 does not fire; phase is \\\"governance\\\" (not deployment_closure) so GEN-BENEFITS-001 does not fire. Among upstream decisions, compliance (BUY-03-COMPLIANCE-1) returned NO_GO, so the upstream_no branch fires GEN-UPSTREAM-NOGO (critical, action RESOLVE_UPSTREAM_NO_GO, owner Project Manager, disposition NO_GO, risk_acceptance_allowed=False); the elif branches for SUSPENSION/REWORK do not apply. The highest-priority disposition among fired findings is NO_GO, so the gate disposition is NO_GO. NO_GO is in authorization_required_for, so authorization is required; the active standing mandate MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-06-GENERAL-1 covers only risk-acceptable findings and GEN-UPSTREAM-NOGO is not risk-acceptable, so no conditional approval is available. The upstream compliance NO_GO on data residency (required \\\"UK\\\" vs actual \\\"East US\\\") must be resolved before resources and the next phase can be committed.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"gate\": \"compliance\", \"phase\": \"design\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-RESID-001\"]"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 900000, \"budget_approved_eur\": 990000, \"roi\": 0.297"
+        }
+      ]
+    }
+  ]
+}

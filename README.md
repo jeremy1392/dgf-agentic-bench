@@ -249,6 +249,8 @@ The archives are GitHub release assets; the final tables and figures are also br
 
 The run archive deliberately retains earlier partial `paper_outputs` for provenance. **Use `analysis_20260923_final` or the research directory for the final results.**
 
+**Earlier pilot — all files browsable on GitHub:** [`run_20260922_180730_063947`](experiments/run_20260922_180730_063947/) contains all 15 original project dossiers, 380 Word documents, 15 architecture diagrams in PNG and SVG, and every recorded trace, score, configuration, and report (2,214 files). [Pilot inventory and context](research/2026-09-pilot/). This pilot used GLM alongside DeepSeek and Gemini; its historical results are separate from the 300-project evaluation above.
+
 ## What this study can tell us
 
 It can show **how reliably the tested models review these fictional cases under the stated rules**, where they make mistakes, how errors affect later reviews, and what the evaluation costs.

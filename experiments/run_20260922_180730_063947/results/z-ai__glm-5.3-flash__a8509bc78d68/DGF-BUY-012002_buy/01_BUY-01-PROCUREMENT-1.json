@@ -1,0 +1,1286 @@
+{
+  "usage": {
+    "prompt_tokens": 120854,
+    "completion_tokens": 8002,
+    "total_tokens": 128856,
+    "reasoning_tokens": 7331,
+    "cached_tokens": 112832,
+    "cost": 0.013102539999999998,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "procurement",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 178,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "BUSINESS_CASE",
+            "path": "gate_evidence/general/business_case.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 79,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "BUDGET_APPROVAL",
+            "path": "gate_evidence/general/budget_approval.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 1,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 8,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "VENDOR_OFFERS",
+            "path": "gate_evidence/procurement/vendor_offers.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 160,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "SCORING_MATRIX",
+            "path": "gate_evidence/procurement/scoring_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 108,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 4,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "PRICING_TCO",
+            "path": "gate_evidence/procurement/pricing_tco.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 47,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "VENDOR_EVIDENCE_REQUEST",
+            "path": "gate_evidence/procurement/vendor_evidence_request.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 95,
+            "consumers": [
+              "procurement",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 72,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 143,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 114,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+            "path": "gate_evidence/procurement/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "procurement"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/procurement/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012002",
+            "generation_seed": 12002,
+            "project_name": "Project Raven — Payments API Hub [C2D29]",
+            "project_code": "C2D29",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Risk",
+            "sponsor": "Leila Santos-12002-SP",
+            "project_manager": "Daria Moreau-12002-PM",
+            "business_owner": "Adam Volkov-12002-BO",
+            "service_owner": "Amira Nguyen-12002-SO",
+            "risk_owner": "Thomas Haddad-12002-RO",
+            "start_date": "2026-10-09",
+            "target_go_live": "2027-03-10",
+            "users_impacted": 2000,
+            "budget_requested_eur": 7000000,
+            "data_classification": "Confidential",
+            "business_criticality": "Critical",
+            "primary_region": "North Europe",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "procurement": {
+            "offers": [
+              {
+                "vendor": "CedarPoint Digital C2D29-1",
+                "functional_score": 66,
+                "security_score": 69,
+                "tco_3y_eur": 2635210,
+                "mandatory_criteria_failed": 2,
+                "sanctions": "clear",
+                "references_checked": true,
+                "due_diligence": "complete",
+                "weighted_score": 59.7
+              },
+              {
+                "vendor": "DeltaForge Technologies C2D29-2",
+                "functional_score": 69,
+                "security_score": 86,
+                "tco_3y_eur": 1130256,
+                "mandatory_criteria_failed": 0,
+                "sanctions": "hit",
+                "references_checked": false,
+                "due_diligence": "complete",
+                "weighted_score": 69.9
+              },
+              {
+                "vendor": "Everline Software C2D29-3",
+                "functional_score": 77,
+                "security_score": 76,
+                "tco_3y_eur": 2008732,
+                "mandatory_criteria_failed": 1,
+                "sanctions": "pending",
+                "references_checked": true,
+                "due_diligence": "pending",
+                "weighted_score": 69.9
+              },
+              {
+                "vendor": "Fluxbridge Labs C2D29-4",
+                "functional_score": 73,
+                "security_score": 55,
+                "tco_3y_eur": 2351128,
+                "mandatory_criteria_failed": 0,
+                "sanctions": "clear",
+                "references_checked": false,
+                "due_diligence": "complete",
+                "weighted_score": 53.9
+              }
+            ],
+            "selected_vendor": "Fluxbridge Labs C2D29-4",
+            "competition": "open_tender",
+            "rfp_requirements": 154,
+            "purchasing_budget_eur": 7000000
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DUE_DILIGENCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DUE_DILIGENCE",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 4,
+        "path": "gate_evidence/procurement/due_diligence.csv",
+        "content": [
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "2",
+            "references_checked": "True",
+            "sanctions": "clear",
+            "vendor": "CedarPoint Digital C2D29-1"
+          },
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "False",
+            "sanctions": "hit",
+            "vendor": "DeltaForge Technologies C2D29-2"
+          },
+          {
+            "due_diligence": "pending",
+            "mandatory_failed": "1",
+            "references_checked": "True",
+            "sanctions": "pending",
+            "vendor": "Everline Software C2D29-3"
+          },
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "False",
+            "sanctions": "clear",
+            "vendor": "Fluxbridge Labs C2D29-4"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SCORING_MATRIX"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SCORING_MATRIX",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 108,
+        "path": "gate_evidence/procurement/scoring_matrix.csv",
+        "content": [
+          {
+            "functional": "66",
+            "security": "69",
+            "selected": "False",
+            "tco_3y_eur": "2635210",
+            "vendor": "CedarPoint Digital C2D29-1",
+            "weighted_score": "59.7"
+          },
+          {
+            "functional": "69",
+            "security": "86",
+            "selected": "False",
+            "tco_3y_eur": "1130256",
+            "vendor": "DeltaForge Technologies C2D29-2",
+            "weighted_score": "69.9"
+          },
+          {
+            "functional": "77",
+            "security": "76",
+            "selected": "False",
+            "tco_3y_eur": "2008732",
+            "vendor": "Everline Software C2D29-3",
+            "weighted_score": "69.9"
+          },
+          {
+            "functional": "73",
+            "security": "55",
+            "selected": "True",
+            "tco_3y_eur": "2351128",
+            "vendor": "Fluxbridge Labs C2D29-4",
+            "weighted_score": "53.9"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PRICING_TCO"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PRICING_TCO",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 47,
+        "path": "gate_evidence/procurement/pricing_tco.csv",
+        "content": [
+          {
+            "annualized_eur": "878403.33",
+            "selected": "False",
+            "tco_3y_eur": "2635210",
+            "vendor": "CedarPoint Digital C2D29-1"
+          },
+          {
+            "annualized_eur": "376752.0",
+            "selected": "False",
+            "tco_3y_eur": "1130256",
+            "vendor": "DeltaForge Technologies C2D29-2"
+          },
+          {
+            "annualized_eur": "669577.33",
+            "selected": "False",
+            "tco_3y_eur": "2008732",
+            "vendor": "Everline Software C2D29-3"
+          },
+          {
+            "annualized_eur": "783709.33",
+            "selected": "True",
+            "tco_3y_eur": "2351128",
+            "vendor": "Fluxbridge Labs C2D29-4"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "BUDGET_APPROVAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "BUDGET_APPROVAL",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 1,
+        "path": "gate_evidence/general/budget_approval.csv",
+        "content": [
+          {
+            "approved_eur": "7700000",
+            "approver": "CFO Office",
+            "requested_eur": "7000000",
+            "status": "APPROVED"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "VENDOR_OFFERS"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "VENDOR_OFFERS",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 160,
+        "path": "gate_evidence/procurement/vendor_offers.csv",
+        "content": [
+          {
+            "due_diligence": "complete",
+            "functional_score": "66",
+            "mandatory_criteria_failed": "2",
+            "references_checked": "True",
+            "sanctions": "clear",
+            "security_score": "69",
+            "tco_3y_eur": "2635210",
+            "vendor": "CedarPoint Digital C2D29-1",
+            "weighted_score": "59.7"
+          },
+          {
+            "due_diligence": "complete",
+            "functional_score": "69",
+            "mandatory_criteria_failed": "0",
+            "references_checked": "False",
+            "sanctions": "hit",
+            "security_score": "86",
+            "tco_3y_eur": "1130256",
+            "vendor": "DeltaForge Technologies C2D29-2",
+            "weighted_score": "69.9"
+          },
+          {
+            "due_diligence": "pending",
+            "functional_score": "77",
+            "mandatory_criteria_failed": "1",
+            "references_checked": "True",
+            "sanctions": "pending",
+            "security_score": "76",
+            "tco_3y_eur": "2008732",
+            "vendor": "Everline Software C2D29-3",
+            "weighted_score": "69.9"
+          },
+          {
+            "due_diligence": "complete",
+            "functional_score": "73",
+            "mandatory_criteria_failed": "0",
+            "references_checked": "False",
+            "sanctions": "clear",
+            "security_score": "55",
+            "tco_3y_eur": "2351128",
+            "vendor": "Fluxbridge Labs C2D29-4",
+            "weighted_score": "53.9"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "RFP"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "RFP",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 8,
+        "path": "gate_evidence/procurement/RFP.docx",
+        "content": "Request for Proposal\nRFP for Project Raven — Payments API Hub [C2D29]\nTender\nMandatory criteria\nSecurity evidence package\nData location disclosure\nSupport SLA\nExit and data export\nSanctions clearance\nField | Value\nRequirements | 154\nCompetition | open_tender\nBudget | 7000000"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "VENDOR_EVIDENCE_REQUEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "VENDOR_EVIDENCE_REQUEST",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 95,
+        "path": "gate_evidence/procurement/vendor_evidence_request.docx",
+        "content": "Supplier Evidence Request\nRequest\nEvidence requested\nCurrent ISO/SOC reports or equivalent\nSubprocessor inventory\nData-location statement\nSecurity incident notification terms\nBCP/DR evidence\nExit and deletion process\nField | Value\nSelected vendor | Fluxbridge Labs C2D29-4\nProject | Project Raven — Payments API Hub [C2D29]\nRequested by | Procurement / Security"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "MSA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "MSA",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 72,
+        "path": "gate_evidence/legal/MSA.docx",
+        "content": "Master Services Agreement\nSynthetic contract MSA-C2D29-10.9\n1. Services\nSupplier shall provide the services described in the Order Form for Project Raven — Payments API Hub [C2D29].\nSupplier comment: Clause accepted subject to final commercial approval.\n2. Term\nInitial term 36 months with renewal subject to the Order Form.\nSupplier comment: Clause accepted subject to final commercial approval.\n3. Service Levels\nService credits and penalties: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n4. Data Processing\nDPA status: not_required (declared). Transfer clause: scc.\nSupplier comment: Clause accepted subject to final commercial approval.\n5. Confidentiality\nEach party protects confidential information using reasonable safeguards.\nSupplier comment: Clause accepted subject to final commercial approval.\n6. Security\nSecurity logs export: missing.\nSupplier comment: Clause accepted subject to final commercial approval.\n7. Audit Rights\nCustomer audit rights: reports_only (declared).\nSupplier comment: Clause accepted subject to final commercial approval.\n8. Intellectual Property\nIP ownership: customer (declared).\nSupplier comment: Clause accepted subject to final commercial approval.\n9. Exit and Reversibility\nExit assistance: 61 days.\nSupplier comment: Clause accepted subject to final commercial approval.\n10. Insurance\nCyber insurance: EUR 5m. Certificate valid: True.\nSupplier comment: Clause accepted subject to final commercial approval.\n11. Liability\nAggregate liability cap: unlimitedx annual fees. Security carve-out: False.\nSupplier comment: Current liability position is commercially sensitive.\n12. Governing Law\nUAE\nSupplier comment: Clause accepted subject to final commercial approval."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "NEGOTIATION_LOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "NEGOTIATION_LOG",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 114,
+        "path": "gate_evidence/legal/negotiation_log.docx",
+        "content": "Contract Negotiation Log\nOpen negotiation points\nLiability cap currently unlimitedx annual fees.\nAudit right currently: reports_only.\nExit assistance: 60 days.\nSecurity log export: included.\nDPA status: not_required."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SLA_ANNEX"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SLA_ANNEX",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 143,
+        "path": "gate_evidence/legal/SLA_Annex.docx",
+        "content": "SLA Annex\nService levels\nField | Value\nAvailability | 99.9%\nP1 response | 30 minutes\nPenalties | True\nRecovery target | RTO 8h / RPO 0m"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "BUSINESS_CASE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "BUSINESS_CASE",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 79,
+        "path": "gate_evidence/general/business_case.csv",
+        "content": [
+          {
+            "metric": "ROI",
+            "value": "0.344"
+          },
+          {
+            "metric": "NPV_EUR",
+            "value": "1603547"
+          },
+          {
+            "metric": "Payback_months",
+            "value": "57"
+          },
+          {
+            "metric": "Strategic_alignment",
+            "value": "weak"
+          },
+          {
+            "metric": "Portfolio_priority",
+            "value": "P1"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 178,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-BUY-012002\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Project Raven — Payments API Hub [C2D29]\nRoute | buy\nBusiness unit | Risk\nSponsor | Leila Santos-12002-SP\nProject manager | Daria Moreau-12002-PM\nBusiness owner | Adam Volkov-12002-BO\nRisk owner | Thomas Haddad-12002-RO\nCriticality | Critical\nData classification | Confidential\nUsers impacted | 2000\nTarget go-live | 2027-03-10"
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1",
+            "occurrence_id": "BUY-01-PROCUREMENT-1",
+            "gate": "procurement",
+            "phase": "design",
+            "authority": "Thomas Haddad-12002-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "approve_with_conditions",
+      "args": {
+        "approval_reference": "MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1",
+        "conditions": [
+          "Complete reference checks for selected supplier Fluxbridge Labs C2D29-4 and record outcomes in the procurement file before contract award/signature.",
+          "If any reference check is adverse, escalate to the risk owner (Thomas Haddad-12002-RO) before proceeding."
+        ],
+        "finding_ids": [
+          "PROC-REF-001"
+        ],
+        "gate": "procurement"
+      },
+      "result": {
+        "status": "EXECUTED",
+        "action": "APPROVE_WITH_CONDITIONS",
+        "gate": "procurement",
+        "finding_ids": [
+          "PROC-REF-001"
+        ],
+        "conditions": [
+          "Complete reference checks for selected supplier Fluxbridge Labs C2D29-4 and record outcomes in the procurement file before contract award/signature.",
+          "If any reference check is adverse, escalate to the risk owner (Thomas Haddad-12002-RO) before proceeding."
+        ],
+        "approval_reference": "MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_87db8864e9c5490a8fdb3f3a",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4137,
+        "completion_tokens": 27,
+        "total_tokens": 4164,
+        "reasoning_tokens": 16,
+        "cached_tokens": 1792,
+        "cost": 0.00049069,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e23d5b739fdf473ca4bfe3ca",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5044,
+        "completion_tokens": 38,
+        "total_tokens": 5082,
+        "reasoning_tokens": 25,
+        "cached_tokens": 4096,
+        "cost": 0.00044792,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1c91d21b24e64625b42708ad",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DUE_DILIGENCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5750,
+        "completion_tokens": 2005,
+        "total_tokens": 7755,
+        "reasoning_tokens": 2135,
+        "cached_tokens": 4992,
+        "cost": 0.00146564,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_cf37096d2490426ca1ca841d",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SCORING_MATRIX\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6009,
+        "completion_tokens": 18,
+        "total_tokens": 6027,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5696,
+        "cost": 0.00045467,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_25cd3b4a9f0e40cda4ce9f06",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PRICING_TCO\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6312,
+        "completion_tokens": 19,
+        "total_tokens": 6331,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5952,
+        "cost": 0.00048014,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c526942c5ebd419f87a9bcbf",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"BUDGET_APPROVAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6590,
+        "completion_tokens": 19,
+        "total_tokens": 6609,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6272,
+        "cost": 0.00049624,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_476406b6996b4367a6bcf722",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"VENDOR_OFFERS\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6705,
+        "completion_tokens": 18,
+        "total_tokens": 6723,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6528,
+        "cost": 0.00049251,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c2de40faa5d7490db338b3ab",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"RFP\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7116,
+        "completion_tokens": 16,
+        "total_tokens": 7132,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6656,
+        "cost": 0.00054292,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_27851674070841e9af1bb7b7",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"VENDOR_EVIDENCE_REQUEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7260,
+        "completion_tokens": 20,
+        "total_tokens": 7280,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7104,
+        "cost": 0.00053068,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 9,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_41f77371f29b4bef9c98e233",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"MSA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7424,
+        "completion_tokens": 16,
+        "total_tokens": 7440,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7232,
+        "cost": 0.00054304,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 10,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_7e2114382cdb4693a67b8aa6",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"NEGOTIATION_LOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7859,
+        "completion_tokens": 19,
+        "total_tokens": 7878,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7424,
+        "cost": 0.00059443,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 11,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_9c9f024bb6524826829ff7d5",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SLA_ANNEX\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7988,
+        "completion_tokens": 19,
+        "total_tokens": 8007,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7808,
+        "cost": 0.00058306,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 12,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a2c8d1b01f384fe7918bdff9",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"BUSINESS_CASE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8116,
+        "completion_tokens": 17,
+        "total_tokens": 8133,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7936,
+        "cost": 0.00059102,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 13,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_5b733bbe37da4a37a48964f3",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8263,
+        "completion_tokens": 18,
+        "total_tokens": 8281,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8064,
+        "cost": 0.00060333,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 14,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_4bf4514f7fd04f57a1dee4b2",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8511,
+        "completion_tokens": 1877,
+        "total_tokens": 10388,
+        "reasoning_tokens": 1975,
+        "cached_tokens": 8256,
+        "cost": 0.00155467,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 15,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative REVIEW_FACTS_PROCUREMENT snapshot is unambiguous. Let me evaluate the policy rule against the selected vendor (Fluxbridge Labs C2D29-4):\n\n- `mandatory_criteria_failed: 0` → PROC-MAND-001 does **not** apply\n- `sanctions: \"clear\"` → PROC-SAN-001 / PROC-SAN-002 do **not** apply\n- `due_diligence: \"complete\"` → PROC-DD-001 does **not** apply\n- `tco_3y_eur: 2,351,128` vs envelope `7,000,000 × 1.5 = 10,500,000` → PROC-BUDGET-001 does **not** apply\n- `references_checked: false` → **PROC-REF-001 applies** (medium, GO_WITH_RESERVATIONS, risk-acceptable)\n\nThe standing mandate (MANDATE-063d…, authority Thomas Haddad-12002-RO, scope \"all and only risk-acceptable findings\") covers this risk-acceptable finding, so I'll record the conditional approval under it.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b5d5a276773748d8b28448a7",
+            "function": {
+              "name": "approve_with_conditions",
+              "arguments": "{\"approval_reference\": \"MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1\", \"conditions\": [\"Complete reference checks for selected supplier Fluxbridge Labs C2D29-4 and record outcomes in the procurement file before contract award/signature.\", \"If any reference check is adverse, escalate to the risk owner (Thomas Haddad-12002-RO) before proceeding.\"], \"finding_ids\": [\"PROC-REF-001\"], \"gate\": \"procurement\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8631,
+        "completion_tokens": 3200,
+        "total_tokens": 11831,
+        "reasoning_tokens": 3180,
+        "cached_tokens": 8448,
+        "cost": 0.00221881,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 16,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_dcbd08170df74cab868ff9a2",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"CHECK_VENDOR_REFERENCES\"], \"authorization_required\": true, \"confidence\": 0.93, \"disposition\": \"GO_WITH_RESERVATIONS\", \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\", \"DUE_DILIGENCE\", \"SCORING_MATRIX\", \"PRICING_TCO\", \"BUDGET_APPROVAL\", \"VENDOR_OFFERS\", \"RFP\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"finding_id\": \"PROC-REF-001\", \"quote\": \"\\\"selected_vendor\\\": \\\"Fluxbridge Labs C2D29-4\\\" ... \\\"vendor\\\": \\\"Fluxbridge Labs C2D29-4\\\", \\\"functional_score\\\": 73, \\\"security_score\\\": 55, \\\"tco_3y_eur\\\": 2351128, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 53.9\"}, {\"evidence_id\": \"DUE_DILIGENCE\", \"finding_id\": \"PROC-REF-001\", \"quote\": \"{\\\"due_diligence\\\": \\\"complete\\\", \\\"mandatory_failed\\\": \\\"0\\\", \\\"references_checked\\\": \\\"False\\\", \\\"sanctions\\\": \\\"clear\\\", \\\"vendor\\\": \\\"Fluxbridge Labs C2D29-4\\\"}\"}], \"finding_ids\": [\"PROC-REF-001\"], \"rationale\": \"Authoritative REVIEW_FACTS_PROCUREMENT (v1, age 0d) shows selected vendor Fluxbridge Labs C2D29-4 with mandatory_criteria_failed=0, sanctions=clear, due_diligence=complete, and references_checked=false. Applying the DGF-decision-v8 procurement rule: no mandatory-criteria failure (PROC-MAND-001 not triggered), no sanctions hit or pending (PROC-SAN-001/002 not triggered), due diligence complete (PROC-DD-001 not triggered), and TCO 3y EUR 2,351,128 is well within the purchasing envelope (7,000,000 x 1.5 = 10,500,000; PROC-BUDGET-001 not triggered). Only PROC-REF-001 (medium, references not checked) applies, carrying disposition GO_WITH_RESERVATIONS with action CHECK_VENDOR_REFERENCES. Corroborated by authoritative DUE_DILIGENCE (references_checked=False for Fluxbridge) and non-authoritative SCORING_MATRIX/VENDOR_OFFERS/PRICING_TCO, which agree with the snapshot. Conditional approval for this risk-acceptable finding was recorded under standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1 (authority Thomas Haddad-12002-RO, scope: all and only risk-acceptable findings), with conditions to complete reference checks before award and escalate any adverse reference to the risk owner. Authorization is required for GO_WITH_RESERVATIONS and is satisfied by the active standing mandate.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9139,
+        "completion_tokens": 656,
+        "total_tokens": 9795,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8576,
+        "cost": 0.00101277,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 17,
+  "tool_call_count": 16,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-01-PROCUREMENT-1",
+    "disposition": "GO_WITH_RESERVATIONS",
+    "finding_ids": [
+      "PROC-REF-001"
+    ],
+    "actions": [
+      "CHECK_VENDOR_REFERENCES"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_PROCUREMENT",
+      "DUE_DILIGENCE",
+      "SCORING_MATRIX",
+      "PRICING_TCO",
+      "BUDGET_APPROVAL",
+      "VENDOR_OFFERS",
+      "RFP"
+    ],
+    "authorization_required": true,
+    "rationale": "Authoritative REVIEW_FACTS_PROCUREMENT (v1, age 0d) shows selected vendor Fluxbridge Labs C2D29-4 with mandatory_criteria_failed=0, sanctions=clear, due_diligence=complete, and references_checked=false. Applying the DGF-decision-v8 procurement rule: no mandatory-criteria failure (PROC-MAND-001 not triggered), no sanctions hit or pending (PROC-SAN-001/002 not triggered), due diligence complete (PROC-DD-001 not triggered), and TCO 3y EUR 2,351,128 is well within the purchasing envelope (7,000,000 x 1.5 = 10,500,000; PROC-BUDGET-001 not triggered). Only PROC-REF-001 (medium, references not checked) applies, carrying disposition GO_WITH_RESERVATIONS with action CHECK_VENDOR_REFERENCES. Corroborated by authoritative DUE_DILIGENCE (references_checked=False for Fluxbridge) and non-authoritative SCORING_MATRIX/VENDOR_OFFERS/PRICING_TCO, which agree with the snapshot. Conditional approval for this risk-acceptable finding was recorded under standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1 (authority Thomas Haddad-12002-RO, scope: all and only risk-acceptable findings), with conditions to complete reference checks before award and escalate any adverse reference to the risk owner. Authorization is required for GO_WITH_RESERVATIONS and is satisfied by the active standing mandate.",
+    "confidence": 0.93,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+        "finding_id": "PROC-REF-001",
+        "quote": "\"selected_vendor\": \"Fluxbridge Labs C2D29-4\" ... \"vendor\": \"Fluxbridge Labs C2D29-4\", \"functional_score\": 73, \"security_score\": 55, \"tco_3y_eur\": 2351128, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 53.9"
+      },
+      {
+        "evidence_id": "DUE_DILIGENCE",
+        "finding_id": "PROC-REF-001",
+        "quote": "{\"due_diligence\": \"complete\", \"mandatory_failed\": \"0\", \"references_checked\": \"False\", \"sanctions\": \"clear\", \"vendor\": \"Fluxbridge Labs C2D29-4\"}"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 23,
+    "retries": 6,
+    "rate_limits": 6,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

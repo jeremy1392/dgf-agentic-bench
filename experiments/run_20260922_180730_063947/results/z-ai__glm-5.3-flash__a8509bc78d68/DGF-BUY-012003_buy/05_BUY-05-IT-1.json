@@ -1,0 +1,964 @@
+{
+  "usage": {
+    "prompt_tokens": 146905,
+    "completion_tokens": 6219,
+    "total_tokens": 153124,
+    "reasoning_tokens": 5408,
+    "cached_tokens": 109888,
+    "cost": 0.01635421,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "build_acceptance",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 12,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 161,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 103,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LICENSE_POSITION",
+            "path": "gate_evidence/it/license_position.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 9,
+            "consumers": [
+              "it",
+              "procurement",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 153,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "SUPPORT_RACI",
+            "path": "gate_evidence/it/support_raci.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 56,
+            "consumers": [
+              "it",
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 154,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 113,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "FLOW_MATRIX",
+            "path": "gate_evidence/architecture/flow_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 176,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "OPENAPI",
+            "path": "gate_evidence/architecture/openapi.yaml",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 17,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "IP_PLAN",
+            "path": "gate_evidence/architecture/ip_plan.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 32,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ADR_REGISTER",
+            "path": "gate_evidence/architecture/adr_register.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 93,
+            "consumers": [
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "AZURE_RESOURCE_GRAPH",
+            "path": "gate_evidence/security/azure_resource_graph.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 175,
+            "consumers": [
+              "security",
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "IAM_EXPORT",
+            "path": "gate_evidence/security/entra_role_assignments.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 93,
+            "consumers": [
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "BACKUP_JOBS",
+            "path": "gate_evidence/tech_readiness/backup_jobs.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 171,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "RUNBOOK",
+            "path": "gate_evidence/tech_readiness/production_runbook.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 40,
+            "consumers": [
+              "tech_readiness",
+              "it",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ROLLBACK_TEST",
+            "path": "gate_evidence/tech_readiness/rollback_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 60,
+            "consumers": [
+              "tech_readiness",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012003",
+            "generation_seed": 12003,
+            "project_name": "Project Yotta — Digital Onboarding [C8CCC]",
+            "project_code": "C8CCC",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Risk",
+            "sponsor": "Noor Volkov-12003-SP",
+            "project_manager": "Noor Petrescu-12003-PM",
+            "business_owner": "Amira Costa-12003-BO",
+            "service_owner": "Lucas Rahman-12003-SO",
+            "risk_owner": "Maya Khan-12003-RO",
+            "start_date": "2026-10-30",
+            "target_go_live": "2027-10-14",
+            "users_impacted": 80,
+            "budget_requested_eur": 900000,
+            "data_classification": "Internal",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 180,
+            "duplicate_capability": false,
+            "existing_alternative": "legacy_crm",
+            "license_compliant": true,
+            "annual_license_cost_eur": 500199,
+            "cmdb_record_present": false,
+            "run_owner_present": true,
+            "support_model": "vendor_only",
+            "patch_sla_days": 90,
+            "capacity_headroom_pct": 8,
+            "technology_eol_months": 36,
+            "change_record_status": "draft",
+            "service_continuity_class": "silver",
+            "hosting_model": "functions"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1",
+            "occurrence_id": "BUY-05-IT-1",
+            "gate": "it",
+            "phase": "build_acceptance",
+            "authority": "Maya Khan-12003-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 161,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Project Yotta — Digital Onboarding [C8CCC]",
+            "continuity_class": "silver",
+            "record_present": "False",
+            "run_owner": "Lucas Rahman-12003-SO",
+            "support_model": "vendor_only"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 154,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "8",
+            "continuity_class": "silver",
+            "service": "Project Yotta — Digital Onboarding [C8CCC]",
+            "support_model": "vendor_only"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LICENSE_POSITION"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LICENSE_POSITION",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 9,
+        "path": "gate_evidence/it/license_position.csv",
+        "content": [
+          {
+            "annual_cost_eur": "500199",
+            "license_compliant": "True"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 103,
+        "path": "gate_evidence/it/technology_catalog.json",
+        "content": {
+          "catalog_status": "standard",
+          "waiver_present": true,
+          "waiver_expiry_days": 180,
+          "hosting_model": "functions"
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 153,
+        "path": "gate_evidence/it/lifecycle_eol.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "8",
+            "eol_months": "36",
+            "technology": "functions"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SUPPORT_RACI"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SUPPORT_RACI",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 56,
+        "path": "gate_evidence/it/support_raci.docx",
+        "content": "Support & Operations RACI\nOperating model\nField | Value\nRun owner | Lucas Rahman-12003-SO\nSupport model | vendor_only\nPatch SLA days | 90\nCMDB required | Yes"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 12,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-BUY-012003\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Project Yotta — Digital Onboarding [C8CCC]\nRoute | buy\nBusiness unit | Risk\nSponsor | Noor Volkov-12003-SP\nProject manager | Noor Petrescu-12003-PM\nBusiness owner | Amira Costa-12003-BO\nRisk owner | Maya Khan-12003-RO\nCriticality | Medium\nData classification | Internal\nUsers impacted | 80\nTarget go-live | 2027-10-14"
+      }
+    },
+    {
+      "tool": "approve_with_conditions",
+      "args": {
+        "approval_reference": "MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1",
+        "conditions": [
+          "Create the required CMDB record for Project Yotta — Digital Onboarding [C8CCC] (CREATE_CMDB_RECORD, owner ITSM) before deployment_closure.",
+          "Increase production capacity headroom to at least 15% (INCREASE_CAPACITY_HEADROOM, owner Platform Operations) before go-live."
+        ],
+        "finding_ids": [
+          "IT-CMDB-001",
+          "IT-CAPACITY-001"
+        ],
+        "gate": "it"
+      },
+      "result": {
+        "status": "EXECUTED",
+        "action": "APPROVE_WITH_CONDITIONS",
+        "gate": "it",
+        "finding_ids": [
+          "IT-CMDB-001",
+          "IT-CAPACITY-001"
+        ],
+        "conditions": [
+          "Create the required CMDB record for Project Yotta — Digital Onboarding [C8CCC] (CREATE_CMDB_RECORD, owner ITSM) before deployment_closure.",
+          "Increase production capacity headroom to at least 15% (INCREASE_CAPACITY_HEADROOM, owner Platform Operations) before go-live."
+        ],
+        "approval_reference": "MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_543c280ca9f44e9e83fc8251",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10215,
+        "completion_tokens": 20,
+        "total_tokens": 10235,
+        "reasoning_tokens": 18,
+        "cached_tokens": 2048,
+        "cost": 0.00137841,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_fea887cd61a44d4896c8e048",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 11422,
+        "completion_tokens": 36,
+        "total_tokens": 11458,
+        "reasoning_tokens": 22,
+        "cached_tokens": 10176,
+        "cost": 0.00091722,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is available. Let me analyze it against the policy predicates and check corroborating evidence plus any standing mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_306f7096111c416cb281d460",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 11877,
+        "completion_tokens": 1005,
+        "total_tokens": 12882,
+        "reasoning_tokens": 1002,
+        "cached_tokens": 11392,
+        "cost": 0.00137269,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot (REVIEW_FACTS_IT, v1, age 0) is in hand, and an active standing mandate exists for this occurrence (Maya Khan-12003-RO, scope \"all and only risk-acceptable findings\"). Now let me corroborate the triggering and non-triggering predicates against the underlying authoritative evidence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a5da914c677843d39e82935b",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12015,
+        "completion_tokens": 2247,
+        "total_tokens": 14262,
+        "reasoning_tokens": 2522,
+        "cached_tokens": 11840,
+        "cost": 0.00197855,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1561e61911df46b2887a7381",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12210,
+        "completion_tokens": 17,
+        "total_tokens": 12227,
+        "reasoning_tokens": 0,
+        "cached_tokens": 0,
+        "cost": 0.00184,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_dc7afbd75ec74ee7ae19ef60",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LICENSE_POSITION\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12326,
+        "completion_tokens": 16,
+        "total_tokens": 12342,
+        "reasoning_tokens": 0,
+        "cached_tokens": 11968,
+        "cost": 0.00089946,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_089a094a27a3481c9d538023",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12415,
+        "completion_tokens": 18,
+        "total_tokens": 12433,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12288,
+        "cost": 0.00088821,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ce63686c998d47f0800c24c4",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12521,
+        "completion_tokens": 20,
+        "total_tokens": 12541,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12352,
+        "cost": 0.00089999,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a78259e7dc1c44a28577efea",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SUPPORT_RACI\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12625,
+        "completion_tokens": 19,
+        "total_tokens": 12644,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12480,
+        "cost": 0.00090485,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 9,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_40deea3c7d524098a77ce6c2",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12749,
+        "completion_tokens": 18,
+        "total_tokens": 12767,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12608,
+        "cost": 0.00091271,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 10,
+      "assistant": {
+        "role": "assistant",
+        "content": "All authoritative evidence is inspected. Applying the policy predicates (phase = build_acceptance) to REVIEW_FACTS_IT:\n\n- **IT-CMDB-001 triggers**: `cmdb_record_present: false` at build_acceptance (corroborated by CMDB_EXPORT `record_present: False`).\n- **IT-CAPACITY-001 triggers**: `capacity_headroom_pct: 8` < 15 at build_acceptance (corroborated by CAPACITY_REPORT `8`).\n- Non-triggers: catalog_status='standard' with waiver present (no IT-CATALOG-001); duplicate_capability=false (no IT-RATIONAL-001); license_compliant=true (no IT-LICENSE-001); run_owner_present=true (no IT-RUN-001); eol_months=36 ≥ 12 (no IT-EOL-001); change_record_status='draft' but phase is build_acceptance, not deployment_closure (no IT-CHANGE-001).\n\nBoth triggered findings are risk-acceptable (risk_acceptance_allowed=true), and GO_WITH_RESERVATIONS requires authorization. An active standing mandate exists for this occurrence scoped to \"all and only risk-acceptable findings\" — I will exercise it via a conditional approval.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d8fdc3849efa462fbdce0232",
+            "function": {
+              "name": "approve_with_conditions",
+              "arguments": "{\"approval_reference\": \"MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1\", \"conditions\": [\"Create the required CMDB record for Project Yotta — Digital Onboarding [C8CCC] (CREATE_CMDB_RECORD, owner ITSM) before deployment_closure.\", \"Increase production capacity headroom to at least 15% (INCREASE_CAPACITY_HEADROOM, owner Platform Operations) before go-live.\"], \"finding_ids\": [\"IT-CMDB-001\", \"IT-CAPACITY-001\"], \"gate\": \"it\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12997,
+        "completion_tokens": 1965,
+        "total_tokens": 14962,
+        "reasoning_tokens": 1660,
+        "cached_tokens": 12736,
+        "cost": 0.00191317,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 11,
+      "assistant": {
+        "role": "assistant",
+        "content": "The conditional approval was executed under the standing mandate. Submitting the final decision.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_fc5db42d43a84b469d81d781",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"CREATE_CMDB_RECORD\", \"INCREASE_CAPACITY_HEADROOM\"], \"authorization_required\": true, \"confidence\": 0.95, \"disposition\": \"GO_WITH_RESERVATIONS\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"CMDB_EXPORT\", \"CAPACITY_REPORT\", \"TECH_CATALOG\", \"LICENSE_POSITION\", \"LIFECYCLE_REGISTER\", \"SUPPORT_RACI\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-CMDB-001\", \"quote\": \"\\\"cmdb_record_present\\\": false\"}, {\"evidence_id\": \"CMDB_EXPORT\", \"finding_id\": \"IT-CMDB-001\", \"quote\": \"\\\"record_present\\\": \\\"False\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-CAPACITY-001\", \"quote\": \"\\\"capacity_headroom_pct\\\": 8\"}, {\"evidence_id\": \"CAPACITY_REPORT\", \"finding_id\": \"IT-CAPACITY-001\", \"quote\": \"\\\"capacity_headroom_pct\\\": \\\"8\\\"\"}], \"finding_ids\": [\"IT-CMDB-001\", \"IT-CAPACITY-001\"], \"rationale\": \"Authoritative REVIEW_FACTS_IT (v1, age 0) at phase build_acceptance triggers exactly two predicates: cmdb_record_present=false → IT-CMDB-001 (medium, CREATE_CMDB_RECORD, GO_WITH_RESERVATIONS), corroborated by authoritative CMDB_EXPORT (record_present=False, run_owner Lucas Rahman-12003-SO); and capacity_headroom_pct=8 < 15 → IT-CAPACITY-001 (medium, INCREASE_CAPACITY_HEADROOM, GO_WITH_RESERVATIONS), corroborated by authoritative CAPACITY_REPORT (headroom 8). All other predicates fail to trigger: catalog_status='standard' with waiver_present=true (expiry 180 days) so no IT-CATALOG-001; duplicate_capability=false so no IT-RATIONAL-001; license_compliant=true (annual cost EUR 500,199) so no IT-LICENSE-001, corroborated by LICENSE_POSITION; run_owner_present=true so no IT-RUN-001, corroborated by SUPPORT_RACI; technology_eol_months=36 ≥ 12 so no IT-EOL-001, corroborated by LIFECYCLE_REGISTER; change_record_status='draft' but phase is build_acceptance, not deployment_closure, so IT-CHANGE-001 does not apply at this phase. Highest-priority triggered disposition is GO_WITH_RESERVATIONS. Both findings are risk-acceptable; authorization is required and was exercised via the active standing mandate MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1 (Maya Khan-12003-RO, scope 'all and only risk-acceptable findings') through a conditional approval requiring CMDB record creation before deployment_closure and capacity headroom ≥ 15% before go-live. These are proposed remediation conditions, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13533,
+        "completion_tokens": 838,
+        "total_tokens": 14371,
+        "reasoning_tokens": 184,
+        "cached_tokens": 0,
+        "cost": 0.00244895,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 12,
+  "tool_call_count": 11,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-05-IT-1",
+    "disposition": "GO_WITH_RESERVATIONS",
+    "finding_ids": [
+      "IT-CMDB-001",
+      "IT-CAPACITY-001"
+    ],
+    "actions": [
+      "CREATE_CMDB_RECORD",
+      "INCREASE_CAPACITY_HEADROOM"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "CMDB_EXPORT",
+      "CAPACITY_REPORT",
+      "TECH_CATALOG",
+      "LICENSE_POSITION",
+      "LIFECYCLE_REGISTER",
+      "SUPPORT_RACI"
+    ],
+    "authorization_required": true,
+    "rationale": "Authoritative REVIEW_FACTS_IT (v1, age 0) at phase build_acceptance triggers exactly two predicates: cmdb_record_present=false → IT-CMDB-001 (medium, CREATE_CMDB_RECORD, GO_WITH_RESERVATIONS), corroborated by authoritative CMDB_EXPORT (record_present=False, run_owner Lucas Rahman-12003-SO); and capacity_headroom_pct=8 < 15 → IT-CAPACITY-001 (medium, INCREASE_CAPACITY_HEADROOM, GO_WITH_RESERVATIONS), corroborated by authoritative CAPACITY_REPORT (headroom 8). All other predicates fail to trigger: catalog_status='standard' with waiver_present=true (expiry 180 days) so no IT-CATALOG-001; duplicate_capability=false so no IT-RATIONAL-001; license_compliant=true (annual cost EUR 500,199) so no IT-LICENSE-001, corroborated by LICENSE_POSITION; run_owner_present=true so no IT-RUN-001, corroborated by SUPPORT_RACI; technology_eol_months=36 ≥ 12 so no IT-EOL-001, corroborated by LIFECYCLE_REGISTER; change_record_status='draft' but phase is build_acceptance, not deployment_closure, so IT-CHANGE-001 does not apply at this phase. Highest-priority triggered disposition is GO_WITH_RESERVATIONS. Both findings are risk-acceptable; authorization is required and was exercised via the active standing mandate MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-05-IT-1 (Maya Khan-12003-RO, scope 'all and only risk-acceptable findings') through a conditional approval requiring CMDB record creation before deployment_closure and capacity headroom ≥ 15% before go-live. These are proposed remediation conditions, not completed remediation.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-CMDB-001",
+        "quote": "\"cmdb_record_present\": false"
+      },
+      {
+        "evidence_id": "CMDB_EXPORT",
+        "finding_id": "IT-CMDB-001",
+        "quote": "\"record_present\": \"False\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-CAPACITY-001",
+        "quote": "\"capacity_headroom_pct\": 8"
+      },
+      {
+        "evidence_id": "CAPACITY_REPORT",
+        "finding_id": "IT-CAPACITY-001",
+        "quote": "\"capacity_headroom_pct\": \"8\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 42,
+    "retries": 2,
+    "rate_limits": 2,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

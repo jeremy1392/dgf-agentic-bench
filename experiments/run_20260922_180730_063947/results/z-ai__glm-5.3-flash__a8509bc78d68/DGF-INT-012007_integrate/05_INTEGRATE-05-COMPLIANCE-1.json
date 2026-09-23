@@ -1,0 +1,568 @@
+{
+  "usage": {
+    "prompt_tokens": 44209,
+    "completion_tokens": 3488,
+    "total_tokens": 47697,
+    "reasoning_tokens": 2455,
+    "cached_tokens": 36160,
+    "cost": 0.00548255,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 151,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 54,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 122,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 11,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 58,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 176,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 60,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 70,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 33,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 29,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012007",
+            "generation_seed": 12007,
+            "project_name": "Saffron Acquisition Integration — Contract Intelligence [64AF6]",
+            "project_code": "64AF6",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Samir Martin-12007-SP",
+            "project_manager": "Lucas Bennett-12007-PM",
+            "business_owner": "Lucas Santos-12007-BO",
+            "service_owner": "Marc Rossi-12007-SO",
+            "risk_owner": "Yusuf Petrescu-12007-RO",
+            "start_date": "2026-10-18",
+            "target_go_live": "2027-03-03",
+            "users_impacted": 80,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": true,
+            "ai_enabled": true,
+            "external_users": false
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "PCI-DSS",
+              "EU AI Act / internal AI policy"
+            ],
+            "dpia_required": true,
+            "dpia_status": "complete",
+            "required_residency": "UAE",
+            "residency_compliant": false,
+            "retention_years": 10,
+            "legal_hold_supported": true,
+            "deletion_enforced": true,
+            "audit_trail": "complete",
+            "accessibility_status": "not_assessed",
+            "ethics_review": "conditional",
+            "regulatory_mapping": "missing",
+            "third_party_monitoring": "onboarding_only",
+            "export_control": "pending"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_INVENTORY"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_INVENTORY",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 60,
+        "path": "gate_evidence/compliance/data_inventory.csv",
+        "content": [
+          {
+            "actual_region": "West US 2",
+            "classification": "Confidential",
+            "dataset": "Core business data",
+            "personal_data": "True",
+            "required_residency": "UAE"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REG_MAPPING"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REG_MAPPING",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 33,
+        "path": "gate_evidence/compliance/regulatory_mapping.csv",
+        "content": [
+          {
+            "mapping_status": "missing",
+            "owner": "GRC",
+            "regulation": "PCI-DSS"
+          },
+          {
+            "mapping_status": "missing",
+            "owner": "GRC",
+            "regulation": "EU AI Act / internal AI policy"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-05-COMPLIANCE-1",
+            "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+            "gate": "compliance",
+            "phase": "design",
+            "authority": "Yusuf Petrescu-12007-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_06cf8c921a5f4103b71bc331",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6281,
+        "completion_tokens": 28,
+        "total_tokens": 6309,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00095615,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_7f9d601dffc6493badc2be73",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7054,
+        "completion_tokens": 43,
+        "total_tokens": 7097,
+        "reasoning_tokens": 27,
+        "cached_tokens": 6272,
+        "cost": 0.00057784,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is clear. Let me corroborate the material findings (residency, regulatory mapping, export control) with authoritative sources and check the standing mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_341f6615d9eb4f0baf739c6d",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DATA_INVENTORY\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7515,
+        "completion_tokens": 652,
+        "total_tokens": 8167,
+        "reasoning_tokens": 655,
+        "cached_tokens": 7040,
+        "cost": 0.00089005,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_92b70b7dd1ee432abb285d38",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REG_MAPPING\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7661,
+        "completion_tokens": 16,
+        "total_tokens": 7677,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7488,
+        "cost": 0.00055811,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_227641bf56f5484e88022bbe",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7783,
+        "completion_tokens": 10,
+        "total_tokens": 7793,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7616,
+        "cost": 0.00056317,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "Investigation complete. The authoritative REVIEW_FACTS_COMPLIANCE snapshot (v1, age 0 days) evaluates against the DGF-decision-v8 predicates as follows:\n\n- **COMP-DPIA-001**: not triggered — `dpia_required: true` but `dpia_status: \"complete\"`.\n- **COMP-RESID-001**: **triggered** — `residency_compliant: false` with `required_residency: \"UAE\"`; corroborated by authoritative DATA_INVENTORY (`actual_region: \"West US 2\"` vs `required_residency: \"UAE\"`), matching the project's `primary_region: \"West US 2\"`. Critical → NO_GO.\n- **COMP-AUDIT-001**: not triggered — `audit_trail: \"complete\"`.\n- **COMP-MAP-001**: **triggered** — `regulatory_mapping: \"missing\"`; corroborated by authoritative REG_MAPPING (both PCI-DSS and EU AI Act mappings `missing`, owner GRC). High → REWORK.\n- **COMP-A11Y-001**: not triggered — `accessibility_status: \"not_assessed\"`, not `\"major_findings\"`.\n- **COMP-EXPORT-001**: not triggered — `export_control: \"pending\"`, not `\"restricted\"`.\n- **COMP-EXPORT-002**: **triggered** — `export_control: \"pending\"`. High → SUSPENSION.\n\nHighest-priority outcome: **NO_GO** (critical residency violation). NO_GO is in `authorization_required_for`, so authorization is required; however, the active standing mandate is scoped to \"all and only risk-acceptable findings\" and none of the three triggered findings permit risk acceptance (`risk_acceptance_allowed: false` for all), so the mandate is not exercised.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_19450dd5a6fa464d85e24e07",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\", \"COMPLETE_CONTROL_MAPPING\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"authorization_required\": true, \"confidence\": 0.95, \"disposition\": \"NO_GO\", \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\", \"DATA_INVENTORY\", \"REG_MAPPING\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-RESID-001\", \"quote\": \"\\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false\"}, {\"evidence_id\": \"DATA_INVENTORY\", \"finding_id\": \"COMP-RESID-001\", \"quote\": \"\\\"actual_region\\\": \\\"West US 2\\\", \\\"classification\\\": \\\"Confidential\\\", \\\"dataset\\\": \\\"Core business data\\\", \\\"personal_data\\\": \\\"True\\\", \\\"required_residency\\\": \\\"UAE\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-MAP-001\", \"quote\": \"\\\"regulatory_mapping\\\": \\\"missing\\\"\"}, {\"evidence_id\": \"REG_MAPPING\", \"finding_id\": \"COMP-MAP-001\", \"quote\": \"\\\"mapping_status\\\": \\\"missing\\\", \\\"owner\\\": \\\"GRC\\\", \\\"regulation\\\": \\\"PCI-DSS\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-EXPORT-002\", \"quote\": \"\\\"export_control\\\": \\\"pending\\\"\"}], \"finding_ids\": [\"COMP-RESID-001\", \"COMP-MAP-001\", \"COMP-EXPORT-002\"], \"rationale\": \"Compliance Gate at design phase, evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (v1, age 0 days) using DGF-decision-v8 predicates. Three findings trigger: (1) COMP-RESID-001 (critical, NO_GO) — residency_compliant=false with required_residency='UAE'; corroborated by authoritative DATA_INVENTORY v5 showing actual_region='West US 2' for Confidential core business data with personal_data=True against required_residency='UAE', matching the project primary_region 'West US 2'; requires RELOCATE_DATA_OR_OBTAIN_VALID_BASIS by DPO / Architecture. (2) COMP-MAP-001 (high, REWORK) — regulatory_mapping='missing'; corroborated by authoritative REG_MAPPING v1 showing mapping_status='missing' for both applicable regulations (PCI-DSS and EU AI Act / internal AI policy), owner GRC; requires COMPLETE_CONTROL_MAPPING. (3) COMP-EXPORT-002 (high, SUSPENSION) — export_control='pending'; requires COMPLETE_EXPORT_CONTROL_REVIEW by Compliance. Not triggered at this state: COMP-DPIA-001 (dpia_required=true but dpia_status='complete'), COMP-AUDIT-001 (audit_trail='complete'), COMP-A11Y-001 (accessibility_status='not_assessed', not 'major_findings'), COMP-EXPORT-001 (export_control='pending', not 'restricted'). Highest-priority outcome is NO_GO, which is in authorization_required_for, so authorization_required=true; the active standing mandate (MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-05-COMPLIANCE-1, authority Yusuf Petrescu-12007-RO, scope: all and only risk-acceptable findings) is not exercised because none of the triggered findings is risk-acceptable (risk_acceptance_allowed=false for COMP-RESID-001, COMP-MAP-001, and COMP-EXPORT-002), so risk acceptance cannot substitute for remediation. Proposed actions are required remediation, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7915,
+        "completion_tokens": 2739,
+        "total_tokens": 10654,
+        "reasoning_tokens": 1755,
+        "cached_tokens": 7744,
+        "cost": 0.00193723,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 6,
+  "tool_call_count": 5,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "COMP-RESID-001",
+      "COMP-MAP-001",
+      "COMP-EXPORT-002"
+    ],
+    "actions": [
+      "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+      "COMPLETE_CONTROL_MAPPING",
+      "COMPLETE_EXPORT_CONTROL_REVIEW"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE",
+      "DATA_INVENTORY",
+      "REG_MAPPING"
+    ],
+    "authorization_required": true,
+    "rationale": "Compliance Gate at design phase, evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (v1, age 0 days) using DGF-decision-v8 predicates. Three findings trigger: (1) COMP-RESID-001 (critical, NO_GO) — residency_compliant=false with required_residency='UAE'; corroborated by authoritative DATA_INVENTORY v5 showing actual_region='West US 2' for Confidential core business data with personal_data=True against required_residency='UAE', matching the project primary_region 'West US 2'; requires RELOCATE_DATA_OR_OBTAIN_VALID_BASIS by DPO / Architecture. (2) COMP-MAP-001 (high, REWORK) — regulatory_mapping='missing'; corroborated by authoritative REG_MAPPING v1 showing mapping_status='missing' for both applicable regulations (PCI-DSS and EU AI Act / internal AI policy), owner GRC; requires COMPLETE_CONTROL_MAPPING. (3) COMP-EXPORT-002 (high, SUSPENSION) — export_control='pending'; requires COMPLETE_EXPORT_CONTROL_REVIEW by Compliance. Not triggered at this state: COMP-DPIA-001 (dpia_required=true but dpia_status='complete'), COMP-AUDIT-001 (audit_trail='complete'), COMP-A11Y-001 (accessibility_status='not_assessed', not 'major_findings'), COMP-EXPORT-001 (export_control='pending', not 'restricted'). Highest-priority outcome is NO_GO, which is in authorization_required_for, so authorization_required=true; the active standing mandate (MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-05-COMPLIANCE-1, authority Yusuf Petrescu-12007-RO, scope: all and only risk-acceptable findings) is not exercised because none of the triggered findings is risk-acceptable (risk_acceptance_allowed=false for COMP-RESID-001, COMP-MAP-001, and COMP-EXPORT-002), so risk acceptance cannot substitute for remediation. Proposed actions are required remediation, not completed remediation.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-RESID-001",
+        "quote": "\"required_residency\": \"UAE\", \"residency_compliant\": false"
+      },
+      {
+        "evidence_id": "DATA_INVENTORY",
+        "finding_id": "COMP-RESID-001",
+        "quote": "\"actual_region\": \"West US 2\", \"classification\": \"Confidential\", \"dataset\": \"Core business data\", \"personal_data\": \"True\", \"required_residency\": \"UAE\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-MAP-001",
+        "quote": "\"regulatory_mapping\": \"missing\""
+      },
+      {
+        "evidence_id": "REG_MAPPING",
+        "finding_id": "COMP-MAP-001",
+        "quote": "\"mapping_status\": \"missing\", \"owner\": \"GRC\", \"regulation\": \"PCI-DSS\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-EXPORT-002",
+        "quote": "\"export_control\": \"pending\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 35,
+    "retries": 1,
+    "rate_limits": 1,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

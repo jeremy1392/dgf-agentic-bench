@@ -1,0 +1,420 @@
+{
+  "usage": {
+    "prompt_tokens": 23615,
+    "completion_tokens": 6025,
+    "total_tokens": 29640,
+    "reasoning_tokens": 5760,
+    "cached_tokens": 0,
+    "cost": 0.040305,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 82,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 70,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 43,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 106,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 110,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 161,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 7,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 99,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 152,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 23,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012004",
+            "generation_seed": 12004,
+            "project_name": "Project Boreal — Enterprise Workflow Platform [8BB11]",
+            "project_code": "8BB11",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Customer Service",
+            "sponsor": "Maya Laurent-12004-SP",
+            "project_manager": "Leila Volkov-12004-PM",
+            "business_owner": "Clara Costa-12004-BO",
+            "service_owner": "Maya Rossi-12004-SO",
+            "risk_owner": "Omar Petrescu-12004-RO",
+            "start_date": "2026-10-17",
+            "target_go_live": "2027-09-10",
+            "users_impacted": 1000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "UAE Central",
+            "personal_data": true,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "legal": {
+            "contract_version": "MSA-8BB11-3.3",
+            "governing_law": "England & Wales",
+            "dpa_status": "signed",
+            "liability_cap_multiplier": 2,
+            "security_carveout": true,
+            "audit_right": "none",
+            "termination_for_convenience": true,
+            "exit_assistance_days": 90,
+            "ip_ownership": "shared",
+            "insurance_valid": true,
+            "cyber_insurance_m": 20,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "missing",
+            "sla_penalties": true,
+            "log_export_clause": "included"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-da9b8fee-8f26-5194-815e-e810b5795228-BUY-02-LEGAL-1",
+            "occurrence_id": "BUY-02-LEGAL-1",
+            "gate": "legal",
+            "phase": "design",
+            "authority": "Omar Petrescu-12004-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_262177",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5038,
+        "completion_tokens": 59,
+        "total_tokens": 5097,
+        "reasoning_tokens": 49,
+        "cached_tokens": 0,
+        "cost": 0.00399975,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_235455",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5802,
+        "completion_tokens": 64,
+        "total_tokens": 5866,
+        "reasoning_tokens": 40,
+        "cached_tokens": 0,
+        "cost": 0.0045915,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_247372",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6317,
+        "completion_tokens": 1135,
+        "total_tokens": 7452,
+        "reasoning_tokens": 1122,
+        "cached_tokens": 0,
+        "cost": 0.008994,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_277600",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"confidence\":1,\"evidence_refs\":[\"REVIEW_FACTS_LEGAL\"],\"authorization_required\":false,\"rationale\":\"Authoritative review facts indicate that the target contract provides no contractual audit rights (\\\"audit_right\\\": \\\"none\\\"). Under normative legal gate policy, this triggers LEGAL-AUDIT-001 with disposition REWORK and required action REDLINE_AUDIT_RIGHT. All other evaluated contractual conditions (DPA status, liability cap, exit assistance, IP ownership, insurance validity, and signing authority) conform to policy requirements. Rework does not require standing authorization.\",\"actions\":[\"REDLINE_AUDIT_RIGHT\"],\"finding_ids\":[\"LEGAL-AUDIT-001\"],\"evidence_support\":[{\"finding_id\":\"LEGAL-AUDIT-001\",\"evidence_id\":\"REVIEW_FACTS_LEGAL\",\"quote\":\"\\\"audit_right\\\": \\\"none\\\"\"}],\"disposition\":\"REWORK\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6458,
+        "completion_tokens": 4767,
+        "total_tokens": 11225,
+        "reasoning_tokens": 4549,
+        "cached_tokens": 0,
+        "cost": 0.02271975,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 4,
+  "tool_call_count": 3,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-02-LEGAL-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "LEGAL-AUDIT-001"
+    ],
+    "actions": [
+      "REDLINE_AUDIT_RIGHT"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL"
+    ],
+    "authorization_required": false,
+    "rationale": "Authoritative review facts indicate that the target contract provides no contractual audit rights (\"audit_right\": \"none\"). Under normative legal gate policy, this triggers LEGAL-AUDIT-001 with disposition REWORK and required action REDLINE_AUDIT_RIGHT. All other evaluated contractual conditions (DPA status, liability cap, exit assistance, IP ownership, insurance validity, and signing authority) conform to policy requirements. Rework does not require standing authorization.",
+    "confidence": 1.0,
+    "evidence_support": [
+      {
+        "finding_id": "LEGAL-AUDIT-001",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "quote": "\"audit_right\": \"none\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 9,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

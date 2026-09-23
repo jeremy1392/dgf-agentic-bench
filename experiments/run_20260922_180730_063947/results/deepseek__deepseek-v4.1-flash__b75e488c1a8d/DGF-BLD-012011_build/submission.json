@@ -1,0 +1,224 @@
+{
+  "case_id": "ebf3ae65-da69-56d5-8a8a-9505d2f43748",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the IT gate rule set at phase=opportunity: catalog_status is 'standard' with waiver_present=true, so IT-CATALOG-001 does not apply. license_compliant=true, so IT-LICENSE-001 does not apply. CMDB, run-owner, capacity and change-record predicates are phase-gated to design/build_acceptance/deployment_closure and do not apply at opportunity. Two predicates fire: duplicate_capability=true (existing_alternative 'shared_api_platform') → IT-RATIONAL-001, and technology_eol_months=8 (<12) → IT-EOL-001. Both carry disposition REWORK, so the gate disposition is REWORK. REWORK is not in authorization_required_for, so no authorization is required.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\""
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"technology_eol_months\": 8"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "IP_PLAN",
+        "HLD"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying evaluate_architecture to the authoritative snapshot REVIEW_FACTS_ARCHITECTURE (phase=design), none of the six candidate predicates fire. ARCH-IP-001: ip_overlap=false (\\\"ip_overlap\\\": false), corroborated by authoritative IP_PLAN rows with \\\"overlap_detected\\\": \\\"False\\\" for 10.166.176.0/24, 10.166.177.0/24, 10.166.178.0/24. ARCH-API-001: api_gateway_required=true but api_gateway_present=true (\\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true), and the HLD shows Azure API Management (apim-1edb5-22011-01) in the API/Microservice tier. ARCH-DATA-001: data_owner_present=true. ARCH-PERF-001: measured_latency_ms=15 vs latency_target_ms=100 (15 > 100 is false). ARCH-HA-001: business_criticality=\\\"Medium\\\", so the High/Critical predicate is false even though architecture_profile shows \\\"multi_az\\\": false and \\\"multi_region\\\": false. ARCH-REV-001: reversibility_status=\\\"documented\\\" (not 'draft'/'missing'), with data_export_supported=true. No REWORK/NO_GO/GO_WITH_RESERVATIONS disposition is triggered, so the gate result is GO with no findings and no actions. GO is not in authorization_required_for, so no authorization is required; the standing mandate covers only risk-acceptable findings and is not needed here. Note: the non-authoritative HLD labels the estate 'Single-Region / Single-Zone' with 'DR tested: False', but at Medium business criticality this does not meet the ARCH-HA-001 predicate and does not change the disposition.",
+      "confidence": 0.95,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-LOG-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CONNECT_LOGS_TO_SIEM",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "SENTINEL_STATUS",
+        "VULN_SCAN",
+        "IAM_EXPORT",
+        "KEYVAULT_CONFIG"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying evaluate_security to the authoritative snapshot REVIEW_FACTS_SECURITY (phase=design), three predicates fire. SEC-VULN-001: critical_vulns_open=1 (>0), i.e. one critical vulnerability remains open (corroborated by VULN_SCAN row CVE-2026-8000, severity Critical, status Open) — action REMEDIATE_CRITICAL_VULNERABILITIES, disposition NO_GO, risk_acceptance_allowed=false. SEC-LOG-001: logs_to_siem=false and sentinel=false (corroborated by SENTINEL_STATUS with connectors=[] ) — action CONNECT_LOGS_TO_SIEM, disposition REWORK. SEC-WAF-002: internet_exposed=true, waf_present=true, waf_mode='Detection' (corroborated by WAF_POLICY mode 'Detection') — action ENABLE_WAF_PREVENTION, disposition REWORK, risk-acceptable. Non-firing: SEC-WAF-001 (waf_present=true), SEC-NET-001 (data_classification='Internal', not Confidential/Restricted; private_endpoints=true), SEC-IAM-001 (mfa='mandatory'), SEC-IAM-002 (shared_service_principal=false; IAM_EXPORT shows a single ManagedIdentity 'workload-mi', not a shared principal), SEC-PENTEST-001 (phase is 'design', not 'build_acceptance'; pentest_status='pass_with_findings'), SEC-KEY-001 (key_rotation_days=180, not None/365; KEYVAULT_CONFIG confirms 180). The highest-priority triggered disposition is NO_GO, so the gate result is NO_GO with the three actions above. The standing mandate MANDATE-ebf3ae65-da69-56d5-8a8a-9505d2f43748-BUILD-03-SECURITY-1 covers 'all and only risk-acceptable findings' and therefore cannot absorb SEC-VULN-001 or SEC-LOG-001; NO_GO is in authorization_required_for, so authorization_required=true. Upstream architecture decision BUILD-02-ARCHITECTURE-1 was GO with no findings and does not alter this result. Actions listed are proposed remediation, not completed remediation; no risk card or conditional approval is created here.",
+      "confidence": 0.97,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\""
+        },
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "WAF_POLICY",
+          "quote": "{\"present\": true, \"mode\": \"Detection\", \"managed_rules\": \"OWASP\", \"bot_protection\": true}"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"logs_to_siem\": false, \"sentinel\": false"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "SENTINEL_STATUS",
+          "quote": "{\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"critical_vulns_open\": 1, \"high_vulns_open\": 7"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "VULN_SCAN",
+          "quote": "{\"id\": \"CVE-2026-8000\", \"severity\": \"Critical\", \"status\": \"Open\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RTO-001",
+        "TR-RPO-001",
+        "TR-LOAD-001",
+        "TR-CODE-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "REMEDIATE_RECOVERY_TIME",
+        "REMEDIATE_RECOVERY_POINT",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS",
+        "RESTORE_TEST",
+        "LOAD_TEST",
+        "FAILOVER_TEST",
+        "BACKUP_JOBS",
+        "ROLLBACK_TEST",
+        "RUNBOOK"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the DGF-decision-v8 tech_readiness rule set (evaluate_tech) at phase=build_acceptance against the authoritative snapshot REVIEW_FACTS_TECH_READINESS, five predicates fire. TR-RTO-001: restore_tested=true, so TR-RESTORE-001 does not fire, but measured_restore_hours=42.0 exceeds target_rto_hours=24 — action REMEDIATE_RECOVERY_TIME (SRE), disposition REWORK (risk-acceptable), corroborated by RESTORE_TEST row with the same 42.0/24 values. TR-RPO-001: measured_data_loss_minutes=2880 exceeds target_rpo_minutes=1440 — action REMEDIATE_RECOVERY_POINT (SRE), disposition REWORK (risk-acceptable), corroborated by RESTORE_TEST. TR-LOAD-001: load_test_pct_of_peak=50 < 100 — action RERUN_LOAD_TEST_AT_PEAK (Performance Engineering), disposition REWORK, corroborated by LOAD_TEST peak_test_pct=50. TR-CODE-001: critical_static_findings=2 > 0 — action REMEDIATE_BUILD_FINDINGS (Engineering), disposition REWORK; CI_PIPELINE is UNAVAILABLE, so the snapshot field is the authoritative basis. TR-BLOCKER-001: open_blockers=3 > 0 — action CLOSE_PRODUCTION_BLOCKERS (Product Team), disposition REWORK. Non-firing predicates verified: TR-BACKUP-001 (backup_enabled=true; BACKUP_JOBS enabled=True, last_status=Succeeded), TR-DR-001 (dr_required=false, so the failover-test predicate is inapplicable even though FAILOVER_TEST tested=False), TR-OPS-001 (runbook_status='approved', on_call_defined=true, handover_signed=true; RUNBOOK agrees), TR-ROLLBACK-001 (rollback_tested=true; ROLLBACK_TEST result=PASS). The highest-priority triggered disposition is REWORK, so the gate result is REWORK with the five actions above. REWORK is not in authorization_required_for, so no authorization is required; the standing mandate MANDATE-...-BUILD-04-TECH_READINESS-1 (scope: 'all and only risk-acceptable findings') is not needed and no risk acceptance is created. Upstream BUILD-03-SECURITY-1 was NO_GO but is a different gate/phase and does not alter this gate's snapshot evaluation. All listed actions are proposed remediation, not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "finding_id": "TR-RTO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"target_rto_hours\": 24, \"measured_restore_hours\": 42.0"
+        },
+        {
+          "finding_id": "TR-RTO-001",
+          "evidence_id": "RESTORE_TEST",
+          "quote": "{\"measured_data_loss_minutes\": \"2880\", \"measured_restore_hours\": \"42.0\", \"target_rpo_minutes\": \"1440\", \"target_rto_hours\": \"24\", \"tested\": \"True\"}"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 2880"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "RESTORE_TEST",
+          "quote": "\"measured_data_loss_minutes\": \"2880\", \"target_rpo_minutes\": \"1440\""
+        },
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"load_test_pct_of_peak\": 50"
+        },
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "LOAD_TEST",
+          "quote": "{\"p95_ms\": \"868\", \"peak_test_pct\": \"50\", \"test_completion_pct\": \"71\"}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"critical_static_findings\": 2"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"open_blockers\": 3"
+        },
+        {
+          "finding_id": "TR-DR-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"dr_required\": false, \"dr_tested\": false"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO",
+        "GEN-BUDGET-001"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO",
+        "OBTAIN_BUDGET_APPROVAL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS",
+        "BUDGET_APPROVAL",
+        "PORTFOLIO_SNAPSHOT"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying evaluate_general (DGF-decision-v8) to the authoritative snapshot REVIEW_FACTS_GENERAL at phase=governance, two predicates fire. GEN-UPSTREAM-NOGO (critical): the upstream decisions supplied for this occurrence include BUILD-03-SECURITY-1 with disposition \"NO_GO\" (finding SEC-VULN-001, one critical vulnerability open, risk_acceptance_allowed=false). No specialist in the same 'governance' phase precedes this gate, so per upstream_selection the specialists since the last General apply, and the security NO_GO propagates: action RESOLVE_UPSTREAM_NO_GO (Project Manager), disposition NO_GO, risk_acceptance_allowed=false. GEN-BUDGET-001 (high): budget_requested_eur=1500000 exceeds budget_approved_eur=1275000 in the snapshot, corroborated by the authoritative BUDGET_APPROVAL row (requested 1500000, approved 1275000, status PARTIAL) and PORTFOLIO_SNAPSHOT (same figures); action OBTAIN_BUDGET_APPROVAL (CFO / Sponsor), disposition SUSPENSION, risk-acceptable. Non-firing predicates verified: GEN-STRAT-001 (strategic_alignment=\"strong\", portfolio_priority \"P1\"), GEN-BC-001 (roi=0.344 ≥ 0.05 threshold), GEN-BENEFITS-001 (phase is 'governance', not 'deployment_closure'; change_plan_status=\"complete\" in any case). The highest-priority triggered disposition is NO_GO, so the gate result is NO_GO. NO_GO is in authorization_required_for, so authorization_required=true; the active standing mandate MANDATE-...-BUILD-05-GENERAL-1 covers \"all and only risk-acceptable findings\" and therefore cannot absorb GEN-UPSTREAM-NOGO (risk_acceptance_allowed=false). Upstream GO/REWORK results (architecture GO, it and tech_readiness REWORK) do not raise the disposition above the NO_GO. Listed actions are proposed remediation only, not completed remediation; no risk card or conditional approval is created here.",
+      "confidence": 0.87,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"NO_GO\""
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 1500000, \"budget_approved_eur\": 1275000"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "BUDGET_APPROVAL",
+          "quote": "{\"approved_eur\": \"1275000\", \"approver\": \"CFO Office\", \"requested_eur\": \"1500000\", \"status\": \"PARTIAL\"}"
+        }
+      ]
+    }
+  ]
+}

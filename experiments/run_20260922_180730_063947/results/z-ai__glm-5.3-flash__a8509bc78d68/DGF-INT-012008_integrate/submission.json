@@ -1,0 +1,188 @@
+{
+  "case_id": "d105d6fd-4d96-5545-aa68-27c4fb280616",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "LIFECYCLE_REGISTER",
+        "CAPACITY_REPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "Framing-phase IT review of the authoritative REVIEW_FACTS_IT snapshot yields two applicable findings. (1) IT-RATIONAL-001: duplicate_capability=true with existing_alternative=shared_api_platform — an existing enterprise capability may already satisfy the need; Enterprise Architecture must assess it before further investment. (2) IT-EOL-001: technology_eol_months=4 (<12), corroborated by the authoritative LIFECYCLE_REGISTER (technology vm_ha, eol_months 4) and the HLD (Compute: vm_ha); a convergence plan is required. All other IT predicates fail at this phase: catalog_status=standard with waiver_present=true (expiry 30 days), license_compliant=true, cmdb_record_present=true (confirmed via authoritative CMDB record), capacity_headroom_pct=20 (>=15), change_record_status=scheduled. run_owner_present=false is real (CMDB run_owner=null) but IT-RUN-001 is phase-gated to build_acceptance/deployment_closure, so it is flagged as a forward obligation for those gates rather than a finding here. Both applicable findings carry disposition REWORK, so the gate result is REWORK; no risk acceptance is exercised and the standing mandate is not used, hence authorization_required=false. Proposed actions are remediation requests, not completed remediation.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-RATIONAL-001",
+          "quote": "\"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 4"
+        },
+        {
+          "evidence_id": "LIFECYCLE_REGISTER",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"capacity_headroom_pct\": \"20\", \"eol_months\": \"4\", \"technology\": \"vm_ha\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "IP_PLAN",
+        "AZURE_RESOURCE_GRAPH",
+        "LLD",
+        "DATA_MODEL",
+        "HLD"
+      ],
+      "authorization_required": false,
+      "rationale": "Architecture gate (design phase) evaluated against the authoritative REVIEW_FACTS_ARCHITECTURE snapshot; none of the six candidate findings' predicates is satisfied. (1) ARCH-IP-001: ip_overlap=false, corroborated by the authoritative IP_PLAN showing all three private CIDRs (10.166.128.0/24, 10.166.129.0/24, 10.166.130.0/24) with overlap_detected=False. (2) ARCH-API-001: api_gateway_required=true and api_gateway_present=true, so the conjunction fails; corroborated by the authoritative AZURE_RESOURCE_GRAPH (Azure API Management resource present) and the LLD (\"API gateway present | True\"). (3) ARCH-DATA-001: data_owner_present=true, corroborated by DATA_MODEL (\"data_owner\": \"Ines Garcia-12008-BO\"). (4) ARCH-PERF-001: measured_latency_ms=95 does not exceed latency_target_ms=100; LLD corroborates both values. (5) ARCH-HA-001: business_criticality=Medium (not High/Critical) and multi_az=true, so the predicate fails; HLD confirms single_region_multi_az. (6) ARCH-REV-001: reversibility_status=\"tested\" (not draft/missing); LLD corroborates (\"Reversibility | tested\"). HLD/LLD are coherent with the snapshot (HLD-3ED4F-v1.6 / LLD-3ED4F-v1.5, single_vnet, vm_ha, multi-AZ). Non-predicate observations (architecture_debt_items=7, load_test_peak_pct=100, no cross-region failover/DR tested=False) have no predicate in the normative policy and therefore generate no finding at this gate. With zero applicable findings the gate disposition is GO; no risk acceptance is exercised and the standing mandate is not used, hence authorization_required=false. The upstream IT framing REWORK (IT-RATIONAL-001, IT-EOL-001) belongs to the IT gate and is not an architecture finding. Proposed actions would be remediation requests, not completed remediation; none are required here.",
+      "confidence": 0.95,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-IAM-001",
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "ENFORCE_MFA",
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "AZURE_RESOURCE_GRAPH",
+        "CONDITIONAL_ACCESS",
+        "SENTINEL_STATUS",
+        "WAF_POLICY",
+        "KEYVAULT_CONFIG",
+        "VULN_SCAN"
+      ],
+      "authorization_required": true,
+      "rationale": "Security Architecture Gate (design phase) evaluated against the authoritative REVIEW_FACTS_SECURITY snapshot (age 0 days). Three policy predicates are satisfied: (1) SEC-NET-001 (critical, NO_GO): data_classification=\"Confidential\" and private_endpoints=false; corroborated by authoritative AZURE_RESOURCE_GRAPH (\"private_endpoints\": false; Azure SQL Database, Storage Account, Cache for Redis, API Management and both VMs all publicNetworkAccess=true) and KEYVAULT_CONFIG (\"private_endpoint\": false). (2) SEC-IAM-001 (high, REWORK): mfa=\"optional\" != \"mandatory\"; corroborated by authoritative CONDITIONAL_ACCESS (\"mfa\": \"optional\", \"policy_state\": \"reportOnly\"). (3) SEC-LOG-001 (high, REWORK): logs_to_siem=false; corroborated by authoritative SENTINEL_STATUS (\"sentinel\": false, \"connectors\": []). All other candidate findings fail their predicates and were verified, not assumed: SEC-WAF-001/002 fail because WAF_POLICY (authoritative) shows \"present\": true, \"mode\": \"Prevention\"; SEC-IAM-002 fails (shared_service_principal=false); SEC-VULN-001 fails (critical_vulns_open=0; VULN_SCAN lists only three High findings open — noted as non-predicate context); SEC-PENTEST-001 fails on both limbs (phase is design, not build_acceptance, and pentest_status=\"pass\" with pentest_age_days=14); SEC-KEY-001 fails (key_rotation_days=30, corroborated by KEYVAULT_CONFIG). Aggregate disposition is NO_GO because SEC-NET-001 carries disposition NO_GO, the highest priority in the policy ordering. None of the three triggered findings permits risk acceptance (risk_acceptance_allowed=false on all), so the standing mandate MANDATE-d105d6fd-...-INTEGRATE-03-SECURITY-1, scoped to \"all and only risk-acceptable findings\", cannot be exercised and no conditional approval is issued; authorization_required=true because NO_GO is in authorization_required_for. Proposed actions (ENABLE_PRIVATE_ENDPOINTS, ENFORCE_MFA, CONNECT_LOGS_TO_SIEM) are remediation requests for the submitted state, not completed remediation.",
+      "confidence": 0.94,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-NET-001",
+          "quote": "\"data_classification\": \"Confidential\" ... \"private_endpoints\": false"
+        },
+        {
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "finding_id": "SEC-NET-001",
+          "quote": "\"name\": \"Azure SQL Database\", \"publicNetworkAccess\": true ... \"private_endpoints\": false, \"firewall\": true"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-IAM-001",
+          "quote": "\"mfa\": \"optional\""
+        },
+        {
+          "evidence_id": "CONDITIONAL_ACCESS",
+          "finding_id": "SEC-IAM-001",
+          "quote": "\"mfa\": \"optional\", \"pim\": false, \"policy_state\": \"reportOnly\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"logs_to_siem\": false, \"sentinel\": false"
+        },
+        {
+          "evidence_id": "SENTINEL_STATUS",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA",
+        "DPA",
+        "NEGOTIATION_LOG",
+        "SLA_ANNEX"
+      ],
+      "authorization_required": false,
+      "rationale": "Legal Gate (design phase) evaluated against the authoritative REVIEW_FACTS_LEGAL snapshot (age 0 days, contract MSA-3ED4F-7.7). None of the eight candidate findings' predicates is satisfied: (1) LEGAL-DPA-001 fails — project personal_data=false and dpa_status=\"not_required\" (not draft/missing); DPA document corroborates \"Status | not_required (declared)\" and \"Personal data | False\". (2) LEGAL-LIAB-001 fails — liability_cap_multiplier=1, not 0.5; MSA corroborates \"Aggregate liability cap: 1x annual fees. Security carve-out: False\" (the carve-out limb is only reachable at a 0.5x cap). (3) LEGAL-AUDIT-001 fails — audit_right=\"limited\", not reports_only/none; MSA corroborates \"Customer audit rights: limited\". (4) LEGAL-EXIT-001 fails — exit_assistance_days=90, not 0; MSA corroborates \"Exit assistance: 90 days\". (5) LEGAL-IP-001 fails — ip_ownership=\"shared\", not ambiguous; MSA corroborates \"IP ownership: shared\". (6) LEGAL-INS-001 fails — insurance_valid=true; MSA corroborates \"Certificate valid: True\" (cyber insurance EUR 2m). (7) LEGAL-SIGN-001 fails — signing_authority_valid=true. (8) LEGAL-LOG-001 fails on both limbs — log_export_clause=\"included\" (MSA: \"Security logs export: included\") and business_criticality=\"Medium\" (not High/Critical). The NEGOTIATION_LOG independently corroborates all five open points (cap 1x, audit limited, exit 90 days, log export included, DPA not_required) and SLA_ANNEX corroborates sla_penalties=true (\"Penalties | True\"). No contradiction exists between the authoritative snapshot and the non-authoritative documents. Note: the upstream security NO_GO (SEC-LOG-001, logs_to_siem=false) concerns the actual SIEM connection state, not the contractual log-export clause, and does not trigger any legal predicate. Non-predicate observations (termination_for_convenience=false, data_transfer_clause=\"contractual_only\", unavailable CONTRACT_PLAYBOOK/DATA_INVENTORY) have no predicate in the normative policy and generate no finding. With zero applicable findings the disposition is GO; no risk acceptance is exercised and the standing mandate is not used, hence authorization_required=false. Proposed actions would be remediation requests, not completed remediation; none are required here.",
+      "confidence": 0.95,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "REG_MAPPING",
+        "DPIA",
+        "AI_IMPACT"
+      ],
+      "authorization_required": false,
+      "rationale": "Compliance Gate (design phase) evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (age 0 days). Exactly one policy predicate is satisfied: COMP-AUDIT-001 (high, REWORK) — audit_trail=\"missing\", action IMPLEMENT_AUDIT_TRAIL, owner Product Team; no audit-trail evidence document exists in this phase's evidence set, consistent with the snapshot. All other candidate findings fail their predicates and were verified, not assumed: COMP-DPIA-001 fails (dpia_required=false, dpia_status=\"not_required\"; DPIA doc corroborates \"Required | False\", \"Status | not_required\"); COMP-RESID-001 fails (residency_compliant=true, required_residency=\"UAE\"); COMP-MAP-001 fails (regulatory_mapping=\"complete\"; corroborated by authoritative REG_MAPPING showing PCI-DSS and EU AI Act / internal AI policy both mapping_status=complete, owner GRC — payment_data=true makes the PCI-DSS mapping material and it is present); COMP-A11Y-001 fails (accessibility_status=\"not_assessed\" is not \"major_findings\"; noted as non-predicate context with no policy predicate, so no finding is invented); COMP-EXPORT-001/002 fail (export_control=\"clear\", neither restricted nor pending). Non-predicate observations (deletion_enforced=false, ethics_review=\"conditional\" per AI_IMPACT, third_party_monitoring=\"continuous\", retention_years=10 with legal_hold_supported=true, and the CedarPoint Digital due-diligence/sanctions hit in DUE_DILIGENCE which belongs to the procurement gate) have no predicate in the normative policy and generate no finding at this gate. Aggregate disposition is REWORK, the highest priority among triggered findings. COMP-AUDIT-001 has risk_acceptance_allowed=false, so no risk card is created and the standing mandate (scoped to risk-acceptable findings) cannot be exercised; REWORK is not in authorization_required_for, hence authorization_required=false. The proposed action IMPLEMENT_AUDIT_TRAIL is a remediation request for the submitted state, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-AUDIT-001",
+          "quote": "\"audit_trail\": \"missing\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-DPIA-001",
+          "quote": "\"dpia_required\": false, \"dpia_status\": \"not_required\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"required_residency\": \"UAE\", \"residency_compliant\": true"
+        },
+        {
+          "evidence_id": "REG_MAPPING",
+          "finding_id": "COMP-MAP-001",
+          "quote": "{\"mapping_status\": \"complete\", \"owner\": \"GRC\", \"regulation\": \"PCI-DSS\"}, {\"mapping_status\": \"complete\", \"owner\": \"GRC\", \"regulation\": \"EU AI Act / internal AI policy\"}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-A11Y-001",
+          "quote": "\"accessibility_status\": \"not_assessed\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-EXPORT-001",
+          "quote": "\"export_control\": \"clear\""
+        }
+      ]
+    }
+  ]
+}

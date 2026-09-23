@@ -1,0 +1,386 @@
+{
+  "usage": {
+    "prompt_tokens": 19598,
+    "completion_tokens": 3028,
+    "total_tokens": 22626,
+    "reasoning_tokens": 2595,
+    "cached_tokens": 0,
+    "cost": 0.0260535,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 131,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 42,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 157,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 75,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 46,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 51,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 28,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 18,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 30,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 148,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012005",
+            "generation_seed": 12005,
+            "project_name": "Orion Acquisition Integration — Supply Chain Integration [622C2]",
+            "project_code": "622C2",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Procurement",
+            "sponsor": "Jeremy Khan-12005-SP",
+            "project_manager": "Nadia Rossi-12005-PM",
+            "business_owner": "Sofia Ivanov-12005-BO",
+            "service_owner": "Leila Rossi-12005-SO",
+            "risk_owner": "Marc Moreau-12005-RO",
+            "start_date": "2026-09-06",
+            "target_go_live": "2027-07-24",
+            "users_impacted": 1000,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Restricted",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "PCI-DSS"
+            ],
+            "dpia_required": true,
+            "dpia_status": "missing",
+            "required_residency": "EU",
+            "residency_compliant": false,
+            "retention_years": 7,
+            "legal_hold_supported": true,
+            "deletion_enforced": true,
+            "audit_trail": "missing",
+            "accessibility_status": "not_assessed",
+            "ethics_review": "conditional",
+            "regulatory_mapping": "complete",
+            "third_party_monitoring": "none",
+            "export_control": "clear"
+          }
+        }
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_297405",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5856,
+        "completion_tokens": 79,
+        "total_tokens": 5935,
+        "reasoning_tokens": 69,
+        "cached_tokens": 0,
+        "cost": 0.00468825,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_252471",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6621,
+        "completion_tokens": 39,
+        "total_tokens": 6660,
+        "reasoning_tokens": 14,
+        "cached_tokens": 0,
+        "cost": 0.005112,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_244257",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"rationale\":\"Evaluation of the Compliance Gate against authoritative REVIEW_FACTS_COMPLIANCE identified three findings: COMP-DPIA-001 because a required DPIA is not complete (\\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\"); COMP-RESID-001 because actual data hosting violates data residency requirements (\\\"residency_compliant\\\": false); and COMP-AUDIT-001 due to a missing compliance audit trail (\\\"audit_trail\\\": \\\"missing\\\"). Under the normative decision policy priority ordering, the critical COMP-RESID-001 finding mandates a NO_GO disposition, which requires authorization.\",\"finding_ids\":[\"COMP-DPIA-001\",\"COMP-RESID-001\",\"COMP-AUDIT-001\"],\"evidence_refs\":[\"REVIEW_FACTS_COMPLIANCE\"],\"actions\":[\"COMPLETE_DPIA\",\"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\",\"IMPLEMENT_AUDIT_TRAIL\"],\"evidence_support\":[{\"quote\":\"\\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\"\",\"finding_id\":\"COMP-DPIA-001\",\"evidence_id\":\"REVIEW_FACTS_COMPLIANCE\"},{\"quote\":\"\\\"residency_compliant\\\": false\",\"evidence_id\":\"REVIEW_FACTS_COMPLIANCE\",\"finding_id\":\"COMP-RESID-001\"},{\"quote\":\"\\\"audit_trail\\\": \\\"missing\\\"\",\"finding_id\":\"COMP-AUDIT-001\",\"evidence_id\":\"REVIEW_FACTS_COMPLIANCE\"}],\"disposition\":\"NO_GO\",\"confidence\":1,\"authorization_required\":true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7121,
+        "completion_tokens": 2910,
+        "total_tokens": 10031,
+        "reasoning_tokens": 2512,
+        "cached_tokens": 0,
+        "cost": 0.01625325,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 3,
+  "tool_call_count": 2,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "COMP-DPIA-001",
+      "COMP-RESID-001",
+      "COMP-AUDIT-001"
+    ],
+    "actions": [
+      "COMPLETE_DPIA",
+      "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+      "IMPLEMENT_AUDIT_TRAIL"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE"
+    ],
+    "authorization_required": true,
+    "rationale": "Evaluation of the Compliance Gate against authoritative REVIEW_FACTS_COMPLIANCE identified three findings: COMP-DPIA-001 because a required DPIA is not complete (\"dpia_required\": true, \"dpia_status\": \"missing\"); COMP-RESID-001 because actual data hosting violates data residency requirements (\"residency_compliant\": false); and COMP-AUDIT-001 due to a missing compliance audit trail (\"audit_trail\": \"missing\"). Under the normative decision policy priority ordering, the critical COMP-RESID-001 finding mandates a NO_GO disposition, which requires authorization.",
+    "confidence": 1.0,
+    "evidence_support": [
+      {
+        "quote": "\"dpia_required\": true, \"dpia_status\": \"missing\"",
+        "finding_id": "COMP-DPIA-001",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      {
+        "quote": "\"residency_compliant\": false",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-RESID-001"
+      },
+      {
+        "quote": "\"audit_trail\": \"missing\"",
+        "finding_id": "COMP-AUDIT-001",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 21,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

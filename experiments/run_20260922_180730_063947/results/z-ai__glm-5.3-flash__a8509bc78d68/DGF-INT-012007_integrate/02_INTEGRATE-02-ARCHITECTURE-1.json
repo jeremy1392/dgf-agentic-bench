@@ -1,0 +1,618 @@
+{
+  "usage": {
+    "prompt_tokens": 49166,
+    "completion_tokens": 4390,
+    "total_tokens": 53556,
+    "reasoning_tokens": 3904,
+    "cached_tokens": 40000,
+    "cost": 0.0063699,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "architecture",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 151,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 178,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 72,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 132,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 63,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "LLD",
+            "path": "gate_evidence/architecture/LLD_Architecture_Notes.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 171,
+            "consumers": [
+              "architecture",
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "FLOW_MATRIX",
+            "path": "gate_evidence/architecture/flow_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 119,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "OPENAPI",
+            "path": "gate_evidence/architecture/openapi.yaml",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 150,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 54,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 122,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "IP_PLAN",
+            "path": "gate_evidence/architecture/ip_plan.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 11,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ADR_REGISTER",
+            "path": "gate_evidence/architecture/adr_register.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 145,
+            "consumers": [
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ARCH_DEBT",
+            "path": "gate_evidence/architecture/architecture_debt.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 14,
+            "consumers": [
+              "architecture",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AZURE_RESOURCE_GRAPH",
+            "path": "gate_evidence/security/azure_resource_graph.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 82,
+            "consumers": [
+              "security",
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "NSG_RULES",
+            "path": "gate_evidence/security/nsg_rules.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 127,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "WAF_POLICY",
+            "path": "gate_evidence/security/waf_policy.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 173,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "FIREWALL_POLICY",
+            "path": "gate_evidence/security/firewall_policy.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 42,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "THREAT_MODEL",
+            "path": "gate_evidence/security/threat_model.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 52,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 60,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+            "path": "gate_evidence/architecture/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "architecture"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/architecture/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012007",
+            "generation_seed": 12007,
+            "project_name": "Saffron Acquisition Integration — Contract Intelligence [64AF6]",
+            "project_code": "64AF6",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Samir Martin-12007-SP",
+            "project_manager": "Lucas Bennett-12007-PM",
+            "business_owner": "Lucas Santos-12007-BO",
+            "service_owner": "Marc Rossi-12007-SO",
+            "risk_owner": "Yusuf Petrescu-12007-RO",
+            "start_date": "2026-10-18",
+            "target_go_live": "2027-03-03",
+            "users_impacted": 80,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": true,
+            "ai_enabled": true,
+            "external_users": false
+          },
+          "architecture": {
+            "hld_version": "HLD-64AF6-v4.8",
+            "lld_version": "LLD-64AF6-v4.4",
+            "api_gateway_required": false,
+            "api_gateway_present": false,
+            "ip_overlap": false,
+            "data_owner_present": true,
+            "data_lineage_complete": true,
+            "latency_target_ms": 20,
+            "measured_latency_ms": 55,
+            "load_test_peak_pct": 150,
+            "architecture_debt_items": 2,
+            "adr_count": 2,
+            "reversibility_status": "missing",
+            "data_export_supported": true,
+            "private_cidrs": [
+              "10.166.112.0/24",
+              "10.166.113.0/24",
+              "10.166.114.0/24"
+            ],
+            "dns_zone": "dgf-int-012007.corp.example"
+          },
+          "architecture_profile": {
+            "multi_az": true,
+            "multi_region": true
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-02-ARCHITECTURE-1",
+            "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+            "gate": "architecture",
+            "phase": "design",
+            "authority": "Yusuf Petrescu-12007-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "approve_with_conditions",
+      "args": {
+        "approval_reference": "MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-02-ARCHITECTURE-1",
+        "conditions": [
+          "REMEDIATE_LATENCY: measured latency 55 ms must be brought within the 20 ms architecture target and re-verified by performance/load test before build acceptance",
+          "COMPLETE_EXIT_ARCHITECTURE: reversibility/exit design (currently missing) must be completed and approved by the Enterprise Architect before deployment_closure",
+          "Risk acceptance limited to these two risk-acceptable findings only; no other finding may be accepted under this mandate"
+        ],
+        "finding_ids": [
+          "ARCH-PERF-001",
+          "ARCH-REV-001"
+        ],
+        "gate": "architecture"
+      },
+      "result": {
+        "status": "EXECUTED",
+        "action": "APPROVE_WITH_CONDITIONS",
+        "gate": "architecture",
+        "finding_ids": [
+          "ARCH-PERF-001",
+          "ARCH-REV-001"
+        ],
+        "conditions": [
+          "REMEDIATE_LATENCY: measured latency 55 ms must be brought within the 20 ms architecture target and re-verified by performance/load test before build acceptance",
+          "COMPLETE_EXIT_ARCHITECTURE: reversibility/exit design (currently missing) must be completed and approved by the Enterprise Architect before deployment_closure",
+          "Risk acceptance limited to these two risk-acceptable findings only; no other finding may be accepted under this mandate"
+        ],
+        "approval_reference": "MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-02-ARCHITECTURE-1"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing the available evidence for this Architecture Gate occurrence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a634eb2a53764005b0a0fe5f",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8232,
+        "completion_tokens": 74,
+        "total_tokens": 8306,
+        "reasoning_tokens": 55,
+        "cached_tokens": 1792,
+        "cost": 0.00112844,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is REVIEW_FACTS_ARCHITECTURE. Let me read it first.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b83fb1b6a8bc4aab916ee454",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9571,
+        "completion_tokens": 58,
+        "total_tokens": 9629,
+        "reasoning_tokens": 20,
+        "cached_tokens": 8192,
+        "cost": 0.00080929,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is fresh (v1, age 0 days). Let me evaluate the policy rules against it:\n\n- `ip_overlap: false` → ARCH-IP-001 not triggered\n- `api_gateway_required: false` → ARCH-API-001 not triggered\n- `data_owner_present: true` → ARCH-DATA-001 not triggered\n- `measured_latency_ms: 55 > latency_target_ms: 20` → **ARCH-PERF-001 triggered**\n- `business_criticality: High` but `multi_az: true, multi_region: true` → ARCH-HA-001 not triggered\n- `reversibility_status: \"missing\"` → **ARCH-REV-001 triggered**\n\nSince GO_WITH_RESERVATIONS is in `authorization_required_for`, let me check the standing mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_babad22bf6ed4565aea6ac46",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10118,
+        "completion_tokens": 1924,
+        "total_tokens": 12042,
+        "reasoning_tokens": 2012,
+        "cached_tokens": 9536,
+        "cost": 0.00171682,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "The mandate is active and scoped to \"all and only risk-acceptable findings\". Both triggered findings (ARCH-PERF-001, ARCH-REV-001) are risk-acceptable per the catalog. Let me attempt the authorized conditional approval under the standing mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d412ed5b468c4d7f89fd871b",
+            "function": {
+              "name": "approve_with_conditions",
+              "arguments": "{\"approval_reference\": \"MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-02-ARCHITECTURE-1\", \"conditions\": [\"REMEDIATE_LATENCY: measured latency 55 ms must be brought within the 20 ms architecture target and re-verified by performance/load test before build acceptance\", \"COMPLETE_EXIT_ARCHITECTURE: reversibility/exit design (currently missing) must be completed and approved by the Enterprise Architect before deployment_closure\", \"Risk acceptance limited to these two risk-acceptable findings only; no other finding may be accepted under this mandate\"], \"finding_ids\": [\"ARCH-PERF-001\", \"ARCH-REV-001\"], \"gate\": \"architecture\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10416,
+        "completion_tokens": 1613,
+        "total_tokens": 12029,
+        "reasoning_tokens": 1627,
+        "cached_tokens": 10112,
+        "cost": 0.00155994,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "content": "The conditional approval was executed under the standing mandate. Now I'll submit the final gate decision.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_2f66eccaef3e45bd9af9c256",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"authorization_required\": true, \"confidence\": 0.9, \"disposition\": \"GO_WITH_RESERVATIONS\", \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"finding_id\": \"ARCH-PERF-001\", \"quote\": \"\\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 55\"}, {\"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"finding_id\": \"ARCH-REV-001\", \"quote\": \"\\\"reversibility_status\\\": \\\"missing\\\"\"}], \"finding_ids\": [\"ARCH-PERF-001\", \"ARCH-REV-001\"], \"rationale\": \"Architecture Gate at design phase, evaluated against the authoritative REVIEW_FACTS_ARCHITECTURE snapshot (v1, age 0 days). Two policy findings trigger: (1) ARCH-PERF-001 (medium, GO_WITH_RESERVATIONS, risk-acceptable) — measured_latency_ms=55 exceeds latency_target_ms=20, requiring REMEDIATE_LATENCY by the Solution Architect; (2) ARCH-REV-001 (medium, GO_WITH_RESERVATIONS, risk-acceptable) — reversibility_status=missing, requiring COMPLETE_EXIT_ARCHITECTURE by the Enterprise Architect. Not triggered at this state: ARCH-IP-001 (ip_overlap=false), ARCH-API-001 (api_gateway_required=false), ARCH-DATA-001 (data_owner_present=true), ARCH-HA-001 (business_criticality=High but architecture_profile shows multi_az=true and multi_region=true, so zone/regional redundancy exists). Highest-priority outcome is GO_WITH_RESERVATIONS, which is in authorization_required_for; a standing mandate (MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-02-ARCHITECTURE-1, authority Yusuf Petrescu-12007-RO, scope: all and only risk-acceptable findings) is active and covers both findings, and a conditional approval was executed under it with conditions to remediate latency to the 20 ms target and complete the exit/reversibility design. Proposed actions are required remediation, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10829,
+        "completion_tokens": 721,
+        "total_tokens": 11550,
+        "reasoning_tokens": 190,
+        "cached_tokens": 10368,
+        "cost": 0.00115541,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 5,
+  "tool_call_count": 4,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+    "disposition": "GO_WITH_RESERVATIONS",
+    "finding_ids": [
+      "ARCH-PERF-001",
+      "ARCH-REV-001"
+    ],
+    "actions": [
+      "REMEDIATE_LATENCY",
+      "COMPLETE_EXIT_ARCHITECTURE"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_ARCHITECTURE"
+    ],
+    "authorization_required": true,
+    "rationale": "Architecture Gate at design phase, evaluated against the authoritative REVIEW_FACTS_ARCHITECTURE snapshot (v1, age 0 days). Two policy findings trigger: (1) ARCH-PERF-001 (medium, GO_WITH_RESERVATIONS, risk-acceptable) — measured_latency_ms=55 exceeds latency_target_ms=20, requiring REMEDIATE_LATENCY by the Solution Architect; (2) ARCH-REV-001 (medium, GO_WITH_RESERVATIONS, risk-acceptable) — reversibility_status=missing, requiring COMPLETE_EXIT_ARCHITECTURE by the Enterprise Architect. Not triggered at this state: ARCH-IP-001 (ip_overlap=false), ARCH-API-001 (api_gateway_required=false), ARCH-DATA-001 (data_owner_present=true), ARCH-HA-001 (business_criticality=High but architecture_profile shows multi_az=true and multi_region=true, so zone/regional redundancy exists). Highest-priority outcome is GO_WITH_RESERVATIONS, which is in authorization_required_for; a standing mandate (MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-02-ARCHITECTURE-1, authority Yusuf Petrescu-12007-RO, scope: all and only risk-acceptable findings) is active and covers both findings, and a conditional approval was executed under it with conditions to remediate latency to the 20 ms target and complete the exit/reversibility design. Proposed actions are required remediation, not completed remediation.",
+    "confidence": 0.9,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+        "finding_id": "ARCH-PERF-001",
+        "quote": "\"latency_target_ms\": 20, \"measured_latency_ms\": 55"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+        "finding_id": "ARCH-REV-001",
+        "quote": "\"reversibility_status\": \"missing\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 12,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

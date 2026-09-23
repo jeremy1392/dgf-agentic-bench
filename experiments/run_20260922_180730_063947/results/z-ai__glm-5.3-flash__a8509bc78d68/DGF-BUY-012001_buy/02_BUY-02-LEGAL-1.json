@@ -1,0 +1,533 @@
+{
+  "usage": {
+    "prompt_tokens": 37553,
+    "completion_tokens": 4109,
+    "total_tokens": 41662,
+    "reasoning_tokens": 3423,
+    "cached_tokens": 30464,
+    "cost": 0.00525033,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 69,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 2,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 72,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 113,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 119,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 120,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 25,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 150,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 78,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 58,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012001",
+            "generation_seed": 12001,
+            "project_name": "Project Kepler — Identity Modernization [85431]",
+            "project_code": "85431",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Finance",
+            "sponsor": "Ines Benali-12001-SP",
+            "project_manager": "Thomas Bennett-12001-PM",
+            "business_owner": "Victor Dubois-12001-BO",
+            "service_owner": "Elena Nguyen-12001-SO",
+            "risk_owner": "Marc Meyer-12001-RO",
+            "start_date": "2026-12-13",
+            "target_go_live": "2027-08-01",
+            "users_impacted": 2000,
+            "budget_requested_eur": 7000000,
+            "data_classification": "Restricted",
+            "business_criticality": "High",
+            "primary_region": "UAE North",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "legal": {
+            "contract_version": "MSA-85431-8.3",
+            "governing_law": "France",
+            "dpa_status": "signed",
+            "liability_cap_multiplier": 2,
+            "security_carveout": true,
+            "audit_right": "full",
+            "termination_for_convenience": true,
+            "exit_assistance_days": 180,
+            "ip_ownership": "ambiguous",
+            "insurance_valid": true,
+            "cyber_insurance_m": 0,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "contractual_only",
+            "sla_penalties": true,
+            "log_export_clause": "limited"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "MSA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "MSA",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 72,
+        "path": "gate_evidence/legal/MSA.docx",
+        "content": "Master Services Agreement\nSynthetic contract MSA-85431-8.3\n1. Services\nSupplier shall provide the services described in the Order Form for Project Kepler — Identity Modernization [85431].\nSupplier comment: Clause accepted subject to final commercial approval.\n2. Term\nInitial term 36 months with renewal subject to the Order Form.\nSupplier comment: Clause accepted subject to final commercial approval.\n3. Service Levels\nService credits and penalties: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n4. Data Processing\nDPA status: signed. Transfer clause: contractual_only.\nSupplier comment: Clause accepted subject to final commercial approval.\n5. Confidentiality\nEach party protects confidential information using reasonable safeguards.\nSupplier comment: Clause accepted subject to final commercial approval.\n6. Security\nSecurity logs export: limited.\nSupplier comment: Clause accepted subject to final commercial approval.\n7. Audit Rights\nCustomer audit rights: full.\nSupplier comment: Clause accepted subject to final commercial approval.\n8. Intellectual Property\nIP ownership: ambiguous.\nSupplier comment: Clause accepted subject to final commercial approval.\n9. Exit and Reversibility\nExit assistance: 180 days.\nSupplier comment: Clause accepted subject to final commercial approval.\n10. Insurance\nCyber insurance: EUR 0m. Certificate valid: True.\nSupplier comment: Clause accepted subject to final commercial approval.\n11. Liability\nAggregate liability cap: 2x annual fees. Security carve-out: True.\nSupplier comment: Current liability position is commercially sensitive.\n12. Governing Law\nFrance\nSupplier comment: Clause accepted subject to final commercial approval."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CONTRACT_PLAYBOOK"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 120,
+        "path": "gate_evidence/legal/contract_playbook.json",
+        "content": {
+          "required": {
+            "DPA": "signed if personal data",
+            "audit_right": "full or limited",
+            "exit_assistance_days": ">=30",
+            "security_log_export": "included for high/critical services",
+            "signing_authority": "valid"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "NEGOTIATION_LOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "NEGOTIATION_LOG",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 25,
+        "path": "gate_evidence/legal/negotiation_log.docx",
+        "content": "Contract Negotiation Log\nOpen negotiation points\nLiability cap currently 2x annual fees.\nAudit right currently: full.\nExit assistance: 180 days.\nSecurity log export: limited.\nDPA status: signed."
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_06fd49daf4b6402fb0036037",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5004,
+        "completion_tokens": 28,
+        "total_tokens": 5032,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.0007646,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1d48c8b4bdab428a880ab259",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5776,
+        "completion_tokens": 42,
+        "total_tokens": 5818,
+        "reasoning_tokens": 30,
+        "cached_tokens": 4992,
+        "cost": 0.00048804,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot (REVIEW_FACTS_LEGAL, age 0 days) is available. Let me evaluate it against the decision policy and corroborate the one apparent trigger (IP ownership) with contract evidence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c7cd67e8e65b408fb95f18c2",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"MSA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6231,
+        "completion_tokens": 1282,
+        "total_tokens": 7513,
+        "reasoning_tokens": 1346,
+        "cached_tokens": 5760,
+        "cost": 0.00111485,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot triggers only one rule so far (IP ownership ambiguous). Let me corroborate with the authoritative contract playbook and check the negotiation log for context before deciding.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a10d9f15777541509fd812d5",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CONTRACT_PLAYBOOK\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6696,
+        "completion_tokens": 907,
+        "total_tokens": 7603,
+        "reasoning_tokens": 892,
+        "cached_tokens": 6208,
+        "cost": 0.00096126,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_128e92bd2cbb42499376cd66",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"NEGOTIATION_LOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6859,
+        "completion_tokens": 19,
+        "total_tokens": 6878,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6656,
+        "cost": 0.00050587,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "Investigation complete. Evaluating the authoritative REVIEW_FACTS_LEGAL snapshot against the DGF-decision-v8 legal rules:\n\n- **DPA**: `dpa_status: \"signed\"` with `personal_data: true` → LEGAL-DPA-001 **not triggered**\n- **Liability**: `liability_cap_multiplier: 2` with `security_carveout: true` → LEGAL-LIAB-001 **not triggered**\n- **Audit**: `audit_right: \"full\"` → LEGAL-AUDIT-001 **not triggered**\n- **Exit**: `exit_assistance_days: 180` → LEGAL-EXIT-001 **not triggered**\n- **IP**: `ip_ownership: \"ambiguous\"` → **LEGAL-IP-001 TRIGGERED** (high, REWORK, risk acceptance not allowed) — corroborated by MSA §8\n- **Insurance**: `insurance_valid: true` → LEGAL-INS-001 **not triggered**\n- **Signing**: `signing_authority_valid: true` → LEGAL-SIGN-001 **not triggered**\n- **Log export**: `log_export_clause: \"limited\"` (not `\"missing\"`) → LEGAL-LOG-001 **not triggered** per the policy predicate\n\nHighest-priority triggered disposition: **REWORK**, which is not in the authorization-required list.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b743b012ea084777a5c75102",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"CLARIFY_IP_OWNERSHIP\"], \"authorization_required\": false, \"confidence\": 0.95, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\", \"MSA\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"finding_id\": \"LEGAL-IP-001\", \"quote\": \"\\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-85431-8.3\\\", ... \\\"ip_ownership\\\": \\\"ambiguous\\\", ...}\"}, {\"evidence_id\": \"MSA\", \"finding_id\": \"LEGAL-IP-001\", \"quote\": \"8. Intellectual Property\\nIP ownership: ambiguous.\"}], \"finding_ids\": [\"LEGAL-IP-001\"], \"rationale\": \"Authoritative REVIEW_FACTS_LEGAL (age 0 days, v1) triggers exactly one rule: ip_ownership = \\\"ambiguous\\\" → LEGAL-IP-001 (high, REWORK, risk_acceptance_allowed=false), corroborated by MSA-85431-8.3 §8 (\\\"IP ownership: ambiguous\\\"). All other legal predicates pass on the authoritative snapshot: dpa_status \\\"signed\\\" (personal_data true, so no LEGAL-DPA-001), liability_cap_multiplier 2 with security_carveout true (no LEGAL-LIAB-001), audit_right \\\"full\\\" (no LEGAL-AUDIT-001), exit_assistance_days 180 (no LEGAL-EXIT-001), insurance_valid true (no LEGAL-INS-001), signing_authority_valid true (no LEGAL-SIGN-001), and log_export_clause \\\"limited\\\" — not \\\"missing\\\" — so the LEGAL-LOG-001 predicate is not met despite business_criticality High. Applying DGF-decision-v8 priority ordering, the highest-priority triggered disposition is REWORK, which does not require authorization. CLARIFY_IP_OWNERSHIP is proposed remediation by Legal, not completed remediation; risk acceptance is not permitted for this finding. Upstream procurement occurrence BUY-01-PROCUREMENT-1 recorded a separate SUSPENSION (sanctions/due-diligence pending) that does not alter this gate's legal findings.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6987,
+        "completion_tokens": 1831,
+        "total_tokens": 8818,
+        "reasoning_tokens": 1137,
+        "cached_tokens": 6848,
+        "cost": 0.00141571,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 6,
+  "tool_call_count": 5,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-02-LEGAL-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "LEGAL-IP-001"
+    ],
+    "actions": [
+      "CLARIFY_IP_OWNERSHIP"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL",
+      "MSA"
+    ],
+    "authorization_required": false,
+    "rationale": "Authoritative REVIEW_FACTS_LEGAL (age 0 days, v1) triggers exactly one rule: ip_ownership = \"ambiguous\" → LEGAL-IP-001 (high, REWORK, risk_acceptance_allowed=false), corroborated by MSA-85431-8.3 §8 (\"IP ownership: ambiguous\"). All other legal predicates pass on the authoritative snapshot: dpa_status \"signed\" (personal_data true, so no LEGAL-DPA-001), liability_cap_multiplier 2 with security_carveout true (no LEGAL-LIAB-001), audit_right \"full\" (no LEGAL-AUDIT-001), exit_assistance_days 180 (no LEGAL-EXIT-001), insurance_valid true (no LEGAL-INS-001), signing_authority_valid true (no LEGAL-SIGN-001), and log_export_clause \"limited\" — not \"missing\" — so the LEGAL-LOG-001 predicate is not met despite business_criticality High. Applying DGF-decision-v8 priority ordering, the highest-priority triggered disposition is REWORK, which does not require authorization. CLARIFY_IP_OWNERSHIP is proposed remediation by Legal, not completed remediation; risk acceptance is not permitted for this finding. Upstream procurement occurrence BUY-01-PROCUREMENT-1 recorded a separate SUSPENSION (sanctions/due-diligence pending) that does not alter this gate's legal findings.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "finding_id": "LEGAL-IP-001",
+        "quote": "\"legal\": {\"contract_version\": \"MSA-85431-8.3\", ... \"ip_ownership\": \"ambiguous\", ...}"
+      },
+      {
+        "evidence_id": "MSA",
+        "finding_id": "LEGAL-IP-001",
+        "quote": "8. Intellectual Property\nIP ownership: ambiguous."
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 9,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

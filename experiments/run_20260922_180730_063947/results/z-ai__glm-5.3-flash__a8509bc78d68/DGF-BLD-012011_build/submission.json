@@ -1,0 +1,183 @@
+{
+  "case_id": "ebf3ae65-da69-56d5-8a8a-9505d2f43748",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "CMDB_EXPORT",
+        "PROJECT_CHARTER"
+      ],
+      "authorization_required": false,
+      "rationale": "At the opportunity phase, the authoritative REVIEW_FACTS_IT snapshot triggers exactly two IT findings. (1) IT-RATIONAL-001 (medium, REWORK): duplicate_capability=true with existing_alternative=shared_api_platform; the CMDB confirms that capability exists with a run owner (Amira Martin-12011-SO), product_team support and silver continuity, so Enterprise Architecture must assess it before a duplicate build proceeds. (2) IT-EOL-001 (high, REWORK): technology_eol_months=8, below the 12-month threshold, requiring a convergence plan from the Technology Owner. All other predicates are unmet: catalog_status=standard with waiver_present=true (365 days, corroborated by TECH_CATALOG), license_compliant=true, cmdb_record_present=true, run_owner_present=true, capacity_headroom_pct=45, change_record_status=scheduled; CMDB/Run/Capacity/Change predicates are additionally phase-restricted and the phase is opportunity. Highest-priority disposition among triggered findings is REWORK; per the policy REWORK does not require authorization, and risk acceptance is not a substitute for the required assessment and convergence-plan actions. CMDB_EXPORT was listed UNAVAILABLE and was formally requested; the request returned the authoritative submitted-state snapshot rather than the original document, so no unverified document was relied upon.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-RATIONAL-001",
+          "quote": "\"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 8"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "IP_PLAN",
+        "HLD",
+        "LLD",
+        "DATA_MODEL"
+      ],
+      "authorization_required": false,
+      "rationale": "All six architecture predicates were evaluated against the authoritative REVIEW_FACTS_ARCHITECTURE snapshot (age 0 days) and none triggered, so no candidate finding applies. (1) ARCH-IP-001: \"ip_overlap\": false, corroborated by authoritative IP_PLAN v3 showing all three private CIDRs (10.166.176.0/24, 10.166.177.0/24, 10.166.178.0/24) with overlap_detected \"False\". (2) ARCH-API-001: \"api_gateway_required\": true and \"api_gateway_present\": true, so the required-AND-missing conjunction fails; corroborated by LLD-1EDB5-v4.6 (\"API gateway required | True\", \"API gateway present | True\") and the HLD's Azure API Management instance app-1edb5-22011-01. (3) ARCH-DATA-001: \"data_owner_present\": true; corroborated by DATA_MODEL (\"data_owner\": \"Elena Garcia-12011-BO\"). (4) ARCH-PERF-001: \"measured_latency_ms\": 15 is not greater than \"latency_target_ms\": 100; corroborated by LLD. (5) ARCH-HA-001: business_criticality is \"Medium\", failing the ('High','Critical') membership test, so the predicate is unmet even though \"multi_az\": false and \"multi_region\": false (HLD: \"single_region_single_az\", \"No dedicated DR region\"). (6) ARCH-REV-001: \"reversibility_status\": \"documented\", not in ('draft','missing'); corroborated by LLD (\"Reversibility | documented\"). With zero triggered findings the highest-priority disposition is GO; GO is not in authorization_required_for, so no authorization is required and no risk acceptance is involved. Residual observations outside the candidate catalog — \"data_lineage_complete\": false (DATA_LINEAGE lineage_status \"partial\") and single-region/single-AZ resilience with \"DR tested: False\" — are noted for downstream gates but do not map to any architecture finding at this phase. The upstream IT-gate REWORK (IT-RATIONAL-001, IT-EOL-001) is tracked in its own occurrence and does not alter architecture-gate findings.",
+      "confidence": 0.9,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-VULN-001",
+        "SEC-WAF-002",
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "REMEDIATE_CRITICAL_VULNERABILITIES",
+        "ENABLE_WAF_PREVENTION",
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "VULN_SCAN",
+        "WAF_POLICY",
+        "SENTINEL_STATUS"
+      ],
+      "authorization_required": true,
+      "rationale": "All nine security predicates in DGF-decision-v8 were evaluated against the authoritative REVIEW_FACTS_SECURITY snapshot (age 0 days). Three findings trigger: (1) SEC-VULN-001 (critical, NO_GO): \"critical_vulns_open\": 1, corroborated by authoritative VULN_SCAN showing CVE-2026-8000 severity Critical status Open (plus 7 open High findings); (2) SEC-WAF-002 (high, REWORK): internet-facing workload (\"internet_exposed\": true) with WAF present but \"waf_mode\": \"Detection\", corroborated by authoritative WAF_POLICY v2 (\"present\": true, \"mode\": \"Detection\"); (3) SEC-LOG-001 (high, REWORK): \"logs_to_siem\": false and \"sentinel\": false, corroborated by authoritative SENTINEL_STATUS v5 with empty connectors list. Non-triggered predicates verified: WAF present (SEC-WAF-001 no), private_endpoints true and data_classification Internal (SEC-NET-001 no), mfa \"mandatory\" (SEC-IAM-001 no), shared_service_principal false (SEC-IAM-002 no), pentest predicate is build_acceptance-only and phase is design with pentest_status \"pass_with_findings\" (SEC-PENTEST-001 no), key_rotation_days 180 not in (None, 365) (SEC-KEY-001 no). Highest-priority triggered disposition is NO_GO from SEC-VULN-001. The active standing mandate (MANDATE-ebf3ae65-...-BUILD-03-SECURITY-1, Thomas Khan-12011-RO) is scoped to \"all and only risk-acceptable findings\" and cannot authorize SEC-VULN-001 or SEC-LOG-001 (risk_acceptance_allowed false); residual_risk_acceptance is false, so no acceptance is sought and authorization remains required for the NO_GO. Proposed actions are remediation directives, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-VULN-001",
+          "quote": "\"critical_vulns_open\": 1, \"high_vulns_open\": 7"
+        },
+        {
+          "evidence_id": "VULN_SCAN",
+          "finding_id": "SEC-VULN-001",
+          "quote": "{\"id\": \"CVE-2026-8000\", \"severity\": \"Critical\", \"status\": \"Open\"}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-WAF-002",
+          "quote": "\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\""
+        },
+        {
+          "evidence_id": "WAF_POLICY",
+          "finding_id": "SEC-WAF-002",
+          "quote": "\"present\": true, \"mode\": \"Detection\", \"managed_rules\": \"OWASP\", \"bot_protection\": true"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"logs_to_siem\": false, \"sentinel\": false"
+        },
+        {
+          "evidence_id": "SENTINEL_STATUS",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RTO-001",
+        "TR-RPO-001",
+        "TR-LOAD-001",
+        "TR-CODE-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "REMEDIATE_RECOVERY_TIME",
+        "REMEDIATE_RECOVERY_POINT",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS",
+        "RESTORE_TEST",
+        "LOAD_TEST",
+        "BACKUP_JOBS",
+        "FAILOVER_TEST",
+        "ROLLBACK_TEST",
+        "MONITOR_ALERTS"
+      ],
+      "authorization_required": false,
+      "rationale": "All ten tech-readiness predicates in DGF-decision-v8 were evaluated against the authoritative REVIEW_FACTS_TECH_READINESS snapshot (age 0 days). Five findings trigger, all REWORK: (1) TR-RTO-001 (high): measured_restore_hours 42.0 exceeds target_rto_hours 24, corroborated by authoritative RESTORE_TEST v5; (2) TR-RPO-001 (high): measured_data_loss_minutes 2880 exceeds target_rpo_minutes 1440, corroborated by RESTORE_TEST; (3) TR-LOAD-001 (high): load_test_pct_of_peak 50 < 100, corroborated by authoritative LOAD_TEST v1 (peak_test_pct 50, p95 868ms); (4) TR-CODE-001 (high): critical_static_findings 2 > 0 — CI_PIPELINE is listed UNAVAILABLE and was formally requested; the request returned the authoritative submitted-state snapshot rather than the original document, so the snapshot value is relied upon and no unverified document was used; (5) TR-BLOCKER-001 (high): open_blockers 3 > 0. Non-triggered predicates verified: backup_enabled true (BACKUP_JOBS v2: enabled True, daily-backup last_status Succeeded, retention 35 days) so TR-BACKUP-001 does not apply; restore_tested true so TR-RESTORE-001 does not apply; dr_required false (FAILOVER_TEST v5: dr_required False, tested False) so TR-DR-001 does not apply; runbook_status approved, on_call_defined true, handover_signed true so TR-OPS-001 does not apply; rollback_tested true (ROLLBACK_TEST v2: result PASS) so TR-ROLLBACK-001 does not apply. Highest-priority triggered disposition is REWORK. REWORK is not in authorization_required_for (GO_WITH_RESERVATIONS, SUSPENSION, NO_GO), so authorization_required is false; the active standing mandate (MANDATE-...-BUILD-04-TECH_READINESS-1, Thomas Khan-12011-RO, scope 'all and only risk-acceptable findings') is noted but not exercised — TR-RTO-001 and TR-RPO-001 are risk-acceptance-eligible, but risk acceptance is not a substitute for the required remediation and no acceptance is sought. Proposed actions are remediation directives, not completed remediation. MONITOR_ALERTS corroborates monitoring posture (availability and backup-failure alerts configured; security log ingestion not configured, consistent with upstream SEC-LOG-001 tracked at BUILD-03-SECURITY-1).",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-RTO-001",
+          "quote": "\"target_rto_hours\": 24, \"measured_restore_hours\": 42.0"
+        },
+        {
+          "evidence_id": "RESTORE_TEST",
+          "finding_id": "TR-RTO-001",
+          "quote": "\"measured_restore_hours\": \"42.0\", \"target_rto_hours\": \"24\", \"tested\": \"True\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-RPO-001",
+          "quote": "\"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 2880"
+        },
+        {
+          "evidence_id": "RESTORE_TEST",
+          "finding_id": "TR-RPO-001",
+          "quote": "\"measured_data_loss_minutes\": \"2880\", \"target_rpo_minutes\": \"1440\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-LOAD-001",
+          "quote": "\"load_test_pct_of_peak\": 50"
+        },
+        {
+          "evidence_id": "LOAD_TEST",
+          "finding_id": "TR-LOAD-001",
+          "quote": "\"p95_ms\": \"868\", \"peak_test_pct\": \"50\", \"test_completion_pct\": \"71\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-CODE-001",
+          "quote": "\"critical_static_findings\": 2"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-BLOCKER-001",
+          "quote": "\"open_blockers\": 3"
+        }
+      ]
+    }
+  ]
+}

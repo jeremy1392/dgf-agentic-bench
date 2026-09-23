@@ -1,0 +1,427 @@
+{
+  "usage": {
+    "prompt_tokens": 22646,
+    "completion_tokens": 3755,
+    "total_tokens": 26401,
+    "reasoning_tokens": 3431,
+    "cached_tokens": 0,
+    "cost": 0.03106575,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 12,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 2,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 49,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 139,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 166,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 102,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 133,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 130,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 146,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 167,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012003",
+            "generation_seed": 12003,
+            "project_name": "Project Yotta — Digital Onboarding [C8CCC]",
+            "project_code": "C8CCC",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Risk",
+            "sponsor": "Noor Volkov-12003-SP",
+            "project_manager": "Noor Petrescu-12003-PM",
+            "business_owner": "Amira Costa-12003-BO",
+            "service_owner": "Lucas Rahman-12003-SO",
+            "risk_owner": "Maya Khan-12003-RO",
+            "start_date": "2026-10-30",
+            "target_go_live": "2027-10-14",
+            "users_impacted": 80,
+            "budget_requested_eur": 900000,
+            "data_classification": "Internal",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "legal": {
+            "contract_version": "MSA-C8CCC-3.8",
+            "governing_law": "France",
+            "dpa_status": "not_required",
+            "liability_cap_multiplier": 1,
+            "security_carveout": false,
+            "audit_right": "limited",
+            "termination_for_convenience": true,
+            "exit_assistance_days": 0,
+            "ip_ownership": "ambiguous",
+            "insurance_valid": true,
+            "cyber_insurance_m": 10,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "adequate",
+            "sla_penalties": true,
+            "log_export_clause": "missing"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-756a54cd-def8-5054-9ecc-a45ddb686b05-BUY-02-LEGAL-1",
+            "occurrence_id": "BUY-02-LEGAL-1",
+            "gate": "legal",
+            "phase": "design",
+            "authority": "Maya Khan-12003-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_184630",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4797,
+        "completion_tokens": 73,
+        "total_tokens": 4870,
+        "reasoning_tokens": 63,
+        "cached_tokens": 0,
+        "cost": 0.0038715,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_211479",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5565,
+        "completion_tokens": 50,
+        "total_tokens": 5615,
+        "reasoning_tokens": 26,
+        "cached_tokens": 0,
+        "cost": 0.00436125,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_270855",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6074,
+        "completion_tokens": 1319,
+        "total_tokens": 7393,
+        "reasoning_tokens": 1306,
+        "cached_tokens": 0,
+        "cost": 0.00950175,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_352427",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"evidence_refs\":[\"REVIEW_FACTS_LEGAL\"],\"disposition\":\"REWORK\",\"rationale\":\"Evaluation of REVIEW_FACTS_LEGAL reveals that no contractual exit assistance is provided ('exit_assistance_days': 0), warranting finding LEGAL-EXIT-001. Additionally, intellectual property ownership is ambiguous ('ip_ownership': 'ambiguous'), triggering finding LEGAL-IP-001. Ambiguous IP ownership is non-risk-acceptable and mandates contractual clarification, yielding a final gate disposition of REWORK.\",\"evidence_support\":[{\"finding_id\":\"LEGAL-EXIT-001\",\"evidence_id\":\"REVIEW_FACTS_LEGAL\",\"quote\":\"\\\"exit_assistance_days\\\": 0\"},{\"quote\":\"\\\"ip_ownership\\\": \\\"ambiguous\\\"\",\"finding_id\":\"LEGAL-IP-001\",\"evidence_id\":\"REVIEW_FACTS_LEGAL\"}],\"authorization_required\":false,\"actions\":[\"ADD_EXIT_ASSISTANCE\",\"CLARIFY_IP_OWNERSHIP\"],\"confidence\":1,\"finding_ids\":[\"LEGAL-EXIT-001\",\"LEGAL-IP-001\"]}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6210,
+        "completion_tokens": 2313,
+        "total_tokens": 8523,
+        "reasoning_tokens": 2036,
+        "cached_tokens": 0,
+        "cost": 0.01333125,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 4,
+  "tool_call_count": 3,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-02-LEGAL-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "LEGAL-EXIT-001",
+      "LEGAL-IP-001"
+    ],
+    "actions": [
+      "ADD_EXIT_ASSISTANCE",
+      "CLARIFY_IP_OWNERSHIP"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL"
+    ],
+    "authorization_required": false,
+    "rationale": "Evaluation of REVIEW_FACTS_LEGAL reveals that no contractual exit assistance is provided ('exit_assistance_days': 0), warranting finding LEGAL-EXIT-001. Additionally, intellectual property ownership is ambiguous ('ip_ownership': 'ambiguous'), triggering finding LEGAL-IP-001. Ambiguous IP ownership is non-risk-acceptable and mandates contractual clarification, yielding a final gate disposition of REWORK.",
+    "confidence": 1.0,
+    "evidence_support": [
+      {
+        "finding_id": "LEGAL-EXIT-001",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "quote": "\"exit_assistance_days\": 0"
+      },
+      {
+        "quote": "\"ip_ownership\": \"ambiguous\"",
+        "finding_id": "LEGAL-IP-001",
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 8,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

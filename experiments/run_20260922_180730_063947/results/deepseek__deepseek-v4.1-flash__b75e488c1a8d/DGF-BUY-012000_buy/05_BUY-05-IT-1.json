@@ -1,0 +1,808 @@
+{
+  "usage": {
+    "prompt_tokens": 53221,
+    "completion_tokens": 3636,
+    "total_tokens": 56857,
+    "reasoning_tokens": 1918,
+    "cached_tokens": 43136,
+    "cost": 0.0031201911999999997,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "it",
+        "phase": "build_acceptance",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 62,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 149,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 42,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LICENSE_POSITION",
+            "path": "gate_evidence/it/license_position.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 14,
+            "consumers": [
+              "it",
+              "procurement",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 15,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "SUPPORT_RACI",
+            "path": "gate_evidence/it/support_raci.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 105,
+            "consumers": [
+              "it",
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 5,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 142,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "FLOW_MATRIX",
+            "path": "gate_evidence/architecture/flow_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 127,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "OPENAPI",
+            "path": "gate_evidence/architecture/openapi.yaml",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 92,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "IP_PLAN",
+            "path": "gate_evidence/architecture/ip_plan.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 17,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ADR_REGISTER",
+            "path": "gate_evidence/architecture/adr_register.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 144,
+            "consumers": [
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "AZURE_RESOURCE_GRAPH",
+            "path": "gate_evidence/security/azure_resource_graph.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 173,
+            "consumers": [
+              "security",
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "IAM_EXPORT",
+            "path": "gate_evidence/security/entra_role_assignments.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "BACKUP_JOBS",
+            "path": "gate_evidence/tech_readiness/backup_jobs.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 91,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "RUNBOOK",
+            "path": "gate_evidence/tech_readiness/production_runbook.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 44,
+            "consumers": [
+              "tech_readiness",
+              "it",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ROLLBACK_TEST",
+            "path": "gate_evidence/tech_readiness/rollback_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 0,
+            "consumers": [
+              "tech_readiness",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-05-IT-1",
+            "occurrence_id": "BUY-05-IT-1",
+            "gate": "it",
+            "phase": "build_acceptance",
+            "authority": "Noor Meyer-12000-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012000",
+            "generation_seed": 12000,
+            "project_name": "Project Delta — Observability Platform [F2EE0]",
+            "project_code": "F2EE0",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Sales",
+            "sponsor": "Yusuf Costa-12000-SP",
+            "project_manager": "Victor Dubois-12000-PM",
+            "business_owner": "Marc Volkov-12000-BO",
+            "service_owner": "Noor Dubois-12000-SO",
+            "risk_owner": "Noor Meyer-12000-RO",
+            "start_date": "2026-09-05",
+            "target_go_live": "2027-03-15",
+            "users_impacted": 250,
+            "budget_requested_eur": 1500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "it": {
+            "catalog_status": "non_standard",
+            "waiver_present": false,
+            "waiver_expiry_days": 365,
+            "duplicate_capability": false,
+            "existing_alternative": "legacy_crm",
+            "license_compliant": true,
+            "annual_license_cost_eur": 53261,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "product_team",
+            "patch_sla_days": 90,
+            "capacity_headroom_pct": 20,
+            "technology_eol_months": 8,
+            "change_record_status": "approved",
+            "service_continuity_class": "silver",
+            "hosting_model": "container_apps"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 15,
+        "path": "gate_evidence/it/lifecycle_eol.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "20",
+            "eol_months": "8",
+            "technology": "container_apps"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 149,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Project Delta — Observability Platform [F2EE0]",
+            "continuity_class": "silver",
+            "record_present": "True",
+            "run_owner": "Noor Dubois-12000-SO",
+            "support_model": "product_team"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LICENSE_POSITION"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LICENSE_POSITION",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 14,
+        "path": "gate_evidence/it/license_position.csv",
+        "content": [
+          {
+            "annual_cost_eur": "53261",
+            "license_compliant": "True"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 5,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "20",
+            "continuity_class": "silver",
+            "service": "Project Delta — Observability Platform [F2EE0]",
+            "support_model": "product_team"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SUPPORT_RACI"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SUPPORT_RACI",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 105,
+        "path": "gate_evidence/it/support_raci.docx",
+        "content": "Support & Operations RACI\nOperating model\nField | Value\nRun owner | Noor Dubois-12000-SO\nSupport model | product_team\nPatch SLA days | 90\nCMDB required | Yes"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "ADR_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "ADR_REGISTER",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 144,
+        "path": "gate_evidence/architecture/adr_register.csv",
+        "content": [
+          {
+            "adr_id": "ADR-001",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-002",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-003",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-004",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-005",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-006",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-007",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-008",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-009",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-010",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-011",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "ROLLBACK_TEST"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "ROLLBACK_TEST",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 0,
+        "path": "gate_evidence/tech_readiness/rollback_test.csv",
+        "content": [
+          {
+            "result": "PASS",
+            "rollback_tested": "True"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing available evidence and reading the authoritative snapshot for this gate.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-9632a68f1f81c8b7",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-a55617c9416715ef",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8813,
+        "completion_tokens": 86,
+        "total_tokens": 8899,
+        "reasoning_tokens": 12,
+        "cached_tokens": 2176,
+        "cost": 0.0009744392,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-9903aa8d9ea87615",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10263,
+        "completion_tokens": 58,
+        "total_tokens": 10321,
+        "reasoning_tokens": 11,
+        "cached_tokens": 8704,
+        "cost": 0.0002791768,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-9385b1870ef59f98",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-be838252065cc720",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 2,
+            "id": "chatcmpl-tool-b3f06defff58927a",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LICENSE_POSITION\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 3,
+            "id": "chatcmpl-tool-96feb86f31abffd1",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10795,
+        "completion_tokens": 592,
+        "total_tokens": 11387,
+        "reasoning_tokens": 444,
+        "cached_tokens": 10240,
+        "cost": 0.000369348,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-844a685142aba858",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SUPPORT_RACI\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-beb9c0862ae92132",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"ADR_REGISTER\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 2,
+            "id": "chatcmpl-tool-b2ab9e1f90bfb647",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"ROLLBACK_TEST\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 11350,
+        "completion_tokens": 689,
+        "total_tokens": 12039,
+        "reasoning_tokens": 581,
+        "cached_tokens": 10752,
+        "cost": 0.0004182584,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have the authoritative snapshot and corroborating evidence. Let me evaluate the predicates.\n\nSnapshot `it` fields vs. policy:\n- `catalog_status` = \"non_standard\" and `waiver_present` = false → **IT-CATALOG-001** fires (high, REWORK)\n- `duplicate_capability` = false → no IT-RATIONAL-001\n- `license_compliant` = true → no IT-LICENSE-001\n- `cmdb_record_present` = true → no IT-CMDB-001\n- `run_owner_present` = true → no IT-RUN-001\n- `technology_eol_months` = 8 < 12 → **IT-EOL-001** fires (high, REWORK)\n- `capacity_headroom_pct` = 20 ≥ 15 → no IT-CAPACITY-001\n- `change_record_status` = \"approved\" (and phase is build_acceptance, not deployment_closure) → no IT-CHANGE-001\n\nHighest-priority fired disposition = REWORK, which is not in `authorization_required_for`.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-9c3f78cad20d33ab",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\": \"REWORK\", \"finding_ids\": [\"IT-CATALOG-001\", \"IT-EOL-001\"], \"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\", \"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"LIFECYCLE_REGISTER\", \"CMDB_EXPORT\", \"LICENSE_POSITION\", \"CAPACITY_REPORT\", \"SUPPORT_RACI\"], \"evidence_support\": [{\"finding_id\": \"IT-CATALOG-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365\"}, {\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"\\\"technology_eol_months\\\": 8, \\\"change_record_status\\\": \\\"approved\\\"\"}, {\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"LIFECYCLE_REGISTER\", \"quote\": \"{\\\"capacity_headroom_pct\\\": \\\"20\\\", \\\"eol_months\\\": \\\"8\\\", \\\"technology\\\": \\\"container_apps\\\"}\"}], \"authorization_required\": false, \"rationale\": \"Evaluating the authoritative REVIEW_FACTS_IT snapshot (version 1, age 0 days) against the IT decision policy (DGF-decision-v8) at phase build_acceptance, exactly two predicates fire.\\\\n\\\\n(1) IT-CATALOG-001 (high, REWORK, risk_acceptance_allowed=False): it.catalog_status = \\\"non_standard\\\" with it.waiver_present = false — non-standard technology with no approved waiver. Action SUBMIT_TECHNOLOGY_WAIVER, owner IT Architecture. (The authoritative TECH_CATALOG artefact itself is UNAVAILABLE at this snapshot, but the governing snapshot field carries the observed status, so the finding stands on REVIEW_FACTS_IT.)\\\\n\\\\n(2) IT-EOL-001 (high, REWORK, risk_acceptance_allowed=True): it.technology_eol_months = 8, which is < 12. Corroborated by the authoritative LIFECYCLE_REGISTER (technology container_apps, eol_months = 8). Action CREATE_CONVERGENCE_PLAN, owner Technology Owner.\\\\n\\\\nPredicates that do NOT fire, verified against the snapshot and corroborating authoritative evidence: duplicate_capability = false (no IT-RATIONAL-001, despite existing_alternative = \\\"legacy_crm\\\"); license_compliant = true (no IT-LICENSE-001 — LICENSE_POSITION shows license_compliant = True, annual_cost_eur = 53261); cmdb_record_present = true (no IT-CMDB-001 — CMDB_EXPORT shows record_present = True, run_owner = Noor Dubois-12000-SO, continuity_class = silver); run_owner_present = true with support_model = product_team (no IT-RUN-001 — SUPPORT_RACI records \\\"Run owner | Noor Dubois-12000-SO\\\"); capacity_headroom_pct = 20, i.e. ≥ 15 (no IT-CAPACITY-001 — CAPACITY_REPORT shows capacity_headroom_pct = 20); change_record_status = \\\"approved\\\" and the phase is build_acceptance, not deployment_closure, so IT-CHANGE-001 is doubly inapplicable.\\\\n\\\\nDisposition: the highest-priority outcome among the fired findings is REWORK, so the gate disposition is REWORK. REWORK is not in authorization_required_for, and the active mandate MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-05-IT-1 (scope \\\"all and only risk-acceptable findings\\\") is not needed here; no risk acceptance is proposed since IT-CATALOG-001 has risk_acceptance_allowed=False. No risk card is created and proposed remediation actions are not completed remediation. Upstream decisions (procurement NO_GO/PROC-MAND-001, legal SUSPENSION/LEGAL-INS-001, compliance NO_GO/COMP-RESID-001, security NO_GO/SEC-WAF-001 etc.) are noted for context; their findings are not in this gate's candidate catalog and do not alter the IT predicate evaluation.\", \"confidence\": 0.93}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12000,
+        "completion_tokens": 2211,
+        "total_tokens": 14211,
+        "reasoning_tokens": 870,
+        "cached_tokens": 11264,
+        "cost": 0.0010789688,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra"
+  ],
+  "turns": 5,
+  "tool_call_count": 10,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-05-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-CATALOG-001",
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "SUBMIT_TECHNOLOGY_WAIVER",
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "LIFECYCLE_REGISTER",
+      "CMDB_EXPORT",
+      "LICENSE_POSITION",
+      "CAPACITY_REPORT",
+      "SUPPORT_RACI"
+    ],
+    "authorization_required": false,
+    "rationale": "Evaluating the authoritative REVIEW_FACTS_IT snapshot (version 1, age 0 days) against the IT decision policy (DGF-decision-v8) at phase build_acceptance, exactly two predicates fire.\\n\\n(1) IT-CATALOG-001 (high, REWORK, risk_acceptance_allowed=False): it.catalog_status = \"non_standard\" with it.waiver_present = false — non-standard technology with no approved waiver. Action SUBMIT_TECHNOLOGY_WAIVER, owner IT Architecture. (The authoritative TECH_CATALOG artefact itself is UNAVAILABLE at this snapshot, but the governing snapshot field carries the observed status, so the finding stands on REVIEW_FACTS_IT.)\\n\\n(2) IT-EOL-001 (high, REWORK, risk_acceptance_allowed=True): it.technology_eol_months = 8, which is < 12. Corroborated by the authoritative LIFECYCLE_REGISTER (technology container_apps, eol_months = 8). Action CREATE_CONVERGENCE_PLAN, owner Technology Owner.\\n\\nPredicates that do NOT fire, verified against the snapshot and corroborating authoritative evidence: duplicate_capability = false (no IT-RATIONAL-001, despite existing_alternative = \"legacy_crm\"); license_compliant = true (no IT-LICENSE-001 — LICENSE_POSITION shows license_compliant = True, annual_cost_eur = 53261); cmdb_record_present = true (no IT-CMDB-001 — CMDB_EXPORT shows record_present = True, run_owner = Noor Dubois-12000-SO, continuity_class = silver); run_owner_present = true with support_model = product_team (no IT-RUN-001 — SUPPORT_RACI records \"Run owner | Noor Dubois-12000-SO\"); capacity_headroom_pct = 20, i.e. ≥ 15 (no IT-CAPACITY-001 — CAPACITY_REPORT shows capacity_headroom_pct = 20); change_record_status = \"approved\" and the phase is build_acceptance, not deployment_closure, so IT-CHANGE-001 is doubly inapplicable.\\n\\nDisposition: the highest-priority outcome among the fired findings is REWORK, so the gate disposition is REWORK. REWORK is not in authorization_required_for, and the active mandate MANDATE-815b7c08-da19-5688-9c61-1e6dfdbfa6cf-BUY-05-IT-1 (scope \"all and only risk-acceptable findings\") is not needed here; no risk acceptance is proposed since IT-CATALOG-001 has risk_acceptance_allowed=False. No risk card is created and proposed remediation actions are not completed remediation. Upstream decisions (procurement NO_GO/PROC-MAND-001, legal SUSPENSION/LEGAL-INS-001, compliance NO_GO/COMP-RESID-001, security NO_GO/SEC-WAF-001 etc.) are noted for context; their findings are not in this gate's candidate catalog and do not alter the IT predicate evaluation.",
+    "confidence": 0.93,
+    "evidence_support": [
+      {
+        "finding_id": "IT-CATALOG-001",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365"
+      },
+      {
+        "finding_id": "IT-EOL-001",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "quote": "\"technology_eol_months\": 8, \"change_record_status\": \"approved\""
+      },
+      {
+        "finding_id": "IT-EOL-001",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "quote": "{\"capacity_headroom_pct\": \"20\", \"eol_months\": \"8\", \"technology\": \"container_apps\"}"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 23,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

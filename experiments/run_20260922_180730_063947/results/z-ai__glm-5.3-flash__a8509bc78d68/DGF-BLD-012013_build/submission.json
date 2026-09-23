@@ -1,0 +1,279 @@
+{
+  "case_id": "d7b36186-c589-5ded-8ed0-467c84278f86",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "CMDB_EXPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "At the opportunity phase, the authoritative REVIEW_FACTS_IT snapshot triggers exactly one policy predicate: technology_eol_months is 8, below the 12-month threshold, so IT-EOL-001 (high) applies with action CREATE_CONVERGENCE_PLAN owned by the Technology Owner and disposition REWORK. All other IT predicates pass or are phase-inapplicable: catalog_status is 'standard' with waiver_present true (corroborated by TECH_CATALOG), duplicate_capability false, license_compliant true, cmdb_record_present true with run owner Yusuf Meyer-12013-SO and 24x7_internal support (corroborated by CMDB_EXPORT), capacity_headroom_pct 30, and change_record_status 'approved'. The overall disposition is REWORK per the finding's assigned disposition; REWORK is not in authorization_required_for, so no authorization is required. Proposed action is not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 8"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "LLD",
+        "IP_PLAN",
+        "AZURE_RESOURCE_GRAPH",
+        "DATA_MODEL",
+        "HLD"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_ARCHITECTURE snapshot against the DGF-decision-v8 architecture predicates yields exactly one triggered finding: ARCH-REV-001 (medium) because reversibility_status is 'missing' (corroborated by LLD 'Reversibility | missing'), with action COMPLETE_EXIT_ARCHITECTURE owned by the Enterprise Architect and disposition GO_WITH_RESERVATIONS. All other predicates pass: ip_overlap false (corroborated by authoritative IP_PLAN showing overlap_detected False for all three CIDRs 10.166.208-210.0/24, so ARCH-IP-001 does not apply); api_gateway_required true AND api_gateway_present true (corroborated by AZURE_RESOURCE_GRAPH Azure API Management and LLD, so ARCH-API-001 does not apply); data_owner_present true (corroborated by DATA_MODEL data_owner Sofia Meyer-12013-BO, so ARCH-DATA-001 does not apply); measured_latency_ms 30 does not exceed latency_target_ms 50 (so ARCH-PERF-001 does not apply); and business_criticality is 'Medium', not High/Critical, so the absence of multi_az/multi_region (confirmed by AZURE_RESOURCE_GRAPH multiAz false) does not trigger ARCH-HA-001. The overall disposition is GO_WITH_RESERVATIONS per the triggered finding's assigned disposition. GO_WITH_RESERVATIONS is in authorization_required_for; the active standing mandate MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-02-ARCHITECTURE-1 from risk owner Ines Rossi-12013-RO covers 'all and only risk-acceptable findings', and ARCH-REV-001 is risk_acceptance_allowed=true, so a conditional approval was executed under that mandate with conditions requiring completion of the exit/reversibility architecture before the next checkpoint. ARCH-IP-001 and ARCH-API-001 are not risk-acceptable and were not accepted. Proposed actions are not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-REV-001",
+          "quote": "\"reversibility_status\": \"missing\""
+        },
+        {
+          "evidence_id": "LLD",
+          "finding_id": "ARCH-REV-001",
+          "quote": "Reversibility | missing"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-IP-001",
+          "quote": "\"ip_overlap\": false"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-API-001",
+          "quote": "\"api_gateway_required\": true, \"api_gateway_present\": true"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-DATA-001",
+          "quote": "\"data_owner_present\": true"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-PERF-001",
+          "quote": "\"latency_target_ms\": 50, \"measured_latency_ms\": 30"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-HA-001",
+          "quote": "\"business_criticality\": \"Medium\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "SENTINEL_STATUS",
+        "WAF_POLICY",
+        "CONDITIONAL_ACCESS",
+        "AZURE_RESOURCE_GRAPH",
+        "IAM_EXPORT",
+        "VULN_SCAN",
+        "DEFENDER_FINDINGS"
+      ],
+      "authorization_required": false,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_SECURITY snapshot against the DGF-decision-v8 security predicates yields exactly one triggered finding: SEC-LOG-001 (high) because logs_to_siem is false, corroborated by authoritative SENTINEL_STATUS (sentinel: false, logs_to_siem: false, connectors: []) and the SIEM connector state, with action CONNECT_LOGS_TO_SIEM owned by SOC and disposition REWORK. All other predicates pass: internet_exposed true with waf_present true and waf_mode 'Prevention' (corroborated by WAF_POLICY present: true, mode: 'Prevention'), so SEC-WAF-001 and SEC-WAF-002 do not apply; data_classification is Confidential but private_endpoints is true (corroborated by AZURE_RESOURCE_GRAPH private_endpoints: true, firewall: true, and data-tier services with publicNetworkAccess: false), so SEC-NET-001 does not apply; mfa is 'mandatory' with PIM enabled (corroborated by CONDITIONAL_ACCESS), so SEC-IAM-001 does not apply; shared_service_principal is false and IAM_EXPORT shows only a dedicated managed identity 'workload-mi', so SEC-IAM-002 does not apply; critical_vulns_open is 0 (VULN_SCAN shows only one High-severity open finding, no criticals), so SEC-VULN-001 does not apply; pentest_status is 'missing' but the SEC-PENTEST-001 predicate requires phase 'build_acceptance' and the current phase is 'design', so pentest evidence may legitimately not exist yet and the finding does not apply; key_rotation_days is 30 (not None or 365), so SEC-KEY-001 does not apply. The overall disposition is REWORK per the single triggered finding's assigned disposition. REWORK is not in authorization_required_for, so authorization_required is false; the active standing mandate MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-03-SECURITY-1 covers 'all and only risk-acceptable findings' and SEC-LOG-001 has risk_acceptance_allowed=false, so no conditional approval or risk acceptance was executed. Proposed actions are not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"logs_to_siem\": false"
+        },
+        {
+          "evidence_id": "SENTINEL_STATUS",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-WAF-002",
+          "quote": "\"waf_present\": true, \"waf_mode\": \"Prevention\""
+        },
+        {
+          "evidence_id": "WAF_POLICY",
+          "finding_id": "SEC-WAF-002",
+          "quote": "\"present\": true, \"mode\": \"Prevention\", \"managed_rules\": \"OWASP\", \"bot_protection\": true"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-NET-001",
+          "quote": "\"data_classification\": \"Confidential\" ... \"private_endpoints\": true"
+        },
+        {
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "finding_id": "SEC-NET-001",
+          "quote": "\"private_endpoints\": true, \"firewall\": true"
+        },
+        {
+          "evidence_id": "CONDITIONAL_ACCESS",
+          "finding_id": "SEC-IAM-001",
+          "quote": "\"mfa\": \"mandatory\", \"pim\": true, \"policy_state\": \"enabled\""
+        },
+        {
+          "evidence_id": "IAM_EXPORT",
+          "finding_id": "SEC-IAM-002",
+          "quote": "{\"principal\": \"workload-mi\", \"role\": \"Reader\", \"scope\": \"resource-group\", \"type\": \"ManagedIdentity\"}"
+        },
+        {
+          "evidence_id": "VULN_SCAN",
+          "finding_id": "SEC-VULN-001",
+          "quote": "{\"id\": \"CVE-2026-9000\", \"severity\": \"High\", \"status\": \"Open\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RPO-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "REMEDIATE_RECOVERY_POINT",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS",
+        "RESTORE_TEST",
+        "RUNBOOK",
+        "BACKUP_JOBS",
+        "CI_PIPELINE",
+        "ROLLBACK_TEST",
+        "FAILOVER_TEST"
+      ],
+      "authorization_required": false,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_TECH_READINESS snapshot (age 0 days) against the DGF-decision-v8 tech_readiness predicates yields exactly two triggered findings. TR-RPO-001 (high): measured_data_loss_minutes is 2015, exceeding target_rpo_minutes 1440 (corroborated by authoritative RESTORE_TEST: measured_data_loss_minutes 2015 vs target_rpo_minutes 1440), action REMEDIATE_RECOVERY_POINT owned by SRE, disposition REWORK. TR-OPS-001 (medium): runbook_status is 'missing' (not 'approved') and on_call_defined is false (corroborated by RUNBOOK 'Runbook status | missing (declared)'), action COMPLETE_OPERATIONAL_HANDOVER owned by Operations, disposition GO_WITH_RESERVATIONS. All other predicates pass: backup_enabled true (BACKUP_JOBS daily-backup enabled=True, last_status Succeeded), restore_tested true with measured_restore_hours 13.2 within target_rto_hours 24 so TR-RTO-001 does not apply, dr_required false so the untested failover (FAILOVER_TEST tested=False) does not trigger TR-DR-001, load_test_pct_of_peak 100 so TR-LOAD-001 does not apply (LOAD_TEST file is unavailable, but the authoritative snapshot field resolves the predicate), critical_static_findings 0 (CI_PIPELINE corroborates), rollback_tested true (ROLLBACK_TEST PASS), and open_blockers 0. The overall disposition is REWORK per the highest-priority triggered finding's assigned disposition. REWORK is not in authorization_required_for, so authorization_required is false; the active standing mandate MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-04-TECH_READINESS-1 covers 'all and only risk-acceptable findings' but no conditional approval is executed because the overall disposition does not require authorization. The non-authoritative RUNBOOK document (136 days old) contradicts the snapshot on on_call_defined and handover_signed; the authoritative snapshot governs, and TR-OPS-001 triggers on runbook_status 'missing' under either source. Proposed actions are not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-RPO-001",
+          "quote": "\"measured_data_loss_minutes\": 2015, \"target_rpo_minutes\": 1440"
+        },
+        {
+          "evidence_id": "RESTORE_TEST",
+          "finding_id": "TR-RPO-001",
+          "quote": "\"measured_data_loss_minutes\": \"2015\", \"target_rpo_minutes\": \"1440\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-OPS-001",
+          "quote": "\"runbook_status\": \"missing\", \"on_call_defined\": false"
+        },
+        {
+          "evidence_id": "RUNBOOK",
+          "finding_id": "TR-OPS-001",
+          "quote": "Runbook status | missing (declared)"
+        },
+        {
+          "evidence_id": "BACKUP_JOBS",
+          "finding_id": "TR-BACKUP-001",
+          "quote": "\"enabled\": \"True\", \"job\": \"daily-backup\", \"last_status\": \"Succeeded\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-RTO-001",
+          "quote": "\"target_rto_hours\": 24, \"measured_restore_hours\": 13.2"
+        },
+        {
+          "evidence_id": "CI_PIPELINE",
+          "finding_id": "TR-CODE-001",
+          "quote": "\"critical_static_findings\": 0"
+        },
+        {
+          "evidence_id": "ROLLBACK_TEST",
+          "finding_id": "TR-ROLLBACK-001",
+          "quote": "\"result\": \"PASS\", \"rollback_tested\": \"True\""
+        },
+        {
+          "evidence_id": "FAILOVER_TEST",
+          "finding_id": "TR-DR-001",
+          "quote": "\"dr_required\": \"False\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-BC-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "REVISE_BUSINESS_CASE",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "BUSINESS_CASE",
+        "BUDGET_APPROVAL",
+        "PORTFOLIO_SNAPSHOT",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": false,
+      "rationale": "Evaluating the authoritative REVIEW_FACTS_GENERAL snapshot (age 0 days) against the DGF-decision-v8 general predicates yields exactly two triggered findings. GEN-BC-001 (medium): roi is 0.028, below the 0.05 governance threshold, and the current phase is 'governance' (not deployment_closure), corroborated by BUSINESS_CASE (ROI 0.028); action REVISE_BUSINESS_CASE owned by the Business Owner, disposition REWORK. GEN-UPSTREAM-REWORK (high): UPSTREAM_DECISIONS records four upstream gate decisions in this run — IT (REWORK), Architecture (GO_WITH_RESERVATIONS), Security (REWORK), Tech Readiness (REWORK) — so 3 upstream gate(s) require rework with no NO_GO or SUSPENSION; action CLOSE_UPSTREAM_REWORK owned by the Project Manager, disposition REWORK. All other predicates pass: strategic_alignment is 'strong' (corroborated by authoritative PORTFOLIO_SNAPSHOT priority P1), so GEN-STRAT-001 does not apply; budget_requested_eur 900000 does not exceed budget_approved_eur 900000 (corroborated by authoritative BUDGET_APPROVAL: requested 900000, approved 900000, status APPROVED), so GEN-BUDGET-001 does not apply; change_plan_status is 'missing' but GEN-BENEFITS-001 requires phase 'deployment_closure' and the current phase is 'governance', so it does not apply at this phase. The overall disposition is REWORK per the triggered findings' assigned dispositions. REWORK is not in authorization_required_for, so authorization_required is false; the active standing mandate MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-05-GENERAL-1 from risk owner Ines Rossi-12013-RO covers 'all and only risk-acceptable findings', but no conditional approval or risk acceptance is executed because the overall disposition does not require authorization, and risk acceptance is distinct from the required remediation (REVISE_BUSINESS_CASE, CLOSE_UPSTREAM_REWORK). Proposed actions are not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-BC-001",
+          "quote": "\"roi\": 0.028"
+        },
+        {
+          "evidence_id": "BUSINESS_CASE",
+          "finding_id": "GEN-BC-001",
+          "quote": "{\"metric\": \"ROI\", \"value\": \"0.028\"}"
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "quote": "\"occurrence_id\": \"BUILD-01-IT-1\", \"gate\": \"it\", \"phase\": \"opportunity\", \"disposition\": \"REWORK\""
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "quote": "\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"REWORK\""
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "quote": "\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\", \"disposition\": \"REWORK\""
+        }
+      ]
+    }
+  ]
+}

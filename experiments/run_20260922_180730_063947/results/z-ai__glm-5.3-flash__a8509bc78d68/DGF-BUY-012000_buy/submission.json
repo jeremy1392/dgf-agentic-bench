@@ -1,0 +1,247 @@
+{
+  "case_id": "815b7c08-da19-5688-9c61-1e6dfdbfa6cf",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "PROC-MAND-001"
+      ],
+      "actions": [
+        "REOPEN_VENDOR_SELECTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT",
+        "SCORING_MATRIX",
+        "DUE_DILIGENCE",
+        "PRICING_TCO",
+        "BUDGET_APPROVAL"
+      ],
+      "authorization_required": true,
+      "rationale": "The authoritative REVIEW_FACTS_PROCUREMENT snapshot shows the selected supplier BlueMesa Systems F2EE0-2 failed 2 mandatory RFP criteria (mandatory_criteria_failed: 2), triggering PROC-MAND-001 (critical, NO_GO, action REOPEN_VENDOR_SELECTION, risk acceptance not allowed). Corroborated by the non-authoritative SCORING_MATRIX (BlueMesa selected=True, weighted_score 81.6) and authoritative DUE_DILIGENCE (BlueMesa mandatory_failed=2). No other findings trigger: sanctions are clear (no PROC-SAN-001/002), due diligence is complete (no PROC-DD-001), TCO of EUR 861,069 is within the purchasing envelope of EUR 1,500,000 x 1.5 = EUR 2,250,000 (no PROC-BUDGET-001; BUDGET_APPROVAL confirms approved_eur 1,500,000), and references_checked is true (no PROC-REF-001). Because a mandatory-criteria failure cannot be risk-accepted, the vendor selection must be reopened; NO_GO is the highest-priority triggered disposition and requires authorization.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "finding_id": "PROC-MAND-001",
+          "quote": "\"vendor\": \"BlueMesa Systems F2EE0-2\", \"functional_score\": 81, \"security_score\": 85, \"tco_3y_eur\": 861069, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 81.6"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA"
+      ],
+      "authorization_required": true,
+      "rationale": "The authoritative REVIEW_FACTS_LEGAL snapshot (version 1, age 0 days) shows insurance_valid=false, which triggers LEGAL-INS-001 (high severity, action OBTAIN_VALID_INSURANCE, owner Supplier, disposition SUSPENSION, risk acceptance not allowed). This is corroborated by the non-authoritative MSA clause 10 (\"Cyber insurance: EUR 20m. Certificate valid: False.\"). No other candidate finding triggers against the snapshot: personal_data=false and dpa_status='not_required' (no LEGAL-DPA-001); liability_cap_multiplier=2, not 0.5 (no LEGAL-LIAB-001); audit_right='limited', not 'reports_only'/'none' (no LEGAL-AUDIT-001); exit_assistance_days=180, not 0 (no LEGAL-EXIT-001); ip_ownership='shared', not 'ambiguous' (no LEGAL-IP-001); signing_authority_valid=true (no LEGAL-SIGN-001); log_export_clause='missing' but business_criticality='Medium', not High/Critical (no LEGAL-LOG-001). SUSPENSION is the highest-priority triggered disposition and requires authorization. This decision addresses the submitted legal snapshot only; the upstream procurement NO_GO (PROC-MAND-001, reopen vendor selection) remains a separate, already-produced decision.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-INS-001",
+          "quote": "\"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true"
+        },
+        {
+          "evidence_id": "MSA",
+          "finding_id": "LEGAL-INS-001",
+          "quote": "10. Insurance\nCyber insurance: EUR 20m. Certificate valid: False."
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY",
+        "REG_MAPPING"
+      ],
+      "authorization_required": true,
+      "rationale": "The authoritative REVIEW_FACTS_COMPLIANCE snapshot (version 1, age 0 days) shows residency_compliant=false with required_residency=\"UK\", triggering COMP-RESID-001 (critical, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, owner DPO / Architecture, disposition NO_GO, risk acceptance not allowed). This is corroborated by the authoritative DATA_INVENTORY, which records actual_region=\"East US\" against required_residency=\"UK\" for the Confidential core business dataset (consistent with the project's primary_region \"East US\"). No other candidate finding triggers: dpia_required=false (no COMP-DPIA-001), audit_trail=\"complete\" (no COMP-AUDIT-001), regulatory_mapping=\"partial\" — corroborated by authoritative REG_MAPPING — which does not meet the \"missing\" predicate for COMP-MAP-001, accessibility_status=\"pass\" (no COMP-A11Y-001), and export_control=\"clear\" (no COMP-EXPORT-001/002). Because a residency violation cannot be risk-accepted, data must be relocated to the required UK region or a valid basis obtained; NO_GO is the highest-priority triggered disposition and requires authorization. This decision addresses the submitted compliance snapshot only; the upstream procurement NO_GO (PROC-MAND-001) and legal SUSPENSION (LEGAL-INS-001) remain separate, already-produced decisions.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+        },
+        {
+          "evidence_id": "DATA_INVENTORY",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"actual_region\": \"East US\", \"classification\": \"Confidential\", \"dataset\": \"Core business data\", \"personal_data\": \"False\", \"required_residency\": \"UK\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "SENTINEL_STATUS",
+        "KEYVAULT_CONFIG",
+        "HLD",
+        "AZURE_RESOURCE_GRAPH",
+        "CONDITIONAL_ACCESS",
+        "IAM_EXPORT",
+        "DEFENDER_FINDINGS"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_SECURITY (v1, age 0 days) triggers three findings. (1) SEC-WAF-001 (critical, NO_GO, action IMPLEMENT_WAF, risk acceptance not allowed): internet_exposed=true with waf_present=false; corroborated by authoritative WAF_POLICY (present=false, mode=\"None\") and the non-authoritative HLD, whose only edge component is Azure Front Door (\"Edge: frontdoor_only\") with no WAF. (2) SEC-LOG-001 (high, REWORK, action CONNECT_LOGS_TO_SIEM): logs_to_siem=false and sentinel=false; corroborated by authoritative SENTINEL_STATUS (no connectors). (3) SEC-KEY-001 (medium, GO_WITH_RESERVATIONS, action IMPROVE_KEY_ROTATION, risk acceptance allowed): key_rotation_days=null; corroborated by authoritative KEYVAULT_CONFIG. No other candidate finding triggers: private_endpoints=true despite Confidential classification (no SEC-NET-001; AZURE_RESOURCE_GRAPH shows SQL MI/Storage/Key Vault with publicNetworkAccess=false); mfa=\"mandatory\" (no SEC-IAM-001; CONDITIONAL_ACCESS confirms); shared_service_principal=false (no SEC-IAM-002; IAM_EXPORT shows only a dedicated ManagedIdentity); critical_vulns_open=0 (no SEC-VULN-001; DEFENDER_FINDINGS shows only a closed Low finding — note 9 high vulns remain open, to be tracked by the Product Team but no rule predicate applies); pentest_status=\"pass\" and phase is design, not build_acceptance (no SEC-PENTEST-001); waf_present=false so detection-mode SEC-WAF-002 cannot trigger. NO_GO is the highest-priority triggered disposition because SEC-WAF-001 cannot be risk-accepted; the internet-facing workload must gain a WAF (in prevention mode) before the gate can pass. Authorization is required for NO_GO. This decision addresses the submitted security snapshot only; upstream procurement NO_GO (PROC-MAND-001), legal SUSPENSION (LEGAL-INS-001), and compliance NO_GO (COMP-RESID-001) remain separate, already-produced decisions. Proposed actions are not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-WAF-001",
+          "quote": "\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\""
+        },
+        {
+          "evidence_id": "WAF_POLICY",
+          "finding_id": "SEC-WAF-001",
+          "quote": "\"present\": false, \"mode\": \"None\", \"managed_rules\": \"OWASP\", \"bot_protection\": false"
+        },
+        {
+          "evidence_id": "HLD",
+          "finding_id": "SEC-WAF-001",
+          "quote": "Solution: api_platform | Network: hub_spoke | Edge: frontdoor_only"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"logs_to_siem\": false, \"sentinel\": false"
+        },
+        {
+          "evidence_id": "SENTINEL_STATUS",
+          "finding_id": "SEC-LOG-001",
+          "quote": "{\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-KEY-001",
+          "quote": "\"key_rotation_days\": null"
+        },
+        {
+          "evidence_id": "KEYVAULT_CONFIG",
+          "finding_id": "SEC-KEY-001",
+          "quote": "\"secrets_in_keyvault\": true, \"key_rotation_days\": null, \"private_endpoint\": true, \"managed_identity\": true"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "LIFECYCLE_REGISTER",
+        "CAPACITY_REPORT",
+        "CMDB_EXPORT",
+        "LICENSE_POSITION",
+        "SUPPORT_RACI",
+        "HLD"
+      ],
+      "authorization_required": false,
+      "rationale": "The authoritative REVIEW_FACTS_IT snapshot (v1, age 0 days) triggers exactly two findings at phase build_acceptance. (1) IT-CATALOG-001 (high, REWORK, action SUBMIT_TECHNOLOGY_WAIVER, owner IT Architecture, risk acceptance not allowed): catalog_status=\"non_standard\" with waiver_present=false; TECH_CATALOG is unavailable, but the review snapshot is the authoritative source for this gate and no approved waiver exists. (2) IT-EOL-001 (high, REWORK, action CREATE_CONVERGENCE_PLAN, owner Technology Owner, risk acceptance allowed but none recorded): technology_eol_months=8 < 12, corroborated by the authoritative LIFECYCLE_REGISTER (technology container_apps, eol_months 8) and the HLD (Compute: container_apps). No other candidate finding triggers: duplicate_capability=false (no IT-RATIONAL-001); license_compliant=true per authoritative LICENSE_POSITION (annual_cost_eur 53261) (no IT-LICENSE-001); cmdb_record_present=true per authoritative CMDB_EXPORT (record_present True) (no IT-CMDB-001); run_owner_present=true per CMDB_EXPORT and SUPPORT_RACI (run owner Noor Dubois-12000-SO) (no IT-RUN-001); capacity_headroom_pct=20 >= 15 per authoritative CAPACITY_REPORT (no IT-CAPACITY-001); change_record_status=\"approved\" and phase is build_acceptance, not deployment_closure (no IT-CHANGE-001). REWORK is the highest-priority triggered disposition; it is not in the authorization_required list, so no authorization is required. Proposed actions are not completed remediation: a technology waiver must be submitted/approved and a convergence plan created for the container_apps platform reaching EOL in 8 months. Upstream decisions (procurement NO_GO, legal SUSPENSION, compliance NO_GO, security NO_GO) remain separate, already-produced decisions and are not re-adjudicated here.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-CATALOG-001",
+          "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 8, \"hosting_model\": \"container_apps\""
+        },
+        {
+          "evidence_id": "LIFECYCLE_REGISTER",
+          "finding_id": "IT-EOL-001",
+          "quote": "{\"capacity_headroom_pct\": \"20\", \"eol_months\": \"8\", \"technology\": \"container_apps\"}"
+        },
+        {
+          "evidence_id": "CAPACITY_REPORT",
+          "finding_id": "IT-EOL-001",
+          "quote": "{\"capacity_headroom_pct\": \"20\", \"continuity_class\": \"silver\", \"service\": \"Project Delta — Observability Platform [F2EE0]\", \"support_model\": \"product_team\"}"
+        },
+        {
+          "evidence_id": "CMDB_EXPORT",
+          "finding_id": "IT-CATALOG-001",
+          "quote": "{\"application\": \"Project Delta — Observability Platform [F2EE0]\", \"continuity_class\": \"silver\", \"record_present\": \"True\", \"run_owner\": \"Noor Dubois-12000-SO\", \"support_model\": \"product_team\"}"
+        },
+        {
+          "evidence_id": "LICENSE_POSITION",
+          "finding_id": "IT-EOL-001",
+          "quote": "{\"annual_cost_eur\": \"53261\", \"license_compliant\": \"True\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "The authoritative REVIEW_FACTS_GENERAL snapshot (v1, age 0 days) triggers no direct general findings: strategic_alignment=\"strong\" (no GEN-STRAT-001), budget_requested_eur=1500000 does not exceed budget_approved_eur=1500000 (no GEN-BUDGET-001), roi=0.293 >= 0.05 (no GEN-BC-001), and phase=\"governance\" with change_plan_status=\"partial\" (no GEN-BENEFITS-001, which also requires deployment_closure). However, UPSTREAM_DECISIONS records that 3 upstream gate(s) returned NO_GO: procurement (BUY-01-PROCUREMENT-1, PROC-MAND-001 mandatory-criteria failure), compliance (BUY-03-COMPLIANCE-1, COMP-RESID-001 UK residency violation), and security (BUY-04-SECURITY-1, SEC-WAF-001 internet-exposed without WAF); legal returned SUSPENSION (LEGAL-INS-001) and IT returned REWORK (IT-CATALOG-001, IT-EOL-001). This triggers GEN-UPSTREAM-NOGO (critical, action RESOLVE_UPSTREAM_NO_GO, owner Project Manager, risk acceptance not allowed). NO_GO is the highest-priority triggered disposition and is in the authorization_required list, so authorization is required. Resources and next-phase commitment cannot be released until the three NO_GO upstream gates (and the suspended legal prerequisite) are resolved; the upstream decisions are already produced and are not re-adjudicated here. Proposed actions are not completed remediation.",
+      "confidence": 0.96,
+      "evidence_support": [
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"gate\": \"procurement\", \"phase\": \"design\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"PROC-MAND-001\"]"
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"gate\": \"compliance\", \"phase\": \"design\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-RESID-001\"]"
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"occurrence_id\": \"BUY-04-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-WAF-001\", \"SEC-LOG-001\", \"SEC-KEY-001\"]"
+        }
+      ]
+    }
+  ]
+}

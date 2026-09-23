@@ -1,0 +1,170 @@
+{
+  "case_id": "8e8162e1-a2ab-5334-8973-e317e0c942a9",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "Review of authoritative REVIEW_FACTS_IT identifies two rework-level issues during the framing phase: an existing enterprise capability already satisfies the proposed need ('duplicate_capability': true), and the current software licence position is non-compliant ('license_compliant': false). Neither issue qualifies for conditional pass or bypass, requiring rework before progressing.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"duplicate_capability\": true",
+          "finding_id": "IT-RATIONAL-001"
+        },
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"license_compliant\": false"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_ARCHITECTURE indicates measured latency (55 ms) exceeds the latency target (20 ms), triggering ARCH-PERF-001, and reversibility status is 'missing', triggering ARCH-REV-001. Both findings permit risk acceptance and conditional approval (GO_WITH_RESERVATIONS). An active standing mandate from risk owner Yusuf Petrescu-12007-RO (MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-02-ARCHITECTURE-1) authorized conditional approval under conditions to remediate latency and complete the exit architecture.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"measured_latency_ms\": 55",
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"reversibility_status\": \"missing\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_SECURITY indicates internet_exposed is true, waf_present is true, and waf_mode is 'Detection', triggering SEC-WAF-002 (action ENABLE_WAF_PREVENTION). Furthermore, logs_to_siem is false, triggering SEC-LOG-001 (action CONNECT_LOGS_TO_SIEM). SEC-LOG-001 does not permit risk acceptance and requires REWORK. In accordance with DGF decision policy priority, the gate disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-WAF-002",
+          "quote": "\"waf_mode\": \"Detection\""
+        },
+        {
+          "quote": "\"logs_to_siem\": false",
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_LEGAL confirms all contractual and legal requirements are met: DPA status is 'signed', liability cap multiplier is 5, audit right is 'full', exit assistance is 180 days, IP ownership is defined as 'vendor', insurance and signing authority are valid, and log export clause is 'included'. No candidate legal findings are triggered, resulting in a GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-MAP-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "COMPLETE_CONTROL_MAPPING",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_COMPLIANCE indicates three findings: residency_compliant is false triggering critical finding COMP-RESID-001 (NO_GO), regulatory_mapping is missing triggering high finding COMP-MAP-001 (REWORK), and export_control is pending triggering high finding COMP-EXPORT-002 (SUSPENSION). Under the DGF decision policy priority hierarchy, NO_GO is the highest severity disposition. None of the triggered findings permit risk acceptance, requiring a NO_GO disposition with formal authorization required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"residency_compliant\": false",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"regulatory_mapping\": \"missing\""
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"export_control\": \"pending\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "UPSTREAM_DECISIONS",
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "authorization_required": true,
+      "rationale": "Consolidation of upstream specialist gate decisions reveals that the upstream compliance gate (INTEGRATE-05-COMPLIANCE-1) concluded with a NO_GO disposition. Under the DGF decision policy for the General Gate, an upstream NO_GO outcome triggers critical finding GEN-UPSTREAM-NOGO with action RESOLVE_UPSTREAM_NO_GO. This finding does not permit risk acceptance, resulting in an overall NO_GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"disposition\": \"NO_GO\"",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "case_id": "d7b36186-c589-5ded-8ed0-467c84278f86",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": true,
+      "rationale": "Technology reaches end-of-life within 8 months (< 12 months), triggering finding IT-EOL-001. IT-EOL-001 permits risk acceptance, and an active standing mandate (MANDATE-d7b36186-c589-5ded-8ed0-467c84278f86-BUILD-01-IT-1) covering all risk-acceptable findings was executed to approve with conditions, resulting in disposition GO_WITH_RESERVATIONS.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"technology_eol_months\": 8",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": true,
+      "rationale": "According to REVIEW_FACTS_ARCHITECTURE, reversibility_status is 'missing', which triggers finding ARCH-REV-001. All other architecture criteria pass: ip_overlap is false, api_gateway_present is true, data_owner_present is true, measured_latency_ms (30) does not exceed latency_target_ms (50), and business_criticality is 'Medium' (so ARCH-HA-001 does not apply). Finding ARCH-REV-001 permits risk acceptance, and the active standing mandate covering all risk-acceptable findings was executed for conditional approval, yielding disposition GO_WITH_RESERVATIONS.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"reversibility_status\": \"missing\"",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-REV-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative security review facts indicate logs_to_siem is false, triggering finding SEC-LOG-001 (Security-relevant logs are not exported to the SIEM). This finding carries REWORK disposition with risk acceptance not allowed. Key rotation is compliant at 30 days, critical vulnerabilities open is 0, MFA is mandatory, private endpoints are enabled, shared service principal is false, and pentest status check applies only in build_acceptance phase. WAF is present and in Prevention mode. Therefore, the gate disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "quote": "\"logs_to_siem\": false",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "TR-RPO-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "REMEDIATE_RECOVERY_POINT",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts indicate measured_data_loss_minutes (2015) exceeds target_rpo_minutes (1440), triggering TR-RPO-001. Additionally, runbook_status is 'missing' and on_call_defined is false, triggering TR-OPS-001. Both findings permit risk acceptance, and an active standing mandate covering all risk-acceptable findings was executed to approve with conditions, resulting in disposition GO_WITH_RESERVATIONS.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-RPO-001",
+          "quote": "\"measured_data_loss_minutes\": 2015"
+        },
+        {
+          "quote": "\"runbook_status\": \"missing\"",
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-BC-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "REVISE_BUSINESS_CASE",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": false,
+      "rationale": "According to authoritative REVIEW_FACTS_GENERAL, roi is 0.028, which is below the threshold of 0.05, triggering finding GEN-BC-001. Strategic alignment is strong and requested budget equals approved budget. Additionally, upstream gate 'security' returned disposition REWORK, triggering finding GEN-UPSTREAM-REWORK ('1 upstream gate(s) require rework.'). Because GEN-UPSTREAM-REWORK does not allow risk acceptance, standing risk acceptance cannot apply to approve with conditions, resulting in an overall gate disposition of REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"roi\": 0.028"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "quote": "\"disposition\": \"REWORK\"",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "usage": {
+    "prompt_tokens": 14994,
+    "completion_tokens": 1814,
+    "total_tokens": 16808,
+    "reasoning_tokens": 1637,
+    "cached_tokens": 0,
+    "cost": 0.018048,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "opportunity",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 58,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 169,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 150,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012012",
+            "generation_seed": 12012,
+            "project_name": "Project Titan — Payments API Hub [C2052]",
+            "project_code": "C2052",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Risk",
+            "sponsor": "Thomas Benali-12012-SP",
+            "project_manager": "Amira Rossi-12012-PM",
+            "business_owner": "Samir Meyer-12012-BO",
+            "service_owner": "Ines Smith-12012-SO",
+            "risk_owner": "Lucas Volkov-12012-RO",
+            "start_date": "2026-09-24",
+            "target_go_live": "2027-10-27",
+            "users_impacted": 2000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Public",
+            "business_criticality": "Critical",
+            "primary_region": "UAE North",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 180,
+            "duplicate_capability": false,
+            "existing_alternative": "enterprise_data_platform",
+            "license_compliant": true,
+            "annual_license_cost_eur": 58615,
+            "cmdb_record_present": true,
+            "run_owner_present": false,
+            "support_model": "24x7_internal",
+            "patch_sla_days": 14,
+            "capacity_headroom_pct": 8,
+            "technology_eol_months": 60,
+            "change_record_status": "missing",
+            "service_continuity_class": "bronze",
+            "hosting_model": "mixed"
+          }
+        }
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_195703",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4619,
+        "completion_tokens": 57,
+        "total_tokens": 4676,
+        "reasoning_tokens": 47,
+        "cached_tokens": 0,
+        "cost": 0.003678,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_255420",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4925,
+        "completion_tokens": 35,
+        "total_tokens": 4960,
+        "reasoning_tokens": 12,
+        "cached_tokens": 0,
+        "cost": 0.003825,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_222630",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"rationale\":\"All evaluated IT criteria for the opportunity phase are satisfied based on REVIEW_FACTS_IT. The catalog status is standard, no duplicate enterprise capability exists, licensing is compliant, and technology lifecycle is well above the 12-month EOL threshold (60 months). Phase-dependent checks (CMDB record, run owner assignment, capacity headroom, and ITSM change approval) apply only to later phases.\",\"evidence_refs\":[\"REVIEW_FACTS_IT\"],\"finding_ids\":[],\"disposition\":\"GO\",\"authorization_required\":false,\"evidence_support\":[],\"actions\":[],\"confidence\":1}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5450,
+        "completion_tokens": 1722,
+        "total_tokens": 7172,
+        "reasoning_tokens": 1578,
+        "cached_tokens": 0,
+        "cost": 0.010545,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 3,
+  "tool_call_count": 2,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-01-IT-1",
+    "disposition": "GO",
+    "finding_ids": [],
+    "actions": [],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT"
+    ],
+    "authorization_required": false,
+    "rationale": "All evaluated IT criteria for the opportunity phase are satisfied based on REVIEW_FACTS_IT. The catalog status is standard, no duplicate enterprise capability exists, licensing is compliant, and technology lifecycle is well above the 12-month EOL threshold (60 months). Phase-dependent checks (CMDB record, run owner assignment, capacity headroom, and ITSM change approval) apply only to later phases.",
+    "confidence": 1.0,
+    "evidence_support": []
+  },
+  "http_stats": {
+    "http_attempts": 3,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

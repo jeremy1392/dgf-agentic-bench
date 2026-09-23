@@ -1,0 +1,194 @@
+{
+  "case_id": "c0eebffe-87e5-582a-88a2-ab0eeaa573ea",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-SAN-002",
+        "PROC-DD-001"
+      ],
+      "actions": [
+        "COMPLETE_SANCTIONS_SCREENING",
+        "COMPLETE_VENDOR_DUE_DILIGENCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT",
+        "DUE_DILIGENCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Selected vendor CedarPoint Digital 85431-2 has sanctions screening \"pending\" (PROC-SAN-002, SUSPENSION) and third-party due diligence \"pending\" (PROC-DD-001, REWORK). Mandatory criteria failed = 0, so no PROC-MAND-001; TCO 535,507 EUR is well under the 7,000,000 EUR envelope (no PROC-BUDGET-001); references_checked = true (no PROC-REF-001). Highest-priority triggered disposition is SUSPENSION, which requires authorization.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "PROC-SAN-002",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"vendor\": \"CedarPoint Digital 85431-2\", ... \"sanctions\": \"pending\", ...} with \"selected_vendor\": \"CedarPoint Digital 85431-2\""
+        },
+        {
+          "finding_id": "PROC-DD-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"vendor\": \"CedarPoint Digital 85431-2\", ... \"due_diligence\": \"pending\", ...} with \"selected_vendor\": \"CedarPoint Digital 85431-2\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-IP-001"
+      ],
+      "actions": [
+        "CLARIFY_IP_OWNERSHIP"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the legal decision rule to the authoritative REVIEW_FACTS_LEGAL snapshot: personal_data=true but dpa_status=\\\"signed\\\" (no LEGAL-DPA-001); liability_cap_multiplier=2 with security_carveout=true (no LEGAL-LIAB-001); audit_right=\\\"full\\\" (no LEGAL-AUDIT-001); exit_assistance_days=180 (no LEGAL-EXIT-001); insurance_valid=true (no LEGAL-INS-001); signing_authority_valid=true (no LEGAL-SIGN-001); log_export_clause=\\\"limited\\\" not \\\"missing\\\" (no LEGAL-LOG-001). The only triggered finding is LEGAL-IP-001 because ip_ownership=\\\"ambiguous\\\", which maps to disposition REWORK with action CLARIFY_IP_OWNERSHIP and risk_acceptance_allowed=False. REWORK is not in authorization_required_for, so no authorization is required. MSA clause 8 corroborates the ambiguous IP position.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"ip_ownership\": \"ambiguous\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY",
+        "REG_MAPPING"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the compliance decision rule to the authoritative REVIEW_FACTS_COMPLIANCE snapshot: dpia_required=true but dpia_status=\\\"complete\\\" (no COMP-DPIA-001); audit_trail=\\\"complete\\\" (no COMP-AUDIT-001); regulatory_mapping=\\\"partial\\\" not \\\"missing\\\" (no COMP-MAP-001); accessibility_status=\\\"pass\\\" (no COMP-A11Y-001). Two findings trigger: residency_compliant=false with required_residency=\\\"EU\\\" while actual region is \\\"UAE North\\\" (COMP-RESID-001, critical, NO_GO, action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS), corroborated by DATA_INVENTORY (actual_region \\\"UAE North\\\", required_residency \\\"EU\\\"); and export_control=\\\"pending\\\" (COMP-EXPORT-002, high, SUSPENSION, action COMPLETE_EXPORT_CONTROL_REVIEW). Highest-priority triggered disposition is NO_GO, which is in authorization_required_for, so authorization is required. Neither finding permits risk acceptance, so the standing mandate (scope: all and only risk-acceptable findings) does not cover them.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"required_residency\": \"EU\", \"residency_compliant\": false"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"export_control\": \"pending\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-IAM-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "ENFORCE_MFA"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "CONDITIONAL_ACCESS",
+        "AZURE_RESOURCE_GRAPH"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the DGF-decision-v8 security rule to the authoritative REVIEW_FACTS_SECURITY snapshot (phase=design). SEC-WAF-001 (critical, NO_GO) triggers: the workload is internet-facing (\"internet_exposed\": true) with no WAF control (\"waf_present\": false, \"waf_mode\": \"None\"), corroborated by authoritative WAF_POLICY {\"present\": false, \"mode\": \"None\"}. SEC-IAM-001 (high, REWORK) triggers: MFA is not mandatory (\"mfa\": \"missing\" != \"mandatory\"), corroborated by CONDITIONAL_ACCESS {\"mfa\": \"missing\", ... \"policy_state\": \"reportOnly\"}. No other candidate finding triggers: SEC-WAF-002 requires waf_present=true; SEC-NET-001 is satisfied because data_classification \"Restricted\" is paired with \"private_endpoints\": true (AZURE_RESOURCE_GRAPH confirms \"private_endpoints\": true); SEC-IAM-002 (\"shared_service_principal\": false), SEC-LOG-001 (\"logs_to_siem\": true), SEC-VULN-001 (\"critical_vulns_open\": 0), SEC-KEY-001 (\"key_rotation_days\": 30) and SEC-PENTEST-001 (phase is design, not build_acceptance) are all untriggered. Highest-priority triggered disposition is NO_GO, which is in authorization_required_for, so authorization is required. The standing mandate MANDATE-c0eebffe-87e5-582a-88a2-ab0eeaa573ea-BUY-04-SECURITY-1 covers only risk-acceptable findings, and both triggered findings have risk_acceptance_allowed=false, so no conditional approval is available; remediation actions (IMPLEMENT_WAF, ENFORCE_MFA) are proposed, not completed. Upstream design-phase decisions (procurement SUSPENSION, legal REWORK, compliance NO_GO) do not alter this gate's finding set.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": false"
+        },
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"mfa\": \"missing\", \"pim\": true"
+        },
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "WAF_POLICY",
+          "quote": "{\"present\": false, \"mode\": \"None\", \"managed_rules\": \"OWASP\", \"bot_protection\": false}"
+        },
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "CONDITIONAL_ACCESS",
+          "quote": "{\"mfa\": \"missing\", \"pim\": true, \"policy_state\": \"reportOnly\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "LIFECYCLE_REGISTER",
+        "SUPPORT_RACI"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the DGF-decision-v8 IT rule to the authoritative REVIEW_FACTS_IT snapshot (phase=build_acceptance), no candidate finding triggers. IT-CATALOG-001 requires catalog_status='non_standard' AND waiver_present false; observed \"catalog_status\": \"standard\" and \"waiver_present\": true (corroborated by authoritative TECH_CATALOG {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180}). IT-RATIONAL-001 requires duplicate_capability=true; observed \"duplicate_capability\": false. IT-LICENSE-001 requires license_compliant=false; observed \"license_compliant\": true (\"annual_license_cost_eur\": 39978). IT-CMDB-001 requires cmdb_record_present=false; observed \"cmdb_record_present\": true (SUPPORT_RACI also records \"CMDB required | Yes\"). IT-RUN-001 requires run_owner_present=false; observed \"run_owner_present\": true (SUPPORT_RACI: \"Run owner | Elena Nguyen-12001-SO\"). IT-EOL-001 requires technology_eol_months<12; observed \"technology_eol_months\": 60 (LIFECYCLE_REGISTER eol_months=60). IT-CAPACITY-001 requires capacity_headroom_pct<15; observed \"capacity_headroom_pct\": 45 (LIFECYCLE_REGISTER capacity_headroom_pct=45). IT-CHANGE-001 requires change_record_status in ('draft','missing') AND phase=='deployment_closure'; \"change_record_status\": \"missing\" is observed, but the current phase is build_acceptance, so the phase predicate is not satisfied and the finding does not apply. With zero triggered findings the disposition is GO, and GO is not in authorization_required_for, so no authorization is required. Upstream design-phase decisions (procurement SUSPENSION, legal REWORK, compliance NO_GO, security NO_GO) are prior-phase specialist decisions and do not alter this gate's finding set.",
+      "confidence": 0.95,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "BUDGET_APPROVAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the DGF-decision-v8 general rule to the authoritative REVIEW_FACTS_GENERAL snapshot (phase=governance): strategic_alignment=\\\"strong\\\" so GEN-STRAT-001 does not trigger. GEN-BUDGET-001 triggers because budget_requested_eur=7000000 exceeds budget_approved_eur=4900000, corroborated by authoritative BUDGET_APPROVAL (requested_eur 7000000, approved_eur 4900000, status PARTIAL) — action OBTAIN_BUDGET_APPROVAL, disposition SUSPENSION. roi=0.114 >= 0.05 so GEN-BC-001 does not trigger. Two upstream gates returned NO_GO (compliance BUY-03-COMPLIANCE-1 and security BUY-04-SECURITY-1), so GEN-UPSTREAM-NOGO triggers (critical, NO_GO, action RESOLVE_UPSTREAM_NO_GO). Phase is governance, not deployment_closure, so GEN-BENEFITS-001 does not apply. Highest-priority triggered disposition is NO_GO, which is in authorization_required_for, so authorization is required. Neither triggered finding permits risk acceptance, so the standing mandate (scope: all and only risk-acceptable findings) does not cover them; proposed remediation actions are not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 7000000, \"budget_approved_eur\": 4900000"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "BUDGET_APPROVAL",
+          "quote": "{\"approved_eur\": \"4900000\", \"approver\": \"CFO Office\", \"requested_eur\": \"7000000\", \"status\": \"PARTIAL\"}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "{\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"gate\": \"compliance\", \"phase\": \"design\", \"disposition\": \"NO_GO\", ...}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "{\"occurrence_id\": \"BUY-04-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"NO_GO\", ...}"
+        }
+      ]
+    }
+  ]
+}

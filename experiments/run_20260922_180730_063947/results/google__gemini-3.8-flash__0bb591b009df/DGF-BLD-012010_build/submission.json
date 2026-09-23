@@ -1,0 +1,157 @@
+{
+  "case_id": "d879a593-18bc-5aaf-a8b6-c65ea6e0a91f",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts show technology reaches end-of-life in 4 months ('technology_eol_months': 4), which is under the 12-month threshold, triggering IT-EOL-001. Under the active standing mandate from the risk owner covering all risk-acceptable findings, conditional approval was executed requiring a convergence plan, yielding GO_WITH_RESERVATIONS.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"technology_eol_months\": 4"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts show reversibility_status is 'draft' (\"reversibility_status\": \"draft\"), which triggers finding ARCH-REV-001. All other architecture criteria are satisfied (ip_overlap is false, api_gateway_present is true, data_owner_present is true, measured_latency_ms (30) <= latency_target_ms (50), and multi_az is true). Under the active standing mandate from risk owner Amira Petrescu-12010-RO covering all risk-acceptable findings, conditional approval was executed with the condition COMPLETE_EXIT_ARCHITECTURE, resulting in disposition GO_WITH_RESERVATIONS.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"reversibility_status\": \"draft\"",
+          "finding_id": "ARCH-REV-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-NET-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts identify three security findings: (1) SEC-WAF-002 due to WAF operating in detection-only mode (\"waf_mode\": \"Detection\"), requiring ENABLE_WAF_PREVENTION; (2) SEC-NET-001 because the workload handles Confidential data but lacks private endpoints (\"private_endpoints\": false), requiring ENABLE_PRIVATE_ENDPOINTS; and (3) SEC-VULN-001 due to an open critical vulnerability (\"critical_vulns_open\": 1), requiring REMEDIATE_CRITICAL_VULNERABILITIES. Under the decision policy priority, the critical non-risk-acceptable findings result in a final disposition of NO_GO, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-WAF-002",
+          "quote": "\"waf_mode\": \"Detection\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"private_endpoints\": false",
+          "finding_id": "SEC-NET-001"
+        },
+        {
+          "quote": "\"critical_vulns_open\": 1",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-VULN-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RESTORE-001",
+        "TR-CODE-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "RUN_RESTORE_TEST",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative review facts identify three findings: (1) TR-RESTORE-001 due to no successful restore test being available (\"restore_tested\": false), requiring RUN_RESTORE_TEST; (2) TR-CODE-001 due to 2 open critical static-analysis findings (\"critical_static_findings\": 2), requiring REMEDIATE_BUILD_FINDINGS; and (3) TR-OPS-001 due to an incomplete operational package with runbook status missing (\"runbook_status\": \"missing\"), requiring COMPLETE_OPERATIONAL_HANDOVER. Based on the decision policy priority, the presence of non-acceptable REWORK findings results in an overall disposition of REWORK, which does not require authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "TR-RESTORE-001",
+          "quote": "\"restore_tested\": false",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-CODE-001",
+          "quote": "\"critical_static_findings\": 2"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "quote": "\"runbook_status\": \"missing\"",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts show that requested funding of €3,000,000 exceeds the approved envelope of €2,550,000 (\"budget_approved_eur\": 2550000), triggering GEN-BUDGET-001. Furthermore, upstream review records show 1 upstream gate (Security) returned NO_GO (\"disposition\": \"NO_GO\"), triggering GEN-UPSTREAM-NOGO. Under the decision policy priority, the critical non-risk-acceptable upstream finding dictates an overall disposition of NO_GO, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-BUDGET-001",
+          "quote": "\"budget_approved_eur\": 2550000"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"disposition\": \"NO_GO\""
+        }
+      ]
+    }
+  ]
+}

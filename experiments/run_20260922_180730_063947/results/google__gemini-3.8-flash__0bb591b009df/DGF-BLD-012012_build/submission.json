@@ -1,0 +1,151 @@
+{
+  "case_id": "d3d68264-320d-50e7-bcd1-79409c4b2f8d",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "All evaluated IT criteria for the opportunity phase are satisfied based on REVIEW_FACTS_IT. The catalog status is standard, no duplicate enterprise capability exists, licensing is compliant, and technology lifecycle is well above the 12-month EOL threshold (60 months). Phase-dependent checks (CMDB record, run owner assignment, capacity headroom, and ITSM change approval) apply only to later phases.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of REVIEW_FACTS_ARCHITECTURE confirms that ip_overlap is false, api_gateway_present is true, data_owner_present is true, measured_latency_ms (55) does not exceed latency_target_ms (500), and multi_az is true (satisfying the HA requirement for Critical business criticality). However, reversibility_status is 'missing', triggering finding ARCH-REV-001 ('Reversibility design is incomplete') with action COMPLETE_EXIT_ARCHITECTURE and disposition GO_WITH_RESERVATIONS. The finding permits risk acceptance, and standing authorization mandate MANDATE-d3d68264-320d-50e7-bcd1-79409c4b2f8d-BUILD-02-ARCHITECTURE-1 was exercised to approve with conditions.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"reversibility_status\": \"missing\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "VULN_SCAN"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of REVIEW_FACTS_SECURITY reveals 2 open critical vulnerabilities ('critical_vulns_open': 2), verified by VULN_SCAN. Under the normative decision policy, open critical vulnerabilities trigger finding SEC-VULN-001 with required action REMEDIATE_CRITICAL_VULNERABILITIES and disposition NO_GO. Risk acceptance is not permitted for this finding, yielding a final gate disposition of NO_GO.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"critical_vulns_open\": 2",
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RESTORE-001",
+        "TR-RPO-001",
+        "TR-LOAD-001",
+        "TR-CODE-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "RUN_RESTORE_TEST",
+        "REMEDIATE_RECOVERY_POINT",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS",
+        "RESTORE_TEST",
+        "LOAD_TEST",
+        "CI_PIPELINE"
+      ],
+      "authorization_required": false,
+      "rationale": "Technical readiness evaluation of REVIEW_FACTS_TECH_READINESS identified five gating issues: (1) no successful restore test has been executed ('restore_tested': false), triggering TR-RESTORE-001; (2) measured data loss of 84 minutes exceeds the committed RPO of 60 minutes ('measured_data_loss_minutes': 84), triggering TR-RPO-001; (3) load testing reached only 50% of peak load ('load_test_pct_of_peak': 50), triggering TR-LOAD-001; (4) 1 critical static-analysis finding remains open in CI ('critical_static_findings': 1), triggering TR-CODE-001; and (5) 3 production blockers remain open ('open_blockers': 3), triggering TR-BLOCKER-001. All findings require REWORK, resulting in an overall gate disposition of REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"restore_tested\": false",
+          "finding_id": "TR-RESTORE-001"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"measured_data_loss_minutes\": 84",
+          "finding_id": "TR-RPO-001"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-LOAD-001",
+          "quote": "\"load_test_pct_of_peak\": 50"
+        },
+        {
+          "quote": "\"critical_static_findings\": 1",
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        {
+          "quote": "\"open_blockers\": 3",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-BLOCKER-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of REVIEW_FACTS_GENERAL indicates weak strategic alignment ('strategic_alignment': 'weak'), triggering finding GEN-STRAT-001 with action OBTAIN_STRATEGIC_ARBITRATION (disposition SUSPENSION). Additionally, review of UPSTREAM_DECISIONS shows that upstream gate BUILD-03-SECURITY-1 returned a NO_GO disposition, triggering finding GEN-UPSTREAM-NOGO ('1 upstream gate(s) returned NO_GO.') with action RESOLVE_UPSTREAM_NO_GO (disposition NO_GO). Under the governance decision policy, NO_GO has the highest priority and cannot be risk-accepted, yielding a final gate disposition of NO_GO.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"strategic_alignment\": \"weak\""
+        },
+        {
+          "quote": "\"disposition\": \"NO_GO\"",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO"
+        }
+      ]
+    }
+  ]
+}

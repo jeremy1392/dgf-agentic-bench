@@ -1,0 +1,510 @@
+{
+  "usage": {
+    "prompt_tokens": 27617,
+    "completion_tokens": 1843,
+    "total_tokens": 29460,
+    "reasoning_tokens": 864,
+    "cached_tokens": 21504,
+    "cost": 0.0017201968,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "framing",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 131,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 160,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 91,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 113,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 11,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 45,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-01-IT-1",
+            "occurrence_id": "INTEGRATE-01-IT-1",
+            "gate": "it",
+            "phase": "framing",
+            "authority": "Marc Moreau-12005-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012005",
+            "generation_seed": 12005,
+            "project_name": "Orion Acquisition Integration — Supply Chain Integration [622C2]",
+            "project_code": "622C2",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Procurement",
+            "sponsor": "Jeremy Khan-12005-SP",
+            "project_manager": "Nadia Rossi-12005-PM",
+            "business_owner": "Sofia Ivanov-12005-BO",
+            "service_owner": "Leila Rossi-12005-SO",
+            "risk_owner": "Marc Moreau-12005-RO",
+            "start_date": "2026-09-06",
+            "target_go_live": "2027-07-24",
+            "users_impacted": 1000,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Restricted",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "it": {
+            "catalog_status": "non_standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 365,
+            "duplicate_capability": false,
+            "existing_alternative": "enterprise_data_platform",
+            "license_compliant": true,
+            "annual_license_cost_eur": 420295,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "business_hours",
+            "patch_sla_days": 30,
+            "capacity_headroom_pct": 30,
+            "technology_eol_months": 18,
+            "change_record_status": "approved",
+            "service_continuity_class": "bronze",
+            "hosting_model": "functions"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 91,
+        "path": "gate_evidence/it/technology_catalog.json",
+        "content": {
+          "catalog_status": "non_standard",
+          "waiver_present": true,
+          "waiver_expiry_days": 365,
+          "hosting_model": "functions"
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 113,
+        "path": "gate_evidence/it/lifecycle_eol.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "30",
+            "eol_months": "18",
+            "technology": "functions"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 160,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Orion Acquisition Integration — Supply Chain Integration [622C2]",
+            "continuity_class": "bronze",
+            "record_present": "True",
+            "run_owner": "Leila Rossi-12005-SO",
+            "support_model": "business_hours"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 11,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "30",
+            "continuity_class": "bronze",
+            "service": "Orion Acquisition Integration — Supply Chain Integration [622C2]",
+            "support_model": "business_hours"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 131,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-INT-012005\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Orion Acquisition Integration — Supply Chain Integration [622C2]\nRoute | integrate\nBusiness unit | Procurement\nSponsor | Jeremy Khan-12005-SP\nProject manager | Nadia Rossi-12005-PM\nBusiness owner | Sofia Ivanov-12005-BO\nRisk owner | Marc Moreau-12005-RO\nCriticality | High\nData classification | Restricted\nUsers impacted | 1000\nTarget go-live | 2027-07-24"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing the available evidence for this gate.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-95c41dafba8ce280",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-8e19debcc6bc42a1",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5776,
+        "completion_tokens": 64,
+        "total_tokens": 5840,
+        "reasoning_tokens": 12,
+        "cached_tokens": 1920,
+        "cost": 0.000574784,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-8e4fe9fee62ba100",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-ae9c9a9f983f68ae",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 2,
+            "id": "chatcmpl-tool-9a88ae47a045566e",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 3,
+            "id": "chatcmpl-tool-9c097600c827306d",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 4,
+            "id": "chatcmpl-tool-a73b24a6406bfb8e",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6457,
+        "completion_tokens": 201,
+        "total_tokens": 6658,
+        "reasoning_tokens": 16,
+        "cached_tokens": 5760,
+        "cost": 0.000206192,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-a1ff7534f83a69d8",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7551,
+        "completion_tokens": 457,
+        "total_tokens": 8008,
+        "reasoning_tokens": 412,
+        "cached_tokens": 6400,
+        "cost": 0.00037996,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "Evaluation of the IT gate rule set against the authoritative snapshot (phase = `framing`):\n\n- `catalog_status` = `non_standard` but `waiver_present` = `true` (waiver_expiry_days 365) → IT-CATALOG-001 does **not** fire.\n- `duplicate_capability` = `false` → IT-RATIONAL-001 does not fire.\n- `license_compliant` = `true` → IT-LICENSE-001 does not fire.\n- `cmdb_record_present` = `true` → IT-CMDB-001 not applicable.\n- `run_owner_present` = `true` (Leila Rossi-12005-SO) → IT-RUN-001 not applicable.\n- `technology_eol_months` = `18` (≥12) → IT-EOL-001 does not fire.\n- `capacity_headroom_pct` = `30` (≥15) → IT-CAPACITY-001 does not fire.\n- `change_record_status` = `approved` → IT-CHANGE-001 not applicable.\n\nNo findings apply; disposition is GO with no authorization required.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-ae2d8253b8790e5c",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"TECH_CATALOG\", \"LIFECYCLE_REGISTER\", \"CMDB_EXPORT\", \"CAPACITY_REPORT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"IT gate framing snapshot satisfies every predicate of DGF-decision-v8 evaluate_it, so no candidate finding applies. REVIEW_FACTS_IT shows catalog_status=non_standard WITH waiver_present=true (waiver_expiry_days=365), so IT-CATALOG-001 is not triggered; duplicate_capability=false; license_compliant=true; cmdb_record_present=true; run_owner_present=true; technology_eol_months=18 (>=12); capacity_headroom_pct=30 (>=15); change_record_status=approved. Authoritative corroboration: TECH_CATALOG (waiver_present true, hosting_model functions), LIFECYCLE_REGISTER (eol_months 18), CMDB_EXPORT (record_present True, run_owner Leila Rossi-12005-SO), CAPACITY_REPORT (capacity_headroom_pct 30). Upstream decisions list is empty. Phase is framing, so design/build/deployment-only predicates (CMDB, run owner, capacity, change) are not in scope regardless. Negative/rework outcomes are not required here; GO is the evidence-supported disposition and no standing-mandate authorization is needed.\", \"confidence\": 0.96}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7833,
+        "completion_tokens": 1121,
+        "total_tokens": 8954,
+        "reasoning_tokens": 424,
+        "cached_tokens": 7424,
+        "cost": 0.0005592608,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra"
+  ],
+  "turns": 4,
+  "tool_call_count": 8,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-01-IT-1",
+    "disposition": "GO",
+    "finding_ids": [],
+    "actions": [],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "TECH_CATALOG",
+      "LIFECYCLE_REGISTER",
+      "CMDB_EXPORT",
+      "CAPACITY_REPORT"
+    ],
+    "authorization_required": false,
+    "rationale": "IT gate framing snapshot satisfies every predicate of DGF-decision-v8 evaluate_it, so no candidate finding applies. REVIEW_FACTS_IT shows catalog_status=non_standard WITH waiver_present=true (waiver_expiry_days=365), so IT-CATALOG-001 is not triggered; duplicate_capability=false; license_compliant=true; cmdb_record_present=true; run_owner_present=true; technology_eol_months=18 (>=12); capacity_headroom_pct=30 (>=15); change_record_status=approved. Authoritative corroboration: TECH_CATALOG (waiver_present true, hosting_model functions), LIFECYCLE_REGISTER (eol_months 18), CMDB_EXPORT (record_present True, run_owner Leila Rossi-12005-SO), CAPACITY_REPORT (capacity_headroom_pct 30). Upstream decisions list is empty. Phase is framing, so design/build/deployment-only predicates (CMDB, run owner, capacity, change) are not in scope regardless. Negative/rework outcomes are not required here; GO is the evidence-supported disposition and no standing-mandate authorization is needed.",
+    "confidence": 0.96,
+    "evidence_support": []
+  },
+  "http_stats": {
+    "http_attempts": 4,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

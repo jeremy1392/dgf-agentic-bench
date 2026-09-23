@@ -1,0 +1,910 @@
+{
+  "usage": {
+    "prompt_tokens": 92209,
+    "completion_tokens": 4514,
+    "total_tokens": 96723,
+    "reasoning_tokens": 3473,
+    "cached_tokens": 81728,
+    "cost": 0.00955011,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "architecture",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 125,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 163,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 57,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 168,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 28,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "LLD",
+            "path": "gate_evidence/architecture/LLD_Architecture_Notes.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 141,
+            "consumers": [
+              "architecture",
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "FLOW_MATRIX",
+            "path": "gate_evidence/architecture/flow_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 135,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "OPENAPI",
+            "path": "gate_evidence/architecture/openapi.yaml",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 175,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 107,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 10,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "IP_PLAN",
+            "path": "gate_evidence/architecture/ip_plan.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 130,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ADR_REGISTER",
+            "path": "gate_evidence/architecture/adr_register.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 143,
+            "consumers": [
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ARCH_DEBT",
+            "path": "gate_evidence/architecture/architecture_debt.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 142,
+            "consumers": [
+              "architecture",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AZURE_RESOURCE_GRAPH",
+            "path": "gate_evidence/security/azure_resource_graph.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 90,
+            "consumers": [
+              "security",
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "NSG_RULES",
+            "path": "gate_evidence/security/nsg_rules.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 120,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "WAF_POLICY",
+            "path": "gate_evidence/security/waf_policy.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 72,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "FIREWALL_POLICY",
+            "path": "gate_evidence/security/firewall_policy.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 142,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "THREAT_MODEL",
+            "path": "gate_evidence/security/threat_model.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 9,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 115,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+            "path": "gate_evidence/architecture/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "architecture"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/architecture/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012010",
+            "generation_seed": 12010,
+            "project_name": "Project Falcon — Observability Platform [83985]",
+            "project_code": "83985",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Operations",
+            "sponsor": "Maya Laurent-12010-SP",
+            "project_manager": "Elena Khan-12010-PM",
+            "business_owner": "Yusuf Volkov-12010-BO",
+            "service_owner": "Daria Dubois-12010-SO",
+            "risk_owner": "Amira Petrescu-12010-RO",
+            "start_date": "2026-10-16",
+            "target_go_live": "2027-10-20",
+            "users_impacted": 500,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "UAE Central",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "architecture": {
+            "hld_version": "HLD-83985-v1.7",
+            "lld_version": "LLD-83985-v3.9",
+            "api_gateway_required": true,
+            "api_gateway_present": true,
+            "ip_overlap": false,
+            "data_owner_present": true,
+            "data_lineage_complete": true,
+            "latency_target_ms": 50,
+            "measured_latency_ms": 30,
+            "load_test_peak_pct": 125,
+            "architecture_debt_items": 0,
+            "adr_count": 4,
+            "reversibility_status": "draft",
+            "data_export_supported": true,
+            "private_cidrs": [
+              "10.166.160.0/24",
+              "10.166.161.0/24",
+              "10.166.162.0/24"
+            ],
+            "dns_zone": "dgf-bld-012010.corp.example"
+          },
+          "architecture_profile": {
+            "multi_az": true,
+            "multi_region": false
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-d879a593-18bc-5aaf-a8b6-c65ea6e0a91f-BUILD-02-ARCHITECTURE-1",
+            "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+            "gate": "architecture",
+            "phase": "design",
+            "authority": "Amira Petrescu-12010-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "ARCH_DEBT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "ARCH_DEBT",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 142,
+        "path": "gate_evidence/architecture/architecture_debt.csv",
+        "content": []
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "ADR_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "ADR_REGISTER",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 143,
+        "path": "gate_evidence/architecture/adr_register.csv",
+        "content": [
+          {
+            "adr_id": "ADR-001",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-002",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-003",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          },
+          {
+            "adr_id": "ADR-004",
+            "decision": "Use governed Azure reference pattern",
+            "status": "Accepted"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LLD"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LLD",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 141,
+        "path": "gate_evidence/architecture/LLD_Architecture_Notes.docx",
+        "content": "Low-Level Architecture Notes\nLLD LLD-83985-v3.9 (previous version)\nArchitecture constraints\nDesign notes\nCompute profile: vm_ha\nNetwork profile: single_vnet\nResilience: single_region_multi_az\nData replication: Synchronous zone replica\nField | Value\nAPI gateway required | True\nAPI gateway present | True\nDNS zone | dgf-bld-012010.corp.example\nLatency target ms | 50\nMeasured latency ms | 29\nReversibility | draft (previous version)"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "HLD"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "HLD",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 28,
+        "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+        "content": {
+          "note": "Textual extraction from SVG; use authoritative resource tools for configuration facts.",
+          "labels": [
+            "Azure HLD — Project Falcon — Observability Platform [83985]",
+            "DGF-BLD-012010 | ARCH-83985-22010 | agentic_ai | single_vnet | v3.7",
+            "Primary UAE Central | single_region_multi_az | Compute vm_ha | Signature f1dcfd43d09c9eadd69d",
+            "External / Identity",
+            "Internet Users",
+            "Public consumers",
+            "Microsoft Entra ID",
+            "id-83985-22010-01",
+            "Corporate Network",
+            "Hybrid / branch source",
+            "Ingress / Edge",
+            "Azure Front Door Premium",
+            "edge-83985-22010-01",
+            "WAF + CDN",
+            "edge-83985-22010-02",
+            "Primary Azure Region — UAE Central",
+            "Multi-AZ",
+            "Single Application VNet — 10.166.161.0/24",
+            "Application Subnet — Agent / AI Runtime",
+            "Azure API Management",
+            "app-83985-22010-01",
+            "Azure VM AZ1",
+            "app-83985-22010-02",
+            "Azure VM AZ2",
+            "app-83985-22010-03",
+            "Data Subnet — Knowledge / State Tier",
+            "Azure SQL Database",
+            "data-83985-22010-01",
+            "Azure Storage Account",
+            "data-83985-22010-02",
+            "Azure Cache for Redis",
+            "data-83985-22010-03",
+            "Management / Platform Subnet",
+            "Azure Firewall",
+            "mgmt-83985-22010-01",
+            "Azure Bastion",
+            "mgmt-83985-22010-02",
+            "Azure API Management",
+            "mgmt-83985-22010-03",
+            "Azure AI Foundry",
+            "mgmt-83985-22010-04",
+            "Azure OpenAI Service",
+            "mgmt-83985-22010-05",
+            "Azure Service Bus",
+            "mgmt-83985-22010-06",
+            "Azure Event Hubs",
+            "mgmt-83985-22010-07",
+            "Application Insights",
+            "mgmt-83985-22010-08",
+            "Same-Region Zone Resilience",
+            "Availability Zone 1",
+            "Compute/data placement",
+            "az-83985-22010-01",
+            "Availability Zone 2",
+            "Compute/data placement",
+            "az-83985-22010-02",
+            "Availability Zone 3",
+            "Compute/data placement",
+            "az-83985-22010-03",
+            "No cross-region failover",
+            "Case-specific architecture summary",
+            "Architecture ID: ARCH-83985-22010 | signature: f1dcfd43d09c9eadd69d",
+            "Solution: agentic_ai | Network: single_vnet | Edge: frontdoor_waf_cdn",
+            "Compute: vm_ha | Data: transactional | Platform: Azure API Management, Azure AI Foundry, Azure OpenAI Service, Azure Service Bus, Azure Event Hubs",
+            "Private endpoints: False | Firewall: True | ER: True | VPN: True",
+            "Resilience: single_region_multi_az | RTO/RPO: 2h / 30m | DR tested: False",
+            "Resource prefix: 83985-22010",
+            "Visual grammar",
+            "Single VNet + application/data/management subnets",
+            "Agent / AI Runtime → Knowledge / State Tier",
+            "Dashed links = identity / transit / replication",
+            "Every card carries a case-specific resource instance",
+            "Official Azure Architecture Icons | mapped 19 | fallback 0"
+          ]
+        }
+      }
+    },
+    {
+      "tool": "approve_with_conditions",
+      "args": {
+        "approval_reference": "MANDATE-d879a593-18bc-5aaf-a8b6-c65ea6e0a91f-BUILD-02-ARCHITECTURE-1",
+        "conditions": [
+          "Complete the exit/reversibility architecture from draft to approved status (action COMPLETE_EXIT_ARCHITECTURE, owner Enterprise Architect) before the next gate",
+          "Exit plan must document data export via the supported export mechanism (data_export_supported=true) and RTO/RPO 2h/30m exit steps",
+          "Reversibility status must be re-verified as approved at the next architecture review"
+        ],
+        "finding_ids": [
+          "ARCH-REV-001"
+        ],
+        "gate": "architecture"
+      },
+      "result": {
+        "status": "EXECUTED",
+        "action": "APPROVE_WITH_CONDITIONS",
+        "gate": "architecture",
+        "finding_ids": [
+          "ARCH-REV-001"
+        ],
+        "conditions": [
+          "Complete the exit/reversibility architecture from draft to approved status (action COMPLETE_EXIT_ARCHITECTURE, owner Enterprise Architect) before the next gate",
+          "Exit plan must document data export via the supported export mechanism (data_export_supported=true) and RTO/RPO 2h/30m exit steps",
+          "Reversibility status must be re-verified as approved at the next architecture review"
+        ],
+        "approval_reference": "MANDATE-d879a593-18bc-5aaf-a8b6-c65ea6e0a91f-BUILD-02-ARCHITECTURE-1"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing the available evidence for this architecture gate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_9606caae085a409b938e89a0",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8035,
+        "completion_tokens": 33,
+        "total_tokens": 8068,
+        "reasoning_tokens": 18,
+        "cached_tokens": 1792,
+        "cost": 0.00107839,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is REVIEW_FACTS_ARCHITECTURE. Let me read it first.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_853b2bb79dc641fd8e502b0c",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9364,
+        "completion_tokens": 58,
+        "total_tokens": 9422,
+        "reasoning_tokens": 20,
+        "cached_tokens": 8000,
+        "cost": 0.0007936,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot shows most predicates are satisfied (no IP overlap, API gateway present, data owner present, latency 30ms < 50ms target, multi_az=true). The one triggering predicate is `reversibility_status: \"draft\"`. Let me check the standing mandate (since GO_WITH_RESERVATIONS is in `authorization_required_for`) and corroborate the reversibility status in supporting evidence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_8c633d4ad460427d88683352",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9911,
+        "completion_tokens": 1072,
+        "total_tokens": 10983,
+        "reasoning_tokens": 1091,
+        "cached_tokens": 9344,
+        "cost": 0.00127513,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "An active standing mandate exists for this occurrence, held by the risk owner, scoped to \"all and only risk-acceptable findings\". Let me corroborate the reversibility status with supporting architecture evidence before deciding.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_4118c169bf314a4683b4c1e9",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"ARCH_DEBT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10116,
+        "completion_tokens": 683,
+        "total_tokens": 10799,
+        "reasoning_tokens": 691,
+        "cached_tokens": 9856,
+        "cost": 0.00107042,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_24f9227fd2924561801aeccc",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"ADR_REGISTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10233,
+        "completion_tokens": 16,
+        "total_tokens": 10249,
+        "reasoning_tokens": 0,
+        "cached_tokens": 10112,
+        "cost": 0.00073399,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a74b8aeb8d17459ba3bdbafa",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LLD\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10407,
+        "completion_tokens": 54,
+        "total_tokens": 10461,
+        "reasoning_tokens": 37,
+        "cached_tokens": 10240,
+        "cost": 0.00076885,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_5368afdace42462282f10ef7",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"HLD\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10600,
+        "completion_tokens": 85,
+        "total_tokens": 10685,
+        "reasoning_tokens": 63,
+        "cached_tokens": 10368,
+        "cost": 0.00080306,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "content": "The HLD corroborates multi-AZ with no cross-region failover, and the LLD corroborates reversibility in \"draft\" status. Evaluating the rule predicates against the authoritative snapshot:\n\n1. **ARCH-IP-001**: `ip_overlap` = **false** → not triggered\n2. **ARCH-API-001**: `api_gateway_required` = true AND `api_gateway_present` = **true** → not triggered\n3. **ARCH-DATA-001**: `data_owner_present` = **true** → not triggered\n4. **ARCH-PERF-001**: measured 30ms vs target 50ms → 30 ≤ 50 → not triggered\n5. **ARCH-HA-001**: criticality High, but `multi_az` = **true** → condition `(not multi_az) and (not multi_region)` fails → not triggered\n6. **ARCH-REV-001**: `reversibility_status` = **\"draft\"** → **TRIGGERED** (medium, GO_WITH_RESERVATIONS, risk_acceptance_allowed=true)\n\nOnly ARCH-REV-001 applies, carrying disposition GO_WITH_RESERVATIONS, which is in `authorization_required_for`. An active standing mandate from the risk owner covers \"all and only risk-acceptable findings\" — ARCH-REV-001 is risk-acceptable, so I'll attempt the authorized conditional approval under that mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_77b947bb4bca4cef89bdd7b3",
+            "function": {
+              "name": "approve_with_conditions",
+              "arguments": "{\"approval_reference\": \"MANDATE-d879a593-18bc-5aaf-a8b6-c65ea6e0a91f-BUILD-02-ARCHITECTURE-1\", \"conditions\": [\"Complete the exit/reversibility architecture from draft to approved status (action COMPLETE_EXIT_ARCHITECTURE, owner Enterprise Architect) before the next gate\", \"Exit plan must document data export via the supported export mechanism (data_export_supported=true) and RTO/RPO 2h/30m exit steps\", \"Reversibility status must be re-verified as approved at the next architecture review\"], \"finding_ids\": [\"ARCH-REV-001\"], \"gate\": \"architecture\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 11465,
+        "completion_tokens": 1803,
+        "total_tokens": 13268,
+        "reasoning_tokens": 1401,
+        "cached_tokens": 10560,
+        "cost": 0.00177645,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "content": "The conditional approval was executed under the standing mandate. Now I'll submit the final gate decision.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a773df6895bd4b938effbc1b",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"COMPLETE_EXIT_ARCHITECTURE\"], \"authorization_required\": true, \"confidence\": 0.93, \"disposition\": \"GO_WITH_RESERVATIONS\", \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\", \"LLD\", \"HLD\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"finding_id\": \"ARCH-REV-001\", \"quote\": \"\\\"reversibility_status\\\": \\\"draft\\\"\"}, {\"evidence_id\": \"LLD\", \"finding_id\": \"ARCH-REV-001\", \"quote\": \"Reversibility | draft (previous version)\"}, {\"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"finding_id\": \"ARCH-REV-001\", \"quote\": \"\\\"data_export_supported\\\": true\"}], \"finding_ids\": [\"ARCH-REV-001\"], \"rationale\": \"Evaluating the DGF-decision-v8 architecture predicates against the authoritative REVIEW_FACTS_ARCHITECTURE snapshot: ip_overlap=false (no ARCH-IP-001); api_gateway_required=true with api_gateway_present=true (no ARCH-API-001); data_owner_present=true (no ARCH-DATA-001); measured_latency_ms=30 vs latency_target_ms=50, so latency does not exceed target (no ARCH-PERF-001); business_criticality=High but architecture_profile.multi_az=true, so the HA predicate's (not multi_az) and (not multi_region) condition fails (no ARCH-HA-001, corroborated by HLD 'single_region_multi_az' with zone resilience). Only reversibility_status='draft' triggers ARCH-REV-001 (medium, GO_WITH_RESERVATIONS, risk_acceptance_allowed=true), corroborated by the LLD note 'Reversibility | draft'. The highest-priority triggered disposition is GO_WITH_RESERVATIONS. Because GO_WITH_RESERVATIONS is in authorization_required_for, authorization was required; the active standing mandate MANDATE-d879a593-18bc-5aaf-a8b6-c65ea6e0a91f-BUILD-02-ARCHITECTURE-1 from risk owner Amira Petrescu-12010-RO, scoped to 'all and only risk-acceptable findings', covers ARCH-REV-001, and a conditional approval was executed under that mandate requiring completion of the exit/reversibility architecture (COMPLETE_EXIT_ARCHITECTURE, owner Enterprise Architect) with re-verification at the next review. This is a decision and proposed action, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12078,
+        "completion_tokens": 710,
+        "total_tokens": 12788,
+        "reasoning_tokens": 152,
+        "cached_tokens": 11456,
+        "cost": 0.00125022,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 9,
+  "tool_call_count": 8,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+    "disposition": "GO_WITH_RESERVATIONS",
+    "finding_ids": [
+      "ARCH-REV-001"
+    ],
+    "actions": [
+      "COMPLETE_EXIT_ARCHITECTURE"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_ARCHITECTURE",
+      "LLD",
+      "HLD"
+    ],
+    "authorization_required": true,
+    "rationale": "Evaluating the DGF-decision-v8 architecture predicates against the authoritative REVIEW_FACTS_ARCHITECTURE snapshot: ip_overlap=false (no ARCH-IP-001); api_gateway_required=true with api_gateway_present=true (no ARCH-API-001); data_owner_present=true (no ARCH-DATA-001); measured_latency_ms=30 vs latency_target_ms=50, so latency does not exceed target (no ARCH-PERF-001); business_criticality=High but architecture_profile.multi_az=true, so the HA predicate's (not multi_az) and (not multi_region) condition fails (no ARCH-HA-001, corroborated by HLD 'single_region_multi_az' with zone resilience). Only reversibility_status='draft' triggers ARCH-REV-001 (medium, GO_WITH_RESERVATIONS, risk_acceptance_allowed=true), corroborated by the LLD note 'Reversibility | draft'. The highest-priority triggered disposition is GO_WITH_RESERVATIONS. Because GO_WITH_RESERVATIONS is in authorization_required_for, authorization was required; the active standing mandate MANDATE-d879a593-18bc-5aaf-a8b6-c65ea6e0a91f-BUILD-02-ARCHITECTURE-1 from risk owner Amira Petrescu-12010-RO, scoped to 'all and only risk-acceptable findings', covers ARCH-REV-001, and a conditional approval was executed under that mandate requiring completion of the exit/reversibility architecture (COMPLETE_EXIT_ARCHITECTURE, owner Enterprise Architect) with re-verification at the next review. This is a decision and proposed action, not completed remediation.",
+    "confidence": 0.93,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+        "finding_id": "ARCH-REV-001",
+        "quote": "\"reversibility_status\": \"draft\""
+      },
+      {
+        "evidence_id": "LLD",
+        "finding_id": "ARCH-REV-001",
+        "quote": "Reversibility | draft (previous version)"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+        "finding_id": "ARCH-REV-001",
+        "quote": "\"data_export_supported\": true"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 15,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

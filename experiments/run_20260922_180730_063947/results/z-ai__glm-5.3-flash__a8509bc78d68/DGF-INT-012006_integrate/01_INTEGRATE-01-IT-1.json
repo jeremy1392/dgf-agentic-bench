@@ -1,0 +1,608 @@
+{
+  "usage": {
+    "prompt_tokens": 62012,
+    "completion_tokens": 3380,
+    "total_tokens": 65392,
+    "reasoning_tokens": 2995,
+    "cached_tokens": 53888,
+    "cost": 0.00668076,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "framing",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 29,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 15,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 8,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 53,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 2,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 14,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012006",
+            "generation_seed": 12006,
+            "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "project_code": "71C27",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Nadia Nguyen-12006-SP",
+            "project_manager": "Marc Santos-12006-PM",
+            "business_owner": "Omar Ivanov-12006-BO",
+            "service_owner": "Jeremy Meyer-12006-SO",
+            "risk_owner": "Lucas Martin-12006-RO",
+            "start_date": "2026-11-21",
+            "target_go_live": "2027-05-21",
+            "users_impacted": 500,
+            "budget_requested_eur": 500000,
+            "data_classification": "Internal",
+            "business_criticality": "High",
+            "primary_region": "West Europe",
+            "personal_data": true,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 90,
+            "duplicate_capability": false,
+            "existing_alternative": "none",
+            "license_compliant": true,
+            "annual_license_cost_eur": 282285,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "business_hours",
+            "patch_sla_days": 14,
+            "capacity_headroom_pct": 15,
+            "technology_eol_months": 4,
+            "change_record_status": "approved",
+            "service_continuity_class": "silver",
+            "hosting_model": "container_apps"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 15,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "continuity_class": "silver",
+            "record_present": "True",
+            "run_owner": "Jeremy Meyer-12006-SO",
+            "support_model": "business_hours"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 2,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "15",
+            "continuity_class": "silver",
+            "service": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "support_model": "business_hours"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 29,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-INT-012006\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]\nRoute | integrate\nBusiness unit | Retail\nSponsor | Nadia Nguyen-12006-SP\nProject manager | Marc Santos-12006-PM\nBusiness owner | Omar Ivanov-12006-BO\nRisk owner | Lucas Martin-12006-RO\nCriticality | High\nData classification | Internal\nUsers impacted | 500\nTarget go-live | 2027-05-21"
+      }
+    },
+    {
+      "tool": "request_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "reason": "IT-EOL-001 triggered by REVIEW_FACTS_IT (technology_eol_months=4 < 12); lifecycle register is the designated evidence for the convergence-plan finding but is currently UNAVAILABLE."
+      },
+      "result": {
+        "status": "RECEIVED",
+        "requested_evidence_id": "LIFECYCLE_REGISTER",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012006",
+            "generation_seed": 12006,
+            "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "project_code": "71C27",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Nadia Nguyen-12006-SP",
+            "project_manager": "Marc Santos-12006-PM",
+            "business_owner": "Omar Ivanov-12006-BO",
+            "service_owner": "Jeremy Meyer-12006-SO",
+            "risk_owner": "Lucas Martin-12006-RO",
+            "start_date": "2026-11-21",
+            "target_go_live": "2027-05-21",
+            "users_impacted": 500,
+            "budget_requested_eur": 500000,
+            "data_classification": "Internal",
+            "business_criticality": "High",
+            "primary_region": "West Europe",
+            "personal_data": true,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 90,
+            "duplicate_capability": false,
+            "existing_alternative": "none",
+            "license_compliant": true,
+            "annual_license_cost_eur": 282285,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "business_hours",
+            "patch_sla_days": 14,
+            "capacity_headroom_pct": 15,
+            "technology_eol_months": 4,
+            "change_record_status": "approved",
+            "service_continuity_class": "silver",
+            "hosting_model": "container_apps"
+          }
+        },
+        "note": "Authoritative submitted-state response; original document is not represented as recovered."
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_4f888510e89a401bae36bf14",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7840,
+        "completion_tokens": 20,
+        "total_tokens": 7860,
+        "reasoning_tokens": 18,
+        "cached_tokens": 1792,
+        "cost": 0.00104264,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_31c2a6cebfc9401ab8ca8f39",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8339,
+        "completion_tokens": 39,
+        "total_tokens": 8378,
+        "reasoning_tokens": 25,
+        "cached_tokens": 7808,
+        "cost": 0.00064571,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_39dceec4f522463a978c79e1",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8794,
+        "completion_tokens": 1091,
+        "total_tokens": 9885,
+        "reasoning_tokens": 1145,
+        "cached_tokens": 8320,
+        "cost": 0.001199,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_607d381108074149b5bfabf8",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8922,
+        "completion_tokens": 17,
+        "total_tokens": 8939,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8768,
+        "cost": 0.00064536,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ee6e0e8d55194dd0ae45b340",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9040,
+        "completion_tokens": 18,
+        "total_tokens": 9058,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8896,
+        "cost": 0.00065332,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c3b79d78809b44f2966ec9cd",
+            "function": {
+              "name": "request_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\", \"reason\": \"IT-EOL-001 triggered by REVIEW_FACTS_IT (technology_eol_months=4 < 12); lifecycle register is the designated evidence for the convergence-plan finding but is currently UNAVAILABLE.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9285,
+        "completion_tokens": 1670,
+        "total_tokens": 10955,
+        "reasoning_tokens": 1807,
+        "cached_tokens": 9024,
+        "cost": 0.00150583,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_129ddac2d8dd4f5c95872f23",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"authorization_required\": false, \"confidence\": 0.9, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"CMDB_EXPORT\", \"CAPACITY_REPORT\", \"PROJECT_CHARTER\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"technology_eol_months\\\": 4\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-CAPACITY-001\", \"quote\": \"\\\"capacity_headroom_pct\\\": 15\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-CMDB-001\", \"quote\": \"\\\"cmdb_record_present\\\": true\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-RUN-001\", \"quote\": \"\\\"run_owner_present\\\": true\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-CATALOG-001\", \"quote\": \"\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-LICENSE-001\", \"quote\": \"\\\"license_compliant\\\": true\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-RATIONAL-001\", \"quote\": \"\\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"none\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-CHANGE-001\", \"quote\": \"\\\"change_record_status\\\": \\\"approved\\\"\"}], \"finding_ids\": [\"IT-EOL-001\"], \"rationale\": \"IT Gate, framing phase. Authoritative REVIEW_FACTS_IT shows technology_eol_months=4 (<12), triggering IT-EOL-001 (CREATE_CONVERGENCE_PLAN, REWORK). Capacity headroom is exactly 15%, which does not satisfy the '<15' predicate, so IT-CAPACITY-001 is not raised. CMDB record and run owner are present (CMDB_EXPORT corroborates: record_present=True, run_owner=Jeremy Meyer-12006-SO), catalog is standard with waiver, licence compliant, no duplicate capability, and change record approved — so no other IT findings apply at framing. REWORK is the highest-priority disposition among raised findings.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9792,
+        "completion_tokens": 525,
+        "total_tokens": 10317,
+        "reasoning_tokens": 0,
+        "cached_tokens": 9280,
+        "cost": 0.0009889,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 7,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "CMDB_EXPORT",
+      "CAPACITY_REPORT",
+      "PROJECT_CHARTER"
+    ],
+    "authorization_required": false,
+    "rationale": "IT Gate, framing phase. Authoritative REVIEW_FACTS_IT shows technology_eol_months=4 (<12), triggering IT-EOL-001 (CREATE_CONVERGENCE_PLAN, REWORK). Capacity headroom is exactly 15%, which does not satisfy the '<15' predicate, so IT-CAPACITY-001 is not raised. CMDB record and run owner are present (CMDB_EXPORT corroborates: record_present=True, run_owner=Jeremy Meyer-12006-SO), catalog is standard with waiver, licence compliant, no duplicate capability, and change record approved — so no other IT findings apply at framing. REWORK is the highest-priority disposition among raised findings.",
+    "confidence": 0.9,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"technology_eol_months\": 4"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-CAPACITY-001",
+        "quote": "\"capacity_headroom_pct\": 15"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-CMDB-001",
+        "quote": "\"cmdb_record_present\": true"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-RUN-001",
+        "quote": "\"run_owner_present\": true"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-CATALOG-001",
+        "quote": "\"catalog_status\": \"standard\", \"waiver_present\": true"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-LICENSE-001",
+        "quote": "\"license_compliant\": true"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-RATIONAL-001",
+        "quote": "\"duplicate_capability\": false, \"existing_alternative\": \"none\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-CHANGE-001",
+        "quote": "\"change_record_status\": \"approved\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 8,
+    "retries": 1,
+    "rate_limits": 1,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

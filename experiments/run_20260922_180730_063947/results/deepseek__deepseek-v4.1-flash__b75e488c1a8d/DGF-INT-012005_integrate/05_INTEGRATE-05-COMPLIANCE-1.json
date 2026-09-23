@@ -1,0 +1,560 @@
+{
+  "usage": {
+    "prompt_tokens": 35391,
+    "completion_tokens": 1980,
+    "total_tokens": 37371,
+    "reasoning_tokens": 531,
+    "cached_tokens": 19072,
+    "cost": 0.0033351051999999997,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 131,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 42,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 157,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 75,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 46,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 51,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 28,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 18,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 30,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 148,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-05-COMPLIANCE-1",
+            "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+            "gate": "compliance",
+            "phase": "design",
+            "authority": "Marc Moreau-12005-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012005",
+            "generation_seed": 12005,
+            "project_name": "Orion Acquisition Integration — Supply Chain Integration [622C2]",
+            "project_code": "622C2",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Procurement",
+            "sponsor": "Jeremy Khan-12005-SP",
+            "project_manager": "Nadia Rossi-12005-PM",
+            "business_owner": "Sofia Ivanov-12005-BO",
+            "service_owner": "Leila Rossi-12005-SO",
+            "risk_owner": "Marc Moreau-12005-RO",
+            "start_date": "2026-09-06",
+            "target_go_live": "2027-07-24",
+            "users_impacted": 1000,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Restricted",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "PCI-DSS"
+            ],
+            "dpia_required": true,
+            "dpia_status": "missing",
+            "required_residency": "EU",
+            "residency_compliant": false,
+            "retention_years": 7,
+            "legal_hold_supported": true,
+            "deletion_enforced": true,
+            "audit_trail": "missing",
+            "accessibility_status": "not_assessed",
+            "ethics_review": "conditional",
+            "regulatory_mapping": "complete",
+            "third_party_monitoring": "none",
+            "export_control": "clear"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_regulatory_applicability",
+      "args": {},
+      "result": {
+        "applicable_regulations": [
+          "PCI-DSS"
+        ],
+        "dpia_required": true,
+        "required_residency": "EU",
+        "residency_compliant": false
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_INVENTORY"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_INVENTORY",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 28,
+        "path": "gate_evidence/compliance/data_inventory.csv",
+        "content": [
+          {
+            "actual_region": "West US 2",
+            "classification": "Restricted",
+            "dataset": "Core business data",
+            "personal_data": "True",
+            "required_residency": "EU"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DPIA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DPIA",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 18,
+        "path": "gate_evidence/compliance/DPIA.docx",
+        "content": "Data Protection Impact Assessment\nDPIA\nField | Value\nRequired | True\nStatus | missing\nPersonal data | True\nAI enabled | False\nResidual risk owner | Marc Moreau-12005-RO"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REG_MAPPING"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REG_MAPPING",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 30,
+        "path": "gate_evidence/compliance/regulatory_mapping.csv",
+        "content": [
+          {
+            "mapping_status": "complete",
+            "owner": "GRC",
+            "regulation": "PCI-DSS"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing the evidence availablefor this gate and reading the authoritative snapshot.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-b47cf58a3284ead7",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-8f2495690c974bb1",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7727,
+        "completion_tokens": 75,
+        "total_tokens": 7802,
+        "reasoning_tokens": 0,
+        "cached_tokens": 2176,
+        "cost": 0.0008177792,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-b9321c482abc9ef6",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-b08fc6564dda490d",
+            "function": {
+              "name": "get_regulatory_applicability",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8707,
+        "completion_tokens": 78,
+        "total_tokens": 8785,
+        "reasoning_tokens": 14,
+        "cached_tokens": 7680,
+        "cost": 0.000208796,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e0c7ccc52fd548dcaeaa03cc",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DATA_INVENTORY\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "call_c1d27faf24f44a599738b767",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DPIA\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 2,
+            "id": "call_ecfd00e258ce433fbc703dca",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REG_MAPPING\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9275,
+        "completion_tokens": 305,
+        "total_tokens": 9580,
+        "reasoning_tokens": 174,
+        "cached_tokens": 0,
+        "cost": 0.00136435,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have the authoritative snapshot and corroborating evidence. Applying the policy predicates:\n\n- `dpia_required: true` + `dpia_status: \"missing\"` → **COMP-DPIA-001** (REWORK)\n- `residency_compliant: false` (required EU, actual West US 2) → **COMP-RESID-001** (NO_GO)\n- `audit_trail: \"missing\"` → **COMP-AUDIT-001** (REWORK)\n- `regulatory_mapping: \"complete\"` → not triggered\n- `accessibility_status: \"not_assessed\"` (not `major_findings`) → not triggered\n- `export_control: \"clear\"` → not triggered\n\nRollup = highest severity = NO_GO.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_3b117d1451df4dd6b41f8996",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-RESID-001\", \"COMP-AUDIT-001\"], \"actions\": [\"COMPLETE_DPIA\", \"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\", \"IMPLEMENT_AUDIT_TRAIL\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\", \"DATA_INVENTORY\", \"DPIA\", \"REG_MAPPING\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"\\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\"\"}, {\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"DPIA\", \"quote\": \"Required | True\\nStatus | missing\"}, {\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"\\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": false\"}, {\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"DATA_INVENTORY\", \"quote\": \"{\\\"actual_region\\\": \\\"West US 2\\\", \\\"classification\\\": \\\"Restricted\\\", \\\"dataset\\\": \\\"Core business data\\\", \\\"personal_data\\\": \\\"True\\\", \\\"required_residency\\\": \\\"EU\\\"}\"}, {\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"\\\"audit_trail\\\": \\\"missing\\\"\"}], \"authorization_required\": true, \"rationale\": \"Applying DGF-decision-v8 evaluate_compliance to the authoritative REVIEW_FACTS_COMPLIANCE snapshot (design phase) yields three triggered predicates. (1) COMP-DPIA-001 (high): dpia_required = true while dpia_status = \\\\\\\"missing\\\\\\\"; the DPIA document corroborates (\\\\\\\"Required | True\\\\\\\", \\\\\\\"Status | missing\\\\\\\"). Action COMPLETE_DPIA, owner DPO, disposition REWORK, risk acceptance NOT allowed. (2) COMP-RESID-001 (critical): required_residency = \\\\\\\"EU\\\\\\\" but residency_compliant = false; the authoritative DATA_INVENTORY confirms actual_region \\\\\\\"West US 2\\\\\\\" against required_residency \\\\\\\"EU\\\\\\\" for Restricted personal data. Action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, owner DPO / Architecture, disposition NO_GO, risk acceptance NOT allowed. (3) COMP-AUDIT-001 (high): audit_trail = \\\\\\\"missing\\\\\\\". Action IMPLEMENT_AUDIT_TRAIL, owner Product Team, disposition REWORK, risk acceptance NOT allowed. Non-triggered predicates verified: COMP-MAP-001 (regulatory_mapping = \\\\\\\"complete\\\\\\\"; REG_MAPPING shows mapping_status complete for PCI-DSS); COMP-A11Y-001 (accessibility_status = \\\\\\\"not_assessed\\\\\\\", not \\\\\\\"major_findings\\\\\\\"); COMP-EXPORT-001/002 (export_control = \\\\\\\"clear\\\\\\\", neither restricted nor pending). Gate rollup is the highest-severity triggered disposition: NO_GO (from the critical COMP-RESID-001), which outranks REWORK. NO_GO is in the policy's authorization_required_for list, so standing-mandate authorization is required; however the active mandate MANDATE-7bf8888c-...-INTEGRATE-05-COMPLIANCE-1 covers 'all and only risk-acceptable findings', and the blocking COMP-RESID-001 (and COMP-DPIA-001, COMP-AUDIT-001) have risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of them and no conditional approval is available. Proposed actions are remediations, not completed remediation; the snapshot reflects the submitted state only.\", \"confidence\": 0.95}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9682,
+        "completion_tokens": 1522,
+        "total_tokens": 11204,
+        "reasoning_tokens": 343,
+        "cached_tokens": 9216,
+        "cost": 0.00094418,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "DeepInfra",
+    "DeepInfra",
+    "Relace",
+    "Relace"
+  ],
+  "turns": 4,
+  "tool_call_count": 7,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "COMP-DPIA-001",
+      "COMP-RESID-001",
+      "COMP-AUDIT-001"
+    ],
+    "actions": [
+      "COMPLETE_DPIA",
+      "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+      "IMPLEMENT_AUDIT_TRAIL"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE",
+      "DATA_INVENTORY",
+      "DPIA",
+      "REG_MAPPING"
+    ],
+    "authorization_required": true,
+    "rationale": "Applying DGF-decision-v8 evaluate_compliance to the authoritative REVIEW_FACTS_COMPLIANCE snapshot (design phase) yields three triggered predicates. (1) COMP-DPIA-001 (high): dpia_required = true while dpia_status = \\\"missing\\\"; the DPIA document corroborates (\\\"Required | True\\\", \\\"Status | missing\\\"). Action COMPLETE_DPIA, owner DPO, disposition REWORK, risk acceptance NOT allowed. (2) COMP-RESID-001 (critical): required_residency = \\\"EU\\\" but residency_compliant = false; the authoritative DATA_INVENTORY confirms actual_region \\\"West US 2\\\" against required_residency \\\"EU\\\" for Restricted personal data. Action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS, owner DPO / Architecture, disposition NO_GO, risk acceptance NOT allowed. (3) COMP-AUDIT-001 (high): audit_trail = \\\"missing\\\". Action IMPLEMENT_AUDIT_TRAIL, owner Product Team, disposition REWORK, risk acceptance NOT allowed. Non-triggered predicates verified: COMP-MAP-001 (regulatory_mapping = \\\"complete\\\"; REG_MAPPING shows mapping_status complete for PCI-DSS); COMP-A11Y-001 (accessibility_status = \\\"not_assessed\\\", not \\\"major_findings\\\"); COMP-EXPORT-001/002 (export_control = \\\"clear\\\", neither restricted nor pending). Gate rollup is the highest-severity triggered disposition: NO_GO (from the critical COMP-RESID-001), which outranks REWORK. NO_GO is in the policy's authorization_required_for list, so standing-mandate authorization is required; however the active mandate MANDATE-7bf8888c-...-INTEGRATE-05-COMPLIANCE-1 covers 'all and only risk-acceptable findings', and the blocking COMP-RESID-001 (and COMP-DPIA-001, COMP-AUDIT-001) have risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of them and no conditional approval is available. Proposed actions are remediations, not completed remediation; the snapshot reflects the submitted state only.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "finding_id": "COMP-DPIA-001",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "quote": "\"dpia_required\": true, \"dpia_status\": \"missing\""
+      },
+      {
+        "finding_id": "COMP-DPIA-001",
+        "evidence_id": "DPIA",
+        "quote": "Required | True\nStatus | missing"
+      },
+      {
+        "finding_id": "COMP-RESID-001",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "quote": "\"required_residency\": \"EU\", \"residency_compliant\": false"
+      },
+      {
+        "finding_id": "COMP-RESID-001",
+        "evidence_id": "DATA_INVENTORY",
+        "quote": "{\"actual_region\": \"West US 2\", \"classification\": \"Restricted\", \"dataset\": \"Core business data\", \"personal_data\": \"True\", \"required_residency\": \"EU\"}"
+      },
+      {
+        "finding_id": "COMP-AUDIT-001",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "quote": "\"audit_trail\": \"missing\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 25,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

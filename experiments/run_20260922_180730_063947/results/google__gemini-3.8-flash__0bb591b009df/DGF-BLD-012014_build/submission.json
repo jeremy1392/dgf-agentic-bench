@@ -1,0 +1,178 @@
+{
+  "case_id": "89255d0a-d15a-5ed6-aa4a-77ce0abd4663",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001",
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER",
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "Review of authoritative facts indicates that non-standard technology is proposed without an approved waiver, and an existing enterprise capability (shared_api_platform) duplicate capability is identified. Both findings require rework before proceeding.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false",
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "quote": "\"duplicate_capability\": true",
+          "evidence_id": "REVIEW_FACTS_IT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": false,
+      "rationale": "Architecture review indicates that no accountable owner is defined for governed data domains (ARCH-DATA-001, requiring REWORK) and reversibility design is missing (ARCH-REV-001, requiring GO_WITH_RESERVATIONS). Following the priority hierarchy, the gate disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"data_owner_present\": false"
+        },
+        {
+          "quote": "\"reversibility_status\": \"missing\"",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-REV-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": false,
+      "rationale": "Security review of the submitted architecture indicates that the WAF is configured in detection-only mode on an internet-facing workload (SEC-WAF-002, REWORK), security-relevant logs are not exported to SIEM (SEC-LOG-001, REWORK), and key rotation frequency is set to 365 days (SEC-KEY-001, GO_WITH_RESERVATIONS). Applying the priority hierarchy, the highest-priority disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"waf_mode\": \"Detection\"",
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"logs_to_siem\": false",
+          "finding_id": "SEC-LOG-001"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"key_rotation_days\": 365"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-DR-001",
+        "TR-CODE-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "RUN_DR_FAILOVER_TEST",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "authorization_required": false,
+      "rationale": "Tech readiness review indicates that the multi-region design has not passed a failover test (TR-DR-001), one critical static-analysis finding remains open (TR-CODE-001), and the operational runbook is still in draft status (TR-OPS-001). Based on the normative decision policy and priority hierarchy, the gate disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"dr_required\": true, \"dr_tested\": false",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "finding_id": "TR-DR-001"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"critical_static_findings\": 1",
+          "finding_id": "TR-CODE-001"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "quote": "\"runbook_status\": \"draft\"",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "OBTAIN_BUDGET_APPROVAL",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Review of the authoritative review facts indicates weak strategic alignment (GEN-STRAT-001, SUSPENSION) and requested funding (3,000,000 EUR) exceeding the approved envelope (2,550,000 EUR) (GEN-BUDGET-001, SUSPENSION). In addition, four upstream specialist gates returned rework dispositions (GEN-UPSTREAM-REWORK, REWORK). In accordance with the normative priority hierarchy, the highest-priority disposition is SUSPENSION, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"strategic_alignment\": \"weak\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_approved_eur\": 2550000, \"budget_requested_eur\": 3000000",
+          "finding_id": "GEN-BUDGET-001"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "quote": "\"disposition\": \"REWORK\"",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

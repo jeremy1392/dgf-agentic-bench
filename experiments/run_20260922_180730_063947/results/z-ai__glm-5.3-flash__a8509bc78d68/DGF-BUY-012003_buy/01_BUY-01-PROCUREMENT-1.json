@@ -1,0 +1,652 @@
+{
+  "usage": {
+    "prompt_tokens": 33799,
+    "completion_tokens": 1971,
+    "total_tokens": 35770,
+    "reasoning_tokens": 1457,
+    "cached_tokens": 28800,
+    "cost": 0.00375135,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "procurement",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 12,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "BUSINESS_CASE",
+            "path": "gate_evidence/general/business_case.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 3,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "BUDGET_APPROVAL",
+            "path": "gate_evidence/general/budget_approval.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 121,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 2,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "VENDOR_OFFERS",
+            "path": "gate_evidence/procurement/vendor_offers.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 100,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "SCORING_MATRIX",
+            "path": "gate_evidence/procurement/scoring_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 3,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 161,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "PRICING_TCO",
+            "path": "gate_evidence/procurement/pricing_tco.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 88,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "VENDOR_EVIDENCE_REQUEST",
+            "path": "gate_evidence/procurement/vendor_evidence_request.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 71,
+            "consumers": [
+              "procurement",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 49,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 166,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 133,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+            "path": "gate_evidence/procurement/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "procurement"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/procurement/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012003",
+            "generation_seed": 12003,
+            "project_name": "Project Yotta — Digital Onboarding [C8CCC]",
+            "project_code": "C8CCC",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Risk",
+            "sponsor": "Noor Volkov-12003-SP",
+            "project_manager": "Noor Petrescu-12003-PM",
+            "business_owner": "Amira Costa-12003-BO",
+            "service_owner": "Lucas Rahman-12003-SO",
+            "risk_owner": "Maya Khan-12003-RO",
+            "start_date": "2026-10-30",
+            "target_go_live": "2027-10-14",
+            "users_impacted": 80,
+            "budget_requested_eur": 900000,
+            "data_classification": "Internal",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "procurement": {
+            "offers": [
+              {
+                "vendor": "DeltaForge Technologies C8CCC-1",
+                "functional_score": 60,
+                "security_score": 71,
+                "tco_3y_eur": 1674553,
+                "mandatory_criteria_failed": 0,
+                "sanctions": "hit",
+                "references_checked": true,
+                "due_diligence": "complete",
+                "weighted_score": 64.6
+              },
+              {
+                "vendor": "Everline Software C8CCC-2",
+                "functional_score": 94,
+                "security_score": 66,
+                "tco_3y_eur": 2263057,
+                "mandatory_criteria_failed": 2,
+                "sanctions": "clear",
+                "references_checked": false,
+                "due_diligence": "pending",
+                "weighted_score": 65.1
+              },
+              {
+                "vendor": "Fluxbridge Labs C8CCC-3",
+                "functional_score": 88,
+                "security_score": 70,
+                "tco_3y_eur": 1031922,
+                "mandatory_criteria_failed": 0,
+                "sanctions": "clear",
+                "references_checked": true,
+                "due_diligence": "complete",
+                "weighted_score": 78.4
+              },
+              {
+                "vendor": "GranitePeak Systems C8CCC-4",
+                "functional_score": 61,
+                "security_score": 57,
+                "tco_3y_eur": 2498571,
+                "mandatory_criteria_failed": 0,
+                "sanctions": "pending",
+                "references_checked": true,
+                "due_diligence": "complete",
+                "weighted_score": 55.3
+              }
+            ],
+            "selected_vendor": "Fluxbridge Labs C8CCC-3",
+            "competition": "open_tender",
+            "rfp_requirements": 54,
+            "purchasing_budget_eur": 900000
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DUE_DILIGENCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DUE_DILIGENCE",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 161,
+        "path": "gate_evidence/procurement/due_diligence.csv",
+        "content": [
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "True",
+            "sanctions": "hit",
+            "vendor": "DeltaForge Technologies C8CCC-1"
+          },
+          {
+            "due_diligence": "pending",
+            "mandatory_failed": "2",
+            "references_checked": "False",
+            "sanctions": "clear",
+            "vendor": "Everline Software C8CCC-2"
+          },
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "True",
+            "sanctions": "clear",
+            "vendor": "Fluxbridge Labs C8CCC-3"
+          },
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "True",
+            "sanctions": "pending",
+            "vendor": "GranitePeak Systems C8CCC-4"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SCORING_MATRIX"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SCORING_MATRIX",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 3,
+        "path": "gate_evidence/procurement/scoring_matrix.csv",
+        "content": [
+          {
+            "functional": "60",
+            "security": "71",
+            "selected": "False",
+            "tco_3y_eur": "1674553",
+            "vendor": "DeltaForge Technologies C8CCC-1",
+            "weighted_score": "64.6"
+          },
+          {
+            "functional": "94",
+            "security": "66",
+            "selected": "False",
+            "tco_3y_eur": "2263057",
+            "vendor": "Everline Software C8CCC-2",
+            "weighted_score": "65.1"
+          },
+          {
+            "functional": "88",
+            "security": "70",
+            "selected": "True",
+            "tco_3y_eur": "1031922",
+            "vendor": "Fluxbridge Labs C8CCC-3",
+            "weighted_score": "78.4"
+          },
+          {
+            "functional": "61",
+            "security": "57",
+            "selected": "False",
+            "tco_3y_eur": "2498571",
+            "vendor": "GranitePeak Systems C8CCC-4",
+            "weighted_score": "55.3"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PRICING_TCO"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PRICING_TCO",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 88,
+        "path": "gate_evidence/procurement/pricing_tco.csv",
+        "content": [
+          {
+            "annualized_eur": "558184.33",
+            "selected": "False",
+            "tco_3y_eur": "1674553",
+            "vendor": "DeltaForge Technologies C8CCC-1"
+          },
+          {
+            "annualized_eur": "754352.33",
+            "selected": "False",
+            "tco_3y_eur": "2263057",
+            "vendor": "Everline Software C8CCC-2"
+          },
+          {
+            "annualized_eur": "343974.0",
+            "selected": "True",
+            "tco_3y_eur": "1031922",
+            "vendor": "Fluxbridge Labs C8CCC-3"
+          },
+          {
+            "annualized_eur": "832857.0",
+            "selected": "False",
+            "tco_3y_eur": "2498571",
+            "vendor": "GranitePeak Systems C8CCC-4"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_316f9f0e10d74f6c83e13f62",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4135,
+        "completion_tokens": 19,
+        "total_tokens": 4154,
+        "reasoning_tokens": 16,
+        "cached_tokens": 1792,
+        "cost": 0.00048639,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e1fd2af400b44895bdb9f31c",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5034,
+        "completion_tokens": 37,
+        "total_tokens": 5071,
+        "reasoning_tokens": 24,
+        "cached_tokens": 4096,
+        "cost": 0.00044592,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is in. Let me quickly cross-check the key procurement documents for any material contradiction before deciding.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_4d6bc4165c344231a182cb37",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DUE_DILIGENCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5732,
+        "completion_tokens": 1146,
+        "total_tokens": 6878,
+        "reasoning_tokens": 1117,
+        "cached_tokens": 4992,
+        "cost": 0.00103344,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d861f4ba89fe4e438b1e6731",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SCORING_MATRIX\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6009,
+        "completion_tokens": 18,
+        "total_tokens": 6027,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5696,
+        "cost": 0.00045467,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1ac7bb1b84d24b4d9a5c32a9",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PRICING_TCO\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6308,
+        "completion_tokens": 19,
+        "total_tokens": 6327,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5952,
+        "cost": 0.00047954,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "All sources are consistent. Applying the decision policy to the selected vendor (Fluxbridge Labs C8CCC-3):\n\n- **Mandatory criteria failed:** 0 → no PROC-MAND-001\n- **Sanctions:** \"clear\" → no PROC-SAN-001 / PROC-SAN-002\n- **Due diligence:** \"complete\" → no PROC-DD-001\n- **TCO check:** €1,031,922 ≤ €900,000 × 1.5 = €1,350,000 → no PROC-BUDGET-001\n- **References checked:** true → no PROC-REF-001\n\nNo findings trigger; the tender is clean. Submitting the decision.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1f80c11641e84561bef7ff00",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [], \"authorization_required\": false, \"confidence\": 0.95, \"disposition\": \"GO\", \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\", \"DUE_DILIGENCE\", \"SCORING_MATRIX\", \"PRICING_TCO\"], \"evidence_support\": [], \"finding_ids\": [], \"rationale\": \"Authoritative REVIEW_FACTS_PROCUREMENT shows the selected vendor Fluxbridge Labs C8CCC-3 passes every procurement predicate: mandatory_criteria_failed=0 (no PROC-MAND-001), sanctions='clear' (no PROC-SAN-001/002), due_diligence='complete' (no PROC-DD-001), references_checked=true (no PROC-REF-001), and tco_3y_eur=1,031,922 is within the purchasing envelope of 900,000*1.5=1,350,000 (no PROC-BUDGET-001). The authoritative DUE_DILIGENCE report corroborates all four vendor states, and the non-authoritative SCORING_MATRIX and PRICING_TCO documents agree (Fluxbridge selected=True, weighted_score 78.4, highest of the four offers). No findings trigger, so the disposition is GO with no actions and no authorization required.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6581,
+        "completion_tokens": 732,
+        "total_tokens": 7313,
+        "reasoning_tokens": 300,
+        "cached_tokens": 6272,
+        "cost": 0.00085139,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 6,
+  "tool_call_count": 5,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-01-PROCUREMENT-1",
+    "disposition": "GO",
+    "finding_ids": [],
+    "actions": [],
+    "evidence_refs": [
+      "REVIEW_FACTS_PROCUREMENT",
+      "DUE_DILIGENCE",
+      "SCORING_MATRIX",
+      "PRICING_TCO"
+    ],
+    "authorization_required": false,
+    "rationale": "Authoritative REVIEW_FACTS_PROCUREMENT shows the selected vendor Fluxbridge Labs C8CCC-3 passes every procurement predicate: mandatory_criteria_failed=0 (no PROC-MAND-001), sanctions='clear' (no PROC-SAN-001/002), due_diligence='complete' (no PROC-DD-001), references_checked=true (no PROC-REF-001), and tco_3y_eur=1,031,922 is within the purchasing envelope of 900,000*1.5=1,350,000 (no PROC-BUDGET-001). The authoritative DUE_DILIGENCE report corroborates all four vendor states, and the non-authoritative SCORING_MATRIX and PRICING_TCO documents agree (Fluxbridge selected=True, weighted_score 78.4, highest of the four offers). No findings trigger, so the disposition is GO with no actions and no authorization required.",
+    "confidence": 0.95,
+    "evidence_support": []
+  },
+  "http_stats": {
+    "http_attempts": 6,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

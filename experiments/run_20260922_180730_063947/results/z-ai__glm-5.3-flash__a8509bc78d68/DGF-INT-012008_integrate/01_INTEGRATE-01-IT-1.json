@@ -1,0 +1,933 @@
+{
+  "usage": {
+    "prompt_tokens": 134964,
+    "completion_tokens": 3904,
+    "total_tokens": 138868,
+    "reasoning_tokens": 3120,
+    "cached_tokens": 123968,
+    "cost": 0.01227916,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "it",
+        "phase": "framing",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 85,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 56,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 53,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 85,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 37,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 62,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012008",
+            "generation_seed": 12008,
+            "project_name": "Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+            "project_code": "3ED4F",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Corporate Services",
+            "sponsor": "Omar Santos-12008-SP",
+            "project_manager": "Yusuf Volkov-12008-PM",
+            "business_owner": "Ines Garcia-12008-BO",
+            "service_owner": "Maya Petrescu-12008-SO",
+            "risk_owner": "Ines Petrescu-12008-RO",
+            "start_date": "2026-09-16",
+            "target_go_live": "2027-05-14",
+            "users_impacted": 2000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "UAE North",
+            "personal_data": false,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 30,
+            "duplicate_capability": true,
+            "existing_alternative": "shared_api_platform",
+            "license_compliant": true,
+            "annual_license_cost_eur": 346047,
+            "cmdb_record_present": true,
+            "run_owner_present": false,
+            "support_model": "24x7_internal",
+            "patch_sla_days": 90,
+            "capacity_headroom_pct": 20,
+            "technology_eol_months": 4,
+            "change_record_status": "scheduled",
+            "service_continuity_class": "gold",
+            "hosting_model": "vm_ha"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 53,
+        "path": "gate_evidence/it/technology_catalog.json",
+        "content": {
+          "catalog_status": "standard",
+          "waiver_present": true,
+          "waiver_expiry_days": 30,
+          "hosting_model": "vm_ha"
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 85,
+        "path": "gate_evidence/it/lifecycle_eol.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "20",
+            "eol_months": "4",
+            "technology": "vm_ha"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 37,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "20",
+            "continuity_class": "gold",
+            "service": "Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+            "support_model": "24x7_internal"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 85,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-INT-012008\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]\nRoute | integrate\nBusiness unit | Corporate Services\nSponsor | Omar Santos-12008-SP\nProject manager | Yusuf Volkov-12008-PM\nBusiness owner | Ines Garcia-12008-BO\nRisk owner | Ines Petrescu-12008-RO\nCriticality | Medium\nData classification | Confidential\nUsers impacted | 2000\nTarget go-live | 2027-05-14"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "HLD"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "HLD",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 62,
+        "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+        "content": {
+          "note": "Textual extraction from SVG; use authoritative resource tools for configuration facts.",
+          "labels": [
+            "Azure HLD — Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+            "DGF-INT-012008 | ARCH-3ED4F-22008 | web_platform | single_vnet | v1.6",
+            "Primary UAE North | single_region_multi_az | Compute vm_ha | Signature 856835015f02c68f0804",
+            "External / Identity",
+            "Internet Users",
+            "Public consumers",
+            "Microsoft Entra ID",
+            "id-3ed4f-22008-01",
+            "Corporate Network",
+            "Hybrid / branch source",
+            "Ingress / Edge",
+            "Application Gateway WAF",
+            "edge-3ed4f-22008-01",
+            "Primary Azure Region — UAE North",
+            "Multi-AZ",
+            "Single Application VNet — 10.166.129.0/24",
+            "Application Subnet — Web / Application Tier",
+            "Azure API Management",
+            "app-3ed4f-22008-01",
+            "Azure VM AZ1",
+            "app-3ed4f-22008-02",
+            "Azure VM AZ2",
+            "app-3ed4f-22008-03",
+            "Data Subnet — Transactional / Cache Tier",
+            "Azure SQL Database",
+            "data-3ed4f-22008-01",
+            "Azure Storage Account",
+            "data-3ed4f-22008-02",
+            "Azure Cache for Redis",
+            "data-3ed4f-22008-03",
+            "Management / Platform Subnet",
+            "Azure Firewall",
+            "mgmt-3ed4f-22008-01",
+            "Azure Bastion",
+            "mgmt-3ed4f-22008-02",
+            "Azure API Management",
+            "mgmt-3ed4f-22008-03",
+            "Application Insights",
+            "mgmt-3ed4f-22008-04",
+            "Azure Monitor",
+            "mgmt-3ed4f-22008-05",
+            "Log Analytics",
+            "mgmt-3ed4f-22008-06",
+            "Defender for Cloud",
+            "mgmt-3ed4f-22008-07",
+            "Azure Backup / RSV",
+            "mgmt-3ed4f-22008-08",
+            "Same-Region Zone Resilience",
+            "Availability Zone 1",
+            "Compute/data placement",
+            "az-3ed4f-22008-01",
+            "Availability Zone 2",
+            "Compute/data placement",
+            "az-3ed4f-22008-02",
+            "Availability Zone 3",
+            "Compute/data placement",
+            "az-3ed4f-22008-03",
+            "No cross-region failover",
+            "Case-specific architecture summary",
+            "Architecture ID: ARCH-3ED4F-22008 | signature: 856835015f02c68f0804",
+            "Solution: web_platform | Network: single_vnet | Edge: waf_only",
+            "Compute: vm_ha | Data: transactional | Platform: Azure API Management",
+            "Private endpoints: False | Firewall: True | ER: False | VPN: True",
+            "Resilience: single_region_multi_az | RTO/RPO: 1h / 30m | DR tested: False",
+            "Resource prefix: 3ed4f-22008",
+            "Visual grammar",
+            "Single VNet + application/data/management subnets",
+            "Web / Application Tier → Transactional / Cache Tier",
+            "Dashed links = identity / transit / replication",
+            "Every card carries a case-specific resource instance",
+            "Official Azure Architecture Icons | mapped 18 | fallback 0"
+          ]
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-d105d6fd-4d96-5545-aa68-27c4fb280616-INTEGRATE-01-IT-1",
+            "occurrence_id": "INTEGRATE-01-IT-1",
+            "gate": "it",
+            "phase": "framing",
+            "authority": "Ines Petrescu-12008-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_cmdb_record",
+      "args": {
+        "application": "Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]"
+      },
+      "result": {
+        "application": "Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+        "record_present": true,
+        "run_owner": null,
+        "support_model": "24x7_internal",
+        "continuity_class": "gold"
+      }
+    },
+    {
+      "tool": "get_iam_assignments",
+      "args": {},
+      "result": {
+        "status": "NOT_AVAILABLE_IN_PHASE",
+        "evidence_id": "IAM_EXPORT",
+        "phase": "framing"
+      }
+    },
+    {
+      "tool": "get_backup_job",
+      "args": {},
+      "result": {
+        "status": "NOT_AVAILABLE_IN_PHASE",
+        "evidence_id": "BACKUP_JOBS",
+        "phase": "framing"
+      }
+    },
+    {
+      "tool": "get_contract_version",
+      "args": {},
+      "result": {
+        "status": "NOT_AVAILABLE_IN_PHASE",
+        "evidence_id": "MSA",
+        "phase": "framing"
+      }
+    },
+    {
+      "tool": "get_vulnerability_findings",
+      "args": {},
+      "result": {
+        "status": "NOT_AVAILABLE_IN_PHASE",
+        "evidence_id": "VULN_SCAN",
+        "phase": "framing"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d432f5e1e13843488d085066",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7852,
+        "completion_tokens": 28,
+        "total_tokens": 7880,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.0011918,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a44af7b1084d4e62a52ea72a",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8358,
+        "completion_tokens": 39,
+        "total_tokens": 8397,
+        "reasoning_tokens": 25,
+        "cached_tokens": 7808,
+        "cost": 0.00064856,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_53b49d0a2b6c4784a715fdcb",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8830,
+        "completion_tokens": 1520,
+        "total_tokens": 10350,
+        "reasoning_tokens": 1666,
+        "cached_tokens": 8320,
+        "cost": 0.0014189,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d05bd2afeed24957bc5ff5bd",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8938,
+        "completion_tokens": 20,
+        "total_tokens": 8958,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8768,
+        "cost": 0.00064926,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_3b413afd4ee44a27b5d121c7",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9044,
+        "completion_tokens": 17,
+        "total_tokens": 9061,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8896,
+        "cost": 0.00065342,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_62d4cfdc5428430fa5e4e3f1",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9164,
+        "completion_tokens": 18,
+        "total_tokens": 9182,
+        "reasoning_tokens": 0,
+        "cached_tokens": 9024,
+        "cost": 0.00066168,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_6d16b5330dca4b049072fd6f",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"HLD\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9415,
+        "completion_tokens": 16,
+        "total_tokens": 9431,
+        "reasoning_tokens": 0,
+        "cached_tokens": 9152,
+        "cost": 0.00068809,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_fab39193e8ed4a938b0ced8b",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10267,
+        "completion_tokens": 10,
+        "total_tokens": 10277,
+        "reasoning_tokens": 0,
+        "cached_tokens": 9408,
+        "cost": 0.00079241,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_f21db2e1fdbf4c3b86d1bf11",
+            "function": {
+              "name": "get_cmdb_record",
+              "arguments": "{\"application\": \"Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10387,
+        "completion_tokens": 27,
+        "total_tokens": 10414,
+        "reasoning_tokens": 0,
+        "cached_tokens": 10240,
+        "cost": 0.00075235,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 9,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_9166acd83d6e4883b71f6eec",
+            "function": {
+              "name": "get_iam_assignments",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10466,
+        "completion_tokens": 9,
+        "total_tokens": 10475,
+        "reasoning_tokens": 0,
+        "cached_tokens": 10368,
+        "cost": 0.00074496,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 10,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_6b2987f8339343fca1c8e27c",
+            "function": {
+              "name": "get_backup_job",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10504,
+        "completion_tokens": 7,
+        "total_tokens": 10511,
+        "reasoning_tokens": 0,
+        "cached_tokens": 10432,
+        "cost": 0.00074454,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 11,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c65640015d71413a90088852",
+            "function": {
+              "name": "get_contract_version",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10542,
+        "completion_tokens": 7,
+        "total_tokens": 10549,
+        "reasoning_tokens": 0,
+        "cached_tokens": 10496,
+        "cost": 0.00074512,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 12,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d4c55310719344a782852716",
+            "function": {
+              "name": "get_vulnerability_findings",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10578,
+        "completion_tokens": 10,
+        "total_tokens": 10588,
+        "reasoning_tokens": 0,
+        "cached_tokens": 10496,
+        "cost": 0.00075202,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 13,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have completed my investigation. Let me evaluate the decision policy against the authoritative REVIEW_FACTS_IT snapshot for the **framing** phase:\n\n**Policy evaluation (phase = framing):**\n- `catalog_status: \"standard\"` + `waiver_present: true` → IT-CATALOG-001 does **not** apply\n- `duplicate_capability: true` (existing_alternative: shared_api_platform) → **IT-RATIONAL-001 applies** (no phase restriction)\n- `license_compliant: true` → IT-LICENSE-001 does **not** apply\n- `cmdb_record_present: true` → IT-CMDB-001 does **not** apply (corroborated by authoritative CMDB tool: `record_present: true`)\n- `run_owner_present: false` → IT-RUN-001 phase predicate (build_acceptance/deployment_closure) **not met** at framing — noted as a forward risk, not a finding now\n- `capacity_headroom_pct: 20` (≥ 15) → IT-CAPACITY-001 does **not** apply\n- `technology_eol_months: 4` (< 12) → **IT-EOL-001 applies** (no phase restriction; corroborated by LIFECYCLE_REGISTER: `eol_months: 4`, technology `vm_ha`)\n- `change_record_status: \"scheduled\"` → IT-CHANGE-001 does **not** apply (predicate requires draft/missing at deployment_closure)\n\nTwo REWORK findings → overall disposition **REWORK**. REWORK is not in `authorization_required_for`, and no risk acceptance is being made, so `authorization_required: false` — the standing mandate is not exercised.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e399a40a41094caea0911f0b",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"ASSESS_EXISTING_CAPABILITY\", \"CREATE_CONVERGENCE_PLAN\"], \"authorization_required\": false, \"confidence\": 0.9, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"TECH_CATALOG\", \"LIFECYCLE_REGISTER\", \"CAPACITY_REPORT\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-RATIONAL-001\", \"quote\": \"\\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"technology_eol_months\\\": 4\"}, {\"evidence_id\": \"LIFECYCLE_REGISTER\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"capacity_headroom_pct\\\": \\\"20\\\", \\\"eol_months\\\": \\\"4\\\", \\\"technology\\\": \\\"vm_ha\\\"\"}], \"finding_ids\": [\"IT-RATIONAL-001\", \"IT-EOL-001\"], \"rationale\": \"Framing-phase IT review of the authoritative REVIEW_FACTS_IT snapshot yields two applicable findings. (1) IT-RATIONAL-001: duplicate_capability=true with existing_alternative=shared_api_platform — an existing enterprise capability may already satisfy the need; Enterprise Architecture must assess it before further investment. (2) IT-EOL-001: technology_eol_months=4 (<12), corroborated by the authoritative LIFECYCLE_REGISTER (technology vm_ha, eol_months 4) and the HLD (Compute: vm_ha); a convergence plan is required. All other IT predicates fail at this phase: catalog_status=standard with waiver_present=true (expiry 30 days), license_compliant=true, cmdb_record_present=true (confirmed via authoritative CMDB record), capacity_headroom_pct=20 (>=15), change_record_status=scheduled. run_owner_present=false is real (CMDB run_owner=null) but IT-RUN-001 is phase-gated to build_acceptance/deployment_closure, so it is flagged as a forward obligation for those gates rather than a finding here. Both applicable findings carry disposition REWORK, so the gate result is REWORK; no risk acceptance is exercised and the standing mandate is not used, hence authorization_required=false. Proposed actions are remediation requests, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10619,
+        "completion_tokens": 2176,
+        "total_tokens": 12795,
+        "reasoning_tokens": 1411,
+        "cached_tokens": 10560,
+        "cost": 0.00183605,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 14,
+  "tool_call_count": 13,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-RATIONAL-001",
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "ASSESS_EXISTING_CAPABILITY",
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "TECH_CATALOG",
+      "LIFECYCLE_REGISTER",
+      "CAPACITY_REPORT"
+    ],
+    "authorization_required": false,
+    "rationale": "Framing-phase IT review of the authoritative REVIEW_FACTS_IT snapshot yields two applicable findings. (1) IT-RATIONAL-001: duplicate_capability=true with existing_alternative=shared_api_platform — an existing enterprise capability may already satisfy the need; Enterprise Architecture must assess it before further investment. (2) IT-EOL-001: technology_eol_months=4 (<12), corroborated by the authoritative LIFECYCLE_REGISTER (technology vm_ha, eol_months 4) and the HLD (Compute: vm_ha); a convergence plan is required. All other IT predicates fail at this phase: catalog_status=standard with waiver_present=true (expiry 30 days), license_compliant=true, cmdb_record_present=true (confirmed via authoritative CMDB record), capacity_headroom_pct=20 (>=15), change_record_status=scheduled. run_owner_present=false is real (CMDB run_owner=null) but IT-RUN-001 is phase-gated to build_acceptance/deployment_closure, so it is flagged as a forward obligation for those gates rather than a finding here. Both applicable findings carry disposition REWORK, so the gate result is REWORK; no risk acceptance is exercised and the standing mandate is not used, hence authorization_required=false. Proposed actions are remediation requests, not completed remediation.",
+    "confidence": 0.9,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-RATIONAL-001",
+        "quote": "\"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"technology_eol_months\": 4"
+      },
+      {
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"capacity_headroom_pct\": \"20\", \"eol_months\": \"4\", \"technology\": \"vm_ha\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 14,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

@@ -1,0 +1,442 @@
+{
+  "usage": {
+    "prompt_tokens": 30754,
+    "completion_tokens": 3240,
+    "total_tokens": 33994,
+    "reasoning_tokens": 2784,
+    "cached_tokens": 24896,
+    "cost": 0.00424142,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "it",
+        "phase": "opportunity",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 125,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 163,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 57,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012010",
+            "generation_seed": 12010,
+            "project_name": "Project Falcon — Observability Platform [83985]",
+            "project_code": "83985",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Operations",
+            "sponsor": "Maya Laurent-12010-SP",
+            "project_manager": "Elena Khan-12010-PM",
+            "business_owner": "Yusuf Volkov-12010-BO",
+            "service_owner": "Daria Dubois-12010-SO",
+            "risk_owner": "Amira Petrescu-12010-RO",
+            "start_date": "2026-10-16",
+            "target_go_live": "2027-10-20",
+            "users_impacted": 500,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "UAE Central",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "approved_exception",
+            "waiver_present": true,
+            "waiver_expiry_days": 365,
+            "duplicate_capability": false,
+            "existing_alternative": "legacy_crm",
+            "license_compliant": true,
+            "annual_license_cost_eur": 164387,
+            "cmdb_record_present": true,
+            "run_owner_present": false,
+            "support_model": "vendor_only",
+            "patch_sla_days": 30,
+            "capacity_headroom_pct": 15,
+            "technology_eol_months": 4,
+            "change_record_status": "scheduled",
+            "service_continuity_class": "gold",
+            "hosting_model": "vm_ha"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 57,
+        "path": "gate_evidence/it/technology_catalog.json",
+        "content": {
+          "catalog_status": "approved_exception",
+          "waiver_present": true,
+          "waiver_expiry_days": 365,
+          "hosting_model": "vm_ha"
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 163,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Project Falcon — Observability Platform [83985]",
+            "continuity_class": "gold",
+            "record_present": "True",
+            "run_owner": "",
+            "support_model": "vendor_only"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 125,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-BLD-012010\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Project Falcon — Observability Platform [83985]\nRoute | build\nBusiness unit | Operations\nSponsor | Maya Laurent-12010-SP\nProject manager | Elena Khan-12010-PM\nBusiness owner | Yusuf Volkov-12010-BO\nRisk owner | Amira Petrescu-12010-RO\nCriticality | High\nData classification | Confidential\nUsers impacted | 500\nTarget go-live | 2027-10-20"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_54e14481cbdb41b4a5132bc6",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4430,
+        "completion_tokens": 28,
+        "total_tokens": 4458,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.0006785,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a9baa5551a994c039fd7ea90",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4734,
+        "completion_tokens": 36,
+        "total_tokens": 4770,
+        "reasoning_tokens": 21,
+        "cached_tokens": 4416,
+        "cost": 0.00037482,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_759b248f023643188e3d4a89",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5196,
+        "completion_tokens": 1276,
+        "total_tokens": 6472,
+        "reasoning_tokens": 1397,
+        "cached_tokens": 4672,
+        "cost": 0.00104364,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_51601b9716f5436ab900eca5",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5305,
+        "completion_tokens": 17,
+        "total_tokens": 5322,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5184,
+        "cost": 0.00038953,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_18f875bea0e4424aa461a57b",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5422,
+        "completion_tokens": 18,
+        "total_tokens": 5440,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5248,
+        "cost": 0.00040246,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have the authoritative snapshot and corroborating evidence. Let me evaluate the decision policy against the observed facts for phase `opportunity`:\n\n**Policy evaluation (phase = opportunity):**\n- `catalog_status = \"approved_exception\"` (not `non_standard`) and `waiver_present = true` → **IT-CATALOG-001 does not trigger** (corroborated by TECH_CATALOG: `catalog_status: approved_exception, waiver_present: true, waiver_expiry_days: 365`).\n- `duplicate_capability = false` → IT-RATIONAL-001 does not trigger.\n- `license_compliant = true` → IT-LICENSE-001 does not trigger.\n- `cmdb_record_present = true` → IT-CMDB-001 does not trigger (corroborated by CMDB_EXPORT: `record_present: True`).\n- `run_owner_present = false` — but IT-RUN-001 only applies in `build_acceptance`/`deployment_closure`; current phase is `opportunity` → does not trigger (CMDB_EXPORT shows `run_owner: \"\"`, consistent with the snapshot, but phase predicate excludes it).\n- `technology_eol_months = 4` → **4 < 12 → IT-EOL-001 TRIGGERS** (no phase restriction). Action: CREATE_CONVERGENCE_PLAN, disposition REWORK.\n- `capacity_headroom_pct = 15` → not `< 15`, and phase predicate excludes opportunity → IT-CAPACITY-001 does not trigger.\n- `change_record_status = \"scheduled\"` (not draft/missing) and phase ≠ deployment_closure → IT-CHANGE-001 does not trigger.\n\nOnly IT-EOL-001 applies → overall disposition is **REWORK**. REWORK is not in `authorization_required_for`, so no authorization is required.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_000e89cddd9e4c7398e55fc9",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"authorization_required\": false, \"confidence\": 0.92, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"TECH_CATALOG\", \"CMDB_EXPORT\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"technology_eol_months\\\": 4\"}], \"finding_ids\": [\"IT-EOL-001\"], \"rationale\": \"At the opportunity phase, only the end-of-life predicate triggers: REVIEW_FACTS_IT records technology_eol_months = 4, which is below the 12-month threshold, requiring a convergence plan (IT-EOL-001, owner Technology Owner, disposition REWORK). All other IT predicates are excluded by observed values or phase: catalog_status is approved_exception with a waiver present (waiver_expiry_days 365), so no catalog finding; duplicate_capability is false; license_compliant is true; cmdb_record_present is true; run_owner_present is false but IT-RUN-001 applies only at build_acceptance/deployment_closure; capacity_headroom_pct is 15 (not below 15%) and IT-CAPACITY-001 applies only at build_acceptance/deployment_closure; change_record_status is scheduled (not draft/missing) and IT-CHANGE-001 applies only at deployment_closure. The single triggered finding carries disposition REWORK, so the gate outcome is REWORK; REWORK is not in authorization_required_for, so no authorization is required. Proposed action is not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5667,
+        "completion_tokens": 1865,
+        "total_tokens": 7532,
+        "reasoning_tokens": 1348,
+        "cached_tokens": 5376,
+        "cost": 0.00135247,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 6,
+  "tool_call_count": 5,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "TECH_CATALOG",
+      "CMDB_EXPORT"
+    ],
+    "authorization_required": false,
+    "rationale": "At the opportunity phase, only the end-of-life predicate triggers: REVIEW_FACTS_IT records technology_eol_months = 4, which is below the 12-month threshold, requiring a convergence plan (IT-EOL-001, owner Technology Owner, disposition REWORK). All other IT predicates are excluded by observed values or phase: catalog_status is approved_exception with a waiver present (waiver_expiry_days 365), so no catalog finding; duplicate_capability is false; license_compliant is true; cmdb_record_present is true; run_owner_present is false but IT-RUN-001 applies only at build_acceptance/deployment_closure; capacity_headroom_pct is 15 (not below 15%) and IT-CAPACITY-001 applies only at build_acceptance/deployment_closure; change_record_status is scheduled (not draft/missing) and IT-CHANGE-001 applies only at deployment_closure. The single triggered finding carries disposition REWORK, so the gate outcome is REWORK; REWORK is not in authorization_required_for, so no authorization is required. Proposed action is not completed remediation.",
+    "confidence": 0.92,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"technology_eol_months\": 4"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 6,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

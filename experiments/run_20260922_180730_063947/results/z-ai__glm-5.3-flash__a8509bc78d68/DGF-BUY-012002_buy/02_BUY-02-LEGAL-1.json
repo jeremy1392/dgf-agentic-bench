@@ -1,0 +1,598 @@
+{
+  "usage": {
+    "prompt_tokens": 45337,
+    "completion_tokens": 12269,
+    "total_tokens": 57606,
+    "reasoning_tokens": 12301,
+    "cached_tokens": 32576,
+    "cost": 0.01032897,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 178,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 8,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 72,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 176,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 143,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 60,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 114,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 35,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 37,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 118,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012002",
+            "generation_seed": 12002,
+            "project_name": "Project Raven — Payments API Hub [C2D29]",
+            "project_code": "C2D29",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Risk",
+            "sponsor": "Leila Santos-12002-SP",
+            "project_manager": "Daria Moreau-12002-PM",
+            "business_owner": "Adam Volkov-12002-BO",
+            "service_owner": "Amira Nguyen-12002-SO",
+            "risk_owner": "Thomas Haddad-12002-RO",
+            "start_date": "2026-10-09",
+            "target_go_live": "2027-03-10",
+            "users_impacted": 2000,
+            "budget_requested_eur": 7000000,
+            "data_classification": "Confidential",
+            "business_criticality": "Critical",
+            "primary_region": "North Europe",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "legal": {
+            "contract_version": "MSA-C2D29-10.9",
+            "governing_law": "UAE",
+            "dpa_status": "not_required",
+            "liability_cap_multiplier": "unlimited",
+            "security_carveout": false,
+            "audit_right": "reports_only",
+            "termination_for_convenience": false,
+            "exit_assistance_days": 60,
+            "ip_ownership": "customer",
+            "insurance_valid": true,
+            "cyber_insurance_m": 5,
+            "signing_authority_valid": false,
+            "data_transfer_clause": "scc",
+            "sla_penalties": true,
+            "log_export_clause": "included"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-02-LEGAL-1",
+            "occurrence_id": "BUY-02-LEGAL-1",
+            "gate": "legal",
+            "phase": "design",
+            "authority": "Thomas Haddad-12002-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "MSA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "MSA",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 72,
+        "path": "gate_evidence/legal/MSA.docx",
+        "content": "Master Services Agreement\nSynthetic contract MSA-C2D29-10.9\n1. Services\nSupplier shall provide the services described in the Order Form for Project Raven — Payments API Hub [C2D29].\nSupplier comment: Clause accepted subject to final commercial approval.\n2. Term\nInitial term 36 months with renewal subject to the Order Form.\nSupplier comment: Clause accepted subject to final commercial approval.\n3. Service Levels\nService credits and penalties: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n4. Data Processing\nDPA status: not_required (declared). Transfer clause: scc.\nSupplier comment: Clause accepted subject to final commercial approval.\n5. Confidentiality\nEach party protects confidential information using reasonable safeguards.\nSupplier comment: Clause accepted subject to final commercial approval.\n6. Security\nSecurity logs export: missing.\nSupplier comment: Clause accepted subject to final commercial approval.\n7. Audit Rights\nCustomer audit rights: reports_only (declared).\nSupplier comment: Clause accepted subject to final commercial approval.\n8. Intellectual Property\nIP ownership: customer (declared).\nSupplier comment: Clause accepted subject to final commercial approval.\n9. Exit and Reversibility\nExit assistance: 61 days.\nSupplier comment: Clause accepted subject to final commercial approval.\n10. Insurance\nCyber insurance: EUR 5m. Certificate valid: True.\nSupplier comment: Clause accepted subject to final commercial approval.\n11. Liability\nAggregate liability cap: unlimitedx annual fees. Security carve-out: False.\nSupplier comment: Current liability position is commercially sensitive.\n12. Governing Law\nUAE\nSupplier comment: Clause accepted subject to final commercial approval."
+      }
+    },
+    {
+      "tool": "get_contract_version",
+      "args": {},
+      "result": {
+        "contract_version": "MSA-C2D29-10.9",
+        "dpa_status": "not_required",
+        "audit_right": "reports_only",
+        "log_export_clause": "included",
+        "signing_authority_valid": false
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CONTRACT_PLAYBOOK"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 60,
+        "path": "gate_evidence/legal/contract_playbook.json",
+        "content": {
+          "required": {
+            "DPA": "signed if personal data",
+            "audit_right": "full or limited",
+            "exit_assistance_days": ">=30",
+            "security_log_export": "included for high/critical services",
+            "signing_authority": "valid"
+          }
+        }
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_0fdca24557544a759ef0a85f",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5145,
+        "completion_tokens": 28,
+        "total_tokens": 5173,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00078575,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_64e2c03c1514404483ed1bec",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5917,
+        "completion_tokens": 38,
+        "total_tokens": 5955,
+        "reasoning_tokens": 24,
+        "cached_tokens": 5120,
+        "cost": 0.00049695,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is available. Let me evaluate the rule predicates against it and check the standing authorization mandates.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a785152a856848b69a118367",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6379,
+        "completion_tokens": 1115,
+        "total_tokens": 7494,
+        "reasoning_tokens": 1195,
+        "cached_tokens": 5888,
+        "cost": 0.00104331,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot (REVIEW_FACTS_LEGAL, v1, age 0d) gives me the fields needed for the rule evaluation. Let me quickly corroborate against the MSA (the primary contract document) before deciding.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_7887ca69089b46989001431c",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"MSA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6517,
+        "completion_tokens": 2239,
+        "total_tokens": 8756,
+        "reasoning_tokens": 2286,
+        "cached_tokens": 6336,
+        "cost": 0.00159017,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot resolves most predicates. Two findings trigger: LEGAL-AUDIT-001 (audit_right = \"reports_only\") and LEGAL-SIGN-001 (signing_authority_valid = false). Before deciding, let me corroborate the critical signing-authority finding against authoritative contract metadata and the authoritative contract playbook.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_52374e66cc0446bbad653224",
+            "function": {
+              "name": "get_contract_version",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6999,
+        "completion_tokens": 6472,
+        "total_tokens": 13471,
+        "reasoning_tokens": 7477,
+        "cached_tokens": 6464,
+        "cost": 0.00376873,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_4cb188c0afe747499ce08491",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CONTRACT_PLAYBOOK\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7125,
+        "completion_tokens": 18,
+        "total_tokens": 7143,
+        "reasoning_tokens": 0,
+        "cached_tokens": 1792,
+        "cost": 0.00093439,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "content": "Investigation is complete. The authoritative REVIEW_FACTS_LEGAL snapshot (v1, age 0d) resolves every rule predicate:\n\n**Rule evaluation against REVIEW_FACTS_LEGAL:**\n- LEGAL-DPA-001: not triggered — `personal_data: false` (and `dpa_status: \"not_required\"`)\n- LEGAL-LIAB-001: not triggered — `liability_cap_multiplier: \"unlimited\"` (not 0.5)\n- **LEGAL-AUDIT-001: triggered** — `audit_right: \"reports_only\"` (rule: reports_only/none → insufficient). Corroborated by MSA §7 (\"Customer audit rights: reports_only\") and the authoritative CONTRACT_PLAYBOOK requiring `\"audit_right\": \"full or limited\"`.\n- LEGAL-EXIT-001: not triggered — `exit_assistance_days: 60` (≥30 per playbook; rule requires 0)\n- LEGAL-IP-001: not triggered — `ip_ownership: \"customer\"` (not ambiguous)\n- LEGAL-INS-001: not triggered — `insurance_valid: true`\n- **LEGAL-SIGN-001: triggered** — `signing_authority_valid: false`. Corroborated by authoritative contract metadata (contract_version MSA-C2D29-10.9, signing_authority_valid false) and playbook requirement `\"signing_authority\": \"valid\"`.\n- LEGAL-LOG-001: not triggered — `log_export_clause: \"included\"` (rule requires \"missing\"). Note: the non-authoritative MSA §6 says \"missing\", but the authoritative snapshot and contract metadata both say \"included\" — authoritative sources prevail.\n\n**Disposition:** LEGAL-SIGN-001 (critical) carries SUSPENSION, which outranks the REWORK from LEGAL-AUDIT-001 → overall **SUSPENSION**.\n\n**Authorization:** Required for SUSPENSION. The standing mandate MANDATE-…-BUY-02-LEGAL-1 (Thomas Haddad-12002-RO) is active but scoped to \"all and only risk-acceptable findings\"; LEGAL-SIGN-001 has `risk_acceptance_allowed: false`, so the mandate cannot cover it and no conditional approval is attempted.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_df2aac67dffb44a7b78d47c3",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"REDLINE_AUDIT_RIGHT\", \"OBTAIN_AUTHORIZED_SIGNATORY\"], \"authorization_required\": true, \"confidence\": 0.93, \"disposition\": \"SUSPENSION\", \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\", \"MSA\", \"CONTRACT_PLAYBOOK\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"finding_id\": \"LEGAL-AUDIT-001\", \"quote\": \"\\\"audit_right\\\": \\\"reports_only\\\"\"}, {\"evidence_id\": \"CONTRACT_PLAYBOOK\", \"finding_id\": \"LEGAL-AUDIT-001\", \"quote\": \"\\\"audit_right\\\": \\\"full or limited\\\"\"}, {\"evidence_id\": \"MSA\", \"finding_id\": \"LEGAL-AUDIT-001\", \"quote\": \"7. Audit Rights\\nCustomer audit rights: reports_only (declared).\"}, {\"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"finding_id\": \"LEGAL-SIGN-001\", \"quote\": \"\\\"signing_authority_valid\\\": false\"}, {\"evidence_id\": \"CONTRACT_PLAYBOOK\", \"finding_id\": \"LEGAL-SIGN-001\", \"quote\": \"\\\"signing_authority\\\": \\\"valid\\\"\"}], \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-SIGN-001\"], \"rationale\": \"Authoritative REVIEW_FACTS_LEGAL (v1, age 0d) for MSA-C2D29-10.9 triggers exactly two findings under DGF-decision-v8. (1) LEGAL-AUDIT-001 (high, REWORK): audit_right=\\\"reports_only\\\", corroborated by MSA §7 and the authoritative CONTRACT_PLAYBOOK requiring \\\"full or limited\\\"; action REDLINE_AUDIT_RIGHT. (2) LEGAL-SIGN-001 (critical, SUSPENSION): signing_authority_valid=false, corroborated by authoritative contract metadata for MSA-C2D29-10.9 and the playbook requirement signing_authority=\\\"valid\\\"; action OBTAIN_AUTHORIZED_SIGNATORY. All other predicates fail to trigger: personal_data=false so no DPA required (LEGAL-DPA-001); liability_cap_multiplier=\\\"unlimited\\\" (LEGAL-LIAB-001); exit_assistance_days=60 ≥ playbook minimum 30 (LEGAL-EXIT-001); ip_ownership=\\\"customer\\\" (LEGAL-IP-001); insurance_valid=true (LEGAL-INS-001); log_export_clause=\\\"included\\\" (LEGAL-LOG-001) — the non-authoritative MSA §6 stating \\\"missing\\\" is superseded by the authoritative snapshot and contract metadata per source precedence. Highest-severity disposition is SUSPENSION from the critical signing-authority finding. Authorization is required for SUSPENSION; the active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-02-LEGAL-1 (Thomas Haddad-12002-RO) is scoped to \\\"all and only risk-acceptable findings\\\" and cannot cover LEGAL-SIGN-001 (risk_acceptance_allowed=false), so no conditional approval is recorded and the gate is suspended pending an authorized signatory and audit-right redline.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7255,
+        "completion_tokens": 2359,
+        "total_tokens": 9614,
+        "reasoning_tokens": 1301,
+        "cached_tokens": 6976,
+        "cost": 0.00170967,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 7,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-02-LEGAL-1",
+    "disposition": "SUSPENSION",
+    "finding_ids": [
+      "LEGAL-AUDIT-001",
+      "LEGAL-SIGN-001"
+    ],
+    "actions": [
+      "REDLINE_AUDIT_RIGHT",
+      "OBTAIN_AUTHORIZED_SIGNATORY"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL",
+      "MSA",
+      "CONTRACT_PLAYBOOK"
+    ],
+    "authorization_required": true,
+    "rationale": "Authoritative REVIEW_FACTS_LEGAL (v1, age 0d) for MSA-C2D29-10.9 triggers exactly two findings under DGF-decision-v8. (1) LEGAL-AUDIT-001 (high, REWORK): audit_right=\"reports_only\", corroborated by MSA §7 and the authoritative CONTRACT_PLAYBOOK requiring \"full or limited\"; action REDLINE_AUDIT_RIGHT. (2) LEGAL-SIGN-001 (critical, SUSPENSION): signing_authority_valid=false, corroborated by authoritative contract metadata for MSA-C2D29-10.9 and the playbook requirement signing_authority=\"valid\"; action OBTAIN_AUTHORIZED_SIGNATORY. All other predicates fail to trigger: personal_data=false so no DPA required (LEGAL-DPA-001); liability_cap_multiplier=\"unlimited\" (LEGAL-LIAB-001); exit_assistance_days=60 ≥ playbook minimum 30 (LEGAL-EXIT-001); ip_ownership=\"customer\" (LEGAL-IP-001); insurance_valid=true (LEGAL-INS-001); log_export_clause=\"included\" (LEGAL-LOG-001) — the non-authoritative MSA §6 stating \"missing\" is superseded by the authoritative snapshot and contract metadata per source precedence. Highest-severity disposition is SUSPENSION from the critical signing-authority finding. Authorization is required for SUSPENSION; the active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-02-LEGAL-1 (Thomas Haddad-12002-RO) is scoped to \"all and only risk-acceptable findings\" and cannot cover LEGAL-SIGN-001 (risk_acceptance_allowed=false), so no conditional approval is recorded and the gate is suspended pending an authorized signatory and audit-right redline.",
+    "confidence": 0.93,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "finding_id": "LEGAL-AUDIT-001",
+        "quote": "\"audit_right\": \"reports_only\""
+      },
+      {
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "finding_id": "LEGAL-AUDIT-001",
+        "quote": "\"audit_right\": \"full or limited\""
+      },
+      {
+        "evidence_id": "MSA",
+        "finding_id": "LEGAL-AUDIT-001",
+        "quote": "7. Audit Rights\nCustomer audit rights: reports_only (declared)."
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "finding_id": "LEGAL-SIGN-001",
+        "quote": "\"signing_authority_valid\": false"
+      },
+      {
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "finding_id": "LEGAL-SIGN-001",
+        "quote": "\"signing_authority\": \"valid\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 32,
+    "retries": 8,
+    "rate_limits": 8,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

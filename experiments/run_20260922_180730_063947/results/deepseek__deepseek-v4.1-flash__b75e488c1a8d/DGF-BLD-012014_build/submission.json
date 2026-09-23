@@ -1,0 +1,231 @@
+{
+  "case_id": "89255d0a-d15a-5ed6-aa4a-77ce0abd4663",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001",
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER",
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "CMDB_EXPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "Phase is opportunity. Applying the IT decision policy to REVIEW_FACTS_IT: catalog_status is 'non_standard' with waiver_present false, so IT-CATALOG-001 (high, REWORK, SUBMIT_TECHNOLOGY_WAIVER) applies. duplicate_capability is true with existing_alternative 'shared_api_platform', so IT-RATIONAL-001 (medium, REWORK, ASSESS_EXISTING_CAPABILITY) applies. Other predicates do not fire: license_compliant true; cmdb_record_present true; run_owner_present true; technology_eol_months 18 (>=12); capacity_headroom_pct 45 and phase not build_acceptance/deployment_closure; change_record_status 'draft' but phase is not deployment_closure. Highest disposition is REWORK, which is not in authorization_required_for, so no authorization is required.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false"
+        },
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "DATA_MODEL",
+        "LLD"
+      ],
+      "authorization_required": false,
+      "rationale": "Applied the DGF-decision-v8 architecture policy to the authoritative REVIEW_FACTS_ARCHITECTURE snapshot (version 1, age 0 days). Firing predicates: (1) data_owner_present = false → ARCH-DATA-001 (high, REWORK, ASSIGN_DATA_OWNER, Data Architect); corroborated by non-authoritative DATA_MODEL which shows \"data_owner\": null for a Confidential data model. (2) reversibility_status = \"missing\" → ARCH-REV-001 (medium, GO_WITH_RESERVATIONS, COMPLETE_EXIT_ARCHITECTURE, Enterprise Architect); corroborated by LLD field \"Reversibility | missing\". Non-firing predicates: ip_overlap = false (ARCH-IP-001 not applicable); api_gateway_required = true and api_gateway_present = true, consistent with LLD (\"API gateway required | True\", \"API gateway present | True\"), so ARCH-API-001 does not fire; measured_latency_ms 15 <= latency_target_ms 500, so ARCH-PERF-001 does not fire; business_criticality is High but architecture_profile multi_az = true and multi_region = true (HLD shows Multi-AZ and a North Europe WARM STANDBY region), so ARCH-HA-001 does not fire. Highest-priority disposition is REWORK, which is not in authorization_required_for; ARCH-DATA-001 is not risk-acceptable, so no risk acceptance is available and the snapshot cannot be approved as-is. Return-to-design/rework actions ASSIGN_DATA_OWNER and COMPLETE_EXIT_ARCHITECTURE are the required remediation; these are proposed actions, not completed remediation.",
+      "confidence": 0.92,
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"data_owner_present\": false, \"data_lineage_complete\": false"
+        },
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "DATA_MODEL",
+          "quote": "\"data_owner\": null, \"classification\": \"Confidential\", \"lineage_complete\": false"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"reversibility_status\": \"missing\", \"data_export_supported\": true"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "LLD",
+          "quote": "Reversibility | missing"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "SENTINEL_STATUS",
+        "HLD"
+      ],
+      "authorization_required": false,
+      "rationale": "Applied DGF-decision-v8 security policy to the authoritative REVIEW_FACTS_SECURITY snapshot (version 1, age 0 days). Firing predicates: (1) internet_exposed = true, waf_present = true, waf_mode = \"Detection\" → SEC-WAF-002 (high, REWORK, ENABLE_WAF_PREVENTION, Network Security, risk-acceptance-allowed); the HLD corroborates an ingress edge with \"WAF + CDN\" but the authoritative WAF_POLICY is UNAVAILABLE, so the snapshot's detection-only mode governs. (2) logs_to_siem = false → SEC-LOG-001 (high, REWORK, CONNECT_LOGS_TO_SIEM, SOC, risk-acceptance-allowed = False), corroborated by the authoritative SIEM connector state showing sentinel = false and no connectors. (3) key_rotation_days = 365 → SEC-KEY-001 (medium, GO_WITH_RESERVATIONS, IMPROVE_KEY_ROTATION, Cloud Security, risk-acceptance-allowed). Non-firing predicates: SEC-WAF-001 does not fire because waf_present = true; SEC-NET-001 does not fire because private_endpoints = true (Confidential classification notwithstanding), consistent with HLD \"Private endpoints: True\"; SEC-IAM-001 does not fire because mfa = \"mandatory\" (CONDITIONAL_ACCESS: \"mfa\": \"mandatory\", \"policy_state\": \"enabled\"); SEC-IAM-002 does not fire because shared_service_principal = false (IAM_EXPORT shows a single dedicated ManagedIdentity \"workload-mi\"); SEC-VULN-001 does not fire because critical_vulns_open = 0 (authoritative vulnerability state confirms critical_open 0, high_open 5); SEC-PENTEST-001 is phase-gated to build_acceptance and this gate is design, and pentest_status = \"pass\" regardless. Highest-priority disposition is REWORK. The standing mandate MANDATE-89255d0a...-BUILD-03-SECURITY-1 covers \"all and only risk-acceptable findings\", but SEC-LOG-001 is not risk-acceptable (risk_acceptance_allowed = False) and residual_risk_acceptance = false, so no conditional approval or risk acceptance is available for the snapshot as submitted. REWORK is not in authorization_required_for, so no approval reference is required. Proposed actions ENABLE_WAF_PREVENTION, CONNECT_LOGS_TO_SIEM and IMPROVE_KEY_ROTATION are remediation to be performed, not completed remediation. No upstream security specialist decision exists in this phase; the upstream architecture decision (REWORK, ARCH-DATA-001/ARCH-REV-001) is in a different gate and does not alter these security predicates.",
+      "confidence": 0.88,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\""
+        },
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "HLD",
+          "quote": "Ingress / Edge ... WAF + CDN, edge-0166d-22014-02"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"logs_to_siem\": false, \"sentinel\": false"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "SENTINEL_STATUS",
+          "quote": "\"sentinel\": false, \"logs_to_siem\": false, \"connectors\": []"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"key_rotation_days\": 365"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-DR-001",
+        "TR-CODE-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "RUN_DR_FAILOVER_TEST",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS",
+        "FAILOVER_TEST",
+        "CI_PIPELINE",
+        "RUNBOOK",
+        "BACKUP_JOBS",
+        "LOAD_TEST",
+        "ROLLBACK_TEST"
+      ],
+      "authorization_required": false,
+      "rationale": "Applied DGF-decision-v8 tech_readiness policy to the authoritative REVIEW_FACTS_TECH_READINESS snapshot (version 1, age 0 days). Firing predicates: (1) dr_required = true with dr_tested = false → TR-DR-001 (high, REWORK, RUN_DR_FAILOVER_TEST, SRE); corroborated by the authoritative FAILOVER_TEST record (result NOT_RUN, tested False, secondary region North Europe warm standby) and the HLD annotation \"FAILOVER NOT TESTED\". (2) critical_static_findings = 1 > 0 → TR-CODE-001 (high, REWORK, REMEDIATE_BUILD_FINDINGS, Engineering); corroborated by the authoritative CI_PIPELINE showing critical_static_findings 1. (3) runbook_status = \"draft\" ≠ \"approved\" → TR-OPS-001 (medium, GO_WITH_RESERVATIONS, COMPLETE_OPERATIONAL_HANDOVER, Operations); corroborated by the RUNBOOK document field \"Runbook status | draft\" while on_call_defined and handover_signed are true. Non-firing predicates verified against evidence: backup_enabled = true (authoritative BACKUP_JOBS enabled True, last_status Succeeded); restore_tested = true and measured_restore_hours 0.21 <= target_rto_hours 0.25, so TR-RESTORE-001 and TR-RTO-001 do not fire; measured_data_loss_minutes 1440 equals target_rpo_minutes 1440 — this is not \"exceeding\" the committed RPO, so TR-RPO-001 does not fire; load_test_pct_of_peak 125 >= 100, so TR-LOAD-001 does not fire (authoritative LOAD_TEST peak_test_pct 125); rollback_tested = true (ROLLBACK_TEST result PASS), so TR-ROLLBACK-001 does not fire; open_blockers = 0, so TR-BLOCKER-001 does not fire. Highest-priority disposition is REWORK, which is not in authorization_required_for, so no approval reference is required. The standing mandate MANDATE-89255d0a...-BUILD-04-TECH_READINESS-1 covers \"all and only risk-acceptable findings\", but the driving findings TR-DR-001 and TR-CODE-001 are not risk-acceptable (risk_acceptance_allowed = False), so no conditional approval or risk acceptance is available for the snapshot as submitted. Proposed actions RUN_DR_FAILOVER_TEST, REMEDIATE_BUILD_FINDINGS and COMPLETE_OPERATIONAL_HANDOVER are remediation to be performed, not completed remediation. Upstream decisions (IT REWORK, architecture REWORK, security REWORK) are in earlier gates/phases and do not alter these tech_readiness predicates.",
+      "confidence": 0.94,
+      "evidence_support": [
+        {
+          "finding_id": "TR-DR-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"dr_required\": true, \"dr_tested\": false"
+        },
+        {
+          "finding_id": "TR-DR-001",
+          "evidence_id": "FAILOVER_TEST",
+          "quote": "{\"dr_required\": \"True\", \"result\": \"NOT_RUN\", \"secondary_region\": \"North Europe\", \"tested\": \"False\"}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"critical_static_findings\": 1"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "CI_PIPELINE",
+          "quote": "{\"unit_test_coverage_pct\": 37, \"critical_static_findings\": 1, \"build_reproducible\": true}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "RUNBOOK",
+          "quote": "Runbook status | draft"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "OBTAIN_BUDGET_APPROVAL",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "BUDGET_APPROVAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Applied DGF-decision-v8 general policy to the authoritative REVIEW_FACTS_GENERAL snapshot (version 1, age 0 days). Firing predicates: (1) strategic_alignment = \\\"weak\\\" → GEN-STRAT-001 (high, SUSPENSION, OBTAIN_STRATEGIC_ARBITRATION, Sponsor). (2) budget_requested_eur 3000000 > budget_approved_eur 2550000 → GEN-BUDGET-001 (high, SUSPENSION, OBTAIN_BUDGET_APPROVAL, CFO / Sponsor), corroborated by the authoritative BUDGET_APPROVAL record (requested 3000000, approved 2550000, status PARTIAL). (3) Upstream decisions contain no NO_GO and no SUSPENSION, but four REWORK decisions (IT, architecture, security, tech_readiness) → GEN-UPSTREAM-REWORK (high, REWORK, CLOSE_UPSTREAM_REWORK, Project Manager). Non-firing predicates: roi = 0.39 is not < 0.05, so GEN-BC-001 does not fire; phase is governance (not deployment_closure), so GEN-BENEFITS-001 does not fire. Highest-priority disposition is SUSPENSION, which is in authorization_required_for, so authorization is required. The standing mandate MANDATE-89255d0a...-BUILD-05-GENERAL-1 covers \\\"all and only risk-acceptable findings\\\"; GEN-STRAT-001 and GEN-BUDGET-001 are risk-acceptable but the driving disposition is SUSPENSION, which requires authorization. Proposed actions OBTAIN_STRATEGIC_ARBITRATION, OBTAIN_BUDGET_APPROVAL and CLOSE_UPSTREAM_REWORK are remediation to be performed, not completed remediation.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P0\""
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 3000000, \"budget_approved_eur\": 2550000"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "BUDGET_APPROVAL",
+          "quote": "{\"approved_eur\": \"2550000\", \"approver\": \"CFO Office\", \"requested_eur\": \"3000000\", \"status\": \"PARTIAL\"}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\", \"disposition\": \"REWORK\""
+        }
+      ]
+    }
+  ]
+}

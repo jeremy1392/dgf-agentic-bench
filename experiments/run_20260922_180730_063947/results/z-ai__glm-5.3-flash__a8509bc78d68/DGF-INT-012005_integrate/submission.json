@@ -1,0 +1,323 @@
+{
+  "case_id": "7bf8888c-be32-5674-9b74-f95d9ae5f4bd",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "LIFECYCLE_REGISTER",
+        "CAPACITY_REPORT",
+        "CMDB_EXPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "IT Gate (framing phase): every predicate in the decision policy was evaluated against the authoritative REVIEW_FACTS_IT snapshot and cross-checked against the authoritative TECH_CATALOG, LIFECYCLE_REGISTER, CAPACITY_REPORT and CMDB_EXPORT, all of which agree. Non-standard technology has an approved waiver (waiver_present: true, waiver_expiry_days: 365), so IT-CATALOG-001 does not apply; duplicate_capability is false; license_compliant is true; cmdb_record_present is true with run_owner Leila Rossi-12005-SO; technology_eol_months is 18 (above the 12-month threshold); capacity_headroom_pct is 30 (above the 15% threshold); change_record_status is 'approved'. No candidate finding fires, so the gate result is GO with no authorization required. Note: support model is business_hours with bronze continuity class for a High-criticality, Restricted-data service — worth monitoring at later gates, but no policy predicate is triggered at this phase.",
+      "confidence": 0.9,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-PERF-001",
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY",
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "AZURE_RESOURCE_GRAPH",
+        "HLD",
+        "LLD",
+        "IP_PLAN",
+        "DATA_MODEL",
+        "DATA_LINEAGE"
+      ],
+      "authorization_required": false,
+      "rationale": "Architecture Gate (design phase): all six policy predicates were evaluated against the authoritative REVIEW_FACTS_ARCHITECTURE snapshot. Three findings fire. ARCH-HA-001 (high): business_criticality is High while architecture_profile shows multi_az=false and multi_region=false; corroborated by authoritative AZURE_RESOURCE_GRAPH (all 7 resources multiAz=false, single region West US 2) and the HLD (\"Single-AZ / no AZ guarantee\", \"Resilience: backup_only\", \"No live secondary compute\"). ARCH-PERF-001 (medium): measured_latency_ms=700 exceeds latency_target_ms=50 (LLD corroborates 701 ms). ARCH-REV-001 (medium): reversibility_status=missing (LLD declares \"Reversibility | missing\"; HLD shows \"RESTORE NOT TESTED\", \"DR tested: False\"). Non-firing predicates verified: ip_overlap=false (IP_PLAN: all three CIDRs 10.166.80-82.0/24 overlap_detected=False), api_gateway_required=false, data_owner_present=true (DATA_MODEL/DATA_LINEAGE: owner Sofia Ivanov-12005-BO). Highest-severity fired finding drives REWORK per the priority order; REWORK is not in authorization_required_for, so no authorization is required. Risk acceptance was not exercised for the two risk-acceptable findings (PERF/REV) since remediation is required regardless via ARCH-HA-001. Out-of-scope observation for other gates: DATA_INVENTORY shows required_residency=EU vs actual_region=West US 2 for Restricted personal data.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-PERF-001",
+          "quote": "\"latency_target_ms\": 50, \"measured_latency_ms\": 700"
+        },
+        {
+          "evidence_id": "LLD",
+          "finding_id": "ARCH-PERF-001",
+          "quote": "Latency target ms | 50 / Measured latency ms | 701"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-HA-001",
+          "quote": "\"business_criticality\": \"High\" ... \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}"
+        },
+        {
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "finding_id": "ARCH-HA-001",
+          "quote": "\"region\": \"West US 2\", \"multiAz\": false (all 7 resources); \"private_endpoints\": false"
+        },
+        {
+          "evidence_id": "HLD",
+          "finding_id": "ARCH-HA-001",
+          "quote": "Single-AZ / no AZ guarantee ... Resilience: backup_only | RTO/RPO: 24h / 240m | DR tested: False ... No live secondary compute"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-REV-001",
+          "quote": "\"reversibility_status\": \"missing\""
+        },
+        {
+          "evidence_id": "LLD",
+          "finding_id": "ARCH-REV-001",
+          "quote": "Reversibility | missing (declared)"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-NET-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "ENABLE_PRIVATE_ENDPOINTS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "AZURE_RESOURCE_GRAPH",
+        "NSG_RULES",
+        "HLD",
+        "VULN_SCAN",
+        "SENTINEL_STATUS",
+        "IAM_EXPORT",
+        "FIREWALL_POLICY"
+      ],
+      "authorization_required": true,
+      "rationale": "Security Architecture Gate (design phase): all nine policy predicates were evaluated against the authoritative REVIEW_FACTS_SECURITY snapshot. Two critical findings fire. SEC-WAF-001: internet_exposed=true with waf_present=false; corroborated by authoritative WAF_POLICY (present=false, mode='None') and AZURE_RESOURCE_GRAPH (Azure Front Door publicNetworkAccess=true) with NSG_RULES allowing inbound 443 from Internet to AppSubnet. SEC-NET-001: data_classification='Restricted' (personal and payment data) with private_endpoints=false; corroborated by authoritative AZURE_RESOURCE_GRAPH (private_endpoints=false; all 7 resources publicNetworkAccess=true) and HLD ('Private endpoints: False'). Highest-severity fired findings drive NO_GO per the priority order; NO_GO is in authorization_required_for, so authorization is required (risk owner Marc Moreau-12005-RO). Non-firing predicates verified: SEC-WAF-002 (requires waf_present=true; WAF absent), SEC-IAM-001 (mfa='mandatory'), SEC-IAM-002 (snapshot shared_service_principal=false; IAM_EXPORT shows a 'svc-shared' Reader service principal but is 161 days stale and the gate snapshot is authoritative), SEC-LOG-001 (logs_to_siem=true; SENTINEL_STATUS shows active Azure Activity/Entra ID/Application connectors), SEC-VULN-001 (critical_vulns_open=0; VULN_SCAN shows 7 High open, 0 Critical), SEC-PENTEST-001 (phase predicate requires build_acceptance; current phase is design, so pentest evidence is not yet due), SEC-KEY-001 (key_rotation_days=90). No risk acceptance exercised: both fired findings are risk_acceptance_allowed=false and residual_risk_acceptance=false. Out-of-scope observations for other gates/teams: defender=false with an open High Defender posture finding (DEFENDER_FINDINGS), and 7 open High vulnerabilities (VULN_SCAN) that should be tracked to remediation before build_acceptance. Proposed actions are required remediation, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-WAF-001",
+          "quote": "\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\""
+        },
+        {
+          "evidence_id": "WAF_POLICY",
+          "finding_id": "SEC-WAF-001",
+          "quote": "\"present\": false, \"mode\": \"None\", \"managed_rules\": \"OWASP\", \"bot_protection\": false"
+        },
+        {
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "finding_id": "SEC-WAF-001",
+          "quote": "\"name\": \"Azure Front Door\", \"publicNetworkAccess\": true"
+        },
+        {
+          "evidence_id": "NSG_RULES",
+          "finding_id": "SEC-WAF-001",
+          "quote": "{\"action\": \"Allow\", \"destination\": \"AppSubnet\", \"direction\": \"Inbound\", \"port\": \"443\", \"priority\": \"100\", \"source\": \"Internet\"}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-NET-001",
+          "quote": "\"data_classification\": \"Restricted\" ... \"private_endpoints\": false"
+        },
+        {
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "finding_id": "SEC-NET-001",
+          "quote": "\"private_endpoints\": false; all 7 resources (Azure Functions, Function App Workers, Azure SQL Database, Azure Storage Account, Azure Cache for Redis, Azure Data Factory, Azure Front Door) \"publicNetworkAccess\": true"
+        },
+        {
+          "evidence_id": "HLD",
+          "finding_id": "SEC-NET-001",
+          "quote": "Private endpoints: False | Firewall: True | ER: False | VPN: False"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-AUDIT-001",
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "REDLINE_AUDIT_RIGHT",
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA",
+        "DPA",
+        "CONTRACT_PLAYBOOK",
+        "NEGOTIATION_LOG",
+        "DATA_INVENTORY",
+        "DPIA"
+      ],
+      "authorization_required": true,
+      "rationale": "Legal Gate (design phase): all eight policy predicates were evaluated against the authoritative REVIEW_FACTS_LEGAL snapshot (age 0 days). Three findings fire. LEGAL-DPA-001 (critical): personal_data=true with dpa_status='missing'; corroborated by the DPA document ('Status | missing', 'Personal data | True'), MSA §4 ('DPA status: missing') and the authoritative CONTRACT_PLAYBOOK ('DPA: signed if personal data'). LEGAL-AUDIT-001 (high): audit_right='reports_only'; corroborated by MSA §7 and NEGOTIATION_LOG ('Audit right currently: reports_only'); the playbook requires 'full or limited', so redline is required. LEGAL-INS-001 (high): insurance_valid=false; corroborated by MSA §10 ('Certificate valid: False'). The insurance finding carries disposition SUSPENSION, which outranks REWORK in the priority order, so the gate disposition is SUSPENSION. Non-firing predicates verified: LEGAL-LIAB-001 (liability_cap_multiplier=5, not 0.5, and security_carveout=true; MSA §11 corroborates), LEGAL-EXIT-001 (exit_assistance_days=180, meets playbook >=30; MSA §9), LEGAL-IP-001 (ip_ownership='vendor', not ambiguous; MSA §8), LEGAL-SIGN-001 (signing_authority_valid=true), LEGAL-LOG-001 (log_export_clause='limited', not 'missing', though business_criticality is High — noted as a negotiation point in the log). Authorization: SUSPENSION is in authorization_required_for, so authorization_required=true. The standing mandate MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-04-LEGAL-1 (Marc Moreau-12005-RO, active) is scoped to 'all and only risk-acceptable findings' and therefore cannot authorize LEGAL-INS-001 or LEGAL-DPA-001 (risk_acceptance_allowed=false). Risk acceptance is not exercised for LEGAL-AUDIT-001 despite being permitted: the authoritative playbook mandates 'full or limited' audit rights for this Restricted personal/payment-data service, the contract remains open ('accepted subject to final commercial approval'), and risk acceptance is a different action from the required remediation. Out-of-scope observations for other gates: DATA_INVENTORY shows required_residency=EU vs actual_region=West US 2 for Restricted personal data, and the DPIA is 'missing' (compliance gate scope). Proposed actions are required remediation, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-DPA-001",
+          "quote": "\"personal_data\": true, \"payment_data\": true ... \"dpa_status\": \"missing\""
+        },
+        {
+          "evidence_id": "DPA",
+          "finding_id": "LEGAL-DPA-001",
+          "quote": "Status | missing ... Personal data | True"
+        },
+        {
+          "evidence_id": "CONTRACT_PLAYBOOK",
+          "finding_id": "LEGAL-DPA-001",
+          "quote": "\"required\": {\"DPA\": \"signed if personal data\", ...}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-AUDIT-001",
+          "quote": "\"audit_right\": \"reports_only\""
+        },
+        {
+          "evidence_id": "CONTRACT_PLAYBOOK",
+          "finding_id": "LEGAL-AUDIT-001",
+          "quote": "\"audit_right\": \"full or limited\""
+        },
+        {
+          "evidence_id": "MSA",
+          "finding_id": "LEGAL-AUDIT-001",
+          "quote": "7. Audit Rights\nCustomer audit rights: reports_only."
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-INS-001",
+          "quote": "\"insurance_valid\": false, \"cyber_insurance_m\": 20"
+        },
+        {
+          "evidence_id": "MSA",
+          "finding_id": "LEGAL-INS-001",
+          "quote": "10. Insurance\nCyber insurance: EUR 20m. Certificate valid: False."
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-RESID-001",
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY",
+        "DPIA",
+        "REG_MAPPING"
+      ],
+      "authorization_required": true,
+      "rationale": "Compliance Gate (design phase): all policy predicates were evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (age 0 days). Three findings fire. COMP-RESID-001 (critical): required_residency='EU' with residency_compliant=false; corroborated by authoritative DATA_INVENTORY (actual_region='West US 2' vs required_residency='EU' for Restricted personal data) — actual data region violates the required residency constraint. COMP-DPIA-001 (high): dpia_required=true with dpia_status='missing'; corroborated by the DPIA document ('Required | True', 'Status | missing'). COMP-AUDIT-001 (high): audit_trail='missing'. Highest-severity fired finding drives NO_GO per the priority order; NO_GO is in authorization_required_for, so authorization is required (risk owner Marc Moreau-12005-RO). The standing mandate MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-05-COMPLIANCE-1 is scoped to 'all and only risk-acceptable findings' and therefore cannot authorize COMP-RESID-001 or COMP-DPIA-001 (risk_acceptance_allowed=false); no conditional approval is attempted. Non-firing predicates verified: COMP-MAP-001 (regulatory_mapping='complete'; authoritative REG_MAPPING shows mapping_status=complete, owner GRC, regulation PCI-DSS), COMP-A11Y-001 (accessibility_status='not_assessed', predicate requires 'major_findings'), COMP-EXPORT-001/002 (export_control='clear'). Out-of-scope observations for other teams: accessibility has not been assessed at all and should be completed before later phases; third_party_monitoring='none' and ethics_review='conditional' warrant tracking. Proposed actions are required remediation, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-DPIA-001",
+          "quote": "\"dpia_required\": true, \"dpia_status\": \"missing\""
+        },
+        {
+          "evidence_id": "DPIA",
+          "finding_id": "COMP-DPIA-001",
+          "quote": "Required | True\nStatus | missing\nPersonal data | True"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"required_residency\": \"EU\", \"residency_compliant\": false"
+        },
+        {
+          "evidence_id": "DATA_INVENTORY",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"actual_region\": \"West US 2\", \"classification\": \"Restricted\", \"dataset\": \"Core business data\", \"personal_data\": \"True\", \"required_residency\": \"EU\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-AUDIT-001",
+          "quote": "\"audit_trail\": \"missing\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS",
+        "BUDGET_APPROVAL",
+        "PORTFOLIO_SNAPSHOT",
+        "BUSINESS_CASE"
+      ],
+      "authorization_required": true,
+      "rationale": "General Gate (governance phase): all policy predicates were evaluated against the authoritative REVIEW_FACTS_GENERAL snapshot (age 0 days). Three findings fire. GEN-STRAT-001 (high): strategic_alignment='weak', corroborated by authoritative PORTFOLIO_SNAPSHOT. GEN-BUDGET-001 (high): budget_requested_eur=3,000,000 exceeds budget_approved_eur=2,550,000, corroborated by authoritative BUDGET_APPROVAL (status PARTIAL, approver CFO Office). GEN-UPSTREAM-NOGO (critical): 2 of 5 upstream gates returned NO_GO — security (INTEGRATE-03-SECURITY-1) and compliance (INTEGRATE-05-COMPLIANCE-1) per UPSTREAM_DECISIONS. Non-firing predicates verified: GEN-BC-001 (roi=0.342 >= 0.05 threshold; non-authoritative BUSINESS_CASE shows 0.842 — conflict resolved in favor of the authoritative snapshot, and both values exceed the threshold so the predicate outcome is unchanged); GEN-BENEFITS-001 (phase is governance, not deployment_closure, and change_plan_status='draft', not 'missing'); GEN-UPSTREAM-SUSPEND and GEN-UPSTREAM-REWORK do not fire because the policy's elif chain selects the NO_GO branch whenever any upstream gate returned NO_GO (legal SUSPENSION and architecture REWORK are subsumed within it). Highest-severity fired finding drives NO_GO per the priority order; NO_GO is in authorization_required_for, so authorization_required=true (risk owner Marc Moreau-12005-RO). The standing mandate MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-06-GENERAL-1 is scoped to 'all and only risk-acceptable findings' and therefore cannot authorize GEN-UPSTREAM-NOGO (risk_acceptance_allowed=false). Risk acceptance was not exercised for GEN-STRAT-001 or GEN-BUDGET-001 despite being permitted: their prescribed actions are portfolio strategic arbitration (Sponsor) and CFO budget approval — approvals from other authorities that risk-owner acceptance cannot substitute (risk acceptance and remediation are different actions) — and the NO_GO disposition stands regardless of any acceptance. Out-of-scope observations for tracking: fte_needed 24.6 vs fte_available 21.8, schedule_slip_weeks 8, payback_months 42 — no policy predicate covers these at this phase. Proposed actions are required remediation, not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-STRAT-001",
+          "quote": "\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\""
+        },
+        {
+          "evidence_id": "PORTFOLIO_SNAPSHOT",
+          "finding_id": "GEN-STRAT-001",
+          "quote": "\"strategic_alignment\": \"weak\", \"priority\": \"P1\", \"project_id\": \"DGF-INT-012005\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-BUDGET-001",
+          "quote": "\"budget_requested_eur\": 3000000, \"budget_approved_eur\": 2550000"
+        },
+        {
+          "evidence_id": "BUDGET_APPROVAL",
+          "finding_id": "GEN-BUDGET-001",
+          "quote": "\"approved_eur\": \"2550000\", \"approver\": \"CFO Office\", \"requested_eur\": \"3000000\", \"status\": \"PARTIAL\""
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"NO_GO\""
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"gate\": \"compliance\", \"phase\": \"design\", \"disposition\": \"NO_GO\""
+        }
+      ]
+    }
+  ]
+}

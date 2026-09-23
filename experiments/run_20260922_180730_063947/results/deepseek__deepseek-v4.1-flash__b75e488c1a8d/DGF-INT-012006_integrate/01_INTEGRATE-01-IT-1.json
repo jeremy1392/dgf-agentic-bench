@@ -1,0 +1,481 @@
+{
+  "usage": {
+    "prompt_tokens": 26967,
+    "completion_tokens": 2263,
+    "total_tokens": 29230,
+    "reasoning_tokens": 1223,
+    "cached_tokens": 21248,
+    "cost": 0.0018403616,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "framing",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 29,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 15,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 8,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 53,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 2,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 14,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1",
+            "occurrence_id": "INTEGRATE-01-IT-1",
+            "gate": "it",
+            "phase": "framing",
+            "authority": "Lucas Martin-12006-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012006",
+            "generation_seed": 12006,
+            "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "project_code": "71C27",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Nadia Nguyen-12006-SP",
+            "project_manager": "Marc Santos-12006-PM",
+            "business_owner": "Omar Ivanov-12006-BO",
+            "service_owner": "Jeremy Meyer-12006-SO",
+            "risk_owner": "Lucas Martin-12006-RO",
+            "start_date": "2026-11-21",
+            "target_go_live": "2027-05-21",
+            "users_impacted": 500,
+            "budget_requested_eur": 500000,
+            "data_classification": "Internal",
+            "business_criticality": "High",
+            "primary_region": "West Europe",
+            "personal_data": true,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 90,
+            "duplicate_capability": false,
+            "existing_alternative": "none",
+            "license_compliant": true,
+            "annual_license_cost_eur": 282285,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "business_hours",
+            "patch_sla_days": 14,
+            "capacity_headroom_pct": 15,
+            "technology_eol_months": 4,
+            "change_record_status": "approved",
+            "service_continuity_class": "silver",
+            "hosting_model": "container_apps"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 15,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "continuity_class": "silver",
+            "record_present": "True",
+            "run_owner": "Jeremy Meyer-12006-SO",
+            "support_model": "business_hours"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 2,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "15",
+            "continuity_class": "silver",
+            "service": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "support_model": "business_hours"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "UNAVAILABLE",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "UNAVAILABLE",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing available evidence and reading the authoritative snapshot.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-9d6b223eacce973f",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-8310c1069a243417",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5771,
+        "completion_tokens": 71,
+        "total_tokens": 5842,
+        "reasoning_tokens": 18,
+        "cached_tokens": 1920,
+        "cost": 0.000577024,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-898f82b21cb9a46f",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-871255a0fa193467",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 2,
+            "id": "chatcmpl-tool-bb81b16a2abcd13f",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6457,
+        "completion_tokens": 161,
+        "total_tokens": 6618,
+        "reasoning_tokens": 47,
+        "cached_tokens": 5760,
+        "cost": 0.000189392,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have the authoritative snapshot. Let me verify the EOL condition isn't contradicted and check the unavailable lifecycle evidence.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-9abcb679a0e23539",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-80c5f167f4e7de18",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7281,
+        "completion_tokens": 718,
+        "total_tokens": 7999,
+        "reasoning_tokens": 613,
+        "cached_tokens": 6400,
+        "cost": 0.00045178,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "The snapshot resolves everything. Applying the decision rule:\n\n- `catalog_status: \"standard\"` + `waiver_present: true` → IT-CATALOG-001 not triggered\n- `duplicate_capability: false`, `license_compliant: true` → IT-RATIONAL-001, IT-LICENSE-001 not triggered\n- `cmdb_record_present: true`, `run_owner_present: true` → IT-CMDB-001, IT-RUN-001 not triggered (and phase is `framing`, so both are inapplicable anyway)\n- `capacity_headroom_pct: 15` (not < 15) and phase `framing` not in (build_acceptance, deployment_closure) → IT-CAPACITY-001 not triggered\n- `change_record_status: \"approved\"` → IT-CHANGE-001 not triggered\n- `technology_eol_months: 4` < 12 → **IT-EOL-001 triggered** (REWORK, action CREATE_CONVERGENCE_PLAN, risk_acceptance_allowed=True)\n\nThe lifecycle register is UNAVAILABLE, but the authoritative REVIEW_FACTS_IT snapshot is the designated authoritative source and states the EOL value directly.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-b974c4dc9f8c1225",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\": \"REWORK\", \"finding_ids\": [\"IT-EOL-001\"], \"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"CMDB_EXPORT\", \"CAPACITY_REPORT\"], \"evidence_support\": [{\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"\\\"technology_eol_months\\\": 4\"}, {\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true\"}], \"authorization_required\": false, \"rationale\": \"IT Gate (framing) against authoritative REVIEW_FACTS_IT: exactly one triggered finding. Technology reaches end-of-life in 4 months (< 12), so IT-EOL-001 applies with disposition REWORK and action CREATE_CONVERGENCE_PLAN owned by the Technology Owner. All other predicates are clean: catalog_status=standard with waiver_present=true, duplicate_capability=false, license_compliant=true, cmdb_record_present=true, run_owner_present=true, change_record_status=approved. Capacity headroom is 15% (not < 15) and, being phase=framing, IT-CAPACITY-001, IT-CMDB-001 and IT-RUN-001 are not applicable. LIFECYCLE_REGISTER and TECH_CATALOG are UNAVAILABLE, but the designated authoritative snapshot supplies the governing values. Gate disposition is driven by the highest-severity triggered finding (REWORK); REWORK is not an authorization-required disposition under the standing mandate, which covers only risk-acceptable findings.\", \"confidence\": 0.9}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7458,
+        "completion_tokens": 1313,
+        "total_tokens": 8771,
+        "reasoning_tokens": 545,
+        "cached_tokens": 7168,
+        "cost": 0.0006221656,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra"
+  ],
+  "turns": 4,
+  "tool_call_count": 7,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "CMDB_EXPORT",
+      "CAPACITY_REPORT"
+    ],
+    "authorization_required": false,
+    "rationale": "IT Gate (framing) against authoritative REVIEW_FACTS_IT: exactly one triggered finding. Technology reaches end-of-life in 4 months (< 12), so IT-EOL-001 applies with disposition REWORK and action CREATE_CONVERGENCE_PLAN owned by the Technology Owner. All other predicates are clean: catalog_status=standard with waiver_present=true, duplicate_capability=false, license_compliant=true, cmdb_record_present=true, run_owner_present=true, change_record_status=approved. Capacity headroom is 15% (not < 15) and, being phase=framing, IT-CAPACITY-001, IT-CMDB-001 and IT-RUN-001 are not applicable. LIFECYCLE_REGISTER and TECH_CATALOG are UNAVAILABLE, but the designated authoritative snapshot supplies the governing values. Gate disposition is driven by the highest-severity triggered finding (REWORK); REWORK is not an authorization-required disposition under the standing mandate, which covers only risk-acceptable findings.",
+    "confidence": 0.9,
+    "evidence_support": [
+      {
+        "finding_id": "IT-EOL-001",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "quote": "\"technology_eol_months\": 4"
+      },
+      {
+        "finding_id": "IT-EOL-001",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "quote": "\"catalog_status\": \"standard\", \"waiver_present\": true"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 4,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

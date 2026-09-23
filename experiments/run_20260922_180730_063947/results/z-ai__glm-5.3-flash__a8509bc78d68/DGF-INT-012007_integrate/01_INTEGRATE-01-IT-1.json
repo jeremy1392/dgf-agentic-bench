@@ -1,0 +1,542 @@
+{
+  "usage": {
+    "prompt_tokens": 61579,
+    "completion_tokens": 3440,
+    "total_tokens": 65019,
+    "reasoning_tokens": 2672,
+    "cached_tokens": 53760,
+    "cost": 0.00665605,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "framing",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 151,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 178,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 72,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 132,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 82,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 63,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012007",
+            "generation_seed": 12007,
+            "project_name": "Saffron Acquisition Integration — Contract Intelligence [64AF6]",
+            "project_code": "64AF6",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Samir Martin-12007-SP",
+            "project_manager": "Lucas Bennett-12007-PM",
+            "business_owner": "Lucas Santos-12007-BO",
+            "service_owner": "Marc Rossi-12007-SO",
+            "risk_owner": "Yusuf Petrescu-12007-RO",
+            "start_date": "2026-10-18",
+            "target_go_live": "2027-03-03",
+            "users_impacted": 80,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": true,
+            "ai_enabled": true,
+            "external_users": false
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": false,
+            "waiver_expiry_days": 90,
+            "duplicate_capability": true,
+            "existing_alternative": "enterprise_data_platform",
+            "license_compliant": false,
+            "annual_license_cost_eur": 580995,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "24x7_internal",
+            "patch_sla_days": 90,
+            "capacity_headroom_pct": 8,
+            "technology_eol_months": 60,
+            "change_record_status": "scheduled",
+            "service_continuity_class": "silver",
+            "hosting_model": "mixed"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 72,
+        "path": "gate_evidence/it/technology_catalog.json",
+        "content": {
+          "catalog_status": "standard",
+          "waiver_present": false,
+          "waiver_expiry_days": 90,
+          "hosting_model": "mixed"
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 178,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Saffron Acquisition Integration — Contract Intelligence [64AF6]",
+            "continuity_class": "silver",
+            "record_present": "True",
+            "run_owner": "Marc Rossi-12007-SO",
+            "support_model": "24x7_internal"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 132,
+        "path": "gate_evidence/it/lifecycle_eol.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "8",
+            "eol_months": "60",
+            "technology": "mixed"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 151,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-INT-012007\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Saffron Acquisition Integration — Contract Intelligence [64AF6]\nRoute | integrate\nBusiness unit | Retail\nSponsor | Samir Martin-12007-SP\nProject manager | Lucas Bennett-12007-PM\nBusiness owner | Lucas Santos-12007-BO\nRisk owner | Yusuf Petrescu-12007-RO\nCriticality | High\nData classification | Confidential\nUsers impacted | 80\nTarget go-live | 2027-03-03"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_cdcc432a50fc49debfd2b2a3",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7845,
+        "completion_tokens": 20,
+        "total_tokens": 7865,
+        "reasoning_tokens": 18,
+        "cached_tokens": 1792,
+        "cost": 0.00104339,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_f3d8743bc654444fa3e4ce05",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8343,
+        "completion_tokens": 61,
+        "total_tokens": 8404,
+        "reasoning_tokens": 44,
+        "cached_tokens": 7808,
+        "cost": 0.00065731,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative REVIEW_FACTS_IT snapshot is available. Let me corroborate key fields with the other authoritative evidence before deciding.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_7ef49b2da7424532bbf920ae",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8806,
+        "completion_tokens": 881,
+        "total_tokens": 9687,
+        "reasoning_tokens": 884,
+        "cached_tokens": 8320,
+        "cost": 0.0010958,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_47e4b67534254c2e9a9293c1",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8936,
+        "completion_tokens": 17,
+        "total_tokens": 8953,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8768,
+        "cost": 0.00064746,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_afdfc6c1e4a84dab9e0aa4fd",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9065,
+        "completion_tokens": 20,
+        "total_tokens": 9085,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8896,
+        "cost": 0.00065807,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_87c1c74f37de4929b8da33de",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9169,
+        "completion_tokens": 18,
+        "total_tokens": 9187,
+        "reasoning_tokens": 0,
+        "cached_tokens": 9024,
+        "cost": 0.00066243,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have the authoritative snapshot and corroborating evidence. Applying the decision policy rule definition for phase `framing`:\n\n**Rule evaluation against REVIEW_FACTS_IT:**\n- `catalog_status: \"standard\"` → IT-CATALOG-001 **not triggered** (corroborated by TECH_CATALOG: `\"catalog_status\": \"standard\"`)\n- `duplicate_capability: true` (existing alternative `enterprise_data_platform`) → **IT-RATIONAL-001 triggered** (medium, REWORK)\n- `license_compliant: false` → **IT-LICENSE-001 triggered** (high, REWORK)\n- `cmdb_record_present: true`, `run_owner_present: true` (corroborated by CMDB_EXPORT: `record_present: \"True\"`, `run_owner: \"Marc Rossi-12007-SO\"`) → IT-CMDB-001 / IT-RUN-001 not triggered\n- `technology_eol_months: 60` (corroborated by LIFECYCLE_REGISTER: `\"eol_months\": \"60\"`) → IT-EOL-001 not triggered (≥ 12)\n- `capacity_headroom_pct: 8` < 15, but IT-CAPACITY-001's phase predicate requires `build_acceptance`/`deployment_closure` — **not applicable at framing** (noted for later gates)\n- `change_record_status: \"scheduled\"` and phase ≠ `deployment_closure` → IT-CHANGE-001 not triggered\n\nHighest-priority disposition among triggered findings: **REWORK**. REWORK is not in `authorization_required_for`, so no authorization is required.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_228659f1de34407ca27a5eb6",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"ASSESS_EXISTING_CAPABILITY\", \"REMEDIATE_LICENSE_POSITION\"], \"authorization_required\": false, \"confidence\": 0.9, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"TECH_CATALOG\", \"CMDB_EXPORT\", \"LIFECYCLE_REGISTER\", \"PROJECT_CHARTER\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-RATIONAL-001\", \"quote\": \"\\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-LICENSE-001\", \"quote\": \"\\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 580995\"}], \"finding_ids\": [\"IT-RATIONAL-001\", \"IT-LICENSE-001\"], \"rationale\": \"IT Gate at framing phase, evaluated against the authoritative REVIEW_FACTS_IT snapshot (v1, age 0 days) corroborated by TECH_CATALOG, CMDB_EXPORT and LIFECYCLE_REGISTER. Two policy findings trigger: (1) IT-RATIONAL-001 (medium, REWORK) — duplicate_capability=true with existing_alternative=enterprise_data_platform, so Enterprise Architecture must assess whether the existing capability satisfies the need; (2) IT-LICENSE-001 (high, REWORK) — license_compliant=false with annual_license_cost_eur=580995, requiring IT Asset Management to remediate the licence position. Not triggered at this phase/state: IT-CATALOG-001 (catalog_status=standard, no waiver needed), IT-CMDB-001 and IT-RUN-001 (cmdb_record_present=true, run_owner_present=true, run owner Marc Rossi-12007-SO, 24x7_internal support), IT-EOL-001 (technology_eol_months=60 ≥ 12), IT-CHANGE-001 (change_record_status=scheduled, phase is not deployment_closure). IT-CAPACITY-001 is not applicable at framing because its phase predicate requires build_acceptance/deployment_closure; the observed capacity_headroom_pct=8 (below 15%) should be re-examined at those later gates. Both triggered findings carry disposition REWORK, which is the highest-priority outcome; REWORK is not in authorization_required_for, so no authorization is required. Proposed actions are required remediation, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9415,
+        "completion_tokens": 2423,
+        "total_tokens": 11838,
+        "reasoning_tokens": 1726,
+        "cached_tokens": 9152,
+        "cost": 0.00189159,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 7,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-RATIONAL-001",
+      "IT-LICENSE-001"
+    ],
+    "actions": [
+      "ASSESS_EXISTING_CAPABILITY",
+      "REMEDIATE_LICENSE_POSITION"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "TECH_CATALOG",
+      "CMDB_EXPORT",
+      "LIFECYCLE_REGISTER",
+      "PROJECT_CHARTER"
+    ],
+    "authorization_required": false,
+    "rationale": "IT Gate at framing phase, evaluated against the authoritative REVIEW_FACTS_IT snapshot (v1, age 0 days) corroborated by TECH_CATALOG, CMDB_EXPORT and LIFECYCLE_REGISTER. Two policy findings trigger: (1) IT-RATIONAL-001 (medium, REWORK) — duplicate_capability=true with existing_alternative=enterprise_data_platform, so Enterprise Architecture must assess whether the existing capability satisfies the need; (2) IT-LICENSE-001 (high, REWORK) — license_compliant=false with annual_license_cost_eur=580995, requiring IT Asset Management to remediate the licence position. Not triggered at this phase/state: IT-CATALOG-001 (catalog_status=standard, no waiver needed), IT-CMDB-001 and IT-RUN-001 (cmdb_record_present=true, run_owner_present=true, run owner Marc Rossi-12007-SO, 24x7_internal support), IT-EOL-001 (technology_eol_months=60 ≥ 12), IT-CHANGE-001 (change_record_status=scheduled, phase is not deployment_closure). IT-CAPACITY-001 is not applicable at framing because its phase predicate requires build_acceptance/deployment_closure; the observed capacity_headroom_pct=8 (below 15%) should be re-examined at those later gates. Both triggered findings carry disposition REWORK, which is the highest-priority outcome; REWORK is not in authorization_required_for, so no authorization is required. Proposed actions are required remediation, not completed remediation.",
+    "confidence": 0.9,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-RATIONAL-001",
+        "quote": "\"duplicate_capability\": true, \"existing_alternative\": \"enterprise_data_platform\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-LICENSE-001",
+        "quote": "\"license_compliant\": false, \"annual_license_cost_eur\": 580995"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 7,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

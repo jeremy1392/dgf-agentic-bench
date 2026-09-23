@@ -1,0 +1,750 @@
+{
+  "usage": {
+    "prompt_tokens": 74121,
+    "completion_tokens": 7361,
+    "total_tokens": 81482,
+    "reasoning_tokens": 6669,
+    "cached_tokens": 65280,
+    "cost": 0.00957625,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 151,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 143,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 58,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 176,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 57,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 36,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 32,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 60,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 70,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 29,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012007",
+            "generation_seed": 12007,
+            "project_name": "Saffron Acquisition Integration — Contract Intelligence [64AF6]",
+            "project_code": "64AF6",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Samir Martin-12007-SP",
+            "project_manager": "Lucas Bennett-12007-PM",
+            "business_owner": "Lucas Santos-12007-BO",
+            "service_owner": "Marc Rossi-12007-SO",
+            "risk_owner": "Yusuf Petrescu-12007-RO",
+            "start_date": "2026-10-18",
+            "target_go_live": "2027-03-03",
+            "users_impacted": 80,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": true,
+            "ai_enabled": true,
+            "external_users": false
+          },
+          "legal": {
+            "contract_version": "MSA-64AF6-5.5",
+            "governing_law": "France",
+            "dpa_status": "signed",
+            "liability_cap_multiplier": 5,
+            "security_carveout": false,
+            "audit_right": "full",
+            "termination_for_convenience": false,
+            "exit_assistance_days": 180,
+            "ip_ownership": "vendor",
+            "insurance_valid": true,
+            "cyber_insurance_m": 0,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "missing",
+            "sla_penalties": true,
+            "log_export_clause": "included"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DPA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DPA",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 176,
+        "path": "gate_evidence/legal/DPA.docx",
+        "content": "Data Processing Addendum\nData processing\nField | Value\nStatus | signed\nRoles | Customer controller / Supplier processor\nPrimary region | West US 2\nPersonal data | True"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "MSA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "MSA",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 58,
+        "path": "gate_evidence/legal/MSA.docx",
+        "content": "Master Services Agreement\nSynthetic contract MSA-64AF6-5.5\n1. Services\nSupplier shall provide the services described in the Order Form for Saffron Acquisition Integration — Contract Intelligence [64AF6].\nSupplier comment: Clause accepted subject to final commercial approval.\n2. Term\nInitial term 36 months with renewal subject to the Order Form.\nSupplier comment: Clause accepted subject to final commercial approval.\n3. Service Levels\nService credits and penalties: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n4. Data Processing\nDPA status: signed. Transfer clause: missing.\nSupplier comment: Clause accepted subject to final commercial approval.\n5. Confidentiality\nEach party protects confidential information using reasonable safeguards.\nSupplier comment: Clause accepted subject to final commercial approval.\n6. Security\nSecurity logs export: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n7. Audit Rights\nCustomer audit rights: full.\nSupplier comment: Clause accepted subject to final commercial approval.\n8. Intellectual Property\nIP ownership: vendor.\nSupplier comment: Clause accepted subject to final commercial approval.\n9. Exit and Reversibility\nExit assistance: 180 days.\nSupplier comment: Clause accepted subject to final commercial approval.\n10. Insurance\nCyber insurance: EUR 0m. Certificate valid: True.\nSupplier comment: Clause accepted subject to final commercial approval.\n11. Liability\nAggregate liability cap: 5x annual fees. Security carve-out: False.\nSupplier comment: Current liability position is commercially sensitive.\n12. Governing Law\nFrance\nSupplier comment: Clause accepted subject to final commercial approval."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SLA_ANNEX"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SLA_ANNEX",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 57,
+        "path": "gate_evidence/legal/SLA_Annex.docx",
+        "content": "SLA Annex\nService levels\nField | Value\nAvailability | 99.9%\nP1 response | 30 minutes\nPenalties | True\nRecovery target | RTO 24h / RPO 0m"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "NEGOTIATION_LOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "NEGOTIATION_LOG",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 32,
+        "path": "gate_evidence/legal/negotiation_log.docx",
+        "content": "Contract Negotiation Log\nOpen negotiation points\nLiability cap currently 5x annual fees.\nAudit right currently: full.\nExit assistance: 180 days.\nSecurity log export: included.\nDPA status: signed."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "RFP"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "RFP",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 143,
+        "path": "gate_evidence/procurement/RFP.docx",
+        "content": "Request for Proposal\nRFP for Saffron Acquisition Integration — Contract Intelligence [64AF6]\nTender\nMandatory criteria\nSecurity evidence package\nData location disclosure\nSupport SLA\nExit and data export\nSanctions clearance\nField | Value\nRequirements | 165\nCompetition | open_tender\nBudget | 3000000"
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-04-LEGAL-1",
+            "occurrence_id": "INTEGRATE-04-LEGAL-1",
+            "gate": "legal",
+            "phase": "design",
+            "authority": "Yusuf Petrescu-12007-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "request_evidence",
+      "args": {
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "reason": "Authoritative contract playbook is listed as an admissible input for the Legal Gate but is currently unavailable; needed to benchmark liability cap, audit rights, exit assistance, and log-export requirements against policy thresholds before finalizing the legal disposition."
+      },
+      "result": {
+        "status": "RECEIVED",
+        "requested_evidence_id": "CONTRACT_PLAYBOOK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012007",
+            "generation_seed": 12007,
+            "project_name": "Saffron Acquisition Integration — Contract Intelligence [64AF6]",
+            "project_code": "64AF6",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Samir Martin-12007-SP",
+            "project_manager": "Lucas Bennett-12007-PM",
+            "business_owner": "Lucas Santos-12007-BO",
+            "service_owner": "Marc Rossi-12007-SO",
+            "risk_owner": "Yusuf Petrescu-12007-RO",
+            "start_date": "2026-10-18",
+            "target_go_live": "2027-03-03",
+            "users_impacted": 80,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": true,
+            "ai_enabled": true,
+            "external_users": false
+          },
+          "legal": {
+            "contract_version": "MSA-64AF6-5.5",
+            "governing_law": "France",
+            "dpa_status": "signed",
+            "liability_cap_multiplier": 5,
+            "security_carveout": false,
+            "audit_right": "full",
+            "termination_for_convenience": false,
+            "exit_assistance_days": 180,
+            "ip_ownership": "vendor",
+            "insurance_valid": true,
+            "cyber_insurance_m": 0,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "missing",
+            "sla_penalties": true,
+            "log_export_clause": "included"
+          }
+        },
+        "note": "Authoritative submitted-state response; original document is not represented as recovered."
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e7b609d4b52c4ed1a2bfcb5f",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5749,
+        "completion_tokens": 28,
+        "total_tokens": 5777,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00087635,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e5e45f91b06f48b98186d25e",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6522,
+        "completion_tokens": 41,
+        "total_tokens": 6563,
+        "reasoning_tokens": 28,
+        "cached_tokens": 5696,
+        "cost": 0.00054312,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is available and fresh (v1, age 0 days). Let me evaluate the policy predicates against it and corroborate key contract documents.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_3ac9c26d3d184fb3b3e5b6e0",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DPA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6981,
+        "completion_tokens": 1519,
+        "total_tokens": 8500,
+        "reasoning_tokens": 1614,
+        "cached_tokens": 6464,
+        "cost": 0.00128953,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_5f0f2def970d4446a13f12b9",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"MSA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7120,
+        "completion_tokens": 16,
+        "total_tokens": 7136,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6976,
+        "cost": 0.00051792,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_4be76771ab184897af79d3f0",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SLA_ANNEX\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7544,
+        "completion_tokens": 19,
+        "total_tokens": 7563,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7104,
+        "cost": 0.00057278,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_17916739f3ec4c7fbd253810",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"NEGOTIATION_LOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7672,
+        "completion_tokens": 19,
+        "total_tokens": 7691,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7488,
+        "cost": 0.00056126,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_16aad3019f0746228cff45e2",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"RFP\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7800,
+        "completion_tokens": 16,
+        "total_tokens": 7816,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7680,
+        "cost": 0.0005636,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot (REVIEW_FACTS_LEGAL, v1, age 0 days) is corroborated by the MSA, DPA, and negotiation log. Let me check the standing mandate situation and record the one authoritative document that is unavailable (CONTRACT_PLAYBOOK), since it is an admissible input for this gate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_8af4ab8980a049e483af8d7e",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7945,
+        "completion_tokens": 3065,
+        "total_tokens": 11010,
+        "reasoning_tokens": 3386,
+        "cached_tokens": 7744,
+        "cost": 0.00210473,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_9680ca77bae24362a38f3a42",
+            "function": {
+              "name": "request_evidence",
+              "arguments": "{\"evidence_id\": \"CONTRACT_PLAYBOOK\", \"reason\": \"Authoritative contract playbook is listed as an admissible input for the Legal Gate but is currently unavailable; needed to benchmark liability cap, audit rights, exit assistance, and log-export requirements against policy thresholds before finalizing the legal disposition.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8137,
+        "completion_tokens": 69,
+        "total_tokens": 8206,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7936,
+        "cost": 0.00062017,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 9,
+      "assistant": {
+        "role": "assistant",
+        "content": "Investigation complete. The authoritative REVIEW_FACTS_LEGAL snapshot (v1, age 0 days) is corroborated by the MSA, DPA, and negotiation log on every material field. Evaluating each policy predicate:\n\n- **LEGAL-DPA-001**: personal_data=true, but dpa_status='signed' → not triggered (DPA doc: \"Status | signed\"; MSA §4: \"DPA status: signed\")\n- **LEGAL-LIAB-001**: liability_cap_multiplier=5, not 0.5 → not triggered (security_carveout=false noted, but predicate requires cap==0.5)\n- **LEGAL-AUDIT-001**: audit_right='full' → not triggered (MSA §7 corroborates)\n- **LEGAL-EXIT-001**: exit_assistance_days=180 → not triggered (MSA §9 corroborates)\n- **LEGAL-IP-001**: ip_ownership='vendor' — a defined position, not 'ambiguous' → not triggered (MSA §8 corroborates)\n- **LEGAL-INS-001**: insurance_valid=true → not triggered (MSA §10: \"Certificate valid: True\")\n- **LEGAL-SIGN-001**: signing_authority_valid=true → not triggered\n- **LEGAL-LOG-001**: log_export_clause='included' despite business_criticality='High' → not triggered (MSA §6 corroborates)\n\nZero findings trigger → GO per the priority ladder. GO is not in authorization_required_for, so no authorization is needed; the standing mandate is not exercised since no risk-acceptable findings require acceptance. Non-gating advisory observations (data_transfer_clause='missing', cyber_insurance_m=0, termination_for_convenience=false) are flagged for negotiation follow-up but have no policy predicate or catalog finding at this phase.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_11f007243ba94913b06e34a4",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [], \"authorization_required\": false, \"confidence\": 0.93, \"disposition\": \"GO\", \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\", \"MSA\", \"DPA\", \"NEGOTIATION_LOG\"], \"evidence_support\": [], \"finding_ids\": [], \"rationale\": \"Legal Gate at design phase, evaluated against the authoritative REVIEW_FACTS_LEGAL snapshot (v1, age 0 days) using DGF-decision-v8 predicates. All eight candidate findings were tested and none trigger: LEGAL-DPA-001 not triggered because personal_data=true but dpa_status='signed' (corroborated by DPA document 'Status | signed' and MSA section 4 'DPA status: signed'); LEGAL-LIAB-001 not triggered because liability_cap_multiplier=5, not the 0.5 threshold the predicate requires (security_carveout=false is noted but the predicate is not met; MSA section 11 'Aggregate liability cap: 5x annual fees. Security carve-out: False'); LEGAL-AUDIT-001 not triggered because audit_right='full' (MSA section 7 'Customer audit rights: full'); LEGAL-EXIT-001 not triggered because exit_assistance_days=180 (MSA section 9 'Exit assistance: 180 days'); LEGAL-IP-001 not triggered because ip_ownership='vendor' is a defined position, not 'ambiguous' (MSA section 8); LEGAL-INS-001 not triggered because insurance_valid=true (MSA section 10 'Certificate valid: True'); LEGAL-SIGN-001 not triggered because signing_authority_valid=true; LEGAL-LOG-001 not triggered because log_export_clause='included' despite business_criticality='High' (MSA section 6 'Security logs export: included'). With zero findings, the highest-priority outcome is GO. GO is not in authorization_required_for, so authorization_required=false; the active standing mandate (MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-04-LEGAL-1, scope: all and only risk-acceptable findings) is not exercised because no risk-acceptable findings require acceptance. Non-gating advisory observations for the negotiation record, none of which have a policy predicate or catalog finding at this phase: data_transfer_clause='missing' (corroborated by MSA section 4 'Transfer clause: missing'), cyber_insurance_m=0, termination_for_convenience=false, and ip_ownership='vendor' (commercially suboptimal but unambiguous). CONTRACT_PLAYBOOK (authoritative) was unavailable and was formally requested; the request returned the authoritative submitted-state REVIEW_FACTS_LEGAL, which is the sole input the decision rule consumes, so predicate evaluation is unaffected. This decision records the submitted state only; it is not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8651,
+        "completion_tokens": 2569,
+        "total_tokens": 11220,
+        "reasoning_tokens": 1623,
+        "cached_tokens": 8192,
+        "cost": 0.00192679,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 10,
+  "tool_call_count": 9,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-04-LEGAL-1",
+    "disposition": "GO",
+    "finding_ids": [],
+    "actions": [],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL",
+      "MSA",
+      "DPA",
+      "NEGOTIATION_LOG"
+    ],
+    "authorization_required": false,
+    "rationale": "Legal Gate at design phase, evaluated against the authoritative REVIEW_FACTS_LEGAL snapshot (v1, age 0 days) using DGF-decision-v8 predicates. All eight candidate findings were tested and none trigger: LEGAL-DPA-001 not triggered because personal_data=true but dpa_status='signed' (corroborated by DPA document 'Status | signed' and MSA section 4 'DPA status: signed'); LEGAL-LIAB-001 not triggered because liability_cap_multiplier=5, not the 0.5 threshold the predicate requires (security_carveout=false is noted but the predicate is not met; MSA section 11 'Aggregate liability cap: 5x annual fees. Security carve-out: False'); LEGAL-AUDIT-001 not triggered because audit_right='full' (MSA section 7 'Customer audit rights: full'); LEGAL-EXIT-001 not triggered because exit_assistance_days=180 (MSA section 9 'Exit assistance: 180 days'); LEGAL-IP-001 not triggered because ip_ownership='vendor' is a defined position, not 'ambiguous' (MSA section 8); LEGAL-INS-001 not triggered because insurance_valid=true (MSA section 10 'Certificate valid: True'); LEGAL-SIGN-001 not triggered because signing_authority_valid=true; LEGAL-LOG-001 not triggered because log_export_clause='included' despite business_criticality='High' (MSA section 6 'Security logs export: included'). With zero findings, the highest-priority outcome is GO. GO is not in authorization_required_for, so authorization_required=false; the active standing mandate (MANDATE-8e8162e1-a2ab-5334-8973-e317e0c942a9-INTEGRATE-04-LEGAL-1, scope: all and only risk-acceptable findings) is not exercised because no risk-acceptable findings require acceptance. Non-gating advisory observations for the negotiation record, none of which have a policy predicate or catalog finding at this phase: data_transfer_clause='missing' (corroborated by MSA section 4 'Transfer clause: missing'), cyber_insurance_m=0, termination_for_convenience=false, and ip_ownership='vendor' (commercially suboptimal but unambiguous). CONTRACT_PLAYBOOK (authoritative) was unavailable and was formally requested; the request returned the authoritative submitted-state REVIEW_FACTS_LEGAL, which is the sole input the decision rule consumes, so predicate evaluation is unaffected. This decision records the submitted state only; it is not completed remediation.",
+    "confidence": 0.93,
+    "evidence_support": []
+  },
+  "http_stats": {
+    "http_attempts": 29,
+    "retries": 1,
+    "rate_limits": 1,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

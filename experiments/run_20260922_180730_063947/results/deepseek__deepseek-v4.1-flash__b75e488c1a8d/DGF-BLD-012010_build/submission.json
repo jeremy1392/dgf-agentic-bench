@@ -1,0 +1,230 @@
+{
+  "case_id": "d879a593-18bc-5aaf-a8b6-c65ea6e0a91f",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "TECH_CATALOG",
+        "CMDB_EXPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the IT gate rule to the authoritative REVIEW_FACTS_IT snapshot at phase 'opportunity': catalog_status='approved_exception' with waiver_present=true (no IT-CATALOG-001); duplicate_capability=false (no IT-RATIONAL-001); license_compliant=true (no IT-LICENSE-001); cmdb_record_present=true (no IT-CMDB-001); run_owner_present=false but phase is 'opportunity', not build_acceptance/deployment_closure, so IT-RUN-001 is not applicable; capacity_headroom_pct=15 is not <15 and phase predicate fails (no IT-CAPACITY-001); change_record_status='scheduled' and phase != deployment_closure (no IT-CHANGE-001). The only triggered finding is IT-EOL-001: technology_eol_months=4 < 12, requiring a convergence plan (REWORK). REWORK is not in authorization_required_for, so no authorization is required.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"technology_eol_months\": 4"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "IP_PLAN",
+        "HLD",
+        "ARCH_DEBT",
+        "ADR_REGISTER"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the architecture gate rule (DGF-decision-v8) to the authoritative REVIEW_FACTS_ARCHITECTURE snapshot at phase 'design': ip_overlap=false (no ARCH-IP-001; confirmed by IP_PLAN showing overlap_detected=False for 10.166.160.0/24, .161.0/24, .162.0/24). api_gateway_required=true and api_gateway_present=true (no ARCH-API-001). data_owner_present=true and data_lineage_complete=true (no ARCH-DATA-001). measured_latency_ms=30 is not > latency_target_ms=50 (no ARCH-PERF-001). business_criticality='High' but architecture_profile.multi_az=true, so the no-redundancy predicate fails (no ARCH-HA-001); HLD corroborates 'single_region_multi_az' and 'Multi-AZ' placement across three zones. The only triggered finding is ARCH-REV-001: reversibility_status='draft' -> medium, action COMPLETE_EXIT_ARCHITECTURE, disposition GO_WITH_RESERVATIONS, risk_acceptance_allowed=True. This finding is within the active standing mandate (MANDATE-...-BUILD-02-ARCHITECTURE-1, scope 'all and only risk-acceptable findings'), and an authorized conditional approval was executed (APPROVE_WITH_CONDITIONS, EXECUTED). GO_WITH_RESERVATIONS is in authorization_required_for, hence authorization_required=true. Proposed conditions/actions are not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"reversibility_status\": \"draft\", \"data_export_supported\": true"
+        },
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"ip_overlap\": false"
+        },
+        {
+          "finding_id": "ARCH-API-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"api_gateway_required\": true, \"api_gateway_present\": true"
+        },
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"data_owner_present\": true, \"data_lineage_complete\": true"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"latency_target_ms\": 50, \"measured_latency_ms\": 30"
+        },
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"business_criticality\": \"High\" ... \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-NET-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "WAF_POLICY",
+        "AZURE_RESOURCE_GRAPH",
+        "VULN_SCAN",
+        "KEYVAULT_CONFIG",
+        "SENTINEL_STATUS",
+        "IAM_EXPORT"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the DGF-decision-v8 security rule to the authoritative REVIEW_FACTS_SECURITY snapshot at phase 'design': (1) internet_exposed=true with waf_present=true and waf_mode='Detection' triggers SEC-WAF-002 (high, ENABLE_WAF_PREVENTION), corroborated by WAF_POLICY mode='Detection' with bot_protection=false; (2) data_classification='Confidential' with private_endpoints=false triggers SEC-NET-001 (critical, ENABLE_PRIVATE_ENDPOINTS), corroborated by AZURE_RESOURCE_GRAPH showing 'private_endpoints': false and publicNetworkAccess=true on the SQL Database and Storage Account; (3) critical_vulns_open=1 (>0) triggers SEC-VULN-001 (critical, REMEDIATE_CRITICAL_VULNERABILITIES), corroborated by VULN_SCAN listing CVE-2026-8000 severity 'Critical' status 'Open'. Non-triggered predicates confirmed: mfa='mandatory' (no SEC-IAM-001); shared_service_principal=false and IAM_EXPORT shows only a single ManagedIdentity assignment (no SEC-IAM-002); logs_to_siem=true and SENTINEL_STATUS confirms sentinel/logs_to_siem true (no SEC-LOG-001); key_rotation_days=180 not in (None,365) (no SEC-KEY-001); phase='design' so the build_acceptance pentest predicate does not apply (no SEC-PENTEST-001). The two critical findings carry disposition NO_GO and risk_acceptance_allowed=false, so the gate outcome is NO_GO. NO_GO is in authorization_required_for, hence authorization_required=true. Proposed actions are remediation proposals, not completed remediation.",
+      "confidence": 0.97,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\""
+        },
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "WAF_POLICY",
+          "quote": "\"present\": true, \"mode\": \"Detection\", \"managed_rules\": \"OWASP\", \"bot_protection\": false"
+        },
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"data_classification\": \"Confidential\" ... \"private_endpoints\": false"
+        },
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "quote": "\"private_endpoints\": false, \"firewall\": true ... \"name\": \"Azure SQL Database\", \"publicNetworkAccess\": true"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"critical_vulns_open\": 1, \"high_vulns_open\": 8"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "VULN_SCAN",
+          "quote": "{\"id\": \"CVE-2026-8000\", \"severity\": \"Critical\", \"status\": \"Open\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RESTORE-001",
+        "TR-CODE-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "RUN_RESTORE_TEST",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS",
+        "RESTORE_TEST",
+        "CI_PIPELINE",
+        "RUNBOOK",
+        "BACKUP_JOBS",
+        "LOAD_TEST",
+        "FAILOVER_TEST"
+      ],
+      "authorization_required": false,
+      "rationale": "Applying the DGF-decision-v8 tech-readiness rule to the authoritative REVIEW_FACTS_TECH_READINESS snapshot at phase 'build_acceptance': (1) restore_tested=false triggers TR-RESTORE-001 (high, REWORK, RUN_RESTORE_TEST); because the restore was never tested, the 'elif measured_restore_hours > target_rto_hours' branch is not evaluated, so TR-RTO-001 does not fire despite measured_restore_hours=3.5 > target_rto_hours=2; (2) critical_static_findings=2 > 0 triggers TR-CODE-001 (high, REWORK, REMEDIATE_BUILD_FINDINGS), corroborated by CI_PIPELINE reporting critical_static_findings=2; (3) runbook_status='missing' != 'approved' triggers TR-OPS-001 (medium, GO_WITH_RESERVATIONS, COMPLETE_OPERATIONAL_HANDOVER), corroborated by the non-authoritative RUNBOOK showing 'Runbook status | None' — the authoritative snapshot value 'missing' governs. Non-triggered predicates confirmed: backup_enabled=true and BACKUP_JOBS shows enabled=True/last_status=Succeeded (no TR-BACKUP-001); measured_data_loss_minutes=30 is not > target_rpo_minutes=30 (no TR-RPO-001); dr_required=false per both snapshot and FAILOVER_TEST (no TR-DR-001); load_test_pct_of_peak=150 is not < 100 (no TR-LOAD-001); rollback_tested=true (no TR-ROLLBACK-001); open_blockers=0 (no TR-BLOCKER-001). Highest-priority triggered disposition is REWORK (two high-severity REWORK findings), so the gate outcome is REWORK. REWORK is not in authorization_required_for, so authorization_required=false; the standing mandate covers only risk-acceptable findings and no risk acceptance is requested. Proposed actions are remediation proposals, not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "finding_id": "TR-RESTORE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"restore_tested\": false, \"target_rto_hours\": 2, \"measured_restore_hours\": 3.5"
+        },
+        {
+          "finding_id": "TR-RESTORE-001",
+          "evidence_id": "RESTORE_TEST",
+          "quote": "{\"measured_data_loss_minutes\": \"30\", \"measured_restore_hours\": \"3.5\", \"target_rpo_minutes\": \"30\", \"target_rto_hours\": \"2\", \"tested\": \"False\"}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"critical_static_findings\": 2"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "CI_PIPELINE",
+          "quote": "{\"unit_test_coverage_pct\": 83, \"critical_static_findings\": 2, \"build_reproducible\": true}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "\"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "RUNBOOK",
+          "quote": "Runbook status | None\nOn-call defined | True\nHandover signed | None"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO",
+        "GEN-BUDGET-001"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO",
+        "OBTAIN_BUDGET_APPROVAL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Applying the DGF-decision-v8 general rule to the authoritative REVIEW_FACTS_GENERAL snapshot at phase 'governance': strategic_alignment='strong' (no GEN-STRAT-001). budget_requested_eur=3000000 > budget_approved_eur=2550000, so GEN-BUDGET-001 fires (high, SUSPENSION, OBTAIN_BUDGET_APPROVAL); the authoritative BUDGET_APPROVAL evidence is UNAVAILABLE, so the snapshot value governs. roi=0.131 is not < 0.05 (no GEN-BC-001). phase='governance' is not 'deployment_closure', so GEN-BENEFITS-001 does not apply. Upstream: BUILD-03-SECURITY-1 returned disposition NO_GO, so the upstream_no branch fires GEN-UPSTREAM-NOGO (critical, NO_GO, RESOLVE_UPSTREAM_NO_GO); the suspend/rework branches are elif and do not apply. Highest-priority triggered disposition is NO_GO, so the gate outcome is NO_GO. NO_GO is in authorization_required_for, hence authorization_required=true. Proposed actions are remediation proposals, not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"NO_GO\""
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "\"budget_requested_eur\": 3000000, \"budget_approved_eur\": 2550000"
+        }
+      ]
+    }
+  ]
+}

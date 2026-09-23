@@ -1,0 +1,287 @@
+{
+  "usage": {
+    "prompt_tokens": 14988,
+    "completion_tokens": 1936,
+    "total_tokens": 16924,
+    "reasoning_tokens": 1669,
+    "cached_tokens": 0,
+    "cost": 0.018501,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "opportunity",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 42,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 169,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 167,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012014",
+            "generation_seed": 12014,
+            "project_name": "Project Delta — Enterprise Workflow Platform [0166D]",
+            "project_code": "0166D",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Corporate Services",
+            "sponsor": "David Smith-12014-SP",
+            "project_manager": "Marc Rossi-12014-PM",
+            "business_owner": "Leila Haddad-12014-BO",
+            "service_owner": "David Santos-12014-SO",
+            "risk_owner": "Jeremy Ivanov-12014-RO",
+            "start_date": "2026-11-25",
+            "target_go_live": "2027-05-10",
+            "users_impacted": 250,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Confidential",
+            "business_criticality": "High",
+            "primary_region": "France Central",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "non_standard",
+            "waiver_present": false,
+            "waiver_expiry_days": 30,
+            "duplicate_capability": true,
+            "existing_alternative": "shared_api_platform",
+            "license_compliant": true,
+            "annual_license_cost_eur": 85786,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "product_team",
+            "patch_sla_days": 7,
+            "capacity_headroom_pct": 45,
+            "technology_eol_months": 18,
+            "change_record_status": "draft",
+            "service_continuity_class": "bronze",
+            "hosting_model": "mixed"
+          }
+        }
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_373637",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4618,
+        "completion_tokens": 58,
+        "total_tokens": 4676,
+        "reasoning_tokens": 48,
+        "cached_tokens": 0,
+        "cost": 0.003681,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_235385",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4924,
+        "completion_tokens": 35,
+        "total_tokens": 4959,
+        "reasoning_tokens": 12,
+        "cached_tokens": 0,
+        "cost": 0.00382425,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_265746",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\":\"REWORK\",\"finding_ids\":[\"IT-CATALOG-001\",\"IT-RATIONAL-001\"],\"actions\":[\"SUBMIT_TECHNOLOGY_WAIVER\",\"ASSESS_EXISTING_CAPABILITY\"],\"confidence\":1,\"evidence_support\":[{\"quote\":\"\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false\",\"finding_id\":\"IT-CATALOG-001\",\"evidence_id\":\"REVIEW_FACTS_IT\"},{\"finding_id\":\"IT-RATIONAL-001\",\"quote\":\"\\\"duplicate_capability\\\": true\",\"evidence_id\":\"REVIEW_FACTS_IT\"}],\"evidence_refs\":[\"REVIEW_FACTS_IT\"],\"authorization_required\":false,\"rationale\":\"Review of authoritative facts indicates that non-standard technology is proposed without an approved waiver, and an existing enterprise capability (shared_api_platform) duplicate capability is identified. Both findings require rework before proceeding.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5446,
+        "completion_tokens": 1843,
+        "total_tokens": 7289,
+        "reasoning_tokens": 1609,
+        "cached_tokens": 0,
+        "cost": 0.01099575,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 3,
+  "tool_call_count": 2,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-CATALOG-001",
+      "IT-RATIONAL-001"
+    ],
+    "actions": [
+      "SUBMIT_TECHNOLOGY_WAIVER",
+      "ASSESS_EXISTING_CAPABILITY"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT"
+    ],
+    "authorization_required": false,
+    "rationale": "Review of authoritative facts indicates that non-standard technology is proposed without an approved waiver, and an existing enterprise capability (shared_api_platform) duplicate capability is identified. Both findings require rework before proceeding.",
+    "confidence": 1.0,
+    "evidence_support": [
+      {
+        "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false",
+        "finding_id": "IT-CATALOG-001",
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      {
+        "finding_id": "IT-RATIONAL-001",
+        "quote": "\"duplicate_capability\": true",
+        "evidence_id": "REVIEW_FACTS_IT"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 3,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

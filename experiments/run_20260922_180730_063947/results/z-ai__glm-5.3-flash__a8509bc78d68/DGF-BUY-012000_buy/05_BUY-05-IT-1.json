@@ -1,0 +1,805 @@
+{
+  "usage": {
+    "prompt_tokens": 112221,
+    "completion_tokens": 4130,
+    "total_tokens": 116351,
+    "reasoning_tokens": 2662,
+    "cached_tokens": 98944,
+    "cost": 0.010982630000000002,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "it",
+        "phase": "build_acceptance",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 62,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 149,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 42,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LICENSE_POSITION",
+            "path": "gate_evidence/it/license_position.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 14,
+            "consumers": [
+              "it",
+              "procurement",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 15,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "SUPPORT_RACI",
+            "path": "gate_evidence/it/support_raci.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 105,
+            "consumers": [
+              "it",
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 5,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 142,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "FLOW_MATRIX",
+            "path": "gate_evidence/architecture/flow_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 127,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "OPENAPI",
+            "path": "gate_evidence/architecture/openapi.yaml",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 92,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "IP_PLAN",
+            "path": "gate_evidence/architecture/ip_plan.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 17,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ADR_REGISTER",
+            "path": "gate_evidence/architecture/adr_register.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 144,
+            "consumers": [
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "AZURE_RESOURCE_GRAPH",
+            "path": "gate_evidence/security/azure_resource_graph.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 173,
+            "consumers": [
+              "security",
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "IAM_EXPORT",
+            "path": "gate_evidence/security/entra_role_assignments.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "BACKUP_JOBS",
+            "path": "gate_evidence/tech_readiness/backup_jobs.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 91,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "RUNBOOK",
+            "path": "gate_evidence/tech_readiness/production_runbook.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 44,
+            "consumers": [
+              "tech_readiness",
+              "it",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ROLLBACK_TEST",
+            "path": "gate_evidence/tech_readiness/rollback_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 0,
+            "consumers": [
+              "tech_readiness",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012000",
+            "generation_seed": 12000,
+            "project_name": "Project Delta — Observability Platform [F2EE0]",
+            "project_code": "F2EE0",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Sales",
+            "sponsor": "Yusuf Costa-12000-SP",
+            "project_manager": "Victor Dubois-12000-PM",
+            "business_owner": "Marc Volkov-12000-BO",
+            "service_owner": "Noor Dubois-12000-SO",
+            "risk_owner": "Noor Meyer-12000-RO",
+            "start_date": "2026-09-05",
+            "target_go_live": "2027-03-15",
+            "users_impacted": 250,
+            "budget_requested_eur": 1500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "it": {
+            "catalog_status": "non_standard",
+            "waiver_present": false,
+            "waiver_expiry_days": 365,
+            "duplicate_capability": false,
+            "existing_alternative": "legacy_crm",
+            "license_compliant": true,
+            "annual_license_cost_eur": 53261,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "product_team",
+            "patch_sla_days": 90,
+            "capacity_headroom_pct": 20,
+            "technology_eol_months": 8,
+            "change_record_status": "approved",
+            "service_continuity_class": "silver",
+            "hosting_model": "container_apps"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 15,
+        "path": "gate_evidence/it/lifecycle_eol.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "20",
+            "eol_months": "8",
+            "technology": "container_apps"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 5,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "20",
+            "continuity_class": "silver",
+            "service": "Project Delta — Observability Platform [F2EE0]",
+            "support_model": "product_team"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 149,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Project Delta — Observability Platform [F2EE0]",
+            "continuity_class": "silver",
+            "record_present": "True",
+            "run_owner": "Noor Dubois-12000-SO",
+            "support_model": "product_team"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LICENSE_POSITION"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LICENSE_POSITION",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 14,
+        "path": "gate_evidence/it/license_position.csv",
+        "content": [
+          {
+            "annual_cost_eur": "53261",
+            "license_compliant": "True"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SUPPORT_RACI"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SUPPORT_RACI",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 105,
+        "path": "gate_evidence/it/support_raci.docx",
+        "content": "Support & Operations RACI\nOperating model\nField | Value\nRun owner | Noor Dubois-12000-SO\nSupport model | product_team\nPatch SLA days | 90\nCMDB required | Yes"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "UNAVAILABLE",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ef930cd46cb94232b9ebf3a5",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10631,
+        "completion_tokens": 28,
+        "total_tokens": 10659,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00160865,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_3fbcfa3e00e74c3b9138ed5f",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 11848,
+        "completion_tokens": 36,
+        "total_tokens": 11884,
+        "reasoning_tokens": 23,
+        "cached_tokens": 10624,
+        "cost": 0.00094528,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative REVIEW_FACTS_IT snapshot is available. Let me evaluate it against the rule predicates for phase `build_acceptance`:\n\n- `catalog_status: \"non_standard\"` + `waiver_present: false` → **IT-CATALOG-001** triggers\n- `duplicate_capability: false` → no IT-RATIONAL-001\n- `license_compliant: true` → no IT-LICENSE-001\n- `cmdb_record_present: true` → no IT-CMDB-001\n- `run_owner_present: true` → no IT-RUN-001\n- `technology_eol_months: 8` (< 12) → **IT-EOL-001** triggers\n- `capacity_headroom_pct: 20` (≥ 15) → no IT-CAPACITY-001\n- `change_record_status: \"approved\"` (and phase is build_acceptance, not deployment_closure) → no IT-CHANGE-001\n\nLet me corroborate the EOL finding against the authoritative lifecycle register, and check the capacity report for consistency:",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_aea186b04eb54b81ad0ff3ab",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12308,
+        "completion_tokens": 1629,
+        "total_tokens": 13937,
+        "reasoning_tokens": 1477,
+        "cached_tokens": 11840,
+        "cost": 0.0017135,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b10c0efa1b964bc190024c7c",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12629,
+        "completion_tokens": 17,
+        "total_tokens": 12646,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12288,
+        "cost": 0.00091981,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c2cfca6f899f41f1aea58da7",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12745,
+        "completion_tokens": 17,
+        "total_tokens": 12762,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12608,
+        "cost": 0.00091161,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_95b415a994854bbebcbcba94",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LICENSE_POSITION\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12873,
+        "completion_tokens": 16,
+        "total_tokens": 12889,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12736,
+        "cost": 0.00092007,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d5309c26d20941c39ed8b40f",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SUPPORT_RACI\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 12963,
+        "completion_tokens": 19,
+        "total_tokens": 12982,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12864,
+        "cost": 0.00092483,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_40b62bb02ddf4eff976a70b2",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13089,
+        "completion_tokens": 18,
+        "total_tokens": 13107,
+        "reasoning_tokens": 0,
+        "cached_tokens": 12928,
+        "cost": 0.00093811,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "content": "TECH_CATALOG is unavailable, but the authoritative REVIEW_FACTS_IT snapshot is the authoritative source for catalog status, and the authoritative LIFECYCLE_REGISTER corroborates the EOL position. I now have sufficient evidence to decide.\n\n**Evaluation summary (phase = build_acceptance, authoritative REVIEW_FACTS_IT v1, age 0 days):**\n\n| Predicate | Observed | Finding |\n|---|---|---|\n| `catalog_status == \"non_standard\"` and `waiver_present == false` | `\"non_standard\"`, `false` | **IT-CATALOG-001** (high, REWORK, no risk acceptance) |\n| `duplicate_capability` | `false` | — |\n| `license_compliant` | `true` (corroborated by LICENSE_POSITION) | — |\n| `cmdb_record_present` | `true` (corroborated by CMDB_EXPORT) | — |\n| `run_owner_present` | `true` (corroborated by CMDB_EXPORT, SUPPORT_RACI) | — |\n| `technology_eol_months < 12` | `8` (corroborated by LIFECYCLE_REGISTER: container_apps, eol 8 months) | **IT-EOL-001** (high, REWORK) |\n| `capacity_headroom_pct < 15` | `20` (corroborated by CAPACITY_REPORT) | — |\n| `change_record_status in (draft, missing)` and phase == deployment_closure | `\"approved\"`, phase is build_acceptance | — |\n\nHighest-priority triggered disposition: **REWORK** (both findings are REWORK). REWORK is not in the `authorization_required_for` list, so no authorization is required.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b2dbb4c6df4c429c9c654fef",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\", \"CREATE_CONVERGENCE_PLAN\"], \"authorization_required\": false, \"confidence\": 0.93, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"LIFECYCLE_REGISTER\", \"CAPACITY_REPORT\", \"CMDB_EXPORT\", \"LICENSE_POSITION\", \"SUPPORT_RACI\", \"HLD\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-CATALOG-001\", \"quote\": \"\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"technology_eol_months\\\": 8, \\\"hosting_model\\\": \\\"container_apps\\\"\"}, {\"evidence_id\": \"LIFECYCLE_REGISTER\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"{\\\"capacity_headroom_pct\\\": \\\"20\\\", \\\"eol_months\\\": \\\"8\\\", \\\"technology\\\": \\\"container_apps\\\"}\"}, {\"evidence_id\": \"CAPACITY_REPORT\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"{\\\"capacity_headroom_pct\\\": \\\"20\\\", \\\"continuity_class\\\": \\\"silver\\\", \\\"service\\\": \\\"Project Delta — Observability Platform [F2EE0]\\\", \\\"support_model\\\": \\\"product_team\\\"}\"}, {\"evidence_id\": \"CMDB_EXPORT\", \"finding_id\": \"IT-CATALOG-001\", \"quote\": \"{\\\"application\\\": \\\"Project Delta — Observability Platform [F2EE0]\\\", \\\"continuity_class\\\": \\\"silver\\\", \\\"record_present\\\": \\\"True\\\", \\\"run_owner\\\": \\\"Noor Dubois-12000-SO\\\", \\\"support_model\\\": \\\"product_team\\\"}\"}, {\"evidence_id\": \"LICENSE_POSITION\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"{\\\"annual_cost_eur\\\": \\\"53261\\\", \\\"license_compliant\\\": \\\"True\\\"}\"}], \"finding_ids\": [\"IT-CATALOG-001\", \"IT-EOL-001\"], \"rationale\": \"The authoritative REVIEW_FACTS_IT snapshot (v1, age 0 days) triggers exactly two findings at phase build_acceptance. (1) IT-CATALOG-001 (high, REWORK, action SUBMIT_TECHNOLOGY_WAIVER, owner IT Architecture, risk acceptance not allowed): catalog_status=\\\"non_standard\\\" with waiver_present=false; TECH_CATALOG is unavailable, but the review snapshot is the authoritative source for this gate and no approved waiver exists. (2) IT-EOL-001 (high, REWORK, action CREATE_CONVERGENCE_PLAN, owner Technology Owner, risk acceptance allowed but none recorded): technology_eol_months=8 < 12, corroborated by the authoritative LIFECYCLE_REGISTER (technology container_apps, eol_months 8) and the HLD (Compute: container_apps). No other candidate finding triggers: duplicate_capability=false (no IT-RATIONAL-001); license_compliant=true per authoritative LICENSE_POSITION (annual_cost_eur 53261) (no IT-LICENSE-001); cmdb_record_present=true per authoritative CMDB_EXPORT (record_present True) (no IT-CMDB-001); run_owner_present=true per CMDB_EXPORT and SUPPORT_RACI (run owner Noor Dubois-12000-SO) (no IT-RUN-001); capacity_headroom_pct=20 >= 15 per authoritative CAPACITY_REPORT (no IT-CAPACITY-001); change_record_status=\\\"approved\\\" and phase is build_acceptance, not deployment_closure (no IT-CHANGE-001). REWORK is the highest-priority triggered disposition; it is not in the authorization_required list, so no authorization is required. Proposed actions are not completed remediation: a technology waiver must be submitted/approved and a convergence plan created for the container_apps platform reaching EOL in 8 months. Upstream decisions (procurement NO_GO, legal SUSPENSION, compliance NO_GO, security NO_GO) remain separate, already-produced decisions and are not re-adjudicated here.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13135,
+        "completion_tokens": 2350,
+        "total_tokens": 15485,
+        "reasoning_tokens": 1144,
+        "cached_tokens": 13056,
+        "cost": 0.00210077,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 9,
+  "tool_call_count": 8,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-05-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-CATALOG-001",
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "SUBMIT_TECHNOLOGY_WAIVER",
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "LIFECYCLE_REGISTER",
+      "CAPACITY_REPORT",
+      "CMDB_EXPORT",
+      "LICENSE_POSITION",
+      "SUPPORT_RACI",
+      "HLD"
+    ],
+    "authorization_required": false,
+    "rationale": "The authoritative REVIEW_FACTS_IT snapshot (v1, age 0 days) triggers exactly two findings at phase build_acceptance. (1) IT-CATALOG-001 (high, REWORK, action SUBMIT_TECHNOLOGY_WAIVER, owner IT Architecture, risk acceptance not allowed): catalog_status=\"non_standard\" with waiver_present=false; TECH_CATALOG is unavailable, but the review snapshot is the authoritative source for this gate and no approved waiver exists. (2) IT-EOL-001 (high, REWORK, action CREATE_CONVERGENCE_PLAN, owner Technology Owner, risk acceptance allowed but none recorded): technology_eol_months=8 < 12, corroborated by the authoritative LIFECYCLE_REGISTER (technology container_apps, eol_months 8) and the HLD (Compute: container_apps). No other candidate finding triggers: duplicate_capability=false (no IT-RATIONAL-001); license_compliant=true per authoritative LICENSE_POSITION (annual_cost_eur 53261) (no IT-LICENSE-001); cmdb_record_present=true per authoritative CMDB_EXPORT (record_present True) (no IT-CMDB-001); run_owner_present=true per CMDB_EXPORT and SUPPORT_RACI (run owner Noor Dubois-12000-SO) (no IT-RUN-001); capacity_headroom_pct=20 >= 15 per authoritative CAPACITY_REPORT (no IT-CAPACITY-001); change_record_status=\"approved\" and phase is build_acceptance, not deployment_closure (no IT-CHANGE-001). REWORK is the highest-priority triggered disposition; it is not in the authorization_required list, so no authorization is required. Proposed actions are not completed remediation: a technology waiver must be submitted/approved and a convergence plan created for the container_apps platform reaching EOL in 8 months. Upstream decisions (procurement NO_GO, legal SUSPENSION, compliance NO_GO, security NO_GO) remain separate, already-produced decisions and are not re-adjudicated here.",
+    "confidence": 0.93,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-CATALOG-001",
+        "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"technology_eol_months\": 8, \"hosting_model\": \"container_apps\""
+      },
+      {
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "finding_id": "IT-EOL-001",
+        "quote": "{\"capacity_headroom_pct\": \"20\", \"eol_months\": \"8\", \"technology\": \"container_apps\"}"
+      },
+      {
+        "evidence_id": "CAPACITY_REPORT",
+        "finding_id": "IT-EOL-001",
+        "quote": "{\"capacity_headroom_pct\": \"20\", \"continuity_class\": \"silver\", \"service\": \"Project Delta — Observability Platform [F2EE0]\", \"support_model\": \"product_team\"}"
+      },
+      {
+        "evidence_id": "CMDB_EXPORT",
+        "finding_id": "IT-CATALOG-001",
+        "quote": "{\"application\": \"Project Delta — Observability Platform [F2EE0]\", \"continuity_class\": \"silver\", \"record_present\": \"True\", \"run_owner\": \"Noor Dubois-12000-SO\", \"support_model\": \"product_team\"}"
+      },
+      {
+        "evidence_id": "LICENSE_POSITION",
+        "finding_id": "IT-EOL-001",
+        "quote": "{\"annual_cost_eur\": \"53261\", \"license_compliant\": \"True\"}"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 53,
+    "retries": 12,
+    "rate_limits": 12,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

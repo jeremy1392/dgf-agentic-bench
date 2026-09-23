@@ -1,0 +1,700 @@
+{
+  "usage": {
+    "prompt_tokens": 46121,
+    "completion_tokens": 1880,
+    "total_tokens": 48001,
+    "reasoning_tokens": 921,
+    "cached_tokens": 35072,
+    "cost": 0.00276469,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 146,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 157,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 174,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 148,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 51,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 44,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 76,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 6,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 107,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 61,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-ab210d3a-e852-5bbf-be56-36254f5deb4b-INTEGRATE-05-COMPLIANCE-1",
+            "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+            "gate": "compliance",
+            "phase": "design",
+            "authority": "Omar Canale-12009-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012009",
+            "generation_seed": 12009,
+            "project_name": "Meridian Acquisition Integration — AI Service Desk [9D937]",
+            "project_code": "9D937",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Procurement",
+            "sponsor": "Lucas Dubois-12009-SP",
+            "project_manager": "Victor Nguyen-12009-PM",
+            "business_owner": "Nadia Ivanov-12009-BO",
+            "service_owner": "Omar Laurent-12009-SO",
+            "risk_owner": "Omar Canale-12009-RO",
+            "start_date": "2026-12-09",
+            "target_go_live": "2027-12-05",
+            "users_impacted": 2000,
+            "budget_requested_eur": 7000000,
+            "data_classification": "Internal",
+            "business_criticality": "Critical",
+            "primary_region": "UAE Central",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": false
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "NIS2",
+              "EU AI Act / internal AI policy"
+            ],
+            "dpia_required": false,
+            "dpia_status": "not_required",
+            "required_residency": "UAE",
+            "residency_compliant": true,
+            "retention_years": 5,
+            "legal_hold_supported": true,
+            "deletion_enforced": true,
+            "audit_trail": "complete",
+            "accessibility_status": "pass",
+            "ethics_review": "passed",
+            "regulatory_mapping": "missing",
+            "third_party_monitoring": "none",
+            "export_control": "pending"
+          }
+        }
+      }
+    },
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 146,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 157,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 174,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 148,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 51,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 44,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 76,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 6,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 107,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 61,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REG_MAPPING"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REG_MAPPING",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 107,
+        "path": "gate_evidence/compliance/regulatory_mapping.csv",
+        "content": [
+          {
+            "mapping_status": "missing",
+            "owner": "GRC",
+            "regulation": "NIS2"
+          },
+          {
+            "mapping_status": "missing",
+            "owner": "GRC",
+            "regulation": "EU AI Act / internal AI policy"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_INVENTORY"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_INVENTORY",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 76,
+        "path": "gate_evidence/compliance/data_inventory.csv",
+        "content": [
+          {
+            "actual_region": "UAE Central",
+            "classification": "Internal",
+            "dataset": "Core business data",
+            "personal_data": "False",
+            "required_residency": "UAE"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1ae8dcddc1fd4d4283dc9be4",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "call_b0d433fb44c34afbafb55e88",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7739,
+        "completion_tokens": 53,
+        "total_tokens": 7792,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00103363,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_8da58abea73d4dab9162a675",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8683,
+        "completion_tokens": 61,
+        "total_tokens": 8744,
+        "reasoning_tokens": 14,
+        "cached_tokens": 7680,
+        "cost": 0.00023891,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_8580f7f7008e4b06a7f19e91",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "call_c2214805d8264b5a9a8c1225",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REG_MAPPING\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9201,
+        "completion_tokens": 281,
+        "total_tokens": 9482,
+        "reasoning_tokens": 201,
+        "cached_tokens": 8448,
+        "cost": 0.00032849,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ea6301faec6f4cdea3eb6a43",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DATA_INVENTORY\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10174,
+        "completion_tokens": 425,
+        "total_tokens": 10599,
+        "reasoning_tokens": 388,
+        "cached_tokens": 8960,
+        "cost": 0.00046842,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_59b461c8cfa44c10a5113b6e",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-MAP-001\", \"COMP-EXPORT-002\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\", \"REG_MAPPING\", \"DATA_INVENTORY\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"\\\"regulatory_mapping\\\": \\\"missing\\\"\"}, {\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REG_MAPPING\", \"quote\": \"{\\\"mapping_status\\\": \\\"missing\\\", \\\"owner\\\": \\\"GRC\\\", \\\"regulation\\\": \\\"NIS2\\\"}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"\\\"export_control\\\": \\\"pending\\\"\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"EU AI Act / internal AI policy\\\"]\"}], \"authorization_required\": true, \"rationale\": \"Phase is design; all compliance predicates are in scope. Against the authoritative REVIEW_FACTS_COMPLIANCE (v1, age 0): COMP-DPIA-001 does not fire (dpia_required=false, dpia_status=\\\\\\\"not_required\\\\\\\"). COMP-RESID-001 does not fire (residency_compliant=true; required_residency=\\\\\\\"UAE\\\\\\\" and DATA_INVENTORY actual_region=\\\\\\\"UAE Central\\\\\\\" with required_residency=\\\\\\\"UAE\\\\\\\"). COMP-AUDIT-001 does not fire (audit_trail=\\\\\\\"complete\\\\\\\"). COMP-A11Y-001 does not fire (accessibility_status=\\\\\\\"pass\\\\\\\"). COMP-MAP-001 fires: regulatory_mapping=\\\\\\\"missing\\\\\\\", corroborated by REG_MAPPING rows for NIS2 and EU AI Act / internal AI policy each with mapping_status=\\\\\\\"missing\\\\\\\"; severity high, action COMPLETE_CONTROL_MAPPING, owner GRC, disposition REWORK. COMP-EXPORT-002 fires: export_control=\\\\\\\"pending\\\\\\\" (not \\\\\\\"restricted\\\\\\\", so COMP-EXPORT-001 does not fire); severity high, action COMPLETE_EXPORT_CONTROL_REVIEW, owner Compliance, disposition SUSPENSION. Highest disposition in play is SUSPENSION, so the gate is SUSPENSION with both required actions. SUSPENSION is in authorization_required_for, so authorization_required=true; the active standing mandate MANDATE-...-INTEGRATE-05-COMPLIANCE-1 (scope \\\\\\\"all and only risk-acceptable findings\\\\\\\") is not invoked because neither COMP-MAP-001 nor COMP-EXPORT-002 is risk-acceptable (risk_acceptance_allowed=false) and no risk acceptance is proposed.\", \"confidence\": 0.95}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10324,
+        "completion_tokens": 1060,
+        "total_tokens": 11384,
+        "reasoning_tokens": 300,
+        "cached_tokens": 9984,
+        "cost": 0.00069524,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "Relace",
+    "Relace",
+    "Relace",
+    "Relace",
+    "Relace"
+  ],
+  "turns": 5,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+    "disposition": "SUSPENSION",
+    "finding_ids": [
+      "COMP-MAP-001",
+      "COMP-EXPORT-002"
+    ],
+    "actions": [
+      "COMPLETE_CONTROL_MAPPING",
+      "COMPLETE_EXPORT_CONTROL_REVIEW"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE",
+      "REG_MAPPING",
+      "DATA_INVENTORY"
+    ],
+    "authorization_required": true,
+    "rationale": "Phase is design; all compliance predicates are in scope. Against the authoritative REVIEW_FACTS_COMPLIANCE (v1, age 0): COMP-DPIA-001 does not fire (dpia_required=false, dpia_status=\\\"not_required\\\"). COMP-RESID-001 does not fire (residency_compliant=true; required_residency=\\\"UAE\\\" and DATA_INVENTORY actual_region=\\\"UAE Central\\\" with required_residency=\\\"UAE\\\"). COMP-AUDIT-001 does not fire (audit_trail=\\\"complete\\\"). COMP-A11Y-001 does not fire (accessibility_status=\\\"pass\\\"). COMP-MAP-001 fires: regulatory_mapping=\\\"missing\\\", corroborated by REG_MAPPING rows for NIS2 and EU AI Act / internal AI policy each with mapping_status=\\\"missing\\\"; severity high, action COMPLETE_CONTROL_MAPPING, owner GRC, disposition REWORK. COMP-EXPORT-002 fires: export_control=\\\"pending\\\" (not \\\"restricted\\\", so COMP-EXPORT-001 does not fire); severity high, action COMPLETE_EXPORT_CONTROL_REVIEW, owner Compliance, disposition SUSPENSION. Highest disposition in play is SUSPENSION, so the gate is SUSPENSION with both required actions. SUSPENSION is in authorization_required_for, so authorization_required=true; the active standing mandate MANDATE-...-INTEGRATE-05-COMPLIANCE-1 (scope \\\"all and only risk-acceptable findings\\\") is not invoked because neither COMP-MAP-001 nor COMP-EXPORT-002 is risk-acceptable (risk_acceptance_allowed=false) and no risk acceptance is proposed.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "finding_id": "COMP-MAP-001",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "quote": "\"regulatory_mapping\": \"missing\""
+      },
+      {
+        "finding_id": "COMP-MAP-001",
+        "evidence_id": "REG_MAPPING",
+        "quote": "{\"mapping_status\": \"missing\", \"owner\": \"GRC\", \"regulation\": \"NIS2\"}"
+      },
+      {
+        "finding_id": "COMP-EXPORT-002",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "quote": "\"export_control\": \"pending\""
+      },
+      {
+        "finding_id": "COMP-EXPORT-002",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "quote": "\"applicable_regulations\": [\"NIS2\", \"EU AI Act / internal AI policy\"]"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 25,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

@@ -1,0 +1,888 @@
+{
+  "usage": {
+    "prompt_tokens": 99032,
+    "completion_tokens": 4630,
+    "total_tokens": 103662,
+    "reasoning_tokens": 3617,
+    "cached_tokens": 89344,
+    "cost": 0.01002228,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 85,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 161,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 102,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 10,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 57,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 131,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 48,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 95,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 9,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 95,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012008",
+            "generation_seed": 12008,
+            "project_name": "Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+            "project_code": "3ED4F",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Corporate Services",
+            "sponsor": "Omar Santos-12008-SP",
+            "project_manager": "Yusuf Volkov-12008-PM",
+            "business_owner": "Ines Garcia-12008-BO",
+            "service_owner": "Maya Petrescu-12008-SO",
+            "risk_owner": "Ines Petrescu-12008-RO",
+            "start_date": "2026-09-16",
+            "target_go_live": "2027-05-14",
+            "users_impacted": 2000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "UAE North",
+            "personal_data": false,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "PCI-DSS",
+              "EU AI Act / internal AI policy"
+            ],
+            "dpia_required": false,
+            "dpia_status": "not_required",
+            "required_residency": "UAE",
+            "residency_compliant": true,
+            "retention_years": 10,
+            "legal_hold_supported": true,
+            "deletion_enforced": false,
+            "audit_trail": "missing",
+            "accessibility_status": "not_assessed",
+            "ethics_review": "conditional",
+            "regulatory_mapping": "complete",
+            "third_party_monitoring": "continuous",
+            "export_control": "clear"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REG_MAPPING"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REG_MAPPING",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 9,
+        "path": "gate_evidence/compliance/regulatory_mapping.csv",
+        "content": [
+          {
+            "mapping_status": "complete",
+            "owner": "GRC",
+            "regulation": "PCI-DSS"
+          },
+          {
+            "mapping_status": "complete",
+            "owner": "GRC",
+            "regulation": "EU AI Act / internal AI policy"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DPIA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DPIA",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 95,
+        "path": "gate_evidence/compliance/DPIA.docx",
+        "content": "Data Protection Impact Assessment\nDPIA\nField | Value\nRequired | False\nStatus | not_required\nPersonal data | False\nAI enabled | True\nResidual risk owner | Ines Petrescu-12008-RO"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "AI_IMPACT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "AI_IMPACT",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 95,
+        "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+        "content": "AI Impact & Ethics Assessment\nAssessment\nField | Value\nAI enabled | True\nEthics review | conditional\nHigh-impact decision | False\nHuman override available | True"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_LINEAGE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_LINEAGE",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 102,
+        "path": "gate_evidence/architecture/data_lineage.csv",
+        "content": [
+          {
+            "lineage_status": "complete",
+            "owner": "Ines Garcia-12008-BO",
+            "source": "Business source",
+            "target": "Azure SQL Database"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DUE_DILIGENCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DUE_DILIGENCE",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 10,
+        "path": "gate_evidence/procurement/due_diligence.csv",
+        "content": [
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "True",
+            "sanctions": "clear",
+            "vendor": "Asterion Cloud 3ED4F-1"
+          },
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "True",
+            "sanctions": "pending",
+            "vendor": "BlueMesa Systems 3ED4F-2"
+          },
+          {
+            "due_diligence": "pending",
+            "mandatory_failed": "2",
+            "references_checked": "True",
+            "sanctions": "hit",
+            "vendor": "CedarPoint Digital 3ED4F-3"
+          },
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "0",
+            "references_checked": "True",
+            "sanctions": "clear",
+            "vendor": "DeltaForge Technologies 3ED4F-4"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_MODEL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_MODEL",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 161,
+        "path": "gate_evidence/architecture/data_model.json",
+        "content": {
+          "data_owner": "Ines Garcia-12008-BO",
+          "classification": "Confidential",
+          "personal_data": false,
+          "lineage_complete": true
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DPA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DPA",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 131,
+        "path": "gate_evidence/legal/DPA.docx",
+        "content": "Data Processing Addendum\nData processing\nField | Value\nStatus | not_required (declared)\nRoles | Customer controller / Supplier processor\nPrimary region | UAE North\nPersonal data | False"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "MSA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "MSA",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 57,
+        "path": "gate_evidence/legal/MSA.docx",
+        "content": "Master Services Agreement\nSynthetic contract MSA-3ED4F-7.7\n1. Services\nSupplier shall provide the services described in the Order Form for Falcon Acquisition Integration — Risk Analytics Platform [3ED4F].\nSupplier comment: Clause accepted subject to final commercial approval.\n2. Term\nInitial term 36 months with renewal subject to the Order Form.\nSupplier comment: Clause accepted subject to final commercial approval.\n3. Service Levels\nService credits and penalties: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n4. Data Processing\nDPA status: not_required. Transfer clause: contractual_only.\nSupplier comment: Clause accepted subject to final commercial approval.\n5. Confidentiality\nEach party protects confidential information using reasonable safeguards.\nSupplier comment: Clause accepted subject to final commercial approval.\n6. Security\nSecurity logs export: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n7. Audit Rights\nCustomer audit rights: limited.\nSupplier comment: Clause accepted subject to final commercial approval.\n8. Intellectual Property\nIP ownership: shared.\nSupplier comment: Clause accepted subject to final commercial approval.\n9. Exit and Reversibility\nExit assistance: 90 days.\nSupplier comment: Clause accepted subject to final commercial approval.\n10. Insurance\nCyber insurance: EUR 2m. Certificate valid: True.\nSupplier comment: Clause accepted subject to final commercial approval.\n11. Liability\nAggregate liability cap: 1x annual fees. Security carve-out: False.\nSupplier comment: Current liability position is commercially sensitive.\n12. Governing Law\nEngland & Wales\nSupplier comment: Clause accepted subject to final commercial approval."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 85,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-INT-012008\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]\nRoute | integrate\nBusiness unit | Corporate Services\nSponsor | Omar Santos-12008-SP\nProject manager | Yusuf Volkov-12008-PM\nBusiness owner | Ines Garcia-12008-BO\nRisk owner | Ines Petrescu-12008-RO\nCriticality | Medium\nData classification | Confidential\nUsers impacted | 2000\nTarget go-live | 2027-05-14"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_99648ec612c44be681904178",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6593,
+        "completion_tokens": 29,
+        "total_tokens": 6622,
+        "reasoning_tokens": 21,
+        "cached_tokens": 0,
+        "cost": 0.00100345,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_0ca48f246571492b8ec86f51",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7367,
+        "completion_tokens": 43,
+        "total_tokens": 7410,
+        "reasoning_tokens": 27,
+        "cached_tokens": 6592,
+        "cost": 0.00059919,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1d697d771e324d70a817a117",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REG_MAPPING\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7834,
+        "completion_tokens": 1405,
+        "total_tokens": 9239,
+        "reasoning_tokens": 1573,
+        "cached_tokens": 7360,
+        "cost": 0.0012888,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_27175c297dbc4ad090666f6a",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DPIA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7956,
+        "completion_tokens": 17,
+        "total_tokens": 7973,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7808,
+        "cost": 0.00057726,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_50972e55af61416c8e8dca76",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"AI_IMPACT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8079,
+        "completion_tokens": 17,
+        "total_tokens": 8096,
+        "reasoning_tokens": 0,
+        "cached_tokens": 7936,
+        "cost": 0.00058547,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_7b1efd71ce344b9c9d1d0bdb",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DATA_LINEAGE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8195,
+        "completion_tokens": 17,
+        "total_tokens": 8212,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8064,
+        "cost": 0.00059263,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_728edc361d014e038ee9a65c",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DUE_DILIGENCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8305,
+        "completion_tokens": 19,
+        "total_tokens": 8324,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8192,
+        "cost": 0.00059989,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_878e1dc8b9ac4099b26f15dc",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DATA_MODEL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8569,
+        "completion_tokens": 16,
+        "total_tokens": 8585,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8256,
+        "cost": 0.00063287,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 8,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_6384fa5c80f0411cb0f7a559",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DPA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8673,
+        "completion_tokens": 16,
+        "total_tokens": 8689,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8512,
+        "cost": 0.00062799,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 9,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_7c8dee052ffc419795d3c243",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"MSA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8784,
+        "completion_tokens": 16,
+        "total_tokens": 8800,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8640,
+        "cost": 0.0006344,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 10,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_9db4e2d9d8514f7eb6cf3126",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9213,
+        "completion_tokens": 18,
+        "total_tokens": 9231,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8768,
+        "cost": 0.00068951,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 11,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have the authoritative snapshot and corroborating documents. Let me evaluate each policy predicate against `REVIEW_FACTS_COMPLIANCE` (authoritative, age 0 days):\n\n1. **COMP-DPIA-001**: `dpia_required=false` (and `dpia_status=\"not_required\"`) → predicate fails. Corroborated by DPIA doc (\"Required | False\", \"Status | not_required\").\n2. **COMP-RESID-001**: `residency_compliant=true` → predicate fails.\n3. **COMP-AUDIT-001**: `audit_trail=\"missing\"` → **predicate satisfied** (high, REWORK, action IMPLEMENT_AUDIT_TRAIL, risk_acceptance_allowed=false).\n4. **COMP-MAP-001**: `regulatory_mapping=\"complete\"` → predicate fails. Corroborated by authoritative REG_MAPPING (PCI-DSS and EU AI Act both `mapping_status: complete`, owner GRC).\n5. **COMP-A11Y-001**: `accessibility_status=\"not_assessed\"` ≠ `\"major_findings\"` → predicate fails (non-predicate observation; no finding may be invented for it).\n6. **COMP-EXPORT-001/002**: `export_control=\"clear\"` → neither restricted nor pending → both fail.\n\nNon-predicate observations with no policy predicate: `deletion_enforced=false`, `ethics_review=\"conditional\"` (AI_IMPACT corroborates), `third_party_monitoring=\"continuous\"`, and the CedarPoint Digital due-diligence/sanctions hit (procurement-gate context, not a compliance predicate). Only COMP-AUDIT-001 triggers → aggregate disposition **REWORK**. REWORK is not in `authorization_required_for`, and the triggered finding does not permit risk acceptance, so no mandate exercise: `authorization_required=false`.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_c1cc485826044da9a00af7f0",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"IMPLEMENT_AUDIT_TRAIL\"], \"authorization_required\": false, \"confidence\": 0.95, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\", \"REG_MAPPING\", \"DPIA\", \"AI_IMPACT\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-AUDIT-001\", \"quote\": \"\\\"audit_trail\\\": \\\"missing\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-DPIA-001\", \"quote\": \"\\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-RESID-001\", \"quote\": \"\\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true\"}, {\"evidence_id\": \"REG_MAPPING\", \"finding_id\": \"COMP-MAP-001\", \"quote\": \"{\\\"mapping_status\\\": \\\"complete\\\", \\\"owner\\\": \\\"GRC\\\", \\\"regulation\\\": \\\"PCI-DSS\\\"}, {\\\"mapping_status\\\": \\\"complete\\\", \\\"owner\\\": \\\"GRC\\\", \\\"regulation\\\": \\\"EU AI Act / internal AI policy\\\"}\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-A11Y-001\", \"quote\": \"\\\"accessibility_status\\\": \\\"not_assessed\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-EXPORT-001\", \"quote\": \"\\\"export_control\\\": \\\"clear\\\"\"}], \"finding_ids\": [\"COMP-AUDIT-001\"], \"rationale\": \"Compliance Gate (design phase) evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (age 0 days). Exactly one policy predicate is satisfied: COMP-AUDIT-001 (high, REWORK) — audit_trail=\\\"missing\\\", action IMPLEMENT_AUDIT_TRAIL, owner Product Team; no audit-trail evidence document exists in this phase's evidence set, consistent with the snapshot. All other candidate findings fail their predicates and were verified, not assumed: COMP-DPIA-001 fails (dpia_required=false, dpia_status=\\\"not_required\\\"; DPIA doc corroborates \\\"Required | False\\\", \\\"Status | not_required\\\"); COMP-RESID-001 fails (residency_compliant=true, required_residency=\\\"UAE\\\"); COMP-MAP-001 fails (regulatory_mapping=\\\"complete\\\"; corroborated by authoritative REG_MAPPING showing PCI-DSS and EU AI Act / internal AI policy both mapping_status=complete, owner GRC — payment_data=true makes the PCI-DSS mapping material and it is present); COMP-A11Y-001 fails (accessibility_status=\\\"not_assessed\\\" is not \\\"major_findings\\\"; noted as non-predicate context with no policy predicate, so no finding is invented); COMP-EXPORT-001/002 fail (export_control=\\\"clear\\\", neither restricted nor pending). Non-predicate observations (deletion_enforced=false, ethics_review=\\\"conditional\\\" per AI_IMPACT, third_party_monitoring=\\\"continuous\\\", retention_years=10 with legal_hold_supported=true, and the CedarPoint Digital due-diligence/sanctions hit in DUE_DILIGENCE which belongs to the procurement gate) have no predicate in the normative policy and generate no finding at this gate. Aggregate disposition is REWORK, the highest priority among triggered findings. COMP-AUDIT-001 has risk_acceptance_allowed=false, so no risk card is created and the standing mandate (scoped to risk-acceptable findings) cannot be exercised; REWORK is not in authorization_required_for, hence authorization_required=false. The proposed action IMPLEMENT_AUDIT_TRAIL is a remediation request for the submitted state, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9464,
+        "completion_tokens": 3017,
+        "total_tokens": 12481,
+        "reasoning_tokens": 1996,
+        "cached_tokens": 9216,
+        "cost": 0.00219082,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 12,
+  "tool_call_count": 11,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "COMP-AUDIT-001"
+    ],
+    "actions": [
+      "IMPLEMENT_AUDIT_TRAIL"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE",
+      "REG_MAPPING",
+      "DPIA",
+      "AI_IMPACT"
+    ],
+    "authorization_required": false,
+    "rationale": "Compliance Gate (design phase) evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (age 0 days). Exactly one policy predicate is satisfied: COMP-AUDIT-001 (high, REWORK) — audit_trail=\"missing\", action IMPLEMENT_AUDIT_TRAIL, owner Product Team; no audit-trail evidence document exists in this phase's evidence set, consistent with the snapshot. All other candidate findings fail their predicates and were verified, not assumed: COMP-DPIA-001 fails (dpia_required=false, dpia_status=\"not_required\"; DPIA doc corroborates \"Required | False\", \"Status | not_required\"); COMP-RESID-001 fails (residency_compliant=true, required_residency=\"UAE\"); COMP-MAP-001 fails (regulatory_mapping=\"complete\"; corroborated by authoritative REG_MAPPING showing PCI-DSS and EU AI Act / internal AI policy both mapping_status=complete, owner GRC — payment_data=true makes the PCI-DSS mapping material and it is present); COMP-A11Y-001 fails (accessibility_status=\"not_assessed\" is not \"major_findings\"; noted as non-predicate context with no policy predicate, so no finding is invented); COMP-EXPORT-001/002 fail (export_control=\"clear\", neither restricted nor pending). Non-predicate observations (deletion_enforced=false, ethics_review=\"conditional\" per AI_IMPACT, third_party_monitoring=\"continuous\", retention_years=10 with legal_hold_supported=true, and the CedarPoint Digital due-diligence/sanctions hit in DUE_DILIGENCE which belongs to the procurement gate) have no predicate in the normative policy and generate no finding at this gate. Aggregate disposition is REWORK, the highest priority among triggered findings. COMP-AUDIT-001 has risk_acceptance_allowed=false, so no risk card is created and the standing mandate (scoped to risk-acceptable findings) cannot be exercised; REWORK is not in authorization_required_for, hence authorization_required=false. The proposed action IMPLEMENT_AUDIT_TRAIL is a remediation request for the submitted state, not completed remediation.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-AUDIT-001",
+        "quote": "\"audit_trail\": \"missing\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-DPIA-001",
+        "quote": "\"dpia_required\": false, \"dpia_status\": \"not_required\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-RESID-001",
+        "quote": "\"required_residency\": \"UAE\", \"residency_compliant\": true"
+      },
+      {
+        "evidence_id": "REG_MAPPING",
+        "finding_id": "COMP-MAP-001",
+        "quote": "{\"mapping_status\": \"complete\", \"owner\": \"GRC\", \"regulation\": \"PCI-DSS\"}, {\"mapping_status\": \"complete\", \"owner\": \"GRC\", \"regulation\": \"EU AI Act / internal AI policy\"}"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-A11Y-001",
+        "quote": "\"accessibility_status\": \"not_assessed\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-EXPORT-001",
+        "quote": "\"export_control\": \"clear\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 63,
+    "retries": 6,
+    "rate_limits": 6,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

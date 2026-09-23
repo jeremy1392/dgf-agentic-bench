@@ -1,0 +1,612 @@
+{
+  "usage": {
+    "prompt_tokens": 60014,
+    "completion_tokens": 3720,
+    "total_tokens": 63734,
+    "reasoning_tokens": 2510,
+    "cached_tokens": 50624,
+    "cost": 0.006812180000000001,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "compliance",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 131,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 42,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 157,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 75,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 46,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 51,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 28,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 18,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 30,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 148,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+            "path": "gate_evidence/compliance/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "compliance"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/compliance/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012005",
+            "generation_seed": 12005,
+            "project_name": "Orion Acquisition Integration — Supply Chain Integration [622C2]",
+            "project_code": "622C2",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Procurement",
+            "sponsor": "Jeremy Khan-12005-SP",
+            "project_manager": "Nadia Rossi-12005-PM",
+            "business_owner": "Sofia Ivanov-12005-BO",
+            "service_owner": "Leila Rossi-12005-SO",
+            "risk_owner": "Marc Moreau-12005-RO",
+            "start_date": "2026-09-06",
+            "target_go_live": "2027-07-24",
+            "users_impacted": 1000,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Restricted",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "compliance": {
+            "applicable_regulations": [
+              "PCI-DSS"
+            ],
+            "dpia_required": true,
+            "dpia_status": "missing",
+            "required_residency": "EU",
+            "residency_compliant": false,
+            "retention_years": 7,
+            "legal_hold_supported": true,
+            "deletion_enforced": true,
+            "audit_trail": "missing",
+            "accessibility_status": "not_assessed",
+            "ethics_review": "conditional",
+            "regulatory_mapping": "complete",
+            "third_party_monitoring": "none",
+            "export_control": "clear"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DATA_INVENTORY"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DATA_INVENTORY",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 28,
+        "path": "gate_evidence/compliance/data_inventory.csv",
+        "content": [
+          {
+            "actual_region": "West US 2",
+            "classification": "Restricted",
+            "dataset": "Core business data",
+            "personal_data": "True",
+            "required_residency": "EU"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DPIA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DPIA",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 18,
+        "path": "gate_evidence/compliance/DPIA.docx",
+        "content": "Data Protection Impact Assessment\nDPIA\nField | Value\nRequired | True\nStatus | missing\nPersonal data | True\nAI enabled | False\nResidual risk owner | Marc Moreau-12005-RO"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REG_MAPPING"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REG_MAPPING",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 30,
+        "path": "gate_evidence/compliance/regulatory_mapping.csv",
+        "content": [
+          {
+            "mapping_status": "complete",
+            "owner": "GRC",
+            "regulation": "PCI-DSS"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-05-COMPLIANCE-1",
+            "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+            "gate": "compliance",
+            "phase": "design",
+            "authority": "Marc Moreau-12005-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_627e76dcf531406b9bade66f",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7406,
+        "completion_tokens": 28,
+        "total_tokens": 7434,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.0011249,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_9f87940fcd7d4d4eba959109",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8179,
+        "completion_tokens": 53,
+        "total_tokens": 8232,
+        "reasoning_tokens": 35,
+        "cached_tokens": 7360,
+        "cost": 0.00066455,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is clear. Let me corroborate the material findings with the underlying evidence (DATA_INVENTORY for residency, DPIA document, REG_MAPPING).",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_3365da3f7b5544fbaca92bcc",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DATA_INVENTORY\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8631,
+        "completion_tokens": 529,
+        "total_tokens": 9160,
+        "reasoning_tokens": 514,
+        "cached_tokens": 8128,
+        "cost": 0.00090891,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_7c163ee0082b489baa97bf8a",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DPIA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8774,
+        "completion_tokens": 17,
+        "total_tokens": 8791,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8576,
+        "cost": 0.00063852,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_dc373ef529814e6d8622921e",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REG_MAPPING\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8894,
+        "completion_tokens": 16,
+        "total_tokens": 8910,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8768,
+        "cost": 0.00064066,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "All three material predicates are corroborated. Now let me check the standing authorization mandate for this occurrence, since the disposition will require authorization.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_d4015fa3ef334453aee2faf5",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8989,
+        "completion_tokens": 908,
+        "total_tokens": 9897,
+        "reasoning_tokens": 878,
+        "cached_tokens": 8832,
+        "cost": 0.00109579,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "content": "Investigation is complete. All policy predicates have been evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (age 0 days), with corroboration from DATA_INVENTORY (authoritative), the DPIA document, and REG_MAPPING (authoritative).\n\n**Predicate evaluation:**\n- **COMP-DPIA-001 fires**: `dpia_required=true`, `dpia_status=\"missing\"` — corroborated by the DPIA document (\"Required | True / Status | missing\").\n- **COMP-RESID-001 fires (critical)**: `required_residency=\"EU\"`, `residency_compliant=false` — corroborated by authoritative DATA_INVENTORY (`actual_region: West US 2` vs `required_residency: EU` for Restricted personal data).\n- **COMP-AUDIT-001 fires**: `audit_trail=\"missing\"`.\n- **COMP-MAP-001 does not fire**: `regulatory_mapping=\"complete\"` (REG_MAPPING: mapping_status=complete, owner GRC, PCI-DSS).\n- **COMP-A11Y-001 does not fire**: `accessibility_status=\"not_assessed\"` (predicate requires `major_findings`) — noted as an out-of-scope observation.\n- **COMP-EXPORT-001/002 do not fire**: `export_control=\"clear\"`.\n\n**Disposition**: COMP-RESID-001 is critical with disposition NO_GO, which outranks REWORK in the priority order → **NO_GO**. NO_GO is in `authorization_required_for`, so authorization is required. The standing mandate (MANDATE-...-INTEGRATE-05-COMPLIANCE-1, Marc Moreau-12005-RO) is scoped to \"all and only risk-acceptable findings\"; both fired findings have `risk_acceptance_allowed=false`, so the mandate cannot authorize them and no conditional approval is attempted.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_2f83a16b0d044bb8b90d9aa4",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"COMPLETE_DPIA\", \"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\", \"IMPLEMENT_AUDIT_TRAIL\"], \"authorization_required\": true, \"confidence\": 0.95, \"disposition\": \"NO_GO\", \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\", \"DATA_INVENTORY\", \"DPIA\", \"REG_MAPPING\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-DPIA-001\", \"quote\": \"\\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\"\"}, {\"evidence_id\": \"DPIA\", \"finding_id\": \"COMP-DPIA-001\", \"quote\": \"Required | True\\nStatus | missing\\nPersonal data | True\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-RESID-001\", \"quote\": \"\\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": false\"}, {\"evidence_id\": \"DATA_INVENTORY\", \"finding_id\": \"COMP-RESID-001\", \"quote\": \"\\\"actual_region\\\": \\\"West US 2\\\", \\\"classification\\\": \\\"Restricted\\\", \\\"dataset\\\": \\\"Core business data\\\", \\\"personal_data\\\": \\\"True\\\", \\\"required_residency\\\": \\\"EU\\\"\"}, {\"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"finding_id\": \"COMP-AUDIT-001\", \"quote\": \"\\\"audit_trail\\\": \\\"missing\\\"\"}], \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-RESID-001\", \"COMP-AUDIT-001\"], \"rationale\": \"Compliance Gate (design phase): all policy predicates were evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (age 0 days). Three findings fire. COMP-RESID-001 (critical): required_residency='EU' with residency_compliant=false; corroborated by authoritative DATA_INVENTORY (actual_region='West US 2' vs required_residency='EU' for Restricted personal data) — actual data region violates the required residency constraint. COMP-DPIA-001 (high): dpia_required=true with dpia_status='missing'; corroborated by the DPIA document ('Required | True', 'Status | missing'). COMP-AUDIT-001 (high): audit_trail='missing'. Highest-severity fired finding drives NO_GO per the priority order; NO_GO is in authorization_required_for, so authorization is required (risk owner Marc Moreau-12005-RO). The standing mandate MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-05-COMPLIANCE-1 is scoped to 'all and only risk-acceptable findings' and therefore cannot authorize COMP-RESID-001 or COMP-DPIA-001 (risk_acceptance_allowed=false); no conditional approval is attempted. Non-firing predicates verified: COMP-MAP-001 (regulatory_mapping='complete'; authoritative REG_MAPPING shows mapping_status=complete, owner GRC, regulation PCI-DSS), COMP-A11Y-001 (accessibility_status='not_assessed', predicate requires 'major_findings'), COMP-EXPORT-001/002 (export_control='clear'). Out-of-scope observations for other teams: accessibility has not been assessed at all and should be completed before later phases; third_party_monitoring='none' and ethics_review='conditional' warrant tracking. Proposed actions are required remediation, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9141,
+        "completion_tokens": 2169,
+        "total_tokens": 11310,
+        "reasoning_tokens": 1065,
+        "cached_tokens": 8960,
+        "cost": 0.00173885,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 7,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "COMP-DPIA-001",
+      "COMP-RESID-001",
+      "COMP-AUDIT-001"
+    ],
+    "actions": [
+      "COMPLETE_DPIA",
+      "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+      "IMPLEMENT_AUDIT_TRAIL"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_COMPLIANCE",
+      "DATA_INVENTORY",
+      "DPIA",
+      "REG_MAPPING"
+    ],
+    "authorization_required": true,
+    "rationale": "Compliance Gate (design phase): all policy predicates were evaluated against the authoritative REVIEW_FACTS_COMPLIANCE snapshot (age 0 days). Three findings fire. COMP-RESID-001 (critical): required_residency='EU' with residency_compliant=false; corroborated by authoritative DATA_INVENTORY (actual_region='West US 2' vs required_residency='EU' for Restricted personal data) — actual data region violates the required residency constraint. COMP-DPIA-001 (high): dpia_required=true with dpia_status='missing'; corroborated by the DPIA document ('Required | True', 'Status | missing'). COMP-AUDIT-001 (high): audit_trail='missing'. Highest-severity fired finding drives NO_GO per the priority order; NO_GO is in authorization_required_for, so authorization is required (risk owner Marc Moreau-12005-RO). The standing mandate MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-05-COMPLIANCE-1 is scoped to 'all and only risk-acceptable findings' and therefore cannot authorize COMP-RESID-001 or COMP-DPIA-001 (risk_acceptance_allowed=false); no conditional approval is attempted. Non-firing predicates verified: COMP-MAP-001 (regulatory_mapping='complete'; authoritative REG_MAPPING shows mapping_status=complete, owner GRC, regulation PCI-DSS), COMP-A11Y-001 (accessibility_status='not_assessed', predicate requires 'major_findings'), COMP-EXPORT-001/002 (export_control='clear'). Out-of-scope observations for other teams: accessibility has not been assessed at all and should be completed before later phases; third_party_monitoring='none' and ethics_review='conditional' warrant tracking. Proposed actions are required remediation, not completed remediation.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-DPIA-001",
+        "quote": "\"dpia_required\": true, \"dpia_status\": \"missing\""
+      },
+      {
+        "evidence_id": "DPIA",
+        "finding_id": "COMP-DPIA-001",
+        "quote": "Required | True\nStatus | missing\nPersonal data | True"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-RESID-001",
+        "quote": "\"required_residency\": \"EU\", \"residency_compliant\": false"
+      },
+      {
+        "evidence_id": "DATA_INVENTORY",
+        "finding_id": "COMP-RESID-001",
+        "quote": "\"actual_region\": \"West US 2\", \"classification\": \"Restricted\", \"dataset\": \"Core business data\", \"personal_data\": \"True\", \"required_residency\": \"EU\""
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+        "finding_id": "COMP-AUDIT-001",
+        "quote": "\"audit_trail\": \"missing\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 61,
+    "retries": 6,
+    "rate_limits": 6,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

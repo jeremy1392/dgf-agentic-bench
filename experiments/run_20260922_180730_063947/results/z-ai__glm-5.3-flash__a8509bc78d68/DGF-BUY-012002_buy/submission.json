@@ -1,0 +1,275 @@
+{
+  "case_id": "063d5e61-7a26-56ed-9b60-ce8a84676572",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT",
+        "DUE_DILIGENCE",
+        "SCORING_MATRIX",
+        "PRICING_TCO",
+        "BUDGET_APPROVAL",
+        "VENDOR_OFFERS",
+        "RFP"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_PROCUREMENT (v1, age 0d) shows selected vendor Fluxbridge Labs C2D29-4 with mandatory_criteria_failed=0, sanctions=clear, due_diligence=complete, and references_checked=false. Applying the DGF-decision-v8 procurement rule: no mandatory-criteria failure (PROC-MAND-001 not triggered), no sanctions hit or pending (PROC-SAN-001/002 not triggered), due diligence complete (PROC-DD-001 not triggered), and TCO 3y EUR 2,351,128 is well within the purchasing envelope (7,000,000 x 1.5 = 10,500,000; PROC-BUDGET-001 not triggered). Only PROC-REF-001 (medium, references not checked) applies, carrying disposition GO_WITH_RESERVATIONS with action CHECK_VENDOR_REFERENCES. Corroborated by authoritative DUE_DILIGENCE (references_checked=False for Fluxbridge) and non-authoritative SCORING_MATRIX/VENDOR_OFFERS/PRICING_TCO, which agree with the snapshot. Conditional approval for this risk-acceptable finding was recorded under standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1 (authority Thomas Haddad-12002-RO, scope: all and only risk-acceptable findings), with conditions to complete reference checks before award and escalate any adverse reference to the risk owner. Authorization is required for GO_WITH_RESERVATIONS and is satisfied by the active standing mandate.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "finding_id": "PROC-REF-001",
+          "quote": "\"selected_vendor\": \"Fluxbridge Labs C2D29-4\" ... \"vendor\": \"Fluxbridge Labs C2D29-4\", \"functional_score\": 73, \"security_score\": 55, \"tco_3y_eur\": 2351128, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 53.9"
+        },
+        {
+          "evidence_id": "DUE_DILIGENCE",
+          "finding_id": "PROC-REF-001",
+          "quote": "{\"due_diligence\": \"complete\", \"mandatory_failed\": \"0\", \"references_checked\": \"False\", \"sanctions\": \"clear\", \"vendor\": \"Fluxbridge Labs C2D29-4\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-SIGN-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "OBTAIN_AUTHORIZED_SIGNATORY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL",
+        "MSA",
+        "CONTRACT_PLAYBOOK"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_LEGAL (v1, age 0d) for MSA-C2D29-10.9 triggers exactly two findings under DGF-decision-v8. (1) LEGAL-AUDIT-001 (high, REWORK): audit_right=\"reports_only\", corroborated by MSA §7 and the authoritative CONTRACT_PLAYBOOK requiring \"full or limited\"; action REDLINE_AUDIT_RIGHT. (2) LEGAL-SIGN-001 (critical, SUSPENSION): signing_authority_valid=false, corroborated by authoritative contract metadata for MSA-C2D29-10.9 and the playbook requirement signing_authority=\"valid\"; action OBTAIN_AUTHORIZED_SIGNATORY. All other predicates fail to trigger: personal_data=false so no DPA required (LEGAL-DPA-001); liability_cap_multiplier=\"unlimited\" (LEGAL-LIAB-001); exit_assistance_days=60 ≥ playbook minimum 30 (LEGAL-EXIT-001); ip_ownership=\"customer\" (LEGAL-IP-001); insurance_valid=true (LEGAL-INS-001); log_export_clause=\"included\" (LEGAL-LOG-001) — the non-authoritative MSA §6 stating \"missing\" is superseded by the authoritative snapshot and contract metadata per source precedence. Highest-severity disposition is SUSPENSION from the critical signing-authority finding. Authorization is required for SUSPENSION; the active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-02-LEGAL-1 (Thomas Haddad-12002-RO) is scoped to \"all and only risk-acceptable findings\" and cannot cover LEGAL-SIGN-001 (risk_acceptance_allowed=false), so no conditional approval is recorded and the gate is suspended pending an authorized signatory and audit-right redline.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-AUDIT-001",
+          "quote": "\"audit_right\": \"reports_only\""
+        },
+        {
+          "evidence_id": "CONTRACT_PLAYBOOK",
+          "finding_id": "LEGAL-AUDIT-001",
+          "quote": "\"audit_right\": \"full or limited\""
+        },
+        {
+          "evidence_id": "MSA",
+          "finding_id": "LEGAL-AUDIT-001",
+          "quote": "7. Audit Rights\nCustomer audit rights: reports_only (declared)."
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-SIGN-001",
+          "quote": "\"signing_authority_valid\": false"
+        },
+        {
+          "evidence_id": "CONTRACT_PLAYBOOK",
+          "finding_id": "LEGAL-SIGN-001",
+          "quote": "\"signing_authority\": \"valid\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE",
+        "DATA_INVENTORY"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_COMPLIANCE (v1, age 0d) triggers exactly two findings under DGF-decision-v8. (1) COMP-RESID-001 (critical, NO_GO): required_residency=\"UK\" with residency_compliant=false, corroborated by authoritative DATA_INVENTORY showing actual_region=\"North Europe\" for the Confidential core business dataset — the actual data region violates the required residency constraint; action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS. (2) COMP-EXPORT-002 (high, SUSPENSION): export_control=\"pending\" (not \"restricted\", so COMP-EXPORT-001 does not trigger); action COMPLETE_EXPORT_CONTROL_REVIEW. All other predicates fail to trigger: dpia_required=false with dpia_status=\"not_required\" (COMP-DPIA-001), audit_trail=\"partial\" not \"missing\" (COMP-AUDIT-001), regulatory_mapping=\"partial\" not \"missing\" (COMP-MAP-001), accessibility_status=\"pass\" (COMP-A11Y-001). Highest-severity disposition is NO_GO from the critical residency violation. Authorization is required for NO_GO; the active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-03-COMPLIANCE-1 (Thomas Haddad-12002-RO) is scoped to \"all and only risk-acceptable findings\" and cannot cover COMP-RESID-001 or COMP-EXPORT-002 (both risk_acceptance_allowed=false), so no conditional approval is recorded and the gate is blocked pending data relocation or a valid residency basis and completion of export-control screening.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+        },
+        {
+          "evidence_id": "DATA_INVENTORY",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"actual_region\": \"North Europe\", \"classification\": \"Confidential\", \"dataset\": \"Core business data\", \"personal_data\": \"False\", \"required_residency\": \"UK\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-EXPORT-002",
+          "quote": "\"export_control\": \"pending\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "AZURE_RESOURCE_GRAPH",
+        "VULN_SCAN",
+        "WAF_POLICY"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_SECURITY (v1, age 0d) triggers exactly two findings under DGF-decision-v8. (1) SEC-NET-001 (critical, NO_GO): data_classification=\"Confidential\" with private_endpoints=false, corroborated by authoritative AZURE_RESOURCE_GRAPH showing \"private_endpoints\": false and data-tier services (Azure SQL Managed Instance, Azure Storage Account, Azure Key Vault) all with \"publicNetworkAccess\": true — sensitive data services are reachable without private endpoints; action ENABLE_PRIVATE_ENDPOINTS (owner Cloud Platform). (2) SEC-VULN-001 (critical, NO_GO): critical_vulns_open=1, corroborated by authoritative VULN_SCAN showing CVE-2026-8000 severity Critical status Open; action REMEDIATE_CRITICAL_VULNERABILITIES (owner Product Team). All other predicates fail to trigger: WAF present in Prevention mode (WAF_POLICY: \"present\": true, \"mode\": \"Prevention\") so SEC-WAF-001/002 do not apply; mfa=\"mandatory\" (SEC-IAM-001); shared_service_principal=false (SEC-IAM-002); logs_to_siem=true with sentinel=true (SEC-LOG-001); phase is design not build_acceptance and pentest_status=\"pass\" (SEC-PENTEST-001); key_rotation_days=60 not None/365 (SEC-KEY-001). Highest-severity disposition is NO_GO from the two critical findings. Authorization is required for NO_GO; the active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-04-SECURITY-1 (Thomas Haddad-12002-RO) is scoped to \"all and only risk-acceptable findings\" and cannot cover SEC-NET-001 or SEC-VULN-001 (both risk_acceptance_allowed=false), so no conditional approval is recorded and the gate is blocked pending private endpoints for the Confidential data tier and remediation of the open critical vulnerability.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-NET-001",
+          "quote": "\"data_classification\": \"Confidential\" ... \"private_endpoints\": false"
+        },
+        {
+          "evidence_id": "AZURE_RESOURCE_GRAPH",
+          "finding_id": "SEC-NET-001",
+          "quote": "{\"name\": \"Azure SQL Managed Instance\", \"publicNetworkAccess\": true, \"region\": \"North Europe\", \"multiAz\": true} ... {\"name\": \"Azure Storage Account\", \"publicNetworkAccess\": true ...} ... {\"name\": \"Azure Key Vault\", \"publicNetworkAccess\": true ...} ... \"private_endpoints\": false"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-VULN-001",
+          "quote": "\"critical_vulns_open\": 1, \"high_vulns_open\": 2"
+        },
+        {
+          "evidence_id": "VULN_SCAN",
+          "finding_id": "SEC-VULN-001",
+          "quote": "{\"id\": \"CVE-2026-8000\", \"severity\": \"Critical\", \"status\": \"Open\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CMDB-001",
+        "IT-EOL-001",
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "CREATE_CMDB_RECORD",
+        "CREATE_CONVERGENCE_PLAN",
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "CMDB_EXPORT",
+        "LIFECYCLE_REGISTER",
+        "TECH_CATALOG",
+        "LICENSE_POSITION",
+        "SUPPORT_RACI"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_IT (v1, age 0d) at phase build_acceptance triggers exactly three findings under DGF-decision-v8. (1) IT-CMDB-001 (medium, GO_WITH_RESERVATIONS): cmdb_record_present=false, corroborated by authoritative CMDB_EXPORT showing record_present=\"False\" for Project Raven — Payments API Hub [C2D29] and non-authoritative SUPPORT_RACI stating \"CMDB required | Yes\"; action CREATE_CMDB_RECORD (ITSM). (2) IT-EOL-001 (high, REWORK): technology_eol_months=4 < 12, corroborated by authoritative LIFECYCLE_REGISTER showing eol_months=\"4\" for technology container_apps; action CREATE_CONVERGENCE_PLAN (Technology Owner). (3) IT-CAPACITY-001 (medium, GO_WITH_RESERVATIONS): capacity_headroom_pct=8 < 15, corroborated by authoritative LIFECYCLE_REGISTER capacity_headroom_pct=\"8\"; action INCREASE_CAPACITY_HEADROOM (Platform Operations). All other predicates fail to trigger: catalog_status=\"standard\" with waiver_present=true and waiver_expiry_days=180 (IT-CATALOG-001; corroborated by authoritative TECH_CATALOG v5), duplicate_capability=false (IT-RATIONAL-001), license_compliant=true (IT-LICENSE-001; corroborated by authoritative LICENSE_POSITION v5), run_owner_present=true (IT-RUN-001; corroborated by SUPPORT_RACI run owner Amira Nguyen-12002-SO), and change_record_status=\"draft\" does not trigger IT-CHANGE-001 because the phase predicate requires deployment_closure, not build_acceptance. Highest-severity disposition is REWORK from the high-severity IT-EOL-001. REWORK is not in authorization_required_for (GO_WITH_RESERVATIONS, SUSPENSION, NO_GO), so authorization_required=false; the active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-05-IT-1 (Thomas Haddad-12002-RO, scoped to risk-acceptable findings) is not invoked because the gate outcome requires remediation, not risk acceptance. Note: authoritative CAPACITY_REPORT is UNAVAILABLE (age 147d); a request was recorded and the capacity value is corroborated by authoritative LIFECYCLE_REGISTER, so IT-CAPACITY-001 is supported on the submitted snapshot.",
+      "confidence": 0.92,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-CMDB-001",
+          "quote": "\"cmdb_record_present\": false"
+        },
+        {
+          "evidence_id": "CMDB_EXPORT",
+          "finding_id": "IT-CMDB-001",
+          "quote": "{\"application\": \"Project Raven — Payments API Hub [C2D29]\", \"continuity_class\": \"bronze\", \"record_present\": \"False\", \"run_owner\": \"Amira Nguyen-12002-SO\", \"support_model\": \"24x7_internal\"}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 4"
+        },
+        {
+          "evidence_id": "LIFECYCLE_REGISTER",
+          "finding_id": "IT-EOL-001",
+          "quote": "{\"capacity_headroom_pct\": \"8\", \"eol_months\": \"4\", \"technology\": \"container_apps\"}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-CAPACITY-001",
+          "quote": "\"capacity_headroom_pct\": 8"
+        },
+        {
+          "evidence_id": "LIFECYCLE_REGISTER",
+          "finding_id": "IT-CAPACITY-001",
+          "quote": "{\"capacity_headroom_pct\": \"8\", \"eol_months\": \"4\", \"technology\": \"container_apps\"}"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO",
+        "GEN-STRAT-001"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO",
+        "OBTAIN_STRATEGIC_ARBITRATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS",
+        "BUDGET_APPROVAL",
+        "BUSINESS_CASE",
+        "COMMITTEE_BRIEFING",
+        "BENEFITS_PLAN",
+        "PROJECT_CHARTER",
+        "ACTION_REGISTER"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative REVIEW_FACTS_GENERAL (v1, age 0d) at phase governance triggers exactly two findings under DGF-decision-v8. (1) GEN-UPSTREAM-NOGO (critical, NO_GO): UPSTREAM_DECISIONS records 2 upstream gate(s) returned NO_GO — BUY-03-COMPLIANCE-1 (COMP-RESID-001 UK residency violation, COMP-EXPORT-002 export control pending) and BUY-04-SECURITY-1 (SEC-NET-001 private endpoints absent for Confidential data tier, SEC-VULN-001 CVE-2026-8000 Critical open); action RESOLVE_UPSTREAM_NO_GO (Project Manager). The if/elif chain means the legal SUSPENSION (BUY-02) and IT REWORK (BUY-05) are shadowed by the NO_GO branch and do not add separate findings. (2) GEN-STRAT-001 (high, SUSPENSION): strategic_alignment=\"weak\", corroborated by COMMITTEE_BRIEFING and BUSINESS_CASE; action OBTAIN_STRATEGIC_ARBITRATION (Sponsor). All other predicates fail to trigger: budget_requested_eur 7,000,000 ≤ budget_approved_eur 7,700,000 (GEN-BUDGET-001 not triggered; corroborated by authoritative BUDGET_APPROVAL status APPROVED, approver CFO Office); roi 0.344 ≥ 0.05 (GEN-BC-001 not triggered); phase is governance, not deployment_closure, so change_plan_status=\"missing\" does not trigger GEN-BENEFITS-001 (corroborated by BENEFITS_PLAN declaring change plan missing with owner Marc Dubois-12002-BEN). Highest-severity disposition is NO_GO from the critical upstream finding. Authorization is required for NO_GO; the active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-06-GENERAL-1 (Thomas Haddad-12002-RO) is scoped to \"all and only risk-acceptable findings\" and cannot cover GEN-UPSTREAM-NOGO (risk_acceptance_allowed=false); the attempted conditional approval covering only GEN-STRAT-001 was rejected (\"All open findings must be covered\"), so no conditional approval is recorded and the gate is blocked pending resolution of the two upstream NO_GO gates and sponsor strategic arbitration. Note: authoritative PORTFOLIO_SNAPSHOT is UNAVAILABLE (age 91d); a request was recorded and the submitted-state response confirms the snapshot values, so GEN-STRAT-001 is supported on the submitted snapshot. Proposed actions are not completed remediation.",
+      "confidence": 0.95,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-STRAT-001",
+          "quote": "\"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 7700000, \"roi\": 0.344, \"change_plan_status\": \"missing\"}"
+        },
+        {
+          "evidence_id": "COMMITTEE_BRIEFING",
+          "finding_id": "GEN-STRAT-001",
+          "quote": "Portfolio priority | P1\nStrategic alignment | weak"
+        },
+        {
+          "evidence_id": "BUSINESS_CASE",
+          "finding_id": "GEN-STRAT-001",
+          "quote": "{\"metric\": \"Strategic_alignment\", \"value\": \"weak\"}, {\"metric\": \"Portfolio_priority\", \"value\": \"P1\"}"
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "{\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"gate\": \"compliance\", \"phase\": \"design\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-RESID-001\", \"COMP-EXPORT-002\"]} ... {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-NET-001\", \"SEC-VULN-001\"]}"
+        },
+        {
+          "evidence_id": "BUDGET_APPROVAL",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "{\"approved_eur\": \"7700000\", \"approver\": \"CFO Office\", \"requested_eur\": \"7000000\", \"status\": \"APPROVED\"}"
+        }
+      ]
+    }
+  ]
+}

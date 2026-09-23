@@ -1,0 +1,666 @@
+{
+  "usage": {
+    "prompt_tokens": 71794,
+    "completion_tokens": 3718,
+    "total_tokens": 75512,
+    "reasoning_tokens": 2808,
+    "cached_tokens": 54144,
+    "cost": 0.00829658,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "it",
+        "phase": "framing",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 146,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 174,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 13,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 179,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 139,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 51,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012009",
+            "generation_seed": 12009,
+            "project_name": "Meridian Acquisition Integration — AI Service Desk [9D937]",
+            "project_code": "9D937",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Procurement",
+            "sponsor": "Lucas Dubois-12009-SP",
+            "project_manager": "Victor Nguyen-12009-PM",
+            "business_owner": "Nadia Ivanov-12009-BO",
+            "service_owner": "Omar Laurent-12009-SO",
+            "risk_owner": "Omar Canale-12009-RO",
+            "start_date": "2026-12-09",
+            "target_go_live": "2027-12-05",
+            "users_impacted": 2000,
+            "budget_requested_eur": 7000000,
+            "data_classification": "Internal",
+            "business_criticality": "Critical",
+            "primary_region": "UAE Central",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": false
+          },
+          "it": {
+            "catalog_status": "approved_exception",
+            "waiver_present": true,
+            "waiver_expiry_days": 90,
+            "duplicate_capability": false,
+            "existing_alternative": "shared_api_platform",
+            "license_compliant": false,
+            "annual_license_cost_eur": 196634,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "vendor_only",
+            "patch_sla_days": 90,
+            "capacity_headroom_pct": 8,
+            "technology_eol_months": 4,
+            "change_record_status": "missing",
+            "service_continuity_class": "silver",
+            "hosting_model": "container_apps"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "LIFECYCLE_REGISTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 179,
+        "path": "gate_evidence/it/lifecycle_eol.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "8",
+            "eol_months": "4",
+            "technology": "container_apps"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CAPACITY_REPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CAPACITY_REPORT",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 139,
+        "path": "gate_evidence/it/capacity_report.csv",
+        "content": [
+          {
+            "capacity_headroom_pct": "8",
+            "continuity_class": "silver",
+            "service": "Meridian Acquisition Integration — AI Service Desk [9D937]",
+            "support_model": "vendor_only"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 174,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Meridian Acquisition Integration — AI Service Desk [9D937]",
+            "continuity_class": "silver",
+            "record_present": "True",
+            "run_owner": "Omar Laurent-12009-SO",
+            "support_model": "vendor_only"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 146,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-INT-012009\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Meridian Acquisition Integration — AI Service Desk [9D937]\nRoute | integrate\nBusiness unit | Procurement\nSponsor | Lucas Dubois-12009-SP\nProject manager | Victor Nguyen-12009-PM\nBusiness owner | Nadia Ivanov-12009-BO\nRisk owner | Omar Canale-12009-RO\nCriticality | Critical\nData classification | Internal\nUsers impacted | 2000\nTarget go-live | 2027-12-05"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "HLD"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "HLD",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 51,
+        "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+        "content": {
+          "note": "Textual extraction from SVG; use authoritative resource tools for configuration facts.",
+          "labels": [
+            "Azure HLD — Meridian Acquisition Integration — AI Service Desk [9D937]",
+            "DGF-INT-012009 | ARCH-9D937-22009 | enterprise_backoffice | virtual_wan | v2.6",
+            "Primary UAE Central | single_region_single_az | Compute container_apps | Signature 6059f701bf666093a825",
+            "External / Identity",
+            "Corporate Users",
+            "Private consumers",
+            "Microsoft Entra ID",
+            "id-9d937-22009-01",
+            "Corporate Network",
+            "Hybrid / branch source",
+            "Ingress / Edge",
+            "Private Access Only",
+            "edge-9d937-22009-01",
+            "Primary Azure Region — UAE Central",
+            "Single-AZ / no AZ guarantee",
+            "Azure Virtual WAN Hub",
+            "Azure Virtual WAN",
+            "vwan-9d937-22009-01",
+            "ER / VPN Gateway",
+            "vwan-9d937-22009-02",
+            "Azure Firewall",
+            "vwan-9d937-22009-03",
+            "Connected Workload Spoke — Internal Business Application",
+            "Azure Container Apps Environme…",
+            "app-9d937-22009-01",
+            "Frontend Container",
+            "app-9d937-22009-02",
+            "API Container",
+            "app-9d937-22009-03",
+            "Worker Container",
+            "app-9d937-22009-04",
+            "Connected Data Spoke — Enterprise Data Tier",
+            "Azure SQL Database",
+            "data-9d937-22009-01",
+            "Azure Storage Account",
+            "data-9d937-22009-02",
+            "Azure Cache for Redis",
+            "data-9d937-22009-03",
+            "Central Operations / Security",
+            "Application Insights",
+            "ops-9d937-22009-01",
+            "Azure Monitor",
+            "ops-9d937-22009-02",
+            "Log Analytics",
+            "ops-9d937-22009-03",
+            "Single-Region / Single-Zone",
+            "Az",
+            "Primary Workload Only",
+            "single-9d937-22009-01",
+            "Azure Backup / RSV",
+            "backup-9d937-22009-01",
+            "No dedicated DR region",
+            "Case-specific architecture summary",
+            "Architecture ID: ARCH-9D937-22009 | signature: 6059f701bf666093a825",
+            "Solution: enterprise_backoffice | Network: virtual_wan | Edge: private_only",
+            "Compute: container_apps | Data: transactional | Platform: none",
+            "Private endpoints: False | Firewall: True | ER: False | VPN: False",
+            "Resilience: single_region_single_az | RTO/RPO: 8h / 1440m | DR tested: False",
+            "Resource prefix: 9d937-22009",
+            "Visual grammar",
+            "Virtual WAN transit hub + connected spokes",
+            "Internal Business Application → Enterprise Data Tier",
+            "Dashed links = identity / transit / replication",
+            "Every card carries a case-specific resource instance",
+            "Official Azure Architecture Icons | mapped 18 | fallback 1"
+          ]
+        }
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_00b92cf0d3dd4d3caad69b74",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7849,
+        "completion_tokens": 28,
+        "total_tokens": 7877,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00119135,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_59163f0602ed4bf888d4a5b1",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8355,
+        "completion_tokens": 39,
+        "total_tokens": 8394,
+        "reasoning_tokens": 25,
+        "cached_tokens": 7808,
+        "cost": 0.00064811,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_35d927fb0b4c4e6a91a10a7a",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"LIFECYCLE_REGISTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8821,
+        "completion_tokens": 957,
+        "total_tokens": 9778,
+        "reasoning_tokens": 938,
+        "cached_tokens": 8320,
+        "cost": 0.00113605,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_eaa43e48223b4059bd50e80b",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CAPACITY_REPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8926,
+        "completion_tokens": 17,
+        "total_tokens": 8943,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8768,
+        "cost": 0.00064596,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_e7648531582c4ac5be7b7576",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9044,
+        "completion_tokens": 17,
+        "total_tokens": 9061,
+        "reasoning_tokens": 0,
+        "cached_tokens": 8896,
+        "cost": 0.00065342,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_0a49a0f391264afbac708e36",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9173,
+        "completion_tokens": 18,
+        "total_tokens": 9191,
+        "reasoning_tokens": 0,
+        "cached_tokens": 1792,
+        "cost": 0.00124159,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_a6deda5ed3074d3e9a79cc6d",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"HLD\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9423,
+        "completion_tokens": 16,
+        "total_tokens": 9439,
+        "reasoning_tokens": 0,
+        "cached_tokens": 9152,
+        "cost": 0.00068929,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 7,
+      "assistant": {
+        "role": "assistant",
+        "content": "I have the authoritative snapshot and corroborating evidence. Let me evaluate the decision policy against the facts.\n\n**Policy evaluation (phase = `framing`):**\n\n| Rule | Observed value | Fires? |\n|---|---|---|\n| IT-CATALOG-001: `catalog_status == 'non_standard'` and no waiver | `approved_exception`, waiver present (90d) | No |\n| IT-RATIONAL-001: `duplicate_capability` | `false` | No |\n| IT-LICENSE-001: `not license_compliant` (no phase gate) | `license_compliant: false` | **Yes — REWORK** |\n| IT-CMDB-001: record missing (design/build/deploy only) | `cmdb_record_present: true` | No |\n| IT-RUN-001: no run owner (build/deploy only) | `run_owner_present: true` | No |\n| IT-EOL-001: `technology_eol_months < 12` (no phase gate) | `4` months (corroborated by LIFECYCLE_REGISTER: container_apps) | **Yes — REWORK** |\n| IT-CAPACITY-001: headroom <15% (build_acceptance/deployment_closure only) | 8% but phase is `framing` | No (phase-gated) |\n| IT-CHANGE-001: change draft/missing (deployment_closure only) | `missing` but phase is `framing` | No (phase-gated) |\n\nTwo high-severity REWORK findings apply → disposition REWORK; REWORK is not in `authorization_required_for`, so no authorization is needed.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_badf514410734011b6a7fdd3",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"REMEDIATE_LICENSE_POSITION\", \"CREATE_CONVERGENCE_PLAN\"], \"authorization_required\": false, \"confidence\": 0.9, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"LIFECYCLE_REGISTER\", \"CAPACITY_REPORT\", \"CMDB_EXPORT\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-LICENSE-001\", \"quote\": \"\\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 196634\"}, {\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"technology_eol_months\\\": 4\"}, {\"evidence_id\": \"LIFECYCLE_REGISTER\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"eol_months\\\": \\\"4\\\", \\\"technology\\\": \\\"container_apps\\\"\"}], \"finding_ids\": [\"IT-LICENSE-001\", \"IT-EOL-001\"], \"rationale\": \"Authoritative REVIEW_FACTS_IT (v1, age 0d) at phase 'framing' shows two ungated high-severity failures: licence position is not compliant (\\\"license_compliant\\\": false, annual cost EUR 196,634) requiring REMEDIATE_LICENSE_POSITION by IT Asset Management, and the technology reaches end-of-life within 12 months (\\\"technology_eol_months\\\": 4, corroborated by authoritative LIFECYCLE_REGISTER: container_apps, eol_months 4) requiring CREATE_CONVERGENCE_PLAN by the Technology Owner. Both carry disposition REWORK, so the gate result is REWORK; REWORK is not in authorization_required_for, so no authorization is required. Non-applicable checks verified against the snapshot and authoritative sources: catalog_status is 'approved_exception' with waiver present (90 days expiry), so IT-CATALOG-001 does not fire; duplicate_capability is false (IT-RATIONAL-001 no); CMDB record present with run owner Omar Laurent-12009-SO per CMDB_EXPORT (IT-CMDB-001/IT-RUN-001 no). Capacity headroom of 8% (CAPACITY_REPORT) and change_record_status 'missing' are phase-gated to build_acceptance/deployment_closure and therefore not actionable at framing, but must be re-verified at those later gates. Proposed actions are remediation requests, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10203,
+        "completion_tokens": 2626,
+        "total_tokens": 12829,
+        "reasoning_tokens": 1827,
+        "cached_tokens": 9408,
+        "cost": 0.00209081,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 8,
+  "tool_call_count": 7,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-LICENSE-001",
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "REMEDIATE_LICENSE_POSITION",
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "LIFECYCLE_REGISTER",
+      "CAPACITY_REPORT",
+      "CMDB_EXPORT"
+    ],
+    "authorization_required": false,
+    "rationale": "Authoritative REVIEW_FACTS_IT (v1, age 0d) at phase 'framing' shows two ungated high-severity failures: licence position is not compliant (\"license_compliant\": false, annual cost EUR 196,634) requiring REMEDIATE_LICENSE_POSITION by IT Asset Management, and the technology reaches end-of-life within 12 months (\"technology_eol_months\": 4, corroborated by authoritative LIFECYCLE_REGISTER: container_apps, eol_months 4) requiring CREATE_CONVERGENCE_PLAN by the Technology Owner. Both carry disposition REWORK, so the gate result is REWORK; REWORK is not in authorization_required_for, so no authorization is required. Non-applicable checks verified against the snapshot and authoritative sources: catalog_status is 'approved_exception' with waiver present (90 days expiry), so IT-CATALOG-001 does not fire; duplicate_capability is false (IT-RATIONAL-001 no); CMDB record present with run owner Omar Laurent-12009-SO per CMDB_EXPORT (IT-CMDB-001/IT-RUN-001 no). Capacity headroom of 8% (CAPACITY_REPORT) and change_record_status 'missing' are phase-gated to build_acceptance/deployment_closure and therefore not actionable at framing, but must be re-verified at those later gates. Proposed actions are remediation requests, not completed remediation.",
+    "confidence": 0.9,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-LICENSE-001",
+        "quote": "\"license_compliant\": false, \"annual_license_cost_eur\": 196634"
+      },
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"technology_eol_months\": 4"
+      },
+      {
+        "evidence_id": "LIFECYCLE_REGISTER",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"eol_months\": \"4\", \"technology\": \"container_apps\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 11,
+    "retries": 3,
+    "rate_limits": 2,
+    "transient_http_errors": 0,
+    "network_errors": 1
+  }
+}

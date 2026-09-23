@@ -1,0 +1,444 @@
+{
+  "usage": {
+    "prompt_tokens": 30901,
+    "completion_tokens": 3531,
+    "total_tokens": 34432,
+    "reasoning_tokens": 2978,
+    "cached_tokens": 23296,
+    "cost": 0.0045369699999999995,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "it",
+        "phase": "opportunity",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 109,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 40,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 49,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012013",
+            "generation_seed": 12013,
+            "project_name": "Project Atlas — Digital Onboarding [566E0]",
+            "project_code": "566E0",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Sales",
+            "sponsor": "Marc Bennett-12013-SP",
+            "project_manager": "Thomas Canale-12013-PM",
+            "business_owner": "Sofia Meyer-12013-BO",
+            "service_owner": "Yusuf Meyer-12013-SO",
+            "risk_owner": "Ines Rossi-12013-RO",
+            "start_date": "2026-10-20",
+            "target_go_live": "2027-06-30",
+            "users_impacted": 12000,
+            "budget_requested_eur": 900000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 30,
+            "duplicate_capability": false,
+            "existing_alternative": "shared_api_platform",
+            "license_compliant": true,
+            "annual_license_cost_eur": 120164,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "24x7_internal",
+            "patch_sla_days": 90,
+            "capacity_headroom_pct": 30,
+            "technology_eol_months": 8,
+            "change_record_status": "approved",
+            "service_continuity_class": "bronze",
+            "hosting_model": "dedicated_host"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "TECH_CATALOG"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "TECH_CATALOG",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 49,
+        "path": "gate_evidence/it/technology_catalog.json",
+        "content": {
+          "catalog_status": "standard",
+          "waiver_present": true,
+          "waiver_expiry_days": 30,
+          "hosting_model": "dedicated_host"
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CMDB_EXPORT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CMDB_EXPORT",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 40,
+        "path": "gate_evidence/it/cmdb_export.csv",
+        "content": [
+          {
+            "application": "Project Atlas — Digital Onboarding [566E0]",
+            "continuity_class": "bronze",
+            "record_present": "True",
+            "run_owner": "Yusuf Meyer-12013-SO",
+            "support_model": "24x7_internal"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PROJECT_CHARTER"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PROJECT_CHARTER",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 109,
+        "path": "shared/project_charter.docx",
+        "content": "Project Charter\nSynthetic DGF-Bench case DGF-BLD-012013\nProject\nDeclared project assumptions\nArchitecture diagrams and supplier documents are supplied by their respective owners.\nGate reviewers must request missing evidence rather than infer it.\nA negative or rework decision is a valid outcome when the contract is not satisfied.\nField | Value\nName | Project Atlas — Digital Onboarding [566E0]\nRoute | build\nBusiness unit | Sales\nSponsor | Marc Bennett-12013-SP\nProject manager | Thomas Canale-12013-PM\nBusiness owner | Sofia Meyer-12013-BO\nRisk owner | Ines Rossi-12013-RO\nCriticality | Medium\nData classification | Confidential\nUsers impacted | 12000\nTarget go-live | 2027-06-30"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1d8aa11dd9f2409cbe2c9fcd",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4430,
+        "completion_tokens": 28,
+        "total_tokens": 4458,
+        "reasoning_tokens": 18,
+        "cached_tokens": 896,
+        "cost": 0.00060682,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_db6177a72cf74295956abb9c",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4734,
+        "completion_tokens": 36,
+        "total_tokens": 4770,
+        "reasoning_tokens": 21,
+        "cached_tokens": 1792,
+        "cost": 0.00058474,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative REVIEW_FACTS_IT snapshot is available. Let me evaluate it against the decision policy and corroborate the material fields with the other authoritative evidence.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_5e6a4ddbf94f4b319747d9fd",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"TECH_CATALOG\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5197,
+        "completion_tokens": 1113,
+        "total_tokens": 6310,
+        "reasoning_tokens": 1132,
+        "cached_tokens": 4672,
+        "cost": 0.00096229,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_2ccc1b3526ab41a59adbe805",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CMDB_EXPORT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5335,
+        "completion_tokens": 17,
+        "total_tokens": 5352,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5184,
+        "cost": 0.00039403,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot shows one policy trigger. Let me check the remaining available evidence (non-authoritative charter) for any material contradiction before deciding.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_37766271ef794878a337a215",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PROJECT_CHARTER\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5466,
+        "completion_tokens": 908,
+        "total_tokens": 6374,
+        "reasoning_tokens": 945,
+        "cached_tokens": 5312,
+        "cost": 0.00084894,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "content": "Investigation complete. All available evidence has been inspected:\n\n- **REVIEW_FACTS_IT** (authoritative, v1, age 0): the authoritative snapshot for this gate.\n- **TECH_CATALOG** (authoritative): corroborates `catalog_status: standard`, `waiver_present: true`.\n- **CMDB_EXPORT** (authoritative): corroborates CMDB record present, run owner `Yusuf Meyer-12013-SO`, 24x7 internal support.\n- **PROJECT_CHARTER** (non-authoritative, 109 days old): contains no IT fields contradicting the snapshot.\n\nPolicy evaluation against `evaluate_it` at phase **opportunity**:\n\n| Predicate | Observed | Triggered? |\n|---|---|---|\n| catalog non-standard & no waiver | `standard`, waiver present | No |\n| duplicate capability | `false` | No |\n| license non-compliant | `license_compliant: true` | No |\n| CMDB missing (design/build_acceptance/deployment_closure only) | present; phase is opportunity | No |\n| run owner missing (build_acceptance/deployment_closure only) | present | No |\n| **technology_eol_months < 12** | **`technology_eol_months: 8`** | **Yes → IT-EOL-001** |\n| capacity headroom < 15% (build_acceptance/deployment_closure only) | 30% | No |\n| change record draft/missing (deployment_closure only) | `approved` | No |\n\nExactly one finding applies: **IT-EOL-001** (high, REWORK, action `CREATE_CONVERGENCE_PLAN`, owner Technology Owner). REWORK is not in `authorization_required_for`, so no authorization is required.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_425730e8ce484135ba749d71",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"authorization_required\": false, \"confidence\": 0.93, \"disposition\": \"REWORK\", \"evidence_refs\": [\"REVIEW_FACTS_IT\", \"TECH_CATALOG\", \"CMDB_EXPORT\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_IT\", \"finding_id\": \"IT-EOL-001\", \"quote\": \"\\\"technology_eol_months\\\": 8\"}], \"finding_ids\": [\"IT-EOL-001\"], \"rationale\": \"At the opportunity phase, the authoritative REVIEW_FACTS_IT snapshot triggers exactly one policy predicate: technology_eol_months is 8, below the 12-month threshold, so IT-EOL-001 (high) applies with action CREATE_CONVERGENCE_PLAN owned by the Technology Owner and disposition REWORK. All other IT predicates pass or are phase-inapplicable: catalog_status is 'standard' with waiver_present true (corroborated by TECH_CATALOG), duplicate_capability false, license_compliant true, cmdb_record_present true with run owner Yusuf Meyer-12013-SO and 24x7_internal support (corroborated by CMDB_EXPORT), capacity_headroom_pct 30, and change_record_status 'approved'. The overall disposition is REWORK per the finding's assigned disposition; REWORK is not in authorization_required_for, so no authorization is required. Proposed action is not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5739,
+        "completion_tokens": 1429,
+        "total_tokens": 7168,
+        "reasoning_tokens": 862,
+        "cached_tokens": 5440,
+        "cost": 0.00114015,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 6,
+  "tool_call_count": 5,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-01-IT-1",
+    "disposition": "REWORK",
+    "finding_ids": [
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT",
+      "TECH_CATALOG",
+      "CMDB_EXPORT"
+    ],
+    "authorization_required": false,
+    "rationale": "At the opportunity phase, the authoritative REVIEW_FACTS_IT snapshot triggers exactly one policy predicate: technology_eol_months is 8, below the 12-month threshold, so IT-EOL-001 (high) applies with action CREATE_CONVERGENCE_PLAN owned by the Technology Owner and disposition REWORK. All other IT predicates pass or are phase-inapplicable: catalog_status is 'standard' with waiver_present true (corroborated by TECH_CATALOG), duplicate_capability false, license_compliant true, cmdb_record_present true with run owner Yusuf Meyer-12013-SO and 24x7_internal support (corroborated by CMDB_EXPORT), capacity_headroom_pct 30, and change_record_status 'approved'. The overall disposition is REWORK per the finding's assigned disposition; REWORK is not in authorization_required_for, so no authorization is required. Proposed action is not completed remediation.",
+    "confidence": 0.93,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_IT",
+        "finding_id": "IT-EOL-001",
+        "quote": "\"technology_eol_months\": 8"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 6,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

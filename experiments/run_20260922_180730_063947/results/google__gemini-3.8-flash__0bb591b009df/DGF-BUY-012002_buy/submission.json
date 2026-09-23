@@ -1,0 +1,187 @@
+{
+  "case_id": "063d5e61-7a26-56ed-9b60-ce8a84676572",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": true,
+      "rationale": "Selected supplier Fluxbridge Labs C2D29-4 has references_checked set to false, triggering PROC-REF-001. All other evaluated criteria (mandatory criteria, sanctions screening, due diligence, and TCO budget) pass without findings. Under standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-01-PROCUREMENT-1, conditional approval was executed, resulting in GO_WITH_RESERVATIONS.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"references_checked\": false",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "finding_id": "PROC-REF-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-SIGN-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "OBTAIN_AUTHORIZED_SIGNATORY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review snapshot confirms that the proposed signatory lacks recorded signing authority (\"signing_authority_valid\": false), triggering LEGAL-SIGN-001 with disposition SUSPENSION (risk acceptance not allowed). In addition, contractual audit rights are insufficient (\"audit_right\": \"reports_only\"), triggering LEGAL-AUDIT-001 with disposition REWORK. Under the decision policy priority rules, SUSPENSION takes precedence over REWORK. Because LEGAL-SIGN-001 cannot be risk-accepted, standing authorization cannot grant conditional approval, and SUSPENSION requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "quote": "\"audit_right\": \"reports_only\"",
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        {
+          "quote": "\"signing_authority_valid\": false",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-SIGN-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "The authoritative review snapshot confirms that actual data hosting violates required data residency constraints (\"residency_compliant\": false), triggering critical finding COMP-RESID-001 with disposition NO_GO. Additionally, export-control screening remains unresolved (\"export_control\": \"pending\"), triggering COMP-EXPORT-002 with disposition SUSPENSION. Under the priority hierarchy (GO < GO_WITH_RESERVATIONS < REWORK < SUSPENSION < NO_GO), NO_GO takes precedence. Neither finding permits risk acceptance under policy or standing mandate scope, and NO_GO requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"residency_compliant\": false",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001"
+        },
+        {
+          "quote": "\"export_control\": \"pending\"",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-EXPORT-002"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "The authoritative review snapshot confirms that the confidential workload lacks private endpoints ('\\\"private_endpoints\\\": false'), triggering critical finding SEC-NET-001 with disposition NO_GO. Additionally, there is 1 open critical vulnerability ('\\\"critical_vulns_open\\\": 1'), triggering critical finding SEC-VULN-001 with disposition NO_GO. Neither finding permits risk acceptance under policy or standing mandate scope. In accordance with the decision policy hierarchy, the overall gate disposition is NO_GO, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-NET-001",
+          "quote": "\"private_endpoints\": false",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "quote": "\"critical_vulns_open\": 1",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CMDB-001",
+        "IT-EOL-001",
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "CREATE_CMDB_RECORD",
+        "CREATE_CONVERGENCE_PLAN",
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of REVIEW_FACTS_IT for the build_acceptance phase identifies three applicable findings: IT-CMDB-001 due to missing CMDB record (\"cmdb_record_present\": false), IT-EOL-001 because technology reaches end-of-life within 12 months (\"technology_eol_months\": 4), and IT-CAPACITY-001 because capacity headroom is below 15% (\"capacity_headroom_pct\": 8). All three findings permit risk acceptance under policy rules. Active standing mandate MANDATE-063d5e61-7a26-56ed-9b60-ce8a84676572-BUY-05-IT-1 covers all risk-acceptable findings, and conditional approval was executed successfully. The resulting gate disposition is GO_WITH_RESERVATIONS, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"cmdb_record_present\": false",
+          "finding_id": "IT-CMDB-001"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 4",
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        {
+          "quote": "\"capacity_headroom_pct\": 8",
+          "finding_id": "IT-CAPACITY-001",
+          "evidence_id": "REVIEW_FACTS_IT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts confirm weak strategic alignment (\"strategic_alignment\": \"weak\"), triggering finding GEN-STRAT-001 (disposition SUSPENSION). Additionally, upstream specialist evaluations include 2 gates with NO_GO outcomes (BUY-03-COMPLIANCE-1 and BUY-04-SECURITY-1), triggering critical finding GEN-UPSTREAM-NOGO (\"disposition\": \"NO_GO\"). Under the decision policy priority hierarchy, NO_GO takes precedence over SUSPENSION. Because GEN-UPSTREAM-NOGO does not permit risk acceptance, standing authorization cannot override the outcome. The final disposition is NO_GO, requiring authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"strategic_alignment\": \"weak\"",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-STRAT-001"
+        },
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "\"disposition\": \"NO_GO\"",
+          "finding_id": "GEN-UPSTREAM-NOGO"
+        }
+      ]
+    }
+  ]
+}

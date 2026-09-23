@@ -1,0 +1,965 @@
+{
+  "usage": {
+    "prompt_tokens": 78366,
+    "completion_tokens": 10794,
+    "total_tokens": 89160,
+    "reasoning_tokens": 10270,
+    "cached_tokens": 65536,
+    "cost": 0.01190902,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "general",
+        "phase": "governance",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 58,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "BUSINESS_CASE",
+            "path": "gate_evidence/general/business_case.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 13,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "BUDGET_APPROVAL",
+            "path": "gate_evidence/general/budget_approval.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 136,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "ACTION_REGISTER",
+            "path": "shared/action_register.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 170,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "BENEFITS_PLAN",
+            "path": "gate_evidence/general/benefits_plan.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 4,
+            "consumers": [
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "PORTFOLIO_SNAPSHOT",
+            "path": "gate_evidence/general/portfolio_snapshot.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 163,
+            "consumers": [
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "COMMITTEE_BRIEFING",
+            "path": "gate_evidence/general/committee_briefing.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 113,
+            "consumers": [
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "SUPPORT_RACI",
+            "path": "gate_evidence/it/support_raci.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 51,
+            "consumers": [
+              "it",
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ITSM_CHANGE",
+            "path": "gate_evidence/it/itsm_change.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 10,
+            "consumers": [
+              "it",
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ARCH_DEBT",
+            "path": "gate_evidence/architecture/architecture_debt.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 120,
+            "consumers": [
+              "architecture",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "RESTORE_TEST",
+            "path": "gate_evidence/tech_readiness/restore_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 115,
+            "consumers": [
+              "tech_readiness",
+              "security",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "FAILOVER_TEST",
+            "path": "gate_evidence/tech_readiness/failover_test.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 113,
+            "consumers": [
+              "tech_readiness",
+              "architecture",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "RUNBOOK",
+            "path": "gate_evidence/tech_readiness/production_runbook.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 123,
+            "consumers": [
+              "tech_readiness",
+              "it",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "SLO_SLI",
+            "path": "gate_evidence/tech_readiness/slo_sli.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 176,
+            "consumers": [
+              "tech_readiness",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "VENDOR_OFFERS",
+            "path": "gate_evidence/procurement/vendor_offers.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 80,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "SCORING_MATRIX",
+            "path": "gate_evidence/procurement/scoring_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 66,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "PRICING_TCO",
+            "path": "gate_evidence/procurement/pricing_tco.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 98,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "SIGNING_AUTHORITY",
+            "path": "gate_evidence/legal/signing_authority.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 41,
+            "consumers": [
+              "legal",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "REG_MAPPING",
+            "path": "gate_evidence/compliance/regulatory_mapping.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 46,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "ACCESSIBILITY",
+            "path": "gate_evidence/compliance/accessibility_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 161,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "CONTROL_MATRIX",
+            "path": "gate_evidence/compliance/control_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 113,
+            "consumers": [
+              "compliance",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_GENERAL",
+            "path": "gate_evidence/general/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "UPSTREAM_DECISIONS",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "source": "prior agent outputs in this run"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_GENERAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_GENERAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/general/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BLD-012012",
+            "generation_seed": 12012,
+            "project_name": "Project Titan — Payments API Hub [C2052]",
+            "project_code": "C2052",
+            "project_type": "new_project",
+            "route": "build",
+            "business_unit": "Risk",
+            "sponsor": "Thomas Benali-12012-SP",
+            "project_manager": "Amira Rossi-12012-PM",
+            "business_owner": "Samir Meyer-12012-BO",
+            "service_owner": "Ines Smith-12012-SO",
+            "risk_owner": "Lucas Volkov-12012-RO",
+            "start_date": "2026-09-24",
+            "target_go_live": "2027-10-27",
+            "users_impacted": 2000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Public",
+            "business_criticality": "Critical",
+            "primary_region": "UAE North",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "general": {
+            "strategic_alignment": "weak",
+            "portfolio_priority": "P2",
+            "budget_requested_eur": 500000,
+            "budget_approved_eur": 500000,
+            "roi": 0.362,
+            "npv_eur": 14862,
+            "payback_months": 39,
+            "schedule_slip_weeks": 2,
+            "fte_needed": 17.0,
+            "fte_available": 19.4,
+            "change_plan_status": "complete",
+            "benefits_kpi": "conversion_rate",
+            "benefits_owner": "Marc Petrescu-12012-BEN"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-d3d68264-320d-50e7-bcd1-79409c4b2f8d-BUILD-05-GENERAL-1",
+            "occurrence_id": "BUILD-05-GENERAL-1",
+            "gate": "general",
+            "phase": "governance",
+            "authority": "Lucas Volkov-12012-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "UPSTREAM_DECISIONS"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "UPSTREAM_DECISIONS",
+        "authoritative": false,
+        "content": [
+          {
+            "case_id": "d3d68264-320d-50e7-bcd1-79409c4b2f8d",
+            "source_version": "DGF-decision-v8",
+            "occurrence_id": "BUILD-01-IT-1",
+            "gate": "it",
+            "phase": "opportunity",
+            "disposition": "GO",
+            "finding_ids": [],
+            "actions": [],
+            "evidence_refs": [
+              "REVIEW_FACTS_IT",
+              "TECH_CATALOG",
+              "CMDB_EXPORT"
+            ],
+            "evidence_support": [],
+            "authorization_required": false,
+            "rationale": "At the opportunity phase, no IT gate predicate fires. Authoritative REVIEW_FACTS_IT shows catalog_status='standard' with waiver_present=true (waiver_expiry_days=180), so IT-CATALOG-001 does not apply; duplicate_capability=false, so IT-RATIONAL-001 does not apply; license_compliant=true, so IT-LICENSE-001 does not apply; technology_eol_months=60 (>=12), so IT-EOL-001 does not apply. The phase-gated findings do not apply at 'opportunity': cmdb_record_present=true (and IT-CMDB-001 requires design/build_acceptance/deployment_closure); run_owner_present=false but IT-RUN-001 requires build_acceptance/deployment_closure; capacity_headroom_pct=8 but IT-CAPACITY-001 requires build_acceptance/deployment_closure; change_record_status='missing' but IT-CHANGE-001 requires deployment_closure. Corroborated by authoritative TECH_CATALOG (catalog_status='standard', waiver_present=true, waiver_expiry_days=180) and CMDB_EXPORT (record_present='True', run_owner='', support_model='24x7_internal', continuity_class='bronze'). Forward-looking observations for later gates: assign a run owner, raise capacity headroom above 15%, and obtain change approval before deployment_closure. No findings, no authorization required; disposition GO.",
+            "verification_status": "model_claim"
+          },
+          {
+            "case_id": "d3d68264-320d-50e7-bcd1-79409c4b2f8d",
+            "source_version": "DGF-decision-v8",
+            "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+            "gate": "architecture",
+            "phase": "design",
+            "disposition": "GO_WITH_RESERVATIONS",
+            "finding_ids": [
+              "ARCH-REV-001"
+            ],
+            "actions": [
+              "COMPLETE_EXIT_ARCHITECTURE"
+            ],
+            "evidence_refs": [
+              "REVIEW_FACTS_ARCHITECTURE",
+              "IP_PLAN",
+              "HLD",
+              "DATA_MODEL",
+              "ADR_REGISTER",
+              "ARCH_DEBT"
+            ],
+            "evidence_support": [
+              {
+                "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                "finding_id": "ARCH-REV-001",
+                "quote": "\"reversibility_status\": \"missing\""
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                "finding_id": "ARCH-REV-001",
+                "quote": "\"data_export_supported\": true"
+              }
+            ],
+            "authorization_required": true,
+            "rationale": "Authoritative REVIEW_FACTS_ARCHITECTURE (v1, age 0d) evaluated against the DGF-decision-v8 architecture predicates: ip_overlap=false (corroborated by authoritative IP_PLAN: all three CIDRs 10.166.192-194.0/24 report overlap_detected=False), so ARCH-IP-001 does not fire; api_gateway_required=true with api_gateway_present=true (HLD shows Azure API Management app-c2052-22012-01), so ARCH-API-001 does not fire; data_owner_present=true (DATA_MODEL names data_owner Samir Meyer-12012-BO), so ARCH-DATA-001 does not fire; measured_latency_ms=55 vs latency_target_ms=500, so ARCH-PERF-001 does not fire; business_criticality=Critical but multi_az=true (HLD: single_region_multi_az with Availability Zones 1-3), so ARCH-HA-001 does not fire. Only reversibility_status='missing' fires ARCH-REV-001 (medium, GO_WITH_RESERVATIONS, risk_acceptance_allowed=true): the exit/reversibility architecture is incomplete even though data_export_supported=true. Aggregate disposition is GO_WITH_RESERVATIONS, which requires authorization; conditional approval was executed under active standing mandate MANDATE-d3d68264-320d-50e7-bcd1-79409c4b2f8d-BUILD-02-ARCHITECTURE-1 (authority Lucas Volkov-12012-RO, scope 'all and only risk-acceptable findings') with conditions to complete the exit architecture before build_acceptance and validate the export path before deployment_closure. Upstream IT gate (BUILD-01-IT-1) was GO with no findings and imposes no additional constraints.",
+            "verification_status": "model_claim"
+          },
+          {
+            "case_id": "d3d68264-320d-50e7-bcd1-79409c4b2f8d",
+            "source_version": "DGF-decision-v8",
+            "occurrence_id": "BUILD-03-SECURITY-1",
+            "gate": "security",
+            "phase": "design",
+            "disposition": "NO_GO",
+            "finding_ids": [
+              "SEC-VULN-001"
+            ],
+            "actions": [
+              "REMEDIATE_CRITICAL_VULNERABILITIES"
+            ],
+            "evidence_refs": [
+              "REVIEW_FACTS_SECURITY",
+              "VULN_SCAN",
+              "WAF_POLICY",
+              "CONDITIONAL_ACCESS",
+              "SENTINEL_STATUS",
+              "KEYVAULT_CONFIG",
+              "IAM_EXPORT",
+              "AZURE_RESOURCE_GRAPH"
+            ],
+            "evidence_support": [
+              {
+                "evidence_id": "REVIEW_FACTS_SECURITY",
+                "finding_id": "SEC-VULN-001",
+                "quote": "\"critical_vulns_open\": 2"
+              },
+              {
+                "evidence_id": "VULN_SCAN",
+                "finding_id": "SEC-VULN-001",
+                "quote": "{\"id\": \"CVE-2026-8000\", \"severity\": \"Critical\", \"status\": \"Open\"}, {\"id\": \"CVE-2026-8001\", \"severity\": \"Critical\", \"status\": \"Open\"}"
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_SECURITY",
+                "finding_id": "SEC-WAF-001",
+                "quote": "\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\""
+              },
+              {
+                "evidence_id": "WAF_POLICY",
+                "finding_id": "SEC-WAF-002",
+                "quote": "\"present\": true, \"mode\": \"Prevention\""
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_SECURITY",
+                "finding_id": "SEC-NET-001",
+                "quote": "\"data_classification\": \"Public\" ... \"private_endpoints\": false"
+              },
+              {
+                "evidence_id": "AZURE_RESOURCE_GRAPH",
+                "finding_id": "SEC-NET-001",
+                "quote": "\"private_endpoints\": false, \"firewall\": true"
+              },
+              {
+                "evidence_id": "CONDITIONAL_ACCESS",
+                "finding_id": "SEC-IAM-001",
+                "quote": "\"mfa\": \"mandatory\", \"pim\": false, \"policy_state\": \"enabled\""
+              },
+              {
+                "evidence_id": "IAM_EXPORT",
+                "finding_id": "SEC-IAM-002",
+                "quote": "{\"principal\": \"workload-mi\", \"role\": \"Reader\", \"scope\": \"resource-group\", \"type\": \"ManagedIdentity\"}"
+              },
+              {
+                "evidence_id": "SENTINEL_STATUS",
+                "finding_id": "SEC-LOG-001",
+                "quote": "\"sentinel\": true, \"logs_to_siem\": true, \"connectors\": [\"Azure Activity\", \"Entra ID\", \"Application\"]"
+              },
+              {
+                "evidence_id": "KEYVAULT_CONFIG",
+                "finding_id": "SEC-KEY-001",
+                "quote": "\"key_rotation_days\": 60"
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_SECURITY",
+                "finding_id": "SEC-PENTEST-001",
+                "quote": "\"pentest_status\": \"pass\", \"pentest_age_days\": 365"
+              }
+            ],
+            "authorization_required": true,
+            "rationale": "Authoritative REVIEW_FACTS_SECURITY (v1, age 0d) evaluated against DGF-decision-v8 security predicates at phase=design. Only SEC-VULN-001 fires: critical_vulns_open=2, corroborated by authoritative VULN_SCAN (CVE-2026-8000 and CVE-2026-8001, severity Critical, status Open; 3 High also open) and the vulnerability state (critical_open=2). All other predicates verified as non-firing against authoritative sources: WAF present in Prevention mode (WAF_POLICY) so SEC-WAF-001/002 do not fire; data_classification='Public' so SEC-NET-001 does not fire despite private_endpoints=false (AZURE_RESOURCE_GRAPH); mfa='mandatory' with enabled Conditional Access policy so SEC-IAM-001 does not fire; shared_service_principal=false with only a dedicated ManagedIdentity 'workload-mi' in IAM_EXPORT so SEC-IAM-002 does not fire; logs_to_siem=true with Sentinel connectors (Azure Activity, Entra ID, Application) so SEC-LOG-001 does not fire; phase='design' (not build_acceptance) and pentest_status='pass' so SEC-PENTEST-001 does not fire; key_rotation_days=60 (KEYVAULT_CONFIG) so SEC-KEY-001 does not fire. Aggregate disposition is NO_GO per the fired finding's prescribed disposition. NO_GO requires authorization: the active standing mandate MANDATE-d3d68264-320d-50e7-bcd1-79409c4b2f8d-BUILD-03-SECURITY-1 (authority Lucas Volkov-12012-RO) is scoped to 'all and only risk-acceptable findings', and SEC-VULN-001 has risk_acceptance_allowed=false, so the mandate cannot authorize this decision and no conditional approval was executed; authorization must be sought from the risk owner. Required action is REMEDIATE_CRITICAL_VULNERABILITIES (remediation, not risk acceptance) owned by the Product Team; proposed actions are not completed remediation.",
+            "verification_status": "model_claim"
+          },
+          {
+            "case_id": "d3d68264-320d-50e7-bcd1-79409c4b2f8d",
+            "source_version": "DGF-decision-v8",
+            "occurrence_id": "BUILD-04-TECH_READINESS-1",
+            "gate": "tech_readiness",
+            "phase": "build_acceptance",
+            "disposition": "REWORK",
+            "finding_ids": [
+              "TR-RESTORE-001",
+              "TR-RPO-001",
+              "TR-LOAD-001",
+              "TR-CODE-001",
+              "TR-BLOCKER-001"
+            ],
+            "actions": [
+              "RUN_RESTORE_TEST",
+              "REMEDIATE_RECOVERY_POINT",
+              "RERUN_LOAD_TEST_AT_PEAK",
+              "REMEDIATE_BUILD_FINDINGS",
+              "CLOSE_PRODUCTION_BLOCKERS"
+            ],
+            "evidence_refs": [
+              "REVIEW_FACTS_TECH_READINESS",
+              "RESTORE_TEST",
+              "LOAD_TEST",
+              "CI_PIPELINE",
+              "BACKUP_JOBS",
+              "ROLLBACK_TEST",
+              "FAILOVER_TEST",
+              "RUNBOOK"
+            ],
+            "evidence_support": [
+              {
+                "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                "finding_id": "TR-RESTORE-001",
+                "quote": "\"restore_tested\": false"
+              },
+              {
+                "evidence_id": "RESTORE_TEST",
+                "finding_id": "TR-RESTORE-001",
+                "quote": "\"tested\": \"False\""
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                "finding_id": "TR-RPO-001",
+                "quote": "\"measured_data_loss_minutes\": 84, \"target_rpo_minutes\": 60"
+              },
+              {
+                "evidence_id": "RESTORE_TEST",
+                "finding_id": "TR-RPO-001",
+                "quote": "\"measured_data_loss_minutes\": \"84\", \"target_rpo_minutes\": \"60\""
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                "finding_id": "TR-LOAD-001",
+                "quote": "\"load_test_pct_of_peak\": 50"
+              },
+              {
+                "evidence_id": "LOAD_TEST",
+                "finding_id": "TR-LOAD-001",
+                "quote": "\"peak_test_pct\": \"50\""
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                "finding_id": "TR-CODE-001",
+                "quote": "\"critical_static_findings\": 1"
+              },
+              {
+                "evidence_id": "CI_PIPELINE",
+                "finding_id": "TR-CODE-001",
+                "quote": "\"critical_static_findings\": 1"
+              },
+              {
+                "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                "finding_id": "TR-BLOCKER-001",
+                "quote": "\"open_blockers\": 3"
+              }
+            ],
+            "authorization_required": false,
+            "rationale": "Authoritative REVIEW_FACTS_TECH_READINESS (v1, age 0d) evaluated against DGF-decision-v8 tech-readiness predicates at phase=build_acceptance. Five high findings fire, all with prescribed disposition REWORK: TR-RESTORE-001 (restore_tested=false, corroborated by authoritative RESTORE_TEST tested=False); TR-RPO-001 (measured_data_loss_minutes=84 > target_rpo_minutes=60, corroborated by RESTORE_TEST); TR-LOAD-001 (load_test_pct_of_peak=50 < 100, corroborated by authoritative LOAD_TEST peak_test_pct=50); TR-CODE-001 (critical_static_findings=1 > 0, corroborated by authoritative CI_PIPELINE); TR-BLOCKER-001 (open_blockers=3 > 0). All other predicates verified as non-firing: backup_enabled=true (BACKUP_JOBS: enabled=True, last_status=Succeeded) so TR-BACKUP-001 does not fire; TR-RTO-001 not evaluated (elif branch unreachable since restore_tested=false) and measured_restore_hours=24.0 is not > target_rto_hours=24; dr_required=false (FAILOVER_TEST: dr_required=False; HLD is single_region_multi_az with no cross-region failover) so TR-DR-001 does not fire; runbook_status='approved', on_call_defined=true, handover_signed=true (RUNBOOK corroborates) so TR-OPS-001 does not fire; rollback_tested=true (ROLLBACK_TEST: PASS) so TR-ROLLBACK-001 does not fire. Aggregate disposition is REWORK per the fired findings' prescribed disposition. REWORK is not in authorization_required_for [GO_WITH_RESERVATIONS, SUSPENSION, NO_GO], so no authorization or risk acceptance is required; note TR-RPO-001 permits risk acceptance but the aggregate remains REWORK due to the four non-acceptable findings. Proposed actions (RUN_RESTORE_TEST, REMEDIATE_RECOVERY_POINT, RERUN_LOAD_TEST_AT_PEAK, REMEDIATE_BUILD_FINDINGS, CLOSE_PRODUCTION_BLOCKERS) are required remediation, not completed remediation. Upstream gates impose no additional constraints: IT (BUILD-01) GO, Architecture (BUILD-02) GO_WITH_RESERVATIONS with exit-architecture conditions, Security (BUILD-03) NO_GO pending critical vulnerability remediation — the open security NO_GO reinforces that build acceptance cannot proceed.",
+            "verification_status": "model_claim"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "BUDGET_APPROVAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "BUDGET_APPROVAL",
+        "authoritative": true,
+        "version": 5,
+        "age_days": 136,
+        "path": "gate_evidence/general/budget_approval.csv",
+        "content": [
+          {
+            "approved_eur": "500000",
+            "approver": "CFO Office",
+            "requested_eur": "500000",
+            "status": "APPROVED"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "BUSINESS_CASE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "BUSINESS_CASE",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 13,
+        "path": "gate_evidence/general/business_case.csv",
+        "content": [
+          {
+            "metric": "ROI",
+            "value": "0.862"
+          },
+          {
+            "metric": "NPV_EUR",
+            "value": "14863"
+          },
+          {
+            "metric": "Payback_months",
+            "value": "40"
+          },
+          {
+            "metric": "Strategic_alignment",
+            "value": "weak (declared)"
+          },
+          {
+            "metric": "Portfolio_priority",
+            "value": "P2"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "content": "I'll start by listing the available evidence and checking the standing authorization mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_85241dafa38d4305b4bcd146",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7956,
+        "completion_tokens": 1062,
+        "total_tokens": 9018,
+        "reasoning_tokens": 1027,
+        "cached_tokens": 1088,
+        "cost": 0.00163736,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "content": "Now let me read the authoritative review snapshot and check the standing mandate.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_0f897088a7554174b9c9994b",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_GENERAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9482,
+        "completion_tokens": 52,
+        "total_tokens": 9534,
+        "reasoning_tokens": 28,
+        "cached_tokens": 7936,
+        "cost": 0.00081342,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ecc2d2236bb748df9519ecd6",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9942,
+        "completion_tokens": 10,
+        "total_tokens": 9952,
+        "reasoning_tokens": 0,
+        "cached_tokens": 9472,
+        "cost": 0.00073854,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is clear. Now let me read the UPSTREAM_DECISIONS evidence (required for the upstream finding) and corroborating budget/business-case documents.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_924e39b7c85e44d492974d96",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"UPSTREAM_DECISIONS\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 10062,
+        "completion_tokens": 5779,
+        "total_tokens": 15841,
+        "reasoning_tokens": 6573,
+        "cached_tokens": 9920,
+        "cost": 0.0036052,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot and upstream decisions are in hand. Let me evaluate the general-gate predicates:\n\n1. **GEN-STRAT-001**: `strategic_alignment == 'weak'` → snapshot shows `\"strategic_alignment\": \"weak\"` → **fires** (SUSPENSION).\n2. **GEN-BUDGET-001**: `budget_requested_eur (500000) > budget_approved_eur (500000)` → False → does not fire.\n3. **GEN-BC-001**: `roi (0.362) < 0.05` → False → does not fire.\n4. **GEN-UPSTREAM-NOGO**: upstream contains BUILD-03-SECURITY-1 with `disposition: \"NO_GO\"` → **fires** (NO_GO, critical).\n5. **GEN-BENEFITS-001**: phase is `governance`, not `deployment_closure` → does not fire.\n\nLet me corroborate the budget and business-case figures against the supporting documents before finalizing.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_33f425875fdb4a93ae285f91",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"BUDGET_APPROVAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13377,
+        "completion_tokens": 1488,
+        "total_tokens": 14865,
+        "reasoning_tokens": 1287,
+        "cached_tokens": 10048,
+        "cost": 0.00194671,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_2e01fc3d390842499267c5a2",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"BUSINESS_CASE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13699,
+        "completion_tokens": 17,
+        "total_tokens": 13716,
+        "reasoning_tokens": 0,
+        "cached_tokens": 13376,
+        "cost": 0.00099327,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "content": "All evidence needed for the decision is now in hand. Let me finalize the predicate evaluation:\n\n**Fired findings:**\n1. **GEN-STRAT-001** — snapshot: `\"strategic_alignment\": \"weak\"` → fires (high, SUSPENSION, risk-acceptable).\n2. **GEN-UPSTREAM-NOGO** — UPSTREAM_DECISIONS contains BUILD-03-SECURITY-1 with `\"disposition\": \"NO_GO\"` → fires (critical, NO_GO, not risk-acceptable). The elif structure means SUSPEND/REWORK upstream findings don't fire.\n\n**Non-firing checks:**\n- GEN-BUDGET-001: requested 500000 is not > approved 500000 (corroborated by authoritative BUDGET_APPROVAL: status APPROVED).\n- GEN-BC-001: roi 0.362 ≥ 0.05 (non-authoritative BUSINESS_CASE shows 0.862 — a discrepancy, but immaterial since both exceed the threshold).\n- GEN-BENEFITS-001: phase is `governance`, not `deployment_closure` (and change_plan_status is 'complete' anyway).\n\n**Aggregate disposition:** NO_GO (highest priority among {SUSPENSION, NO_GO}). NO_GO requires authorization; the standing mandate is scoped to \"all and only risk-acceptable findings,\" and GEN-UPSTREAM-NOGO is not risk-acceptable, so the mandate cannot authorize this decision — it must be sought from the risk owner.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ab4c19814d5b4bfcaf8ca382",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"OBTAIN_STRATEGIC_ARBITRATION\", \"RESOLVE_UPSTREAM_NO_GO\"], \"authorization_required\": true, \"confidence\": 0.95, \"disposition\": \"NO_GO\", \"evidence_refs\": [\"REVIEW_FACTS_GENERAL\", \"UPSTREAM_DECISIONS\", \"BUDGET_APPROVAL\", \"BUSINESS_CASE\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_GENERAL\", \"finding_id\": \"GEN-STRAT-001\", \"quote\": \"\\\"strategic_alignment\\\": \\\"weak\\\"\"}, {\"evidence_id\": \"UPSTREAM_DECISIONS\", \"finding_id\": \"GEN-UPSTREAM-NOGO\", \"quote\": \"\\\"occurrence_id\\\": \\\"BUILD-03-SECURITY-1\\\", \\\"gate\\\": \\\"security\\\", \\\"phase\\\": \\\"design\\\", \\\"disposition\\\": \\\"NO_GO\\\"\"}], \"finding_ids\": [\"GEN-STRAT-001\", \"GEN-UPSTREAM-NOGO\"], \"rationale\": \"Authoritative REVIEW_FACTS_GENERAL (v1, age 0d) evaluated against DGF-decision-v8 general predicates at phase=governance. Two findings fire: GEN-STRAT-001 (high, SUSPENSION, risk_acceptance_allowed=true) because strategic_alignment='weak'; and GEN-UPSTREAM-NOGO (critical, NO_GO, risk_acceptance_allowed=false) because 1 upstream gate returned NO_GO — BUILD-03-SECURITY-1 (security, design phase) with 2 open critical vulnerabilities (CVE-2026-8000/8001) per UPSTREAM_DECISIONS. The elif structure means GEN-UPSTREAM-SUSPEND/REWORK do not fire (no suspended upstream gates; the REWORK tech-readiness gate is superseded by the NO_GO branch). Aggregate disposition is NO_GO per the priority ordering (NO_GO > SUSPENSION). Non-firing checks verified: GEN-BUDGET-001 does not fire — budget_requested_eur=500000 is not > budget_approved_eur=500000, corroborated by authoritative BUDGET_APPROVAL (requested_eur=500000, approved_eur=500000, status=APPROVED); GEN-BC-001 does not fire — roi=0.362 >= 0.05 (non-authoritative BUSINESS_CASE shows ROI 0.862, a discrepancy noted but immaterial since both values exceed the 0.05 threshold; BUSINESS_CASE also corroborates 'Strategic_alignment: weak (declared)'); GEN-BENEFITS-001 does not fire — phase is governance, not deployment_closure (change_plan_status='complete' in any case). NO_GO is in authorization_required_for, so authorization is required: the active standing mandate MANDATE-d3d68264-320d-50e7-bcd1-79409c4b2f8d-BUILD-05-GENERAL-1 (authority Lucas Volkov-12012-RO) is scoped to 'all and only risk-acceptable findings', and GEN-UPSTREAM-NOGO has risk_acceptance_allowed=false, so the mandate cannot authorize this decision and no conditional approval was executed; authorization must be sought from the risk owner. Required actions are OBTAIN_STRATEGIC_ARBITRATION (Sponsor) and RESOLVE_UPSTREAM_NO_GO (Project Manager); these are proposed remediation, not completed remediation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 13848,
+        "completion_tokens": 2386,
+        "total_tokens": 16234,
+        "reasoning_tokens": 1355,
+        "cached_tokens": 13696,
+        "cost": 0.00217452,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 7,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUILD-05-GENERAL-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "GEN-STRAT-001",
+      "GEN-UPSTREAM-NOGO"
+    ],
+    "actions": [
+      "OBTAIN_STRATEGIC_ARBITRATION",
+      "RESOLVE_UPSTREAM_NO_GO"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_GENERAL",
+      "UPSTREAM_DECISIONS",
+      "BUDGET_APPROVAL",
+      "BUSINESS_CASE"
+    ],
+    "authorization_required": true,
+    "rationale": "Authoritative REVIEW_FACTS_GENERAL (v1, age 0d) evaluated against DGF-decision-v8 general predicates at phase=governance. Two findings fire: GEN-STRAT-001 (high, SUSPENSION, risk_acceptance_allowed=true) because strategic_alignment='weak'; and GEN-UPSTREAM-NOGO (critical, NO_GO, risk_acceptance_allowed=false) because 1 upstream gate returned NO_GO — BUILD-03-SECURITY-1 (security, design phase) with 2 open critical vulnerabilities (CVE-2026-8000/8001) per UPSTREAM_DECISIONS. The elif structure means GEN-UPSTREAM-SUSPEND/REWORK do not fire (no suspended upstream gates; the REWORK tech-readiness gate is superseded by the NO_GO branch). Aggregate disposition is NO_GO per the priority ordering (NO_GO > SUSPENSION). Non-firing checks verified: GEN-BUDGET-001 does not fire — budget_requested_eur=500000 is not > budget_approved_eur=500000, corroborated by authoritative BUDGET_APPROVAL (requested_eur=500000, approved_eur=500000, status=APPROVED); GEN-BC-001 does not fire — roi=0.362 >= 0.05 (non-authoritative BUSINESS_CASE shows ROI 0.862, a discrepancy noted but immaterial since both values exceed the 0.05 threshold; BUSINESS_CASE also corroborates 'Strategic_alignment: weak (declared)'); GEN-BENEFITS-001 does not fire — phase is governance, not deployment_closure (change_plan_status='complete' in any case). NO_GO is in authorization_required_for, so authorization is required: the active standing mandate MANDATE-d3d68264-320d-50e7-bcd1-79409c4b2f8d-BUILD-05-GENERAL-1 (authority Lucas Volkov-12012-RO) is scoped to 'all and only risk-acceptable findings', and GEN-UPSTREAM-NOGO has risk_acceptance_allowed=false, so the mandate cannot authorize this decision and no conditional approval was executed; authorization must be sought from the risk owner. Required actions are OBTAIN_STRATEGIC_ARBITRATION (Sponsor) and RESOLVE_UPSTREAM_NO_GO (Project Manager); these are proposed remediation, not completed remediation.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_GENERAL",
+        "finding_id": "GEN-STRAT-001",
+        "quote": "\"strategic_alignment\": \"weak\""
+      },
+      {
+        "evidence_id": "UPSTREAM_DECISIONS",
+        "finding_id": "GEN-UPSTREAM-NOGO",
+        "quote": "\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"gate\": \"security\", \"phase\": \"design\", \"disposition\": \"NO_GO\""
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 48,
+    "retries": 1,
+    "rate_limits": 1,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

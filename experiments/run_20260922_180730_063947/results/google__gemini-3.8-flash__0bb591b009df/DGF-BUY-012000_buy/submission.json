@@ -1,0 +1,166 @@
+{
+  "case_id": "815b7c08-da19-5688-9c61-1e6dfdbfa6cf",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "PROC-MAND-001"
+      ],
+      "actions": [
+        "REOPEN_VENDOR_SELECTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": true,
+      "rationale": "Selected supplier BlueMesa Systems F2EE0-2 failed 2 mandatory RFP criteria, triggering candidate finding PROC-MAND-001 and resulting in a NO_GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "finding_id": "PROC-MAND-001",
+          "quote": "\"vendor\": \"BlueMesa Systems F2EE0-2\", \"mandatory_criteria_failed\": 2"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": true,
+      "rationale": "The supplier's required insurance certificate is invalid or expired (\"insurance_valid\": false), triggering candidate finding LEGAL-INS-001 with required action OBTAIN_VALID_INSURANCE, resulting in a SUSPENSION disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"insurance_valid\": false",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-INS-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Data residency is non-compliant (\"residency_compliant\": false, required UK hosting while primary region is East US), triggering candidate finding COMP-RESID-001 with action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS and resulting in a NO_GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"required_residency\": \"UK\", \"residency_compliant\": false"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "Internet-facing workload has no WAF control (\"waf_present\": false), security-relevant logs are not exported to SIEM (\"logs_to_siem\": false), and key rotation is not configured (\"key_rotation_days\": null). Under the normative security policy, critical finding SEC-WAF-001 cannot be accepted and mandates a NO_GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"waf_present\": false",
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        {
+          "quote": "\"logs_to_siem\": false",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-LOG-001"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"key_rotation_days\": null"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "Technology catalog status is non-standard without an approved waiver (\"catalog_status\": \"non_standard\", \"waiver_present\": false) and technology reaches end-of-life within 8 months (\"technology_eol_months\": 8). Under the IT governance decision policy, these trigger candidate findings IT-CATALOG-001 and IT-EOL-001, mandating a REWORK disposition to submit a technology waiver and create a convergence plan.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "\"catalog_status\": \"non_standard\", \"waiver_present\": false"
+        },
+        {
+          "quote": "\"technology_eol_months\": 8",
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Three upstream gates (procurement, compliance, and security) returned NO_GO dispositions. Under the normative decision policy evaluate_general, this triggers candidate finding GEN-UPSTREAM-NOGO, requiring action RESOLVE_UPSTREAM_NO_GO and resulting in an overall NO_GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"disposition\": \"NO_GO\"",
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

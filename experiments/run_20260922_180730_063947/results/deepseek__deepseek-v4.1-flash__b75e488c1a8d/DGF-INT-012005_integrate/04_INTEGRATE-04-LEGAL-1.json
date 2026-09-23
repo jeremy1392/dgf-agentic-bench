@@ -1,0 +1,556 @@
+{
+  "usage": {
+    "prompt_tokens": 41102,
+    "completion_tokens": 2464,
+    "total_tokens": 43566,
+    "reasoning_tokens": 1170,
+    "cached_tokens": 31232,
+    "cost": 0.0028767,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 131,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 120,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 46,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 51,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 134,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 139,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 155,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 28,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 18,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 148,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-7bf8888c-be32-5674-9b74-f95d9ae5f4bd-INTEGRATE-04-LEGAL-1",
+            "occurrence_id": "INTEGRATE-04-LEGAL-1",
+            "gate": "legal",
+            "phase": "design",
+            "authority": "Marc Moreau-12005-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012005",
+            "generation_seed": 12005,
+            "project_name": "Orion Acquisition Integration — Supply Chain Integration [622C2]",
+            "project_code": "622C2",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Procurement",
+            "sponsor": "Jeremy Khan-12005-SP",
+            "project_manager": "Nadia Rossi-12005-PM",
+            "business_owner": "Sofia Ivanov-12005-BO",
+            "service_owner": "Leila Rossi-12005-SO",
+            "risk_owner": "Marc Moreau-12005-RO",
+            "start_date": "2026-09-06",
+            "target_go_live": "2027-07-24",
+            "users_impacted": 1000,
+            "budget_requested_eur": 3000000,
+            "data_classification": "Restricted",
+            "business_criticality": "High",
+            "primary_region": "West US 2",
+            "personal_data": true,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "legal": {
+            "contract_version": "MSA-622C2-5.1",
+            "governing_law": "England & Wales",
+            "dpa_status": "missing",
+            "liability_cap_multiplier": 5,
+            "security_carveout": true,
+            "audit_right": "reports_only",
+            "termination_for_convenience": true,
+            "exit_assistance_days": 180,
+            "ip_ownership": "vendor",
+            "insurance_valid": false,
+            "cyber_insurance_m": 20,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "contractual_only",
+            "sla_penalties": true,
+            "log_export_clause": "limited"
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DPA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DPA",
+        "authoritative": false,
+        "version": 1,
+        "age_days": 51,
+        "path": "gate_evidence/legal/DPA.docx",
+        "content": "Data Processing Addendum\nData processing\nField | Value\nStatus | missing\nRoles | Customer controller / Supplier processor\nPrimary region | West US 2\nPersonal data | True"
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "MSA"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "MSA",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 46,
+        "path": "gate_evidence/legal/MSA.docx",
+        "content": "Master Services Agreement\nSynthetic contract MSA-622C2-5.1\n1. Services\nSupplier shall provide the services described in the Order Form for Orion Acquisition Integration — Supply Chain Integration [622C2].\nSupplier comment: Clause accepted subject to final commercial approval.\n2. Term\nInitial term 36 months with renewal subject to the Order Form.\nSupplier comment: Clause accepted subject to final commercial approval.\n3. Service Levels\nService credits and penalties: included.\nSupplier comment: Clause accepted subject to final commercial approval.\n4. Data Processing\nDPA status: missing. Transfer clause: contractual_only.\nSupplier comment: Clause accepted subject to final commercial approval.\n5. Confidentiality\nEach party protects confidential information using reasonable safeguards.\nSupplier comment: Clause accepted subject to final commercial approval.\n6. Security\nSecurity logs export: limited.\nSupplier comment: Clause accepted subject to final commercial approval.\n7. Audit Rights\nCustomer audit rights: reports_only.\nSupplier comment: Clause accepted subject to final commercial approval.\n8. Intellectual Property\nIP ownership: vendor.\nSupplier comment: Clause accepted subject to final commercial approval.\n9. Exit and Reversibility\nExit assistance: 180 days.\nSupplier comment: Clause accepted subject to final commercial approval.\n10. Insurance\nCyber insurance: EUR 20m. Certificate valid: False.\nSupplier comment: Clause accepted subject to final commercial approval.\n11. Liability\nAggregate liability cap: 5x annual fees. Security carve-out: True.\nSupplier comment: Current liability position is commercially sensitive.\n12. Governing Law\nEngland & Wales\nSupplier comment: Clause accepted subject to final commercial approval."
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "CONTRACT_PLAYBOOK"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "CONTRACT_PLAYBOOK",
+        "authoritative": true,
+        "version": 4,
+        "age_days": 139,
+        "path": "gate_evidence/legal/contract_playbook.json",
+        "content": {
+          "required": {
+            "DPA": "signed if personal data",
+            "audit_right": "full or limited",
+            "exit_assistance_days": ">=30",
+            "security_log_export": "included for high/critical services",
+            "signing_authority": "valid"
+          }
+        }
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_aa097c5877fa4dd2b53e8da0",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "call_72257c973326491ab104d65c",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6874,
+        "completion_tokens": 53,
+        "total_tokens": 6927,
+        "reasoning_tokens": 18,
+        "cached_tokens": 0,
+        "cost": 0.00092118,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_63bb1a0ba32841aaab365746",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7817,
+        "completion_tokens": 63,
+        "total_tokens": 7880,
+        "reasoning_tokens": 13,
+        "cached_tokens": 6656,
+        "cost": 0.00025025,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_f90eca9e7dd142c6a8e0df96",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DPA\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "call_ef2c446868744303bb4aec02",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"MSA\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8356,
+        "completion_tokens": 487,
+        "total_tokens": 8843,
+        "reasoning_tokens": 399,
+        "cached_tokens": 7680,
+        "cost": 0.00041792,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_01ddd2e4bb5d4bfabfdbda48",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"CONTRACT_PLAYBOOK\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8941,
+        "completion_tokens": 367,
+        "total_tokens": 9308,
+        "reasoning_tokens": 298,
+        "cached_tokens": 8192,
+        "cost": 0.00037013,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_964697aef9e342818cd61a16",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\": \"SUSPENSION\", \"finding_ids\": [\"LEGAL-DPA-001\", \"LEGAL-AUDIT-001\", \"LEGAL-INS-001\"], \"actions\": [\"EXECUTE_DPA\", \"REDLINE_AUDIT_RIGHT\", \"OBTAIN_VALID_INSURANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\", \"MSA\", \"DPA\", \"CONTRACT_PLAYBOOK\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"\\\"personal_data\\\": true ... \\\"dpa_status\\\": \\\"missing\\\"\"}, {\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"DPA\", \"quote\": \"Status | missing\"}, {\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"\\\"audit_right\\\": \\\"reports_only\\\"\"}, {\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"MSA\", \"quote\": \"7. Audit Rights\\nCustomer audit rights: reports_only.\"}, {\"finding_id\": \"LEGAL-INS-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"\\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 20\"}, {\"finding_id\": \"LEGAL-INS-001\", \"evidence_id\": \"MSA\", \"quote\": \"10. Insurance\\nCyber insurance: EUR 20m. Certificate valid: False.\"}], \"authorization_required\": true, \"rationale\": \"Applying DGF-decision-v8 evaluate_legal to the authoritative REVIEW_FACTS_LEGAL snapshot (design phase) yields three triggered predicates. (1) LEGAL-DPA-001 (critical): project personal_data = true while dpa_status = \\\"missing\\\"; the DPA document corroborates (\\\"Status | missing\\\") and the MSA clause 4 states \\\"DPA status: missing\\\". Action EXECUTE_DPA, owner Legal / Privacy, disposition REWORK, risk acceptance NOT allowed. (2) LEGAL-AUDIT-001 (high): audit_right = \\\"reports_only\\\", which is in the insufficient set ('reports_only','none'); MSA clause 7 confirms \\\"Customer audit rights: reports_only\\\", and the authoritative CONTRACT_PLAYBOOK requires audit_right \\\"full or limited\\\". Action REDLINE_AUDIT_RIGHT, owner Legal, disposition REWORK, risk acceptance allowed. (3) LEGAL-INS-001 (high): insurance_valid = false; MSA clause 10 confirms \\\"Certificate valid: False\\\". Action OBTAIN_VALID_INSURANCE, owner Supplier, disposition SUSPENSION, risk acceptance NOT allowed. Non-triggered predicates verified: LEGAL-LIAB-001 (liability_cap_multiplier = 5, not 0.5, and security_carveout = true); LEGAL-EXIT-001 (exit_assistance_days = 180, not 0); LEGAL-IP-001 (ip_ownership = \\\"vendor\\\", not \\\"ambiguous\\\"); LEGAL-SIGN-001 (signing_authority_valid = true); LEGAL-LOG-001 (log_export_clause = \\\"limited\\\", not \\\"missing\\\"). Gate rollup is the highest-severity triggered disposition: SUSPENSION (from LEGAL-INS-001) outranks REWORK. SUSPENSION is in the policy's authorization_required_for list, so standing-mandate authorization is required; however the active mandate MANDATE-...-INTEGRATE-04-LEGAL-1 covers 'all and only risk-acceptable findings', and the blocking LEGAL-INS-001 (and LEGAL-DPA-001) have risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of them and no conditional approval is available. Proposed actions are remediations, not completed remediation; the snapshot reflects the submitted state only.\", \"confidence\": 0.93}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9114,
+        "completion_tokens": 1494,
+        "total_tokens": 10608,
+        "reasoning_tokens": 442,
+        "cached_tokens": 8704,
+        "cost": 0.00091722,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "Relace",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "Relace",
+    "Relace",
+    "Relace",
+    "Relace",
+    "Relace"
+  ],
+  "turns": 5,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-04-LEGAL-1",
+    "disposition": "SUSPENSION",
+    "finding_ids": [
+      "LEGAL-DPA-001",
+      "LEGAL-AUDIT-001",
+      "LEGAL-INS-001"
+    ],
+    "actions": [
+      "EXECUTE_DPA",
+      "REDLINE_AUDIT_RIGHT",
+      "OBTAIN_VALID_INSURANCE"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL",
+      "MSA",
+      "DPA",
+      "CONTRACT_PLAYBOOK"
+    ],
+    "authorization_required": true,
+    "rationale": "Applying DGF-decision-v8 evaluate_legal to the authoritative REVIEW_FACTS_LEGAL snapshot (design phase) yields three triggered predicates. (1) LEGAL-DPA-001 (critical): project personal_data = true while dpa_status = \"missing\"; the DPA document corroborates (\"Status | missing\") and the MSA clause 4 states \"DPA status: missing\". Action EXECUTE_DPA, owner Legal / Privacy, disposition REWORK, risk acceptance NOT allowed. (2) LEGAL-AUDIT-001 (high): audit_right = \"reports_only\", which is in the insufficient set ('reports_only','none'); MSA clause 7 confirms \"Customer audit rights: reports_only\", and the authoritative CONTRACT_PLAYBOOK requires audit_right \"full or limited\". Action REDLINE_AUDIT_RIGHT, owner Legal, disposition REWORK, risk acceptance allowed. (3) LEGAL-INS-001 (high): insurance_valid = false; MSA clause 10 confirms \"Certificate valid: False\". Action OBTAIN_VALID_INSURANCE, owner Supplier, disposition SUSPENSION, risk acceptance NOT allowed. Non-triggered predicates verified: LEGAL-LIAB-001 (liability_cap_multiplier = 5, not 0.5, and security_carveout = true); LEGAL-EXIT-001 (exit_assistance_days = 180, not 0); LEGAL-IP-001 (ip_ownership = \"vendor\", not \"ambiguous\"); LEGAL-SIGN-001 (signing_authority_valid = true); LEGAL-LOG-001 (log_export_clause = \"limited\", not \"missing\"). Gate rollup is the highest-severity triggered disposition: SUSPENSION (from LEGAL-INS-001) outranks REWORK. SUSPENSION is in the policy's authorization_required_for list, so standing-mandate authorization is required; however the active mandate MANDATE-...-INTEGRATE-04-LEGAL-1 covers 'all and only risk-acceptable findings', and the blocking LEGAL-INS-001 (and LEGAL-DPA-001) have risk_acceptance_allowed=false, so the mandate cannot authorize acceptance of them and no conditional approval is available. Proposed actions are remediations, not completed remediation; the snapshot reflects the submitted state only.",
+    "confidence": 0.93,
+    "evidence_support": [
+      {
+        "finding_id": "LEGAL-DPA-001",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "quote": "\"personal_data\": true ... \"dpa_status\": \"missing\""
+      },
+      {
+        "finding_id": "LEGAL-DPA-001",
+        "evidence_id": "DPA",
+        "quote": "Status | missing"
+      },
+      {
+        "finding_id": "LEGAL-AUDIT-001",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "quote": "\"audit_right\": \"reports_only\""
+      },
+      {
+        "finding_id": "LEGAL-AUDIT-001",
+        "evidence_id": "MSA",
+        "quote": "7. Audit Rights\nCustomer audit rights: reports_only."
+      },
+      {
+        "finding_id": "LEGAL-INS-001",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "quote": "\"insurance_valid\": false, \"cyber_insurance_m\": 20"
+      },
+      {
+        "finding_id": "LEGAL-INS-001",
+        "evidence_id": "MSA",
+        "quote": "10. Insurance\nCyber insurance: EUR 20m. Certificate valid: False."
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 21,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

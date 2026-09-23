@@ -1,0 +1,145 @@
+{
+  "case_id": "ab210d3a-e852-5bbf-be56-36254f5deb4b",
+  "model": "z-ai/glm-5.3-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "LIFECYCLE_REGISTER",
+        "CAPACITY_REPORT",
+        "CMDB_EXPORT"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_IT (v1, age 0d) at phase 'framing' shows two ungated high-severity failures: licence position is not compliant (\"license_compliant\": false, annual cost EUR 196,634) requiring REMEDIATE_LICENSE_POSITION by IT Asset Management, and the technology reaches end-of-life within 12 months (\"technology_eol_months\": 4, corroborated by authoritative LIFECYCLE_REGISTER: container_apps, eol_months 4) requiring CREATE_CONVERGENCE_PLAN by the Technology Owner. Both carry disposition REWORK, so the gate result is REWORK; REWORK is not in authorization_required_for, so no authorization is required. Non-applicable checks verified against the snapshot and authoritative sources: catalog_status is 'approved_exception' with waiver present (90 days expiry), so IT-CATALOG-001 does not fire; duplicate_capability is false (IT-RATIONAL-001 no); CMDB record present with run owner Omar Laurent-12009-SO per CMDB_EXPORT (IT-CMDB-001/IT-RUN-001 no). Capacity headroom of 8% (CAPACITY_REPORT) and change_record_status 'missing' are phase-gated to build_acceptance/deployment_closure and therefore not actionable at framing, but must be re-verified at those later gates. Proposed actions are remediation requests, not completed remediation.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-LICENSE-001",
+          "quote": "\"license_compliant\": false, \"annual_license_cost_eur\": 196634"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"technology_eol_months\": 4"
+        },
+        {
+          "evidence_id": "LIFECYCLE_REGISTER",
+          "finding_id": "IT-EOL-001",
+          "quote": "\"eol_months\": \"4\", \"technology\": \"container_apps\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE",
+        "HLD",
+        "LLD",
+        "IP_PLAN",
+        "DATA_MODEL",
+        "DATA_LINEAGE",
+        "ADR_REGISTER",
+        "ARCH_DEBT"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_ARCHITECTURE (v1, age 0d) at phase 'design' fires two findings. ARCH-HA-001 (high, REWORK): business_criticality is 'Critical' while architecture_profile shows multi_az=false and multi_region=false — corroborated by HLD ('single_region_single_az', 'No dedicated DR region', 'DR tested: False'), LLD ('Resilience: single_region_single_az', 'Data replication: Single-zone replica'), and the authoritative Azure resource inventory (all resources in UAE Central only, multiAz=false). Action REDESIGN_FOR_HIGH_AVAILABILITY by Solution Architect. ARCH-REV-001 (medium, GO_WITH_RESERVATIONS): reversibility_status='draft' (LLD agrees: 'Reversibility | draft'); action COMPLETE_EXIT_ARCHITECTURE by Enterprise Architect. Non-applicable checks verified: ip_overlap=false with authoritative IP_PLAN showing all three CIDRs (10.166.144.0/24, 10.166.145.0/24, 10.166.146.0/24) overlap_detected=False, so ARCH-IP-001 does not fire; api_gateway_required=false (LLD: required False, present False), so ARCH-API-001 does not fire; data_owner_present=true (DATA_MODEL/DATA_LINEAGE: owner Nadia Ivanov-12009-BO), so ARCH-DATA-001 does not fire; measured latency 15ms is within the 100ms target (LLD agrees), so ARCH-PERF-001 does not fire. Observations without a catalog finding at this gate: load_test_peak_pct=125 and architecture_debt_items=0 (ARCH_DEBT empty); ADR count 16 matches ADR_REGISTER. Aggregate disposition is REWORK per priority order (REWORK > GO_WITH_RESERVATIONS); REWORK is not in authorization_required_for, so no authorization is required and no risk acceptance is applied (ARCH-HA-001 does not permit risk acceptance). Upstream context: the IT gate (framing) returned REWORK for IT-LICENSE-001/IT-EOL-001; those findings are outside this gate's catalog. Proposed actions are remediation requests, not completed remediation.",
+      "confidence": 0.9,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-HA-001",
+          "quote": "\"business_criticality\": \"Critical\" ... \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}"
+        },
+        {
+          "evidence_id": "HLD",
+          "finding_id": "ARCH-HA-001",
+          "quote": "Primary UAE Central | single_region_single_az ... Resilience: single_region_single_az | RTO/RPO: 8h / 1440m | DR tested: False ... No dedicated DR region"
+        },
+        {
+          "evidence_id": "LLD",
+          "finding_id": "ARCH-HA-001",
+          "quote": "Resilience: single_region_single_az ... Data replication: Single-zone replica"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-REV-001",
+          "quote": "\"reversibility_status\": \"draft\""
+        },
+        {
+          "evidence_id": "LLD",
+          "finding_id": "ARCH-REV-001",
+          "quote": "Reversibility | draft"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-001",
+        "SEC-IAM-002"
+      ],
+      "actions": [
+        "ENFORCE_MFA",
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY",
+        "CONDITIONAL_ACCESS",
+        "IAM_EXPORT",
+        "SENTINEL_STATUS",
+        "VULN_SCAN",
+        "KEYVAULT_CONFIG",
+        "WAF_POLICY",
+        "NSG_RULES",
+        "FIREWALL_POLICY",
+        "LLD"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative REVIEW_FACTS_SECURITY (v1, age 0d) at phase 'design' fires exactly two findings. SEC-IAM-001 (high, REWORK): mfa='optional' (not 'mandatory'), corroborated by authoritative CONDITIONAL_ACCESS ('mfa': 'optional', 'policy_state': 'reportOnly'); action ENFORCE_MFA by IAM Team. SEC-IAM-002 (high, REWORK): shared_service_principal=true, corroborated by authoritative IAM_EXPORT/role assignments (workload-mi, ManagedIdentity, shared=true, subscription scope); action CREATE_DEDICATED_WORKLOAD_IDENTITY by IAM Team. Non-applicable checks verified: internet_exposed=false (WAF_POLICY present=false is immaterial without exposure; NSG_RULES allow only CorpNet/443 with default deny; FIREWALL_POLICY azure_firewall=true, default_egress=deny), so SEC-WAF-001/002 do not fire; data_classification='Internal' (not Confidential/Restricted) so SEC-NET-001 does not fire despite private_endpoints=false; logs_to_siem=true (SIEM connector state: sentinel=true, connectors Azure Activity/Entra ID/Application) so SEC-LOG-001 does not fire; critical_vulns_open=0 (vulnerability state: critical_open=0, high_open=3) so SEC-VULN-001 does not fire; pentest_status='pending' but phase is 'design' not 'build_acceptance', so SEC-PENTEST-001 does not fire; key_rotation_days=90 (KEYVAULT_CONFIG agrees) so SEC-KEY-001 does not fire. Aggregate disposition is REWORK per priority order. REWORK is not in authorization_required_for, so no authorization is required; neither firing finding permits risk acceptance (both risk_acceptance_allowed=false), so no risk acceptance is applied despite residual_risk_acceptance=true in the snapshot. Upstream architecture gate (REWORK for ARCH-HA-001/ARCH-REV-001) findings are outside this gate's catalog and do not propagate. Proposed actions are remediation requests, not completed remediation.",
+      "confidence": 0.93,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-IAM-001",
+          "quote": "\"security\": { ... \"mfa\": \"optional\", \"pim\": false, \"shared_service_principal\": true ... }"
+        },
+        {
+          "evidence_id": "CONDITIONAL_ACCESS",
+          "finding_id": "SEC-IAM-001",
+          "quote": "{\"mfa\": \"optional\", \"pim\": false, \"policy_state\": \"reportOnly\"}"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "finding_id": "SEC-IAM-002",
+          "quote": "\"shared_service_principal\": true"
+        },
+        {
+          "evidence_id": "IAM_EXPORT",
+          "finding_id": "SEC-IAM-002",
+          "quote": "{\"principal\": \"workload-mi\", \"type\": \"ManagedIdentity\", \"shared\": true, \"scope\": \"subscription\"}"
+        }
+      ]
+    }
+  ]
+}

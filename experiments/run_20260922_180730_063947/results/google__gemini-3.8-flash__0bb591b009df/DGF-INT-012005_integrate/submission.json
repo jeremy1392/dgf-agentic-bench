@@ -1,0 +1,203 @@
+{
+  "case_id": "7bf8888c-be32-5674-9b74-f95d9ae5f4bd",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "All IT gate requirements are satisfied in the framing phase according to authoritative REVIEW_FACTS_IT: approved waiver is present for non-standard catalog components (waiver_present=true), no duplicate capability exists (duplicate_capability=false), licenses are compliant (license_compliant=true), technology end-of-life is 18 months (technology_eol_months=18), and CMDB/run owner records are present.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-PERF-001",
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY",
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": false,
+      "rationale": "Evaluation of the Architecture Gate against authoritative REVIEW_FACTS_ARCHITECTURE identified three findings: ARCH-PERF-001 due to measured latency (700 ms) exceeding the target (50 ms); ARCH-HA-001 because the High-criticality workload lacks multi-AZ and multi-region redundancy; and ARCH-REV-001 as the reversibility design status is missing. Under the normative decision policy priority ordering, ARCH-HA-001 mandates REWORK, resulting in an overall gate disposition of REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\"measured_latency_ms\": 700",
+          "finding_id": "ARCH-PERF-001"
+        },
+        {
+          "quote": "\"multi_az\": false, \"multi_region\": false",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-HA-001"
+        },
+        {
+          "quote": "\"reversibility_status\": \"missing\"",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "finding_id": "ARCH-REV-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-NET-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "ENABLE_PRIVATE_ENDPOINTS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of the Security Architecture Gate against authoritative REVIEW_FACTS_SECURITY identified two critical findings: SEC-WAF-001 as the internet-facing workload lacks WAF controls (\"waf_present\": false), and SEC-NET-001 because the workload handles Restricted data without private endpoints (\"private_endpoints\": false). Neither finding permits risk acceptance under policy. Following the normative decision policy priority ordering, these critical findings mandate a NO_GO disposition, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"waf_present\": false"
+        },
+        {
+          "finding_id": "SEC-NET-001",
+          "quote": "\"private_endpoints\": false",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-AUDIT-001",
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "REDLINE_AUDIT_RIGHT",
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of the Legal Gate against authoritative REVIEW_FACTS_LEGAL identified three findings: LEGAL-DPA-001 due to unexecuted DPA for processing personal data (\"dpa_status\": \"missing\"); LEGAL-AUDIT-001 because audit rights are restricted to reports only (\"audit_right\": \"reports_only\"); and LEGAL-INS-001 due to an invalid or expired insurance certificate (\"insurance_valid\": false). Under the normative decision policy priority ordering, LEGAL-INS-001 mandates a SUSPENSION disposition, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"dpa_status\": \"missing\"",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-DPA-001"
+        },
+        {
+          "quote": "\"audit_right\": \"reports_only\"",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-AUDIT-001"
+        },
+        {
+          "finding_id": "LEGAL-INS-001",
+          "quote": "\"insurance_valid\": false",
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-RESID-001",
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of the Compliance Gate against authoritative REVIEW_FACTS_COMPLIANCE identified three findings: COMP-DPIA-001 because a required DPIA is not complete (\"dpia_required\": true, \"dpia_status\": \"missing\"); COMP-RESID-001 because actual data hosting violates data residency requirements (\"residency_compliant\": false); and COMP-AUDIT-001 due to a missing compliance audit trail (\"audit_trail\": \"missing\"). Under the normative decision policy priority ordering, the critical COMP-RESID-001 finding mandates a NO_GO disposition, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"dpia_required\": true, \"dpia_status\": \"missing\"",
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        {
+          "quote": "\"residency_compliant\": false",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-RESID-001"
+        },
+        {
+          "quote": "\"audit_trail\": \"missing\"",
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of the General Gate against authoritative REVIEW_FACTS_GENERAL and UPSTREAM_DECISIONS identified three findings: GEN-STRAT-001 due to weak strategic alignment (\"strategic_alignment\": \"weak\"); GEN-BUDGET-001 because requested funding exceeds the approved budget (\"budget_approved_eur\": 2550000, \"budget_requested_eur\": 3000000); and GEN-UPSTREAM-NOGO because 2 upstream gates (Security and Compliance) returned NO_GO opinions. Under normative policy priority ordering, GEN-UPSTREAM-NOGO mandates a final gate disposition of NO_GO, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"strategic_alignment\": \"weak\"",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-STRAT-001"
+        },
+        {
+          "quote": "\"budget_approved_eur\": 2550000, \"budget_requested_eur\": 3000000",
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        {
+          "quote": "\"gate\": \"security\", \"disposition\": \"NO_GO\"",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO"
+        },
+        {
+          "quote": "\"gate\": \"compliance\", \"disposition\": \"NO_GO\"",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-NOGO"
+        }
+      ]
+    }
+  ]
+}

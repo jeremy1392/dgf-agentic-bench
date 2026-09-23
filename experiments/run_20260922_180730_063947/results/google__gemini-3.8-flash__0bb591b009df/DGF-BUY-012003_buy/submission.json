@@ -1,0 +1,141 @@
+{
+  "case_id": "756a54cd-def8-5054-9ecc-a45ddb686b05",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": false,
+      "rationale": "Selected supplier Fluxbridge Labs C8CCC-3 meets all procurement gate criteria: zero mandatory RFP criteria failed, sanctions screening is clear, due diligence is complete, 3-year TCO (EUR 1,031,922) does not exceed 1.5x the purchasing budget (EUR 900,000), and vendor references have been verified.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-EXIT-001",
+        "LEGAL-IP-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE",
+        "CLARIFY_IP_OWNERSHIP"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": false,
+      "rationale": "Evaluation of REVIEW_FACTS_LEGAL reveals that no contractual exit assistance is provided ('exit_assistance_days': 0), warranting finding LEGAL-EXIT-001. Additionally, intellectual property ownership is ambiguous ('ip_ownership': 'ambiguous'), triggering finding LEGAL-IP-001. Ambiguous IP ownership is non-risk-acceptable and mandates contractual clarification, yielding a final gate disposition of REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"exit_assistance_days\": 0"
+        },
+        {
+          "quote": "\"ip_ownership\": \"ambiguous\"",
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Compliance review indicates that the actual hosting region violates the required data residency constraint ('residency_compliant': false with 'required_residency': 'UK' vs 'primary_region': 'East US'). Under policy rule evaluate_compliance, this triggers critical finding COMP-RESID-001 with action RELOCATE_DATA_OR_OBTAIN_VALID_BASIS and a NO_GO disposition, for which risk acceptance is not permitted and executive authorization is required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"residency_compliant\": false",
+          "finding_id": "COMP-RESID-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": false,
+      "rationale": "All security architecture criteria evaluated under the decision policy evaluate_security rule are satisfied: the internet-exposed workload is protected by an active WAF in Prevention mode ('waf_present': true, 'waf_mode': 'Prevention'), private endpoints are configured, MFA is mandatory ('mfa': 'mandatory'), no shared service principals are used ('shared_service_principal': false), security logs are connected to the SIEM ('logs_to_siem': true), zero critical vulnerabilities remain open ('critical_vulns_open': 0), and key rotation is configured to 90 days ('key_rotation_days': 90). No security findings apply, resulting in a GO disposition.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CMDB-001",
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "CREATE_CMDB_RECORD",
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT",
+        "CMDB_EXPORT",
+        "CAPACITY_REPORT"
+      ],
+      "authorization_required": true,
+      "rationale": "Under the IT Gate decision policy in phase 'build_acceptance', two findings apply: IT-CMDB-001 due to missing CMDB record ('cmdb_record_present': false), and IT-CAPACITY-001 due to production capacity headroom being below 15% ('capacity_headroom_pct': 8). Both findings have a disposition of GO_WITH_RESERVATIONS and are risk-acceptable. Under the standing mandate from risk owner Maya Khan-12003-RO, conditional approval was executed, resulting in an authorized final disposition of GO_WITH_RESERVATIONS with actions CREATE_CMDB_RECORD and INCREASE_CAPACITY_HEADROOM.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "IT-CMDB-001",
+          "quote": "\"cmdb_record_present\": false",
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        {
+          "finding_id": "IT-CAPACITY-001",
+          "quote": "\"capacity_headroom_pct\": 8",
+          "evidence_id": "REVIEW_FACTS_IT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "UPSTREAM_DECISIONS",
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "authorization_required": true,
+      "rationale": "Upstream compliance review BUY-03-COMPLIANCE-1 returned a NO_GO disposition due to data residency non-compliance. Under the evaluate_general decision policy, one or more upstream NO_GO dispositions trigger critical finding GEN-UPSTREAM-NOGO with action RESOLVE_UPSTREAM_NO_GO and a mandatory NO_GO gate disposition. Risk acceptance is not permitted and executive authorization is required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"disposition\": \"NO_GO\"",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,720 @@
+{
+  "usage": {
+    "prompt_tokens": 40718,
+    "completion_tokens": 2525,
+    "total_tokens": 43243,
+    "reasoning_tokens": 1834,
+    "cached_tokens": 33792,
+    "cost": 0.00466684,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "procurement",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 62,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "BUSINESS_CASE",
+            "path": "gate_evidence/general/business_case.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 16,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "BUDGET_APPROVAL",
+            "path": "gate_evidence/general/budget_approval.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 170,
+            "consumers": [
+              "general",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 105,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "VENDOR_OFFERS",
+            "path": "gate_evidence/procurement/vendor_offers.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 45,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "SCORING_MATRIX",
+            "path": "gate_evidence/procurement/scoring_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 42,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "DUE_DILIGENCE",
+            "path": "gate_evidence/procurement/due_diligence.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 162,
+            "consumers": [
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "PRICING_TCO",
+            "path": "gate_evidence/procurement/pricing_tco.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 3,
+            "consumers": [
+              "procurement",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "VENDOR_EVIDENCE_REQUEST",
+            "path": "gate_evidence/procurement/vendor_evidence_request.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 93,
+            "consumers": [
+              "procurement",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 68,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 17,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 170,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+            "path": "gate_evidence/procurement/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "procurement"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/procurement/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-BUY-012000",
+            "generation_seed": 12000,
+            "project_name": "Project Delta — Observability Platform [F2EE0]",
+            "project_code": "F2EE0",
+            "project_type": "new_platform",
+            "route": "buy",
+            "business_unit": "Sales",
+            "sponsor": "Yusuf Costa-12000-SP",
+            "project_manager": "Victor Dubois-12000-PM",
+            "business_owner": "Marc Volkov-12000-BO",
+            "service_owner": "Noor Dubois-12000-SO",
+            "risk_owner": "Noor Meyer-12000-RO",
+            "start_date": "2026-09-05",
+            "target_go_live": "2027-03-15",
+            "users_impacted": 250,
+            "budget_requested_eur": 1500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "East US",
+            "personal_data": false,
+            "payment_data": false,
+            "employee_data": true,
+            "ai_enabled": false,
+            "external_users": false
+          },
+          "procurement": {
+            "offers": [
+              {
+                "vendor": "Asterion Cloud F2EE0-1",
+                "functional_score": 89,
+                "security_score": 63,
+                "tco_3y_eur": 2542669,
+                "mandatory_criteria_failed": 2,
+                "sanctions": "hit",
+                "references_checked": true,
+                "due_diligence": "complete",
+                "weighted_score": 66.6
+              },
+              {
+                "vendor": "BlueMesa Systems F2EE0-2",
+                "functional_score": 81,
+                "security_score": 85,
+                "tco_3y_eur": 861069,
+                "mandatory_criteria_failed": 2,
+                "sanctions": "clear",
+                "references_checked": true,
+                "due_diligence": "complete",
+                "weighted_score": 81.6
+              },
+              {
+                "vendor": "CedarPoint Digital F2EE0-3",
+                "functional_score": 89,
+                "security_score": 90,
+                "tco_3y_eur": 1694566,
+                "mandatory_criteria_failed": 1,
+                "sanctions": "clear",
+                "references_checked": true,
+                "due_diligence": "partial",
+                "weighted_score": 80.4
+              },
+              {
+                "vendor": "DeltaForge Technologies F2EE0-4",
+                "functional_score": 72,
+                "security_score": 72,
+                "tco_3y_eur": 603255,
+                "mandatory_criteria_failed": 2,
+                "sanctions": "hit",
+                "references_checked": true,
+                "due_diligence": "pending",
+                "weighted_score": 76.3
+              }
+            ],
+            "selected_vendor": "BlueMesa Systems F2EE0-2",
+            "competition": "open_tender",
+            "rfp_requirements": 128,
+            "purchasing_budget_eur": 1500000
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "SCORING_MATRIX"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "SCORING_MATRIX",
+        "authoritative": false,
+        "version": 2,
+        "age_days": 42,
+        "path": "gate_evidence/procurement/scoring_matrix.csv",
+        "content": [
+          {
+            "functional": "89",
+            "security": "63",
+            "selected": "False",
+            "tco_3y_eur": "2542669",
+            "vendor": "Asterion Cloud F2EE0-1",
+            "weighted_score": "66.6"
+          },
+          {
+            "functional": "81",
+            "security": "85",
+            "selected": "True",
+            "tco_3y_eur": "861069",
+            "vendor": "BlueMesa Systems F2EE0-2",
+            "weighted_score": "81.6"
+          },
+          {
+            "functional": "89",
+            "security": "90",
+            "selected": "False",
+            "tco_3y_eur": "1694566",
+            "vendor": "CedarPoint Digital F2EE0-3",
+            "weighted_score": "80.4"
+          },
+          {
+            "functional": "72",
+            "security": "72",
+            "selected": "False",
+            "tco_3y_eur": "603255",
+            "vendor": "DeltaForge Technologies F2EE0-4",
+            "weighted_score": "76.3"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "DUE_DILIGENCE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "DUE_DILIGENCE",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 162,
+        "path": "gate_evidence/procurement/due_diligence.csv",
+        "content": [
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "2",
+            "references_checked": "True",
+            "sanctions": "hit",
+            "vendor": "Asterion Cloud F2EE0-1"
+          },
+          {
+            "due_diligence": "complete",
+            "mandatory_failed": "2",
+            "references_checked": "True",
+            "sanctions": "clear",
+            "vendor": "BlueMesa Systems F2EE0-2"
+          },
+          {
+            "due_diligence": "partial",
+            "mandatory_failed": "1",
+            "references_checked": "True",
+            "sanctions": "clear",
+            "vendor": "CedarPoint Digital F2EE0-3"
+          },
+          {
+            "due_diligence": "pending",
+            "mandatory_failed": "2",
+            "references_checked": "True",
+            "sanctions": "hit",
+            "vendor": "DeltaForge Technologies F2EE0-4"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "PRICING_TCO"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "PRICING_TCO",
+        "authoritative": false,
+        "version": 5,
+        "age_days": 3,
+        "path": "gate_evidence/procurement/pricing_tco.csv",
+        "content": [
+          {
+            "annualized_eur": "847556.33",
+            "selected": "False",
+            "tco_3y_eur": "2542669",
+            "vendor": "Asterion Cloud F2EE0-1"
+          },
+          {
+            "annualized_eur": "287023.0",
+            "selected": "True",
+            "tco_3y_eur": "861069",
+            "vendor": "BlueMesa Systems F2EE0-2"
+          },
+          {
+            "annualized_eur": "564855.33",
+            "selected": "False",
+            "tco_3y_eur": "1694566",
+            "vendor": "CedarPoint Digital F2EE0-3"
+          },
+          {
+            "annualized_eur": "201085.0",
+            "selected": "False",
+            "tco_3y_eur": "603255",
+            "vendor": "DeltaForge Technologies F2EE0-4"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "BUDGET_APPROVAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "BUDGET_APPROVAL",
+        "authoritative": true,
+        "version": 2,
+        "age_days": 170,
+        "path": "gate_evidence/general/budget_approval.csv",
+        "content": [
+          {
+            "approved_eur": "1500000",
+            "approver": "CFO Office",
+            "requested_eur": "1500000",
+            "status": "APPROVED"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_763c9b11613d44468c69fa41",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 4137,
+        "completion_tokens": 27,
+        "total_tokens": 4164,
+        "reasoning_tokens": 16,
+        "cached_tokens": 0,
+        "cost": 0.00063405,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_f71f4d6519884ec6bdd0dacc",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5044,
+        "completion_tokens": 39,
+        "total_tokens": 5083,
+        "reasoning_tokens": 27,
+        "cached_tokens": 4096,
+        "cost": 0.00044842,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "content": "The authoritative snapshot is in. Let me apply the decision rule to the selected vendor and quickly cross-check the non-authoritative procurement documents for contradictions.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_bf401fba5399435491b6f02b",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"SCORING_MATRIX\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5751,
+        "completion_tokens": 1188,
+        "total_tokens": 6939,
+        "reasoning_tokens": 1194,
+        "cached_tokens": 4992,
+        "cost": 0.00105729,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_adb6d721e92a49a78f58545e",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"DUE_DILIGENCE\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6084,
+        "completion_tokens": 19,
+        "total_tokens": 6103,
+        "reasoning_tokens": 0,
+        "cached_tokens": 5696,
+        "cost": 0.00046642,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_1342aa608cf14f079c9cb13e",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"PRICING_TCO\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6344,
+        "completion_tokens": 19,
+        "total_tokens": 6363,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6080,
+        "cost": 0.0004747,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 5,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_ba7986d58ed54e2ea23fcc8f",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"BUDGET_APPROVAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6622,
+        "completion_tokens": 19,
+        "total_tokens": 6641,
+        "reasoning_tokens": 0,
+        "cached_tokens": 6336,
+        "cost": 0.00049592,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    },
+    {
+      "turn": 6,
+      "assistant": {
+        "role": "assistant",
+        "content": "All sources are consistent. Applying the decision rule to the selected vendor (BlueMesa Systems F2EE0-2):\n\n- **mandatory_criteria_failed = 2** → PROC-MAND-001 triggers (critical, NO_GO, risk acceptance not allowed)\n- sanctions = \"clear\" → no sanctions finding\n- due_diligence = \"complete\" → no DD finding\n- tco_3y_eur = 861,069 ≤ 1,500,000 × 1.5 = 2,250,000 → no budget finding\n- references_checked = true → no reference finding\n\nOnly PROC-MAND-001 applies; the highest-priority triggered disposition is NO_GO. Submitting the decision.",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_b47427ebe448439dbbda4e1d",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"actions\": [\"REOPEN_VENDOR_SELECTION\"], \"authorization_required\": true, \"confidence\": 0.95, \"disposition\": \"NO_GO\", \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\", \"SCORING_MATRIX\", \"DUE_DILIGENCE\", \"PRICING_TCO\", \"BUDGET_APPROVAL\"], \"evidence_support\": [{\"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"finding_id\": \"PROC-MAND-001\", \"quote\": \"\\\"vendor\\\": \\\"BlueMesa Systems F2EE0-2\\\", \\\"functional_score\\\": 81, \\\"security_score\\\": 85, \\\"tco_3y_eur\\\": 861069, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 81.6\"}], \"finding_ids\": [\"PROC-MAND-001\"], \"rationale\": \"The authoritative REVIEW_FACTS_PROCUREMENT snapshot shows the selected supplier BlueMesa Systems F2EE0-2 failed 2 mandatory RFP criteria (mandatory_criteria_failed: 2), triggering PROC-MAND-001 (critical, NO_GO, action REOPEN_VENDOR_SELECTION, risk acceptance not allowed). Corroborated by the non-authoritative SCORING_MATRIX (BlueMesa selected=True, weighted_score 81.6) and authoritative DUE_DILIGENCE (BlueMesa mandatory_failed=2). No other findings trigger: sanctions are clear (no PROC-SAN-001/002), due diligence is complete (no PROC-DD-001), TCO of EUR 861,069 is within the purchasing envelope of EUR 1,500,000 x 1.5 = EUR 2,250,000 (no PROC-BUDGET-001; BUDGET_APPROVAL confirms approved_eur 1,500,000), and references_checked is true (no PROC-REF-001). Because a mandatory-criteria failure cannot be risk-accepted, the vendor selection must be reopened; NO_GO is the highest-priority triggered disposition and requires authorization.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6736,
+        "completion_tokens": 1214,
+        "total_tokens": 7950,
+        "reasoning_tokens": 597,
+        "cached_tokens": 6592,
+        "cost": 0.00109004,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "z-ai/glm-5.3-flash",
+      "provider": "Inceptron",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flash"
+  ],
+  "providers": [
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron",
+    "Inceptron"
+  ],
+  "turns": 7,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "BUY-01-PROCUREMENT-1",
+    "disposition": "NO_GO",
+    "finding_ids": [
+      "PROC-MAND-001"
+    ],
+    "actions": [
+      "REOPEN_VENDOR_SELECTION"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_PROCUREMENT",
+      "SCORING_MATRIX",
+      "DUE_DILIGENCE",
+      "PRICING_TCO",
+      "BUDGET_APPROVAL"
+    ],
+    "authorization_required": true,
+    "rationale": "The authoritative REVIEW_FACTS_PROCUREMENT snapshot shows the selected supplier BlueMesa Systems F2EE0-2 failed 2 mandatory RFP criteria (mandatory_criteria_failed: 2), triggering PROC-MAND-001 (critical, NO_GO, action REOPEN_VENDOR_SELECTION, risk acceptance not allowed). Corroborated by the non-authoritative SCORING_MATRIX (BlueMesa selected=True, weighted_score 81.6) and authoritative DUE_DILIGENCE (BlueMesa mandatory_failed=2). No other findings trigger: sanctions are clear (no PROC-SAN-001/002), due diligence is complete (no PROC-DD-001), TCO of EUR 861,069 is within the purchasing envelope of EUR 1,500,000 x 1.5 = EUR 2,250,000 (no PROC-BUDGET-001; BUDGET_APPROVAL confirms approved_eur 1,500,000), and references_checked is true (no PROC-REF-001). Because a mandatory-criteria failure cannot be risk-accepted, the vendor selection must be reopened; NO_GO is the highest-priority triggered disposition and requires authorization.",
+    "confidence": 0.95,
+    "evidence_support": [
+      {
+        "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+        "finding_id": "PROC-MAND-001",
+        "quote": "\"vendor\": \"BlueMesa Systems F2EE0-2\", \"functional_score\": 81, \"security_score\": 85, \"tco_3y_eur\": 861069, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 81.6"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 8,
+    "retries": 1,
+    "rate_limits": 1,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "usage": {
+    "prompt_tokens": 32556,
+    "completion_tokens": 2987,
+    "total_tokens": 35543,
+    "reasoning_tokens": 2607,
+    "cached_tokens": 0,
+    "cost": 0.035618250000000004,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "it",
+        "phase": "framing",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 29,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 15,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 8,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 53,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "CAPACITY_REPORT",
+            "path": "gate_evidence/it/capacity_report.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 2,
+            "consumers": [
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 14,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_IT",
+            "path": "gate_evidence/it/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "it"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_IT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/it/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012006",
+            "generation_seed": 12006,
+            "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [71C27]",
+            "project_code": "71C27",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Retail",
+            "sponsor": "Nadia Nguyen-12006-SP",
+            "project_manager": "Marc Santos-12006-PM",
+            "business_owner": "Omar Ivanov-12006-BO",
+            "service_owner": "Jeremy Meyer-12006-SO",
+            "risk_owner": "Lucas Martin-12006-RO",
+            "start_date": "2026-11-21",
+            "target_go_live": "2027-05-21",
+            "users_impacted": 500,
+            "budget_requested_eur": 500000,
+            "data_classification": "Internal",
+            "business_criticality": "High",
+            "primary_region": "West Europe",
+            "personal_data": true,
+            "payment_data": false,
+            "employee_data": false,
+            "ai_enabled": false,
+            "external_users": true
+          },
+          "it": {
+            "catalog_status": "standard",
+            "waiver_present": true,
+            "waiver_expiry_days": 90,
+            "duplicate_capability": false,
+            "existing_alternative": "none",
+            "license_compliant": true,
+            "annual_license_cost_eur": 282285,
+            "cmdb_record_present": true,
+            "run_owner_present": true,
+            "support_model": "business_hours",
+            "patch_sla_days": 14,
+            "capacity_headroom_pct": 15,
+            "technology_eol_months": 4,
+            "change_record_status": "approved",
+            "service_continuity_class": "silver",
+            "hosting_model": "container_apps"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1",
+            "occurrence_id": "INTEGRATE-01-IT-1",
+            "gate": "it",
+            "phase": "framing",
+            "authority": "Lucas Martin-12006-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "approve_with_conditions",
+      "args": {
+        "gate": "it",
+        "finding_ids": [
+          "IT-EOL-001"
+        ],
+        "conditions": [
+          "CREATE_CONVERGENCE_PLAN"
+        ],
+        "approval_reference": "MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1"
+      },
+      "result": {
+        "status": "EXECUTED",
+        "action": "APPROVE_WITH_CONDITIONS",
+        "gate": "it",
+        "finding_ids": [
+          "IT-EOL-001"
+        ],
+        "conditions": [
+          "CREATE_CONVERGENCE_PLAN"
+        ],
+        "approval_reference": "MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1"
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_121251",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5698,
+        "completion_tokens": 54,
+        "total_tokens": 5752,
+        "reasoning_tokens": 44,
+        "cached_tokens": 0,
+        "cost": 0.004476,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_189150",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_IT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6203,
+        "completion_tokens": 49,
+        "total_tokens": 6252,
+        "reasoning_tokens": 26,
+        "cached_tokens": 0,
+        "cost": 0.004836,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_299361",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6718,
+        "completion_tokens": 1098,
+        "total_tokens": 7816,
+        "reasoning_tokens": 1085,
+        "cached_tokens": 0,
+        "cost": 0.009156,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_252593",
+            "function": {
+              "name": "approve_with_conditions",
+              "arguments": "{\"gate\":\"it\",\"finding_ids\":[\"IT-EOL-001\"],\"conditions\":[\"CREATE_CONVERGENCE_PLAN\"],\"approval_reference\":\"MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6860,
+        "completion_tokens": 1552,
+        "total_tokens": 8412,
+        "reasoning_tokens": 1452,
+        "cached_tokens": 0,
+        "cost": 0.010965,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_388845",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"evidence_support\":[{\"finding_id\":\"IT-EOL-001\",\"evidence_id\":\"REVIEW_FACTS_IT\",\"quote\":\"\\\"technology_eol_months\\\": 4\"}],\"actions\":[\"CREATE_CONVERGENCE_PLAN\"],\"evidence_refs\":[\"REVIEW_FACTS_IT\"],\"disposition\":\"GO_WITH_RESERVATIONS\",\"confidence\":1,\"authorization_required\":true,\"rationale\":\"Technology reaches end-of-life within 12 months (technology_eol_months is 4). IT-EOL-001 is risk-acceptable and approved conditionally under standing mandate MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1, resulting in GO_WITH_RESERVATIONS with action CREATE_CONVERGENCE_PLAN.\",\"finding_ids\":[\"IT-EOL-001\"]}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7077,
+        "completion_tokens": 234,
+        "total_tokens": 7311,
+        "reasoning_tokens": 0,
+        "cached_tokens": 0,
+        "cost": 0.00618525,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 5,
+  "tool_call_count": 4,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-01-IT-1",
+    "disposition": "GO_WITH_RESERVATIONS",
+    "finding_ids": [
+      "IT-EOL-001"
+    ],
+    "actions": [
+      "CREATE_CONVERGENCE_PLAN"
+    ],
+    "evidence_refs": [
+      "REVIEW_FACTS_IT"
+    ],
+    "authorization_required": true,
+    "rationale": "Technology reaches end-of-life within 12 months (technology_eol_months is 4). IT-EOL-001 is risk-acceptable and approved conditionally under standing mandate MANDATE-5d8bb3b5-f441-5613-97ae-b69c2f6113ad-INTEGRATE-01-IT-1, resulting in GO_WITH_RESERVATIONS with action CREATE_CONVERGENCE_PLAN.",
+    "confidence": 1.0,
+    "evidence_support": [
+      {
+        "finding_id": "IT-EOL-001",
+        "evidence_id": "REVIEW_FACTS_IT",
+        "quote": "\"technology_eol_months\": 4"
+      }
+    ]
+  },
+  "http_stats": {
+    "http_attempts": 5,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

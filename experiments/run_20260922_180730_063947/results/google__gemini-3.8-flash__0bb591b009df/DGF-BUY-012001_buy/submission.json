@@ -1,0 +1,163 @@
+{
+  "case_id": "c0eebffe-87e5-582a-88a2-ab0eeaa573ea",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-SAN-002",
+        "PROC-DD-001"
+      ],
+      "actions": [
+        "COMPLETE_SANCTIONS_SCREENING",
+        "COMPLETE_VENDOR_DUE_DILIGENCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of the authoritative review facts for selected supplier CedarPoint Digital 85431-2 shows sanctions screening is pending (PROC-SAN-002) and third-party due diligence is pending (PROC-DD-001). Under the normative priority hierarchy, SUSPENSION takes precedence over REWORK. Since SUSPENSION requires authorization and neither finding permits risk acceptance under the mandate, the gate disposition is SUSPENSION with authorization required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"vendor\": \"CedarPoint Digital 85431-2\", \"sanctions\": \"pending\"",
+          "finding_id": "PROC-SAN-002",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        {
+          "quote": "\"vendor\": \"CedarPoint Digital 85431-2\", \"due_diligence\": \"pending\"",
+          "finding_id": "PROC-DD-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-IP-001"
+      ],
+      "actions": [
+        "CLARIFY_IP_OWNERSHIP"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative review facts indicate IP ownership is ambiguous (\"ip_ownership\": \"ambiguous\"), triggering finding LEGAL-IP-001 with required action CLARIFY_IP_OWNERSHIP and a REWORK disposition. All other contractual criteria (DPA status, liability cap, audit rights, exit assistance, insurance validity, signing authority, and log export commitment) meet normative gate policy. In accordance with policy rules, REWORK does not require authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\"ip_ownership\": \"ambiguous\"",
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative review facts indicate that residency compliance is false (\"residency_compliant\": false), triggering critical finding COMP-RESID-001 (disposition NO_GO). Additionally, export-control screening is pending (\"export_control\": \"pending\"), triggering high finding COMP-EXPORT-002 (disposition SUSPENSION). Under the normative priority rules, NO_GO takes precedence over SUSPENSION. Neither finding permits risk acceptance under standing mandates. Therefore, the gate disposition is NO_GO with authorization required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "quote": "\"residency_compliant\": false",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        {
+          "quote": "\"export_control\": \"pending\"",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-EXPORT-002"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-IAM-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "ENFORCE_MFA"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of the authoritative REVIEW_FACTS_SECURITY snapshot for Project Kepler under the design phase reveals that the workload is internet-facing without a WAF control (\"internet_exposed\": true, \"waf_present\": false), triggering critical finding SEC-WAF-001 (disposition NO_GO, risk acceptance not allowed). Additionally, MFA is not mandatory (\"mfa\": \"missing\"), triggering high finding SEC-IAM-001 (disposition REWORK). In accordance with the normative priority rules, NO_GO takes precedence over REWORK. Since the highest priority finding is NO_GO, the gate disposition is NO_GO, which requires authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"internet_exposed\": true, \"waf_present\": false",
+          "finding_id": "SEC-WAF-001"
+        },
+        {
+          "finding_id": "SEC-IAM-001",
+          "quote": "\"mfa\": \"missing\"",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "Authoritative review facts in REVIEW_FACTS_IT confirm that all IT gate criteria for the build_acceptance phase are satisfied: catalog technology is standard with active waiver, no duplicate capability exists, licensing is compliant, CMDB record is present, an accountable run owner is assigned, technology EOL is 60 months (exceeding the 12-month threshold), and production capacity headroom is 45% (well above the 15% minimum). Production change approval is not evaluated until deployment_closure. Therefore, the gate disposition is GO with no findings.",
+      "confidence": 1.0,
+      "evidence_support": []
+    },
+    {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Evaluation of REVIEW_FACTS_GENERAL indicates that requested funding exceeds the approved budget envelope (budget_requested_eur: 7,000,000 vs budget_approved_eur: 4,900,000), triggering finding GEN-BUDGET-001 (disposition SUSPENSION). Additionally, examination of UPSTREAM_DECISIONS reveals that 2 upstream gates (Compliance and Security) returned NO_GO dispositions, triggering finding GEN-UPSTREAM-NOGO (disposition NO_GO). Under the normative priority rules, NO_GO takes precedence over SUSPENSION, establishing a final disposition of NO_GO with authorization required.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "finding_id": "GEN-BUDGET-001",
+          "quote": "\"budget_approved_eur\": 4900000, \"budget_requested_eur\": 7000000"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "quote": "\"gate\": \"compliance\", \"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"phase\": \"design\", \"disposition\": \"NO_GO\"",
+          "evidence_id": "UPSTREAM_DECISIONS"
+        }
+      ]
+    }
+  ]
+}

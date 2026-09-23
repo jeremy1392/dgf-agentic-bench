@@ -1,0 +1,454 @@
+{
+  "usage": {
+    "prompt_tokens": 31868,
+    "completion_tokens": 5766,
+    "total_tokens": 37634,
+    "reasoning_tokens": 5526,
+    "cached_tokens": 0,
+    "cost": 0.0455235,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {},
+      "result": {
+        "gate": "legal",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 85,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "RFP",
+            "path": "gate_evidence/procurement/RFP.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 77,
+            "consumers": [
+              "procurement",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "MSA",
+            "path": "gate_evidence/legal/MSA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 57,
+            "consumers": [
+              "legal",
+              "procurement",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DPA",
+            "path": "gate_evidence/legal/DPA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 131,
+            "consumers": [
+              "legal",
+              "compliance",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "SLA_ANNEX",
+            "path": "gate_evidence/legal/SLA_Annex.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 4,
+            "consumers": [
+              "legal",
+              "procurement",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "CONTRACT_PLAYBOOK",
+            "path": "gate_evidence/legal/contract_playbook.json",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 4,
+            "age_days": 145,
+            "consumers": [
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "NEGOTIATION_LOG",
+            "path": "gate_evidence/legal/negotiation_log.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 99,
+            "consumers": [
+              "legal",
+              "procurement"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 48,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "DPIA",
+            "path": "gate_evidence/compliance/DPIA.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 95,
+            "consumers": [
+              "compliance",
+              "legal",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "AI_IMPACT",
+            "path": "gate_evidence/compliance/AI_Impact_Assessment.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 95,
+            "consumers": [
+              "compliance",
+              "security",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_LEGAL",
+            "path": "gate_evidence/legal/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "legal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_LEGAL"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_LEGAL",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/legal/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012008",
+            "generation_seed": 12008,
+            "project_name": "Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+            "project_code": "3ED4F",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Corporate Services",
+            "sponsor": "Omar Santos-12008-SP",
+            "project_manager": "Yusuf Volkov-12008-PM",
+            "business_owner": "Ines Garcia-12008-BO",
+            "service_owner": "Maya Petrescu-12008-SO",
+            "risk_owner": "Ines Petrescu-12008-RO",
+            "start_date": "2026-09-16",
+            "target_go_live": "2027-05-14",
+            "users_impacted": 2000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "UAE North",
+            "personal_data": false,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "legal": {
+            "contract_version": "MSA-3ED4F-7.7",
+            "governing_law": "England & Wales",
+            "dpa_status": "not_required",
+            "liability_cap_multiplier": 1,
+            "security_carveout": false,
+            "audit_right": "limited",
+            "termination_for_convenience": false,
+            "exit_assistance_days": 90,
+            "ip_ownership": "shared",
+            "insurance_valid": true,
+            "cyber_insurance_m": 2,
+            "signing_authority_valid": true,
+            "data_transfer_clause": "contractual_only",
+            "sla_penalties": true,
+            "log_export_clause": "included"
+          }
+        }
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-d105d6fd-4d96-5545-aa68-27c4fb280616-INTEGRATE-04-LEGAL-1",
+            "occurrence_id": "INTEGRATE-04-LEGAL-1",
+            "gate": "legal",
+            "phase": "design",
+            "authority": "Ines Petrescu-12008-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_contract_version",
+      "args": {},
+      "result": {
+        "contract_version": "MSA-3ED4F-7.7",
+        "dpa_status": "not_required",
+        "audit_right": "limited",
+        "log_export_clause": "included",
+        "signing_authority_valid": true
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_210589",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 5375,
+        "completion_tokens": 59,
+        "total_tokens": 5434,
+        "reasoning_tokens": 49,
+        "cached_tokens": 0,
+        "cost": 0.0042525,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_329571",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\":\"REVIEW_FACTS_LEGAL\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6139,
+        "completion_tokens": 37,
+        "total_tokens": 6176,
+        "reasoning_tokens": 13,
+        "cached_tokens": 0,
+        "cost": 0.004743,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_208034",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6662,
+        "completion_tokens": 2378,
+        "total_tokens": 9040,
+        "reasoning_tokens": 2365,
+        "cached_tokens": 0,
+        "cost": 0.013914,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_336041",
+            "function": {
+              "name": "get_contract_version",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6808,
+        "completion_tokens": 1325,
+        "total_tokens": 8133,
+        "reasoning_tokens": 1313,
+        "cached_tokens": 0,
+        "cost": 0.01007475,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    },
+    {
+      "turn": 4,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "call_141226",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"confidence\":1,\"finding_ids\":[],\"disposition\":\"GO\",\"rationale\":\"Authoritative legal review facts confirm that all contractual and legal criteria meet policy thresholds: personal data is not processed and dpa_status is not_required; liability_cap_multiplier is 1.0 (not low/0.5); audit_right is limited (not reports_only or none); exit_assistance_days is 90 (> 0); ip_ownership is shared (not ambiguous); insurance_valid and signing_authority_valid are both true; and log_export_clause is included. No candidate legal findings are triggered, resulting in a GO disposition.\",\"actions\":[],\"evidence_refs\":[\"REVIEW_FACTS_LEGAL\"],\"authorization_required\":false,\"evidence_support\":[]}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6884,
+        "completion_tokens": 1967,
+        "total_tokens": 8851,
+        "reasoning_tokens": 1786,
+        "cached_tokens": 0,
+        "cost": 0.01253925,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "google/gemini-3.8-flash",
+      "provider": "Google AI Studio",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash",
+    "google/gemini-3.8-flash"
+  ],
+  "providers": [
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio",
+    "Google AI Studio"
+  ],
+  "turns": 5,
+  "tool_call_count": 4,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-04-LEGAL-1",
+    "disposition": "GO",
+    "finding_ids": [],
+    "actions": [],
+    "evidence_refs": [
+      "REVIEW_FACTS_LEGAL"
+    ],
+    "authorization_required": false,
+    "rationale": "Authoritative legal review facts confirm that all contractual and legal criteria meet policy thresholds: personal data is not processed and dpa_status is not_required; liability_cap_multiplier is 1.0 (not low/0.5); audit_right is limited (not reports_only or none); exit_assistance_days is 90 (> 0); ip_ownership is shared (not ambiguous); insurance_valid and signing_authority_valid are both true; and log_export_clause is included. No candidate legal findings are triggered, resulting in a GO disposition.",
+    "confidence": 1.0,
+    "evidence_support": []
+  },
+  "http_stats": {
+    "http_attempts": 19,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}

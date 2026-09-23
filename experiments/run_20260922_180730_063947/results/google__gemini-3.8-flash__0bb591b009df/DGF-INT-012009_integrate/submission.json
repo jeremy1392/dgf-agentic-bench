@@ -1,0 +1,180 @@
+{
+  "case_id": "ab210d3a-e852-5bbf-be56-36254f5deb4b",
+  "model": "google/gemini-3.8-flash",
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "authorization_required": false,
+      "rationale": "Licence position is non-compliant (license_compliant: false) and technology reaches end-of-life within 4 months (< 12 months), requiring rework to remediate the licence position and create a convergence plan.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "REVIEW_FACTS_IT",
+          "finding_id": "IT-LICENSE-001",
+          "quote": "\"license_compliant\": false"
+        },
+        {
+          "quote": "\"technology_eol_months\": 4",
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "authorization_required": false,
+      "rationale": "The workload has business_criticality 'Critical' but lacks zone or regional redundancy (multi_az: false, multi_region: false), triggering ARCH-HA-001 (disposition REWORK). Additionally, reversibility_status is 'draft', triggering ARCH-REV-001 (disposition GO_WITH_RESERVATIONS). Under the priority ordering, the overall disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "quote": "\\\"multi_az\\\": false",
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "\\\"reversibility_status\\\": \\\"draft\\\"",
+          "finding_id": "ARCH-REV-001"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-001",
+        "SEC-IAM-002"
+      ],
+      "actions": [
+        "ENFORCE_MFA",
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "authorization_required": false,
+      "rationale": "The review of authoritative security facts indicates that MFA is not mandatory (\"mfa\": \"optional\"), triggering SEC-IAM-001, and a shared service principal is configured (\"shared_service_principal\": true), triggering SEC-IAM-002. Both findings require REWORK and neither permits risk acceptance. Under the decision policy priority ordering, the overall disposition is REWORK.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "\"mfa\": \"optional\""
+        },
+        {
+          "quote": "\"shared_service_principal\": true",
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "authorization_required": true,
+      "rationale": "Review of authoritative legal review facts reveals that audit rights are insufficient (\"audit_right\": \"none\"), triggering LEGAL-AUDIT-001, and the contract lacks a required log export commitment for a Critical workload (\"log_export_clause\": \"missing\", business_criticality \"Critical\"), triggering LEGAL-LOG-001. Both findings permit risk acceptance, and active standing authorization mandate MANDATE-ab210d3a-e852-5bbf-be56-36254f5deb4b-INTEGRATE-04-LEGAL-1 was successfully executed to approve with conditions, resulting in disposition GO_WITH_RESERVATIONS.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "\"audit_right\": \"none\""
+        },
+        {
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "finding_id": "LEGAL-LOG-001",
+          "quote": "\"log_export_clause\": \"missing\""
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-MAP-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "authorization_required": true,
+      "rationale": "Authoritative compliance review facts show that applicable regulatory obligations are not mapped to controls (\"regulatory_mapping\": \"missing\"), triggering COMP-MAP-001 (disposition REWORK), and export-control screening is pending (\"export_control\": \"pending\"), triggering COMP-EXPORT-002 (disposition SUSPENSION). Neither finding allows risk acceptance. Under the policy priority ordering, SUSPENSION takes precedence over REWORK, requiring formal authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "\"regulatory_mapping\": \"missing\""
+        },
+        {
+          "quote": "\"export_control\": \"pending\"",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "finding_id": "COMP-EXPORT-002"
+        }
+      ]
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "authorization_required": true,
+      "rationale": "Review of authoritative general review facts confirms strategic alignment is strong, requested budget matches approved budget, and ROI is 13.2%. However, review of upstream decisions shows 1 upstream gate (INTEGRATE-05-COMPLIANCE-1) returned SUSPENSION. In accordance with the decision policy, this triggers GEN-UPSTREAM-SUSPEND (disposition SUSPENSION, which takes precedence over upstream rework). Risk acceptance is not permitted for GEN-UPSTREAM-SUSPEND, and SUSPENSION requires formal governance authorization.",
+      "confidence": 1.0,
+      "evidence_support": [
+        {
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "quote": "\"disposition\": \"SUSPENSION\""
+        }
+      ]
+    }
+  ]
+}

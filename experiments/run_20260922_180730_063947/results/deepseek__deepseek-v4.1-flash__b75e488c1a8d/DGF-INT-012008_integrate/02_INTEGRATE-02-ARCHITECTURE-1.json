@@ -1,0 +1,738 @@
+{
+  "usage": {
+    "prompt_tokens": 32559,
+    "completion_tokens": 1467,
+    "total_tokens": 34026,
+    "reasoning_tokens": 541,
+    "cached_tokens": 24960,
+    "cost": 0.001784832,
+    "unknown_cost_calls": 0
+  },
+  "tool_trace": [
+    {
+      "tool": "list_evidence",
+      "args": {
+        "include_unavailable": true
+      },
+      "result": {
+        "gate": "architecture",
+        "phase": "design",
+        "evidence": [
+          {
+            "evidence_id": "PROJECT_CHARTER",
+            "path": "shared/project_charter.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 85,
+            "consumers": [
+              "general",
+              "it",
+              "architecture",
+              "security",
+              "tech_readiness",
+              "procurement",
+              "legal",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "CMDB_EXPORT",
+            "path": "gate_evidence/it/cmdb_export.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 56,
+            "consumers": [
+              "it",
+              "architecture",
+              "security"
+            ]
+          },
+          {
+            "evidence_id": "TECH_CATALOG",
+            "path": "gate_evidence/it/technology_catalog.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 53,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "LIFECYCLE_REGISTER",
+            "path": "gate_evidence/it/lifecycle_eol.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 85,
+            "consumers": [
+              "it",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "HLD",
+            "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 62,
+            "consumers": [
+              "architecture",
+              "security",
+              "it",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "LLD",
+            "path": "gate_evidence/architecture/LLD_Architecture_Notes.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 4,
+            "age_days": 163,
+            "consumers": [
+              "architecture",
+              "security",
+              "tech_readiness"
+            ]
+          },
+          {
+            "evidence_id": "FLOW_MATRIX",
+            "path": "gate_evidence/architecture/flow_matrix.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 34,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "OPENAPI",
+            "path": "gate_evidence/architecture/openapi.yaml",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 1,
+            "age_days": 30,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "DATA_MODEL",
+            "path": "gate_evidence/architecture/data_model.json",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 161,
+            "consumers": [
+              "architecture",
+              "security",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "DATA_LINEAGE",
+            "path": "gate_evidence/architecture/data_lineage.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 5,
+            "age_days": 102,
+            "consumers": [
+              "architecture",
+              "compliance"
+            ]
+          },
+          {
+            "evidence_id": "IP_PLAN",
+            "path": "gate_evidence/architecture/ip_plan.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 159,
+            "consumers": [
+              "architecture",
+              "security",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ADR_REGISTER",
+            "path": "gate_evidence/architecture/adr_register.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 19,
+            "consumers": [
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "ARCH_DEBT",
+            "path": "gate_evidence/architecture/architecture_debt.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 3,
+            "age_days": 169,
+            "consumers": [
+              "architecture",
+              "general"
+            ]
+          },
+          {
+            "evidence_id": "AZURE_RESOURCE_GRAPH",
+            "path": "gate_evidence/security/azure_resource_graph.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 79,
+            "consumers": [
+              "security",
+              "architecture",
+              "it"
+            ]
+          },
+          {
+            "evidence_id": "NSG_RULES",
+            "path": "gate_evidence/security/nsg_rules.csv",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 115,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "WAF_POLICY",
+            "path": "gate_evidence/security/waf_policy.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 5,
+            "age_days": 23,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "FIREWALL_POLICY",
+            "path": "gate_evidence/security/firewall_policy.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 2,
+            "age_days": 93,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "THREAT_MODEL",
+            "path": "gate_evidence/security/threat_model.docx",
+            "public_status": "AVAILABLE",
+            "authoritative": false,
+            "version": 2,
+            "age_days": 165,
+            "consumers": [
+              "security",
+              "architecture"
+            ]
+          },
+          {
+            "evidence_id": "DATA_INVENTORY",
+            "path": "gate_evidence/compliance/data_inventory.csv",
+            "public_status": "UNAVAILABLE",
+            "authoritative": true,
+            "version": 3,
+            "age_days": 48,
+            "consumers": [
+              "compliance",
+              "security",
+              "architecture",
+              "legal"
+            ]
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+            "path": "gate_evidence/architecture/review_facts.json",
+            "public_status": "AVAILABLE",
+            "authoritative": true,
+            "version": 1,
+            "age_days": 0,
+            "consumers": [
+              "architecture"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "tool": "get_authorization_mandates",
+      "args": {},
+      "result": {
+        "mandates": [
+          {
+            "reference": "MANDATE-d105d6fd-4d96-5545-aa68-27c4fb280616-INTEGRATE-02-ARCHITECTURE-1",
+            "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+            "gate": "architecture",
+            "phase": "design",
+            "authority": "Ines Petrescu-12008-RO",
+            "scope": "all and only risk-acceptable findings",
+            "active": true
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+        "authoritative": true,
+        "version": 1,
+        "age_days": 0,
+        "path": "gate_evidence/architecture/review_facts.json",
+        "content": {
+          "project": {
+            "project_id": "DGF-INT-012008",
+            "generation_seed": 12008,
+            "project_name": "Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+            "project_code": "3ED4F",
+            "project_type": "ma_integration",
+            "route": "integrate",
+            "business_unit": "Corporate Services",
+            "sponsor": "Omar Santos-12008-SP",
+            "project_manager": "Yusuf Volkov-12008-PM",
+            "business_owner": "Ines Garcia-12008-BO",
+            "service_owner": "Maya Petrescu-12008-SO",
+            "risk_owner": "Ines Petrescu-12008-RO",
+            "start_date": "2026-09-16",
+            "target_go_live": "2027-05-14",
+            "users_impacted": 2000,
+            "budget_requested_eur": 500000,
+            "data_classification": "Confidential",
+            "business_criticality": "Medium",
+            "primary_region": "UAE North",
+            "personal_data": false,
+            "payment_data": true,
+            "employee_data": false,
+            "ai_enabled": true,
+            "external_users": true
+          },
+          "architecture": {
+            "hld_version": "HLD-3ED4F-v1.6",
+            "lld_version": "LLD-3ED4F-v1.5",
+            "api_gateway_required": true,
+            "api_gateway_present": true,
+            "ip_overlap": false,
+            "data_owner_present": true,
+            "data_lineage_complete": true,
+            "latency_target_ms": 100,
+            "measured_latency_ms": 95,
+            "load_test_peak_pct": 100,
+            "architecture_debt_items": 7,
+            "adr_count": 7,
+            "reversibility_status": "tested",
+            "data_export_supported": true,
+            "private_cidrs": [
+              "10.166.128.0/24",
+              "10.166.129.0/24",
+              "10.166.130.0/24"
+            ],
+            "dns_zone": "dgf-int-012008.corp.example"
+          },
+          "architecture_profile": {
+            "multi_az": true,
+            "multi_region": false
+          }
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "IP_PLAN"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "IP_PLAN",
+        "authoritative": true,
+        "version": 3,
+        "age_days": 159,
+        "path": "gate_evidence/architecture/ip_plan.csv",
+        "content": [
+          {
+            "cidr": "10.166.128.0/24",
+            "overlap_detected": "False"
+          },
+          {
+            "cidr": "10.166.129.0/24",
+            "overlap_detected": "False"
+          },
+          {
+            "cidr": "10.166.130.0/24",
+            "overlap_detected": "False"
+          }
+        ]
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "HLD"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "HLD",
+        "authoritative": false,
+        "version": 4,
+        "age_days": 62,
+        "path": "gate_evidence/architecture/Architecture_Diagram_Detailed.svg",
+        "content": {
+          "note": "Textual extraction from SVG; use authoritative resource tools for configuration facts.",
+          "labels": [
+            "Azure HLD — Falcon Acquisition Integration — Risk Analytics Platform [3ED4F]",
+            "DGF-INT-012008 | ARCH-3ED4F-22008 | web_platform | single_vnet | v1.6",
+            "Primary UAE North | single_region_multi_az | Compute vm_ha | Signature 856835015f02c68f0804",
+            "External / Identity",
+            "Internet Users",
+            "Public consumers",
+            "Microsoft Entra ID",
+            "id-3ed4f-22008-01",
+            "Corporate Network",
+            "Hybrid / branch source",
+            "Ingress / Edge",
+            "Application Gateway WAF",
+            "edge-3ed4f-22008-01",
+            "Primary Azure Region — UAE North",
+            "Multi-AZ",
+            "Single Application VNet — 10.166.129.0/24",
+            "Application Subnet — Web / Application Tier",
+            "Azure API Management",
+            "app-3ed4f-22008-01",
+            "Azure VM AZ1",
+            "app-3ed4f-22008-02",
+            "Azure VM AZ2",
+            "app-3ed4f-22008-03",
+            "Data Subnet — Transactional / Cache Tier",
+            "Azure SQL Database",
+            "data-3ed4f-22008-01",
+            "Azure Storage Account",
+            "data-3ed4f-22008-02",
+            "Azure Cache for Redis",
+            "data-3ed4f-22008-03",
+            "Management / Platform Subnet",
+            "Azure Firewall",
+            "mgmt-3ed4f-22008-01",
+            "Azure Bastion",
+            "mgmt-3ed4f-22008-02",
+            "Azure API Management",
+            "mgmt-3ed4f-22008-03",
+            "Application Insights",
+            "mgmt-3ed4f-22008-04",
+            "Azure Monitor",
+            "mgmt-3ed4f-22008-05",
+            "Log Analytics",
+            "mgmt-3ed4f-22008-06",
+            "Defender for Cloud",
+            "mgmt-3ed4f-22008-07",
+            "Azure Backup / RSV",
+            "mgmt-3ed4f-22008-08",
+            "Same-Region Zone Resilience",
+            "Availability Zone 1",
+            "Compute/data placement",
+            "az-3ed4f-22008-01",
+            "Availability Zone 2",
+            "Compute/data placement",
+            "az-3ed4f-22008-02",
+            "Availability Zone 3",
+            "Compute/data placement",
+            "az-3ed4f-22008-03",
+            "No cross-region failover",
+            "Case-specific architecture summary",
+            "Architecture ID: ARCH-3ED4F-22008 | signature: 856835015f02c68f0804",
+            "Solution: web_platform | Network: single_vnet | Edge: waf_only",
+            "Compute: vm_ha | Data: transactional | Platform: Azure API Management",
+            "Private endpoints: False | Firewall: True | ER: False | VPN: True",
+            "Resilience: single_region_multi_az | RTO/RPO: 1h / 30m | DR tested: False",
+            "Resource prefix: 3ed4f-22008",
+            "Visual grammar",
+            "Single VNet + application/data/management subnets",
+            "Web / Application Tier → Transactional / Cache Tier",
+            "Dashed links = identity / transit / replication",
+            "Every card carries a case-specific resource instance",
+            "Official Azure Architecture Icons | mapped 18 | fallback 0"
+          ]
+        }
+      }
+    },
+    {
+      "tool": "read_evidence",
+      "args": {
+        "evidence_id": "ARCH_DEBT"
+      },
+      "result": {
+        "status": "OK",
+        "evidence_id": "ARCH_DEBT",
+        "authoritative": false,
+        "version": 3,
+        "age_days": 169,
+        "path": "gate_evidence/architecture/architecture_debt.csv",
+        "content": [
+          {
+            "debt_id": "DEBT-001",
+            "owner": "Architecture",
+            "severity": "medium",
+            "target": "Post go-live"
+          },
+          {
+            "debt_id": "DEBT-002",
+            "owner": "Architecture",
+            "severity": "medium",
+            "target": "Post go-live"
+          },
+          {
+            "debt_id": "DEBT-003",
+            "owner": "Architecture",
+            "severity": "medium",
+            "target": "Post go-live"
+          },
+          {
+            "debt_id": "DEBT-004",
+            "owner": "Architecture",
+            "severity": "medium",
+            "target": "Post go-live"
+          },
+          {
+            "debt_id": "DEBT-005",
+            "owner": "Architecture",
+            "severity": "medium",
+            "target": "Post go-live"
+          },
+          {
+            "debt_id": "DEBT-006",
+            "owner": "Architecture",
+            "severity": "medium",
+            "target": "Post go-live"
+          },
+          {
+            "debt_id": "DEBT-007",
+            "owner": "Architecture",
+            "severity": "medium",
+            "target": "Post go-live"
+          }
+        ]
+      }
+    }
+  ],
+  "raw_turns": [
+    {
+      "turn": 0,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-b043ffa41bae3210",
+            "function": {
+              "name": "list_evidence",
+              "arguments": "{\"include_unavailable\": true}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-8ff0a9385dd583fc",
+            "function": {
+              "name": "get_authorization_mandates",
+              "arguments": "{}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 6273,
+        "completion_tokens": 70,
+        "total_tokens": 6343,
+        "reasoning_tokens": 11,
+        "cached_tokens": 2304,
+        "cost": 0.0005947368,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 1,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-bcc6d1641964a9cf",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-85b47e59f920cab4",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"IP_PLAN\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 7833,
+        "completion_tokens": 98,
+        "total_tokens": 7931,
+        "reasoning_tokens": 16,
+        "cached_tokens": 6272,
+        "cost": 0.0002860424,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 2,
+      "assistant": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-849d4bd4ccc025f1",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"HLD\"}"
+            }
+          },
+          {
+            "type": "function",
+            "index": 1,
+            "id": "chatcmpl-tool-83daa6e6ce075428",
+            "function": {
+              "name": "read_evidence",
+              "arguments": "{\"evidence_id\": \"ARCH_DEBT\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 8616,
+        "completion_tokens": 316,
+        "total_tokens": 8932,
+        "reasoning_tokens": 241,
+        "cached_tokens": 7808,
+        "cost": 0.0002786336,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    },
+    {
+      "turn": 3,
+      "assistant": {
+        "role": "assistant",
+        "content": "All six catalog predicates evaluated against the authoritative snapshot yield no applicable findings.\n\n",
+        "tool_calls": [
+          {
+            "type": "function",
+            "index": 0,
+            "id": "chatcmpl-tool-baec0ece9a67eb57",
+            "function": {
+              "name": "submit_gate_decision",
+              "arguments": "{\"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\", \"IP_PLAN\", \"HLD\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Applying the architecture rule definition to the authoritative REVIEW_FACTS_ARCHITECTURE snapshot (version 1, age 0 days), none of the six candidate findings fire. (1) ARCH-IP-001 requires ip_overlap=true; snapshot records \\\"ip_overlap\\\": false, corroborated by authoritative IP_PLAN where all three private CIDRs (\\\"10.166.128.0/24\\\", \\\"10.166.129.0/24\\\", \\\"10.166.130.0/24\\\") carry \\\"overlap_detected\\\": \\\"False\\\". (2) ARCH-API-001 requires api_gateway_required=true AND api_gateway_present=false; snapshot records \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, and the HLD confirms a governed edge (\\\"Application Gateway WAF\\\", \\\"Azure API Management\\\"). (3) ARCH-DATA-001 requires data_owner_present=false; snapshot records \\\"data_owner_present\\\": true (with \\\"data_lineage_complete\\\": true). (4) ARCH-PERF-001 requires measured_latency_ms > latency_target_ms; snapshot records \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 95 — under target. (5) ARCH-HA-001 requires business_criticality in ('High','Critical') AND no multi_az AND no multi_region; snapshot project records \\\"business_criticality\\\": \\\"Medium\\\" and architecture_profile records \\\"multi_az\\\": true, \\\"multi_region\\\": false, so the conjunction fails on two grounds (HLD also shows three Availability Zones with \\\"No cross-region failover\\\", acceptable at Medium criticality). (6) ARCH-REV-001 requires reversibility_status in ('draft','missing'); snapshot records \\\"reversibility_status\\\": \\\"tested\\\" (with \\\"data_export_supported\\\": true). Residual observations (architecture_debt_items=7, adr_count=7, all medium-severity debt targeted \\\"Post go-live\\\" in ARCH_DEBT) are tracked debt, not gate-triggering predicates. With an empty applicable finding set there is no finding requiring authorization: GO is not in authorization_required_for (GO_WITH_RESERVATIONS/SUSPENSION/NO_GO), so authorization_required=false. No remediation is claimed as completed; the upstream IT-gate REWORK findings remain open elsewhere and are not architecture-gate findings.\", \"confidence\": 0.93}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls",
+      "usage": {
+        "prompt_tokens": 9837,
+        "completion_tokens": 983,
+        "total_tokens": 10820,
+        "reasoning_tokens": 273,
+        "cached_tokens": 8576,
+        "cost": 0.0006254192,
+        "unknown_cost_calls": 0
+      },
+      "resolved_model": "deepseek/deepseek-v4.1-flash",
+      "provider": "DeepInfra",
+      "forced_finalization": false
+    }
+  ],
+  "resolved_models": [
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra",
+    "DeepInfra"
+  ],
+  "turns": 4,
+  "tool_call_count": 6,
+  "finish_reasons": [
+    "tool_calls",
+    "tool_calls",
+    "tool_calls",
+    "tool_calls"
+  ],
+  "last_finish_reason": "tool_calls",
+  "truncated_response_count": 0,
+  "finalization_mode": "submit_gate_decision",
+  "validation_errors": [],
+  "result": {
+    "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+    "disposition": "GO",
+    "finding_ids": [],
+    "actions": [],
+    "evidence_refs": [
+      "REVIEW_FACTS_ARCHITECTURE",
+      "IP_PLAN",
+      "HLD"
+    ],
+    "authorization_required": false,
+    "rationale": "Applying the architecture rule definition to the authoritative REVIEW_FACTS_ARCHITECTURE snapshot (version 1, age 0 days), none of the six candidate findings fire. (1) ARCH-IP-001 requires ip_overlap=true; snapshot records \"ip_overlap\": false, corroborated by authoritative IP_PLAN where all three private CIDRs (\"10.166.128.0/24\", \"10.166.129.0/24\", \"10.166.130.0/24\") carry \"overlap_detected\": \"False\". (2) ARCH-API-001 requires api_gateway_required=true AND api_gateway_present=false; snapshot records \"api_gateway_required\": true, \"api_gateway_present\": true, and the HLD confirms a governed edge (\"Application Gateway WAF\", \"Azure API Management\"). (3) ARCH-DATA-001 requires data_owner_present=false; snapshot records \"data_owner_present\": true (with \"data_lineage_complete\": true). (4) ARCH-PERF-001 requires measured_latency_ms > latency_target_ms; snapshot records \"latency_target_ms\": 100, \"measured_latency_ms\": 95 — under target. (5) ARCH-HA-001 requires business_criticality in ('High','Critical') AND no multi_az AND no multi_region; snapshot project records \"business_criticality\": \"Medium\" and architecture_profile records \"multi_az\": true, \"multi_region\": false, so the conjunction fails on two grounds (HLD also shows three Availability Zones with \"No cross-region failover\", acceptable at Medium criticality). (6) ARCH-REV-001 requires reversibility_status in ('draft','missing'); snapshot records \"reversibility_status\": \"tested\" (with \"data_export_supported\": true). Residual observations (architecture_debt_items=7, adr_count=7, all medium-severity debt targeted \"Post go-live\" in ARCH_DEBT) are tracked debt, not gate-triggering predicates. With an empty applicable finding set there is no finding requiring authorization: GO is not in authorization_required_for (GO_WITH_RESERVATIONS/SUSPENSION/NO_GO), so authorization_required=false. No remediation is claimed as completed; the upstream IT-gate REWORK findings remain open elsewhere and are not architecture-gate findings.",
+    "confidence": 0.93,
+    "evidence_support": []
+  },
+  "http_stats": {
+    "http_attempts": 7,
+    "retries": 0,
+    "rate_limits": 0,
+    "transient_http_errors": 0,
+    "network_errors": 0
+  }
+}
