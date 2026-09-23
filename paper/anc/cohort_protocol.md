@@ -1,77 +1,42 @@
-# Frozen-cohort protocol (proposed)
+# DGF workforce protocol (proposed)
 
 Status: proposed in the paper. No enterprise cohort has been enrolled and no preregistration identifier exists.
 
 ## Claims under test
 
-1. **Execution closure (primary).** Every contract of the registered cohort obtains a qualified and
-   effectively deployed automated implementation: no necessary human time on any admitted visit,
-   adjudicated quality within prespecified margins, and a valid mandate.
-2. **Support closure (extended).** The recurring human-support account of the cohort is also zero
-   inside the registered boundary.
-3. **Residual exhaustion (H6).** Categories of indispensable human intervention close faster than new
-   ones appear, including those created by supervising the agents.
+1. **Dated workforce prediction (primary):** by 20 September 2033, at least 80% fewer people work in the DGF ecosystem than in 2026. The remaining headcount ratio is at most 0.20: 20 people for every 100 at baseline.
+2. **Execution and support closure (stronger, undated):** every registered contract has a qualified, authorized automated implementation and no recurring human support remains. Neither is required for the 80% workforce prediction to hold.
+3. **Residual exhaustion (H6):** indispensable human-intervention categories close faster than new ones appear. This trajectory can fail even while the workforce prediction succeeds.
 
-## Calendar
+## Calendar and population
 
-- Chosen test horizon: seven years. Full automation is a hypothesis to test within the registered cohort, not an established forecast for all IT jobs.
-- Reference date: 20 September 2026. Deadline: 20 September 2033.
-- A twelve-month operational observation window must be completed before the deadline, so qualified
-  operation must begin by 20 September 2032.
-- Capability scenarios in the paper are anchored on 8 May 2026; 20 September 2032 is 76 whole calendar months and 12 days later. The calculation conservatively uses 76 months.
+- Baseline: mean of twelve monthly headcounts over the year ending on 20 September 2026. Final period: the corresponding year ending on 20 September 2033. The baseline must be positive and supported by historical records; missing records prevent confirmation of this dated comparison.
+- The final observation year begins on 20 September 2032. This is an observation window, not a requirement that every gate be fully automated by that date.
+- Register participating organizations, DGF activity definitions, supplier coverage, sampling, weighting, and continuity rules before evaluation. A convenience cohort tests its own population; ecosystem-wide inference requires justified representative coverage.
+- Include internal staff, contractors, external reviewers, shared provider operators, supervision, maintenance, recovery, and all new DGF roles within the registered boundary. Track mergers, exits, and lost coverage; missing organizations are not zero workers.
+- Count every person who did any in-scope work in a month once across the registered ecosystem, including part-time contributors. Deduplicate shared provider workers across customers using privacy-preserving linkage. Assigned FTE and human hours are separate measures with separate allocation rules.
+- Keep outsourcing and renamed jobs in scope. Redeployment entirely outside DGF counts as leaving this population, not necessarily unemployment. Newly necessary DGF activities and support remain in scope even if absent from the original contract registry.
+- Publish unavailable supplier staffing as missing data. A zero-human claim cannot rest on unobserved provider labor.
 
-## Cohort
+## Annual report
 
-- The gates, routes and orders of the paper are an illustrative configuration. A participating site
-  registers its own gates, in its own order, with its own tasks; the claims apply to that registry.
+- Actual headcount, assigned FTE, and human hours, with baseline definitions held consistent.
+- The workload ratio components: exception labor, standard-path labor, rework, and support. Report actual support hours separately from per-customer allocations.
+- Project volume, case mix, demand, scope, quality, service levels, and mandate status. Report raw headcount separately from workload-adjusted effort.
+- Intervention categories, human hours, closures, new categories, and reopenings, with origins traced. Renaming or moving a category does not close it.
+- Model capability and institutional delegation separately from staffing changes. Comparative designs are needed to distinguish AI effects from lower demand, restructuring, or other causes.
 
-- In the paper's illustrative configuration: the seventeen gate occurrences of Buy (6), Integrate (6)
-  and Build (5), over eight gate types, plus all continuing support needed to operate them at each
-  participating site.
-- Registered before evaluation, for each contract: case classes, jurisdictions, available observations,
-  evidence obligations, allowed dispositions, service requirements, quality margins, full human-work
-  boundary.
-- Contracts cannot be removed because they fail. Newly necessary controls for an existing contract stay
-  in its support burden. Genuinely new business objectives form a new dated cohort with its own clock.
+## Qualification and closure
 
-## Annual report, per route
-
-- The four terms of the workload ratio: exception labor (phi x eta), standard-path labor
-  ((1 - phi) x mu), rework (r), support (b_A); human minutes per visit; support hours reported
-  separately from their allocation across customers.
-- Adjudicated quality: unsupported approvals, unwarranted refusals, omitted findings, leakage, delay.
-- Mandate status of every contract.
-- Intervention registry: open categories, hours absorbed, categories closed, categories created, each
-  with its origin (present at baseline, displaced, created by the automation).
-- The blocking term of each route, named.
-
-## Intervention registry (for H6)
-
-- The taxonomy of intervention categories is versioned. A category is **closed** only when a qualified
-  capability executes it under mandate on the declared case population; absence from the cases observed
-  is not closure.
-- Renamed, merged, split or displaced categories are traced, so that the count cannot change without a
-  change in the work. Reopened categories are reported.
-- Each year the registry gives the closure rate (a) and the creation rate (b) of the renewal model
-  R(t+1) = (1 - a) R(t) + b. Exhaustion needs b to fall toward zero, not only a > 0.
-
-## Qualification volume
-
-- State where the qualification volume comes from (historical dossiers replayed off production, dedicated
-  campaigns, several sites) and why those cases are representative and independent.
-- A low-volume route cannot be qualified on production alone: sixty failure-free visits bound the error
-  rate only below 4.9% (one-sided 95%), far from a 0.1% ceiling.
-- One contract is specified in full in the paper's appendix as a model for the others.
+- Register evidence obligations, allowed decisions, service requirements, quality margins, and full human-work boundaries for each contract. No failed contract is dropped to manufacture closure.
+- Report qualification sample sizes, representativeness, dependence, and uncertainty. Sixty failure-free visits only bound the error rate below about 4.9% at one-sided 95% confidence, not 0.1%.
+- A human intervention is closed only when a qualified capability executes it under a valid mandate on its declared case population; absence from observed cases is not closure.
+- The paper's 76-month planning window and reliability-tail calculations concern qualifying an individual work package before the final observation year. They do not derive the headcount threshold.
 
 ## Decision rules
 
-- **Plateau (warning, to be preregistered):** residual ratio above 5% with less than 0.5 percentage
-  point of reduction per year over three successive years, at comparable output, quality and evaluation
-  resources.
-- **H6 failure (trajectory, warning for the endpoint):** over three successive evaluations, the number of
-  indispensable categories or the hours they absorb stops falling, or creations offset closures.
-- **At the deadline:** one unresolved contract rejects execution closure for the cohort; any recurring
-  human hour inside the boundary rejects support closure. Failures cannot be repaired by moving workers
-  outside the boundary, dropping cases, weakening quality, or postponing the deadline.
-- The three kinds of progress are published separately: a qualifying implementation exists; it has an
-  effective mandate and is used; its whole recurring human-work boundary is closed.
+- **Workforce:** with complete census coverage, a final/baseline ratio at most 0.20 meets the threshold; a ratio above 0.20 rejects it for that population. For sampled estimates, prespecify uncertainty intervals, organizational clustering, and shared-supplier dependence. An interval spanning 0.20 is inconclusive. Missing baseline or boundary coverage prevents confirmation.
+- **Attribution and governance:** report separately whether the design supports an AI effect and whether quality, service, and authority satisfy prespecified requirements. Meeting the numerical threshold alone establishes neither.
+- **Complete closure:** any necessary human execution task prevents execution closure; any recurring human-support work prevents support closure. Both are stronger than the dated workforce claim and have no fixed deadline here.
+- **Trajectory warnings:** a residual workload ratio above 5% declining less than 0.5 percentage point per year for three years rejects the specified continued-decline trajectory, not automatically the 80% headcount prediction. Similarly, stalled closure of human-intervention categories challenges H6.
+- Do not rescue a failed workforce prediction by moving staff outside the accounting boundary, substituting FTE for people, dropping difficult sites, changing baseline, or postponing 2033.

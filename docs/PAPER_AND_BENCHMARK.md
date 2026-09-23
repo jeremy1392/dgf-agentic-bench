@@ -4,7 +4,7 @@
 
 ## The paper
 
-The manuscript treats governance gates as information-transforming contracts. It develops a theoretical argument about their automation, a model of residual human work, route composition and handoff hypotheses, and a proposed seven-year frozen-cohort test.
+The manuscript treats governance gates as information-transforming contracts. It develops a theoretical argument about their automation, a model of residual human work, route composition and handoff hypotheses, and a proposed test of the author's hypothesis that the DGF ecosystem will have 80% fewer people working in it by 2033 than in 2026. Complete automation remains a stronger, undated conjecture.
 
 Its workforce figures are reproducible synthetic calculations. They are not measurements of deployed systems, and no completed enterprise cohort study is claimed. Sources and assumptions are in [paper/anc](../paper/anc/).
 

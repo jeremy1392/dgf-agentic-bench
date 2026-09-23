@@ -41,7 +41,7 @@ A **gate** is one review checkpoint, such as Security or Legal. A **Digital Gove
 
 ### The bigger question: will IT need fewer people?
 
-**The paper's central thesis is that, over time, reliable AI automation is likely to reduce the number of people needed for a broad range of IT governance activities.** Jeremy Canale's research aims to explain this mechanism and test the conditions under which it actually happens.
+**Jeremy Canale's dated hypothesis: by 2033, the DGF ecosystem will have 80% fewer people working in it than in 2026. That means 20 people remaining for every 100 today, including supervision and support.** Jeremy Canale's research aims to explain this mechanism and test the conditions under which it actually happens.
 
 The population considered spans architecture, security, IT operations and standards, technical readiness, compliance and privacy, project and portfolio support, plus related procurement, legal, and finance work. The common feature is recurring work that turns project information into reviews, decisions, and commitments. This is a broad set of roles involved in IT projects, not a forecast covering every job in the IT sector.
 
@@ -146,23 +146,25 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 
 ## The paper's timeline
 
-**The proposed target is full automation of the registered governance activities by 20 September 2033: a seven-year research horizon, from 2026 to 2033.** The dates below explain the paper's scenarios and test deadline. They are not announced workforce cuts or guaranteed deployment dates.
+**The prediction for 2033 is 80% fewer people in the DGF ecosystem than in 2026.** It covers people doing governance work inside companies and through contractors and suppliers, including those supervising, maintaining, and supporting AI systems. It is the author's research hypothesis, not an observed result of DGF-Bench.
 
-| When | What the paper proposes or explores | What it would mean in practice |
+| When | What we propose to measure | What it means |
 |---|---|---|
-| **2026 — establish the baseline** | Measure today's review performance. The proposed seven-year enterprise study uses **20 September 2026** as its reference date. | Record which tasks, errors, permissions, and human interventions remain. The proposed enterprise cohort has not yet been enrolled. |
-| **2027–2028 — longer tasks, under a growth scenario** | An assumed improvement path reaches tasks equivalent to 12 human-hours in July 2027, 24 in February 2028, and 36 in July 2028, at the scenario's 80% success criterion. | These are task-length milestones. An 80% success rate does not qualify an AI to approve real projects autonomously. |
-| **2031–2032 — qualification scenarios compatible with the target** | For a 24-hour task and a 0.1% error ceiling, the faster assumed rates of error reduction give qualification dates in **April 2031 or June 2032**. The slower scenario reaches **October 2034** and misses the 2033 target. | These scenarios also allow time for evaluation and organizational delegation. They do not date the automation of every gate or the reduction of an entire workforce. |
-| **By 20 September 2032 — begin qualified operation** | In the proposed seven-year test, qualified operation must start early enough to complete a full year of observation before the deadline. | Measure real quality, valid authority, exceptions, support work, and human time under sustained operation. |
-| **20 September 2033 — assess the seven-year claim** | Check whether every contract in the registered study has a qualified, effectively deployed automated implementation. The stronger claim also removes recurring human support within that boundary. | An unresolved contract rejects the complete-execution claim for that cohort. Remaining support work rejects the stronger zero-human-work claim. Partial progress can still reduce the workforce required without satisfying either endpoint. |
+| **2026: establish the baseline** | Record people, assigned full-time equivalents (FTE), human hours, project volume, quality, and authority. | Use the twelve months ending on 20 September 2026 as the baseline. No enterprise cohort has yet been enrolled. Historical records will be needed. |
+| **2027 to 2032: follow adoption** | Track which reviews become reliable enough to automate, how staffing changes, and which new support jobs appear. | The paper's task-length and qualification scenarios explore possible progress; they do not calculate an 80% headcount reduction. |
+| **September 2032 to September 2033: observe the final year** | Measure average monthly headcount across the full DGF boundary, alongside workload and service quality. | Count people working on DGF activities, including part-time contributors, once per month. Moving them to a supplier or a supervision team does not remove them from the count. |
+| **20 September 2033: test the prediction** | Compare final-year headcount with baseline-year headcount: **20% or less remaining**. | Starting with 100 people, the threshold is 20 or fewer. A reliably measured count above 20 rejects the prediction for that population. Missing data or uncertainty around the threshold can leave the result inconclusive. |
+| **Longer term: investigate complete automation** | Test whether every necessary human execution and support task can eventually be automated. | This stronger conjecture has no fixed date. An 80% workforce reduction can coexist with an indispensable human team. |
 
-The task-length scenario starts from a **chosen three-hour horizon on 8 May 2026**, assumes a **seven-month doubling**, and assumes that progress transfers to governance work. The qualification scenarios separately assume an attainable error target, one tenfold error reduction every 6, 12, or 24 months, plus 12 months for evaluation and 12 months for organizational change. These are explicit assumptions, not measured forecasts for this benchmark.
+**People, working hours, and FTE are different measures.** An 80% reduction in the synthetic 140-FTE example would leave 28 FTE of work. It would not establish that only 28 people are employed. The workforce prediction needs actual staffing data. People reassigned entirely outside DGF leave this population, but may remain employed elsewhere.
 
-**What would support the workforce thesis?** At comparable project volume and quality, the total human hours required for reviews, exceptions, corrections, and support would fall over time. A subsequent reduction in staffing would establish the employment effect. If essential human work remains stable, new support work offsets the savings, or organizations cannot delegate authority, the stronger automation claims would fail.
+**Why might this happen?** If AI handles more reviews reliably, organizations may need fewer people for recurring governance work. Whether they actually reduce staffing depends on adoption, demand, new tasks, and the support that AI needs. We must count those effects. A decline in headcount caused by fewer projects would not, by itself, establish an effect of AI.
 
-The research therefore has a clear direction: investigate a likely contraction of the workforce needed for these IT-related activities, while measuring when and where it occurs. It does not assign a guaranteed date or percentage reduction to the whole IT labor market.
+The paper's illustrative capability scenarios retain a chosen three-hour task horizon on 8 May 2026, a seven-month doubling, and separate reliability and organizational delays. The example qualification dates of April 2031, June 2032, and October 2034 are sensitivity calculations for individual work packages. None proves the 2033 workforce prediction.
 
-Sources: [dated milestones and assumptions](paper/sections/s14_milestones.tex) · [workforce mechanism](paper/sections/s11_workforce.tex) · [proposed seven-year study](paper/anc/cohort_protocol.md).
+The study must report project volume, case mix, quality, service, and authority alongside staffing. Evidence from a few selected companies cannot establish an 80% reduction across the whole DGF ecosystem; that broader claim requires representative coverage. DGF-Bench supplies an early test of review capability, while the workforce hypothesis requires a separate organizational study.
+
+Sources: [workforce prediction and mechanism](paper/sections/s11_workforce.tex) · [dated scenarios and assumptions](paper/sections/s14_milestones.tex) · [proposed workforce study](paper/anc/cohort_protocol.md).
 
 ## Get started
 

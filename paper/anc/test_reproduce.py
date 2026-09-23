@@ -64,14 +64,18 @@ def test_trajectory_and_floors():
     assert close(R["floors"][2][1], 19.0) and close(R["floors"][4][2], 15.0)
 
 
-def test_milestones_and_cohort_bet():
+def test_milestones_and_workforce_hypothesis():
     assert [x["calendar_months"] for x in R["length"]] == [14, 21, 26]
     assert close(R["tail"][0]["z"], 2.301, 5e-4) and close(R["tail"][1]["z"], 3.602, 5e-4)
     assert [x["total"] for x in R["calendar"]] == [59, 73, 101]
-    assert P["tail"]["cohort_months"] == 76
-    assert [x["total"] <= P["tail"]["cohort_months"] for x in R["calendar"]] == [True, True, False]
-    assert close(R["tail"][0]["nu_max_for_cohort"], 13.47, 0.01)
-    assert close(R["tail"][1]["nu_max_for_cohort"], 8.61, 0.01)
+    assert P["workforce_hypothesis"]["baseline_year"] == 2026
+    assert P["workforce_hypothesis"]["deadline_year"] == 2033
+    assert close(100 * P["workforce_hypothesis"]["remaining_headcount_ratio_max"], 20)
+    assert close(R["baseline_total"] * P["workforce_hypothesis"]["remaining_headcount_ratio_max"], 28)
+    assert P["tail"]["qualification_window_months"] == 76
+    assert [x["total"] <= P["tail"]["qualification_window_months"] for x in R["calendar"]] == [True, True, False]
+    assert close(R["tail"][0]["nu_max_for_qualification_window"], 13.47, 0.01)
+    assert close(R["tail"][1]["nu_max_for_qualification_window"], 8.61, 0.01)
     assert [x["trials_zero_failures"] for x in R["tail"]] == [2995, 59914]
 
 

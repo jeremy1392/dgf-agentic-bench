@@ -130,7 +130,7 @@ def compute(P: dict) -> dict:
         tail.append({"target": e, "z": z, "months": [nu * z for nu in tl["nu"]],
                      "cost": [c ** z for c in tl["c"]],
                      "trials_zero_failures": math.ceil(math.log(0.05) / math.log(1 - e)),
-                     "nu_max_for_cohort": (tl["cohort_months"] - length[1]["calendar_months"]
+                     "nu_max_for_qualification_window": (tl["qualification_window_months"] - length[1]["calendar_months"]
                                            - tl["evaluation_months"] - tl["institution_months"]) / z})
     calendar = [{"nu": nu, "total": length[1]["calendar_months"] + math.ceil(nu * tail[0]["z"])
                  + tl["evaluation_months"] + tl["institution_months"]} for nu in tl["nu"]]
@@ -291,5 +291,5 @@ if __name__ == "__main__":
     print("gate occurrences:", len(gates), {g: types.count(g) for g in sorted(set(types))})
     print("length months:", [x["calendar_months"] for x in R["length"]],
           "calendar:", [x["total"] for x in R["calendar"]])
-    print("nu max for a seven-year cohort:", [round(x["nu_max_for_cohort"], 1) for x in R["tail"]],
+    print("nu max for work-package qualification before the final observation year:", [round(x["nu_max_for_qualification_window"], 1) for x in R["tail"]],
           "zero-failure trials:", [x["trials_zero_failures"] for x in R["tail"]])
