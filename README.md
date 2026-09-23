@@ -7,6 +7,12 @@
 <h1 align="center">DGF-Bench</h1>
 
 <p align="center">
+  Research and project by <strong>Jeremy Canale</strong><br />
+  <a href="mailto:contact@jeremycanale.com">contact@jeremycanale.com</a> &nbsp; · &nbsp;
+  <a href="https://www.linkedin.com/in/jcanale13">LinkedIn</a>
+</p>
+
+<p align="center">
   <strong>Can an AI review a project, spot problems, and make the right decision?</strong><br />
   A research test for AI-assisted project reviews, accompanying <em>The Last Human Gate</em>.
 </p>
@@ -258,6 +264,17 @@ This builds `paper/The_Last_Human_Gate.pdf`. The [paper README](paper/README.md)
 See [the paper/benchmark relationship](docs/PAPER_AND_BENCHMARK.md) for the boundary between theoretical claims and empirical evaluation. Release history belongs in [CHANGELOG.md](CHANGELOG.md).
 
 </details>
+
+## Author and contact
+
+**Jeremy Canale** is the author of *The Last Human Gate: Can AI Automate Enterprise Governance?* and the creator of DGF-Bench.
+
+For research questions, feedback, or collaboration:
+
+- **Email:** [contact@jeremycanale.com](mailto:contact@jeremycanale.com)
+- **LinkedIn:** [Jeremy Canale](https://www.linkedin.com/in/jcanale13)
+
+Please credit Jeremy Canale when citing or building on this research, and retain the attribution required by the applicable licenses.
 
 ## Citation and license
 
