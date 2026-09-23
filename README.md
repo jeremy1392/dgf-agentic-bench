@@ -24,6 +24,7 @@
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf"><strong>Read the paper ↗</strong></a> &nbsp; · &nbsp;
   <a href="#what-we-want-to-measure">What we measure</a> &nbsp; · &nbsp;
+  <a href="#the-papers-timeline">Timeline</a> &nbsp; · &nbsp;
   <a href="#get-started">Get started</a> &nbsp; · &nbsp;
   <a href="CITATION.cff">Cite this work</a>
 </p>
@@ -37,6 +38,16 @@ Before a company buys software, connects two systems, or launches a new applicat
 **We want to measure how reliably an AI can perform these reviews when it has documents, clear rules, and tools to investigate.** Can it find the important problems, justify its decision with evidence, respect its authority, and pass useful information to the next reviewer?
 
 A **gate** is one review checkpoint, such as Security or Legal. A **Digital Governance Framework (DGF)** is the way a company organizes these checkpoints. A **route** is the sequence of checkpoints followed by a project. A **dossier**, or case, is the project's collection of facts and documents.
+
+### The bigger question: will IT need fewer people?
+
+**The paper's central thesis is that, over time, reliable AI automation is likely to reduce the number of people needed for a broad range of IT governance activities.** Jeremy Canale's research aims to explain this mechanism and test the conditions under which it actually happens.
+
+The population considered spans architecture, security, IT operations and standards, technical readiness, compliance and privacy, project and portfolio support, plus related procurement, legal, and finance work. The common feature is recurring work that turns project information into reviews, decisions, and commitments. This is a broad set of roles involved in IT projects, not a forecast covering every job in the IT sector.
+
+The mechanism is simple: **if the same volume of projects can be reviewed correctly with fewer human hours, fewer people are required to deliver that work.** Actual headcount falls when staffing adjusts to that lower requirement. Companies can also use the released capacity for additional projects or other work. Supervision, difficult exceptions, maintenance, and recovery must all be counted: shifting work to another team is not the same as eliminating it.
+
+DGF-Bench measures an early part of this chain: whether AI can make the required review decisions reliably. Further studies must measure the human work that remains in real organizations and whether their staffing changes. The expected reduction is the hypothesis being investigated, not a result already established by the current model experiment.
 
 ### A concrete example
 
@@ -132,6 +143,26 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 **[The Last Human Gate: Can AI Automate Enterprise Governance?](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument and its research hypotheses. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
 
 **DGF-Bench tests a narrower part of that argument:** can AI models perform the specified review tasks reliably? Model results, synthetic workforce calculations, and claims about real-world automation must remain clearly distinguished. [Paper sources](paper/main.tex) · [Reproduction package](paper/anc/).
+
+## The paper's timeline
+
+**The proposed research horizon is 2026–2036.** The dates below explain the paper's scenarios and test deadline. They are not announced workforce cuts or guaranteed deployment dates.
+
+| When | What the paper proposes or explores | What it would mean in practice |
+|---|---|---|
+| **2026 — establish the baseline** | Measure today's review performance. The proposed ten-year enterprise study uses **20 September 2026** as its reference date. | Record which tasks, errors, permissions, and human interventions remain. The proposed enterprise cohort has not yet been enrolled. |
+| **2027–2028 — longer tasks, under a growth scenario** | An assumed improvement path reaches tasks equivalent to 12 human-hours in July 2027, 24 in February 2028, and 36 in July 2028, at the scenario's 80% success criterion. | These are task-length milestones. An 80% success rate does not qualify an AI to approve real projects autonomously. |
+| **2031–2034 — illustrative qualification scenarios** | For a 24-hour task and a 0.1% error ceiling, different assumed rates of error reduction give qualification dates in **April 2031, June 2032, or October 2034**. | These scenarios also allow time for evaluation and organizational delegation. They do not date the automation of every gate or the reduction of an entire workforce. |
+| **By 20 September 2035 — begin qualified operation** | In the proposed ten-year test, qualified operation must start early enough to complete a full year of observation before the deadline. | Measure real quality, valid authority, exceptions, support work, and human time under sustained operation. |
+| **20 September 2036 — assess the ten-year claim** | Check whether every contract in the registered study has a qualified, effectively deployed automated implementation. The stronger claim also removes recurring human support within that boundary. | An unresolved contract rejects the complete-execution claim for that cohort. Remaining support work rejects the stronger zero-human-work claim. Partial progress can still reduce the workforce required without satisfying either endpoint. |
+
+The task-length scenario starts from a **chosen three-hour horizon on 8 May 2026**, assumes a **seven-month doubling**, and assumes that progress transfers to governance work. The qualification scenarios separately assume an attainable error target, one tenfold error reduction every 6, 12, or 24 months, plus 12 months for evaluation and 12 months for organizational change. These are explicit assumptions, not measured forecasts for this benchmark.
+
+**What would support the workforce thesis?** At comparable project volume and quality, the total human hours required for reviews, exceptions, corrections, and support would fall over time. A subsequent reduction in staffing would establish the employment effect. If essential human work remains stable, new support work offsets the savings, or organizations cannot delegate authority, the stronger automation claims would fail.
+
+The research therefore has a clear direction: investigate a likely contraction of the workforce needed for these IT-related activities, while measuring when and where it occurs. It does not assign a guaranteed date or percentage reduction to the whole IT labor market.
+
+Sources: [dated milestones and assumptions](paper/sections/s14_milestones.tex) · [workforce mechanism](paper/sections/s11_workforce.tex) · [proposed ten-year study](paper/anc/cohort_protocol.md).
 
 ## Get started
 
