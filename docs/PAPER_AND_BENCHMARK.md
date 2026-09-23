@@ -1,6 +1,6 @@
 # Paper and benchmark
 
-**[The Last Human Gate: Can AI Automate Enterprise Governance?](../paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), and DGF-Bench address different research questions.
+**[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](../paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), and DGF-Bench address different research questions.
 
 ## The paper
 

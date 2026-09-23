@@ -86,7 +86,8 @@ Responsibility for every reference rests with the author.
 
 | Reference | Use | Status |
 |---|---|---|
-| Illinois Institute of Technology (2026), blog on the forward deployed engineer | Definition and origin of the role | Found online (title, date, definition); **author to open the page** |
+| OpenAI (2026), Forward Deployed Engineer - Seoul | Customer-facing implementation from scoping to production; reusable deployment patterns | Official role description opened and checked on 23 September 2026; not evidence of staffing reductions |
+| Palantir Technologies (2026), Forward Deployed Software Engineer | Embedded engineering and customer-specific software delivery | Official role description opened and checked on 23 September 2026; not evidence of autonomous DGF deployment |
 | Allianz (2025), media-center article on Project Nemo | Seven agents, low-value food-spoilage claims in Australia, about 80% shorter processing, human final payout decision | Checked online (primary source and trade press) |
 | Insurance Journal (2025); Reinsurance News (2026) | AIG agentic underwriting with Palantir and Anthropic; review of all submissions in some lines; multi-agent design; underwriter keeps the decision | Checked online (trade press reporting investor day and earnings call) |
 | Upstart (2026), second-quarter results | More than 90% of loans fully automated, with the company's definition | Checked online (primary press release). The share of applications sent to manual review comes from press summaries of the earnings presentation: **author to check the presentation itself** |

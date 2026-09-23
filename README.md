@@ -1,6 +1,6 @@
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf">
-    <img src="assets/readme/last-human-gate-hero.png" alt="The Last Human Gate: Can AI Automate Enterprise Governance? — research paper by Jeremy Canale" width="1200" />
+    <img src="assets/readme/last-human-gate-fde-hero.png" alt="The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance — research paper by Jeremy Canale" width="1200" />
   </a>
 </p>
 
@@ -48,6 +48,12 @@ A **gate** is one review checkpoint, such as Security or Legal. A **Digital Gove
 The scope spans architecture, security, operations, technical readiness, compliance, project support, and related procurement, legal, and finance work. Exceptions, rework, maintenance, and supplier support stay in the account. Moving work to a contractor does not eliminate it.
 
 DGF-Bench tests an early part of the argument: whether AI performs reviews reliably. The FTE reduction is a research hypothesis; confirming it requires measuring human work in organizations. Individual headcount, staffing choices, and employment effects are separate outcomes.
+
+### Why Forward Deployed Engineering?
+
+Forward Deployed Engineers work with customer teams to turn technology into operational systems. The paper already examines their role: connect the evidence sources, implement the review rules and permissions, evaluate the agents, and make the handoffs work across the whole DGF. This deployment perspective is now explicit in the title. [Read the paper's FDE section](paper/sections/s17_fde.tex).
+
+Their work is part of the accounting. Initial implementation is a transition investment; recurring adaptation, evaluation, maintenance, and support remain in the required FTE. The 2033 hypothesis cannot be met by moving work from governance teams to uncounted engineers. The current benchmark does not measure FDE productivity or establish these savings.
 
 ### A concrete example
 
@@ -140,7 +146,7 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 
 ### How this relates to the paper
 
-**[The Last Human Gate: Can AI Automate Enterprise Governance?](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument and its research hypotheses. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
+**[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument and its research hypotheses. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
 
 **DGF-Bench tests a narrower part of that argument:** can AI models perform the specified review tasks reliably? Model results, synthetic workforce calculations, and claims about real-world automation must remain clearly distinguished. [Paper sources](paper/main.tex) · [Reproduction package](paper/anc/).
 
@@ -320,7 +326,7 @@ See [the paper/benchmark relationship](docs/PAPER_AND_BENCHMARK.md) for the boun
 
 ## Author and contact
 
-**Jeremy Canale** is the author of *The Last Human Gate: Can AI Automate Enterprise Governance?* and the creator of DGF-Bench.
+**Jeremy Canale** is the author of *The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance* and the creator of DGF-Bench.
 
 For research questions, feedback, or collaboration:
 
@@ -337,5 +343,5 @@ Original benchmark code and documentation are dual-licensed under **MIT OR Apach
 
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf"><strong>The Last Human Gate</strong></a><br />
-  <sub>Can AI Automate Enterprise Governance?</sub>
+  <sub>Forward Deployed Engineering and the Automation of Enterprise Governance</sub>
 </p>

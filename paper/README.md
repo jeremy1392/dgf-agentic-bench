@@ -2,14 +2,14 @@
 
 ## Title
 
-**The Last Human Gate: Can AI Automate Enterprise Governance?**
+**The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance**
 
 Author: Jeremy Canale  
 Date: September 2026
 
 Contact: [contact@jeremycanale.com](mailto:contact@jeremycanale.com) · [LinkedIn](https://www.linkedin.com/in/jcanale13)
 
-The LaTeX source is contained in this directory. The paper provides the theoretical framework that DGF-Bench operationalizes: governance gates as information-transforming contracts, complete execution, route composition, handoff effects, labor accounting, and a falsifiable long-horizon automation claim.
+The LaTeX source is contained in this directory. The paper provides the theoretical framework that DGF-Bench operationalizes: governance gates as information-transforming contracts, complete execution, route composition, handoff effects, labor accounting, the implementation role of Forward Deployed Engineers, and the hypothesis of 80% fewer required FTE by 2033 at comparable governed output. Complete automation is a stronger, undated conjecture.
 
 DGF-Bench itself lives at the repository root and is the **experimental companion**. It generates controlled synthetic governance cases and evaluates whether an AI agent can investigate evidence, identify findings, produce gate dispositions, respect authorization boundaries, and execute route-aware handoffs.
 

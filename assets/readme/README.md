@@ -40,13 +40,14 @@ python paper/anc/reproduce.py
 
 | Asset | Purpose | Production |
 |---|---|---|
-| `last-human-gate-hero.png` | Editorial banner linking to the paper | Built-in ImageGen; original generated pixels copied into the repository |
+| `last-human-gate-fde-hero.png` | Current paper banner with the Forward Deployed Engineering subtitle | Built-in ImageGen edit of the original banner; [edit prompt](banner-fde-prompt.txt) |
+| `last-human-gate-hero.png` | Archived original banner used as the edit source | Built-in ImageGen; retained for provenance |
 | `benchmark-flow.svg` | Supplemental overview of facts, public evidence, agent review, and evaluator-only reference flow | Hand-authored SVG with accessible title and description |
 | `governance-routes.svg` | Earlier compact overview of Buy, Integrate, and Build, retained as a supplemental asset | Hand-authored SVG with accessible title and description |
 
 The diagrams use the same navy, cyan, and amber palette as the banner. They contain no model performance numbers. The banner is conceptual art, not a representation of an enterprise deployment.
 
-## Banner prompt
+## Original banner prompt (archived)
 
 Generated with the built-in ImageGen tool, not the CLI/API fallback. Final prompt:
 
