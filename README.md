@@ -1,34 +1,64 @@
-# DGF-Bench
+<p align="center">
+  <a href="paper/The_Last_Human_Gate.pdf">
+    <img src="assets/readme/last-human-gate-hero.png" alt="The Last Human Gate: Can AI Automate Enterprise Governance? — research paper by Jeremy Canale" width="1200" />
+  </a>
+</p>
 
-**Synthetic enterprise governance benchmark and research companion to _The Last Human Gate_.**
+<h1 align="center">DGF-Bench</h1>
+
+<p align="center">
+  <strong>Investigate evidence. Make a decision. Account for every gate.</strong><br />
+  A synthetic enterprise governance benchmark and research companion to <em>The Last Human Gate</em>.
+</p>
+
+<p align="center">
+  <code>8 gate families</code> &nbsp; <code>3 core routes</code> &nbsp; <code>5 dispositions</code>
+</p>
+
+<p align="center">
+  <a href="paper/The_Last_Human_Gate.pdf"><strong>Read the paper ↗</strong></a> &nbsp; · &nbsp;
+  <a href="#how-the-benchmark-works">Explore the benchmark</a> &nbsp; · &nbsp;
+  <a href="#get-started">Get started</a> &nbsp; · &nbsp;
+  <a href="CITATION.cff">Cite this work</a>
+</p>
+
+---
 
 DGF-Bench evaluates tool-using AI agents on governance review tasks: inspect evidence, identify findings, choose a disposition, propose actions, respect authorization rules, and pass structured results to the next gate. Reference outcomes are derived from generated enterprise facts.
 
-> **[The Last Human Gate: Can AI Automate Enterprise Governance?](paper/The_Last_Human_Gate.pdf)**
->
-> Jeremy Canale · September 2026
->
-> [LaTeX source](paper/main.tex) · [Reproduction package](paper/anc/) · [Citation](CITATION.cff)
+| 01 / RESEARCH | 02 / BENCHMARK | 03 / REPRODUCIBILITY |
+|---|---|---|
+| **The Last Human Gate** | **Governance as a testable task** | **Inspect the assumptions** |
+| A theoretical framework for governance automation and residual human work. | Synthetic dossiers, evidence tools, authorization rules, and route-level evaluation. | LaTeX sources, numerical parameters, generated tables, and model traces. |
+| [Read the manuscript](paper/The_Last_Human_Gate.pdf) | [Explore the protocol](#how-the-benchmark-works) | [Open the research package](paper/anc/) |
 
-The paper develops a theoretical argument about governance automation, a model of residual human work, and falsifiable research hypotheses. Its workforce calculations are synthetic scenarios, not measured enterprise deployments. The benchmark is an experimental companion; its model scores must be reported separately from those calculations.
+*Jeremy Canale · September 2026. The paper's workforce calculations are synthetic scenarios, not measured deployments. Model evaluations are separate empirical results.*
 
-## What the benchmark measures
+## How the benchmark works
 
 A case is a synthetic project dossier. A route is an ordered sequence of governance reviews; each review is a gate occurrence. Agents work with documents, factual exports, architecture diagrams, a published policy, and tools for evidence requests and simulated governance actions.
 
-| Route | Gate sequence |
-|---|---|
-| Buy | Procurement → Legal → Compliance → Security → IT → General |
-| Integrate | IT → Architecture → Security → Legal → Compliance → General |
-| Build | IT → Architecture → Security → Tech Readiness → General |
+<p align="center">
+  <img src="assets/readme/benchmark-flow.svg" alt="Generated facts produce public evidence. An agent investigates and submits a decision. The evaluator scores it against reference outcomes kept outside agent observations." width="1200" />
+</p>
+
+### Follow the routes
+
+<p align="center">
+  <img src="assets/readme/governance-routes.svg" alt="Buy: Procurement, Legal, Compliance, Security, IT, General. Integrate: IT, Architecture, Security, Legal, Compliance, General. Build: IT, Architecture, Security, Tech Readiness, General." width="1200" />
+</p>
 
 These routes cover eight gate families. A separate `full_lifecycle` mode repeats gates across project phases. The five possible dispositions are `GO`, `GO_WITH_RESERVATIONS`, `REWORK`, `SUSPENSION`, and `NO_GO`; applicability depends on the gate and phase.
 
 The benchmark reports decision accuracy, finding/action precision and recall, evidence support, authorization correctness, critical misses, false approvals, strict gate success, route success, and token/cost usage. A route succeeds only when every required gate meets the specified scoring contract. Always identify the scoring version when publishing results.
 
-**Scope:** this is an evaluation of review decisions, proposed actions, and simulated authorization. It does not measure completed enterprise remediation, production deployment, hours saved, or workforce replacement. A valid refusal can be the correct answer. Strong performance on synthetic cases does not establish the paper's broader automation thesis.
+> **What a score means**
+>
+> This is an evaluation of review decisions, proposed actions, and simulated authorization. It does not measure completed enterprise remediation, production deployment, hours saved, or workforce replacement. A valid refusal can be the correct answer. Strong performance on synthetic cases does not establish the paper's broader automation thesis.
 
-## Install
+## Get started
+
+### 1. Install
 
 Python 3.10 or later is required. Create an environment, activate it for your shell, and install dependencies:
 
@@ -50,7 +80,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-## Run an experiment
+### 2. Run an experiment
 
 Choose exact model identifiers from the OpenRouter catalog. `MODEL_ID` below is a placeholder:
 
@@ -77,7 +107,7 @@ The budget shown is an example spending ceiling, not a cost estimate or a guaran
 
 Useful controls include `--temperature`, `--vision`, `--handoff-mode`, `--max-turns`, `--max-tool-calls`, and `--max-output-tokens`; inspect `python run_full_experiment.py --help` for the options in your checkout. Handoff modes are `agent` (model outputs), `oracle` (reference outputs), and `none`.
 
-## Results and interrupted runs
+## Read the results
 
 Each new one-command experiment writes to `experiments/run_<timestamp>/`:
 
@@ -90,6 +120,9 @@ Each new one-command experiment writes to `experiments/run_<timestamp>/`:
 
 Inspect evaluated, excluded, and unfinished case counts before interpreting scores. Infrastructure failures are not evidence of incorrect model decisions. Compare models on common completed cases and report coverage by route. Gates from the same case are dependent observations; 1,700 gates from 300 dossiers are not 1,700 independent dossiers.
 
+<details>
+<summary><strong>Resume an interrupted experiment</strong></summary>
+
 For a compatible interrupted run, use `run_openrouter_benchmark.py` with the **original dataset, models, results directory, and execution settings**. This lower-level runner supports resumption; avoid `--no-resume`. Retain the original code and data, and follow any compatibility checks implemented by that protocol version. A new `run_full_experiment.py` invocation creates a new experiment rather than continuing the previous one.
 
 After a lower-level resume, regenerate aggregates:
@@ -99,6 +132,8 @@ python aggregate_openrouter_results.py --results PATH_TO_EXISTING_RESULTS
 ```
 
 This updates the aggregate JSON in the results directory. It does not refresh the one-command launcher's separate `paper_outputs` tables. Existing exports must be regenerated before publication.
+
+</details>
 
 ## Research use and reproducibility
 
@@ -131,7 +166,8 @@ make paper
 
 This builds `paper/The_Last_Human_Gate.pdf`. The [paper README](paper/README.md) documents the direct LaTeX build; the [reproduction package](paper/anc/README.md) explains the numerical assumptions and generated tables.
 
-## Main components
+<details>
+<summary><strong>Repository map and further reading</strong></summary>
 
 | Path | Role |
 |---|---|
@@ -145,8 +181,15 @@ This builds `paper/The_Last_Human_Gate.pdf`. The [paper README](paper/README.md)
 
 See [the paper/benchmark relationship](docs/PAPER_AND_BENCHMARK.md) for the boundary between theoretical claims and empirical evaluation. Release history belongs in [CHANGELOG.md](CHANGELOG.md).
 
+</details>
+
 ## Citation and license
 
 Use [CITATION.cff](CITATION.cff) to cite the paper. For benchmark experiments, also cite DGF-Bench and identify the repository commit, protocol, and dataset configuration.
 
 Original benchmark code and documentation are dual-licensed under **MIT OR Apache-2.0**; see [LICENSE](LICENSE). The [paper has separate copyright terms](paper/LICENSE-NOTICE.md). Microsoft Azure icons and other third-party assets retain their own terms, documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+<p align="center">
+  <a href="paper/The_Last_Human_Gate.pdf"><strong>The Last Human Gate</strong></a><br />
+  <sub>Can AI Automate Enterprise Governance?</sub>
+</p>
