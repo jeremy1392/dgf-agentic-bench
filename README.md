@@ -146,15 +146,15 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 
 ## The paper's timeline
 
-**The proposed research horizon is 2026–2036.** The dates below explain the paper's scenarios and test deadline. They are not announced workforce cuts or guaranteed deployment dates.
+**The proposed target is full automation of the registered governance activities by 20 September 2033: a seven-year research horizon, from 2026 to 2033.** The dates below explain the paper's scenarios and test deadline. They are not announced workforce cuts or guaranteed deployment dates.
 
 | When | What the paper proposes or explores | What it would mean in practice |
 |---|---|---|
-| **2026 — establish the baseline** | Measure today's review performance. The proposed ten-year enterprise study uses **20 September 2026** as its reference date. | Record which tasks, errors, permissions, and human interventions remain. The proposed enterprise cohort has not yet been enrolled. |
+| **2026 — establish the baseline** | Measure today's review performance. The proposed seven-year enterprise study uses **20 September 2026** as its reference date. | Record which tasks, errors, permissions, and human interventions remain. The proposed enterprise cohort has not yet been enrolled. |
 | **2027–2028 — longer tasks, under a growth scenario** | An assumed improvement path reaches tasks equivalent to 12 human-hours in July 2027, 24 in February 2028, and 36 in July 2028, at the scenario's 80% success criterion. | These are task-length milestones. An 80% success rate does not qualify an AI to approve real projects autonomously. |
-| **2031–2034 — illustrative qualification scenarios** | For a 24-hour task and a 0.1% error ceiling, different assumed rates of error reduction give qualification dates in **April 2031, June 2032, or October 2034**. | These scenarios also allow time for evaluation and organizational delegation. They do not date the automation of every gate or the reduction of an entire workforce. |
-| **By 20 September 2035 — begin qualified operation** | In the proposed ten-year test, qualified operation must start early enough to complete a full year of observation before the deadline. | Measure real quality, valid authority, exceptions, support work, and human time under sustained operation. |
-| **20 September 2036 — assess the ten-year claim** | Check whether every contract in the registered study has a qualified, effectively deployed automated implementation. The stronger claim also removes recurring human support within that boundary. | An unresolved contract rejects the complete-execution claim for that cohort. Remaining support work rejects the stronger zero-human-work claim. Partial progress can still reduce the workforce required without satisfying either endpoint. |
+| **2031–2032 — qualification scenarios compatible with the target** | For a 24-hour task and a 0.1% error ceiling, the faster assumed rates of error reduction give qualification dates in **April 2031 or June 2032**. The slower scenario reaches **October 2034** and misses the 2033 target. | These scenarios also allow time for evaluation and organizational delegation. They do not date the automation of every gate or the reduction of an entire workforce. |
+| **By 20 September 2032 — begin qualified operation** | In the proposed seven-year test, qualified operation must start early enough to complete a full year of observation before the deadline. | Measure real quality, valid authority, exceptions, support work, and human time under sustained operation. |
+| **20 September 2033 — assess the seven-year claim** | Check whether every contract in the registered study has a qualified, effectively deployed automated implementation. The stronger claim also removes recurring human support within that boundary. | An unresolved contract rejects the complete-execution claim for that cohort. Remaining support work rejects the stronger zero-human-work claim. Partial progress can still reduce the workforce required without satisfying either endpoint. |
 
 The task-length scenario starts from a **chosen three-hour horizon on 8 May 2026**, assumes a **seven-month doubling**, and assumes that progress transfers to governance work. The qualification scenarios separately assume an attainable error target, one tenfold error reduction every 6, 12, or 24 months, plus 12 months for evaluation and 12 months for organizational change. These are explicit assumptions, not measured forecasts for this benchmark.
 
@@ -162,7 +162,7 @@ The task-length scenario starts from a **chosen three-hour horizon on 8 May 2026
 
 The research therefore has a clear direction: investigate a likely contraction of the workforce needed for these IT-related activities, while measuring when and where it occurs. It does not assign a guaranteed date or percentage reduction to the whole IT labor market.
 
-Sources: [dated milestones and assumptions](paper/sections/s14_milestones.tex) · [workforce mechanism](paper/sections/s11_workforce.tex) · [proposed ten-year study](paper/anc/cohort_protocol.md).
+Sources: [dated milestones and assumptions](paper/sections/s14_milestones.tex) · [workforce mechanism](paper/sections/s11_workforce.tex) · [proposed seven-year study](paper/anc/cohort_protocol.md).
 
 ## Get started
 

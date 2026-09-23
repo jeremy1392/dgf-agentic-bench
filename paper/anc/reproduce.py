@@ -291,5 +291,5 @@ if __name__ == "__main__":
     print("gate occurrences:", len(gates), {g: types.count(g) for g in sorted(set(types))})
     print("length months:", [x["calendar_months"] for x in R["length"]],
           "calendar:", [x["total"] for x in R["calendar"]])
-    print("nu max for a ten-year cohort:", [round(x["nu_max_for_cohort"], 1) for x in R["tail"]],
+    print("nu max for a seven-year cohort:", [round(x["nu_max_for_cohort"], 1) for x in R["tail"]],
           "zero-failure trials:", [x["trials_zero_failures"] for x in R["tail"]])

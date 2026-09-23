@@ -14,10 +14,11 @@ Status: proposed in the paper. No enterprise cohort has been enrolled and no pre
 
 ## Calendar
 
-- Reference date: 20 September 2026. Deadline: 20 September 2036.
+- Chosen test horizon: seven years. Full automation is a hypothesis to test within the registered cohort, not an established forecast for all IT jobs.
+- Reference date: 20 September 2026. Deadline: 20 September 2033.
 - A twelve-month operational observation window must be completed before the deadline, so qualified
-  operation must begin by 20 September 2035.
-- Capability scenarios in the paper are anchored on 8 May 2026; 20 September 2035 is 112 months later.
+  operation must begin by 20 September 2032.
+- Capability scenarios in the paper are anchored on 8 May 2026; 20 September 2032 is 76 whole calendar months and 12 days later. The calculation conservatively uses 76 months.
 
 ## Cohort
 

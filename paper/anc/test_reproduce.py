@@ -68,8 +68,10 @@ def test_milestones_and_cohort_bet():
     assert [x["calendar_months"] for x in R["length"]] == [14, 21, 26]
     assert close(R["tail"][0]["z"], 2.301, 5e-4) and close(R["tail"][1]["z"], 3.602, 5e-4)
     assert [x["total"] for x in R["calendar"]] == [59, 73, 101]
-    assert close(R["tail"][0]["nu_max_for_cohort"], 29.1, 0.05)
-    assert close(R["tail"][1]["nu_max_for_cohort"], 18.6, 0.05)
+    assert P["tail"]["cohort_months"] == 76
+    assert [x["total"] <= P["tail"]["cohort_months"] for x in R["calendar"]] == [True, True, False]
+    assert close(R["tail"][0]["nu_max_for_cohort"], 13.47, 0.01)
+    assert close(R["tail"][1]["nu_max_for_cohort"], 8.61, 0.01)
     assert [x["trials_zero_failures"] for x in R["tail"]] == [2995, 59914]
 
 
