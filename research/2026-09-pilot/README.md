@@ -13,6 +13,10 @@ All 2,214 files (28,704,405 bytes) are committed directly to this repository, wi
 | Recorded experiment settings | [experiment_config.json](../../experiments/run_20260922_180730_063947/experiment_config.json) |
 | Recorded model catalog | [model_catalog_selected.json](../../experiments/run_20260922_180730_063947/model_catalog_selected.json) |
 
+## Open the original Word documents and architectures
+
+**[Source document catalog: all 380 Word files and 30 diagram files, organized by project and gate](SOURCE_DOCUMENTS.md).** The documents themselves are committed, not just JSON descriptions. Open any Word link and use GitHub's **Download raw file** button to read the original `.docx`.
+
 ## Historical results
 
 The recorded models are `deepseek/deepseek-v4.1-flash`, `google/gemini-3.8-flash`, and `z-ai/glm-5.3-flash`. The original report contains 15 evaluable cases for DeepSeek, 15 for Gemini, and 10 for GLM, with 5 GLM cases excluded. The dataset itself contains all 15 dossiers.
