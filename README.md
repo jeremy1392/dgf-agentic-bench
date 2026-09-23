@@ -8,6 +8,7 @@
 
 <p align="center">
   Research and project by <strong>Jeremy Canale</strong><br />
+  <a href="https://www.jeremycanale.com">jeremycanale.com</a> &nbsp; · &nbsp;
   <a href="mailto:contact@jeremycanale.com">contact@jeremycanale.com</a> &nbsp; · &nbsp;
   <a href="https://www.linkedin.com/in/jcanale13">LinkedIn</a>
 </p>
