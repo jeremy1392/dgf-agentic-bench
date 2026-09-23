@@ -23,17 +23,20 @@
 </p>
 
 <p align="center">
-  <a href="paper/The_Last_Human_Gate.pdf"><strong>Read the paper ↗</strong></a> &nbsp; · &nbsp;
+  <a href="paper2/From_Governance_Reviews_to_Task_Substitution.pdf"><strong>Read the empirical paper ↗</strong></a> &nbsp; · &nbsp;
+  <a href="paper/The_Last_Human_Gate.pdf">Read the broader thesis ↗</a> &nbsp; · &nbsp;
   <a href="#forward-deployed-engineers-dgf-first-business-functions-next">The role of FDEs</a> &nbsp; &middot; &nbsp;
   <a href="#what-we-want-to-measure">What we measure</a> &nbsp; · &nbsp;
   <a href="#how-we-test-it">Inside the experiment</a> &nbsp; · &nbsp;
   <a href="#measured-results-300-projects">Results &amp; data</a> &nbsp; · &nbsp;
-  <a href="#the-papers-timeline">Timeline</a> &nbsp; · &nbsp;
+  <a href="#two-research-timelines">Timelines</a> &nbsp; · &nbsp;
   <a href="#get-started">Get started</a> &nbsp; · &nbsp;
   <a href="CITATION.cff">Cite this work</a>
 </p>
 
 ---
+
+**One research project, two complementary papers.** This page brings together the project's broader vision, measured results, and proposed field studies. *The Last Human Gate* develops the automation argument and workforce scenarios. *From Governance Reviews to Task Substitution* focuses on the benchmark and adds an executed rules comparator and evidence audit. [Compare the two papers](#two-papers-one-research-project).
 
 ## The idea in plain language
 
@@ -45,9 +48,11 @@ A **gate** is one review checkpoint, such as Security or Legal. A **Digital Gove
 
 ### The bigger question: how much human work will DGF still need?
 
-**Jeremy Canale's hypothesis: by 2033, the DGF ecosystem will require 80% fewer full-time equivalents (FTE) than in 2026, for comparable project volume, quality, and service.** In the paper's illustrative baseline, that means **140 FTE today and at most 28 FTE in 2033**, including human supervision and support.
+**Jeremy Canale's original hypothesis, developed in *The Last Human Gate*: by 2033, the DGF ecosystem will require 80% fewer full-time equivalents (FTE) than in 2026, for comparable project volume, quality, and service.** In that paper's illustrative baseline, this means **140 FTE in 2026 and at most 28 FTE in 2033**, including human supervision and support.
 
-**FTE means full-time equivalent, or ETP in French.** It measures an amount of work. Two people each spending half their working time on DGF contribute one FTE together. It does not mean one individual employee. The paper converts human work into FTE using a stated convention of 120 useful hours per month.
+The second paper proposes a separate prospective test: measure a registered baseline year, then test for an 80% reduction **seven years after that baseline ends**. No enterprise cohort has yet been enrolled. The original 2033 prediction remains a historical hypothesis requiring auditable 2026 records. [Both timelines and their status](#two-research-timelines).
+
+**FTE means full-time equivalent, or ETP in French.** It measures an amount of work. Two people each spending half their working time on DGF contribute one FTE together. It does not mean one individual employee. The first paper's illustrations convert human work into FTE using a stated convention of 120 useful hours per month.
 
 The scope spans architecture, security, operations, technical readiness, compliance, project support, and related procurement, legal, and finance work. Exceptions, rework, maintenance, and supplier support stay in the account. Moving work to a contractor does not eliminate it.
 
@@ -68,7 +73,7 @@ The connection is the workflow: **read a dossier, investigate missing informatio
 
 This is a proposed order of development, not a claim that every company will follow it or that business automation must wait until every DGF gate is automated. Sector-specific rules, available data, and economics can change the order. **DGF-Bench evaluates the governance-review part; it does not test insurance or banking work, establish this adoption sequence, or measure FDE productivity.**
 
-The FDE's own effort stays in the labor account. Initial implementation is a transition investment; recurring adaptation, evaluation, maintenance, and support remain in the required FTE. The **80% FTE-reduction hypothesis for 2033 concerns the DGF ecosystem**, including that support; it is not automatically a forecast for every business profession. [Read the paper's FDE and business-automation section](paper/sections/s17_fde.tex).
+The FDE's own effort stays in the labor account. Initial implementation is a transition investment; recurring adaptation, evaluation, maintenance, and support remain in the required FTE. The first paper's **80% FTE-reduction hypothesis for 2033 concerns the DGF ecosystem**, including that support; it is not automatically a forecast for every business profession. [Broader FDE and business-automation argument](paper/sections/s17_fde.tex) · [Concrete FDE deliverables in the second paper](paper2/sections/04_deployment.tex).
 
 ### A concrete example
 
@@ -227,9 +232,15 @@ The [paper's experimental section](paper/sections/s18_benchmark_results.tex) exp
 | **GPT-5.6 Luna** | 300 / 300 | **83.29%** | **42.33%** (127 projects) | **$5.05** |
 | **DeepSeek v4.1 Flash** | 300 / 300 | **74.18%** | **24.67%** (74 projects) | **$10.09** |
 
-**What does this mean?** Gemini performs best overall in this test. Luna achieves a higher strict score than DeepSeek at a lower recorded cost. The ranking also holds on the **299 projects completed by all three models**, so it is not explained by Gemini's one missing project. Total recorded expenditure is **$87.02**, including recorded retries and failed attempts. [Full tables, denominators and 95% intervals](research/2026-09-dgf-bench/PAPER_RESULTS.md) · [Paired comparisons](research/2026-09-dgf-bench/paired_comparisons.json).
+**What does this mean?** Gemini performs best among the three tested models. Luna achieves a higher strict score than DeepSeek at a lower recorded cost. The ranking also holds on the **299 projects completed by all three models**, so it is not explained by Gemini's one missing project. Total recorded expenditure is **$87.02**, including recorded retries and failed attempts. [Full tables, denominators and 95% intervals](research/2026-09-dgf-bench/PAPER_RESULTS.md) · [Paired comparisons](research/2026-09-dgf-bench/paired_comparisons.json).
 
-**New offline control:** a deterministic program executing the public rules on the same structured facts succeeds on **1,700/1,700 gates and 300/300 routes**, without model calls. This shows that this scaffolded task can be automated with conventional rule execution; the original model scores do not establish an incremental LLM advantage. An exhaustive structural audit also explains Gemini's 85 evidence failures: 69 gates with matching field values within observed objects, 9 with flattened cross-object excerpts, and 7 missing a required tool read. [Complete control, audit, and scripts](research/2026-09-followup/). Original model scores remain unchanged.
+### What the new rules comparator adds
+
+**A conventional program also completes these reviews: 1,700/1,700 strict gates and 300/300 routes, without model calls.** It executes the public rules on the structured facts already available to the agents. This supports the feasibility of automating the represented work. It also shows that this particular test does not establish an added benefit from using a language model: applying the supplied rules is sufficient.
+
+This comparator quotes complete observed JSON records and has no model output-token limit. Its rules share their definitions with the evaluator, so it checks whether the supplied rules and facts suffice; it does not independently validate those business rules. Model API cost is zero; programming effort and local computation are not priced. [All comparator submissions, observations, scores, and methodology](research/2026-09-followup/).
+
+**The new structural evidence audit** separates Gemini's 85 failed gates into 69 with excerpts matching observed objects after normalization, 9 with excerpts combining fields from different objects, and 7 missing a required tool read. This analysis is not independent human semantic adjudication. Original model scores remain unchanged. [Complete audit](research/2026-09-followup/gemini_evidence_audit.json).
 
 **A correct decision is only part of the job.** Gemini chooses the expected decision on every evaluable gate, but 85 gates fail the evidence requirements: supporting excerpts or observed references are missing or nonconforming. Evidence is also the only failing component in 221 of Luna's 284 failed gates and 338 of DeepSeek's 439. We retain the original strict rule: a convincing conclusion without the required trace is not a fully successful review.
 
@@ -259,27 +270,34 @@ The run archive deliberately retains earlier partial `paper_outputs` for provena
 
 **If comparable performance is achieved in operational settings, automating these tasks could reduce the human effort and staffing required for DGF reviews.** This includes the possibility of replacing work currently performed by employees. The scale of that reduction depends on the human work still needed for exceptions, oversight, corrections, integration, and maintenance; model success rates cannot be converted directly into FTE savings.
 
-The experiment measures review performance, recorded errors, downstream reviews, and inference costs. The paper's projection of **80% fewer required DGF FTE by 2033** states a hypothesis about the workforce consequence of automation. Its magnitude and timing remain to be tested through deployment studies measuring human work at comparable output and quality.
+The rules comparator strengthens the finding that these structured reviews can be automated. The added value of language models for extracting facts from documents, resolving ambiguity, or handling less structured operational evidence remains to be measured separately.
+
+The experiment measures review performance, recorded errors, downstream reviews, and inference costs. The first paper's **80% fewer required DGF FTE by 2033** prediction and the second paper's **seven-year prospective hypothesis** concern workforce consequences. Neither is a measured staffing reduction; both require evidence on human work at comparable output and quality, under their respective timelines.
 
 The test cases are generated, so their variety and rules matter. Balancing the dataset to include different decisions helps test more situations; it does not tell us how common those situations are in business. The answer key also needs independent checking: agreement with the program that generated it is not proof that every business rule is sound.
 
-### How this relates to the paper
+### Two papers, one research project
 
-**Second manuscript:** [*From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers*](paper2/From_Governance_Reviews_to_Task_Substitution.pdf) offers a shorter, benchmark-centered treatment with a conditional task-substitution hypothesis, separate decision and evidence metrics, concrete FDE deliverables, and proposed human/semantic/field validation protocols. It uses the **same experiment**, not a new replication. [Sources and review response](paper2/). The original manuscript remains available below.
+Both papers are by **Jeremy Canale** and use the same original September 2026 model experiment. The second adds offline controls using the existing dossiers and traces.
 
-**[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument, its research hypotheses, and the measured 300-project benchmark results above. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
+| Publication | What to read it for | Workforce hypothesis |
+|---|---|---|
+| **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)** — 59 pages | The broader automation argument, role of FDEs, detailed labor accounting, illustrative scenarios, and original benchmark. | 80% fewer required DGF FTE in 2033 than in 2026; testing requires auditable historical baseline records. |
+| **[From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 22 pages | The focused empirical study, executed rules comparator, structural evidence audit, concrete FDE deliverables, and field-validation design. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
 
-**DGF-Bench tests a narrower part of that argument:** can AI models perform the specified review tasks reliably? Model results, synthetic workforce calculations, and claims about real-world automation must remain clearly distinguished. [Paper sources](paper/main.tex) · [Reproduction package](paper/anc/).
+**The shorter paper preserves the original experimental measurements.** Detailed theoretical developments and workforce scenarios remain available in the first paper and on this page. All released dossiers, architecture documents, traces, and scores remain accessible. Repeated model trajectories are a separate follow-up; completed repetition results are not reported in the current 22-page revision. Human baselines and independent semantic adjudication remain proposed studies.
 
-## The paper's FTE model
+[First-paper sources and calculations](paper/) · [Second-paper sources and review response](paper2/) · [Executed follow-up controls](research/2026-09-followup/).
 
-The two charts below come directly from the paper's reproduction code and parameters. **They are synthetic calculations, not measured staffing reductions.**
+## Workforce scenarios from the first paper
+
+The two charts below come directly from *The Last Human Gate*'s reproduction code and parameters. **They are synthetic calculations, not measured staffing reductions.** They illustrate the broader research argument retained here; the second paper uses a shorter labor-accounting example.
 
 <p align="center">
   <a href="assets/readme/fig_trajectory.svg"><img src="assets/readme/fig_trajectory.svg" alt="Paper configurations: 140, 60.56, 16.35, 5, and 0 required FTE, split across Buy, Integrate, Build, and support. A dotted line marks the 2033 hypothesis of at most 28 FTE, 80 percent below the illustrative baseline. The configurations have no assigned dates." width="1100" /></a>
 </p>
 
-**From 140 FTE to different levels of remaining work.** The bars reuse the paper's configurations. The **28-FTE line** is the 2033 hypothesis applied to this example; the bars are not a year-by-year forecast.
+**From 140 FTE to different levels of remaining work.** The bars reuse the first paper's configurations. The **28-FTE line** is its original 2033 hypothesis applied to this example; the bars are not a year-by-year forecast or outcomes observed in the benchmark.
 
 | Configuration from the paper | Required FTE, support included | Reading |
 |---|---:|---|
@@ -297,13 +315,15 @@ The two charts below come directly from the paper's reproduction code and parame
 
 **The same automation coverage can save work or create more of it.** These four operating scenarios hold case volume and coverage fixed. Their costs in exceptions, review, rework, and support differ. In the most burdensome scenario, the requirement rises to **168.92 FTE**, above the 140-FTE baseline. This is why we measure the whole human-work account. [Paper workload example](paper/sections/06_example.tex).
 
-## The paper's timeline
+## Two research timelines
 
-**2033 hypothesis: 80% fewer required FTE than in 2026, at comparable governed output, quality, and service.** This means 20 FTE remaining per 100 baseline FTE, or 28 per 140. It does not predict an identical percentage decline in individual employees.
+### First paper: the original 2026–2033 hypothesis
+
+**2033 hypothesis: 80% fewer required FTE than in 2026, at comparable governed output, quality, and service.** This means 20 FTE remaining per 100 baseline FTE, or 28 per 140. It does not predict an identical percentage decline in individual employees. The calendar below belongs to the first paper. Its baseline window has closed: testing it now requires an auditable reconstruction of that historical year. No enterprise cohort has yet been enrolled.
 
 | When | What we measure | What it means |
 |---|---|---|
-| **2026: establish the baseline** | Human hours, converted into FTE under a fixed convention, including execution and support. | Baseline records cover the year ending on 20 September 2026. No enterprise cohort has yet been enrolled. |
+| **2026: reconstruct the historical baseline** | Human hours, converted into FTE under a fixed convention, including execution and support. | Records must cover the year ending on 20 September 2026. A later baseline cannot test this original prediction. |
 | **2027 to 2032: follow adoption** | Review capability, remaining human effort, exceptions, new support work, quality, and authority. | The existing capability scenarios explore possible progress; they do not establish the FTE prediction. |
 | **September 2032 to September 2033: observe the final year** | Average monthly FTE, with both actual workload and a comparison standardized to baseline project volume and case mix. | Include periodic maintenance and shared support. Fewer projects alone cannot establish an efficiency gain. |
 | **20 September 2033: test the threshold** | Required FTE at comparable output must be **20% or less of baseline**, with quality, service, and authority requirements met. | Above 20%, the prediction fails for that population. Missing data or uncertainty around the threshold can leave the result inconclusive. |
@@ -312,6 +332,12 @@ The two charts below come directly from the paper's reproduction code and parame
 The paper's task-length and reliability scenarios retain their explicit assumptions. Qualification of an individual work package is different from reducing total required FTE. Broad inference to the DGF ecosystem requires representative coverage, and attributing a reduction to AI requires a comparative study.
 
 Sources: [FTE mechanism and hypothesis](paper/sections/s11_workforce.tex) · [study protocol](paper/anc/cohort_protocol.md) · [figure parameters and reproduction code](paper/anc/) · [SVG/PNG downloads](assets/readme/README.md).
+
+### Second paper: a prospective seven-year study
+
+For a new enterprise cohort, register the measurement plan **before** collecting a twelve-month baseline. Fix the final measurement year to end **seven years after that baseline ends**, then test whether required FTE is at most 20% of baseline at comparable output, quality, and service. Include exceptions, corrections, maintenance, and supplier support throughout.
+
+For example, a baseline starting on 1 October 2026 would end on 30 September 2027, with an endpoint on 30 September 2034. **These dates are illustrative: no cohort or actual starting date is registered.** This is a separate prospective hypothesis; it does not confirm or move the original 2033 deadline. [Second-paper cohort protocol](paper2/protocols/field_cohort.md).
 
 ## Get started
 
@@ -428,12 +454,17 @@ make paper
 
 This builds `paper/The_Last_Human_Gate.pdf`. The [paper README](paper/README.md) documents the direct LaTeX build; the [reproduction package](paper/anc/README.md) explains the numerical assumptions and generated tables.
 
+For the second paper, follow the [self-contained LaTeX build and verification instructions](paper2/README.md#sources-and-reproduction).
+
 <details>
 <summary><strong>Repository map and further reading</strong></summary>
 
 | Path | Role |
 |---|---|
-| `paper/` | Manuscript, compiled PDF, and synthetic calculations |
+| `paper/` | First manuscript, compiled PDF, and synthetic workforce calculations |
+| `paper2/` | Second manuscript, compiled PDF, review response, and field-validation protocols |
+| `research/2026-09-dgf-bench/` | Original 300-project results, figures, and reproduction instructions |
+| `research/2026-09-followup/` | Executed rules comparator, structural evidence audit, and repetition plan |
 | `facts_engine.py`, `evaluator.py` | Case facts and reference rules |
 | `generate_dgfbench_v6.py`, `prepare_openrouter_experiment.py` | Case and dataset generation; filenames retain historical version names |
 | `openrouter_eval/` | Agent loop, tools, provider client, runner, and aggregation |
@@ -447,7 +478,7 @@ See [the paper/benchmark relationship](docs/PAPER_AND_BENCHMARK.md) for the boun
 
 ## Author and contact
 
-**Jeremy Canale** is the author of *The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance* and the creator of DGF-Bench.
+**Jeremy Canale** is the author of both papers, *The Last Human Gate* and *From Governance Reviews to Task Substitution*, and the creator of DGF-Bench.
 
 For research questions, feedback, or collaboration:
 
@@ -458,11 +489,13 @@ Please credit Jeremy Canale when citing or building on this research, and retain
 
 ## Citation and license
 
-Use [CITATION.cff](CITATION.cff) to cite the paper. For benchmark experiments, also cite DGF-Bench and identify the repository commit, protocol, and dataset configuration.
+Use [CITATION.cff](CITATION.cff) for the repository and its preferred citation to *The Last Human Gate*. When referring to the second paper's controls or conclusions, cite *From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers*, Jeremy Canale (2026), and identify the manuscript revision. For benchmark experiments, also identify the repository commit, protocol, and dataset configuration.
 
 Original benchmark code and documentation are dual-licensed under **MIT OR Apache-2.0**; see [LICENSE](LICENSE). The [paper has separate copyright terms](paper/LICENSE-NOTICE.md). Microsoft Azure icons and other third-party assets retain their own terms, documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf"><strong>The Last Human Gate</strong></a><br />
-  <sub>Forward Deployed Engineering and the Automation of Enterprise Governance</sub>
+  <sub>Forward Deployed Engineering and the Automation of Enterprise Governance</sub><br /><br />
+  <a href="paper2/From_Governance_Reviews_to_Task_Substitution.pdf"><strong>From Governance Reviews to Task Substitution</strong></a><br />
+  <sub>DGF-Bench and the Role of Forward Deployed Engineers</sub>
 </p>
