@@ -1,10 +1,22 @@
 \section*{Data, source material, and code}
 
-All numerical scenarios are synthetic. \anc{parameters.json} is the single source of every assumption;
-\anc{reproduce.py} regenerates all table fragments, figures, and result files, and
+The workforce and economic scenarios are synthetic. \anc{parameters.json} is the source of their assumptions;
+\anc{reproduce.py} regenerates their table fragments, figures, and result files, and
 \anc{test_reproduce.py} checks each number quoted in the text. The ancillary directory also contains
 mathematical notes, a source map, and the cohort protocol. Figure~\ref{fig:workflows} is drawn in the
 manuscript source. Every fact taken from the author's practitioner framework is reproduced in this paper
 (Section~\ref{sec:routes-worked} and Appendix~\ref{app:dgf}). The METR series is cited, not re-estimated; the three-hour 80\% anchor is a declared scenario
 input. No confidential enterprise logs or autonomous deployment results are used. Supplied figures and
 table fragments permit \LaTeX{} compilation without Python.
+
+The measured model outcomes in Section~\ref{sec:benchmark} have a separate data source.
+The public GitHub release
+\href{https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923}{\texttt{dgf-bench-300-20260923}}
+contains the complete recorded experiment directory, its 300-case dataset (including evaluator-only
+reference files for offline reproduction), and a snapshot of the benchmark sources used by the run.
+Archives preserve file bytes, including historical failed attempts and superseded reports; per-file
+inventories and archive SHA-256 checksums support verification. During evaluation, the agent tool
+interface excluded the reference files. Their subsequent publication does not imply they were agent inputs.
+The repository directory \nolinkurl{research/2026-09-dgf-bench/} contains the final tables, diagnostics,
+paired comparisons, figure, and offline reproduction script. Reproduction from recorded scores makes
+no model calls. Rerunning paid inference is a different operation and need not produce identical outcomes.

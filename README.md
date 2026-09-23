@@ -27,6 +27,7 @@
   <a href="#forward-deployed-engineers-dgf-first-business-functions-next">The role of FDEs</a> &nbsp; &middot; &nbsp;
   <a href="#what-we-want-to-measure">What we measure</a> &nbsp; · &nbsp;
   <a href="#how-we-test-it">Inside the experiment</a> &nbsp; · &nbsp;
+  <a href="#measured-results-300-projects">Results &amp; data</a> &nbsp; · &nbsp;
   <a href="#the-papers-timeline">Timeline</a> &nbsp; · &nbsp;
   <a href="#get-started">Get started</a> &nbsp; · &nbsp;
   <a href="CITATION.cff">Cite this work</a>
@@ -210,6 +211,42 @@ We compare models on cases they have all completed. A provider outage or an exha
 
 The [figure sources and regeneration command](assets/readme/README.md) are included, with SVG and high-resolution PNG downloads.
 
+## Measured results: 300 projects
+
+**The completed September 2026 evaluation contains 899 evaluable model/project runs out of 900 planned:** the same 300 fictional projects were assigned to three models. DeepSeek and Luna completed all 300; one Gemini run ended in a provider error and is excluded. The dataset contains 100 Buy, 100 Integrate, and 100 Build projects.
+
+<p align="center">
+  <a href="research/2026-09-dgf-bench/results_overview.svg"><img src="research/2026-09-dgf-bench/results_overview.png" alt="Measured results: Gemini succeeds on 95.0 percent of gates and 76.9 percent of entire project routes, Luna on 83.3 and 42.3 percent, and DeepSeek on 74.2 and 24.7 percent. Recorded costs are 71.88, 5.05 and 10.09 US dollars respectively. Error bars show 95 percent intervals." width="1200" /></a>
+</p>
+
+| Model | Evaluable projects | Gates fully correct | Every gate in the project correct | Recorded cost |
+|---|---:|---:|---:|---:|
+| **Gemini 3.8 Flash** | 299 / 300 | **94.98%** | **76.92%** (230 projects) | **$71.88** |
+| **GPT-5.6 Luna** | 300 / 300 | **83.29%** | **42.33%** (127 projects) | **$5.05** |
+| **DeepSeek v4.1 Flash** | 300 / 300 | **74.18%** | **24.67%** (74 projects) | **$10.09** |
+
+**What does this mean?** Gemini performs best overall in this test. Luna achieves a higher strict score than DeepSeek at a lower recorded cost. The ranking also holds on the **299 projects completed by all three models**, so it is not explained by Gemini's one missing project. Total recorded expenditure is **$87.02**, including recorded retries and failed attempts. [Full tables, denominators and 95% intervals](research/2026-09-dgf-bench/PAPER_RESULTS.md) · [Paired comparisons](research/2026-09-dgf-bench/paired_comparisons.json).
+
+**A correct decision is only part of the job.** Gemini chooses the expected decision on every evaluable gate, but 85 gates fail the evidence requirements: supporting excerpts or observed references are missing or nonconforming. Evidence is also the only failing component in 221 of Luna's 284 failed gates and 338 of DeepSeek's 439. We retain the original strict rule: a convincing conclusion without the required trace is not a fully successful review.
+
+**Some failures are substantive.** DeepSeek records one critical omission and one incorrect approval; Luna records three critical omissions and one incorrect approval. Gemini records neither in the evaluable sample. These are observed counts, not a guarantee of safety. One DeepSeek approval was an empty “placeholder” answer at the turn limit; one Luna approval contradicted its own explanation that changes were required. [Detailed analysis in French](research/2026-09-dgf-bench/ANALYSE_FR.md).
+
+**Scope matters:** the agents have explicit decision rules and access to structured case facts. This experiment measures their ability to apply those rules, use evidence, and produce consistent reviews. It does not show that they can discover every company's unwritten rules, carry out the fixes, or deliver the paper's projected FTE reduction. The workforce charts below remain separate synthetic scenarios.
+
+### Download the complete experiment and reproduce the results
+
+**[Complete experiment release — dgf-bench-300-20260923](https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923)**
+
+| Download | Contents |
+|---|---|
+| [Complete run archive](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-300-run.zip) | All recorded model traces, tool calls, submissions, scores, billing ledgers, configurations, checkpoints, earlier failed attempts, historical exports, and final analysis files. |
+| [Complete dataset archive](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-300-dataset.zip) | All 300 dossiers, documents, architectures, simulated evidence, policies, mandates, manifests, and evaluator reference files. Reference files were hidden from the agents during the experiment. |
+| [Exact benchmark source snapshot](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-300-source.zip) | The benchmark code and supporting assets used by this experiment, including local changes present during collection. Use this snapshot for reproduction rather than assuming the default branch is identical. |
+
+The archives are GitHub release assets; the final tables and figures are also browsable directly in [the research directory](research/2026-09-dgf-bench/). Each archive has a per-file inventory, and [SHA-256 checksums](research/2026-09-dgf-bench/SHA256SUMS.txt) verify the downloads. **[Offline reproduction instructions](research/2026-09-dgf-bench/README.md)** require no API key or new model calls.
+
+The run archive deliberately retains earlier partial `paper_outputs` for provenance. **Use `analysis_20260923_final` or the research directory for the final results.**
+
 ## What this study can tell us
 
 It can show **how reliably the tested models review these fictional cases under the stated rules**, where they make mistakes, how errors affect later reviews, and what the evaluation costs.
@@ -220,7 +257,7 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 
 ### How this relates to the paper
 
-**[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument and its research hypotheses. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
+**[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument, its research hypotheses, and the measured 300-project benchmark results above. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
 
 **DGF-Bench tests a narrower part of that argument:** can AI models perform the specified review tasks reliably? Model results, synthetic workforce calculations, and claims about real-world automation must remain clearly distinguished. [Paper sources](paper/main.tex) · [Reproduction package](paper/anc/).
 

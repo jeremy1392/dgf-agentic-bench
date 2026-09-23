@@ -24,4 +24,4 @@ Keep empirical benchmark tables separate from the manuscript's synthetic workfor
 
 ## Publication scope
 
-The theory paper can be accompanied by a benchmark evaluation with explicitly limited claims. Tests of actual workforce effects, institutional delegation, downstream operational acceptance, or complete enterprise automation require additional empirical designs and data.
+The manuscript now includes the September 2026 benchmark evaluation: 300 synthetic dossiers, three models, 899 evaluable model/case runs, and one excluded infrastructure failure. [Final data and reproduction](../research/2026-09-dgf-bench/) and the [complete release archives](https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923) support these measured results. Explicit policies and structured authoritative facts are available to the agents; this is a scaffolded policy-application test. Tests of actual workforce effects, institutional delegation, downstream operational acceptance, or complete enterprise automation require additional empirical designs and data.

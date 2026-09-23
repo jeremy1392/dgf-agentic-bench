@@ -37,6 +37,18 @@ The repository includes a verified compiled copy at:
 
 The `anc/` directory contains the reproducibility scripts and synthetic calculations used by the paper.
 
+## Measured benchmark results
+
+The manuscript also reports the September 2026 evaluation on 300 synthetic dossiers: 899 of 900 model/case runs are evaluable. Gemini, Luna, and DeepSeek achieve 94.98%, 83.29%, and 74.18% strict gate success, respectively. These are measured agent outcomes on synthetic cases, distinct from the workforce scenarios.
+
+The [research directory](../research/2026-09-dgf-bench/) contains final tables, diagnostics, figures, checksums, and an offline reproduction script. The [complete experiment release](https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923) provides every file of the recorded run and dataset, plus the exact benchmark source snapshot. One Gemini infrastructure failure is excluded; historical partial exports remain in the archive and are clearly distinguished from final results.
+
+To rebuild the benchmark tables and figure from the published summaries before compiling the paper:
+
+```bash
+python research/2026-09-dgf-bench/build_paper_assets.py
+```
+
 ## Licensing
 
 The repository's **MIT OR Apache-2.0** dual license applies to the original DGF-Bench software and benchmark documentation under the scope stated in the root [`LICENSE`](../LICENSE).
