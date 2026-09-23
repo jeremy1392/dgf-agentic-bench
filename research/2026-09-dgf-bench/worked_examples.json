@@ -1,0 +1,197 @@
+{
+  "selection": "Post-hoc examples to explain the method; not a representative sample or additional trials. Full original traces are in the immutable run archive.",
+  "model": "google/gemini-3.8-flash",
+  "cases": [
+    {
+      "case": "DGF-BLD-035200_build",
+      "source_trace": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BLD-035200_build/04_BUILD-04-TECH_READINESS-1.json",
+      "project": {
+        "project_name": "Project Falcon — Secure Vendor Portal [6C426]",
+        "business_unit": "HR",
+        "budget_requested_eur": 500000,
+        "users_impacted": 1000,
+        "data_classification": "Confidential",
+        "business_criticality": "High",
+        "primary_region": "UAE North"
+      },
+      "recorded_result": {
+        "occurrence_id": "BUILD-04-TECH_READINESS-1",
+        "disposition": "GO_WITH_RESERVATIONS",
+        "finding_ids": [
+          "TR-OPS-001"
+        ],
+        "actions": [
+          "COMPLETE_OPERATIONAL_HANDOVER"
+        ],
+        "evidence_refs": [
+          "REVIEW_FACTS_TECH_READINESS"
+        ],
+        "authorization_required": true,
+        "rationale": "Evaluation of REVIEW_FACTS_TECH_READINESS identified one finding: TR-OPS-001 due to 'runbook_status': 'draft' (policy requires runbook_status == 'approved', on_call_defined == true, and handover_signed == true). All other criteria are met: backup_enabled is true, restore_tested is true, measured_restore_hours (0.55) <= target_rto_hours (1), measured_data_loss_minutes (0) <= target_rpo_minutes (60), dr_required and dr_tested are true, load_test_pct_of_peak (125) >= 100, critical_static_findings is 0, rollback_tested is true, and open_blockers is 0. TR-OPS-001 is risk-acceptable, and under active mandate MANDATE-99a50224-961c-5c8d-aa17-79ff519e2077-BUILD-04-TECH_READINESS-1, conditional approval was executed, permitting GO_WITH_RESERVATIONS with authorization_required=true while retaining the finding and proposed action COMPLETE_OPERATIONAL_HANDOVER.",
+        "confidence": 1.0,
+        "evidence_support": [
+          {
+            "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+            "finding_id": "TR-OPS-001",
+            "quote": "\"runbook_status\": \"draft\""
+          }
+        ]
+      },
+      "recorded_score": {
+        "occurrence_id": "BUILD-04-TECH_READINESS-1",
+        "gate": "tech_readiness",
+        "reference_disposition": "GO_WITH_RESERVATIONS",
+        "base_reference_disposition": "GO_WITH_RESERVATIONS",
+        "conditional_approval_verified": true,
+        "conditional_approval_used": true,
+        "predicted_disposition": "GO_WITH_RESERVATIONS",
+        "attempted": true,
+        "decision": 1.0,
+        "findings_f1": 1.0,
+        "actions_f1": 1.0,
+        "planned_actions_f1": 1.0,
+        "evidence_fidelity": 1.0,
+        "authorization": 1.0,
+        "evidence_diagnostics": [],
+        "strict_success": true,
+        "score": 1.0
+      },
+      "approval_tool_events": [
+        {
+          "tool": "approve_with_conditions",
+          "args": {
+            "conditions": [
+              "Complete runbook review and transition from draft to approved prior to production cutover"
+            ],
+            "finding_ids": [
+              "TR-OPS-001"
+            ],
+            "approval_reference": "MANDATE-99a50224-961c-5c8d-aa17-79ff519e2077-BUILD-04-TECH_READINESS-1",
+            "gate": "tech_readiness"
+          },
+          "result": {
+            "status": "EXECUTED",
+            "action": "APPROVE_WITH_CONDITIONS",
+            "gate": "tech_readiness",
+            "finding_ids": [
+              "TR-OPS-001"
+            ],
+            "conditions": [
+              "Complete runbook review and transition from draft to approved prior to production cutover"
+            ],
+            "approval_reference": "MANDATE-99a50224-961c-5c8d-aa17-79ff519e2077-BUILD-04-TECH_READINESS-1",
+            "authorized_disposition": "GO_WITH_RESERVATIONS",
+            "findings_resolved": false
+          }
+        }
+      ]
+    },
+    {
+      "case": "DGF-BLD-035201_build",
+      "source_trace": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BLD-035201_build/02_BUILD-02-ARCHITECTURE-1.json",
+      "project": {
+        "project_name": "Project Meridian — Cloud Landing Zone Extension [72671]",
+        "business_unit": "Finance",
+        "budget_requested_eur": 250000,
+        "users_impacted": 12000,
+        "data_classification": "Public",
+        "business_criticality": "Medium",
+        "primary_region": "North Europe"
+      },
+      "recorded_result": {
+        "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+        "disposition": "REWORK",
+        "finding_ids": [
+          "ARCH-API-001",
+          "ARCH-PERF-001"
+        ],
+        "actions": [
+          "ADD_API_GATEWAY",
+          "REMEDIATE_LATENCY"
+        ],
+        "evidence_refs": [
+          "REVIEW_FACTS_ARCHITECTURE"
+        ],
+        "authorization_required": false,
+        "rationale": "According to the authoritative architecture review facts, an API gateway is required but not present (\"api_gateway_required\": true, \"api_gateway_present\": false), triggering ARCH-API-001 (disposition REWORK). Additionally, measured latency of 55 ms exceeds the latency target of 20 ms (\"latency_target_ms\": 20, \"measured_latency_ms\": 55), triggering ARCH-PERF-001 (disposition GO_WITH_RESERVATIONS). Because ARCH-API-001 requires REWORK and is not eligible for standing risk acceptance, conditional approval cannot be executed under the standing mandate. Following policy priority, the final gate disposition is REWORK.",
+        "confidence": 1.0,
+        "evidence_support": [
+          {
+            "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+            "quote": "\"api_gateway_present\": false, \"api_gateway_required\": true",
+            "finding_id": "ARCH-API-001"
+          },
+          {
+            "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+            "finding_id": "ARCH-PERF-001",
+            "quote": "\"latency_target_ms\": 20, \"measured_latency_ms\": 55"
+          }
+        ]
+      },
+      "recorded_score": {
+        "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+        "gate": "architecture",
+        "reference_disposition": "REWORK",
+        "base_reference_disposition": "REWORK",
+        "conditional_approval_verified": false,
+        "conditional_approval_used": false,
+        "predicted_disposition": "REWORK",
+        "attempted": true,
+        "decision": 1.0,
+        "findings_f1": 1.0,
+        "actions_f1": 1.0,
+        "planned_actions_f1": 1.0,
+        "evidence_fidelity": 0.5,
+        "authorization": 1.0,
+        "evidence_diagnostics": [
+          {
+            "finding_id": "ARCH-API-001",
+            "reason": "missing_or_invalid_observed_field_value_excerpt"
+          }
+        ],
+        "strict_success": false,
+        "score": 0.95
+      },
+      "approval_tool_events": [
+        {
+          "tool": "approve_with_conditions",
+          "args": {
+            "conditions": [
+              "Remediate latency within 60 days"
+            ],
+            "approval_reference": "MANDATE-64324528-05f6-54d7-afa8-889fdb804d25-BUILD-02-ARCHITECTURE-1",
+            "gate": "architecture",
+            "finding_ids": [
+              "ARCH-PERF-001"
+            ]
+          },
+          "result": {
+            "status": "REJECTED",
+            "reason": "All open findings must be covered"
+          }
+        },
+        {
+          "tool": "approve_with_conditions",
+          "args": {
+            "approval_reference": "MANDATE-64324528-05f6-54d7-afa8-889fdb804d25-BUILD-02-ARCHITECTURE-1",
+            "finding_ids": [
+              "ARCH-API-001",
+              "ARCH-PERF-001"
+            ],
+            "gate": "architecture",
+            "conditions": [
+              "Add API gateway and remediate latency"
+            ]
+          },
+          "result": {
+            "status": "REJECTED",
+            "reason": "One or more findings are not eligible for standing risk acceptance",
+            "ineligible": [
+              "ARCH-API-001"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

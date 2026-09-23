@@ -1,5 +1,7 @@
-"""Render manuscript tables and a figure from the published final score summaries."""
+"""Render manuscript tables, results chart, workflow, and architecture specimen."""
 import json
+import shutil
+import cairosvg
 from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
@@ -51,4 +53,7 @@ for ax, metric, ci, title in zip(axes, ['gate_csr','route_complete_rate'], ['gat
     ax.grid(axis='x',alpha=.15); ax.set_axisbelow(True)
 fig.tight_layout(pad=1.5)
 fig.savefig(ROOT/'paper/figures/fig_benchmark_results.pdf')
-print('Rebuilt three manuscript tables and benchmark figure from final summaries.')
+cairosvg.svg2pdf(url=str(ROOT/'assets/readme/experiment-walkthrough.svg'),
+                write_to=str(ROOT/'paper/figures/fig_benchmark_walkthrough.pdf'))
+shutil.copyfile(ROOT/'assets/readme/example-architecture.png', ROOT/'paper/figures/fig_benchmark_architecture.png')
+print('Rebuilt three manuscript tables, results chart, workflow and architecture specimen.')

@@ -6,6 +6,16 @@ Measured AI review outcomes on **300 synthetic projects**, with **899 of 900 mod
 
 ## Results
 
+The paper's experimental section provides a step-by-step account, with an experiment diagram and an actual generated architecture. The generator creates a fictional business scenario (Buy, Integrate, or Build), assigns its facts and constraints, and produces documents and simulated records. The tested model reviews that case; it does not generate its own test project. At each gate it receives the applicable rules, allowed tools and evidence, and a required answer format. It investigates, submits findings/actions/evidence and a decision, then its review is passed to later gates. A deterministic evaluator checks the saved submission and tool events against the reference. Entire-route success requires every gate to pass.
+
+| Model | Exact OpenRouter identifier | Common configuration |
+|---|---|---|
+| DeepSeek v4.1 Flash | `deepseek/deepseek-v4.1-flash` | Temperature 0; vision auto; 20 turns / 40 tool calls per gate; 8,192 output tokens per turn; agent handoffs. |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | Same task, tools, policy and resource limits. |
+| GPT-5.6 Luna | `openai/gpt-5.6-luna` | Same task, tools, policy and resource limits. |
+
+Two post-hoc explanatory cases make the process concrete. In **Project Falcon**, a draft runbook leads to a retained operational-handover finding and a conditional approval under an executed simulated mandate. In **Project Meridian**, Gemini correctly requests changes for a missing API gateway and excessive latency, but reverses the field order in an evidence excerpt and fails the strict proof check. [Recorded outputs and original paths](worked_examples.json). These are examples from the measured run, not additional trials.
+
 | Model | Cases | Strict gate success | Entire route success | Known cost |
 |---|---:|---:|---:|---:|
 | Gemini 3.8 Flash | 299 | 94.98% | 76.92% | $71.88 |
@@ -56,7 +66,7 @@ The primary outcomes are computed from saved scores. Reproducing those values ch
 
 Gate intervals use 2,000 route-stratified case bootstrap draws; complete-route intervals use Wilson bounds. Pairwise differences use 10,000 paired case bootstrap draws within routes. Seed: 81931. Gates within a dossier are not treated as independent trials. These intervals describe sampling uncertainty within the synthetic design, not bias, human agreement, or run-to-run model variability.
 
-`build_paper_assets.py` rebuilds the manuscript's three benchmark tables and figure from these summaries. `package_release.py` documents archive construction and credential-pattern checks; it is a maintainer utility requiring the original local directories, not a prerequisite for readers. Neither script makes paid inference calls.
+`build_paper_assets.py` rebuilds the manuscript's three benchmark tables and results chart from these summaries, renders the workflow diagram, and copies the architecture specimen from the public README assets. `package_release.py` documents archive construction and credential-pattern checks; it is a maintainer utility requiring the original local directories, not a prerequisite for readers. Neither script makes paid inference calls.
 
 ## Author
 

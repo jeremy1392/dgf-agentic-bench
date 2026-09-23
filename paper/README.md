@@ -39,11 +39,13 @@ The `anc/` directory contains the reproducibility scripts and synthetic calculat
 
 ## Measured benchmark results
 
+The experimental section is written as a standalone account: research questions, generated business scenarios and evidence, the six-step agent workflow, actual route sequences, exact model identifiers and settings, scoring definitions, results, and conclusions. Two recorded cases explain a justified conditional approval and a correct decision that fails the exact-evidence rule. An experiment diagram and an actual generated architecture illustrate the inputs and process. These examples were selected after evaluation to explain the method.
+
 The manuscript also reports the September 2026 evaluation on 300 synthetic dossiers: 899 of 900 model/case runs are evaluable. Gemini, Luna, and DeepSeek achieve 94.98%, 83.29%, and 74.18% strict gate success, respectively. These are measured agent outcomes on synthetic cases, distinct from the workforce scenarios.
 
 The [research directory](../research/2026-09-dgf-bench/) contains final tables, diagnostics, figures, checksums, and an offline reproduction script. The [complete experiment release](https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923) provides every file of the recorded run and dataset, plus the exact benchmark source snapshot. One Gemini infrastructure failure is excluded; historical partial exports remain in the archive and are clearly distinguished from final results.
 
-To rebuild the benchmark tables and figure from the published summaries before compiling the paper:
+To rebuild the benchmark tables, results chart, workflow diagram, and architecture specimen before compiling the paper:
 
 ```bash
 python research/2026-09-dgf-bench/build_paper_assets.py

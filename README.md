@@ -215,6 +215,8 @@ The [figure sources and regeneration command](assets/readme/README.md) are inclu
 
 **The completed September 2026 evaluation contains 899 evaluable model/project runs out of 900 planned:** the same 300 fictional projects were assigned to three models. DeepSeek and Luna completed all 300; one Gemini run ended in a provider error and is excluded. The dataset contains 100 Buy, 100 Integrate, and 100 Build projects.
 
+The [paper's experimental section](paper/sections/s18_benchmark_results.tex) explains the complete method, exact models and settings, what each agent receives and does, scoring, and conclusions. It follows two recorded cases: Project Falcon's justified conditional approval and an architecture review whose decision is correct but whose evidence excerpt fails the exact-quotation requirement. [Trace excerpts and provenance](research/2026-09-dgf-bench/worked_examples.json).
+
 <p align="center">
   <a href="research/2026-09-dgf-bench/results_overview.svg"><img src="research/2026-09-dgf-bench/results_overview.png" alt="Measured results: Gemini succeeds on 95.0 percent of gates and 76.9 percent of entire project routes, Luna on 83.3 and 42.3 percent, and DeepSeek on 74.2 and 24.7 percent. Recorded costs are 71.88, 5.05 and 10.09 US dollars respectively. Error bars show 95 percent intervals." width="1200" /></a>
 </p>
