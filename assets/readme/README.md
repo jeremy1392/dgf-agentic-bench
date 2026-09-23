@@ -1,6 +1,24 @@
 # README visuals
 
-These assets are illustrations and explanatory diagrams, not experimental results. The four numbered research figures use a restrained light background, numbered panels, descriptive captions, and source references. SVG sources remain editable; PNG exports are 2,100 pixels wide.
+These assets explain the research; they do not report model performance. They include explanatory diagrams, synthetic FTE calculations, and one unchanged generated evidence specimen. The four numbered research figures use a restrained light background, numbered panels, descriptive captions, and source references. SVG sources remain editable; explanatory PNG exports are 2,100 pixels wide.
+
+## Experiment walkthrough
+
+| Visual | Downloads | Grounding |
+|---|---|---|
+| From a fictional project to a scored review | [SVG](experiment-walkthrough.svg) / [PNG](experiment-walkthrough.png) | Six conceptual stages of the active generator and agent pipeline, with the reference restricted to the evaluator |
+| Backup and restore review | [SVG](experiment-restore-example.svg) / [PNG](experiment-restore-example.png) | Illustrative application of `TR-RESTORE-001` in [evaluator.py](../../evaluator.py), assuming all other checks pass; not a model trace or a finding about the architecture specimen |
+| Generated architecture specimen | [SVG](example-architecture.svg) / [PNG](example-architecture.png) | Byte-for-byte copy of public synthetic evidence from case `DGF-BLD-035200_build`, dataset `preflight_balanced_300_20260922`; original PNG dimensions: 1,980 × 1,320 |
+
+Rebuild the two explanatory diagrams:
+
+```text
+python assets/readme/build_experiment_figures.py --render-png
+```
+
+The [builder](build_experiment_figures.py) reuses the research figures' visual primitives and makes no network or model calls. Its diagram text explains the implemented pipeline; it is not computed from model scores.
+
+The architecture specimen comes from `gate_evidence/architecture/Architecture_Diagram_Detailed.svg` and its paired PNG. [Context and provenance](example-project-context.json) preserve an excerpt of the public project facts, seed, and architecture signature. It is evidence to review, not an independently validated design. Its labels can require cross-checking against other case evidence. The diagram builder does not regenerate this specimen, and its hidden answer key is not included here. Azure icon attribution and terms are documented in [third-party notices](../../THIRD_PARTY_NOTICES.md).
 
 ## Research figures
 

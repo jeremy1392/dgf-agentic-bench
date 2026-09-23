@@ -25,6 +25,7 @@
   <a href="paper/The_Last_Human_Gate.pdf"><strong>Read the paper ↗</strong></a> &nbsp; · &nbsp;
   <a href="#forward-deployed-engineers-dgf-first-business-functions-next">The role of FDEs</a> &nbsp; &middot; &nbsp;
   <a href="#what-we-want-to-measure">What we measure</a> &nbsp; · &nbsp;
+  <a href="#how-we-test-it">Inside the experiment</a> &nbsp; · &nbsp;
   <a href="#the-papers-timeline">Timeline</a> &nbsp; · &nbsp;
   <a href="#get-started">Get started</a> &nbsp; · &nbsp;
   <a href="CITATION.cff">Cite this work</a>
@@ -98,9 +99,69 @@ A **critical miss** means the AI failed to identify a problem classified as crit
 
 ## How we test it
 
-We generate **fictional company projects** with known facts. Documents, technical diagrams, and expected review outcomes are derived from those facts. The model receives the allowed evidence and rules, but not the answer key.
+**We create a fictional project, prepare its review dossier, and ask an AI to judge whether it can move forward.** Because we know the underlying facts, we can check whether the AI found the problems and made the decision required by the rules.
 
-Each model works through the same cases using tools to inspect evidence, ask questions, and submit decisions. The evaluator then compares its work with the expected outcome and the recorded actions. The files preserve what the model read, what it submitted, and what the provider charged.
+<p align="center">
+  <a href="assets/readme/experiment-walkthrough.svg"><img src="assets/readme/experiment-walkthrough.png" alt="Six experiment steps: generate a business scenario, an architecture, and a dossier; let the AI investigate; collect its decisions; score the work against a reference hidden from the AI." width="1200" /></a>
+</p>
+
+### 1. Generate a business scenario
+
+We start with a need: **buy a solution, integrate systems, or build an application**. The generator assigns a project context: business unit, owners, users, budget, dates, data sensitivity, and business criticality. These details determine what the reviews need to check.
+
+For example, one generated Build case is **Project Falcon — Secure Vendor Portal**: an HR project affecting **1,000 users**, with a **€500,000 requested budget**, **confidential data**, and **high business criticality**. These are synthetic project facts, not a real customer's information. [Example context and provenance](assets/readme/example-project-context.json).
+
+The generator uses code, rules, and templates to construct the cases. **The model being evaluated acts as the reviewer**; it is not being graded on inventing the business need or designing the architecture.
+
+### 2. Generate the architecture
+
+The project gets a technical design: applications, networks, identity, data stores, information flows, and recovery arrangements. The generator produces both structured facts and a diagram that a reviewer can examine alongside the other evidence.
+
+<p align="center">
+  <a href="assets/readme/example-architecture.png"><img src="assets/readme/example-architecture.png" alt="Actual generated architecture for the fictional Project Falcon: corporate users and identity, an application and data services in a primary Azure region, monitoring and backup, and a secondary recovery region." width="1200" /></a>
+</p>
+
+**A real artifact from the synthetic dataset.** This is the architecture document generated for the example above, not a decorative drawing or a recommended production design. Its claims must be checked against the rest of the evidence. Image inspection depends on the model and the experiment's vision setting. [Open full-size image](assets/readme/example-architecture.png) · [SVG source](assets/readme/example-architecture.svg).
+
+### 3. Build the dossier the reviewers receive
+
+The generator turns the project facts into documents and records for the relevant gates. Each review has a request explaining its objective, access to allowed evidence, decision rules, and a required answer format.
+
+| Part of the dossier | Examples | What the reviewer is trying to establish |
+|---|---|---|
+| **Project brief** | Owners, scope, budget, users, dates | What is being proposed, and who is responsible? |
+| **Architecture evidence** | Diagram, technical design, network and data-flow tables | Does the design satisfy the project's constraints? |
+| **Security and access evidence** | Identity assignments, vulnerability records, monitoring evidence | Are the required protections in place? |
+| **Supplier, legal, and compliance evidence** | Supplier records, contract versions, applicable requirements | Are the necessary checks and obligations satisfied? |
+| **Readiness evidence** | Backup jobs, restore and failover tests, runbooks | Is there evidence the service can operate and recover? |
+
+The exact contents depend on the route and gate. Files include Word documents, CSV tables, JSON records, and architecture images. **Some cases contain missing, stale, or conflicting evidence.** The challenge is to cross-check the claims, not simply repeat the project's presentation. Different cases vary in project context, technical design, problems, and expected decisions.
+
+### 4. Let the AI investigate
+
+The AI reads the available evidence and can query **simulated company systems**. For example, it can inspect an asset record, check access rights, retrieve a contract version, or look up a restore test. It can also request missing evidence and record required governance actions within its permissions.
+
+These tools return information from the synthetic environment. They do not inspect a real customer's cloud or deploy changes. The trace records what the AI consulted and what it did.
+
+### 5. Collect decisions and pass them to the next review
+
+At each checkpoint, the AI submits **the problems it found, supporting evidence, required actions, its decision, and the authorization basis**. A successful answer can be an approval, a conditional approval, a request for changes, a pause, or a rejection: it depends on the case.
+
+In the normal `agent` handoff mode, later reviews receive the AI's earlier outputs. The final General review brings those conclusions together. This lets us examine both individual reviews and the effect of passing information through a whole project route.
+
+<p align="center">
+  <a href="assets/readme/experiment-restore-example.svg"><img src="assets/readme/experiment-restore-example.png" alt="Illustrative review: a backup job exists, but the tool records show no successful restore test. The correct response is to identify the missing test, cite evidence, request a restore test, and choose REWORK, assuming the other checks pass." width="1200" /></a>
+</p>
+
+**A simple example of the reasoning we test.** Backups being enabled does not prove that data can be restored. Under the benchmark's readiness rule, a missing successful restore test requires `REWORK` and a request to run that test, assuming the other checks pass. This is an illustrative scenario, separate from the architecture specimen above; it is not a recorded model answer or a performance result. [Rule: `TR-RESTORE-001`](evaluator.py).
+
+### 6. Score the work against a hidden reference
+
+The evaluator knows the underlying case facts and the expected findings, actions, and decisions. **The AI receives the allowed evidence and rules, but cannot access that answer key through its tools.** We compare the submitted review and its recorded actions with this reference, including evidence use and permissions.
+
+We then report success by gate and complete route, missed critical problems, false approvals, technical failures, and recorded cost. The same cases can be given to several models for comparison. A well-written answer alone is not enough: its decision and supporting work must satisfy the checks described [above](#what-we-want-to-measure).
+
+For the implementation, follow the [experiment runner](run_full_experiment.py), [case generator](generate_dgfbench_v6.py), [document generator](document_factory.py), [agent tools](openrouter_eval/agent_tools.py), and [reference rules](evaluator.py). The [visual sources](assets/readme/README.md) identify which images are explanatory diagrams and which are generated evidence.
 
 ## How project reviews work
 
