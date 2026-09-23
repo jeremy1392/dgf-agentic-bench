@@ -1,0 +1,737 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 309171, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035136",
+              "generation_seed": 35136,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [28142]",
+              "project_code": "28142",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Yusuf Khan-35136-SP",
+              "project_manager": "Noor Rossi-35136-PM",
+              "business_owner": "Yusuf Rahman-35136-BO",
+              "service_owner": "Noor Petrescu-35136-SO",
+              "risk_owner": "Daria Volkov-35136-RO",
+              "start_date": "2026-09-27",
+              "target_go_live": "2027-02-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": true,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 309171,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "silver",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-28142-v3.1\", \"lld_version\": \"LLD-28142-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 2, \"adr_count\": 2, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.0.0/24\", \"10.212.1.0/24\", \"10.212.2.0/24\"], \"dns_zone\": \"dgf-int-035136.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-28142-v3.1\", \"lld_version\": \"LLD-28142-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 2, \"adr_count\": 2, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.0.0/24\", \"10.212.1.0/24\", \"10.212.2.0/24\"], \"dns_zone\": \"dgf-int-035136.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035136",
+              "generation_seed": 35136,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [28142]",
+              "project_code": "28142",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Yusuf Khan-35136-SP",
+              "project_manager": "Noor Rossi-35136-PM",
+              "business_owner": "Yusuf Rahman-35136-BO",
+              "service_owner": "Noor Petrescu-35136-SO",
+              "risk_owner": "Daria Volkov-35136-RO",
+              "start_date": "2026-09-27",
+              "target_go_live": "2027-02-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-28142-v3.1",
+              "lld_version": "LLD-28142-v2.5",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": false,
+              "latency_target_ms": 100,
+              "measured_latency_ms": 95,
+              "load_test_peak_pct": 50,
+              "architecture_debt_items": 2,
+              "adr_count": 2,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.212.0.0/24",
+                "10.212.1.0/24",
+                "10.212.2.0/24"
+              ],
+              "dns_zone": "dgf-int-035136.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-IAM-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "ENFORCE_MFA",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 0, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 0, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 0, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035136",
+              "generation_seed": 35136,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [28142]",
+              "project_code": "28142",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Yusuf Khan-35136-SP",
+              "project_manager": "Noor Rossi-35136-PM",
+              "business_owner": "Yusuf Rahman-35136-BO",
+              "service_owner": "Noor Petrescu-35136-SO",
+              "risk_owner": "Daria Volkov-35136-RO",
+              "start_date": "2026-09-27",
+              "target_go_live": "2027-02-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": false,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "optional",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 2,
+              "high_vulns_open": 0,
+              "pentest_age_days": 14,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "None",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-28142-5.5\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": false, \"exit_assistance_days\": 60, \"ip_ownership\": \"shared\", \"insurance_valid\": false, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035136",
+              "generation_seed": 35136,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [28142]",
+              "project_code": "28142",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Yusuf Khan-35136-SP",
+              "project_manager": "Noor Rossi-35136-PM",
+              "business_owner": "Yusuf Rahman-35136-BO",
+              "service_owner": "Noor Petrescu-35136-SO",
+              "risk_owner": "Daria Volkov-35136-RO",
+              "start_date": "2026-09-27",
+              "target_go_live": "2027-02-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-28142-5.5",
+              "governing_law": "Ireland",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 60,
+              "ip_ownership": "shared",
+              "insurance_valid": false,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "missing",
+              "sla_penalties": false,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-AUDIT-001",
+        "COMP-EXPORT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL",
+        "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035136",
+              "generation_seed": 35136,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [28142]",
+              "project_code": "28142",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Yusuf Khan-35136-SP",
+              "project_manager": "Noor Rossi-35136-PM",
+              "business_owner": "Yusuf Rahman-35136-BO",
+              "service_owner": "Noor Petrescu-35136-SO",
+              "risk_owner": "Daria Volkov-35136-RO",
+              "start_date": "2026-09-27",
+              "target_go_live": "2027-02-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "PCI-DSS"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 1,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "passed",
+              "regulatory_mapping": "complete",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "restricted"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P0\", \"budget_requested_eur\": 500000, \"budget_approved_eur\": 500000, \"roi\": 0.191, \"npv_eur\": 290738, \"payback_months\": 17, \"schedule_slip_weeks\": 2, \"fte_needed\": 9.0, \"fte_available\": 8.6, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"availability\", \"benefits_owner\": \"Adam Khan-35136-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 309171, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 14, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"aks\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-28142-v3.1\\\", \\\"lld_version\\\": \\\"LLD-28142-v2.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 2, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.212.0.0/24\\\", \\\"10.212.1.0/24\\\", \\\"10.212.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035136.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-28142-v3.1\\\", \\\"lld_version\\\": \\\"LLD-28142-v2.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 2, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.212.0.0/24\\\", \\\"10.212.1.0/24\\\", \\\"10.212.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035136.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-NET-001\", \"SEC-IAM-001\", \"SEC-VULN-001\"], \"actions\": [\"ENABLE_PRIVATE_ENDPOINTS\", \"ENFORCE_MFA\", \"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-NET-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"optional\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 30, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"None\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-IAM-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"optional\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 30, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"None\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"optional\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 30, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"None\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"LEGAL-INS-001\"], \"actions\": [\"OBTAIN_VALID_INSURANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-INS-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-28142-5.5\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"full\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 60, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": false, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-AUDIT-001\", \"COMP-EXPORT-001\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\", \"OBTAIN_EXPORT_CONTROL_CLEARANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"PCI-DSS\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"complete\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035136\\\", \\\"generation_seed\\\": 35136, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [28142]\\\", \\\"project_code\\\": \\\"28142\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Yusuf Khan-35136-SP\\\", \\\"project_manager\\\": \\\"Noor Rossi-35136-PM\\\", \\\"business_owner\\\": \\\"Yusuf Rahman-35136-BO\\\", \\\"service_owner\\\": \\\"Noor Petrescu-35136-SO\\\", \\\"risk_owner\\\": \\\"Daria Volkov-35136-RO\\\", \\\"start_date\\\": \\\"2026-09-27\\\", \\\"target_go_live\\\": \\\"2027-02-09\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"PCI-DSS\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"complete\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035136",
+              "generation_seed": 35136,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [28142]",
+              "project_code": "28142",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Yusuf Khan-35136-SP",
+              "project_manager": "Noor Rossi-35136-PM",
+              "business_owner": "Yusuf Rahman-35136-BO",
+              "service_owner": "Noor Petrescu-35136-SO",
+              "risk_owner": "Daria Volkov-35136-RO",
+              "start_date": "2026-09-27",
+              "target_go_live": "2027-02-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "weak",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 500000,
+              "roi": 0.191,
+              "npv_eur": 290738,
+              "payback_months": 17,
+              "schedule_slip_weeks": 2,
+              "fte_needed": 9.0,
+              "fte_available": 8.6,
+              "change_plan_status": "partial",
+              "benefits_kpi": "availability",
+              "benefits_owner": "Adam Khan-35136-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 309171, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-28142-v3.1\", \"lld_version\": \"LLD-28142-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 2, \"adr_count\": 2, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.0.0/24\", \"10.212.1.0/24\", \"10.212.2.0/24\"], \"dns_zone\": \"dgf-int-035136.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-28142-v3.1\", \"lld_version\": \"LLD-28142-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 2, \"adr_count\": 2, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.0.0/24\", \"10.212.1.0/24\", \"10.212.2.0/24\"], \"dns_zone\": \"dgf-int-035136.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-NET-001",
+                "SEC-IAM-001",
+                "SEC-VULN-001"
+              ],
+              "actions": [
+                "ENABLE_PRIVATE_ENDPOINTS",
+                "ENFORCE_MFA",
+                "REMEDIATE_CRITICAL_VULNERABILITIES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-NET-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 0, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-IAM-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 0, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 0, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "LEGAL-INS-001"
+              ],
+              "actions": [
+                "OBTAIN_VALID_INSURANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-INS-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-28142-5.5\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": false, \"exit_assistance_days\": 60, \"ip_ownership\": \"shared\", \"insurance_valid\": false, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-AUDIT-001",
+                "COMP-EXPORT-001"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL",
+                "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035136\", \"generation_seed\": 35136, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [28142]\", \"project_code\": \"28142\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Yusuf Khan-35136-SP\", \"project_manager\": \"Noor Rossi-35136-PM\", \"business_owner\": \"Yusuf Rahman-35136-BO\", \"service_owner\": \"Noor Petrescu-35136-SO\", \"risk_owner\": \"Daria Volkov-35136-RO\", \"start_date\": \"2026-09-27\", \"target_go_live\": \"2027-02-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

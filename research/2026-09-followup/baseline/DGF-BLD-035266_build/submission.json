@@ -1,0 +1,131 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035266\", \"generation_seed\": 35266, \"project_name\": \"Project Raven — Regulatory Reporting Modernization [CF740]\", \"project_code\": \"CF740\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Rahman-35266-SP\", \"project_manager\": \"Samir Dubois-35266-PM\", \"business_owner\": \"Leila Canale-35266-BO\", \"service_owner\": \"Nadia Rossi-35266-SO\", \"risk_owner\": \"Noor Ivanov-35266-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-13\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 166008, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"vmss\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035266\", \"generation_seed\": 35266, \"project_name\": \"Project Raven — Regulatory Reporting Modernization [CF740]\", \"project_code\": \"CF740\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Rahman-35266-SP\", \"project_manager\": \"Samir Dubois-35266-PM\", \"business_owner\": \"Leila Canale-35266-BO\", \"service_owner\": \"Nadia Rossi-35266-SO\", \"risk_owner\": \"Noor Ivanov-35266-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-13\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CF740-v3.5\", \"lld_version\": \"LLD-CF740-v1.9\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 7, \"adr_count\": 2, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.32.0/24\", \"10.20.33.0/24\", \"10.20.34.0/24\"], \"dns_zone\": \"dgf-bld-035266.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035266\", \"generation_seed\": 35266, \"project_name\": \"Project Raven — Regulatory Reporting Modernization [CF740]\", \"project_code\": \"CF740\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Rahman-35266-SP\", \"project_manager\": \"Samir Dubois-35266-PM\", \"business_owner\": \"Leila Canale-35266-BO\", \"service_owner\": \"Nadia Rossi-35266-SO\", \"risk_owner\": \"Noor Ivanov-35266-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-13\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CF740-v3.5\", \"lld_version\": \"LLD-CF740-v1.9\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 7, \"adr_count\": 2, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.32.0/24\", \"10.20.33.0/24\", \"10.20.34.0/24\"], \"dns_zone\": \"dgf-bld-035266.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035266\", \"generation_seed\": 35266, \"project_name\": \"Project Raven — Regulatory Reporting Modernization [CF740]\", \"project_code\": \"CF740\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Rahman-35266-SP\", \"project_manager\": \"Samir Dubois-35266-PM\", \"business_owner\": \"Leila Canale-35266-BO\", \"service_owner\": \"Nadia Rossi-35266-SO\", \"risk_owner\": \"Noor Ivanov-35266-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-13\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 3, \"high_vulns_open\": 2, \"pentest_age_days\": 90, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-BC-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "REVISE_BUSINESS_CASE",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035266\", \"generation_seed\": 35266, \"project_name\": \"Project Raven — Regulatory Reporting Modernization [CF740]\", \"project_code\": \"CF740\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Rahman-35266-SP\", \"project_manager\": \"Samir Dubois-35266-PM\", \"business_owner\": \"Leila Canale-35266-BO\", \"service_owner\": \"Nadia Rossi-35266-SO\", \"risk_owner\": \"Noor Ivanov-35266-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-13\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P0\", \"budget_requested_eur\": 500000, \"budget_approved_eur\": 350000, \"roi\": 0.03, \"npv_eur\": 87712, \"payback_months\": 25, \"schedule_slip_weeks\": 8, \"fte_needed\": 19.9, \"fte_available\": 21.3, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"cost_to_serve\", \"benefits_owner\": \"Samir Canale-35266-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035266\", \"generation_seed\": 35266, \"project_name\": \"Project Raven — Regulatory Reporting Modernization [CF740]\", \"project_code\": \"CF740\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Rahman-35266-SP\", \"project_manager\": \"Samir Dubois-35266-PM\", \"business_owner\": \"Leila Canale-35266-BO\", \"service_owner\": \"Nadia Rossi-35266-SO\", \"risk_owner\": \"Noor Ivanov-35266-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-13\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P0\", \"budget_requested_eur\": 500000, \"budget_approved_eur\": 350000, \"roi\": 0.03, \"npv_eur\": 87712, \"payback_months\": 25, \"schedule_slip_weeks\": 8, \"fte_needed\": 19.9, \"fte_available\": 21.3, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"cost_to_serve\", \"benefits_owner\": \"Samir Canale-35266-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-CATALOG-001\"], \"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CATALOG-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035266\\\", \\\"generation_seed\\\": 35266, \\\"project_name\\\": \\\"Project Raven — Regulatory Reporting Modernization [CF740]\\\", \\\"project_code\\\": \\\"CF740\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Rahman-35266-SP\\\", \\\"project_manager\\\": \\\"Samir Dubois-35266-PM\\\", \\\"business_owner\\\": \\\"Leila Canale-35266-BO\\\", \\\"service_owner\\\": \\\"Nadia Rossi-35266-SO\\\", \\\"risk_owner\\\": \\\"Noor Ivanov-35266-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-13\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 166008, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"vmss\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035266\\\", \\\"generation_seed\\\": 35266, \\\"project_name\\\": \\\"Project Raven — Regulatory Reporting Modernization [CF740]\\\", \\\"project_code\\\": \\\"CF740\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Rahman-35266-SP\\\", \\\"project_manager\\\": \\\"Samir Dubois-35266-PM\\\", \\\"business_owner\\\": \\\"Leila Canale-35266-BO\\\", \\\"service_owner\\\": \\\"Nadia Rossi-35266-SO\\\", \\\"risk_owner\\\": \\\"Noor Ivanov-35266-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-13\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-CF740-v3.5\\\", \\\"lld_version\\\": \\\"LLD-CF740-v1.9\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 7, \\\"adr_count\\\": 2, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.32.0/24\\\", \\\"10.20.33.0/24\\\", \\\"10.20.34.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035266.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035266\\\", \\\"generation_seed\\\": 35266, \\\"project_name\\\": \\\"Project Raven — Regulatory Reporting Modernization [CF740]\\\", \\\"project_code\\\": \\\"CF740\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Rahman-35266-SP\\\", \\\"project_manager\\\": \\\"Samir Dubois-35266-PM\\\", \\\"business_owner\\\": \\\"Leila Canale-35266-BO\\\", \\\"service_owner\\\": \\\"Nadia Rossi-35266-SO\\\", \\\"risk_owner\\\": \\\"Noor Ivanov-35266-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-13\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-CF740-v3.5\\\", \\\"lld_version\\\": \\\"LLD-CF740-v1.9\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 7, \\\"adr_count\\\": 2, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.32.0/24\\\", \\\"10.20.33.0/24\\\", \\\"10.20.34.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035266.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-VULN-001\"], \"actions\": [\"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035266\\\", \\\"generation_seed\\\": 35266, \\\"project_name\\\": \\\"Project Raven — Regulatory Reporting Modernization [CF740]\\\", \\\"project_code\\\": \\\"CF740\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Rahman-35266-SP\\\", \\\"project_manager\\\": \\\"Samir Dubois-35266-PM\\\", \\\"business_owner\\\": \\\"Leila Canale-35266-BO\\\", \\\"service_owner\\\": \\\"Nadia Rossi-35266-SO\\\", \\\"risk_owner\\\": \\\"Noor Ivanov-35266-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-13\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": false, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Proposed independent semantic evidence audit
 
-**Status: design only. No semantic pass rate or expert labels have been produced.** The strict lexical metric and published rates remain frozen.
+**Status: independent semantic adjudication remains unperformed.** A separate automated structural audit has now covered all 85 Gemini failed gates: 69 same-object matches, 9 flattened cross-object cases, and 7 missing required tool reads. See `research/2026-09-followup/`; those are not expert labels or semantic pass rates. The strict lexical metric and published rates remain frozen.
 
 ## Unit and labels
 

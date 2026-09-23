@@ -1,0 +1,653 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 398507, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"app_service\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035249",
+              "generation_seed": 35249,
+              "project_name": "Project Solstice — AI Service Desk [0DF77]",
+              "project_code": "0DF77",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Daria Canale-35249-SP",
+              "project_manager": "Leila Canale-35249-PM",
+              "business_owner": "Elena Haddad-35249-BO",
+              "service_owner": "Omar Ivanov-35249-SO",
+              "risk_owner": "Omar Khan-35249-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 2000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": true,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 398507,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 60,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "app_service"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-0DF77-v2.8\", \"lld_version\": \"LLD-0DF77-v3.2\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 1, \"adr_count\": 3, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.19.16.0/24\", \"10.19.17.0/24\", \"10.19.18.0/24\"], \"dns_zone\": \"dgf-bld-035249.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035249",
+              "generation_seed": 35249,
+              "project_name": "Project Solstice — AI Service Desk [0DF77]",
+              "project_code": "0DF77",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Daria Canale-35249-SP",
+              "project_manager": "Leila Canale-35249-PM",
+              "business_owner": "Elena Haddad-35249-BO",
+              "service_owner": "Omar Ivanov-35249-SO",
+              "risk_owner": "Omar Khan-35249-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 2000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-0DF77-v2.8",
+              "lld_version": "LLD-0DF77-v3.2",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 55,
+              "load_test_peak_pct": 100,
+              "architecture_debt_items": 1,
+              "adr_count": 3,
+              "reversibility_status": "tested",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.19.16.0/24",
+                "10.19.17.0/24",
+                "10.19.18.0/24"
+              ],
+              "dns_zone": "dgf-bld-035249.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-NET-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035249",
+              "generation_seed": 35249,
+              "project_name": "Project Solstice — AI Service Desk [0DF77]",
+              "project_code": "0DF77",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Daria Canale-35249-SP",
+              "project_manager": "Leila Canale-35249-PM",
+              "business_owner": "Elena Haddad-35249-BO",
+              "service_owner": "Omar Ivanov-35249-SO",
+              "risk_owner": "Omar Khan-35249-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 2000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": false,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 180,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 3,
+              "high_vulns_open": 1,
+              "pentest_age_days": null,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "TR-BACKUP-001",
+        "TR-DR-001",
+        "TR-LOAD-001",
+        "TR-OPS-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "ENABLE_BACKUP",
+        "RUN_DR_FAILOVER_TEST",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "COMPLETE_OPERATIONAL_HANDOVER",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-BACKUP-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-DR-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035249",
+              "generation_seed": 35249,
+              "project_name": "Project Solstice — AI Service Desk [0DF77]",
+              "project_code": "0DF77",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Daria Canale-35249-SP",
+              "project_manager": "Leila Canale-35249-PM",
+              "business_owner": "Elena Haddad-35249-BO",
+              "service_owner": "Omar Ivanov-35249-SO",
+              "risk_owner": "Omar Khan-35249-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 2000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "tech_readiness": {
+              "test_completion_pct": 89,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 50,
+              "p95_ms": 214,
+              "unit_test_coverage_pct": 69,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": false,
+              "restore_tested": true,
+              "target_rto_hours": 1,
+              "measured_restore_hours": 1.0,
+              "target_rpo_minutes": 0,
+              "measured_data_loss_minutes": 0,
+              "dr_required": true,
+              "dr_tested": false,
+              "runbook_status": "draft",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 2
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 30, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 398507, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 20, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"app_service\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\"], \"actions\": [\"REDESIGN_IP_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-0DF77-v2.8\\\", \\\"lld_version\\\": \\\"LLD-0DF77-v3.2\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 55, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 3, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.19.16.0/24\\\", \\\"10.19.17.0/24\\\", \\\"10.19.18.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035249.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-WAF-002\", \"SEC-NET-001\", \"SEC-VULN-001\"], \"actions\": [\"ENABLE_WAF_PREVENTION\", \"ENABLE_PRIVATE_ENDPOINTS\", \"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 1, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-NET-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 1, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 1, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"TR-BACKUP-001\", \"TR-DR-001\", \"TR-LOAD-001\", \"TR-OPS-001\", \"TR-BLOCKER-001\"], \"actions\": [\"ENABLE_BACKUP\", \"RUN_DR_FAILOVER_TEST\", \"RERUN_LOAD_TEST_AT_PEAK\", \"COMPLETE_OPERATIONAL_HANDOVER\", \"CLOSE_PRODUCTION_BLOCKERS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-BACKUP-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 89, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 214, \\\"unit_test_coverage_pct\\\": 69, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.0, \\\"target_rpo_minutes\\\": 0, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": true, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-DR-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 89, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 214, \\\"unit_test_coverage_pct\\\": 69, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.0, \\\"target_rpo_minutes\\\": 0, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": true, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-LOAD-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 89, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 214, \\\"unit_test_coverage_pct\\\": 69, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.0, \\\"target_rpo_minutes\\\": 0, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": true, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 89, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 214, \\\"unit_test_coverage_pct\\\": 69, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.0, \\\"target_rpo_minutes\\\": 0, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": true, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-BLOCKER-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035249\\\", \\\"generation_seed\\\": 35249, \\\"project_name\\\": \\\"Project Solstice — AI Service Desk [0DF77]\\\", \\\"project_code\\\": \\\"0DF77\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Canale-35249-SP\\\", \\\"project_manager\\\": \\\"Leila Canale-35249-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35249-BO\\\", \\\"service_owner\\\": \\\"Omar Ivanov-35249-SO\\\", \\\"risk_owner\\\": \\\"Omar Khan-35249-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 89, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 214, \\\"unit_test_coverage_pct\\\": 69, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.0, \\\"target_rpo_minutes\\\": 0, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": true, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035249",
+              "generation_seed": 35249,
+              "project_name": "Project Solstice — AI Service Desk [0DF77]",
+              "project_code": "0DF77",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Daria Canale-35249-SP",
+              "project_manager": "Leila Canale-35249-PM",
+              "business_owner": "Elena Haddad-35249-BO",
+              "service_owner": "Omar Ivanov-35249-SO",
+              "risk_owner": "Omar Khan-35249-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 2000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 250000,
+              "budget_approved_eur": 275000,
+              "roi": 0.068,
+              "npv_eur": 73289,
+              "payback_months": 60,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 28.6,
+              "fte_available": 5.2,
+              "change_plan_status": "draft",
+              "benefits_kpi": "availability",
+              "benefits_owner": "David Bennett-35249-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 398507, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"app_service\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-0DF77-v2.8\", \"lld_version\": \"LLD-0DF77-v3.2\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 1, \"adr_count\": 3, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.19.16.0/24\", \"10.19.17.0/24\", \"10.19.18.0/24\"], \"dns_zone\": \"dgf-bld-035249.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-WAF-002",
+                "SEC-NET-001",
+                "SEC-VULN-001"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION",
+                "ENABLE_PRIVATE_ENDPOINTS",
+                "REMEDIATE_CRITICAL_VULNERABILITIES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-NET-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "TR-BACKUP-001",
+                "TR-DR-001",
+                "TR-LOAD-001",
+                "TR-OPS-001",
+                "TR-BLOCKER-001"
+              ],
+              "actions": [
+                "ENABLE_BACKUP",
+                "RUN_DR_FAILOVER_TEST",
+                "RERUN_LOAD_TEST_AT_PEAK",
+                "COMPLETE_OPERATIONAL_HANDOVER",
+                "CLOSE_PRODUCTION_BLOCKERS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-BACKUP-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-DR-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-LOAD-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-BLOCKER-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035249\", \"generation_seed\": 35249, \"project_name\": \"Project Solstice — AI Service Desk [0DF77]\", \"project_code\": \"0DF77\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Canale-35249-SP\", \"project_manager\": \"Leila Canale-35249-PM\", \"business_owner\": \"Elena Haddad-35249-BO\", \"service_owner\": \"Omar Ivanov-35249-SO\", \"risk_owner\": \"Omar Khan-35249-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 2000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": true, \"load_test_pct_of_peak\": 50, \"p95_ms\": 214, \"unit_test_coverage_pct\": 69, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.0, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

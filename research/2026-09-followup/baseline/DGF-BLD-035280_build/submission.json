@@ -1,0 +1,96 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035280\", \"generation_seed\": 35280, \"project_name\": \"Project Zephyr — Secure Vendor Portal [1F64E]\", \"project_code\": \"1F64E\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Leila Meyer-35280-SP\", \"project_manager\": \"Clara Volkov-35280-PM\", \"business_owner\": \"Amira Benali-35280-BO\", \"service_owner\": \"Clara Laurent-35280-SO\", \"risk_owner\": \"Marc Benali-35280-RO\", \"start_date\": \"2026-10-09\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 8, \"pentest_age_days\": 180, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "TR-OPS-001",
+        "TR-ROLLBACK-001"
+      ],
+      "actions": [
+        "COMPLETE_OPERATIONAL_HANDOVER",
+        "TEST_ROLLBACK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035280\", \"generation_seed\": 35280, \"project_name\": \"Project Zephyr — Secure Vendor Portal [1F64E]\", \"project_code\": \"1F64E\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Leila Meyer-35280-SP\", \"project_manager\": \"Clara Volkov-35280-PM\", \"business_owner\": \"Amira Benali-35280-BO\", \"service_owner\": \"Clara Laurent-35280-SO\", \"risk_owner\": \"Marc Benali-35280-RO\", \"start_date\": \"2026-10-09\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 99, \"pilot_completed\": false, \"load_test_pct_of_peak\": 100, \"p95_ms\": 1027, \"unit_test_coverage_pct\": 83, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.14, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": false, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-ROLLBACK-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035280\", \"generation_seed\": 35280, \"project_name\": \"Project Zephyr — Secure Vendor Portal [1F64E]\", \"project_code\": \"1F64E\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Leila Meyer-35280-SP\", \"project_manager\": \"Clara Volkov-35280-PM\", \"business_owner\": \"Amira Benali-35280-BO\", \"service_owner\": \"Clara Laurent-35280-SO\", \"risk_owner\": \"Marc Benali-35280-RO\", \"start_date\": \"2026-10-09\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 99, \"pilot_completed\": false, \"load_test_pct_of_peak\": 100, \"p95_ms\": 1027, \"unit_test_coverage_pct\": 83, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.14, \"target_rpo_minutes\": 0, \"measured_data_loss_minutes\": 0, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": false, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

@@ -1,0 +1,667 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 95917, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 18, \"change_record_status\": \"approved\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035211",
+              "generation_seed": 35211,
+              "project_name": "Project Willow — Identity Modernization [8EAE0]",
+              "project_code": "8EAE0",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Ines Smith-35211-SP",
+              "project_manager": "Ines Santos-35211-PM",
+              "business_owner": "Victor Martin-35211-BO",
+              "service_owner": "Samir Nguyen-35211-SO",
+              "risk_owner": "Amira Volkov-35211-RO",
+              "start_date": "2026-09-01",
+              "target_go_live": "2027-01-08",
+              "users_impacted": 12000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 95917,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 18,
+              "change_record_status": "approved",
+              "service_continuity_class": "bronze",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-8EAE0-v3.5\", \"lld_version\": \"LLD-8EAE0-v2.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 3, \"reversibility_status\": \"documented\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.176.0/24\", \"10.16.177.0/24\", \"10.16.178.0/24\"], \"dns_zone\": \"dgf-bld-035211.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-8EAE0-v3.5\", \"lld_version\": \"LLD-8EAE0-v2.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 3, \"reversibility_status\": \"documented\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.176.0/24\", \"10.16.177.0/24\", \"10.16.178.0/24\"], \"dns_zone\": \"dgf-bld-035211.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035211",
+              "generation_seed": 35211,
+              "project_name": "Project Willow — Identity Modernization [8EAE0]",
+              "project_code": "8EAE0",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Ines Smith-35211-SP",
+              "project_manager": "Ines Santos-35211-PM",
+              "business_owner": "Victor Martin-35211-BO",
+              "service_owner": "Samir Nguyen-35211-SO",
+              "risk_owner": "Amira Volkov-35211-RO",
+              "start_date": "2026-09-01",
+              "target_go_live": "2027-01-08",
+              "users_impacted": 12000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-8EAE0-v3.5",
+              "lld_version": "LLD-8EAE0-v2.7",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 4,
+              "adr_count": 3,
+              "reversibility_status": "documented",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.16.176.0/24",
+                "10.16.177.0/24",
+                "10.16.178.0/24"
+              ],
+              "dns_zone": "dgf-bld-035211.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-VULN-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "REMEDIATE_CRITICAL_VULNERABILITIES",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035211",
+              "generation_seed": 35211,
+              "project_name": "Project Willow — Identity Modernization [8EAE0]",
+              "project_code": "8EAE0",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Ines Smith-35211-SP",
+              "project_manager": "Ines Santos-35211-PM",
+              "business_owner": "Victor Martin-35211-BO",
+              "service_owner": "Samir Nguyen-35211-SO",
+              "risk_owner": "Amira Volkov-35211-RO",
+              "start_date": "2026-09-01",
+              "target_go_live": "2027-01-08",
+              "users_impacted": 12000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": false,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": false,
+              "critical_vulns_open": 3,
+              "high_vulns_open": 7,
+              "pentest_age_days": 14,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "TR-BACKUP-001",
+        "TR-RPO-001",
+        "TR-CODE-001",
+        "TR-OPS-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "ENABLE_BACKUP",
+        "REMEDIATE_RECOVERY_POINT",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-BACKUP-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035211",
+              "generation_seed": 35211,
+              "project_name": "Project Willow — Identity Modernization [8EAE0]",
+              "project_code": "8EAE0",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Ines Smith-35211-SP",
+              "project_manager": "Ines Santos-35211-PM",
+              "business_owner": "Victor Martin-35211-BO",
+              "service_owner": "Samir Nguyen-35211-SO",
+              "risk_owner": "Amira Volkov-35211-RO",
+              "start_date": "2026-09-01",
+              "target_go_live": "2027-01-08",
+              "users_impacted": 12000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 94,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 100,
+              "p95_ms": 500,
+              "unit_test_coverage_pct": 90,
+              "critical_static_findings": 2,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": false,
+              "restore_tested": true,
+              "target_rto_hours": 24,
+              "measured_restore_hours": 24.0,
+              "target_rpo_minutes": 240,
+              "measured_data_loss_minutes": 480,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": false,
+              "rollback_tested": true,
+              "open_blockers": 1
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-CATALOG-001\"], \"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CATALOG-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 95917, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-PERF-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-8EAE0-v3.5\\\", \\\"lld_version\\\": \\\"LLD-8EAE0-v2.7\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 3, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.16.176.0/24\\\", \\\"10.16.177.0/24\\\", \\\"10.16.178.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035211.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-8EAE0-v3.5\\\", \\\"lld_version\\\": \\\"LLD-8EAE0-v2.7\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 3, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.16.176.0/24\\\", \\\"10.16.177.0/24\\\", \\\"10.16.178.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035211.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-WAF-002\", \"SEC-VULN-001\", \"SEC-KEY-001\"], \"actions\": [\"ENABLE_WAF_PREVENTION\", \"REMEDIATE_CRITICAL_VULNERABILITIES\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": false, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 7, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": false, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 7, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": false, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 7, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"TR-BACKUP-001\", \"TR-RPO-001\", \"TR-CODE-001\", \"TR-OPS-001\", \"TR-BLOCKER-001\"], \"actions\": [\"ENABLE_BACKUP\", \"REMEDIATE_RECOVERY_POINT\", \"REMEDIATE_BUILD_FINDINGS\", \"COMPLETE_OPERATIONAL_HANDOVER\", \"CLOSE_PRODUCTION_BLOCKERS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-BACKUP-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 94, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 500, \\\"unit_test_coverage_pct\\\": 90, \\\"critical_static_findings\\\": 2, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 24.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 480, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-RPO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 94, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 500, \\\"unit_test_coverage_pct\\\": 90, \\\"critical_static_findings\\\": 2, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 24.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 480, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-CODE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 94, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 500, \\\"unit_test_coverage_pct\\\": 90, \\\"critical_static_findings\\\": 2, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 24.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 480, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 94, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 500, \\\"unit_test_coverage_pct\\\": 90, \\\"critical_static_findings\\\": 2, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 24.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 480, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-BLOCKER-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035211\\\", \\\"generation_seed\\\": 35211, \\\"project_name\\\": \\\"Project Willow — Identity Modernization [8EAE0]\\\", \\\"project_code\\\": \\\"8EAE0\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Ines Smith-35211-SP\\\", \\\"project_manager\\\": \\\"Ines Santos-35211-PM\\\", \\\"business_owner\\\": \\\"Victor Martin-35211-BO\\\", \\\"service_owner\\\": \\\"Samir Nguyen-35211-SO\\\", \\\"risk_owner\\\": \\\"Amira Volkov-35211-RO\\\", \\\"start_date\\\": \\\"2026-09-01\\\", \\\"target_go_live\\\": \\\"2027-01-08\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 94, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 500, \\\"unit_test_coverage_pct\\\": 90, \\\"critical_static_findings\\\": 2, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 24.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 480, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035211",
+              "generation_seed": 35211,
+              "project_name": "Project Willow — Identity Modernization [8EAE0]",
+              "project_code": "8EAE0",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Ines Smith-35211-SP",
+              "project_manager": "Ines Santos-35211-PM",
+              "business_owner": "Victor Martin-35211-BO",
+              "service_owner": "Samir Nguyen-35211-SO",
+              "risk_owner": "Amira Volkov-35211-RO",
+              "start_date": "2026-09-01",
+              "target_go_live": "2027-01-08",
+              "users_impacted": 12000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 3300000,
+              "roi": 0.365,
+              "npv_eur": -39774,
+              "payback_months": 60,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 9.2,
+              "fte_available": 27.1,
+              "change_plan_status": "draft",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Leila Santos-35211-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-CATALOG-001"
+              ],
+              "actions": [
+                "SUBMIT_TECHNOLOGY_WAIVER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CATALOG-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 95917, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 18, \"change_record_status\": \"approved\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-PERF-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "REMEDIATE_LATENCY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-8EAE0-v3.5\", \"lld_version\": \"LLD-8EAE0-v2.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 3, \"reversibility_status\": \"documented\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.176.0/24\", \"10.16.177.0/24\", \"10.16.178.0/24\"], \"dns_zone\": \"dgf-bld-035211.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-8EAE0-v3.5\", \"lld_version\": \"LLD-8EAE0-v2.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 3, \"reversibility_status\": \"documented\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.176.0/24\", \"10.16.177.0/24\", \"10.16.178.0/24\"], \"dns_zone\": \"dgf-bld-035211.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-WAF-002",
+                "SEC-VULN-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION",
+                "REMEDIATE_CRITICAL_VULNERABILITIES",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "TR-BACKUP-001",
+                "TR-RPO-001",
+                "TR-CODE-001",
+                "TR-OPS-001",
+                "TR-BLOCKER-001"
+              ],
+              "actions": [
+                "ENABLE_BACKUP",
+                "REMEDIATE_RECOVERY_POINT",
+                "REMEDIATE_BUILD_FINDINGS",
+                "COMPLETE_OPERATIONAL_HANDOVER",
+                "CLOSE_PRODUCTION_BLOCKERS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-BACKUP-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-RPO-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-CODE-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-BLOCKER-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035211\", \"generation_seed\": 35211, \"project_name\": \"Project Willow — Identity Modernization [8EAE0]\", \"project_code\": \"8EAE0\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Ines Smith-35211-SP\", \"project_manager\": \"Ines Santos-35211-PM\", \"business_owner\": \"Victor Martin-35211-BO\", \"service_owner\": \"Samir Nguyen-35211-SO\", \"risk_owner\": \"Amira Volkov-35211-RO\", \"start_date\": \"2026-09-01\", \"target_go_live\": \"2027-01-08\", \"users_impacted\": 12000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 94, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 500, \"unit_test_coverage_pct\": 90, \"critical_static_findings\": 2, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 24.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 480, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

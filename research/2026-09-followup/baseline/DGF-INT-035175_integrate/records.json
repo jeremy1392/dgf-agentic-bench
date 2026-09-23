@@ -1,0 +1,766 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035175",
+              "generation_seed": 35175,
+              "project_name": "Yotta Acquisition Integration — Customer 360 CRM [B2F83]",
+              "project_code": "B2F83",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Lucas Dubois-35175-SP",
+              "project_manager": "Thomas Haddad-35175-PM",
+              "business_owner": "Adam Garcia-35175-BO",
+              "service_owner": "Sofia Moreau-35175-SO",
+              "risk_owner": "Adam Ivanov-35175-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-04-15",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 323465,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 36,
+              "change_record_status": "approved",
+              "service_continuity_class": "bronze",
+              "hosting_model": "vmss"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-PERF-001",
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "REMEDIATE_LATENCY",
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035175",
+              "generation_seed": 35175,
+              "project_name": "Yotta Acquisition Integration — Customer 360 CRM [B2F83]",
+              "project_code": "B2F83",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Lucas Dubois-35175-SP",
+              "project_manager": "Thomas Haddad-35175-PM",
+              "business_owner": "Adam Garcia-35175-BO",
+              "service_owner": "Sofia Moreau-35175-SO",
+              "risk_owner": "Adam Ivanov-35175-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-04-15",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-B2F83-v2.7",
+              "lld_version": "LLD-B2F83-v2.9",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": false,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 2,
+              "adr_count": 6,
+              "reversibility_status": "missing",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.214.112.0/24",
+                "10.214.113.0/24",
+                "10.214.114.0/24"
+              ],
+              "dns_zone": "dgf-int-035175.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 1, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 1, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035175",
+              "generation_seed": 35175,
+              "project_name": "Yotta Acquisition Integration — Customer 360 CRM [B2F83]",
+              "project_code": "B2F83",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Lucas Dubois-35175-SP",
+              "project_manager": "Thomas Haddad-35175-PM",
+              "business_owner": "Adam Garcia-35175-BO",
+              "service_owner": "Sofia Moreau-35175-SO",
+              "risk_owner": "Adam Ivanov-35175-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-04-15",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": false,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 1,
+              "pentest_age_days": 14,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-B2F83-9.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 30, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035175",
+              "generation_seed": 35175,
+              "project_name": "Yotta Acquisition Integration — Customer 360 CRM [B2F83]",
+              "project_code": "B2F83",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Lucas Dubois-35175-SP",
+              "project_manager": "Thomas Haddad-35175-PM",
+              "business_owner": "Adam Garcia-35175-BO",
+              "service_owner": "Sofia Moreau-35175-SO",
+              "risk_owner": "Adam Ivanov-35175-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-04-15",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-B2F83-9.3",
+              "governing_law": "Ireland",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": false,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 30,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 5,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "missing",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-RESID-001",
+        "COMP-MAP-001",
+        "COMP-A11Y-001",
+        "COMP-EXPORT-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "COMPLETE_CONTROL_MAPPING",
+        "REMEDIATE_ACCESSIBILITY",
+        "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035175",
+              "generation_seed": 35175,
+              "project_name": "Yotta Acquisition Integration — Customer 360 CRM [B2F83]",
+              "project_code": "B2F83",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Lucas Dubois-35175-SP",
+              "project_manager": "Thomas Haddad-35175-PM",
+              "business_owner": "Adam Garcia-35175-BO",
+              "service_owner": "Sofia Moreau-35175-SO",
+              "risk_owner": "Adam Ivanov-35175-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-04-15",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR"
+              ],
+              "dpia_required": true,
+              "dpia_status": "draft",
+              "required_residency": "UAE",
+              "residency_compliant": false,
+              "retention_years": 7,
+              "legal_hold_supported": true,
+              "deletion_enforced": false,
+              "audit_trail": "complete",
+              "accessibility_status": "major_findings",
+              "ethics_review": "missing",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "restricted"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-PERF-001\", \"ARCH-HA-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"REMEDIATE_LATENCY\", \"REDESIGN_FOR_HIGH_AVAILABILITY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B2F83-v2.7\\\", \\\"lld_version\\\": \\\"LLD-B2F83-v2.9\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 6, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.214.112.0/24\\\", \\\"10.214.113.0/24\\\", \\\"10.214.114.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035175.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B2F83-v2.7\\\", \\\"lld_version\\\": \\\"LLD-B2F83-v2.9\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 6, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.214.112.0/24\\\", \\\"10.214.113.0/24\\\", \\\"10.214.114.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035175.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-HA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B2F83-v2.7\\\", \\\"lld_version\\\": \\\"LLD-B2F83-v2.9\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 6, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.214.112.0/24\\\", \\\"10.214.113.0/24\\\", \\\"10.214.114.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035175.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B2F83-v2.7\\\", \\\"lld_version\\\": \\\"LLD-B2F83-v2.9\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 6, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.214.112.0/24\\\", \\\"10.214.113.0/24\\\", \\\"10.214.114.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035175.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-WAF-001\", \"SEC-KEY-001\"], \"actions\": [\"IMPLEMENT_WAF\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 1, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 1, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-LOG-001\"], \"actions\": [\"ADD_LOG_EXPORT_CLAUSE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-B2F83-9.3\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"customer\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-RESID-001\", \"COMP-MAP-001\", \"COMP-A11Y-001\", \"COMP-EXPORT-001\"], \"actions\": [\"COMPLETE_DPIA\", \"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\", \"COMPLETE_CONTROL_MAPPING\", \"REMEDIATE_ACCESSIBILITY\", \"OBTAIN_EXPORT_CONTROL_CLEARANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"missing\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"missing\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"missing\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"missing\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035175\\\", \\\"generation_seed\\\": 35175, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\\\", \\\"project_code\\\": \\\"B2F83\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Lucas Dubois-35175-SP\\\", \\\"project_manager\\\": \\\"Thomas Haddad-35175-PM\\\", \\\"business_owner\\\": \\\"Adam Garcia-35175-BO\\\", \\\"service_owner\\\": \\\"Sofia Moreau-35175-SO\\\", \\\"risk_owner\\\": \\\"Adam Ivanov-35175-RO\\\", \\\"start_date\\\": \\\"2026-10-26\\\", \\\"target_go_live\\\": \\\"2027-04-15\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"missing\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035175",
+              "generation_seed": 35175,
+              "project_name": "Yotta Acquisition Integration — Customer 360 CRM [B2F83]",
+              "project_code": "B2F83",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Procurement",
+              "sponsor": "Lucas Dubois-35175-SP",
+              "project_manager": "Thomas Haddad-35175-PM",
+              "business_owner": "Adam Garcia-35175-BO",
+              "service_owner": "Sofia Moreau-35175-SO",
+              "risk_owner": "Adam Ivanov-35175-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-04-15",
+              "users_impacted": 12000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 500000,
+              "roi": 0.395,
+              "npv_eur": 188835,
+              "payback_months": 19,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 29.2,
+              "fte_available": 22.2,
+              "change_plan_status": "draft",
+              "benefits_kpi": "processing_time",
+              "benefits_owner": "Marc Laurent-35175-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-PERF-001",
+                "ARCH-HA-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "REMEDIATE_LATENCY",
+                "REDESIGN_FOR_HIGH_AVAILABILITY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-HA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B2F83-v2.7\", \"lld_version\": \"LLD-B2F83-v2.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 6, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.214.112.0/24\", \"10.214.113.0/24\", \"10.214.114.0/24\"], \"dns_zone\": \"dgf-int-035175.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-WAF-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPLEMENT_WAF",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 1, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 1, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-LOG-001"
+              ],
+              "actions": [
+                "ADD_LOG_EXPORT_CLAUSE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-B2F83-9.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 30, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-RESID-001",
+                "COMP-MAP-001",
+                "COMP-A11Y-001",
+                "COMP-EXPORT-001"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+                "COMPLETE_CONTROL_MAPPING",
+                "REMEDIATE_ACCESSIBILITY",
+                "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-RESID-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-A11Y-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035175\", \"generation_seed\": 35175, \"project_name\": \"Yotta Acquisition Integration — Customer 360 CRM [B2F83]\", \"project_code\": \"B2F83\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Procurement\", \"sponsor\": \"Lucas Dubois-35175-SP\", \"project_manager\": \"Thomas Haddad-35175-PM\", \"business_owner\": \"Adam Garcia-35175-BO\", \"service_owner\": \"Sofia Moreau-35175-SO\", \"risk_owner\": \"Adam Ivanov-35175-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-04-15\", \"users_impacted\": 12000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

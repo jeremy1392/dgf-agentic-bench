@@ -1,0 +1,753 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035110",
+              "generation_seed": 35110,
+              "project_name": "Titan Acquisition Integration — Observability Platform [B4B2C]",
+              "project_code": "B4B2C",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Lucas Laurent-35110-SP",
+              "project_manager": "Adam Canale-35110-PM",
+              "business_owner": "Nadia Rahman-35110-BO",
+              "service_owner": "Samir Rahman-35110-SO",
+              "risk_owner": "Omar Dubois-35110-RO",
+              "start_date": "2026-11-22",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": true,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 170671,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 18,
+              "change_record_status": "approved",
+              "service_continuity_class": "silver",
+              "hosting_model": "app_service"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-PERF-001",
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "REMEDIATE_LATENCY",
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035110",
+              "generation_seed": 35110,
+              "project_name": "Titan Acquisition Integration — Observability Platform [B4B2C]",
+              "project_code": "B4B2C",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Lucas Laurent-35110-SP",
+              "project_manager": "Adam Canale-35110-PM",
+              "business_owner": "Nadia Rahman-35110-BO",
+              "service_owner": "Samir Rahman-35110-SO",
+              "risk_owner": "Omar Dubois-35110-RO",
+              "start_date": "2026-11-22",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-B4B2C-v4.6",
+              "lld_version": "LLD-B4B2C-v1.8",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 100,
+              "architecture_debt_items": 2,
+              "adr_count": 13,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.210.96.0/24",
+                "10.210.97.0/24",
+                "10.210.98.0/24"
+              ],
+              "dns_zone": "dgf-int-035110.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-IAM-002",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 0, \"pentest_age_days\": 180, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 0, \"pentest_age_days\": 180, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035110",
+              "generation_seed": 35110,
+              "project_name": "Titan Acquisition Integration — Observability Platform [B4B2C]",
+              "project_code": "B4B2C",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Lucas Laurent-35110-SP",
+              "project_manager": "Adam Canale-35110-PM",
+              "business_owner": "Nadia Rahman-35110-BO",
+              "service_owner": "Samir Rahman-35110-SO",
+              "risk_owner": "Omar Dubois-35110-RO",
+              "start_date": "2026-11-22",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 60,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 3,
+              "high_vulns_open": 0,
+              "pentest_age_days": 180,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-AUDIT-001",
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "REDLINE_AUDIT_RIGHT",
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B4B2C-3.0\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B4B2C-3.0\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B4B2C-3.0\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035110",
+              "generation_seed": 35110,
+              "project_name": "Titan Acquisition Integration — Observability Platform [B4B2C]",
+              "project_code": "B4B2C",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Lucas Laurent-35110-SP",
+              "project_manager": "Adam Canale-35110-PM",
+              "business_owner": "Nadia Rahman-35110-BO",
+              "service_owner": "Samir Rahman-35110-SO",
+              "risk_owner": "Omar Dubois-35110-RO",
+              "start_date": "2026-11-22",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-B4B2C-3.0",
+              "governing_law": "Ireland",
+              "dpa_status": "missing",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "reports_only",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 30,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 5,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-AUDIT-001",
+        "COMP-EXPORT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL",
+        "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035110",
+              "generation_seed": 35110,
+              "project_name": "Titan Acquisition Integration — Observability Platform [B4B2C]",
+              "project_code": "B4B2C",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Lucas Laurent-35110-SP",
+              "project_manager": "Adam Canale-35110-PM",
+              "business_owner": "Nadia Rahman-35110-BO",
+              "service_owner": "Samir Rahman-35110-SO",
+              "risk_owner": "Omar Dubois-35110-RO",
+              "start_date": "2026-11-22",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "NIS2"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "EU",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": false,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "annual",
+              "export_control": "restricted"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-PERF-001\", \"ARCH-HA-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"REMEDIATE_LATENCY\", \"REDESIGN_FOR_HIGH_AVAILABILITY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B4B2C-v4.6\\\", \\\"lld_version\\\": \\\"LLD-B4B2C-v1.8\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.96.0/24\\\", \\\"10.210.97.0/24\\\", \\\"10.210.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035110.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B4B2C-v4.6\\\", \\\"lld_version\\\": \\\"LLD-B4B2C-v1.8\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.96.0/24\\\", \\\"10.210.97.0/24\\\", \\\"10.210.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035110.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-HA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B4B2C-v4.6\\\", \\\"lld_version\\\": \\\"LLD-B4B2C-v1.8\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.96.0/24\\\", \\\"10.210.97.0/24\\\", \\\"10.210.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035110.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B4B2C-v4.6\\\", \\\"lld_version\\\": \\\"LLD-B4B2C-v1.8\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.96.0/24\\\", \\\"10.210.97.0/24\\\", \\\"10.210.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035110.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-IAM-002\", \"SEC-VULN-001\"], \"actions\": [\"CREATE_DEDICATED_WORKLOAD_IDENTITY\", \"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 180, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 180, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-DPA-001\", \"LEGAL-AUDIT-001\", \"LEGAL-LOG-001\"], \"actions\": [\"EXECUTE_DPA\", \"REDLINE_AUDIT_RIGHT\", \"ADD_LOG_EXPORT_CLAUSE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-B4B2C-3.0\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-B4B2C-3.0\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-B4B2C-3.0\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-AUDIT-001\", \"COMP-EXPORT-001\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\", \"OBTAIN_EXPORT_CONTROL_CLEARANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035110\\\", \\\"generation_seed\\\": 35110, \\\"project_name\\\": \\\"Titan Acquisition Integration — Observability Platform [B4B2C]\\\", \\\"project_code\\\": \\\"B4B2C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Lucas Laurent-35110-SP\\\", \\\"project_manager\\\": \\\"Adam Canale-35110-PM\\\", \\\"business_owner\\\": \\\"Nadia Rahman-35110-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35110-SO\\\", \\\"risk_owner\\\": \\\"Omar Dubois-35110-RO\\\", \\\"start_date\\\": \\\"2026-11-22\\\", \\\"target_go_live\\\": \\\"2027-04-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035110",
+              "generation_seed": 35110,
+              "project_name": "Titan Acquisition Integration — Observability Platform [B4B2C]",
+              "project_code": "B4B2C",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Lucas Laurent-35110-SP",
+              "project_manager": "Adam Canale-35110-PM",
+              "business_owner": "Nadia Rahman-35110-BO",
+              "service_owner": "Samir Rahman-35110-SO",
+              "risk_owner": "Omar Dubois-35110-RO",
+              "start_date": "2026-11-22",
+              "target_go_live": "2027-04-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 250000,
+              "budget_approved_eur": 250000,
+              "roi": 0.337,
+              "npv_eur": 168797,
+              "payback_months": 43,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 13.5,
+              "fte_available": 19.9,
+              "change_plan_status": "draft",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Lucas Garcia-35110-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-PERF-001",
+                "ARCH-HA-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "REMEDIATE_LATENCY",
+                "REDESIGN_FOR_HIGH_AVAILABILITY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-HA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B4B2C-v4.6\", \"lld_version\": \"LLD-B4B2C-v1.8\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.96.0/24\", \"10.210.97.0/24\", \"10.210.98.0/24\"], \"dns_zone\": \"dgf-int-035110.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-IAM-002",
+                "SEC-VULN-001"
+              ],
+              "actions": [
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+                "REMEDIATE_CRITICAL_VULNERABILITIES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 0, \"pentest_age_days\": 180, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 0, \"pentest_age_days\": 180, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-DPA-001",
+                "LEGAL-AUDIT-001",
+                "LEGAL-LOG-001"
+              ],
+              "actions": [
+                "EXECUTE_DPA",
+                "REDLINE_AUDIT_RIGHT",
+                "ADD_LOG_EXPORT_CLAUSE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-DPA-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B4B2C-3.0\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B4B2C-3.0\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B4B2C-3.0\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-AUDIT-001",
+                "COMP-EXPORT-001"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL",
+                "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035110\", \"generation_seed\": 35110, \"project_name\": \"Titan Acquisition Integration — Observability Platform [B4B2C]\", \"project_code\": \"B4B2C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Lucas Laurent-35110-SP\", \"project_manager\": \"Adam Canale-35110-PM\", \"business_owner\": \"Nadia Rahman-35110-BO\", \"service_owner\": \"Samir Rahman-35110-SO\", \"risk_owner\": \"Omar Dubois-35110-RO\", \"start_date\": \"2026-11-22\", \"target_go_live\": \"2027-04-03\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

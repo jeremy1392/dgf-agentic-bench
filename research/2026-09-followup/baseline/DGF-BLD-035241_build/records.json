@@ -1,0 +1,538 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035241",
+              "generation_seed": 35241,
+              "project_name": "Project Willow — Cloud Landing Zone Extension [C2047]",
+              "project_code": "C2047",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Amira Santos-35241-SP",
+              "project_manager": "Yusuf Khan-35241-PM",
+              "business_owner": "Clara Garcia-35241-BO",
+              "service_owner": "David Volkov-35241-SO",
+              "risk_owner": "Omar Martin-35241-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-11-14",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 109976,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 36,
+              "change_record_status": "draft",
+              "service_continuity_class": "bronze",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035241\", \"generation_seed\": 35241, \"project_name\": \"Project Willow — Cloud Landing Zone Extension [C2047]\", \"project_code\": \"C2047\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Amira Santos-35241-SP\", \"project_manager\": \"Yusuf Khan-35241-PM\", \"business_owner\": \"Clara Garcia-35241-BO\", \"service_owner\": \"David Volkov-35241-SO\", \"risk_owner\": \"Omar Martin-35241-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-11-14\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-C2047-v4.0\", \"lld_version\": \"LLD-C2047-v3.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 100, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 3, \"adr_count\": 14, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.144.0/24\", \"10.18.145.0/24\", \"10.18.146.0/24\"], \"dns_zone\": \"dgf-bld-035241.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035241",
+              "generation_seed": 35241,
+              "project_name": "Project Willow — Cloud Landing Zone Extension [C2047]",
+              "project_code": "C2047",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Amira Santos-35241-SP",
+              "project_manager": "Yusuf Khan-35241-PM",
+              "business_owner": "Clara Garcia-35241-BO",
+              "service_owner": "David Volkov-35241-SO",
+              "risk_owner": "Omar Martin-35241-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-11-14",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-C2047-v4.0",
+              "lld_version": "LLD-C2047-v3.7",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 100,
+              "measured_latency_ms": 95,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 3,
+              "adr_count": 14,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.18.144.0/24",
+                "10.18.145.0/24",
+                "10.18.146.0/24"
+              ],
+              "dns_zone": "dgf-bld-035241.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035241\", \"generation_seed\": 35241, \"project_name\": \"Project Willow — Cloud Landing Zone Extension [C2047]\", \"project_code\": \"C2047\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Amira Santos-35241-SP\", \"project_manager\": \"Yusuf Khan-35241-PM\", \"business_owner\": \"Clara Garcia-35241-BO\", \"service_owner\": \"David Volkov-35241-SO\", \"risk_owner\": \"Omar Martin-35241-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-11-14\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 180, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035241",
+              "generation_seed": 35241,
+              "project_name": "Project Willow — Cloud Landing Zone Extension [C2047]",
+              "project_code": "C2047",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Amira Santos-35241-SP",
+              "project_manager": "Yusuf Khan-35241-PM",
+              "business_owner": "Clara Garcia-35241-BO",
+              "service_owner": "David Volkov-35241-SO",
+              "risk_owner": "Omar Martin-35241-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-11-14",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": 180,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "Azure NPM",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035241\", \"generation_seed\": 35241, \"project_name\": \"Project Willow — Cloud Landing Zone Extension [C2047]\", \"project_code\": \"C2047\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Amira Santos-35241-SP\", \"project_manager\": \"Yusuf Khan-35241-PM\", \"business_owner\": \"Clara Garcia-35241-BO\", \"service_owner\": \"David Volkov-35241-SO\", \"risk_owner\": \"Omar Martin-35241-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-11-14\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 98, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 1174, \"unit_test_coverage_pct\": 72, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.5, \"measured_restore_hours\": 0.28, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 7, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035241",
+              "generation_seed": 35241,
+              "project_name": "Project Willow — Cloud Landing Zone Extension [C2047]",
+              "project_code": "C2047",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Amira Santos-35241-SP",
+              "project_manager": "Yusuf Khan-35241-PM",
+              "business_owner": "Clara Garcia-35241-BO",
+              "service_owner": "David Volkov-35241-SO",
+              "risk_owner": "Omar Martin-35241-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-11-14",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "tech_readiness": {
+              "test_completion_pct": 98,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 100,
+              "p95_ms": 1174,
+              "unit_test_coverage_pct": 72,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 0.5,
+              "measured_restore_hours": 0.28,
+              "target_rpo_minutes": 15,
+              "measured_data_loss_minutes": 7,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "draft",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035241",
+              "generation_seed": 35241,
+              "project_name": "Project Willow — Cloud Landing Zone Extension [C2047]",
+              "project_code": "C2047",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Amira Santos-35241-SP",
+              "project_manager": "Yusuf Khan-35241-PM",
+              "business_owner": "Clara Garcia-35241-BO",
+              "service_owner": "David Volkov-35241-SO",
+              "risk_owner": "Omar Martin-35241-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-11-14",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 990000,
+              "roi": 0.073,
+              "npv_eur": -75138,
+              "payback_months": 21,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 10.1,
+              "fte_available": 6.2,
+              "change_plan_status": "missing",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Ines Smith-35241-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035241\", \"generation_seed\": 35241, \"project_name\": \"Project Willow — Cloud Landing Zone Extension [C2047]\", \"project_code\": \"C2047\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Amira Santos-35241-SP\", \"project_manager\": \"Yusuf Khan-35241-PM\", \"business_owner\": \"Clara Garcia-35241-BO\", \"service_owner\": \"David Volkov-35241-SO\", \"risk_owner\": \"Omar Martin-35241-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-11-14\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-C2047-v4.0\", \"lld_version\": \"LLD-C2047-v3.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 100, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 3, \"adr_count\": 14, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.144.0/24\", \"10.18.145.0/24\", \"10.18.146.0/24\"], \"dns_zone\": \"dgf-bld-035241.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035241\", \"generation_seed\": 35241, \"project_name\": \"Project Willow — Cloud Landing Zone Extension [C2047]\", \"project_code\": \"C2047\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Amira Santos-35241-SP\", \"project_manager\": \"Yusuf Khan-35241-PM\", \"business_owner\": \"Clara Garcia-35241-BO\", \"service_owner\": \"David Volkov-35241-SO\", \"risk_owner\": \"Omar Martin-35241-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-11-14\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 180, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "TR-OPS-001"
+              ],
+              "actions": [
+                "COMPLETE_OPERATIONAL_HANDOVER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035241\", \"generation_seed\": 35241, \"project_name\": \"Project Willow — Cloud Landing Zone Extension [C2047]\", \"project_code\": \"C2047\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Amira Santos-35241-SP\", \"project_manager\": \"Yusuf Khan-35241-PM\", \"business_owner\": \"Clara Garcia-35241-BO\", \"service_owner\": \"David Volkov-35241-SO\", \"risk_owner\": \"Omar Martin-35241-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-11-14\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 98, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 1174, \"unit_test_coverage_pct\": 72, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.5, \"measured_restore_hours\": 0.28, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 7, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,678 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035196",
+              "generation_seed": 35196,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [4DAB7]",
+              "project_code": "4DAB7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Thomas Benali-35196-SP",
+              "project_manager": "Noor Benali-35196-PM",
+              "business_owner": "Lucas Rahman-35196-BO",
+              "service_owner": "Thomas Dubois-35196-SO",
+              "risk_owner": "Clara Rahman-35196-RO",
+              "start_date": "2026-10-11",
+              "target_go_live": "2027-08-16",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 188867,
+              "cmdb_record_present": false,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 36,
+              "change_record_status": "draft",
+              "service_continuity_class": "bronze",
+              "hosting_model": "functions"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-4DAB7-v3.4\", \"lld_version\": \"LLD-4DAB7-v4.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 3, \"adr_count\": 13, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.192.0/24\", \"10.215.193.0/24\", \"10.215.194.0/24\"], \"dns_zone\": \"dgf-int-035196.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-4DAB7-v3.4\", \"lld_version\": \"LLD-4DAB7-v4.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 3, \"adr_count\": 13, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.192.0/24\", \"10.215.193.0/24\", \"10.215.194.0/24\"], \"dns_zone\": \"dgf-int-035196.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035196",
+              "generation_seed": 35196,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [4DAB7]",
+              "project_code": "4DAB7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Thomas Benali-35196-SP",
+              "project_manager": "Noor Benali-35196-PM",
+              "business_owner": "Lucas Rahman-35196-BO",
+              "service_owner": "Thomas Dubois-35196-SO",
+              "risk_owner": "Clara Rahman-35196-RO",
+              "start_date": "2026-10-11",
+              "target_go_live": "2027-08-16",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-4DAB7-v3.4",
+              "lld_version": "LLD-4DAB7-v4.6",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 15,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 3,
+              "adr_count": 13,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.215.192.0/24",
+                "10.215.193.0/24",
+                "10.215.194.0/24"
+              ],
+              "dns_zone": "dgf-int-035196.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 0, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035196",
+              "generation_seed": 35196,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [4DAB7]",
+              "project_code": "4DAB7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Thomas Benali-35196-SP",
+              "project_manager": "Noor Benali-35196-PM",
+              "business_owner": "Lucas Rahman-35196-BO",
+              "service_owner": "Thomas Dubois-35196-SO",
+              "risk_owner": "Clara Rahman-35196-RO",
+              "start_date": "2026-10-11",
+              "target_go_live": "2027-08-16",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 180,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 0,
+              "pentest_age_days": 365,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035196",
+              "generation_seed": 35196,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [4DAB7]",
+              "project_code": "4DAB7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Thomas Benali-35196-SP",
+              "project_manager": "Noor Benali-35196-PM",
+              "business_owner": "Lucas Rahman-35196-BO",
+              "service_owner": "Thomas Dubois-35196-SO",
+              "risk_owner": "Clara Rahman-35196-RO",
+              "start_date": "2026-10-11",
+              "target_go_live": "2027-08-16",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-4DAB7-3.2",
+              "governing_law": "England & Wales",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 2,
+              "security_carveout": false,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 180,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 5,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "adequate",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-AUDIT-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "IMPLEMENT_AUDIT_TRAIL",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035196",
+              "generation_seed": 35196,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [4DAB7]",
+              "project_code": "4DAB7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Thomas Benali-35196-SP",
+              "project_manager": "Noor Benali-35196-PM",
+              "business_owner": "Lucas Rahman-35196-BO",
+              "service_owner": "Thomas Dubois-35196-SO",
+              "risk_owner": "Clara Rahman-35196-RO",
+              "start_date": "2026-10-11",
+              "target_go_live": "2027-08-16",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "NIS2",
+                "PCI-DSS",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "missing",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 1,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "minor_findings",
+              "ethics_review": "passed",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "none",
+              "export_control": "pending"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-HA-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_FOR_HIGH_AVAILABILITY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-HA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035196\\\", \\\"generation_seed\\\": 35196, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\\\", \\\"project_code\\\": \\\"4DAB7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Thomas Benali-35196-SP\\\", \\\"project_manager\\\": \\\"Noor Benali-35196-PM\\\", \\\"business_owner\\\": \\\"Lucas Rahman-35196-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35196-SO\\\", \\\"risk_owner\\\": \\\"Clara Rahman-35196-RO\\\", \\\"start_date\\\": \\\"2026-10-11\\\", \\\"target_go_live\\\": \\\"2027-08-16\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-4DAB7-v3.4\\\", \\\"lld_version\\\": \\\"LLD-4DAB7-v4.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 15, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.215.192.0/24\\\", \\\"10.215.193.0/24\\\", \\\"10.215.194.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035196.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035196\\\", \\\"generation_seed\\\": 35196, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\\\", \\\"project_code\\\": \\\"4DAB7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Thomas Benali-35196-SP\\\", \\\"project_manager\\\": \\\"Noor Benali-35196-PM\\\", \\\"business_owner\\\": \\\"Lucas Rahman-35196-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35196-SO\\\", \\\"risk_owner\\\": \\\"Clara Rahman-35196-RO\\\", \\\"start_date\\\": \\\"2026-10-11\\\", \\\"target_go_live\\\": \\\"2027-08-16\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-4DAB7-v3.4\\\", \\\"lld_version\\\": \\\"LLD-4DAB7-v4.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 15, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.215.192.0/24\\\", \\\"10.215.193.0/24\\\", \\\"10.215.194.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035196.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\"], \"actions\": [\"ENABLE_WAF_PREVENTION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035196\\\", \\\"generation_seed\\\": 35196, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\\\", \\\"project_code\\\": \\\"4DAB7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Thomas Benali-35196-SP\\\", \\\"project_manager\\\": \\\"Noor Benali-35196-PM\\\", \\\"business_owner\\\": \\\"Lucas Rahman-35196-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35196-SO\\\", \\\"risk_owner\\\": \\\"Clara Rahman-35196-RO\\\", \\\"start_date\\\": \\\"2026-10-11\\\", \\\"target_go_live\\\": \\\"2027-08-16\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-AUDIT-001\", \"COMP-EXPORT-002\"], \"actions\": [\"COMPLETE_DPIA\", \"IMPLEMENT_AUDIT_TRAIL\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035196\\\", \\\"generation_seed\\\": 35196, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\\\", \\\"project_code\\\": \\\"4DAB7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Thomas Benali-35196-SP\\\", \\\"project_manager\\\": \\\"Noor Benali-35196-PM\\\", \\\"business_owner\\\": \\\"Lucas Rahman-35196-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35196-SO\\\", \\\"risk_owner\\\": \\\"Clara Rahman-35196-RO\\\", \\\"start_date\\\": \\\"2026-10-11\\\", \\\"target_go_live\\\": \\\"2027-08-16\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"minor_findings\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035196\\\", \\\"generation_seed\\\": 35196, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\\\", \\\"project_code\\\": \\\"4DAB7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Thomas Benali-35196-SP\\\", \\\"project_manager\\\": \\\"Noor Benali-35196-PM\\\", \\\"business_owner\\\": \\\"Lucas Rahman-35196-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35196-SO\\\", \\\"risk_owner\\\": \\\"Clara Rahman-35196-RO\\\", \\\"start_date\\\": \\\"2026-10-11\\\", \\\"target_go_live\\\": \\\"2027-08-16\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"minor_findings\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035196\\\", \\\"generation_seed\\\": 35196, \\\"project_name\\\": \\\"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\\\", \\\"project_code\\\": \\\"4DAB7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Thomas Benali-35196-SP\\\", \\\"project_manager\\\": \\\"Noor Benali-35196-PM\\\", \\\"business_owner\\\": \\\"Lucas Rahman-35196-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35196-SO\\\", \\\"risk_owner\\\": \\\"Clara Rahman-35196-RO\\\", \\\"start_date\\\": \\\"2026-10-11\\\", \\\"target_go_live\\\": \\\"2027-08-16\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"minor_findings\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035196",
+              "generation_seed": 35196,
+              "project_name": "Vega Acquisition Integration — Fraud Detection Platform [4DAB7]",
+              "project_code": "4DAB7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Thomas Benali-35196-SP",
+              "project_manager": "Noor Benali-35196-PM",
+              "business_owner": "Lucas Rahman-35196-BO",
+              "service_owner": "Thomas Dubois-35196-SO",
+              "risk_owner": "Clara Rahman-35196-RO",
+              "start_date": "2026-10-11",
+              "target_go_live": "2027-08-16",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 500000,
+              "roi": 0.166,
+              "npv_eur": 266459,
+              "payback_months": 31,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 23.8,
+              "fte_available": 7.3,
+              "change_plan_status": "partial",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Maya Rossi-35196-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-HA-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_FOR_HIGH_AVAILABILITY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-HA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-4DAB7-v3.4\", \"lld_version\": \"LLD-4DAB7-v4.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 3, \"adr_count\": 13, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.192.0/24\", \"10.215.193.0/24\", \"10.215.194.0/24\"], \"dns_zone\": \"dgf-int-035196.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-4DAB7-v3.4\", \"lld_version\": \"LLD-4DAB7-v4.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 3, \"adr_count\": 13, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.192.0/24\", \"10.215.193.0/24\", \"10.215.194.0/24\"], \"dns_zone\": \"dgf-int-035196.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-WAF-002"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 0, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-AUDIT-001",
+                "COMP-EXPORT-002"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "IMPLEMENT_AUDIT_TRAIL",
+                "COMPLETE_EXPORT_CONTROL_REVIEW"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-002",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035196\", \"generation_seed\": 35196, \"project_name\": \"Vega Acquisition Integration — Fraud Detection Platform [4DAB7]\", \"project_code\": \"4DAB7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Thomas Benali-35196-SP\", \"project_manager\": \"Noor Benali-35196-PM\", \"business_owner\": \"Lucas Rahman-35196-BO\", \"service_owner\": \"Thomas Dubois-35196-SO\", \"risk_owner\": \"Clara Rahman-35196-RO\", \"start_date\": \"2026-10-11\", \"target_go_live\": \"2027-08-16\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

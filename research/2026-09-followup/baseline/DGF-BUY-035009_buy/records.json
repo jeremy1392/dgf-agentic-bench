@@ -1,0 +1,737 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-SAN-002",
+        "PROC-DD-001"
+      ],
+      "actions": [
+        "COMPLETE_SANCTIONS_SCREENING",
+        "COMPLETE_VENDOR_DUE_DILIGENCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-SAN-002",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software 3CB28-1\", \"functional_score\": 88, \"security_score\": 93, \"tco_3y_eur\": 427158, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 89.4}, {\"vendor\": \"Fluxbridge Labs 3CB28-2\", \"functional_score\": 93, \"security_score\": 92, \"tco_3y_eur\": 255709, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 91.9}, {\"vendor\": \"GranitePeak Systems 3CB28-3\", \"functional_score\": 67, \"security_score\": 86, \"tco_3y_eur\": 1661970, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 65.7}, {\"vendor\": \"HelioStack Cloud 3CB28-4\", \"functional_score\": 97, \"security_score\": 63, \"tco_3y_eur\": 270921, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 84.5}], \"selected_vendor\": \"Fluxbridge Labs 3CB28-2\", \"competition\": \"open_tender\", \"rfp_requirements\": 149, \"purchasing_budget_eur\": 7000000}}"
+        },
+        {
+          "finding_id": "PROC-DD-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software 3CB28-1\", \"functional_score\": 88, \"security_score\": 93, \"tco_3y_eur\": 427158, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 89.4}, {\"vendor\": \"Fluxbridge Labs 3CB28-2\", \"functional_score\": 93, \"security_score\": 92, \"tco_3y_eur\": 255709, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 91.9}, {\"vendor\": \"GranitePeak Systems 3CB28-3\", \"functional_score\": 67, \"security_score\": 86, \"tco_3y_eur\": 1661970, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 65.7}, {\"vendor\": \"HelioStack Cloud 3CB28-4\", \"functional_score\": 97, \"security_score\": 63, \"tco_3y_eur\": 270921, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 84.5}], \"selected_vendor\": \"Fluxbridge Labs 3CB28-2\", \"competition\": \"open_tender\", \"rfp_requirements\": 149, \"purchasing_budget_eur\": 7000000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035009",
+              "generation_seed": 35009,
+              "project_name": "Project Atlas — Employee Experience Portal [3CB28]",
+              "project_code": "3CB28",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Haddad-35009-SP",
+              "project_manager": "Maya Nguyen-35009-PM",
+              "business_owner": "Marc Santos-35009-BO",
+              "service_owner": "Victor Laurent-35009-SO",
+              "risk_owner": "Yusuf Smith-35009-RO",
+              "start_date": "2026-09-22",
+              "target_go_live": "2027-02-15",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Everline Software 3CB28-1",
+                  "functional_score": 88,
+                  "security_score": 93,
+                  "tco_3y_eur": 427158,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "partial",
+                  "weighted_score": 89.4
+                },
+                {
+                  "vendor": "Fluxbridge Labs 3CB28-2",
+                  "functional_score": 93,
+                  "security_score": 92,
+                  "tco_3y_eur": 255709,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "pending",
+                  "references_checked": true,
+                  "due_diligence": "partial",
+                  "weighted_score": 91.9
+                },
+                {
+                  "vendor": "GranitePeak Systems 3CB28-3",
+                  "functional_score": 67,
+                  "security_score": 86,
+                  "tco_3y_eur": 1661970,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "pending",
+                  "references_checked": false,
+                  "due_diligence": "complete",
+                  "weighted_score": 65.7
+                },
+                {
+                  "vendor": "HelioStack Cloud 3CB28-4",
+                  "functional_score": 97,
+                  "security_score": 63,
+                  "tco_3y_eur": 270921,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "hit",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 84.5
+                }
+              ],
+              "selected_vendor": "Fluxbridge Labs 3CB28-2",
+              "competition": "open_tender",
+              "rfp_requirements": 149,
+              "purchasing_budget_eur": 7000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035009",
+              "generation_seed": 35009,
+              "project_name": "Project Atlas — Employee Experience Portal [3CB28]",
+              "project_code": "3CB28",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Haddad-35009-SP",
+              "project_manager": "Maya Nguyen-35009-PM",
+              "business_owner": "Marc Santos-35009-BO",
+              "service_owner": "Victor Laurent-35009-SO",
+              "risk_owner": "Yusuf Smith-35009-RO",
+              "start_date": "2026-09-22",
+              "target_go_live": "2027-02-15",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-3CB28-7.5",
+              "governing_law": "UAE",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": "unlimited",
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 30,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "adequate",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-AUDIT-001",
+        "COMP-MAP-001",
+        "COMP-A11Y-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL",
+        "COMPLETE_CONTROL_MAPPING",
+        "REMEDIATE_ACCESSIBILITY",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035009",
+              "generation_seed": 35009,
+              "project_name": "Project Atlas — Employee Experience Portal [3CB28]",
+              "project_code": "3CB28",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Haddad-35009-SP",
+              "project_manager": "Maya Nguyen-35009-PM",
+              "business_owner": "Marc Santos-35009-BO",
+              "service_owner": "Victor Laurent-35009-SO",
+              "risk_owner": "Yusuf Smith-35009-RO",
+              "start_date": "2026-09-22",
+              "target_go_live": "2027-02-15",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": true,
+              "deletion_enforced": false,
+              "audit_trail": "missing",
+              "accessibility_status": "major_findings",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "annual",
+              "export_control": "pending"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-IAM-002"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035009",
+              "generation_seed": 35009,
+              "project_name": "Project Atlas — Employee Experience Portal [3CB28]",
+              "project_code": "3CB28",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Haddad-35009-SP",
+              "project_manager": "Maya Nguyen-35009-PM",
+              "business_owner": "Marc Santos-35009-BO",
+              "service_owner": "Victor Laurent-35009-SO",
+              "risk_owner": "Yusuf Smith-35009-RO",
+              "start_date": "2026-09-22",
+              "target_go_live": "2027-02-15",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 2,
+              "pentest_age_days": 365,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035009",
+              "generation_seed": 35009,
+              "project_name": "Project Atlas — Employee Experience Portal [3CB28]",
+              "project_code": "3CB28",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Haddad-35009-SP",
+              "project_manager": "Maya Nguyen-35009-PM",
+              "business_owner": "Marc Santos-35009-BO",
+              "service_owner": "Victor Laurent-35009-SO",
+              "risk_owner": "Yusuf Smith-35009-RO",
+              "start_date": "2026-09-22",
+              "target_go_live": "2027-02-15",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 271638,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 36,
+              "change_record_status": "missing",
+              "service_continuity_class": "bronze",
+              "hosting_model": "vmss"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 4900000, \"roi\": 0.293, \"npv_eur\": 856273, \"payback_months\": 38, \"schedule_slip_weeks\": 8, \"fte_needed\": 12.4, \"fte_available\": 25.9, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"availability\", \"benefits_owner\": \"Jeremy Canale-35009-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"PROC-SAN-002\", \"PROC-DD-001\"], \"actions\": [\"COMPLETE_SANCTIONS_SCREENING\", \"COMPLETE_VENDOR_DUE_DILIGENCE\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-SAN-002\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"Everline Software 3CB28-1\\\", \\\"functional_score\\\": 88, \\\"security_score\\\": 93, \\\"tco_3y_eur\\\": 427158, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"partial\\\", \\\"weighted_score\\\": 89.4}, {\\\"vendor\\\": \\\"Fluxbridge Labs 3CB28-2\\\", \\\"functional_score\\\": 93, \\\"security_score\\\": 92, \\\"tco_3y_eur\\\": 255709, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"partial\\\", \\\"weighted_score\\\": 91.9}, {\\\"vendor\\\": \\\"GranitePeak Systems 3CB28-3\\\", \\\"functional_score\\\": 67, \\\"security_score\\\": 86, \\\"tco_3y_eur\\\": 1661970, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 65.7}, {\\\"vendor\\\": \\\"HelioStack Cloud 3CB28-4\\\", \\\"functional_score\\\": 97, \\\"security_score\\\": 63, \\\"tco_3y_eur\\\": 270921, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"hit\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 84.5}], \\\"selected_vendor\\\": \\\"Fluxbridge Labs 3CB28-2\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 149, \\\"purchasing_budget_eur\\\": 7000000}}\"}, {\"finding_id\": \"PROC-DD-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"Everline Software 3CB28-1\\\", \\\"functional_score\\\": 88, \\\"security_score\\\": 93, \\\"tco_3y_eur\\\": 427158, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"partial\\\", \\\"weighted_score\\\": 89.4}, {\\\"vendor\\\": \\\"Fluxbridge Labs 3CB28-2\\\", \\\"functional_score\\\": 93, \\\"security_score\\\": 92, \\\"tco_3y_eur\\\": 255709, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"partial\\\", \\\"weighted_score\\\": 91.9}, {\\\"vendor\\\": \\\"GranitePeak Systems 3CB28-3\\\", \\\"functional_score\\\": 67, \\\"security_score\\\": 86, \\\"tco_3y_eur\\\": 1661970, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 65.7}, {\\\"vendor\\\": \\\"HelioStack Cloud 3CB28-4\\\", \\\"functional_score\\\": 97, \\\"security_score\\\": 63, \\\"tco_3y_eur\\\": 270921, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"hit\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 84.5}], \\\"selected_vendor\\\": \\\"Fluxbridge Labs 3CB28-2\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 149, \\\"purchasing_budget_eur\\\": 7000000}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-AUDIT-001\", \"COMP-MAP-001\", \"COMP-A11Y-001\", \"COMP-EXPORT-002\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\", \"COMPLETE_CONTROL_MAPPING\", \"REMEDIATE_ACCESSIBILITY\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\", \"SEC-IAM-002\"], \"actions\": [\"ENABLE_WAF_PREVENTION\", \"CREATE_DEDICATED_WORKLOAD_IDENTITY\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035009\\\", \\\"generation_seed\\\": 35009, \\\"project_name\\\": \\\"Project Atlas — Employee Experience Portal [3CB28]\\\", \\\"project_code\\\": \\\"3CB28\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Haddad-35009-SP\\\", \\\"project_manager\\\": \\\"Maya Nguyen-35009-PM\\\", \\\"business_owner\\\": \\\"Marc Santos-35009-BO\\\", \\\"service_owner\\\": \\\"Victor Laurent-35009-SO\\\", \\\"risk_owner\\\": \\\"Yusuf Smith-35009-RO\\\", \\\"start_date\\\": \\\"2026-09-22\\\", \\\"target_go_live\\\": \\\"2027-02-15\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035009",
+              "generation_seed": 35009,
+              "project_name": "Project Atlas — Employee Experience Portal [3CB28]",
+              "project_code": "3CB28",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Haddad-35009-SP",
+              "project_manager": "Maya Nguyen-35009-PM",
+              "business_owner": "Marc Santos-35009-BO",
+              "service_owner": "Victor Laurent-35009-SO",
+              "risk_owner": "Yusuf Smith-35009-RO",
+              "start_date": "2026-09-22",
+              "target_go_live": "2027-02-15",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 7000000,
+              "budget_approved_eur": 4900000,
+              "roi": 0.293,
+              "npv_eur": 856273,
+              "payback_months": 38,
+              "schedule_slip_weeks": 8,
+              "fte_needed": 12.4,
+              "fte_available": 25.9,
+              "change_plan_status": "partial",
+              "benefits_kpi": "availability",
+              "benefits_owner": "Jeremy Canale-35009-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "PROC-SAN-002",
+                "PROC-DD-001"
+              ],
+              "actions": [
+                "COMPLETE_SANCTIONS_SCREENING",
+                "COMPLETE_VENDOR_DUE_DILIGENCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-SAN-002",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software 3CB28-1\", \"functional_score\": 88, \"security_score\": 93, \"tco_3y_eur\": 427158, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 89.4}, {\"vendor\": \"Fluxbridge Labs 3CB28-2\", \"functional_score\": 93, \"security_score\": 92, \"tco_3y_eur\": 255709, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 91.9}, {\"vendor\": \"GranitePeak Systems 3CB28-3\", \"functional_score\": 67, \"security_score\": 86, \"tco_3y_eur\": 1661970, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 65.7}, {\"vendor\": \"HelioStack Cloud 3CB28-4\", \"functional_score\": 97, \"security_score\": 63, \"tco_3y_eur\": 270921, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 84.5}], \"selected_vendor\": \"Fluxbridge Labs 3CB28-2\", \"competition\": \"open_tender\", \"rfp_requirements\": 149, \"purchasing_budget_eur\": 7000000}}"
+                },
+                {
+                  "finding_id": "PROC-DD-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software 3CB28-1\", \"functional_score\": 88, \"security_score\": 93, \"tco_3y_eur\": 427158, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 89.4}, {\"vendor\": \"Fluxbridge Labs 3CB28-2\", \"functional_score\": 93, \"security_score\": 92, \"tco_3y_eur\": 255709, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 91.9}, {\"vendor\": \"GranitePeak Systems 3CB28-3\", \"functional_score\": 67, \"security_score\": 86, \"tco_3y_eur\": 1661970, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 65.7}, {\"vendor\": \"HelioStack Cloud 3CB28-4\", \"functional_score\": 97, \"security_score\": 63, \"tco_3y_eur\": 270921, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 84.5}], \"selected_vendor\": \"Fluxbridge Labs 3CB28-2\", \"competition\": \"open_tender\", \"rfp_requirements\": 149, \"purchasing_budget_eur\": 7000000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "COMP-AUDIT-001",
+                "COMP-MAP-001",
+                "COMP-A11Y-001",
+                "COMP-EXPORT-002"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL",
+                "COMPLETE_CONTROL_MAPPING",
+                "REMEDIATE_ACCESSIBILITY",
+                "COMPLETE_EXPORT_CONTROL_REVIEW"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-A11Y-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-002",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-WAF-002",
+                "SEC-IAM-002"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION",
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035009\", \"generation_seed\": 35009, \"project_name\": \"Project Atlas — Employee Experience Portal [3CB28]\", \"project_code\": \"3CB28\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Haddad-35009-SP\", \"project_manager\": \"Maya Nguyen-35009-PM\", \"business_owner\": \"Marc Santos-35009-BO\", \"service_owner\": \"Victor Laurent-35009-SO\", \"risk_owner\": \"Yusuf Smith-35009-RO\", \"start_date\": \"2026-09-22\", \"target_go_live\": \"2027-02-15\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,688 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 623852, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 623852, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035165",
+              "generation_seed": 35165,
+              "project_name": "Orion Acquisition Integration — Supply Chain Integration [4FA4D]",
+              "project_code": "4FA4D",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Customer Service",
+              "sponsor": "Ines Dubois-35165-SP",
+              "project_manager": "Lucas Khan-35165-PM",
+              "business_owner": "Thomas Nguyen-35165-BO",
+              "service_owner": "Amira Nguyen-35165-SO",
+              "risk_owner": "Ines Santos-35165-RO",
+              "start_date": "2026-09-26",
+              "target_go_live": "2027-04-25",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": false,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": true,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 623852,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 4,
+              "change_record_status": "approved",
+              "service_continuity_class": "bronze",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-4FA4D-v3.9\", \"lld_version\": \"LLD-4FA4D-v1.9\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 3, \"adr_count\": 10, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.208.0/24\", \"10.213.209.0/24\", \"10.213.210.0/24\"], \"dns_zone\": \"dgf-int-035165.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035165",
+              "generation_seed": 35165,
+              "project_name": "Orion Acquisition Integration — Supply Chain Integration [4FA4D]",
+              "project_code": "4FA4D",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Customer Service",
+              "sponsor": "Ines Dubois-35165-SP",
+              "project_manager": "Lucas Khan-35165-PM",
+              "business_owner": "Thomas Nguyen-35165-BO",
+              "service_owner": "Amira Nguyen-35165-SO",
+              "risk_owner": "Ines Santos-35165-RO",
+              "start_date": "2026-09-26",
+              "target_go_live": "2027-04-25",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-4FA4D-v3.9",
+              "lld_version": "LLD-4FA4D-v1.9",
+              "api_gateway_required": false,
+              "api_gateway_present": false,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 3,
+              "adr_count": 10,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.213.208.0/24",
+                "10.213.209.0/24",
+                "10.213.210.0/24"
+              ],
+              "dns_zone": "dgf-int-035165.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 8, \"pentest_age_days\": 90, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035165",
+              "generation_seed": 35165,
+              "project_name": "Orion Acquisition Integration — Supply Chain Integration [4FA4D]",
+              "project_code": "4FA4D",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Customer Service",
+              "sponsor": "Ines Dubois-35165-SP",
+              "project_manager": "Lucas Khan-35165-PM",
+              "business_owner": "Thomas Nguyen-35165-BO",
+              "service_owner": "Amira Nguyen-35165-SO",
+              "risk_owner": "Ines Santos-35165-RO",
+              "start_date": "2026-09-26",
+              "target_go_live": "2027-04-25",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 8,
+              "pentest_age_days": 90,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-4FA4D-10.2\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": false, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035165",
+              "generation_seed": 35165,
+              "project_name": "Orion Acquisition Integration — Supply Chain Integration [4FA4D]",
+              "project_code": "4FA4D",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Customer Service",
+              "sponsor": "Ines Dubois-35165-SP",
+              "project_manager": "Lucas Khan-35165-PM",
+              "business_owner": "Thomas Nguyen-35165-BO",
+              "service_owner": "Amira Nguyen-35165-SO",
+              "risk_owner": "Ines Santos-35165-RO",
+              "start_date": "2026-09-26",
+              "target_go_live": "2027-04-25",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-4FA4D-10.2",
+              "governing_law": "Ireland",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 0.5,
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 0,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": false,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"Internal policy baseline\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035165",
+              "generation_seed": 35165,
+              "project_name": "Orion Acquisition Integration — Supply Chain Integration [4FA4D]",
+              "project_code": "4FA4D",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Customer Service",
+              "sponsor": "Ines Dubois-35165-SP",
+              "project_manager": "Lucas Khan-35165-PM",
+              "business_owner": "Thomas Nguyen-35165-BO",
+              "service_owner": "Amira Nguyen-35165-SO",
+              "risk_owner": "Ines Santos-35165-RO",
+              "start_date": "2026-09-26",
+              "target_go_live": "2027-04-25",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "Internal policy baseline"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 1,
+              "legal_hold_supported": true,
+              "deletion_enforced": false,
+              "audit_trail": "missing",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "continuous",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\", \"IT-EOL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\", \"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035165\\\", \\\"generation_seed\\\": 35165, \\\"project_name\\\": \\\"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\\\", \\\"project_code\\\": \\\"4FA4D\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Ines Dubois-35165-SP\\\", \\\"project_manager\\\": \\\"Lucas Khan-35165-PM\\\", \\\"business_owner\\\": \\\"Thomas Nguyen-35165-BO\\\", \\\"service_owner\\\": \\\"Amira Nguyen-35165-SO\\\", \\\"risk_owner\\\": \\\"Ines Santos-35165-RO\\\", \\\"start_date\\\": \\\"2026-09-26\\\", \\\"target_go_live\\\": \\\"2027-04-25\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"none\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 623852, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}, {\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035165\\\", \\\"generation_seed\\\": 35165, \\\"project_name\\\": \\\"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\\\", \\\"project_code\\\": \\\"4FA4D\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Ines Dubois-35165-SP\\\", \\\"project_manager\\\": \\\"Lucas Khan-35165-PM\\\", \\\"business_owner\\\": \\\"Thomas Nguyen-35165-BO\\\", \\\"service_owner\\\": \\\"Amira Nguyen-35165-SO\\\", \\\"risk_owner\\\": \\\"Ines Santos-35165-RO\\\", \\\"start_date\\\": \\\"2026-09-26\\\", \\\"target_go_live\\\": \\\"2027-04-25\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"none\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 623852, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-REV-001\"], \"actions\": [\"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035165\\\", \\\"generation_seed\\\": 35165, \\\"project_name\\\": \\\"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\\\", \\\"project_code\\\": \\\"4FA4D\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Ines Dubois-35165-SP\\\", \\\"project_manager\\\": \\\"Lucas Khan-35165-PM\\\", \\\"business_owner\\\": \\\"Thomas Nguyen-35165-BO\\\", \\\"service_owner\\\": \\\"Amira Nguyen-35165-SO\\\", \\\"risk_owner\\\": \\\"Ines Santos-35165-RO\\\", \\\"start_date\\\": \\\"2026-09-26\\\", \\\"target_go_live\\\": \\\"2027-04-25\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-4FA4D-v3.9\\\", \\\"lld_version\\\": \\\"LLD-4FA4D-v1.9\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 10, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.213.208.0/24\\\", \\\"10.213.209.0/24\\\", \\\"10.213.210.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035165.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"SEC-KEY-001\"], \"actions\": [\"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035165\\\", \\\"generation_seed\\\": 35165, \\\"project_name\\\": \\\"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\\\", \\\"project_code\\\": \\\"4FA4D\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Ines Dubois-35165-SP\\\", \\\"project_manager\\\": \\\"Lucas Khan-35165-PM\\\", \\\"business_owner\\\": \\\"Thomas Nguyen-35165-BO\\\", \\\"service_owner\\\": \\\"Amira Nguyen-35165-SO\\\", \\\"risk_owner\\\": \\\"Ines Santos-35165-RO\\\", \\\"start_date\\\": \\\"2026-09-26\\\", \\\"target_go_live\\\": \\\"2027-04-25\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 8, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"LEGAL-EXIT-001\"], \"actions\": [\"ADD_EXIT_ASSISTANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-EXIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035165\\\", \\\"generation_seed\\\": 35165, \\\"project_name\\\": \\\"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\\\", \\\"project_code\\\": \\\"4FA4D\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Ines Dubois-35165-SP\\\", \\\"project_manager\\\": \\\"Lucas Khan-35165-PM\\\", \\\"business_owner\\\": \\\"Thomas Nguyen-35165-BO\\\", \\\"service_owner\\\": \\\"Amira Nguyen-35165-SO\\\", \\\"risk_owner\\\": \\\"Ines Santos-35165-RO\\\", \\\"start_date\\\": \\\"2026-09-26\\\", \\\"target_go_live\\\": \\\"2027-04-25\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-4FA4D-10.2\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"full\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 0, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": false, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-AUDIT-001\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035165\\\", \\\"generation_seed\\\": 35165, \\\"project_name\\\": \\\"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\\\", \\\"project_code\\\": \\\"4FA4D\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Ines Dubois-35165-SP\\\", \\\"project_manager\\\": \\\"Lucas Khan-35165-PM\\\", \\\"business_owner\\\": \\\"Thomas Nguyen-35165-BO\\\", \\\"service_owner\\\": \\\"Amira Nguyen-35165-SO\\\", \\\"risk_owner\\\": \\\"Ines Santos-35165-RO\\\", \\\"start_date\\\": \\\"2026-09-26\\\", \\\"target_go_live\\\": \\\"2027-04-25\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"Internal policy baseline\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035165",
+              "generation_seed": 35165,
+              "project_name": "Orion Acquisition Integration — Supply Chain Integration [4FA4D]",
+              "project_code": "4FA4D",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Customer Service",
+              "sponsor": "Ines Dubois-35165-SP",
+              "project_manager": "Lucas Khan-35165-PM",
+              "business_owner": "Thomas Nguyen-35165-BO",
+              "service_owner": "Amira Nguyen-35165-SO",
+              "risk_owner": "Ines Santos-35165-RO",
+              "start_date": "2026-09-26",
+              "target_go_live": "2027-04-25",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 250000,
+              "budget_approved_eur": 275000,
+              "roi": 0.164,
+              "npv_eur": 114827,
+              "payback_months": 26,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 25.4,
+              "fte_available": 23.9,
+              "change_plan_status": "complete",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Adam Benali-35165-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001",
+                "IT-EOL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY",
+                "CREATE_CONVERGENCE_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 623852, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+                },
+                {
+                  "finding_id": "IT-EOL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 623852, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-4FA4D-v3.9\", \"lld_version\": \"LLD-4FA4D-v1.9\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 3, \"adr_count\": 10, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.208.0/24\", \"10.213.209.0/24\", \"10.213.210.0/24\"], \"dns_zone\": \"dgf-int-035165.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 8, \"pentest_age_days\": 90, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-4FA4D-10.2\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": false, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-AUDIT-001"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035165\", \"generation_seed\": 35165, \"project_name\": \"Orion Acquisition Integration — Supply Chain Integration [4FA4D]\", \"project_code\": \"4FA4D\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Ines Dubois-35165-SP\", \"project_manager\": \"Lucas Khan-35165-PM\", \"business_owner\": \"Thomas Nguyen-35165-BO\", \"service_owner\": \"Amira Nguyen-35165-SO\", \"risk_owner\": \"Ines Santos-35165-RO\", \"start_date\": \"2026-09-26\", \"target_go_live\": \"2027-04-25\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"Internal policy baseline\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

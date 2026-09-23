@@ -1,0 +1,515 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035222",
+              "generation_seed": 35222,
+              "project_name": "Project Juno — Claims Automation [F6927]",
+              "project_code": "F6927",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "HR",
+              "sponsor": "Daria Petrescu-35222-SP",
+              "project_manager": "Leila Moreau-35222-PM",
+              "business_owner": "Sofia Nguyen-35222-BO",
+              "service_owner": "Sofia Nguyen-35222-SO",
+              "risk_owner": "Noor Smith-35222-RO",
+              "start_date": "2026-09-12",
+              "target_go_live": "2027-09-07",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 447336,
+              "cmdb_record_present": false,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 90,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 18,
+              "change_record_status": "missing",
+              "service_continuity_class": "silver",
+              "hosting_model": "vm_ha"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035222\", \"generation_seed\": 35222, \"project_name\": \"Project Juno — Claims Automation [F6927]\", \"project_code\": \"F6927\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Petrescu-35222-SP\", \"project_manager\": \"Leila Moreau-35222-PM\", \"business_owner\": \"Sofia Nguyen-35222-BO\", \"service_owner\": \"Sofia Nguyen-35222-SO\", \"risk_owner\": \"Noor Smith-35222-RO\", \"start_date\": \"2026-09-12\", \"target_go_live\": \"2027-09-07\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-F6927-v1.8\", \"lld_version\": \"LLD-F6927-v3.7\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 4, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.17.96.0/24\", \"10.17.97.0/24\", \"10.17.98.0/24\"], \"dns_zone\": \"dgf-bld-035222.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035222",
+              "generation_seed": 35222,
+              "project_name": "Project Juno — Claims Automation [F6927]",
+              "project_code": "F6927",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "HR",
+              "sponsor": "Daria Petrescu-35222-SP",
+              "project_manager": "Leila Moreau-35222-PM",
+              "business_owner": "Sofia Nguyen-35222-BO",
+              "service_owner": "Sofia Nguyen-35222-SO",
+              "risk_owner": "Noor Smith-35222-RO",
+              "start_date": "2026-09-12",
+              "target_go_live": "2027-09-07",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-F6927-v1.8",
+              "lld_version": "LLD-F6927-v3.7",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 15,
+              "load_test_peak_pct": 100,
+              "architecture_debt_items": 4,
+              "adr_count": 9,
+              "reversibility_status": "missing",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.17.96.0/24",
+                "10.17.97.0/24",
+                "10.17.98.0/24"
+              ],
+              "dns_zone": "dgf-bld-035222.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035222",
+              "generation_seed": 35222,
+              "project_name": "Project Juno — Claims Automation [F6927]",
+              "project_code": "F6927",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "HR",
+              "sponsor": "Daria Petrescu-35222-SP",
+              "project_manager": "Leila Moreau-35222-PM",
+              "business_owner": "Sofia Nguyen-35222-BO",
+              "service_owner": "Sofia Nguyen-35222-SO",
+              "risk_owner": "Noor Smith-35222-RO",
+              "start_date": "2026-09-12",
+              "target_go_live": "2027-09-07",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 3,
+              "pentest_age_days": 90,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": false,
+              "edr_enabled": false,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035222",
+              "generation_seed": 35222,
+              "project_name": "Project Juno — Claims Automation [F6927]",
+              "project_code": "F6927",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "HR",
+              "sponsor": "Daria Petrescu-35222-SP",
+              "project_manager": "Leila Moreau-35222-PM",
+              "business_owner": "Sofia Nguyen-35222-BO",
+              "service_owner": "Sofia Nguyen-35222-SO",
+              "risk_owner": "Noor Smith-35222-RO",
+              "start_date": "2026-09-12",
+              "target_go_live": "2027-09-07",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 71,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 150,
+              "p95_ms": 66,
+              "unit_test_coverage_pct": 40,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 8,
+              "measured_restore_hours": 8.0,
+              "target_rpo_minutes": 1440,
+              "measured_data_loss_minutes": 1440,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BC-001"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "REVISE_BUSINESS_CASE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035222\", \"generation_seed\": 35222, \"project_name\": \"Project Juno — Claims Automation [F6927]\", \"project_code\": \"F6927\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Petrescu-35222-SP\", \"project_manager\": \"Leila Moreau-35222-PM\", \"business_owner\": \"Sofia Nguyen-35222-BO\", \"service_owner\": \"Sofia Nguyen-35222-SO\", \"risk_owner\": \"Noor Smith-35222-RO\", \"start_date\": \"2026-09-12\", \"target_go_live\": \"2027-09-07\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P3\", \"budget_requested_eur\": 900000, \"budget_approved_eur\": 900000, \"roi\": 0.037, \"npv_eur\": 867856, \"payback_months\": 22, \"schedule_slip_weeks\": 1, \"fte_needed\": 5.4, \"fte_available\": 7.3, \"change_plan_status\": \"draft\", \"benefits_kpi\": \"cost_to_serve\", \"benefits_owner\": \"Thomas Bennett-35222-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035222\", \"generation_seed\": 35222, \"project_name\": \"Project Juno — Claims Automation [F6927]\", \"project_code\": \"F6927\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Petrescu-35222-SP\", \"project_manager\": \"Leila Moreau-35222-PM\", \"business_owner\": \"Sofia Nguyen-35222-BO\", \"service_owner\": \"Sofia Nguyen-35222-SO\", \"risk_owner\": \"Noor Smith-35222-RO\", \"start_date\": \"2026-09-12\", \"target_go_live\": \"2027-09-07\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P3\", \"budget_requested_eur\": 900000, \"budget_approved_eur\": 900000, \"roi\": 0.037, \"npv_eur\": 867856, \"payback_months\": 22, \"schedule_slip_weeks\": 1, \"fte_needed\": 5.4, \"fte_available\": 7.3, \"change_plan_status\": \"draft\", \"benefits_kpi\": \"cost_to_serve\", \"benefits_owner\": \"Thomas Bennett-35222-BEN\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035222",
+              "generation_seed": 35222,
+              "project_name": "Project Juno — Claims Automation [F6927]",
+              "project_code": "F6927",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "HR",
+              "sponsor": "Daria Petrescu-35222-SP",
+              "project_manager": "Leila Moreau-35222-PM",
+              "business_owner": "Sofia Nguyen-35222-BO",
+              "service_owner": "Sofia Nguyen-35222-SO",
+              "risk_owner": "Noor Smith-35222-RO",
+              "start_date": "2026-09-12",
+              "target_go_live": "2027-09-07",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "weak",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 900000,
+              "roi": 0.037,
+              "npv_eur": 867856,
+              "payback_months": 22,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 5.4,
+              "fte_available": 7.3,
+              "change_plan_status": "draft",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Thomas Bennett-35222-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035222\", \"generation_seed\": 35222, \"project_name\": \"Project Juno — Claims Automation [F6927]\", \"project_code\": \"F6927\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Petrescu-35222-SP\", \"project_manager\": \"Leila Moreau-35222-PM\", \"business_owner\": \"Sofia Nguyen-35222-BO\", \"service_owner\": \"Sofia Nguyen-35222-SO\", \"risk_owner\": \"Noor Smith-35222-RO\", \"start_date\": \"2026-09-12\", \"target_go_live\": \"2027-09-07\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-F6927-v1.8\", \"lld_version\": \"LLD-F6927-v3.7\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 4, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.17.96.0/24\", \"10.17.97.0/24\", \"10.17.98.0/24\"], \"dns_zone\": \"dgf-bld-035222.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

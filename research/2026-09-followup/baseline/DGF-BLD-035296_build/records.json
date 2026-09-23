@@ -1,0 +1,611 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 180, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 421274, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 18, \"change_record_status\": \"draft\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"container_apps\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035296",
+              "generation_seed": 35296,
+              "project_name": "Project Raven — Fraud Detection Platform [0F91F]",
+              "project_code": "0F91F",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Victor Haddad-35296-SP",
+              "project_manager": "Maya Smith-35296-PM",
+              "business_owner": "Noor Moreau-35296-BO",
+              "service_owner": "Clara Volkov-35296-SO",
+              "risk_owner": "Ines Dubois-35296-RO",
+              "start_date": "2026-09-11",
+              "target_go_live": "2027-03-29",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 421274,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 18,
+              "change_record_status": "draft",
+              "service_continuity_class": "silver",
+              "hosting_model": "container_apps"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-0F91F-v1.8\", \"lld_version\": \"LLD-0F91F-v4.5\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 8, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.22.0.0/24\", \"10.22.1.0/24\", \"10.22.2.0/24\"], \"dns_zone\": \"dgf-bld-035296.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035296",
+              "generation_seed": 35296,
+              "project_name": "Project Raven — Fraud Detection Platform [0F91F]",
+              "project_code": "0F91F",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Victor Haddad-35296-SP",
+              "project_manager": "Maya Smith-35296-PM",
+              "business_owner": "Noor Moreau-35296-BO",
+              "service_owner": "Clara Volkov-35296-SO",
+              "risk_owner": "Ines Dubois-35296-RO",
+              "start_date": "2026-09-11",
+              "target_go_live": "2027-03-29",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-0F91F-v1.8",
+              "lld_version": "LLD-0F91F-v4.5",
+              "api_gateway_required": false,
+              "api_gateway_present": false,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 50,
+              "measured_latency_ms": 700,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 2,
+              "adr_count": 8,
+              "reversibility_status": "tested",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.22.0.0/24",
+                "10.22.1.0/24",
+                "10.22.2.0/24"
+              ],
+              "dns_zone": "dgf-bld-035296.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035296",
+              "generation_seed": 35296,
+              "project_name": "Project Raven — Fraud Detection Platform [0F91F]",
+              "project_code": "0F91F",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Victor Haddad-35296-SP",
+              "project_manager": "Maya Smith-35296-PM",
+              "business_owner": "Noor Moreau-35296-BO",
+              "service_owner": "Clara Volkov-35296-SO",
+              "risk_owner": "Ines Dubois-35296-RO",
+              "start_date": "2026-09-11",
+              "target_go_live": "2027-03-29",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": false,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 180,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 3,
+              "pentest_age_days": null,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-LOAD-001",
+        "TR-CODE-001",
+        "TR-OPS-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035296",
+              "generation_seed": 35296,
+              "project_name": "Project Raven — Fraud Detection Platform [0F91F]",
+              "project_code": "0F91F",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Victor Haddad-35296-SP",
+              "project_manager": "Maya Smith-35296-PM",
+              "business_owner": "Noor Moreau-35296-BO",
+              "service_owner": "Clara Volkov-35296-SO",
+              "risk_owner": "Ines Dubois-35296-RO",
+              "start_date": "2026-09-11",
+              "target_go_live": "2027-03-29",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 96,
+              "pilot_completed": false,
+              "load_test_pct_of_peak": 75,
+              "p95_ms": 1495,
+              "unit_test_coverage_pct": 71,
+              "critical_static_findings": 1,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": false,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 8,
+              "measured_restore_hours": 6.8,
+              "target_rpo_minutes": 60,
+              "measured_data_loss_minutes": 30,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "missing",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 2
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-CATALOG-001\"], \"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CATALOG-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035296\\\", \\\"generation_seed\\\": 35296, \\\"project_name\\\": \\\"Project Raven — Fraud Detection Platform [0F91F]\\\", \\\"project_code\\\": \\\"0F91F\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Victor Haddad-35296-SP\\\", \\\"project_manager\\\": \\\"Maya Smith-35296-PM\\\", \\\"business_owner\\\": \\\"Noor Moreau-35296-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35296-SO\\\", \\\"risk_owner\\\": \\\"Ines Dubois-35296-RO\\\", \\\"start_date\\\": \\\"2026-09-11\\\", \\\"target_go_live\\\": \\\"2027-03-29\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 421274, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"draft\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"container_apps\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-PERF-001\"], \"actions\": [\"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035296\\\", \\\"generation_seed\\\": 35296, \\\"project_name\\\": \\\"Project Raven — Fraud Detection Platform [0F91F]\\\", \\\"project_code\\\": \\\"0F91F\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Victor Haddad-35296-SP\\\", \\\"project_manager\\\": \\\"Maya Smith-35296-PM\\\", \\\"business_owner\\\": \\\"Noor Moreau-35296-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35296-SO\\\", \\\"risk_owner\\\": \\\"Ines Dubois-35296-RO\\\", \\\"start_date\\\": \\\"2026-09-11\\\", \\\"target_go_live\\\": \\\"2027-03-29\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-0F91F-v1.8\\\", \\\"lld_version\\\": \\\"LLD-0F91F-v4.5\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 8, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.22.0.0/24\\\", \\\"10.22.1.0/24\\\", \\\"10.22.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035296.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\"], \"actions\": [\"ENABLE_WAF_PREVENTION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035296\\\", \\\"generation_seed\\\": 35296, \\\"project_name\\\": \\\"Project Raven — Fraud Detection Platform [0F91F]\\\", \\\"project_code\\\": \\\"0F91F\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Victor Haddad-35296-SP\\\", \\\"project_manager\\\": \\\"Maya Smith-35296-PM\\\", \\\"business_owner\\\": \\\"Noor Moreau-35296-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35296-SO\\\", \\\"risk_owner\\\": \\\"Ines Dubois-35296-RO\\\", \\\"start_date\\\": \\\"2026-09-11\\\", \\\"target_go_live\\\": \\\"2027-03-29\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"TR-LOAD-001\", \"TR-CODE-001\", \"TR-OPS-001\", \"TR-BLOCKER-001\"], \"actions\": [\"RERUN_LOAD_TEST_AT_PEAK\", \"REMEDIATE_BUILD_FINDINGS\", \"COMPLETE_OPERATIONAL_HANDOVER\", \"CLOSE_PRODUCTION_BLOCKERS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-LOAD-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035296\\\", \\\"generation_seed\\\": 35296, \\\"project_name\\\": \\\"Project Raven — Fraud Detection Platform [0F91F]\\\", \\\"project_code\\\": \\\"0F91F\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Victor Haddad-35296-SP\\\", \\\"project_manager\\\": \\\"Maya Smith-35296-PM\\\", \\\"business_owner\\\": \\\"Noor Moreau-35296-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35296-SO\\\", \\\"risk_owner\\\": \\\"Ines Dubois-35296-RO\\\", \\\"start_date\\\": \\\"2026-09-11\\\", \\\"target_go_live\\\": \\\"2027-03-29\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 96, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1495, \\\"unit_test_coverage_pct\\\": 71, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 30, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-CODE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035296\\\", \\\"generation_seed\\\": 35296, \\\"project_name\\\": \\\"Project Raven — Fraud Detection Platform [0F91F]\\\", \\\"project_code\\\": \\\"0F91F\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Victor Haddad-35296-SP\\\", \\\"project_manager\\\": \\\"Maya Smith-35296-PM\\\", \\\"business_owner\\\": \\\"Noor Moreau-35296-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35296-SO\\\", \\\"risk_owner\\\": \\\"Ines Dubois-35296-RO\\\", \\\"start_date\\\": \\\"2026-09-11\\\", \\\"target_go_live\\\": \\\"2027-03-29\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 96, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1495, \\\"unit_test_coverage_pct\\\": 71, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 30, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035296\\\", \\\"generation_seed\\\": 35296, \\\"project_name\\\": \\\"Project Raven — Fraud Detection Platform [0F91F]\\\", \\\"project_code\\\": \\\"0F91F\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Victor Haddad-35296-SP\\\", \\\"project_manager\\\": \\\"Maya Smith-35296-PM\\\", \\\"business_owner\\\": \\\"Noor Moreau-35296-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35296-SO\\\", \\\"risk_owner\\\": \\\"Ines Dubois-35296-RO\\\", \\\"start_date\\\": \\\"2026-09-11\\\", \\\"target_go_live\\\": \\\"2027-03-29\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 96, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1495, \\\"unit_test_coverage_pct\\\": 71, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 30, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-BLOCKER-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035296\\\", \\\"generation_seed\\\": 35296, \\\"project_name\\\": \\\"Project Raven — Fraud Detection Platform [0F91F]\\\", \\\"project_code\\\": \\\"0F91F\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Victor Haddad-35296-SP\\\", \\\"project_manager\\\": \\\"Maya Smith-35296-PM\\\", \\\"business_owner\\\": \\\"Noor Moreau-35296-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35296-SO\\\", \\\"risk_owner\\\": \\\"Ines Dubois-35296-RO\\\", \\\"start_date\\\": \\\"2026-09-11\\\", \\\"target_go_live\\\": \\\"2027-03-29\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 96, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1495, \\\"unit_test_coverage_pct\\\": 71, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 30, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035296",
+              "generation_seed": 35296,
+              "project_name": "Project Raven — Fraud Detection Platform [0F91F]",
+              "project_code": "0F91F",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Victor Haddad-35296-SP",
+              "project_manager": "Maya Smith-35296-PM",
+              "business_owner": "Noor Moreau-35296-BO",
+              "service_owner": "Clara Volkov-35296-SO",
+              "risk_owner": "Ines Dubois-35296-RO",
+              "start_date": "2026-09-11",
+              "target_go_live": "2027-03-29",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1650000,
+              "roi": 0.365,
+              "npv_eur": 531165,
+              "payback_months": 12,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 23.9,
+              "fte_available": 11.8,
+              "change_plan_status": "partial",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Daria Garcia-35296-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-CATALOG-001"
+              ],
+              "actions": [
+                "SUBMIT_TECHNOLOGY_WAIVER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CATALOG-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 180, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 421274, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 18, \"change_record_status\": \"draft\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"container_apps\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-PERF-001"
+              ],
+              "actions": [
+                "REMEDIATE_LATENCY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-0F91F-v1.8\", \"lld_version\": \"LLD-0F91F-v4.5\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 8, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.22.0.0/24\", \"10.22.1.0/24\", \"10.22.2.0/24\"], \"dns_zone\": \"dgf-bld-035296.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-WAF-002"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "TR-LOAD-001",
+                "TR-CODE-001",
+                "TR-OPS-001",
+                "TR-BLOCKER-001"
+              ],
+              "actions": [
+                "RERUN_LOAD_TEST_AT_PEAK",
+                "REMEDIATE_BUILD_FINDINGS",
+                "COMPLETE_OPERATIONAL_HANDOVER",
+                "CLOSE_PRODUCTION_BLOCKERS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-LOAD-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-CODE-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-BLOCKER-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035296\", \"generation_seed\": 35296, \"project_name\": \"Project Raven — Fraud Detection Platform [0F91F]\", \"project_code\": \"0F91F\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Victor Haddad-35296-SP\", \"project_manager\": \"Maya Smith-35296-PM\", \"business_owner\": \"Noor Moreau-35296-BO\", \"service_owner\": \"Clara Volkov-35296-SO\", \"risk_owner\": \"Ines Dubois-35296-RO\", \"start_date\": \"2026-09-11\", \"target_go_live\": \"2027-03-29\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 96, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1495, \"unit_test_coverage_pct\": 71, \"critical_static_findings\": 1, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 30, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

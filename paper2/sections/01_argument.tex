@@ -42,7 +42,7 @@ Level & Claim in this paper & Evidence required\\
 \midrule
 Measured performance & Models often satisfy specified synthetic review contracts. & Released submissions, traces, scores, and uncertainty conditional on the dataset.\\
 Deployment hypothesis & Comparable review tasks can be executed with less total human work. & Independent review quality and measured human hours in operational workflows.\\
-Workforce projection & Required DGF FTE may fall by 80\% by 2033 at comparable output. & A defined cohort, credible baseline, all-in labor boundary, and endpoint observations.\\
+Workforce projection & A registered cohort may test an 80\% FTE reduction over a seven-year horizon. & A defined cohort, credible baseline, all-in labor boundary, and endpoint observations.\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -55,11 +55,39 @@ some human tasks remain necessary.
 
 \subsection{Relation to prior research and to the companion manuscript}
 
-WorkArena evaluates agents performing enterprise-software tasks \citep{drouin2024}. DGF-Bench
-focuses instead on connected governance reviews with explicit decisions, supporting findings,
-authority, and evidence. AgentDojo evaluates tool-using agents exposed to untrusted data and
-prompt injection \citep{debenedetti2024}; the present run does not provide that adversarial
-evaluation. These comparisons locate the task rather than establish superiority across benchmarks.
+DGF-Bench belongs to a family of agent evaluations with different task and information
+contracts. WorkArena evaluates interactions with enterprise software \citep{drouin2024};
+ITBench evaluates operational IT scenarios across SRE, compliance/security, and FinOps
+\citep{itbench2025}. $\tau$-bench combines policy-following, domain tools, simulated users,
+and evaluation of final database state, and explicitly measures reliability across repeated
+trials \citep{taubench2024}. CI-Work examines whether enterprise agents preserve contextual
+integrity while conveying useful information \citep{ciwork2026}. AgentDojo evaluates tool
+use over untrusted data and prompt injection \citep{debenedetti2024}.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Task distinctions relevant to DGF-Bench; headline success percentages across these
+benchmarks are not directly comparable.}
+\begin{tabularx}{\linewidth}{@{}P{2.1cm}LL@{}}
+\toprule
+Benchmark & Task and evaluation object & Distinction from this DGF run\\
+\midrule
+WorkArena & Enterprise web interactions and task completion & DGF uses a review/tool interface rather than browser interaction.\\
+ITBench & Operational IT scenarios in SRE, CISO, and FinOps & DGF scores proposed reviews; it does not demonstrate operational remediation.\\
+$\tau$-bench & Policy-guided user/tool interactions; goal database state and repeated reliability & DGF has no live user conversation and its original run has one trajectory per pair.\\
+CI-Work & Information flows, useful content, and privacy/contextual-integrity violations & DGF's present score does not measure confidentiality under dense retrieval.\\
+AgentDojo & Task execution and adversarial prompt-injection outcomes & DGF's original cases do not provide an adversarial robustness test.\\
+DGF-Bench & Connected gate decisions, findings, actions, lexical provenance, and mandates & Executable policy and authoritative structured facts strongly scaffold the task.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The agentic BPM research agenda concerns process-level integration of agents, including planning,
+monitoring, and escalation \citep{agenticbpm2026}. This paper contributes a small, inspectable
+review-workflow measurement within that agenda, not evidence that an entire business process
+has been automated. Its distinctive feature is the connected review contract and auditable
+artifact collection. The deterministic control reported below shows why high model scores
+on this particular contract should not be treated as evidence of uniquely linguistic capability.
 
 The workload interpretation follows a task-level distinction between automation and aggregate
 employment: displacement of particular tasks can coexist with new tasks and changing demand
@@ -71,7 +99,8 @@ reviewers or infer employment effects from model scores.
 
 This is a shorter, empirical companion to \emph{The Last Human Gate: Forward Deployed Engineering
 and the Automation of Enterprise Governance}, by the same author. Both manuscripts use the same
-September 2026 DGF-Bench experiment; they are not independent replications. This paper removes
+September 2026 model experiment; they are not independent replications. This revision adds a
+deterministic control and a structural audit of saved evidence, with no new model trials yet. This paper removes
 the universal-law framing, reduces the scenario apparatus, and makes the validation gap an
 operational research plan. The original manuscript and data remain available separately.
 

@@ -1,0 +1,702 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 230451, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 4, \"change_record_status\": \"draft\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"container_apps\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035185",
+              "generation_seed": 35185,
+              "project_name": "Ember Acquisition Integration — Supply Chain Integration [19CD1]",
+              "project_code": "19CD1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Daria Ivanov-35185-SP",
+              "project_manager": "Lucas Dubois-35185-PM",
+              "business_owner": "Yusuf Khan-35185-BO",
+              "service_owner": "Samir Rahman-35185-SO",
+              "risk_owner": "Omar Moreau-35185-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-08-30",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 230451,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 4,
+              "change_record_status": "draft",
+              "service_continuity_class": "bronze",
+              "hosting_model": "container_apps"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-19CD1-v1.1\", \"lld_version\": \"LLD-19CD1-v4.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 7, \"adr_count\": 13, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.16.0/24\", \"10.215.17.0/24\", \"10.215.18.0/24\"], \"dns_zone\": \"dgf-int-035185.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-19CD1-v1.1\", \"lld_version\": \"LLD-19CD1-v4.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 7, \"adr_count\": 13, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.16.0/24\", \"10.215.17.0/24\", \"10.215.18.0/24\"], \"dns_zone\": \"dgf-int-035185.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035185",
+              "generation_seed": 35185,
+              "project_name": "Ember Acquisition Integration — Supply Chain Integration [19CD1]",
+              "project_code": "19CD1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Daria Ivanov-35185-SP",
+              "project_manager": "Lucas Dubois-35185-PM",
+              "business_owner": "Yusuf Khan-35185-BO",
+              "service_owner": "Samir Rahman-35185-SO",
+              "risk_owner": "Omar Moreau-35185-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-08-30",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-19CD1-v1.1",
+              "lld_version": "LLD-19CD1-v4.3",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": true,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 700,
+              "load_test_peak_pct": 100,
+              "architecture_debt_items": 7,
+              "adr_count": 13,
+              "reversibility_status": "tested",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.215.16.0/24",
+                "10.215.17.0/24",
+                "10.215.18.0/24"
+              ],
+              "dns_zone": "dgf-int-035185.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035185",
+              "generation_seed": 35185,
+              "project_name": "Ember Acquisition Integration — Supply Chain Integration [19CD1]",
+              "project_code": "19CD1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Daria Ivanov-35185-SP",
+              "project_manager": "Lucas Dubois-35185-PM",
+              "business_owner": "Yusuf Khan-35185-BO",
+              "service_owner": "Samir Rahman-35185-SO",
+              "risk_owner": "Omar Moreau-35185-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-08-30",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 180,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": 180,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-19CD1-5.1\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-19CD1-5.1\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035185",
+              "generation_seed": 35185,
+              "project_name": "Ember Acquisition Integration — Supply Chain Integration [19CD1]",
+              "project_code": "19CD1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Daria Ivanov-35185-SP",
+              "project_manager": "Lucas Dubois-35185-PM",
+              "business_owner": "Yusuf Khan-35185-BO",
+              "service_owner": "Samir Rahman-35185-SO",
+              "risk_owner": "Omar Moreau-35185-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-08-30",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-19CD1-5.1",
+              "governing_law": "France",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 2,
+              "security_carveout": false,
+              "audit_right": "none",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 30,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 20,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"Internal policy baseline\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035185",
+              "generation_seed": 35185,
+              "project_name": "Ember Acquisition Integration — Supply Chain Integration [19CD1]",
+              "project_code": "19CD1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Daria Ivanov-35185-SP",
+              "project_manager": "Lucas Dubois-35185-PM",
+              "business_owner": "Yusuf Khan-35185-BO",
+              "service_owner": "Samir Rahman-35185-SO",
+              "risk_owner": "Omar Moreau-35185-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-08-30",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "Internal policy baseline"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 3,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "passed",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "annual",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-EOL-001\"], \"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035185\\\", \\\"generation_seed\\\": 35185, \\\"project_name\\\": \\\"Ember Acquisition Integration — Supply Chain Integration [19CD1]\\\", \\\"project_code\\\": \\\"19CD1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Daria Ivanov-35185-SP\\\", \\\"project_manager\\\": \\\"Lucas Dubois-35185-PM\\\", \\\"business_owner\\\": \\\"Yusuf Khan-35185-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35185-SO\\\", \\\"risk_owner\\\": \\\"Omar Moreau-35185-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-08-30\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 230451, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 14, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"draft\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"container_apps\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035185\\\", \\\"generation_seed\\\": 35185, \\\"project_name\\\": \\\"Ember Acquisition Integration — Supply Chain Integration [19CD1]\\\", \\\"project_code\\\": \\\"19CD1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Daria Ivanov-35185-SP\\\", \\\"project_manager\\\": \\\"Lucas Dubois-35185-PM\\\", \\\"business_owner\\\": \\\"Yusuf Khan-35185-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35185-SO\\\", \\\"risk_owner\\\": \\\"Omar Moreau-35185-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-08-30\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-19CD1-v1.1\\\", \\\"lld_version\\\": \\\"LLD-19CD1-v4.3\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 7, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.215.16.0/24\\\", \\\"10.215.17.0/24\\\", \\\"10.215.18.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035185.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035185\\\", \\\"generation_seed\\\": 35185, \\\"project_name\\\": \\\"Ember Acquisition Integration — Supply Chain Integration [19CD1]\\\", \\\"project_code\\\": \\\"19CD1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Daria Ivanov-35185-SP\\\", \\\"project_manager\\\": \\\"Lucas Dubois-35185-PM\\\", \\\"business_owner\\\": \\\"Yusuf Khan-35185-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35185-SO\\\", \\\"risk_owner\\\": \\\"Omar Moreau-35185-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-08-30\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-19CD1-v1.1\\\", \\\"lld_version\\\": \\\"LLD-19CD1-v4.3\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 7, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.215.16.0/24\\\", \\\"10.215.17.0/24\\\", \\\"10.215.18.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035185.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\"], \"actions\": [\"ENABLE_WAF_PREVENTION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035185\\\", \\\"generation_seed\\\": 35185, \\\"project_name\\\": \\\"Ember Acquisition Integration — Supply Chain Integration [19CD1]\\\", \\\"project_code\\\": \\\"19CD1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Daria Ivanov-35185-SP\\\", \\\"project_manager\\\": \\\"Lucas Dubois-35185-PM\\\", \\\"business_owner\\\": \\\"Yusuf Khan-35185-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35185-SO\\\", \\\"risk_owner\\\": \\\"Omar Moreau-35185-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-08-30\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": 180, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-LOG-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\", \"ADD_LOG_EXPORT_CLAUSE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035185\\\", \\\"generation_seed\\\": 35185, \\\"project_name\\\": \\\"Ember Acquisition Integration — Supply Chain Integration [19CD1]\\\", \\\"project_code\\\": \\\"19CD1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Daria Ivanov-35185-SP\\\", \\\"project_manager\\\": \\\"Lucas Dubois-35185-PM\\\", \\\"business_owner\\\": \\\"Yusuf Khan-35185-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35185-SO\\\", \\\"risk_owner\\\": \\\"Omar Moreau-35185-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-08-30\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-19CD1-5.1\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"not_required\\\", \\\"liability_cap_multiplier\\\": 2, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035185\\\", \\\"generation_seed\\\": 35185, \\\"project_name\\\": \\\"Ember Acquisition Integration — Supply Chain Integration [19CD1]\\\", \\\"project_code\\\": \\\"19CD1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Daria Ivanov-35185-SP\\\", \\\"project_manager\\\": \\\"Lucas Dubois-35185-PM\\\", \\\"business_owner\\\": \\\"Yusuf Khan-35185-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35185-SO\\\", \\\"risk_owner\\\": \\\"Omar Moreau-35185-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-08-30\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-19CD1-5.1\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"not_required\\\", \\\"liability_cap_multiplier\\\": 2, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-AUDIT-001\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035185\\\", \\\"generation_seed\\\": 35185, \\\"project_name\\\": \\\"Ember Acquisition Integration — Supply Chain Integration [19CD1]\\\", \\\"project_code\\\": \\\"19CD1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Daria Ivanov-35185-SP\\\", \\\"project_manager\\\": \\\"Lucas Dubois-35185-PM\\\", \\\"business_owner\\\": \\\"Yusuf Khan-35185-BO\\\", \\\"service_owner\\\": \\\"Samir Rahman-35185-SO\\\", \\\"risk_owner\\\": \\\"Omar Moreau-35185-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-08-30\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"Internal policy baseline\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 3, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035185",
+              "generation_seed": 35185,
+              "project_name": "Ember Acquisition Integration — Supply Chain Integration [19CD1]",
+              "project_code": "19CD1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Daria Ivanov-35185-SP",
+              "project_manager": "Lucas Dubois-35185-PM",
+              "business_owner": "Yusuf Khan-35185-BO",
+              "service_owner": "Samir Rahman-35185-SO",
+              "risk_owner": "Omar Moreau-35185-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-08-30",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 900000,
+              "roi": 0.351,
+              "npv_eur": 367475,
+              "payback_months": 29,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 11.3,
+              "fte_available": 9.8,
+              "change_plan_status": "complete",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Clara Ivanov-35185-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-EOL-001"
+              ],
+              "actions": [
+                "CREATE_CONVERGENCE_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-EOL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 230451, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 4, \"change_record_status\": \"draft\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"container_apps\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-PERF-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-19CD1-v1.1\", \"lld_version\": \"LLD-19CD1-v4.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 7, \"adr_count\": 13, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.16.0/24\", \"10.215.17.0/24\", \"10.215.18.0/24\"], \"dns_zone\": \"dgf-int-035185.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-19CD1-v1.1\", \"lld_version\": \"LLD-19CD1-v4.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 7, \"adr_count\": 13, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.16.0/24\", \"10.215.17.0/24\", \"10.215.18.0/24\"], \"dns_zone\": \"dgf-int-035185.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-WAF-002"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-AUDIT-001",
+                "LEGAL-LOG-001"
+              ],
+              "actions": [
+                "REDLINE_AUDIT_RIGHT",
+                "ADD_LOG_EXPORT_CLAUSE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-19CD1-5.1\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-19CD1-5.1\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-AUDIT-001"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035185\", \"generation_seed\": 35185, \"project_name\": \"Ember Acquisition Integration — Supply Chain Integration [19CD1]\", \"project_code\": \"19CD1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Daria Ivanov-35185-SP\", \"project_manager\": \"Lucas Dubois-35185-PM\", \"business_owner\": \"Yusuf Khan-35185-BO\", \"service_owner\": \"Samir Rahman-35185-SO\", \"risk_owner\": \"Omar Moreau-35185-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-08-30\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"Internal policy baseline\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

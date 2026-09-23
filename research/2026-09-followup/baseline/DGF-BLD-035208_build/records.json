@@ -1,0 +1,660 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 184313, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"mixed\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035208",
+              "generation_seed": 35208,
+              "project_name": "Project Boreal — Risk Analytics Platform [F9EA1]",
+              "project_code": "F9EA1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Noor Moreau-35208-SP",
+              "project_manager": "Victor Bennett-35208-PM",
+              "business_owner": "Amira Nguyen-35208-BO",
+              "service_owner": "Nadia Khan-35208-SO",
+              "risk_owner": "Jeremy Rahman-35208-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-09-27",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": false,
+              "annual_license_cost_eur": 184313,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "silver",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-F9EA1-v1.2\", \"lld_version\": \"LLD-F9EA1-v3.5\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.128.0/24\", \"10.16.129.0/24\", \"10.16.130.0/24\"], \"dns_zone\": \"dgf-bld-035208.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-F9EA1-v1.2\", \"lld_version\": \"LLD-F9EA1-v3.5\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.128.0/24\", \"10.16.129.0/24\", \"10.16.130.0/24\"], \"dns_zone\": \"dgf-bld-035208.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035208",
+              "generation_seed": 35208,
+              "project_name": "Project Boreal — Risk Analytics Platform [F9EA1]",
+              "project_code": "F9EA1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Noor Moreau-35208-SP",
+              "project_manager": "Victor Bennett-35208-PM",
+              "business_owner": "Amira Nguyen-35208-BO",
+              "service_owner": "Nadia Khan-35208-SO",
+              "risk_owner": "Jeremy Rahman-35208-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-09-27",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-F9EA1-v1.2",
+              "lld_version": "LLD-F9EA1-v3.5",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 95,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 5,
+              "adr_count": 4,
+              "reversibility_status": "missing",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.16.128.0/24",
+                "10.16.129.0/24",
+                "10.16.130.0/24"
+              ],
+              "dns_zone": "dgf-bld-035208.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-VULN-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "REMEDIATE_CRITICAL_VULNERABILITIES",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 3, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 3, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035208",
+              "generation_seed": 35208,
+              "project_name": "Project Boreal — Risk Analytics Platform [F9EA1]",
+              "project_code": "F9EA1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Noor Moreau-35208-SP",
+              "project_manager": "Victor Bennett-35208-PM",
+              "business_owner": "Amira Nguyen-35208-BO",
+              "service_owner": "Nadia Khan-35208-SO",
+              "risk_owner": "Jeremy Rahman-35208-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-09-27",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 3,
+              "high_vulns_open": 3,
+              "pentest_age_days": 180,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "TR-BACKUP-001",
+        "TR-RTO-001",
+        "TR-RPO-001",
+        "TR-LOAD-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "ENABLE_BACKUP",
+        "REMEDIATE_RECOVERY_TIME",
+        "REMEDIATE_RECOVERY_POINT",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-BACKUP-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-RTO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035208",
+              "generation_seed": 35208,
+              "project_name": "Project Boreal — Risk Analytics Platform [F9EA1]",
+              "project_code": "F9EA1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Noor Moreau-35208-SP",
+              "project_manager": "Victor Bennett-35208-PM",
+              "business_owner": "Amira Nguyen-35208-BO",
+              "service_owner": "Nadia Khan-35208-SO",
+              "risk_owner": "Jeremy Rahman-35208-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-09-27",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 70,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 75,
+              "p95_ms": 1225,
+              "unit_test_coverage_pct": 89,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": false,
+              "observability_traces": false,
+              "backup_enabled": false,
+              "restore_tested": true,
+              "target_rto_hours": 1,
+              "measured_restore_hours": 1.75,
+              "target_rpo_minutes": 30,
+              "measured_data_loss_minutes": 60,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "missing",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 500000, \"budget_approved_eur\": 350000, \"roi\": 0.338, \"npv_eur\": 240365, \"payback_months\": 21, \"schedule_slip_weeks\": 0, \"fte_needed\": 10.3, \"fte_available\": 26.8, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"Elena Moreau-35208-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-LICENSE-001\"], \"actions\": [\"REMEDIATE_LICENSE_POSITION\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 184313, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 20, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-F9EA1-v1.2\\\", \\\"lld_version\\\": \\\"LLD-F9EA1-v3.5\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 5, \\\"adr_count\\\": 4, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.16.128.0/24\\\", \\\"10.16.129.0/24\\\", \\\"10.16.130.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035208.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-F9EA1-v1.2\\\", \\\"lld_version\\\": \\\"LLD-F9EA1-v3.5\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 5, \\\"adr_count\\\": 4, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.16.128.0/24\\\", \\\"10.16.129.0/24\\\", \\\"10.16.130.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035208.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-VULN-001\", \"SEC-KEY-001\"], \"actions\": [\"REMEDIATE_CRITICAL_VULNERABILITIES\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": 180, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": 180, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"TR-BACKUP-001\", \"TR-RTO-001\", \"TR-RPO-001\", \"TR-LOAD-001\", \"TR-OPS-001\"], \"actions\": [\"ENABLE_BACKUP\", \"REMEDIATE_RECOVERY_TIME\", \"REMEDIATE_RECOVERY_POINT\", \"RERUN_LOAD_TEST_AT_PEAK\", \"COMPLETE_OPERATIONAL_HANDOVER\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-BACKUP-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 70, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1225, \\\"unit_test_coverage_pct\\\": 89, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.75, \\\"target_rpo_minutes\\\": 30, \\\"measured_data_loss_minutes\\\": 60, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-RTO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 70, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1225, \\\"unit_test_coverage_pct\\\": 89, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.75, \\\"target_rpo_minutes\\\": 30, \\\"measured_data_loss_minutes\\\": 60, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-RPO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 70, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1225, \\\"unit_test_coverage_pct\\\": 89, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.75, \\\"target_rpo_minutes\\\": 30, \\\"measured_data_loss_minutes\\\": 60, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-LOAD-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 70, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1225, \\\"unit_test_coverage_pct\\\": 89, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.75, \\\"target_rpo_minutes\\\": 30, \\\"measured_data_loss_minutes\\\": 60, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035208\\\", \\\"generation_seed\\\": 35208, \\\"project_name\\\": \\\"Project Boreal — Risk Analytics Platform [F9EA1]\\\", \\\"project_code\\\": \\\"F9EA1\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Noor Moreau-35208-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35208-PM\\\", \\\"business_owner\\\": \\\"Amira Nguyen-35208-BO\\\", \\\"service_owner\\\": \\\"Nadia Khan-35208-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Rahman-35208-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-09-27\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 70, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1225, \\\"unit_test_coverage_pct\\\": 89, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 1, \\\"measured_restore_hours\\\": 1.75, \\\"target_rpo_minutes\\\": 30, \\\"measured_data_loss_minutes\\\": 60, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035208",
+              "generation_seed": 35208,
+              "project_name": "Project Boreal — Risk Analytics Platform [F9EA1]",
+              "project_code": "F9EA1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Noor Moreau-35208-SP",
+              "project_manager": "Victor Bennett-35208-PM",
+              "business_owner": "Amira Nguyen-35208-BO",
+              "service_owner": "Nadia Khan-35208-SO",
+              "risk_owner": "Jeremy Rahman-35208-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-09-27",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 350000,
+              "roi": 0.338,
+              "npv_eur": 240365,
+              "payback_months": 21,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 10.3,
+              "fte_available": 26.8,
+              "change_plan_status": "complete",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Elena Moreau-35208-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-LICENSE-001"
+              ],
+              "actions": [
+                "REMEDIATE_LICENSE_POSITION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 184313, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"mixed\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-F9EA1-v1.2\", \"lld_version\": \"LLD-F9EA1-v3.5\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.128.0/24\", \"10.16.129.0/24\", \"10.16.130.0/24\"], \"dns_zone\": \"dgf-bld-035208.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-F9EA1-v1.2\", \"lld_version\": \"LLD-F9EA1-v3.5\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": false, \"private_cidrs\": [\"10.16.128.0/24\", \"10.16.129.0/24\", \"10.16.130.0/24\"], \"dns_zone\": \"dgf-bld-035208.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-VULN-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "REMEDIATE_CRITICAL_VULNERABILITIES",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 3, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 3, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "TR-BACKUP-001",
+                "TR-RTO-001",
+                "TR-RPO-001",
+                "TR-LOAD-001",
+                "TR-OPS-001"
+              ],
+              "actions": [
+                "ENABLE_BACKUP",
+                "REMEDIATE_RECOVERY_TIME",
+                "REMEDIATE_RECOVERY_POINT",
+                "RERUN_LOAD_TEST_AT_PEAK",
+                "COMPLETE_OPERATIONAL_HANDOVER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-BACKUP-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-RTO-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-RPO-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-LOAD-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035208\", \"generation_seed\": 35208, \"project_name\": \"Project Boreal — Risk Analytics Platform [F9EA1]\", \"project_code\": \"F9EA1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Noor Moreau-35208-SP\", \"project_manager\": \"Victor Bennett-35208-PM\", \"business_owner\": \"Amira Nguyen-35208-BO\", \"service_owner\": \"Nadia Khan-35208-SO\", \"risk_owner\": \"Jeremy Rahman-35208-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-09-27\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 70, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1225, \"unit_test_coverage_pct\": 89, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 1, \"measured_restore_hours\": 1.75, \"target_rpo_minutes\": 30, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

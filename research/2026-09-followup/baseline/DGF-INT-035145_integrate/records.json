@@ -1,0 +1,780 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035145",
+              "generation_seed": 35145,
+              "project_name": "Yotta Acquisition Integration — Supply Chain Integration [F5E39]",
+              "project_code": "F5E39",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Amira Garcia-35145-SP",
+              "project_manager": "Clara Petrescu-35145-PM",
+              "business_owner": "Thomas Santos-35145-BO",
+              "service_owner": "Daria Costa-35145-SO",
+              "risk_owner": "Adam Santos-35145-RO",
+              "start_date": "2026-09-28",
+              "target_go_live": "2027-01-31",
+              "users_impacted": 80,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 118971,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "approved",
+              "service_continuity_class": "silver",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-F5E39-v2.9\", \"lld_version\": \"LLD-F5E39-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 0, \"adr_count\": 7, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.144.0/24\", \"10.212.145.0/24\", \"10.212.146.0/24\"], \"dns_zone\": \"dgf-int-035145.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-F5E39-v2.9\", \"lld_version\": \"LLD-F5E39-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 0, \"adr_count\": 7, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.144.0/24\", \"10.212.145.0/24\", \"10.212.146.0/24\"], \"dns_zone\": \"dgf-int-035145.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-F5E39-v2.9\", \"lld_version\": \"LLD-F5E39-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 0, \"adr_count\": 7, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.144.0/24\", \"10.212.145.0/24\", \"10.212.146.0/24\"], \"dns_zone\": \"dgf-int-035145.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035145",
+              "generation_seed": 35145,
+              "project_name": "Yotta Acquisition Integration — Supply Chain Integration [F5E39]",
+              "project_code": "F5E39",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Amira Garcia-35145-SP",
+              "project_manager": "Clara Petrescu-35145-PM",
+              "business_owner": "Thomas Santos-35145-BO",
+              "service_owner": "Daria Costa-35145-SO",
+              "risk_owner": "Adam Santos-35145-RO",
+              "start_date": "2026-09-28",
+              "target_go_live": "2027-01-31",
+              "users_impacted": 80,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-F5E39-v2.9",
+              "lld_version": "LLD-F5E39-v1.4",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 350,
+              "load_test_peak_pct": 50,
+              "architecture_debt_items": 0,
+              "adr_count": 7,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.212.144.0/24",
+                "10.212.145.0/24",
+                "10.212.146.0/24"
+              ],
+              "dns_zone": "dgf-int-035145.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-VULN-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "REMEDIATE_CRITICAL_VULNERABILITIES",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 0, \"pentest_age_days\": 60, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 0, \"pentest_age_days\": 60, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 0, \"pentest_age_days\": 60, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035145",
+              "generation_seed": 35145,
+              "project_name": "Yotta Acquisition Integration — Supply Chain Integration [F5E39]",
+              "project_code": "F5E39",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Amira Garcia-35145-SP",
+              "project_manager": "Clara Petrescu-35145-PM",
+              "business_owner": "Thomas Santos-35145-BO",
+              "service_owner": "Daria Costa-35145-SO",
+              "risk_owner": "Adam Santos-35145-RO",
+              "start_date": "2026-09-28",
+              "target_go_live": "2027-01-31",
+              "users_impacted": 80,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 1,
+              "high_vulns_open": 0,
+              "pentest_age_days": 60,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": false,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-IP-001",
+        "LEGAL-INS-001",
+        "LEGAL-SIGN-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "CLARIFY_IP_OWNERSHIP",
+        "OBTAIN_VALID_INSURANCE",
+        "OBTAIN_AUTHORIZED_SIGNATORY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-SIGN-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035145",
+              "generation_seed": 35145,
+              "project_name": "Yotta Acquisition Integration — Supply Chain Integration [F5E39]",
+              "project_code": "F5E39",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Amira Garcia-35145-SP",
+              "project_manager": "Clara Petrescu-35145-PM",
+              "business_owner": "Thomas Santos-35145-BO",
+              "service_owner": "Daria Costa-35145-SO",
+              "risk_owner": "Adam Santos-35145-RO",
+              "start_date": "2026-09-28",
+              "target_go_live": "2027-01-31",
+              "users_impacted": 80,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-F5E39-6.7",
+              "governing_law": "France",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 5,
+              "security_carveout": false,
+              "audit_right": "none",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 180,
+              "ip_ownership": "ambiguous",
+              "insurance_valid": false,
+              "cyber_insurance_m": 20,
+              "signing_authority_valid": false,
+              "data_transfer_clause": "missing",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-AUDIT-001",
+        "COMP-A11Y-001",
+        "COMP-EXPORT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL",
+        "REMEDIATE_ACCESSIBILITY",
+        "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"restricted\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035145",
+              "generation_seed": 35145,
+              "project_name": "Yotta Acquisition Integration — Supply Chain Integration [F5E39]",
+              "project_code": "F5E39",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Amira Garcia-35145-SP",
+              "project_manager": "Clara Petrescu-35145-PM",
+              "business_owner": "Thomas Santos-35145-BO",
+              "service_owner": "Daria Costa-35145-SO",
+              "risk_owner": "Adam Santos-35145-RO",
+              "start_date": "2026-09-28",
+              "target_go_live": "2027-01-31",
+              "users_impacted": 80,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "EU",
+              "residency_compliant": true,
+              "retention_years": 3,
+              "legal_hold_supported": true,
+              "deletion_enforced": false,
+              "audit_trail": "missing",
+              "accessibility_status": "major_findings",
+              "ethics_review": "passed",
+              "regulatory_mapping": "complete",
+              "third_party_monitoring": "continuous",
+              "export_control": "restricted"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-F5E39-v2.9\\\", \\\"lld_version\\\": \\\"LLD-F5E39-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 7, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.212.144.0/24\\\", \\\"10.212.145.0/24\\\", \\\"10.212.146.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035145.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-F5E39-v2.9\\\", \\\"lld_version\\\": \\\"LLD-F5E39-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 7, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.212.144.0/24\\\", \\\"10.212.145.0/24\\\", \\\"10.212.146.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035145.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-F5E39-v2.9\\\", \\\"lld_version\\\": \\\"LLD-F5E39-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 7, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.212.144.0/24\\\", \\\"10.212.145.0/24\\\", \\\"10.212.146.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035145.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-NET-001\", \"SEC-VULN-001\", \"SEC-KEY-001\"], \"actions\": [\"ENABLE_PRIVATE_ENDPOINTS\", \"REMEDIATE_CRITICAL_VULNERABILITIES\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-NET-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 1, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 60, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 1, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 60, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 1, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 60, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-IP-001\", \"LEGAL-INS-001\", \"LEGAL-SIGN-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\", \"CLARIFY_IP_OWNERSHIP\", \"OBTAIN_VALID_INSURANCE\", \"OBTAIN_AUTHORIZED_SIGNATORY\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-F5E39-6.7\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 5, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": false, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-IP-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-F5E39-6.7\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 5, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": false, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-INS-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-F5E39-6.7\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 5, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": false, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-SIGN-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-F5E39-6.7\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 5, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": false, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-AUDIT-001\", \"COMP-A11Y-001\", \"COMP-EXPORT-001\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\", \"REMEDIATE_ACCESSIBILITY\", \"OBTAIN_EXPORT_CONTROL_CLEARANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 3, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"complete\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 3, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"complete\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035145\\\", \\\"generation_seed\\\": 35145, \\\"project_name\\\": \\\"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\\\", \\\"project_code\\\": \\\"F5E39\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Amira Garcia-35145-SP\\\", \\\"project_manager\\\": \\\"Clara Petrescu-35145-PM\\\", \\\"business_owner\\\": \\\"Thomas Santos-35145-BO\\\", \\\"service_owner\\\": \\\"Daria Costa-35145-SO\\\", \\\"risk_owner\\\": \\\"Adam Santos-35145-RO\\\", \\\"start_date\\\": \\\"2026-09-28\\\", \\\"target_go_live\\\": \\\"2027-01-31\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 3, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"complete\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035145",
+              "generation_seed": 35145,
+              "project_name": "Yotta Acquisition Integration — Supply Chain Integration [F5E39]",
+              "project_code": "F5E39",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Amira Garcia-35145-SP",
+              "project_manager": "Clara Petrescu-35145-PM",
+              "business_owner": "Thomas Santos-35145-BO",
+              "service_owner": "Daria Costa-35145-SO",
+              "risk_owner": "Adam Santos-35145-RO",
+              "start_date": "2026-09-28",
+              "target_go_live": "2027-01-31",
+              "users_impacted": 80,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1500000,
+              "roi": 0.146,
+              "npv_eur": 814839,
+              "payback_months": 26,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 5.5,
+              "fte_available": 23.9,
+              "change_plan_status": "missing",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Sofia Nguyen-35145-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-F5E39-v2.9\", \"lld_version\": \"LLD-F5E39-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 0, \"adr_count\": 7, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.144.0/24\", \"10.212.145.0/24\", \"10.212.146.0/24\"], \"dns_zone\": \"dgf-int-035145.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-F5E39-v2.9\", \"lld_version\": \"LLD-F5E39-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 0, \"adr_count\": 7, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.144.0/24\", \"10.212.145.0/24\", \"10.212.146.0/24\"], \"dns_zone\": \"dgf-int-035145.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-F5E39-v2.9\", \"lld_version\": \"LLD-F5E39-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 0, \"adr_count\": 7, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.212.144.0/24\", \"10.212.145.0/24\", \"10.212.146.0/24\"], \"dns_zone\": \"dgf-int-035145.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-NET-001",
+                "SEC-VULN-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "ENABLE_PRIVATE_ENDPOINTS",
+                "REMEDIATE_CRITICAL_VULNERABILITIES",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-NET-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 0, \"pentest_age_days\": 60, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 0, \"pentest_age_days\": 60, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 0, \"pentest_age_days\": 60, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "LEGAL-AUDIT-001",
+                "LEGAL-IP-001",
+                "LEGAL-INS-001",
+                "LEGAL-SIGN-001"
+              ],
+              "actions": [
+                "REDLINE_AUDIT_RIGHT",
+                "CLARIFY_IP_OWNERSHIP",
+                "OBTAIN_VALID_INSURANCE",
+                "OBTAIN_AUTHORIZED_SIGNATORY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-IP-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-INS-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-SIGN-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-F5E39-6.7\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 20, \"signing_authority_valid\": false, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-AUDIT-001",
+                "COMP-A11Y-001",
+                "COMP-EXPORT-001"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL",
+                "REMEDIATE_ACCESSIBILITY",
+                "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-A11Y-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035145\", \"generation_seed\": 35145, \"project_name\": \"Yotta Acquisition Integration — Supply Chain Integration [F5E39]\", \"project_code\": \"F5E39\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Amira Garcia-35145-SP\", \"project_manager\": \"Clara Petrescu-35145-PM\", \"business_owner\": \"Thomas Santos-35145-BO\", \"service_owner\": \"Daria Costa-35145-SO\", \"risk_owner\": \"Adam Santos-35145-RO\", \"start_date\": \"2026-09-28\", \"target_go_live\": \"2027-01-31\", \"users_impacted\": 80, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 3, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"restricted\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

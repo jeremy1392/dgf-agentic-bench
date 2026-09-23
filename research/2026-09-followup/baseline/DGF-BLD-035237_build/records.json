@@ -1,0 +1,597 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 30, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 590464, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"container_apps\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035237",
+              "generation_seed": 35237,
+              "project_name": "Project Yotta — Digital Treasury Hub [B41BC]",
+              "project_code": "B41BC",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Daria Benali-35237-SP",
+              "project_manager": "Omar Bennett-35237-PM",
+              "business_owner": "Leila Moreau-35237-BO",
+              "service_owner": "Adam Petrescu-35237-SO",
+              "risk_owner": "Daria Bennett-35237-RO",
+              "start_date": "2026-11-21",
+              "target_go_live": "2027-11-23",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Public",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": true,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 590464,
+              "cmdb_record_present": false,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 90,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "bronze",
+              "hosting_model": "container_apps"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B41BC-v2.6\", \"lld_version\": \"LLD-B41BC-v4.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 3, \"reversibility_status\": \"documented\", \"data_export_supported\": false, \"private_cidrs\": [\"10.18.80.0/24\", \"10.18.81.0/24\", \"10.18.82.0/24\"], \"dns_zone\": \"dgf-bld-035237.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035237",
+              "generation_seed": 35237,
+              "project_name": "Project Yotta — Digital Treasury Hub [B41BC]",
+              "project_code": "B41BC",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Daria Benali-35237-SP",
+              "project_manager": "Omar Bennett-35237-PM",
+              "business_owner": "Leila Moreau-35237-BO",
+              "service_owner": "Adam Petrescu-35237-SO",
+              "risk_owner": "Daria Bennett-35237-RO",
+              "start_date": "2026-11-21",
+              "target_go_live": "2027-11-23",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Public",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-B41BC-v2.6",
+              "lld_version": "LLD-B41BC-v4.1",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 50,
+              "measured_latency_ms": 95,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 5,
+              "adr_count": 3,
+              "reversibility_status": "documented",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.18.80.0/24",
+                "10.18.81.0/24",
+                "10.18.82.0/24"
+              ],
+              "dns_zone": "dgf-bld-035237.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENFORCE_MFA",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 365, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 365, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035237",
+              "generation_seed": 35237,
+              "project_name": "Project Yotta — Digital Treasury Hub [B41BC]",
+              "project_code": "B41BC",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Daria Benali-35237-SP",
+              "project_manager": "Omar Bennett-35237-PM",
+              "business_owner": "Leila Moreau-35237-BO",
+              "service_owner": "Adam Petrescu-35237-SO",
+              "risk_owner": "Daria Bennett-35237-RO",
+              "start_date": "2026-11-21",
+              "target_go_live": "2027-11-23",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Public",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "optional",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 4,
+              "pentest_age_days": 365,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": false,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-LOAD-001",
+        "TR-CODE-001"
+      ],
+      "actions": [
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 74, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 601, \"unit_test_coverage_pct\": 43, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.25, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 15, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 74, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 601, \"unit_test_coverage_pct\": 43, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.25, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 15, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035237",
+              "generation_seed": 35237,
+              "project_name": "Project Yotta — Digital Treasury Hub [B41BC]",
+              "project_code": "B41BC",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Daria Benali-35237-SP",
+              "project_manager": "Omar Bennett-35237-PM",
+              "business_owner": "Leila Moreau-35237-BO",
+              "service_owner": "Adam Petrescu-35237-SO",
+              "risk_owner": "Daria Bennett-35237-RO",
+              "start_date": "2026-11-21",
+              "target_go_live": "2027-11-23",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Public",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "tech_readiness": {
+              "test_completion_pct": 74,
+              "pilot_completed": false,
+              "load_test_pct_of_peak": 75,
+              "p95_ms": 601,
+              "unit_test_coverage_pct": 43,
+              "critical_static_findings": 3,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": false,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 0.25,
+              "measured_restore_hours": 0.25,
+              "target_rpo_minutes": 15,
+              "measured_data_loss_minutes": 15,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035237\\\", \\\"generation_seed\\\": 35237, \\\"project_name\\\": \\\"Project Yotta — Digital Treasury Hub [B41BC]\\\", \\\"project_code\\\": \\\"B41BC\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Daria Benali-35237-SP\\\", \\\"project_manager\\\": \\\"Omar Bennett-35237-PM\\\", \\\"business_owner\\\": \\\"Leila Moreau-35237-BO\\\", \\\"service_owner\\\": \\\"Adam Petrescu-35237-SO\\\", \\\"risk_owner\\\": \\\"Daria Bennett-35237-RO\\\", \\\"start_date\\\": \\\"2026-11-21\\\", \\\"target_go_live\\\": \\\"2027-11-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 30, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 590464, \\\"cmdb_record_present\\\": false, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 90, \\\"capacity_headroom_pct\\\": 20, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"container_apps\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-PERF-001\"], \"actions\": [\"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035237\\\", \\\"generation_seed\\\": 35237, \\\"project_name\\\": \\\"Project Yotta — Digital Treasury Hub [B41BC]\\\", \\\"project_code\\\": \\\"B41BC\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Daria Benali-35237-SP\\\", \\\"project_manager\\\": \\\"Omar Bennett-35237-PM\\\", \\\"business_owner\\\": \\\"Leila Moreau-35237-BO\\\", \\\"service_owner\\\": \\\"Adam Petrescu-35237-SO\\\", \\\"risk_owner\\\": \\\"Daria Bennett-35237-RO\\\", \\\"start_date\\\": \\\"2026-11-21\\\", \\\"target_go_live\\\": \\\"2027-11-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B41BC-v2.6\\\", \\\"lld_version\\\": \\\"LLD-B41BC-v4.1\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 5, \\\"adr_count\\\": 3, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.18.80.0/24\\\", \\\"10.18.81.0/24\\\", \\\"10.18.82.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035237.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-IAM-001\", \"SEC-KEY-001\"], \"actions\": [\"ENFORCE_MFA\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035237\\\", \\\"generation_seed\\\": 35237, \\\"project_name\\\": \\\"Project Yotta — Digital Treasury Hub [B41BC]\\\", \\\"project_code\\\": \\\"B41BC\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Daria Benali-35237-SP\\\", \\\"project_manager\\\": \\\"Omar Bennett-35237-PM\\\", \\\"business_owner\\\": \\\"Leila Moreau-35237-BO\\\", \\\"service_owner\\\": \\\"Adam Petrescu-35237-SO\\\", \\\"risk_owner\\\": \\\"Daria Bennett-35237-RO\\\", \\\"start_date\\\": \\\"2026-11-21\\\", \\\"target_go_live\\\": \\\"2027-11-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"optional\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035237\\\", \\\"generation_seed\\\": 35237, \\\"project_name\\\": \\\"Project Yotta — Digital Treasury Hub [B41BC]\\\", \\\"project_code\\\": \\\"B41BC\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Daria Benali-35237-SP\\\", \\\"project_manager\\\": \\\"Omar Bennett-35237-PM\\\", \\\"business_owner\\\": \\\"Leila Moreau-35237-BO\\\", \\\"service_owner\\\": \\\"Adam Petrescu-35237-SO\\\", \\\"risk_owner\\\": \\\"Daria Bennett-35237-RO\\\", \\\"start_date\\\": \\\"2026-11-21\\\", \\\"target_go_live\\\": \\\"2027-11-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"optional\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"TR-LOAD-001\", \"TR-CODE-001\"], \"actions\": [\"RERUN_LOAD_TEST_AT_PEAK\", \"REMEDIATE_BUILD_FINDINGS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-LOAD-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035237\\\", \\\"generation_seed\\\": 35237, \\\"project_name\\\": \\\"Project Yotta — Digital Treasury Hub [B41BC]\\\", \\\"project_code\\\": \\\"B41BC\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Daria Benali-35237-SP\\\", \\\"project_manager\\\": \\\"Omar Bennett-35237-PM\\\", \\\"business_owner\\\": \\\"Leila Moreau-35237-BO\\\", \\\"service_owner\\\": \\\"Adam Petrescu-35237-SO\\\", \\\"risk_owner\\\": \\\"Daria Bennett-35237-RO\\\", \\\"start_date\\\": \\\"2026-11-21\\\", \\\"target_go_live\\\": \\\"2027-11-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 74, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 601, \\\"unit_test_coverage_pct\\\": 43, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.25, \\\"target_rpo_minutes\\\": 15, \\\"measured_data_loss_minutes\\\": 15, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-CODE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035237\\\", \\\"generation_seed\\\": 35237, \\\"project_name\\\": \\\"Project Yotta — Digital Treasury Hub [B41BC]\\\", \\\"project_code\\\": \\\"B41BC\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Daria Benali-35237-SP\\\", \\\"project_manager\\\": \\\"Omar Bennett-35237-PM\\\", \\\"business_owner\\\": \\\"Leila Moreau-35237-BO\\\", \\\"service_owner\\\": \\\"Adam Petrescu-35237-SO\\\", \\\"risk_owner\\\": \\\"Daria Bennett-35237-RO\\\", \\\"start_date\\\": \\\"2026-11-21\\\", \\\"target_go_live\\\": \\\"2027-11-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 74, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 601, \\\"unit_test_coverage_pct\\\": 43, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.25, \\\"target_rpo_minutes\\\": 15, \\\"measured_data_loss_minutes\\\": 15, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035237",
+              "generation_seed": 35237,
+              "project_name": "Project Yotta — Digital Treasury Hub [B41BC]",
+              "project_code": "B41BC",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Risk",
+              "sponsor": "Daria Benali-35237-SP",
+              "project_manager": "Omar Bennett-35237-PM",
+              "business_owner": "Leila Moreau-35237-BO",
+              "service_owner": "Adam Petrescu-35237-SO",
+              "risk_owner": "Daria Bennett-35237-RO",
+              "start_date": "2026-11-21",
+              "target_go_live": "2027-11-23",
+              "users_impacted": 2000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Public",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 500000,
+              "roi": 0.364,
+              "npv_eur": 76440,
+              "payback_months": 41,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 15.6,
+              "fte_available": 3.8,
+              "change_plan_status": "draft",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Elena Meyer-1035240-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 30, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 590464, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"container_apps\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-PERF-001"
+              ],
+              "actions": [
+                "REMEDIATE_LATENCY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-B41BC-v2.6\", \"lld_version\": \"LLD-B41BC-v4.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 3, \"reversibility_status\": \"documented\", \"data_export_supported\": false, \"private_cidrs\": [\"10.18.80.0/24\", \"10.18.81.0/24\", \"10.18.82.0/24\"], \"dns_zone\": \"dgf-bld-035237.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-IAM-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "ENFORCE_MFA",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 365, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"optional\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 365, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "TR-LOAD-001",
+                "TR-CODE-001"
+              ],
+              "actions": [
+                "RERUN_LOAD_TEST_AT_PEAK",
+                "REMEDIATE_BUILD_FINDINGS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-LOAD-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 74, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 601, \"unit_test_coverage_pct\": 43, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.25, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 15, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-CODE-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035237\", \"generation_seed\": 35237, \"project_name\": \"Project Yotta — Digital Treasury Hub [B41BC]\", \"project_code\": \"B41BC\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Risk\", \"sponsor\": \"Daria Benali-35237-SP\", \"project_manager\": \"Omar Bennett-35237-PM\", \"business_owner\": \"Leila Moreau-35237-BO\", \"service_owner\": \"Adam Petrescu-35237-SO\", \"risk_owner\": \"Daria Bennett-35237-RO\", \"start_date\": \"2026-11-21\", \"target_go_live\": \"2027-11-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 500000, \"data_classification\": \"Public\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 74, \"pilot_completed\": false, \"load_test_pct_of_peak\": 75, \"p95_ms\": 601, \"unit_test_coverage_pct\": 43, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.25, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 15, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

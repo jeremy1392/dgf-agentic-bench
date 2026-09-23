@@ -1,0 +1,815 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 74188, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"functions\"}}"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 74188, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"functions\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035152",
+              "generation_seed": 35152,
+              "project_name": "Nova Acquisition Integration — Payments API Hub [BF3CF]",
+              "project_code": "BF3CF",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Treasury",
+              "sponsor": "Omar Khan-35152-SP",
+              "project_manager": "Ines Smith-35152-PM",
+              "business_owner": "Samir Bennett-35152-BO",
+              "service_owner": "Adam Martin-35152-SO",
+              "risk_owner": "Nadia Smith-35152-RO",
+              "start_date": "2026-12-07",
+              "target_go_live": "2027-10-21",
+              "users_impacted": 12000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": true,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 74188,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 4,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "functions"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-DATA-001",
+        "ARCH-HA-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "ASSIGN_DATA_OWNER",
+        "REDESIGN_FOR_HIGH_AVAILABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-BF3CF-v1.9\", \"lld_version\": \"LLD-BF3CF-v1.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.0.0/24\", \"10.213.1.0/24\", \"10.213.2.0/24\"], \"dns_zone\": \"dgf-int-035152.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-BF3CF-v1.9\", \"lld_version\": \"LLD-BF3CF-v1.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.0.0/24\", \"10.213.1.0/24\", \"10.213.2.0/24\"], \"dns_zone\": \"dgf-int-035152.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-BF3CF-v1.9\", \"lld_version\": \"LLD-BF3CF-v1.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.0.0/24\", \"10.213.1.0/24\", \"10.213.2.0/24\"], \"dns_zone\": \"dgf-int-035152.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035152",
+              "generation_seed": 35152,
+              "project_name": "Nova Acquisition Integration — Payments API Hub [BF3CF]",
+              "project_code": "BF3CF",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Treasury",
+              "sponsor": "Omar Khan-35152-SP",
+              "project_manager": "Ines Smith-35152-PM",
+              "business_owner": "Samir Bennett-35152-BO",
+              "service_owner": "Adam Martin-35152-SO",
+              "risk_owner": "Nadia Smith-35152-RO",
+              "start_date": "2026-12-07",
+              "target_go_live": "2027-10-21",
+              "users_impacted": 12000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-BF3CF-v1.9",
+              "lld_version": "LLD-BF3CF-v1.1",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": false,
+              "data_lineage_complete": false,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 95,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 2,
+              "adr_count": 13,
+              "reversibility_status": "documented",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.213.0.0/24",
+                "10.213.1.0/24",
+                "10.213.2.0/24"
+              ],
+              "dns_zone": "dgf-int-035152.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-IAM-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "ENFORCE_MFA",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035152",
+              "generation_seed": 35152,
+              "project_name": "Nova Acquisition Integration — Payments API Hub [BF3CF]",
+              "project_code": "BF3CF",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Treasury",
+              "sponsor": "Omar Khan-35152-SP",
+              "project_manager": "Ines Smith-35152-PM",
+              "business_owner": "Samir Bennett-35152-BO",
+              "service_owner": "Adam Martin-35152-SO",
+              "risk_owner": "Nadia Smith-35152-RO",
+              "start_date": "2026-12-07",
+              "target_go_live": "2027-10-21",
+              "users_impacted": 12000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "missing",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 60,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": false,
+              "critical_vulns_open": 2,
+              "high_vulns_open": 4,
+              "pentest_age_days": 14,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-INS-001",
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "OBTAIN_VALID_INSURANCE",
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BF3CF-6.5\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": false, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BF3CF-6.5\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": false, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035152",
+              "generation_seed": 35152,
+              "project_name": "Nova Acquisition Integration — Payments API Hub [BF3CF]",
+              "project_code": "BF3CF",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Treasury",
+              "sponsor": "Omar Khan-35152-SP",
+              "project_manager": "Ines Smith-35152-PM",
+              "business_owner": "Samir Bennett-35152-BO",
+              "service_owner": "Adam Martin-35152-SO",
+              "risk_owner": "Nadia Smith-35152-RO",
+              "start_date": "2026-12-07",
+              "target_go_live": "2027-10-21",
+              "users_impacted": 12000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-BF3CF-6.5",
+              "governing_law": "France",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": false,
+              "audit_right": "full",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 180,
+              "ip_ownership": "shared",
+              "insurance_valid": false,
+              "cyber_insurance_m": 5,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "contractual_only",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-RESID-001",
+        "COMP-MAP-001",
+        "COMP-A11Y-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "COMPLETE_CONTROL_MAPPING",
+        "REMEDIATE_ACCESSIBILITY",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035152",
+              "generation_seed": 35152,
+              "project_name": "Nova Acquisition Integration — Payments API Hub [BF3CF]",
+              "project_code": "BF3CF",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Treasury",
+              "sponsor": "Omar Khan-35152-SP",
+              "project_manager": "Ines Smith-35152-PM",
+              "business_owner": "Samir Bennett-35152-BO",
+              "service_owner": "Adam Martin-35152-SO",
+              "risk_owner": "Nadia Smith-35152-RO",
+              "start_date": "2026-12-07",
+              "target_go_live": "2027-10-21",
+              "users_impacted": 12000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "draft",
+              "required_residency": "UAE",
+              "residency_compliant": false,
+              "retention_years": 10,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "major_findings",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "none",
+              "export_control": "pending"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\", \"IT-EOL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\", \"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 74188, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"functions\\\"}}\"}, {\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 74188, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"functions\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-DATA-001\", \"ARCH-HA-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"ASSIGN_DATA_OWNER\", \"REDESIGN_FOR_HIGH_AVAILABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-BF3CF-v1.9\\\", \\\"lld_version\\\": \\\"LLD-BF3CF-v1.1\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.213.0.0/24\\\", \\\"10.213.1.0/24\\\", \\\"10.213.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035152.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-BF3CF-v1.9\\\", \\\"lld_version\\\": \\\"LLD-BF3CF-v1.1\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.213.0.0/24\\\", \\\"10.213.1.0/24\\\", \\\"10.213.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035152.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-HA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-BF3CF-v1.9\\\", \\\"lld_version\\\": \\\"LLD-BF3CF-v1.1\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.213.0.0/24\\\", \\\"10.213.1.0/24\\\", \\\"10.213.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035152.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-NET-001\", \"SEC-IAM-001\", \"SEC-VULN-001\"], \"actions\": [\"ENABLE_PRIVATE_ENDPOINTS\", \"ENFORCE_MFA\", \"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-NET-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-IAM-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"LEGAL-INS-001\", \"LEGAL-LOG-001\"], \"actions\": [\"OBTAIN_VALID_INSURANCE\", \"ADD_LOG_EXPORT_CLAUSE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-INS-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-BF3CF-6.5\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"full\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-BF3CF-6.5\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"full\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-RESID-001\", \"COMP-MAP-001\", \"COMP-A11Y-001\", \"COMP-EXPORT-002\"], \"actions\": [\"COMPLETE_DPIA\", \"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\", \"COMPLETE_CONTROL_MAPPING\", \"REMEDIATE_ACCESSIBILITY\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035152\\\", \\\"generation_seed\\\": 35152, \\\"project_name\\\": \\\"Nova Acquisition Integration — Payments API Hub [BF3CF]\\\", \\\"project_code\\\": \\\"BF3CF\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Omar Khan-35152-SP\\\", \\\"project_manager\\\": \\\"Ines Smith-35152-PM\\\", \\\"business_owner\\\": \\\"Samir Bennett-35152-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35152-SO\\\", \\\"risk_owner\\\": \\\"Nadia Smith-35152-RO\\\", \\\"start_date\\\": \\\"2026-12-07\\\", \\\"target_go_live\\\": \\\"2027-10-21\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035152",
+              "generation_seed": 35152,
+              "project_name": "Nova Acquisition Integration — Payments API Hub [BF3CF]",
+              "project_code": "BF3CF",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Treasury",
+              "sponsor": "Omar Khan-35152-SP",
+              "project_manager": "Ines Smith-35152-PM",
+              "business_owner": "Samir Bennett-35152-BO",
+              "service_owner": "Adam Martin-35152-SO",
+              "risk_owner": "Nadia Smith-35152-RO",
+              "start_date": "2026-12-07",
+              "target_go_live": "2027-10-21",
+              "users_impacted": 12000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 250000,
+              "budget_approved_eur": 250000,
+              "roi": 0.294,
+              "npv_eur": 282925,
+              "payback_months": 40,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 15.8,
+              "fte_available": 9.3,
+              "change_plan_status": "partial",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Daria Meyer-35152-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001",
+                "IT-EOL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY",
+                "CREATE_CONVERGENCE_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 74188, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"functions\"}}"
+                },
+                {
+                  "finding_id": "IT-EOL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 74188, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 4, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"functions\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-DATA-001",
+                "ARCH-HA-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "ASSIGN_DATA_OWNER",
+                "REDESIGN_FOR_HIGH_AVAILABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-BF3CF-v1.9\", \"lld_version\": \"LLD-BF3CF-v1.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.0.0/24\", \"10.213.1.0/24\", \"10.213.2.0/24\"], \"dns_zone\": \"dgf-int-035152.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-BF3CF-v1.9\", \"lld_version\": \"LLD-BF3CF-v1.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.0.0/24\", \"10.213.1.0/24\", \"10.213.2.0/24\"], \"dns_zone\": \"dgf-int-035152.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-HA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-BF3CF-v1.9\", \"lld_version\": \"LLD-BF3CF-v1.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.0.0/24\", \"10.213.1.0/24\", \"10.213.2.0/24\"], \"dns_zone\": \"dgf-int-035152.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-NET-001",
+                "SEC-IAM-001",
+                "SEC-VULN-001"
+              ],
+              "actions": [
+                "ENABLE_PRIVATE_ENDPOINTS",
+                "ENFORCE_MFA",
+                "REMEDIATE_CRITICAL_VULNERABILITIES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-NET-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-IAM-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "LEGAL-INS-001",
+                "LEGAL-LOG-001"
+              ],
+              "actions": [
+                "OBTAIN_VALID_INSURANCE",
+                "ADD_LOG_EXPORT_CLAUSE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-INS-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BF3CF-6.5\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": false, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BF3CF-6.5\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": false, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-RESID-001",
+                "COMP-MAP-001",
+                "COMP-A11Y-001",
+                "COMP-EXPORT-002"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+                "COMPLETE_CONTROL_MAPPING",
+                "REMEDIATE_ACCESSIBILITY",
+                "COMPLETE_EXPORT_CONTROL_REVIEW"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-RESID-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-A11Y-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-002",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035152\", \"generation_seed\": 35152, \"project_name\": \"Nova Acquisition Integration — Payments API Hub [BF3CF]\", \"project_code\": \"BF3CF\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Treasury\", \"sponsor\": \"Omar Khan-35152-SP\", \"project_manager\": \"Ines Smith-35152-PM\", \"business_owner\": \"Samir Bennett-35152-BO\", \"service_owner\": \"Adam Martin-35152-SO\", \"risk_owner\": \"Nadia Smith-35152-RO\", \"start_date\": \"2026-12-07\", \"target_go_live\": \"2027-10-21\", \"users_impacted\": 12000, \"budget_requested_eur\": 250000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"UAE\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

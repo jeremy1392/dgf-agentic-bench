@@ -1,0 +1,784 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "PROC-MAND-001"
+      ],
+      "actions": [
+        "REOPEN_VENDOR_SELECTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-MAND-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"CedarPoint Digital 7EA74-1\", \"functional_score\": 79, \"security_score\": 77, \"tco_3y_eur\": 2441131, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 68.0}, {\"vendor\": \"DeltaForge Technologies 7EA74-2\", \"functional_score\": 89, \"security_score\": 71, \"tco_3y_eur\": 1927939, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 73.1}, {\"vendor\": \"Everline Software 7EA74-3\", \"functional_score\": 97, \"security_score\": 81, \"tco_3y_eur\": 971129, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 85.3}, {\"vendor\": \"Fluxbridge Labs 7EA74-4\", \"functional_score\": 92, \"security_score\": 60, \"tco_3y_eur\": 381844, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 81.2}], \"selected_vendor\": \"Everline Software 7EA74-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 106, \"purchasing_budget_eur\": 7000000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035055",
+              "generation_seed": 35055,
+              "project_name": "Project Solstice — Supply Chain Integration [7EA74]",
+              "project_code": "7EA74",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Risk",
+              "sponsor": "Marc Nguyen-35055-SP",
+              "project_manager": "Daria Laurent-35055-PM",
+              "business_owner": "Yusuf Santos-35055-BO",
+              "service_owner": "Maya Petrescu-35055-SO",
+              "risk_owner": "Elena Khan-35055-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-07-22",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "CedarPoint Digital 7EA74-1",
+                  "functional_score": 79,
+                  "security_score": 77,
+                  "tco_3y_eur": 2441131,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 68.0
+                },
+                {
+                  "vendor": "DeltaForge Technologies 7EA74-2",
+                  "functional_score": 89,
+                  "security_score": 71,
+                  "tco_3y_eur": 1927939,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "pending",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 73.1
+                },
+                {
+                  "vendor": "Everline Software 7EA74-3",
+                  "functional_score": 97,
+                  "security_score": 81,
+                  "tco_3y_eur": 971129,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 85.3
+                },
+                {
+                  "vendor": "Fluxbridge Labs 7EA74-4",
+                  "functional_score": 92,
+                  "security_score": 60,
+                  "tco_3y_eur": 381844,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 81.2
+                }
+              ],
+              "selected_vendor": "Everline Software 7EA74-3",
+              "competition": "open_tender",
+              "rfp_requirements": 106,
+              "purchasing_budget_eur": 7000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-7EA74-9.5\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-7EA74-9.5\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035055",
+              "generation_seed": 35055,
+              "project_name": "Project Solstice — Supply Chain Integration [7EA74]",
+              "project_code": "7EA74",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Risk",
+              "sponsor": "Marc Nguyen-35055-SP",
+              "project_manager": "Daria Laurent-35055-PM",
+              "business_owner": "Yusuf Santos-35055-BO",
+              "service_owner": "Maya Petrescu-35055-SO",
+              "risk_owner": "Elena Khan-35055-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-07-22",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-7EA74-9.5",
+              "governing_law": "Ireland",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "none",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 90,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "adequate",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-RESID-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"DORA\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 3, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+        },
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"DORA\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 3, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035055",
+              "generation_seed": 35055,
+              "project_name": "Project Solstice — Supply Chain Integration [7EA74]",
+              "project_code": "7EA74",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Risk",
+              "sponsor": "Marc Nguyen-35055-SP",
+              "project_manager": "Daria Laurent-35055-PM",
+              "business_owner": "Yusuf Santos-35055-BO",
+              "service_owner": "Maya Petrescu-35055-SO",
+              "risk_owner": "Elena Khan-35055-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-07-22",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "DORA"
+              ],
+              "dpia_required": true,
+              "dpia_status": "draft",
+              "required_residency": "EU",
+              "residency_compliant": false,
+              "retention_years": 3,
+              "legal_hold_supported": false,
+              "deletion_enforced": true,
+              "audit_trail": "complete",
+              "accessibility_status": "pass",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "annual",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-001",
+        "SEC-VULN-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPLEMENT_WAF",
+        "REMEDIATE_CRITICAL_VULNERABILITIES",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035055",
+              "generation_seed": 35055,
+              "project_name": "Project Solstice — Supply Chain Integration [7EA74]",
+              "project_code": "7EA74",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Risk",
+              "sponsor": "Marc Nguyen-35055-SP",
+              "project_manager": "Daria Laurent-35055-PM",
+              "business_owner": "Yusuf Santos-35055-BO",
+              "service_owner": "Maya Petrescu-35055-SO",
+              "risk_owner": "Elena Khan-35055-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-07-22",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 2,
+              "high_vulns_open": 3,
+              "pentest_age_days": null,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001",
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER",
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 213035, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+        },
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 213035, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035055",
+              "generation_seed": 35055,
+              "project_name": "Project Solstice — Supply Chain Integration [7EA74]",
+              "project_code": "7EA74",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Risk",
+              "sponsor": "Marc Nguyen-35055-SP",
+              "project_manager": "Daria Laurent-35055-PM",
+              "business_owner": "Yusuf Santos-35055-BO",
+              "service_owner": "Maya Petrescu-35055-SO",
+              "risk_owner": "Elena Khan-35055-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-07-22",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": true,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 213035,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 90,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 18,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "bronze",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 4900000, \"roi\": 0.393, \"npv_eur\": 1591055, \"payback_months\": 54, \"schedule_slip_weeks\": 8, \"fte_needed\": 8.1, \"fte_available\": 8.1, \"change_plan_status\": \"missing\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"David Petrescu-35055-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 4900000, \"roi\": 0.393, \"npv_eur\": 1591055, \"payback_months\": 54, \"schedule_slip_weeks\": 8, \"fte_needed\": 8.1, \"fte_available\": 8.1, \"change_plan_status\": \"missing\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"David Petrescu-35055-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"PROC-MAND-001\"], \"actions\": [\"REOPEN_VENDOR_SELECTION\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-MAND-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"CedarPoint Digital 7EA74-1\\\", \\\"functional_score\\\": 79, \\\"security_score\\\": 77, \\\"tco_3y_eur\\\": 2441131, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 68.0}, {\\\"vendor\\\": \\\"DeltaForge Technologies 7EA74-2\\\", \\\"functional_score\\\": 89, \\\"security_score\\\": 71, \\\"tco_3y_eur\\\": 1927939, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 73.1}, {\\\"vendor\\\": \\\"Everline Software 7EA74-3\\\", \\\"functional_score\\\": 97, \\\"security_score\\\": 81, \\\"tco_3y_eur\\\": 971129, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 85.3}, {\\\"vendor\\\": \\\"Fluxbridge Labs 7EA74-4\\\", \\\"functional_score\\\": 92, \\\"security_score\\\": 60, \\\"tco_3y_eur\\\": 381844, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 81.2}], \\\"selected_vendor\\\": \\\"Everline Software 7EA74-3\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 106, \\\"purchasing_budget_eur\\\": 7000000}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-LOG-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\", \"ADD_LOG_EXPORT_CLAUSE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-7EA74-9.5\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 90, \\\"ip_ownership\\\": \\\"customer\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"adequate\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-7EA74-9.5\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 90, \\\"ip_ownership\\\": \\\"customer\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"adequate\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-RESID-001\"], \"actions\": [\"COMPLETE_DPIA\", \"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"DORA\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 3, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}, {\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"DORA\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"draft\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 3, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-WAF-001\", \"SEC-VULN-001\", \"SEC-KEY-001\"], \"actions\": [\"IMPLEMENT_WAF\", \"REMEDIATE_CRITICAL_VULNERABILITIES\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-CATALOG-001\", \"IT-RATIONAL-001\"], \"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\", \"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CATALOG-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"none\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 213035, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 90, \\\"capacity_headroom_pct\\\": 20, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}, {\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035055\\\", \\\"generation_seed\\\": 35055, \\\"project_name\\\": \\\"Project Solstice — Supply Chain Integration [7EA74]\\\", \\\"project_code\\\": \\\"7EA74\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Marc Nguyen-35055-SP\\\", \\\"project_manager\\\": \\\"Daria Laurent-35055-PM\\\", \\\"business_owner\\\": \\\"Yusuf Santos-35055-BO\\\", \\\"service_owner\\\": \\\"Maya Petrescu-35055-SO\\\", \\\"risk_owner\\\": \\\"Elena Khan-35055-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-07-22\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"none\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 213035, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 90, \\\"capacity_headroom_pct\\\": 20, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035055",
+              "generation_seed": 35055,
+              "project_name": "Project Solstice — Supply Chain Integration [7EA74]",
+              "project_code": "7EA74",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Risk",
+              "sponsor": "Marc Nguyen-35055-SP",
+              "project_manager": "Daria Laurent-35055-PM",
+              "business_owner": "Yusuf Santos-35055-BO",
+              "service_owner": "Maya Petrescu-35055-SO",
+              "risk_owner": "Elena Khan-35055-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-07-22",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "weak",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 7000000,
+              "budget_approved_eur": 4900000,
+              "roi": 0.393,
+              "npv_eur": 1591055,
+              "payback_months": 54,
+              "schedule_slip_weeks": 8,
+              "fte_needed": 8.1,
+              "fte_available": 8.1,
+              "change_plan_status": "missing",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "David Petrescu-35055-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "PROC-MAND-001"
+              ],
+              "actions": [
+                "REOPEN_VENDOR_SELECTION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-MAND-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"CedarPoint Digital 7EA74-1\", \"functional_score\": 79, \"security_score\": 77, \"tco_3y_eur\": 2441131, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 68.0}, {\"vendor\": \"DeltaForge Technologies 7EA74-2\", \"functional_score\": 89, \"security_score\": 71, \"tco_3y_eur\": 1927939, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 73.1}, {\"vendor\": \"Everline Software 7EA74-3\", \"functional_score\": 97, \"security_score\": 81, \"tco_3y_eur\": 971129, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 85.3}, {\"vendor\": \"Fluxbridge Labs 7EA74-4\", \"functional_score\": 92, \"security_score\": 60, \"tco_3y_eur\": 381844, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 81.2}], \"selected_vendor\": \"Everline Software 7EA74-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 106, \"purchasing_budget_eur\": 7000000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-AUDIT-001",
+                "LEGAL-LOG-001"
+              ],
+              "actions": [
+                "REDLINE_AUDIT_RIGHT",
+                "ADD_LOG_EXPORT_CLAUSE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-7EA74-9.5\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-7EA74-9.5\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-RESID-001"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"DORA\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 3, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+                },
+                {
+                  "finding_id": "COMP-RESID-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"DORA\"], \"dpia_required\": true, \"dpia_status\": \"draft\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 3, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-WAF-001",
+                "SEC-VULN-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPLEMENT_WAF",
+                "REMEDIATE_CRITICAL_VULNERABILITIES",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-CATALOG-001",
+                "IT-RATIONAL-001"
+              ],
+              "actions": [
+                "SUBMIT_TECHNOLOGY_WAIVER",
+                "ASSESS_EXISTING_CAPABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CATALOG-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 213035, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+                },
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035055\", \"generation_seed\": 35055, \"project_name\": \"Project Solstice — Supply Chain Integration [7EA74]\", \"project_code\": \"7EA74\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Risk\", \"sponsor\": \"Marc Nguyen-35055-SP\", \"project_manager\": \"Daria Laurent-35055-PM\", \"business_owner\": \"Yusuf Santos-35055-BO\", \"service_owner\": \"Maya Petrescu-35055-SO\", \"risk_owner\": \"Elena Khan-35055-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-07-22\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 213035, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"mixed\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

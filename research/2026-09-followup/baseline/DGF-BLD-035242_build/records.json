@@ -1,0 +1,605 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 370089, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"aks\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035242",
+              "generation_seed": 35242,
+              "project_name": "Project Vertex — Claims Automation [A0B54]",
+              "project_code": "A0B54",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Noor Martin-35242-SP",
+              "project_manager": "Noor Petrescu-35242-PM",
+              "business_owner": "Noor Costa-35242-BO",
+              "service_owner": "Adam Moreau-35242-SO",
+              "risk_owner": "Victor Dubois-35242-RO",
+              "start_date": "2026-09-21",
+              "target_go_live": "2027-09-06",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": false,
+              "annual_license_cost_eur": 370089,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 36,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0B54-v4.6\", \"lld_version\": \"LLD-A0B54-v2.2\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 1, \"adr_count\": 11, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.160.0/24\", \"10.18.161.0/24\", \"10.18.162.0/24\"], \"dns_zone\": \"dgf-bld-035242.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0B54-v4.6\", \"lld_version\": \"LLD-A0B54-v2.2\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 1, \"adr_count\": 11, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.160.0/24\", \"10.18.161.0/24\", \"10.18.162.0/24\"], \"dns_zone\": \"dgf-bld-035242.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035242",
+              "generation_seed": 35242,
+              "project_name": "Project Vertex — Claims Automation [A0B54]",
+              "project_code": "A0B54",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Noor Martin-35242-SP",
+              "project_manager": "Noor Petrescu-35242-PM",
+              "business_owner": "Noor Costa-35242-BO",
+              "service_owner": "Adam Moreau-35242-SO",
+              "risk_owner": "Victor Dubois-35242-RO",
+              "start_date": "2026-09-21",
+              "target_go_live": "2027-09-06",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-A0B54-v4.6",
+              "lld_version": "LLD-A0B54-v2.2",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 1,
+              "adr_count": 11,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.18.160.0/24",
+                "10.18.161.0/24",
+                "10.18.162.0/24"
+              ],
+              "dns_zone": "dgf-bld-035242.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-IAM-002",
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035242",
+              "generation_seed": 35242,
+              "project_name": "Project Vertex — Claims Automation [A0B54]",
+              "project_code": "A0B54",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Noor Martin-35242-SP",
+              "project_manager": "Noor Petrescu-35242-PM",
+              "business_owner": "Noor Costa-35242-BO",
+              "service_owner": "Adam Moreau-35242-SO",
+              "risk_owner": "Victor Dubois-35242-RO",
+              "start_date": "2026-09-21",
+              "target_go_live": "2027-09-06",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": false,
+              "sentinel": false,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": null,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "Azure NPM",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035242",
+              "generation_seed": 35242,
+              "project_name": "Project Vertex — Claims Automation [A0B54]",
+              "project_code": "A0B54",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Noor Martin-35242-SP",
+              "project_manager": "Noor Petrescu-35242-PM",
+              "business_owner": "Noor Costa-35242-BO",
+              "service_owner": "Adam Moreau-35242-SO",
+              "risk_owner": "Victor Dubois-35242-RO",
+              "start_date": "2026-09-21",
+              "target_go_live": "2027-09-06",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 96,
+              "pilot_completed": false,
+              "load_test_pct_of_peak": 125,
+              "p95_ms": 1192,
+              "unit_test_coverage_pct": 95,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": false,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 2,
+              "measured_restore_hours": 1.7,
+              "target_rpo_minutes": 5,
+              "measured_data_loss_minutes": 0,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-LICENSE-001\"], \"actions\": [\"REMEDIATE_LICENSE_POSITION\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035242\\\", \\\"generation_seed\\\": 35242, \\\"project_name\\\": \\\"Project Vertex — Claims Automation [A0B54]\\\", \\\"project_code\\\": \\\"A0B54\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Noor Martin-35242-SP\\\", \\\"project_manager\\\": \\\"Noor Petrescu-35242-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35242-BO\\\", \\\"service_owner\\\": \\\"Adam Moreau-35242-SO\\\", \\\"risk_owner\\\": \\\"Victor Dubois-35242-RO\\\", \\\"start_date\\\": \\\"2026-09-21\\\", \\\"target_go_live\\\": \\\"2027-09-06\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 370089, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"aks\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-REV-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035242\\\", \\\"generation_seed\\\": 35242, \\\"project_name\\\": \\\"Project Vertex — Claims Automation [A0B54]\\\", \\\"project_code\\\": \\\"A0B54\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Noor Martin-35242-SP\\\", \\\"project_manager\\\": \\\"Noor Petrescu-35242-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35242-BO\\\", \\\"service_owner\\\": \\\"Adam Moreau-35242-SO\\\", \\\"risk_owner\\\": \\\"Victor Dubois-35242-RO\\\", \\\"start_date\\\": \\\"2026-09-21\\\", \\\"target_go_live\\\": \\\"2027-09-06\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-A0B54-v4.6\\\", \\\"lld_version\\\": \\\"LLD-A0B54-v2.2\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 11, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.160.0/24\\\", \\\"10.18.161.0/24\\\", \\\"10.18.162.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035242.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035242\\\", \\\"generation_seed\\\": 35242, \\\"project_name\\\": \\\"Project Vertex — Claims Automation [A0B54]\\\", \\\"project_code\\\": \\\"A0B54\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Noor Martin-35242-SP\\\", \\\"project_manager\\\": \\\"Noor Petrescu-35242-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35242-BO\\\", \\\"service_owner\\\": \\\"Adam Moreau-35242-SO\\\", \\\"risk_owner\\\": \\\"Victor Dubois-35242-RO\\\", \\\"start_date\\\": \\\"2026-09-21\\\", \\\"target_go_live\\\": \\\"2027-09-06\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-A0B54-v4.6\\\", \\\"lld_version\\\": \\\"LLD-A0B54-v2.2\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 11, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.160.0/24\\\", \\\"10.18.161.0/24\\\", \\\"10.18.162.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035242.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\", \"SEC-IAM-002\", \"SEC-LOG-001\", \"SEC-KEY-001\"], \"actions\": [\"ENABLE_WAF_PREVENTION\", \"CREATE_DEDICATED_WORKLOAD_IDENTITY\", \"CONNECT_LOGS_TO_SIEM\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035242\\\", \\\"generation_seed\\\": 35242, \\\"project_name\\\": \\\"Project Vertex — Claims Automation [A0B54]\\\", \\\"project_code\\\": \\\"A0B54\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Noor Martin-35242-SP\\\", \\\"project_manager\\\": \\\"Noor Petrescu-35242-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35242-BO\\\", \\\"service_owner\\\": \\\"Adam Moreau-35242-SO\\\", \\\"risk_owner\\\": \\\"Victor Dubois-35242-RO\\\", \\\"start_date\\\": \\\"2026-09-21\\\", \\\"target_go_live\\\": \\\"2027-09-06\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Azure NPM\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035242\\\", \\\"generation_seed\\\": 35242, \\\"project_name\\\": \\\"Project Vertex — Claims Automation [A0B54]\\\", \\\"project_code\\\": \\\"A0B54\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Noor Martin-35242-SP\\\", \\\"project_manager\\\": \\\"Noor Petrescu-35242-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35242-BO\\\", \\\"service_owner\\\": \\\"Adam Moreau-35242-SO\\\", \\\"risk_owner\\\": \\\"Victor Dubois-35242-RO\\\", \\\"start_date\\\": \\\"2026-09-21\\\", \\\"target_go_live\\\": \\\"2027-09-06\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Azure NPM\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035242\\\", \\\"generation_seed\\\": 35242, \\\"project_name\\\": \\\"Project Vertex — Claims Automation [A0B54]\\\", \\\"project_code\\\": \\\"A0B54\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Noor Martin-35242-SP\\\", \\\"project_manager\\\": \\\"Noor Petrescu-35242-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35242-BO\\\", \\\"service_owner\\\": \\\"Adam Moreau-35242-SO\\\", \\\"risk_owner\\\": \\\"Victor Dubois-35242-RO\\\", \\\"start_date\\\": \\\"2026-09-21\\\", \\\"target_go_live\\\": \\\"2027-09-06\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Azure NPM\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035242\\\", \\\"generation_seed\\\": 35242, \\\"project_name\\\": \\\"Project Vertex — Claims Automation [A0B54]\\\", \\\"project_code\\\": \\\"A0B54\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Noor Martin-35242-SP\\\", \\\"project_manager\\\": \\\"Noor Petrescu-35242-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35242-BO\\\", \\\"service_owner\\\": \\\"Adam Moreau-35242-SO\\\", \\\"risk_owner\\\": \\\"Victor Dubois-35242-RO\\\", \\\"start_date\\\": \\\"2026-09-21\\\", \\\"target_go_live\\\": \\\"2027-09-06\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Azure NPM\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035242",
+              "generation_seed": 35242,
+              "project_name": "Project Vertex — Claims Automation [A0B54]",
+              "project_code": "A0B54",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Customer Service",
+              "sponsor": "Noor Martin-35242-SP",
+              "project_manager": "Noor Petrescu-35242-PM",
+              "business_owner": "Noor Costa-35242-BO",
+              "service_owner": "Adam Moreau-35242-SO",
+              "risk_owner": "Victor Dubois-35242-RO",
+              "start_date": "2026-09-21",
+              "target_go_live": "2027-09-06",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1650000,
+              "roi": 0.14,
+              "npv_eur": 530951,
+              "payback_months": 58,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 9.8,
+              "fte_available": 27.9,
+              "change_plan_status": "missing",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Victor Haddad-1035245-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-LICENSE-001"
+              ],
+              "actions": [
+                "REMEDIATE_LICENSE_POSITION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 370089, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"aks\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0B54-v4.6\", \"lld_version\": \"LLD-A0B54-v2.2\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 1, \"adr_count\": 11, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.160.0/24\", \"10.18.161.0/24\", \"10.18.162.0/24\"], \"dns_zone\": \"dgf-bld-035242.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0B54-v4.6\", \"lld_version\": \"LLD-A0B54-v2.2\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 1, \"adr_count\": 11, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.160.0/24\", \"10.18.161.0/24\", \"10.18.162.0/24\"], \"dns_zone\": \"dgf-bld-035242.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-WAF-002",
+                "SEC-IAM-002",
+                "SEC-LOG-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION",
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+                "CONNECT_LOGS_TO_SIEM",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035242\", \"generation_seed\": 35242, \"project_name\": \"Project Vertex — Claims Automation [A0B54]\", \"project_code\": \"A0B54\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Noor Martin-35242-SP\", \"project_manager\": \"Noor Petrescu-35242-PM\", \"business_owner\": \"Noor Costa-35242-BO\", \"service_owner\": \"Adam Moreau-35242-SO\", \"risk_owner\": \"Victor Dubois-35242-RO\", \"start_date\": \"2026-09-21\", \"target_go_live\": \"2027-09-06\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

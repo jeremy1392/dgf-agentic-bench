@@ -1,0 +1,571 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035275",
+              "generation_seed": 35275,
+              "project_name": "Project Umbra — Customer 360 CRM [5B4BB]",
+              "project_code": "5B4BB",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Corporate Services",
+              "sponsor": "Nadia Martin-35275-SP",
+              "project_manager": "Marc Rahman-35275-PM",
+              "business_owner": "Maya Costa-35275-BO",
+              "service_owner": "Samir Santos-35275-SO",
+              "risk_owner": "Daria Laurent-35275-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-05-11",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 46036,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 36,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "dedicated_host"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-PERF-001",
+        "ARCH-HA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY",
+        "REDESIGN_FOR_HIGH_AVAILABILITY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5B4BB-v3.3\", \"lld_version\": \"LLD-5B4BB-v4.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.176.0/24\", \"10.20.177.0/24\", \"10.20.178.0/24\"], \"dns_zone\": \"dgf-bld-035275.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5B4BB-v3.3\", \"lld_version\": \"LLD-5B4BB-v4.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.176.0/24\", \"10.20.177.0/24\", \"10.20.178.0/24\"], \"dns_zone\": \"dgf-bld-035275.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5B4BB-v3.3\", \"lld_version\": \"LLD-5B4BB-v4.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.176.0/24\", \"10.20.177.0/24\", \"10.20.178.0/24\"], \"dns_zone\": \"dgf-bld-035275.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035275",
+              "generation_seed": 35275,
+              "project_name": "Project Umbra — Customer 360 CRM [5B4BB]",
+              "project_code": "5B4BB",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Corporate Services",
+              "sponsor": "Nadia Martin-35275-SP",
+              "project_manager": "Marc Rahman-35275-PM",
+              "business_owner": "Maya Costa-35275-BO",
+              "service_owner": "Samir Santos-35275-SO",
+              "risk_owner": "Daria Laurent-35275-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-05-11",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-5B4BB-v3.3",
+              "lld_version": "LLD-5B4BB-v4.7",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 350,
+              "load_test_peak_pct": 100,
+              "architecture_debt_items": 0,
+              "adr_count": 14,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.20.176.0/24",
+                "10.20.177.0/24",
+                "10.20.178.0/24"
+              ],
+              "dns_zone": "dgf-bld-035275.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035275",
+              "generation_seed": 35275,
+              "project_name": "Project Umbra — Customer 360 CRM [5B4BB]",
+              "project_code": "5B4BB",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Corporate Services",
+              "sponsor": "Nadia Martin-35275-SP",
+              "project_manager": "Marc Rahman-35275-PM",
+              "business_owner": "Maya Costa-35275-BO",
+              "service_owner": "Samir Santos-35275-SO",
+              "risk_owner": "Daria Laurent-35275-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-05-11",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 1,
+              "pentest_age_days": 180,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-OPS-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "COMPLETE_OPERATIONAL_HANDOVER",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 99, \"pilot_completed\": false, \"load_test_pct_of_peak\": 150, \"p95_ms\": 1570, \"unit_test_coverage_pct\": 59, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 4.4, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 0, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 99, \"pilot_completed\": false, \"load_test_pct_of_peak\": 150, \"p95_ms\": 1570, \"unit_test_coverage_pct\": 59, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 4.4, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 0, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035275",
+              "generation_seed": 35275,
+              "project_name": "Project Umbra — Customer 360 CRM [5B4BB]",
+              "project_code": "5B4BB",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Corporate Services",
+              "sponsor": "Nadia Martin-35275-SP",
+              "project_manager": "Marc Rahman-35275-PM",
+              "business_owner": "Maya Costa-35275-BO",
+              "service_owner": "Samir Santos-35275-SO",
+              "risk_owner": "Daria Laurent-35275-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-05-11",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 99,
+              "pilot_completed": false,
+              "load_test_pct_of_peak": 150,
+              "p95_ms": 1570,
+              "unit_test_coverage_pct": 59,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 8,
+              "measured_restore_hours": 4.4,
+              "target_rpo_minutes": 1440,
+              "measured_data_loss_minutes": 0,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "draft",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 1
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-PERF-001\", \"ARCH-HA-001\", \"ARCH-REV-001\"], \"actions\": [\"REMEDIATE_LATENCY\", \"REDESIGN_FOR_HIGH_AVAILABILITY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035275\\\", \\\"generation_seed\\\": 35275, \\\"project_name\\\": \\\"Project Umbra — Customer 360 CRM [5B4BB]\\\", \\\"project_code\\\": \\\"5B4BB\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Nadia Martin-35275-SP\\\", \\\"project_manager\\\": \\\"Marc Rahman-35275-PM\\\", \\\"business_owner\\\": \\\"Maya Costa-35275-BO\\\", \\\"service_owner\\\": \\\"Samir Santos-35275-SO\\\", \\\"risk_owner\\\": \\\"Daria Laurent-35275-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-05-11\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-5B4BB-v3.3\\\", \\\"lld_version\\\": \\\"LLD-5B4BB-v4.7\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 14, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.176.0/24\\\", \\\"10.20.177.0/24\\\", \\\"10.20.178.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035275.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-HA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035275\\\", \\\"generation_seed\\\": 35275, \\\"project_name\\\": \\\"Project Umbra — Customer 360 CRM [5B4BB]\\\", \\\"project_code\\\": \\\"5B4BB\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Nadia Martin-35275-SP\\\", \\\"project_manager\\\": \\\"Marc Rahman-35275-PM\\\", \\\"business_owner\\\": \\\"Maya Costa-35275-BO\\\", \\\"service_owner\\\": \\\"Samir Santos-35275-SO\\\", \\\"risk_owner\\\": \\\"Daria Laurent-35275-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-05-11\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-5B4BB-v3.3\\\", \\\"lld_version\\\": \\\"LLD-5B4BB-v4.7\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 14, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.176.0/24\\\", \\\"10.20.177.0/24\\\", \\\"10.20.178.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035275.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035275\\\", \\\"generation_seed\\\": 35275, \\\"project_name\\\": \\\"Project Umbra — Customer 360 CRM [5B4BB]\\\", \\\"project_code\\\": \\\"5B4BB\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Nadia Martin-35275-SP\\\", \\\"project_manager\\\": \\\"Marc Rahman-35275-PM\\\", \\\"business_owner\\\": \\\"Maya Costa-35275-BO\\\", \\\"service_owner\\\": \\\"Samir Santos-35275-SO\\\", \\\"risk_owner\\\": \\\"Daria Laurent-35275-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-05-11\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-5B4BB-v3.3\\\", \\\"lld_version\\\": \\\"LLD-5B4BB-v4.7\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 14, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.176.0/24\\\", \\\"10.20.177.0/24\\\", \\\"10.20.178.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035275.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"TR-OPS-001\", \"TR-BLOCKER-001\"], \"actions\": [\"COMPLETE_OPERATIONAL_HANDOVER\", \"CLOSE_PRODUCTION_BLOCKERS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035275\\\", \\\"generation_seed\\\": 35275, \\\"project_name\\\": \\\"Project Umbra — Customer 360 CRM [5B4BB]\\\", \\\"project_code\\\": \\\"5B4BB\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Nadia Martin-35275-SP\\\", \\\"project_manager\\\": \\\"Marc Rahman-35275-PM\\\", \\\"business_owner\\\": \\\"Maya Costa-35275-BO\\\", \\\"service_owner\\\": \\\"Samir Santos-35275-SO\\\", \\\"risk_owner\\\": \\\"Daria Laurent-35275-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-05-11\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 99, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 150, \\\"p95_ms\\\": 1570, \\\"unit_test_coverage_pct\\\": 59, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 4.4, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-BLOCKER-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035275\\\", \\\"generation_seed\\\": 35275, \\\"project_name\\\": \\\"Project Umbra — Customer 360 CRM [5B4BB]\\\", \\\"project_code\\\": \\\"5B4BB\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Nadia Martin-35275-SP\\\", \\\"project_manager\\\": \\\"Marc Rahman-35275-PM\\\", \\\"business_owner\\\": \\\"Maya Costa-35275-BO\\\", \\\"service_owner\\\": \\\"Samir Santos-35275-SO\\\", \\\"risk_owner\\\": \\\"Daria Laurent-35275-RO\\\", \\\"start_date\\\": \\\"2026-11-28\\\", \\\"target_go_live\\\": \\\"2027-05-11\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 99, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 150, \\\"p95_ms\\\": 1570, \\\"unit_test_coverage_pct\\\": 59, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 4.4, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035275",
+              "generation_seed": 35275,
+              "project_name": "Project Umbra — Customer 360 CRM [5B4BB]",
+              "project_code": "5B4BB",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Corporate Services",
+              "sponsor": "Nadia Martin-35275-SP",
+              "project_manager": "Marc Rahman-35275-PM",
+              "business_owner": "Maya Costa-35275-BO",
+              "service_owner": "Samir Santos-35275-SO",
+              "risk_owner": "Daria Laurent-35275-RO",
+              "start_date": "2026-11-28",
+              "target_go_live": "2027-05-11",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1650000,
+              "roi": 0.088,
+              "npv_eur": 1256075,
+              "payback_months": 54,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 9.7,
+              "fte_available": 9.2,
+              "change_plan_status": "missing",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Nadia Petrescu-35275-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-PERF-001",
+                "ARCH-HA-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REMEDIATE_LATENCY",
+                "REDESIGN_FOR_HIGH_AVAILABILITY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5B4BB-v3.3\", \"lld_version\": \"LLD-5B4BB-v4.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.176.0/24\", \"10.20.177.0/24\", \"10.20.178.0/24\"], \"dns_zone\": \"dgf-bld-035275.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-HA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5B4BB-v3.3\", \"lld_version\": \"LLD-5B4BB-v4.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.176.0/24\", \"10.20.177.0/24\", \"10.20.178.0/24\"], \"dns_zone\": \"dgf-bld-035275.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5B4BB-v3.3\", \"lld_version\": \"LLD-5B4BB-v4.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.176.0/24\", \"10.20.177.0/24\", \"10.20.178.0/24\"], \"dns_zone\": \"dgf-bld-035275.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "TR-OPS-001",
+                "TR-BLOCKER-001"
+              ],
+              "actions": [
+                "COMPLETE_OPERATIONAL_HANDOVER",
+                "CLOSE_PRODUCTION_BLOCKERS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 99, \"pilot_completed\": false, \"load_test_pct_of_peak\": 150, \"p95_ms\": 1570, \"unit_test_coverage_pct\": 59, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 4.4, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 0, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-BLOCKER-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035275\", \"generation_seed\": 35275, \"project_name\": \"Project Umbra — Customer 360 CRM [5B4BB]\", \"project_code\": \"5B4BB\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Nadia Martin-35275-SP\", \"project_manager\": \"Marc Rahman-35275-PM\", \"business_owner\": \"Maya Costa-35275-BO\", \"service_owner\": \"Samir Santos-35275-SO\", \"risk_owner\": \"Daria Laurent-35275-RO\", \"start_date\": \"2026-11-28\", \"target_go_live\": \"2027-05-11\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 99, \"pilot_completed\": false, \"load_test_pct_of_peak\": 150, \"p95_ms\": 1570, \"unit_test_coverage_pct\": 59, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 4.4, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 0, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

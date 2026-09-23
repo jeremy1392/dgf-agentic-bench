@@ -1,0 +1,752 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"none\", \"license_compliant\": false, \"annual_license_cost_eur\": 424311, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035179",
+              "generation_seed": 35179,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [7B0D1]",
+              "project_code": "7B0D1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Samir Costa-35179-SP",
+              "project_manager": "Amira Dubois-35179-PM",
+              "business_owner": "Marc Benali-35179-BO",
+              "service_owner": "Nadia Dubois-35179-SO",
+              "risk_owner": "David Rahman-35179-RO",
+              "start_date": "2026-12-17",
+              "target_go_live": "2027-09-04",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": false,
+              "annual_license_cost_eur": 424311,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "gold",
+              "hosting_model": "vmss"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-HA-001"
+      ],
+      "actions": [
+        "REDESIGN_FOR_HIGH_AVAILABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-HA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-7B0D1-v3.3\", \"lld_version\": \"LLD-7B0D1-v3.8\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 4, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.214.176.0/24\", \"10.214.177.0/24\", \"10.214.178.0/24\"], \"dns_zone\": \"dgf-int-035179.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035179",
+              "generation_seed": 35179,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [7B0D1]",
+              "project_code": "7B0D1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Samir Costa-35179-SP",
+              "project_manager": "Amira Dubois-35179-PM",
+              "business_owner": "Marc Benali-35179-BO",
+              "service_owner": "Nadia Dubois-35179-SO",
+              "risk_owner": "David Rahman-35179-RO",
+              "start_date": "2026-12-17",
+              "target_go_live": "2027-09-04",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-7B0D1-v3.3",
+              "lld_version": "LLD-7B0D1-v3.8",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 180,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 5,
+              "adr_count": 4,
+              "reversibility_status": "documented",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.214.176.0/24",
+                "10.214.177.0/24",
+                "10.214.178.0/24"
+              ],
+              "dns_zone": "dgf-int-035179.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-002",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035179",
+              "generation_seed": 35179,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [7B0D1]",
+              "project_code": "7B0D1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Samir Costa-35179-SP",
+              "project_manager": "Amira Dubois-35179-PM",
+              "business_owner": "Marc Benali-35179-BO",
+              "service_owner": "Nadia Dubois-35179-SO",
+              "risk_owner": "David Rahman-35179-RO",
+              "start_date": "2026-12-17",
+              "target_go_live": "2027-09-04",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 2,
+              "pentest_age_days": 14,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-IP-001",
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "CLARIFY_IP_OWNERSHIP",
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-7B0D1-3.1\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-7B0D1-3.1\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-7B0D1-3.1\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035179",
+              "generation_seed": 35179,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [7B0D1]",
+              "project_code": "7B0D1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Samir Costa-35179-SP",
+              "project_manager": "Amira Dubois-35179-PM",
+              "business_owner": "Marc Benali-35179-BO",
+              "service_owner": "Nadia Dubois-35179-SO",
+              "risk_owner": "David Rahman-35179-RO",
+              "start_date": "2026-12-17",
+              "target_go_live": "2027-09-04",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-7B0D1-3.1",
+              "governing_law": "UAE",
+              "dpa_status": "draft",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 180,
+              "ip_ownership": "ambiguous",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "contractual_only",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-AUDIT-001",
+        "COMP-A11Y-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "IMPLEMENT_AUDIT_TRAIL",
+        "REMEDIATE_ACCESSIBILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+        },
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+        },
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035179",
+              "generation_seed": 35179,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [7B0D1]",
+              "project_code": "7B0D1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Samir Costa-35179-SP",
+              "project_manager": "Amira Dubois-35179-PM",
+              "business_owner": "Marc Benali-35179-BO",
+              "service_owner": "Nadia Dubois-35179-SO",
+              "risk_owner": "David Rahman-35179-RO",
+              "start_date": "2026-12-17",
+              "target_go_live": "2027-09-04",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "NIS2"
+              ],
+              "dpia_required": true,
+              "dpia_status": "missing",
+              "required_residency": "EU",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "major_findings",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-BC-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "REVISE_BUSINESS_CASE",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"partial\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 3000000, \"budget_approved_eur\": 3000000, \"roi\": 0.023, \"npv_eur\": 2482798, \"payback_months\": 15, \"schedule_slip_weeks\": 4, \"fte_needed\": 21.0, \"fte_available\": 6.5, \"change_plan_status\": \"draft\", \"benefits_kpi\": \"conversion_rate\", \"benefits_owner\": \"Sofia Costa-35179-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-LICENSE-001\"], \"actions\": [\"REMEDIATE_LICENSE_POSITION\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"none\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 424311, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vmss\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-HA-001\"], \"actions\": [\"REDESIGN_FOR_HIGH_AVAILABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-HA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-7B0D1-v3.3\\\", \\\"lld_version\\\": \\\"LLD-7B0D1-v3.8\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 5, \\\"adr_count\\\": 4, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.214.176.0/24\\\", \\\"10.214.177.0/24\\\", \\\"10.214.178.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035179.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-IAM-002\", \"SEC-KEY-001\"], \"actions\": [\"CREATE_DEDICATED_WORKLOAD_IDENTITY\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-DPA-001\", \"LEGAL-IP-001\", \"LEGAL-LOG-001\"], \"actions\": [\"EXECUTE_DPA\", \"CLARIFY_IP_OWNERSHIP\", \"ADD_LOG_EXPORT_CLAUSE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-7B0D1-3.1\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"draft\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-IP-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-7B0D1-3.1\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"draft\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-7B0D1-3.1\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"draft\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-AUDIT-001\", \"COMP-A11Y-001\"], \"actions\": [\"COMPLETE_DPIA\", \"IMPLEMENT_AUDIT_TRAIL\", \"REMEDIATE_ACCESSIBILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}, {\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}, {\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035179\\\", \\\"generation_seed\\\": 35179, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\\\", \\\"project_code\\\": \\\"7B0D1\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Samir Costa-35179-SP\\\", \\\"project_manager\\\": \\\"Amira Dubois-35179-PM\\\", \\\"business_owner\\\": \\\"Marc Benali-35179-BO\\\", \\\"service_owner\\\": \\\"Nadia Dubois-35179-SO\\\", \\\"risk_owner\\\": \\\"David Rahman-35179-RO\\\", \\\"start_date\\\": \\\"2026-12-17\\\", \\\"target_go_live\\\": \\\"2027-09-04\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035179",
+              "generation_seed": 35179,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [7B0D1]",
+              "project_code": "7B0D1",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Samir Costa-35179-SP",
+              "project_manager": "Amira Dubois-35179-PM",
+              "business_owner": "Marc Benali-35179-BO",
+              "service_owner": "Nadia Dubois-35179-SO",
+              "risk_owner": "David Rahman-35179-RO",
+              "start_date": "2026-12-17",
+              "target_go_live": "2027-09-04",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 3000000,
+              "roi": 0.023,
+              "npv_eur": 2482798,
+              "payback_months": 15,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 21.0,
+              "fte_available": 6.5,
+              "change_plan_status": "draft",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Sofia Costa-35179-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-LICENSE-001"
+              ],
+              "actions": [
+                "REMEDIATE_LICENSE_POSITION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"none\", \"license_compliant\": false, \"annual_license_cost_eur\": 424311, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-HA-001"
+              ],
+              "actions": [
+                "REDESIGN_FOR_HIGH_AVAILABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-HA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-7B0D1-v3.3\", \"lld_version\": \"LLD-7B0D1-v3.8\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 5, \"adr_count\": 4, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.214.176.0/24\", \"10.214.177.0/24\", \"10.214.178.0/24\"], \"dns_zone\": \"dgf-int-035179.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-IAM-002",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 14, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-DPA-001",
+                "LEGAL-IP-001",
+                "LEGAL-LOG-001"
+              ],
+              "actions": [
+                "EXECUTE_DPA",
+                "CLARIFY_IP_OWNERSHIP",
+                "ADD_LOG_EXPORT_CLAUSE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-DPA-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-7B0D1-3.1\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-IP-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-7B0D1-3.1\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-7B0D1-3.1\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 180, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-AUDIT-001",
+                "COMP-A11Y-001"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "IMPLEMENT_AUDIT_TRAIL",
+                "REMEDIATE_ACCESSIBILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+                },
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+                },
+                {
+                  "finding_id": "COMP-A11Y-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035179\", \"generation_seed\": 35179, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [7B0D1]\", \"project_code\": \"7B0D1\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Samir Costa-35179-SP\", \"project_manager\": \"Amira Dubois-35179-PM\", \"business_owner\": \"Marc Benali-35179-BO\", \"service_owner\": \"Nadia Dubois-35179-SO\", \"risk_owner\": \"David Rahman-35179-RO\", \"start_date\": \"2026-12-17\", \"target_go_live\": \"2027-09-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

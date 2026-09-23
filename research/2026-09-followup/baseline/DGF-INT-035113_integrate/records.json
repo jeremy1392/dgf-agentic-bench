@@ -1,0 +1,603 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035113",
+              "generation_seed": 35113,
+              "project_name": "Kepler Acquisition Integration — Digital Onboarding [53590]",
+              "project_code": "53590",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Sales",
+              "sponsor": "Omar Moreau-35113-SP",
+              "project_manager": "Elena Garcia-35113-PM",
+              "business_owner": "Nadia Moreau-35113-BO",
+              "service_owner": "Marc Santos-35113-SO",
+              "risk_owner": "Victor Benali-35113-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-09-22",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 226060,
+              "cmdb_record_present": true,
+              "run_owner_present": false,
+              "support_model": "product_team",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 36,
+              "change_record_status": "draft",
+              "service_continuity_class": "gold",
+              "hosting_model": "functions"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035113",
+              "generation_seed": 35113,
+              "project_name": "Kepler Acquisition Integration — Digital Onboarding [53590]",
+              "project_code": "53590",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Sales",
+              "sponsor": "Omar Moreau-35113-SP",
+              "project_manager": "Elena Garcia-35113-PM",
+              "business_owner": "Nadia Moreau-35113-BO",
+              "service_owner": "Marc Santos-35113-SO",
+              "risk_owner": "Victor Benali-35113-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-09-22",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-53590-v2.0",
+              "lld_version": "LLD-53590-v3.8",
+              "api_gateway_required": false,
+              "api_gateway_present": false,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 100,
+              "measured_latency_ms": 55,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 7,
+              "adr_count": 10,
+              "reversibility_status": "documented",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.210.144.0/24",
+                "10.210.145.0/24",
+                "10.210.146.0/24"
+              ],
+              "dns_zone": "dgf-int-035113.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035113\", \"generation_seed\": 35113, \"project_name\": \"Kepler Acquisition Integration — Digital Onboarding [53590]\", \"project_code\": \"53590\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Sales\", \"sponsor\": \"Omar Moreau-35113-SP\", \"project_manager\": \"Elena Garcia-35113-PM\", \"business_owner\": \"Nadia Moreau-35113-BO\", \"service_owner\": \"Marc Santos-35113-SO\", \"risk_owner\": \"Victor Benali-35113-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-09-22\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"West Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035113",
+              "generation_seed": 35113,
+              "project_name": "Kepler Acquisition Integration — Digital Onboarding [53590]",
+              "project_code": "53590",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Sales",
+              "sponsor": "Omar Moreau-35113-SP",
+              "project_manager": "Elena Garcia-35113-PM",
+              "business_owner": "Nadia Moreau-35113-BO",
+              "service_owner": "Marc Santos-35113-SO",
+              "risk_owner": "Victor Benali-35113-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-09-22",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": 365,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035113\", \"generation_seed\": 35113, \"project_name\": \"Kepler Acquisition Integration — Digital Onboarding [53590]\", \"project_code\": \"53590\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Sales\", \"sponsor\": \"Omar Moreau-35113-SP\", \"project_manager\": \"Elena Garcia-35113-PM\", \"business_owner\": \"Nadia Moreau-35113-BO\", \"service_owner\": \"Marc Santos-35113-SO\", \"risk_owner\": \"Victor Benali-35113-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-09-22\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"West Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-53590-12.5\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 5, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035113",
+              "generation_seed": 35113,
+              "project_name": "Kepler Acquisition Integration — Digital Onboarding [53590]",
+              "project_code": "53590",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Sales",
+              "sponsor": "Omar Moreau-35113-SP",
+              "project_manager": "Elena Garcia-35113-PM",
+              "business_owner": "Nadia Moreau-35113-BO",
+              "service_owner": "Marc Santos-35113-SO",
+              "risk_owner": "Victor Benali-35113-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-09-22",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-53590-12.5",
+              "governing_law": "England & Wales",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 5,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "adequate",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035113",
+              "generation_seed": 35113,
+              "project_name": "Kepler Acquisition Integration — Digital Onboarding [53590]",
+              "project_code": "53590",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Sales",
+              "sponsor": "Omar Moreau-35113-SP",
+              "project_manager": "Elena Garcia-35113-PM",
+              "business_owner": "Nadia Moreau-35113-BO",
+              "service_owner": "Marc Santos-35113-SO",
+              "risk_owner": "Victor Benali-35113-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-09-22",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "Internal policy baseline"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "EU",
+              "residency_compliant": true,
+              "retention_years": 1,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035113",
+              "generation_seed": 35113,
+              "project_name": "Kepler Acquisition Integration — Digital Onboarding [53590]",
+              "project_code": "53590",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Sales",
+              "sponsor": "Omar Moreau-35113-SP",
+              "project_manager": "Elena Garcia-35113-PM",
+              "business_owner": "Nadia Moreau-35113-BO",
+              "service_owner": "Marc Santos-35113-SO",
+              "risk_owner": "Victor Benali-35113-RO",
+              "start_date": "2026-10-26",
+              "target_go_live": "2027-09-22",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1500000,
+              "roi": 0.109,
+              "npv_eur": 382898,
+              "payback_months": 20,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 3.0,
+              "fte_available": 5.9,
+              "change_plan_status": "draft",
+              "benefits_kpi": "processing_time",
+              "benefits_owner": "Adam Khan-35113-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035113\", \"generation_seed\": 35113, \"project_name\": \"Kepler Acquisition Integration — Digital Onboarding [53590]\", \"project_code\": \"53590\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Sales\", \"sponsor\": \"Omar Moreau-35113-SP\", \"project_manager\": \"Elena Garcia-35113-PM\", \"business_owner\": \"Nadia Moreau-35113-BO\", \"service_owner\": \"Marc Santos-35113-SO\", \"risk_owner\": \"Victor Benali-35113-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-09-22\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"West Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035113\", \"generation_seed\": 35113, \"project_name\": \"Kepler Acquisition Integration — Digital Onboarding [53590]\", \"project_code\": \"53590\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Sales\", \"sponsor\": \"Omar Moreau-35113-SP\", \"project_manager\": \"Elena Garcia-35113-PM\", \"business_owner\": \"Nadia Moreau-35113-BO\", \"service_owner\": \"Marc Santos-35113-SO\", \"risk_owner\": \"Victor Benali-35113-RO\", \"start_date\": \"2026-10-26\", \"target_go_live\": \"2027-09-22\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"West Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-53590-12.5\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 5, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

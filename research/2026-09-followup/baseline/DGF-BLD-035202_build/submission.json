@@ -1,0 +1,145 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 354507, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 36, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"dedicated_host\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-51726-v3.2\", \"lld_version\": \"LLD-51726-v1.4\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 8, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.16.32.0/24\", \"10.16.33.0/24\", \"10.16.34.0/24\"], \"dns_zone\": \"dgf-bld-035202.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-51726-v3.2\", \"lld_version\": \"LLD-51726-v1.4\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 8, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.16.32.0/24\", \"10.16.33.0/24\", \"10.16.34.0/24\"], \"dns_zone\": \"dgf-bld-035202.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-51726-v3.2\", \"lld_version\": \"LLD-51726-v1.4\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 0, \"adr_count\": 8, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.16.32.0/24\", \"10.16.33.0/24\", \"10.16.34.0/24\"], \"dns_zone\": \"dgf-bld-035202.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-LOG-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 4, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BC-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "REVISE_BUSINESS_CASE",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 500000, \"budget_approved_eur\": 500000, \"roi\": 0.007, \"npv_eur\": 208074, \"payback_months\": 9, \"schedule_slip_weeks\": 1, \"fte_needed\": 22.5, \"fte_available\": 9.9, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"conversion_rate\", \"benefits_owner\": \"Victor Martin-35202-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035202\", \"generation_seed\": 35202, \"project_name\": \"Project Titan — Claims Automation [51726]\", \"project_code\": \"51726\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Noor Nguyen-35202-SP\", \"project_manager\": \"Ines Martin-35202-PM\", \"business_owner\": \"Maya Benali-35202-BO\", \"service_owner\": \"Adam Martin-35202-SO\", \"risk_owner\": \"Marc Canale-35202-RO\", \"start_date\": \"2026-09-07\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 500000, \"budget_approved_eur\": 500000, \"roi\": 0.007, \"npv_eur\": 208074, \"payback_months\": 9, \"schedule_slip_weeks\": 1, \"fte_needed\": 22.5, \"fte_available\": 9.9, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"conversion_rate\", \"benefits_owner\": \"Victor Martin-35202-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035202\\\", \\\"generation_seed\\\": 35202, \\\"project_name\\\": \\\"Project Titan — Claims Automation [51726]\\\", \\\"project_code\\\": \\\"51726\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Noor Nguyen-35202-SP\\\", \\\"project_manager\\\": \\\"Ines Martin-35202-PM\\\", \\\"business_owner\\\": \\\"Maya Benali-35202-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35202-SO\\\", \\\"risk_owner\\\": \\\"Marc Canale-35202-RO\\\", \\\"start_date\\\": \\\"2026-09-07\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 30, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 354507, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 14, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"dedicated_host\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035202\\\", \\\"generation_seed\\\": 35202, \\\"project_name\\\": \\\"Project Titan — Claims Automation [51726]\\\", \\\"project_code\\\": \\\"51726\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Noor Nguyen-35202-SP\\\", \\\"project_manager\\\": \\\"Ines Martin-35202-PM\\\", \\\"business_owner\\\": \\\"Maya Benali-35202-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35202-SO\\\", \\\"risk_owner\\\": \\\"Marc Canale-35202-RO\\\", \\\"start_date\\\": \\\"2026-09-07\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-51726-v3.2\\\", \\\"lld_version\\\": \\\"LLD-51726-v1.4\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 8, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.16.32.0/24\\\", \\\"10.16.33.0/24\\\", \\\"10.16.34.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035202.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035202\\\", \\\"generation_seed\\\": 35202, \\\"project_name\\\": \\\"Project Titan — Claims Automation [51726]\\\", \\\"project_code\\\": \\\"51726\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Noor Nguyen-35202-SP\\\", \\\"project_manager\\\": \\\"Ines Martin-35202-PM\\\", \\\"business_owner\\\": \\\"Maya Benali-35202-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35202-SO\\\", \\\"risk_owner\\\": \\\"Marc Canale-35202-RO\\\", \\\"start_date\\\": \\\"2026-09-07\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-51726-v3.2\\\", \\\"lld_version\\\": \\\"LLD-51726-v1.4\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 8, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.16.32.0/24\\\", \\\"10.16.33.0/24\\\", \\\"10.16.34.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035202.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035202\\\", \\\"generation_seed\\\": 35202, \\\"project_name\\\": \\\"Project Titan — Claims Automation [51726]\\\", \\\"project_code\\\": \\\"51726\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Noor Nguyen-35202-SP\\\", \\\"project_manager\\\": \\\"Ines Martin-35202-PM\\\", \\\"business_owner\\\": \\\"Maya Benali-35202-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35202-SO\\\", \\\"risk_owner\\\": \\\"Marc Canale-35202-RO\\\", \\\"start_date\\\": \\\"2026-09-07\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-51726-v3.2\\\", \\\"lld_version\\\": \\\"LLD-51726-v1.4\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 8, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.16.32.0/24\\\", \\\"10.16.33.0/24\\\", \\\"10.16.34.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035202.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-LOG-001\", \"SEC-VULN-001\"], \"actions\": [\"CONNECT_LOGS_TO_SIEM\", \"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035202\\\", \\\"generation_seed\\\": 35202, \\\"project_name\\\": \\\"Project Titan — Claims Automation [51726]\\\", \\\"project_code\\\": \\\"51726\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Noor Nguyen-35202-SP\\\", \\\"project_manager\\\": \\\"Ines Martin-35202-PM\\\", \\\"business_owner\\\": \\\"Maya Benali-35202-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35202-SO\\\", \\\"risk_owner\\\": \\\"Marc Canale-35202-RO\\\", \\\"start_date\\\": \\\"2026-09-07\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035202\\\", \\\"generation_seed\\\": 35202, \\\"project_name\\\": \\\"Project Titan — Claims Automation [51726]\\\", \\\"project_code\\\": \\\"51726\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Noor Nguyen-35202-SP\\\", \\\"project_manager\\\": \\\"Ines Martin-35202-PM\\\", \\\"business_owner\\\": \\\"Maya Benali-35202-BO\\\", \\\"service_owner\\\": \\\"Adam Martin-35202-SO\\\", \\\"risk_owner\\\": \\\"Marc Canale-35202-RO\\\", \\\"start_date\\\": \\\"2026-09-07\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

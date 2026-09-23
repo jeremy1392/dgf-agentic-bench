@@ -4,7 +4,7 @@
 
 ## Question and conditions
 
-Compare unaided qualified humans, agents, and humans reviewing agent drafts on the same information contract. Add a deterministic rules engine restricted to agent-permitted facts and mandates; no comparator may read hidden reference answers. Separately evaluate document-only inputs to measure reliance on structured facts. Do not present an answer-key oracle as a substantive baseline.
+Compare unaided qualified humans, agents, and humans reviewing agent drafts on the same information contract. The deterministic control has now been executed on the original 300 dossiers (100% strict gate/route success). Include it again on independently adjudicated held-out cases; no comparator may read hidden reference answers. Separately evaluate document-only inputs to measure reliance on structured facts. Do not present an answer-key oracle as a substantive baseline.
 
 ## Before collection
 

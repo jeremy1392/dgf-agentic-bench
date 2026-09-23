@@ -1,0 +1,649 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-REF-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035034\", \"generation_seed\": 35034, \"project_name\": \"Project Vega — Enterprise Search [B5B97]\", \"project_code\": \"B5B97\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Smith-35034-SP\", \"project_manager\": \"Noor Rossi-35034-PM\", \"business_owner\": \"Leila Rossi-35034-BO\", \"service_owner\": \"Ines Nguyen-35034-SO\", \"risk_owner\": \"Elena Petrescu-35034-RO\", \"start_date\": \"2026-11-24\", \"target_go_live\": \"2027-05-02\", \"users_impacted\": 250, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"France Central\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Asterion Cloud B5B97-1\", \"functional_score\": 65, \"security_score\": 68, \"tco_3y_eur\": 677209, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 72.1}, {\"vendor\": \"BlueMesa Systems B5B97-2\", \"functional_score\": 73, \"security_score\": 95, \"tco_3y_eur\": 1427396, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 72.0}, {\"vendor\": \"CedarPoint Digital B5B97-3\", \"functional_score\": 68, \"security_score\": 78, \"tco_3y_eur\": 779993, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.5}, {\"vendor\": \"DeltaForge Technologies B5B97-4\", \"functional_score\": 89, \"security_score\": 91, \"tco_3y_eur\": 2411429, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"partial\", \"weighted_score\": 69.9}], \"selected_vendor\": \"BlueMesa Systems B5B97-2\", \"competition\": \"open_tender\", \"rfp_requirements\": 67, \"purchasing_budget_eur\": 3000000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035034",
+              "generation_seed": 35034,
+              "project_name": "Project Vega — Enterprise Search [B5B97]",
+              "project_code": "B5B97",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Smith-35034-SP",
+              "project_manager": "Noor Rossi-35034-PM",
+              "business_owner": "Leila Rossi-35034-BO",
+              "service_owner": "Ines Nguyen-35034-SO",
+              "risk_owner": "Elena Petrescu-35034-RO",
+              "start_date": "2026-11-24",
+              "target_go_live": "2027-05-02",
+              "users_impacted": 250,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "France Central",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Asterion Cloud B5B97-1",
+                  "functional_score": 65,
+                  "security_score": 68,
+                  "tco_3y_eur": 677209,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "pending",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 72.1
+                },
+                {
+                  "vendor": "BlueMesa Systems B5B97-2",
+                  "functional_score": 73,
+                  "security_score": 95,
+                  "tco_3y_eur": 1427396,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "complete",
+                  "weighted_score": 72.0
+                },
+                {
+                  "vendor": "CedarPoint Digital B5B97-3",
+                  "functional_score": 68,
+                  "security_score": 78,
+                  "tco_3y_eur": 779993,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "hit",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 75.5
+                },
+                {
+                  "vendor": "DeltaForge Technologies B5B97-4",
+                  "functional_score": 89,
+                  "security_score": 91,
+                  "tco_3y_eur": 2411429,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "partial",
+                  "weighted_score": 69.9
+                }
+              ],
+              "selected_vendor": "BlueMesa Systems B5B97-2",
+              "competition": "open_tender",
+              "rfp_requirements": 67,
+              "purchasing_budget_eur": 3000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035034\", \"generation_seed\": 35034, \"project_name\": \"Project Vega — Enterprise Search [B5B97]\", \"project_code\": \"B5B97\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Smith-35034-SP\", \"project_manager\": \"Noor Rossi-35034-PM\", \"business_owner\": \"Leila Rossi-35034-BO\", \"service_owner\": \"Ines Nguyen-35034-SO\", \"risk_owner\": \"Elena Petrescu-35034-RO\", \"start_date\": \"2026-11-24\", \"target_go_live\": \"2027-05-02\", \"users_impacted\": 250, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"France Central\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B5B97-6.7\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035034",
+              "generation_seed": 35034,
+              "project_name": "Project Vega — Enterprise Search [B5B97]",
+              "project_code": "B5B97",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Smith-35034-SP",
+              "project_manager": "Noor Rossi-35034-PM",
+              "business_owner": "Leila Rossi-35034-BO",
+              "service_owner": "Ines Nguyen-35034-SO",
+              "risk_owner": "Elena Petrescu-35034-RO",
+              "start_date": "2026-11-24",
+              "target_go_live": "2027-05-02",
+              "users_impacted": 250,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "France Central",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-B5B97-6.7",
+              "governing_law": "England & Wales",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 20,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "contractual_only",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035034",
+              "generation_seed": 35034,
+              "project_name": "Project Vega — Enterprise Search [B5B97]",
+              "project_code": "B5B97",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Smith-35034-SP",
+              "project_manager": "Noor Rossi-35034-PM",
+              "business_owner": "Leila Rossi-35034-BO",
+              "service_owner": "Ines Nguyen-35034-SO",
+              "risk_owner": "Elena Petrescu-35034-RO",
+              "start_date": "2026-11-24",
+              "target_go_live": "2027-05-02",
+              "users_impacted": 250,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "France Central",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "Internal policy baseline"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 10,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "complete",
+              "accessibility_status": "pass",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "continuous",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035034\", \"generation_seed\": 35034, \"project_name\": \"Project Vega — Enterprise Search [B5B97]\", \"project_code\": \"B5B97\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Smith-35034-SP\", \"project_manager\": \"Noor Rossi-35034-PM\", \"business_owner\": \"Leila Rossi-35034-BO\", \"service_owner\": \"Ines Nguyen-35034-SO\", \"risk_owner\": \"Elena Petrescu-35034-RO\", \"start_date\": \"2026-11-24\", \"target_go_live\": \"2027-05-02\", \"users_impacted\": 250, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"France Central\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035034",
+              "generation_seed": 35034,
+              "project_name": "Project Vega — Enterprise Search [B5B97]",
+              "project_code": "B5B97",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Smith-35034-SP",
+              "project_manager": "Noor Rossi-35034-PM",
+              "business_owner": "Leila Rossi-35034-BO",
+              "service_owner": "Ines Nguyen-35034-SO",
+              "risk_owner": "Elena Petrescu-35034-RO",
+              "start_date": "2026-11-24",
+              "target_go_live": "2027-05-02",
+              "users_impacted": 250,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "France Central",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": false,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": false,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": null,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035034",
+              "generation_seed": 35034,
+              "project_name": "Project Vega — Enterprise Search [B5B97]",
+              "project_code": "B5B97",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Smith-35034-SP",
+              "project_manager": "Noor Rossi-35034-PM",
+              "business_owner": "Leila Rossi-35034-BO",
+              "service_owner": "Ines Nguyen-35034-SO",
+              "risk_owner": "Elena Petrescu-35034-RO",
+              "start_date": "2026-11-24",
+              "target_go_live": "2027-05-02",
+              "users_impacted": 250,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "France Central",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 85037,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 18,
+              "change_record_status": "approved",
+              "service_continuity_class": "bronze",
+              "hosting_model": "functions"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035034",
+              "generation_seed": 35034,
+              "project_name": "Project Vega — Enterprise Search [B5B97]",
+              "project_code": "B5B97",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Smith-35034-SP",
+              "project_manager": "Noor Rossi-35034-PM",
+              "business_owner": "Leila Rossi-35034-BO",
+              "service_owner": "Ines Nguyen-35034-SO",
+              "risk_owner": "Elena Petrescu-35034-RO",
+              "start_date": "2026-11-24",
+              "target_go_live": "2027-05-02",
+              "users_impacted": 250,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "France Central",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 3000000,
+              "roi": 0.06,
+              "npv_eur": 3562279,
+              "payback_months": 47,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 21.2,
+              "fte_available": 10.3,
+              "change_plan_status": "complete",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Leila Meyer-35034-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "PROC-REF-001"
+              ],
+              "actions": [
+                "CHECK_VENDOR_REFERENCES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-REF-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035034\", \"generation_seed\": 35034, \"project_name\": \"Project Vega — Enterprise Search [B5B97]\", \"project_code\": \"B5B97\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Smith-35034-SP\", \"project_manager\": \"Noor Rossi-35034-PM\", \"business_owner\": \"Leila Rossi-35034-BO\", \"service_owner\": \"Ines Nguyen-35034-SO\", \"risk_owner\": \"Elena Petrescu-35034-RO\", \"start_date\": \"2026-11-24\", \"target_go_live\": \"2027-05-02\", \"users_impacted\": 250, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"France Central\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Asterion Cloud B5B97-1\", \"functional_score\": 65, \"security_score\": 68, \"tco_3y_eur\": 677209, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 72.1}, {\"vendor\": \"BlueMesa Systems B5B97-2\", \"functional_score\": 73, \"security_score\": 95, \"tco_3y_eur\": 1427396, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 72.0}, {\"vendor\": \"CedarPoint Digital B5B97-3\", \"functional_score\": 68, \"security_score\": 78, \"tco_3y_eur\": 779993, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.5}, {\"vendor\": \"DeltaForge Technologies B5B97-4\", \"functional_score\": 89, \"security_score\": 91, \"tco_3y_eur\": 2411429, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"partial\", \"weighted_score\": 69.9}], \"selected_vendor\": \"BlueMesa Systems B5B97-2\", \"competition\": \"open_tender\", \"rfp_requirements\": 67, \"purchasing_budget_eur\": 3000000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035034\", \"generation_seed\": 35034, \"project_name\": \"Project Vega — Enterprise Search [B5B97]\", \"project_code\": \"B5B97\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Smith-35034-SP\", \"project_manager\": \"Noor Rossi-35034-PM\", \"business_owner\": \"Leila Rossi-35034-BO\", \"service_owner\": \"Ines Nguyen-35034-SO\", \"risk_owner\": \"Elena Petrescu-35034-RO\", \"start_date\": \"2026-11-24\", \"target_go_live\": \"2027-05-02\", \"users_impacted\": 250, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"France Central\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-B5B97-6.7\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035034\", \"generation_seed\": 35034, \"project_name\": \"Project Vega — Enterprise Search [B5B97]\", \"project_code\": \"B5B97\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Smith-35034-SP\", \"project_manager\": \"Noor Rossi-35034-PM\", \"business_owner\": \"Leila Rossi-35034-BO\", \"service_owner\": \"Ines Nguyen-35034-SO\", \"risk_owner\": \"Elena Petrescu-35034-RO\", \"start_date\": \"2026-11-24\", \"target_go_live\": \"2027-05-02\", \"users_impacted\": 250, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"France Central\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

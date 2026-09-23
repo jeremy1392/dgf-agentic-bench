@@ -1,0 +1,711 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035135",
+              "generation_seed": 35135,
+              "project_name": "Orion Acquisition Integration — Customer 360 CRM [35748]",
+              "project_code": "35748",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Costa-35135-SP",
+              "project_manager": "Maya Canale-35135-PM",
+              "business_owner": "Thomas Martin-35135-BO",
+              "service_owner": "Samir Martin-35135-SO",
+              "risk_owner": "Clara Garcia-35135-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-08",
+              "users_impacted": 1000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": true,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 216119,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "silver",
+              "hosting_model": "dedicated_host"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-35748-v1.7\", \"lld_version\": \"LLD-35748-v2.5\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": false, \"private_cidrs\": [\"10.211.240.0/24\", \"10.211.241.0/24\", \"10.211.242.0/24\"], \"dns_zone\": \"dgf-int-035135.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-35748-v1.7\", \"lld_version\": \"LLD-35748-v2.5\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": false, \"private_cidrs\": [\"10.211.240.0/24\", \"10.211.241.0/24\", \"10.211.242.0/24\"], \"dns_zone\": \"dgf-int-035135.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035135",
+              "generation_seed": 35135,
+              "project_name": "Orion Acquisition Integration — Customer 360 CRM [35748]",
+              "project_code": "35748",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Costa-35135-SP",
+              "project_manager": "Maya Canale-35135-PM",
+              "business_owner": "Thomas Martin-35135-BO",
+              "service_owner": "Samir Martin-35135-SO",
+              "risk_owner": "Clara Garcia-35135-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-08",
+              "users_impacted": 1000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-35748-v1.7",
+              "lld_version": "LLD-35748-v2.5",
+              "api_gateway_required": false,
+              "api_gateway_present": false,
+              "ip_overlap": true,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 2,
+              "adr_count": 13,
+              "reversibility_status": "draft",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.211.240.0/24",
+                "10.211.241.0/24",
+                "10.211.242.0/24"
+              ],
+              "dns_zone": "dgf-int-035135.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 9, \"pentest_age_days\": 365, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035135",
+              "generation_seed": 35135,
+              "project_name": "Orion Acquisition Integration — Customer 360 CRM [35748]",
+              "project_code": "35748",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Costa-35135-SP",
+              "project_manager": "Maya Canale-35135-PM",
+              "business_owner": "Thomas Martin-35135-BO",
+              "service_owner": "Samir Martin-35135-SO",
+              "risk_owner": "Clara Garcia-35135-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-08",
+              "users_impacted": 1000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 2,
+              "high_vulns_open": 9,
+              "pentest_age_days": 365,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": false,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-AUDIT-001",
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "REDLINE_AUDIT_RIGHT",
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-35748-3.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-35748-3.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-35748-3.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035135",
+              "generation_seed": 35135,
+              "project_name": "Orion Acquisition Integration — Customer 360 CRM [35748]",
+              "project_code": "35748",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Costa-35135-SP",
+              "project_manager": "Maya Canale-35135-PM",
+              "business_owner": "Thomas Martin-35135-BO",
+              "service_owner": "Samir Martin-35135-SO",
+              "risk_owner": "Clara Garcia-35135-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-08",
+              "users_impacted": 1000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-35748-3.3",
+              "governing_law": "Ireland",
+              "dpa_status": "missing",
+              "liability_cap_multiplier": 1,
+              "security_carveout": false,
+              "audit_right": "none",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 5,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-RESID-001",
+        "COMP-EXPORT-001"
+      ],
+      "actions": [
+        "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+        "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-RESID-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035135",
+              "generation_seed": 35135,
+              "project_name": "Orion Acquisition Integration — Customer 360 CRM [35748]",
+              "project_code": "35748",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Costa-35135-SP",
+              "project_manager": "Maya Canale-35135-PM",
+              "business_owner": "Thomas Martin-35135-BO",
+              "service_owner": "Samir Martin-35135-SO",
+              "risk_owner": "Clara Garcia-35135-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-08",
+              "users_impacted": 1000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "PCI-DSS"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "EU",
+              "residency_compliant": false,
+              "retention_years": 10,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "complete",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "annual",
+              "export_control": "restricted"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-35748-v1.7\\\", \\\"lld_version\\\": \\\"LLD-35748-v2.5\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.211.240.0/24\\\", \\\"10.211.241.0/24\\\", \\\"10.211.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035135.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-35748-v1.7\\\", \\\"lld_version\\\": \\\"LLD-35748-v2.5\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.211.240.0/24\\\", \\\"10.211.241.0/24\\\", \\\"10.211.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035135.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-VULN-001\"], \"actions\": [\"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 9, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-DPA-001\", \"LEGAL-AUDIT-001\", \"LEGAL-EXIT-001\"], \"actions\": [\"EXECUTE_DPA\", \"REDLINE_AUDIT_RIGHT\", \"ADD_EXIT_ASSISTANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-35748-3.3\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-35748-3.3\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-EXIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-35748-3.3\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": false, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 5, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-RESID-001\", \"COMP-EXPORT-001\"], \"actions\": [\"RELOCATE_DATA_OR_OBTAIN_VALID_BASIS\", \"OBTAIN_EXPORT_CONTROL_CLEARANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-RESID-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035135\\\", \\\"generation_seed\\\": 35135, \\\"project_name\\\": \\\"Orion Acquisition Integration — Customer 360 CRM [35748]\\\", \\\"project_code\\\": \\\"35748\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Lucas Costa-35135-SP\\\", \\\"project_manager\\\": \\\"Maya Canale-35135-PM\\\", \\\"business_owner\\\": \\\"Thomas Martin-35135-BO\\\", \\\"service_owner\\\": \\\"Samir Martin-35135-SO\\\", \\\"risk_owner\\\": \\\"Clara Garcia-35135-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-08\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": false, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035135",
+              "generation_seed": 35135,
+              "project_name": "Orion Acquisition Integration — Customer 360 CRM [35748]",
+              "project_code": "35748",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Data Office",
+              "sponsor": "Lucas Costa-35135-SP",
+              "project_manager": "Maya Canale-35135-PM",
+              "business_owner": "Thomas Martin-35135-BO",
+              "service_owner": "Samir Martin-35135-SO",
+              "risk_owner": "Clara Garcia-35135-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-08",
+              "users_impacted": 1000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 500000,
+              "roi": 0.26,
+              "npv_eur": 62611,
+              "payback_months": 53,
+              "schedule_slip_weeks": 2,
+              "fte_needed": 3.1,
+              "fte_available": 10.3,
+              "change_plan_status": "missing",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Marc Santos-35135-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-35748-v1.7\", \"lld_version\": \"LLD-35748-v2.5\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": false, \"private_cidrs\": [\"10.211.240.0/24\", \"10.211.241.0/24\", \"10.211.242.0/24\"], \"dns_zone\": \"dgf-int-035135.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-35748-v1.7\", \"lld_version\": \"LLD-35748-v2.5\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": true, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 2, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": false, \"private_cidrs\": [\"10.211.240.0/24\", \"10.211.241.0/24\", \"10.211.242.0/24\"], \"dns_zone\": \"dgf-int-035135.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-VULN-001"
+              ],
+              "actions": [
+                "REMEDIATE_CRITICAL_VULNERABILITIES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 9, \"pentest_age_days\": 365, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-DPA-001",
+                "LEGAL-AUDIT-001",
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "EXECUTE_DPA",
+                "REDLINE_AUDIT_RIGHT",
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-DPA-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-35748-3.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-35748-3.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-35748-3.3\", \"governing_law\": \"Ireland\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 1, \"security_carveout\": false, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 5, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-RESID-001",
+                "COMP-EXPORT-001"
+              ],
+              "actions": [
+                "RELOCATE_DATA_OR_OBTAIN_VALID_BASIS",
+                "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-RESID-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035135\", \"generation_seed\": 35135, \"project_name\": \"Orion Acquisition Integration — Customer 360 CRM [35748]\", \"project_code\": \"35748\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Lucas Costa-35135-SP\", \"project_manager\": \"Maya Canale-35135-PM\", \"business_owner\": \"Thomas Martin-35135-BO\", \"service_owner\": \"Samir Martin-35135-SO\", \"risk_owner\": \"Clara Garcia-35135-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-08\", \"users_impacted\": 1000, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": false, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"restricted\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

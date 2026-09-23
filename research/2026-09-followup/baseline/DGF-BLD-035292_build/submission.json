@@ -1,0 +1,99 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035292\", \"generation_seed\": 35292, \"project_name\": \"Project Titan — Payments API Hub [61865]\", \"project_code\": \"61865\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Sofia Khan-35292-SP\", \"project_manager\": \"Thomas Ivanov-35292-PM\", \"business_owner\": \"Amira Dubois-35292-BO\", \"service_owner\": \"Elena Ivanov-35292-SO\", \"risk_owner\": \"Amira Laurent-35292-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-12-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 180, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035292\", \"generation_seed\": 35292, \"project_name\": \"Project Titan — Payments API Hub [61865]\", \"project_code\": \"61865\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Sofia Khan-35292-SP\", \"project_manager\": \"Thomas Ivanov-35292-PM\", \"business_owner\": \"Amira Dubois-35292-BO\", \"service_owner\": \"Elena Ivanov-35292-SO\", \"risk_owner\": \"Amira Laurent-35292-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-12-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 71, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 60, \"unit_test_coverage_pct\": 91, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 3.4, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-BUDGET-001"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035292\", \"generation_seed\": 35292, \"project_name\": \"Project Titan — Payments API Hub [61865]\", \"project_code\": \"61865\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Sofia Khan-35292-SP\", \"project_manager\": \"Thomas Ivanov-35292-PM\", \"business_owner\": \"Amira Dubois-35292-BO\", \"service_owner\": \"Elena Ivanov-35292-SO\", \"risk_owner\": \"Amira Laurent-35292-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-12-04\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P0\", \"budget_requested_eur\": 900000, \"budget_approved_eur\": 765000, \"roi\": 0.257, \"npv_eur\": 91807, \"payback_months\": 56, \"schedule_slip_weeks\": 8, \"fte_needed\": 27.3, \"fte_available\": 16.3, \"change_plan_status\": \"draft\", \"benefits_kpi\": \"conversion_rate\", \"benefits_owner\": \"Clara Martin-35292-BEN\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035252\", \"generation_seed\": 35252, \"project_name\": \"Project Juno — Payments API Hub [D4FA7]\", \"project_code\": \"D4FA7\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Petrescu-35252-SP\", \"project_manager\": \"Adam Santos-35252-PM\", \"business_owner\": \"Jeremy Khan-35252-BO\", \"service_owner\": \"David Petrescu-35252-SO\", \"risk_owner\": \"Daria Rossi-35252-RO\", \"start_date\": \"2026-11-07\", \"target_go_live\": \"2027-08-07\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-D4FA7-v4.6\", \"lld_version\": \"LLD-D4FA7-v4.0\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 7, \"adr_count\": 6, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.19.64.0/24\", \"10.19.65.0/24\", \"10.19.66.0/24\"], \"dns_zone\": \"dgf-bld-035252.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035252\", \"generation_seed\": 35252, \"project_name\": \"Project Juno — Payments API Hub [D4FA7]\", \"project_code\": \"D4FA7\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Petrescu-35252-SP\", \"project_manager\": \"Adam Santos-35252-PM\", \"business_owner\": \"Jeremy Khan-35252-BO\", \"service_owner\": \"David Petrescu-35252-SO\", \"risk_owner\": \"Daria Rossi-35252-RO\", \"start_date\": \"2026-11-07\", \"target_go_live\": \"2027-08-07\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 365, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035252\", \"generation_seed\": 35252, \"project_name\": \"Project Juno — Payments API Hub [D4FA7]\", \"project_code\": \"D4FA7\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Petrescu-35252-SP\", \"project_manager\": \"Adam Santos-35252-PM\", \"business_owner\": \"Jeremy Khan-35252-BO\", \"service_owner\": \"David Petrescu-35252-SO\", \"risk_owner\": \"Daria Rossi-35252-RO\", \"start_date\": \"2026-11-07\", \"target_go_live\": \"2027-08-07\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 365, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RTO-001",
+        "TR-CODE-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "REMEDIATE_RECOVERY_TIME",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-RTO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035252\", \"generation_seed\": 35252, \"project_name\": \"Project Juno — Payments API Hub [D4FA7]\", \"project_code\": \"D4FA7\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Petrescu-35252-SP\", \"project_manager\": \"Adam Santos-35252-PM\", \"business_owner\": \"Jeremy Khan-35252-BO\", \"service_owner\": \"David Petrescu-35252-SO\", \"risk_owner\": \"Daria Rossi-35252-RO\", \"start_date\": \"2026-11-07\", \"target_go_live\": \"2027-08-07\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 91, \"pilot_completed\": false, \"load_test_pct_of_peak\": 150, \"p95_ms\": 1501, \"unit_test_coverage_pct\": 73, \"critical_static_findings\": 3, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 30.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 240, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035252\", \"generation_seed\": 35252, \"project_name\": \"Project Juno — Payments API Hub [D4FA7]\", \"project_code\": \"D4FA7\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Petrescu-35252-SP\", \"project_manager\": \"Adam Santos-35252-PM\", \"business_owner\": \"Jeremy Khan-35252-BO\", \"service_owner\": \"David Petrescu-35252-SO\", \"risk_owner\": \"Daria Rossi-35252-RO\", \"start_date\": \"2026-11-07\", \"target_go_live\": \"2027-08-07\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 91, \"pilot_completed\": false, \"load_test_pct_of_peak\": 150, \"p95_ms\": 1501, \"unit_test_coverage_pct\": 73, \"critical_static_findings\": 3, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 30.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 240, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035252\", \"generation_seed\": 35252, \"project_name\": \"Project Juno — Payments API Hub [D4FA7]\", \"project_code\": \"D4FA7\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Petrescu-35252-SP\", \"project_manager\": \"Adam Santos-35252-PM\", \"business_owner\": \"Jeremy Khan-35252-BO\", \"service_owner\": \"David Petrescu-35252-SO\", \"risk_owner\": \"Daria Rossi-35252-RO\", \"start_date\": \"2026-11-07\", \"target_go_live\": \"2027-08-07\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 91, \"pilot_completed\": false, \"load_test_pct_of_peak\": 150, \"p95_ms\": 1501, \"unit_test_coverage_pct\": 73, \"critical_static_findings\": 3, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 30.0, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 240, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035252\", \"generation_seed\": 35252, \"project_name\": \"Project Juno — Payments API Hub [D4FA7]\", \"project_code\": \"D4FA7\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Omar Petrescu-35252-SP\", \"project_manager\": \"Adam Santos-35252-PM\", \"business_owner\": \"Jeremy Khan-35252-BO\", \"service_owner\": \"David Petrescu-35252-SO\", \"risk_owner\": \"Daria Rossi-35252-RO\", \"start_date\": \"2026-11-07\", \"target_go_live\": \"2027-08-07\", \"users_impacted\": 500, \"budget_requested_eur\": 250000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 250000, \"budget_approved_eur\": 250000, \"roi\": 0.231, \"npv_eur\": 11275, \"payback_months\": 17, \"schedule_slip_weeks\": 4, \"fte_needed\": 25.8, \"fte_available\": 5.0, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"cost_to_serve\", \"benefits_owner\": \"Daria Petrescu-35252-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035252\\\", \\\"generation_seed\\\": 35252, \\\"project_name\\\": \\\"Project Juno — Payments API Hub [D4FA7]\\\", \\\"project_code\\\": \\\"D4FA7\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Petrescu-35252-SP\\\", \\\"project_manager\\\": \\\"Adam Santos-35252-PM\\\", \\\"business_owner\\\": \\\"Jeremy Khan-35252-BO\\\", \\\"service_owner\\\": \\\"David Petrescu-35252-SO\\\", \\\"risk_owner\\\": \\\"Daria Rossi-35252-RO\\\", \\\"start_date\\\": \\\"2026-11-07\\\", \\\"target_go_live\\\": \\\"2027-08-07\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-D4FA7-v4.6\\\", \\\"lld_version\\\": \\\"LLD-D4FA7-v4.0\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 7, \\\"adr_count\\\": 6, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.19.64.0/24\\\", \\\"10.19.65.0/24\\\", \\\"10.19.66.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035252.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-LOG-001\", \"SEC-KEY-001\"], \"actions\": [\"CONNECT_LOGS_TO_SIEM\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035252\\\", \\\"generation_seed\\\": 35252, \\\"project_name\\\": \\\"Project Juno — Payments API Hub [D4FA7]\\\", \\\"project_code\\\": \\\"D4FA7\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Petrescu-35252-SP\\\", \\\"project_manager\\\": \\\"Adam Santos-35252-PM\\\", \\\"business_owner\\\": \\\"Jeremy Khan-35252-BO\\\", \\\"service_owner\\\": \\\"David Petrescu-35252-SO\\\", \\\"risk_owner\\\": \\\"Daria Rossi-35252-RO\\\", \\\"start_date\\\": \\\"2026-11-07\\\", \\\"target_go_live\\\": \\\"2027-08-07\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": false, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035252\\\", \\\"generation_seed\\\": 35252, \\\"project_name\\\": \\\"Project Juno — Payments API Hub [D4FA7]\\\", \\\"project_code\\\": \\\"D4FA7\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Petrescu-35252-SP\\\", \\\"project_manager\\\": \\\"Adam Santos-35252-PM\\\", \\\"business_owner\\\": \\\"Jeremy Khan-35252-BO\\\", \\\"service_owner\\\": \\\"David Petrescu-35252-SO\\\", \\\"risk_owner\\\": \\\"Daria Rossi-35252-RO\\\", \\\"start_date\\\": \\\"2026-11-07\\\", \\\"target_go_live\\\": \\\"2027-08-07\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": false, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"TR-RTO-001\", \"TR-CODE-001\", \"TR-OPS-001\"], \"actions\": [\"REMEDIATE_RECOVERY_TIME\", \"REMEDIATE_BUILD_FINDINGS\", \"COMPLETE_OPERATIONAL_HANDOVER\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-RTO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035252\\\", \\\"generation_seed\\\": 35252, \\\"project_name\\\": \\\"Project Juno — Payments API Hub [D4FA7]\\\", \\\"project_code\\\": \\\"D4FA7\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Petrescu-35252-SP\\\", \\\"project_manager\\\": \\\"Adam Santos-35252-PM\\\", \\\"business_owner\\\": \\\"Jeremy Khan-35252-BO\\\", \\\"service_owner\\\": \\\"David Petrescu-35252-SO\\\", \\\"risk_owner\\\": \\\"Daria Rossi-35252-RO\\\", \\\"start_date\\\": \\\"2026-11-07\\\", \\\"target_go_live\\\": \\\"2027-08-07\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 91, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 150, \\\"p95_ms\\\": 1501, \\\"unit_test_coverage_pct\\\": 73, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 30.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 240, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-CODE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035252\\\", \\\"generation_seed\\\": 35252, \\\"project_name\\\": \\\"Project Juno — Payments API Hub [D4FA7]\\\", \\\"project_code\\\": \\\"D4FA7\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Petrescu-35252-SP\\\", \\\"project_manager\\\": \\\"Adam Santos-35252-PM\\\", \\\"business_owner\\\": \\\"Jeremy Khan-35252-BO\\\", \\\"service_owner\\\": \\\"David Petrescu-35252-SO\\\", \\\"risk_owner\\\": \\\"Daria Rossi-35252-RO\\\", \\\"start_date\\\": \\\"2026-11-07\\\", \\\"target_go_live\\\": \\\"2027-08-07\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 91, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 150, \\\"p95_ms\\\": 1501, \\\"unit_test_coverage_pct\\\": 73, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 30.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 240, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035252\\\", \\\"generation_seed\\\": 35252, \\\"project_name\\\": \\\"Project Juno — Payments API Hub [D4FA7]\\\", \\\"project_code\\\": \\\"D4FA7\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Omar Petrescu-35252-SP\\\", \\\"project_manager\\\": \\\"Adam Santos-35252-PM\\\", \\\"business_owner\\\": \\\"Jeremy Khan-35252-BO\\\", \\\"service_owner\\\": \\\"David Petrescu-35252-SO\\\", \\\"risk_owner\\\": \\\"Daria Rossi-35252-RO\\\", \\\"start_date\\\": \\\"2026-11-07\\\", \\\"target_go_live\\\": \\\"2027-08-07\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 91, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 150, \\\"p95_ms\\\": 1501, \\\"unit_test_coverage_pct\\\": 73, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 30.0, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 240, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

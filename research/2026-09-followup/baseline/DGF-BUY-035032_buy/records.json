@@ -1,0 +1,695 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-REF-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"HelioStack Cloud 5138F-1\", \"functional_score\": 86, \"security_score\": 69, \"tco_3y_eur\": 1285363, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 69.7}, {\"vendor\": \"Asterion Cloud 5138F-2\", \"functional_score\": 83, \"security_score\": 83, \"tco_3y_eur\": 489821, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 84.2}, {\"vendor\": \"BlueMesa Systems 5138F-3\", \"functional_score\": 75, \"security_score\": 86, \"tco_3y_eur\": 1761499, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 73.8}, {\"vendor\": \"CedarPoint Digital 5138F-4\", \"functional_score\": 63, \"security_score\": 81, \"tco_3y_eur\": 1363918, \"mandatory_criteria_failed\": 1, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 70.8}], \"selected_vendor\": \"HelioStack Cloud 5138F-1\", \"competition\": \"open_tender\", \"rfp_requirements\": 154, \"purchasing_budget_eur\": 7000000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035032",
+              "generation_seed": 35032,
+              "project_name": "Project Helix — Claims Automation [5138F]",
+              "project_code": "5138F",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Operations",
+              "sponsor": "Daria Martin-35032-SP",
+              "project_manager": "Lucas Garcia-35032-PM",
+              "business_owner": "Marc Rossi-35032-BO",
+              "service_owner": "Adam Laurent-35032-SO",
+              "risk_owner": "Sofia Meyer-35032-RO",
+              "start_date": "2026-09-19",
+              "target_go_live": "2027-08-27",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "HelioStack Cloud 5138F-1",
+                  "functional_score": 86,
+                  "security_score": 69,
+                  "tco_3y_eur": 1285363,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "complete",
+                  "weighted_score": 69.7
+                },
+                {
+                  "vendor": "Asterion Cloud 5138F-2",
+                  "functional_score": 83,
+                  "security_score": 83,
+                  "tco_3y_eur": 489821,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 84.2
+                },
+                {
+                  "vendor": "BlueMesa Systems 5138F-3",
+                  "functional_score": 75,
+                  "security_score": 86,
+                  "tco_3y_eur": 1761499,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 73.8
+                },
+                {
+                  "vendor": "CedarPoint Digital 5138F-4",
+                  "functional_score": 63,
+                  "security_score": 81,
+                  "tco_3y_eur": 1363918,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "hit",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 70.8
+                }
+              ],
+              "selected_vendor": "HelioStack Cloud 5138F-1",
+              "competition": "open_tender",
+              "rfp_requirements": 154,
+              "purchasing_budget_eur": 7000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-DPA-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-5138F-5.8\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 5, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 60, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035032",
+              "generation_seed": 35032,
+              "project_name": "Project Helix — Claims Automation [5138F]",
+              "project_code": "5138F",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Operations",
+              "sponsor": "Daria Martin-35032-SP",
+              "project_manager": "Lucas Garcia-35032-PM",
+              "business_owner": "Marc Rossi-35032-BO",
+              "service_owner": "Adam Laurent-35032-SO",
+              "risk_owner": "Sofia Meyer-35032-RO",
+              "start_date": "2026-09-19",
+              "target_go_live": "2027-08-27",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-5138F-5.8",
+              "governing_law": "UAE",
+              "dpa_status": "draft",
+              "liability_cap_multiplier": 5,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 60,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 1,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035032",
+              "generation_seed": 35032,
+              "project_name": "Project Helix — Claims Automation [5138F]",
+              "project_code": "5138F",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Operations",
+              "sponsor": "Daria Martin-35032-SP",
+              "project_manager": "Lucas Garcia-35032-PM",
+              "business_owner": "Marc Rossi-35032-BO",
+              "service_owner": "Adam Laurent-35032-SO",
+              "risk_owner": "Sofia Meyer-35032-RO",
+              "start_date": "2026-09-19",
+              "target_go_live": "2027-08-27",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "PCI-DSS"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 1,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "minor_findings",
+              "ethics_review": "missing",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "continuous",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-001",
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "ENFORCE_MFA",
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035032",
+              "generation_seed": 35032,
+              "project_name": "Project Helix — Claims Automation [5138F]",
+              "project_code": "5138F",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Operations",
+              "sponsor": "Daria Martin-35032-SP",
+              "project_manager": "Lucas Garcia-35032-PM",
+              "business_owner": "Marc Rossi-35032-BO",
+              "service_owner": "Adam Laurent-35032-SO",
+              "risk_owner": "Sofia Meyer-35032-RO",
+              "start_date": "2026-09-19",
+              "target_go_live": "2027-08-27",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "missing",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": false,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 4,
+              "pentest_age_days": 14,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CAPACITY-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 261872, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"vm_ha\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035032",
+              "generation_seed": 35032,
+              "project_name": "Project Helix — Claims Automation [5138F]",
+              "project_code": "5138F",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Operations",
+              "sponsor": "Daria Martin-35032-SP",
+              "project_manager": "Lucas Garcia-35032-PM",
+              "business_owner": "Marc Rossi-35032-BO",
+              "service_owner": "Adam Laurent-35032-SO",
+              "risk_owner": "Sofia Meyer-35032-RO",
+              "start_date": "2026-09-19",
+              "target_go_live": "2027-08-27",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 261872,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 90,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 36,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "silver",
+              "hosting_model": "vm_ha"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"PROC-REF-001\"], \"actions\": [\"CHECK_VENDOR_REFERENCES\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-REF-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035032\\\", \\\"generation_seed\\\": 35032, \\\"project_name\\\": \\\"Project Helix — Claims Automation [5138F]\\\", \\\"project_code\\\": \\\"5138F\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Martin-35032-SP\\\", \\\"project_manager\\\": \\\"Lucas Garcia-35032-PM\\\", \\\"business_owner\\\": \\\"Marc Rossi-35032-BO\\\", \\\"service_owner\\\": \\\"Adam Laurent-35032-SO\\\", \\\"risk_owner\\\": \\\"Sofia Meyer-35032-RO\\\", \\\"start_date\\\": \\\"2026-09-19\\\", \\\"target_go_live\\\": \\\"2027-08-27\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"HelioStack Cloud 5138F-1\\\", \\\"functional_score\\\": 86, \\\"security_score\\\": 69, \\\"tco_3y_eur\\\": 1285363, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 69.7}, {\\\"vendor\\\": \\\"Asterion Cloud 5138F-2\\\", \\\"functional_score\\\": 83, \\\"security_score\\\": 83, \\\"tco_3y_eur\\\": 489821, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 84.2}, {\\\"vendor\\\": \\\"BlueMesa Systems 5138F-3\\\", \\\"functional_score\\\": 75, \\\"security_score\\\": 86, \\\"tco_3y_eur\\\": 1761499, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 73.8}, {\\\"vendor\\\": \\\"CedarPoint Digital 5138F-4\\\", \\\"functional_score\\\": 63, \\\"security_score\\\": 81, \\\"tco_3y_eur\\\": 1363918, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"hit\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 70.8}], \\\"selected_vendor\\\": \\\"HelioStack Cloud 5138F-1\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 154, \\\"purchasing_budget_eur\\\": 7000000}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-DPA-001\"], \"actions\": [\"EXECUTE_DPA\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035032\\\", \\\"generation_seed\\\": 35032, \\\"project_name\\\": \\\"Project Helix — Claims Automation [5138F]\\\", \\\"project_code\\\": \\\"5138F\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Martin-35032-SP\\\", \\\"project_manager\\\": \\\"Lucas Garcia-35032-PM\\\", \\\"business_owner\\\": \\\"Marc Rossi-35032-BO\\\", \\\"service_owner\\\": \\\"Adam Laurent-35032-SO\\\", \\\"risk_owner\\\": \\\"Sofia Meyer-35032-RO\\\", \\\"start_date\\\": \\\"2026-09-19\\\", \\\"target_go_live\\\": \\\"2027-08-27\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-5138F-5.8\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"draft\\\", \\\"liability_cap_multiplier\\\": 5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 60, \\\"ip_ownership\\\": \\\"customer\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 1, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-IAM-001\", \"SEC-LOG-001\"], \"actions\": [\"ENFORCE_MFA\", \"CONNECT_LOGS_TO_SIEM\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035032\\\", \\\"generation_seed\\\": 35032, \\\"project_name\\\": \\\"Project Helix — Claims Automation [5138F]\\\", \\\"project_code\\\": \\\"5138F\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Martin-35032-SP\\\", \\\"project_manager\\\": \\\"Lucas Garcia-35032-PM\\\", \\\"business_owner\\\": \\\"Marc Rossi-35032-BO\\\", \\\"service_owner\\\": \\\"Adam Laurent-35032-SO\\\", \\\"risk_owner\\\": \\\"Sofia Meyer-35032-RO\\\", \\\"start_date\\\": \\\"2026-09-19\\\", \\\"target_go_live\\\": \\\"2027-08-27\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 30, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035032\\\", \\\"generation_seed\\\": 35032, \\\"project_name\\\": \\\"Project Helix — Claims Automation [5138F]\\\", \\\"project_code\\\": \\\"5138F\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Martin-35032-SP\\\", \\\"project_manager\\\": \\\"Lucas Garcia-35032-PM\\\", \\\"business_owner\\\": \\\"Marc Rossi-35032-BO\\\", \\\"service_owner\\\": \\\"Adam Laurent-35032-SO\\\", \\\"risk_owner\\\": \\\"Sofia Meyer-35032-RO\\\", \\\"start_date\\\": \\\"2026-09-19\\\", \\\"target_go_live\\\": \\\"2027-08-27\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 30, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"IT-CAPACITY-001\"], \"actions\": [\"INCREASE_CAPACITY_HEADROOM\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CAPACITY-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035032\\\", \\\"generation_seed\\\": 35032, \\\"project_name\\\": \\\"Project Helix — Claims Automation [5138F]\\\", \\\"project_code\\\": \\\"5138F\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Daria Martin-35032-SP\\\", \\\"project_manager\\\": \\\"Lucas Garcia-35032-PM\\\", \\\"business_owner\\\": \\\"Marc Rossi-35032-BO\\\", \\\"service_owner\\\": \\\"Adam Laurent-35032-SO\\\", \\\"risk_owner\\\": \\\"Sofia Meyer-35032-RO\\\", \\\"start_date\\\": \\\"2026-09-19\\\", \\\"target_go_live\\\": \\\"2027-08-27\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"none\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 261872, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 90, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"vm_ha\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035032",
+              "generation_seed": 35032,
+              "project_name": "Project Helix — Claims Automation [5138F]",
+              "project_code": "5138F",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Operations",
+              "sponsor": "Daria Martin-35032-SP",
+              "project_manager": "Lucas Garcia-35032-PM",
+              "business_owner": "Marc Rossi-35032-BO",
+              "service_owner": "Adam Laurent-35032-SO",
+              "risk_owner": "Sofia Meyer-35032-RO",
+              "start_date": "2026-09-19",
+              "target_go_live": "2027-08-27",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 7000000,
+              "budget_approved_eur": 7000000,
+              "roi": 0.108,
+              "npv_eur": 1477228,
+              "payback_months": 41,
+              "schedule_slip_weeks": 8,
+              "fte_needed": 24.6,
+              "fte_available": 27.9,
+              "change_plan_status": "partial",
+              "benefits_kpi": "availability",
+              "benefits_owner": "Lucas Meyer-35032-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "PROC-REF-001"
+              ],
+              "actions": [
+                "CHECK_VENDOR_REFERENCES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-REF-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"HelioStack Cloud 5138F-1\", \"functional_score\": 86, \"security_score\": 69, \"tco_3y_eur\": 1285363, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 69.7}, {\"vendor\": \"Asterion Cloud 5138F-2\", \"functional_score\": 83, \"security_score\": 83, \"tco_3y_eur\": 489821, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 84.2}, {\"vendor\": \"BlueMesa Systems 5138F-3\", \"functional_score\": 75, \"security_score\": 86, \"tco_3y_eur\": 1761499, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 73.8}, {\"vendor\": \"CedarPoint Digital 5138F-4\", \"functional_score\": 63, \"security_score\": 81, \"tco_3y_eur\": 1363918, \"mandatory_criteria_failed\": 1, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 70.8}], \"selected_vendor\": \"HelioStack Cloud 5138F-1\", \"competition\": \"open_tender\", \"rfp_requirements\": 154, \"purchasing_budget_eur\": 7000000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-DPA-001"
+              ],
+              "actions": [
+                "EXECUTE_DPA"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-DPA-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-5138F-5.8\", \"governing_law\": \"UAE\", \"dpa_status\": \"draft\", \"liability_cap_multiplier\": 5, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 60, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-IAM-001",
+                "SEC-LOG-001"
+              ],
+              "actions": [
+                "ENFORCE_MFA",
+                "CONNECT_LOGS_TO_SIEM"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "IT-CAPACITY-001"
+              ],
+              "actions": [
+                "INCREASE_CAPACITY_HEADROOM"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CAPACITY-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035032\", \"generation_seed\": 35032, \"project_name\": \"Project Helix — Claims Automation [5138F]\", \"project_code\": \"5138F\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Operations\", \"sponsor\": \"Daria Martin-35032-SP\", \"project_manager\": \"Lucas Garcia-35032-PM\", \"business_owner\": \"Marc Rossi-35032-BO\", \"service_owner\": \"Adam Laurent-35032-SO\", \"risk_owner\": \"Sofia Meyer-35032-RO\", \"start_date\": \"2026-09-19\", \"target_go_live\": \"2027-08-27\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 261872, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"vm_ha\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

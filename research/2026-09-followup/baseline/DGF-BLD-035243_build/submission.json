@@ -1,0 +1,125 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RESTORE-001",
+        "TR-RPO-001",
+        "TR-LOAD-001",
+        "TR-CODE-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "RUN_RESTORE_TEST",
+        "REMEDIATE_RECOVERY_POINT",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-RESTORE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035243\", \"generation_seed\": 35243, \"project_name\": \"Project Gaia — Data Governance Platform [61395]\", \"project_code\": \"61395\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Sofia Volkov-35243-SP\", \"project_manager\": \"Omar Martin-35243-PM\", \"business_owner\": \"Elena Haddad-35243-BO\", \"service_owner\": \"Samir Ivanov-35243-SO\", \"risk_owner\": \"Samir Dubois-35243-RO\", \"start_date\": \"2026-12-10\", \"target_go_live\": \"2027-05-12\", \"users_impacted\": 12000, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 93, \"pilot_completed\": false, \"load_test_pct_of_peak\": 50, \"p95_ms\": 1189, \"unit_test_coverage_pct\": 83, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 2015, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035243\", \"generation_seed\": 35243, \"project_name\": \"Project Gaia — Data Governance Platform [61395]\", \"project_code\": \"61395\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Sofia Volkov-35243-SP\", \"project_manager\": \"Omar Martin-35243-PM\", \"business_owner\": \"Elena Haddad-35243-BO\", \"service_owner\": \"Samir Ivanov-35243-SO\", \"risk_owner\": \"Samir Dubois-35243-RO\", \"start_date\": \"2026-12-10\", \"target_go_live\": \"2027-05-12\", \"users_impacted\": 12000, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 93, \"pilot_completed\": false, \"load_test_pct_of_peak\": 50, \"p95_ms\": 1189, \"unit_test_coverage_pct\": 83, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 2015, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035243\", \"generation_seed\": 35243, \"project_name\": \"Project Gaia — Data Governance Platform [61395]\", \"project_code\": \"61395\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Sofia Volkov-35243-SP\", \"project_manager\": \"Omar Martin-35243-PM\", \"business_owner\": \"Elena Haddad-35243-BO\", \"service_owner\": \"Samir Ivanov-35243-SO\", \"risk_owner\": \"Samir Dubois-35243-RO\", \"start_date\": \"2026-12-10\", \"target_go_live\": \"2027-05-12\", \"users_impacted\": 12000, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 93, \"pilot_completed\": false, \"load_test_pct_of_peak\": 50, \"p95_ms\": 1189, \"unit_test_coverage_pct\": 83, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 2015, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035243\", \"generation_seed\": 35243, \"project_name\": \"Project Gaia — Data Governance Platform [61395]\", \"project_code\": \"61395\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Sofia Volkov-35243-SP\", \"project_manager\": \"Omar Martin-35243-PM\", \"business_owner\": \"Elena Haddad-35243-BO\", \"service_owner\": \"Samir Ivanov-35243-SO\", \"risk_owner\": \"Samir Dubois-35243-RO\", \"start_date\": \"2026-12-10\", \"target_go_live\": \"2027-05-12\", \"users_impacted\": 12000, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 93, \"pilot_completed\": false, \"load_test_pct_of_peak\": 50, \"p95_ms\": 1189, \"unit_test_coverage_pct\": 83, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 2015, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035243\", \"generation_seed\": 35243, \"project_name\": \"Project Gaia — Data Governance Platform [61395]\", \"project_code\": \"61395\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Sofia Volkov-35243-SP\", \"project_manager\": \"Omar Martin-35243-PM\", \"business_owner\": \"Elena Haddad-35243-BO\", \"service_owner\": \"Samir Ivanov-35243-SO\", \"risk_owner\": \"Samir Dubois-35243-RO\", \"start_date\": \"2026-12-10\", \"target_go_live\": \"2027-05-12\", \"users_impacted\": 12000, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 93, \"pilot_completed\": false, \"load_test_pct_of_peak\": 50, \"p95_ms\": 1189, \"unit_test_coverage_pct\": 83, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 8, \"measured_restore_hours\": 6.8, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 2015, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035243\", \"generation_seed\": 35243, \"project_name\": \"Project Gaia — Data Governance Platform [61395]\", \"project_code\": \"61395\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Sofia Volkov-35243-SP\", \"project_manager\": \"Omar Martin-35243-PM\", \"business_owner\": \"Elena Haddad-35243-BO\", \"service_owner\": \"Samir Ivanov-35243-SO\", \"risk_owner\": \"Samir Dubois-35243-RO\", \"start_date\": \"2026-12-10\", \"target_go_live\": \"2027-05-12\", \"users_impacted\": 12000, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P3\", \"budget_requested_eur\": 900000, \"budget_approved_eur\": 990000, \"roi\": 0.217, \"npv_eur\": 258746, \"payback_months\": 51, \"schedule_slip_weeks\": 0, \"fte_needed\": 11.2, \"fte_available\": 21.6, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"Adam Smith-35243-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"TR-RESTORE-001\", \"TR-RPO-001\", \"TR-LOAD-001\", \"TR-CODE-001\", \"TR-OPS-001\"], \"actions\": [\"RUN_RESTORE_TEST\", \"REMEDIATE_RECOVERY_POINT\", \"RERUN_LOAD_TEST_AT_PEAK\", \"REMEDIATE_BUILD_FINDINGS\", \"COMPLETE_OPERATIONAL_HANDOVER\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-RESTORE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035243\\\", \\\"generation_seed\\\": 35243, \\\"project_name\\\": \\\"Project Gaia — Data Governance Platform [61395]\\\", \\\"project_code\\\": \\\"61395\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Sofia Volkov-35243-SP\\\", \\\"project_manager\\\": \\\"Omar Martin-35243-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35243-BO\\\", \\\"service_owner\\\": \\\"Samir Ivanov-35243-SO\\\", \\\"risk_owner\\\": \\\"Samir Dubois-35243-RO\\\", \\\"start_date\\\": \\\"2026-12-10\\\", \\\"target_go_live\\\": \\\"2027-05-12\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 93, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 1189, \\\"unit_test_coverage_pct\\\": 83, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 2015, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-RPO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035243\\\", \\\"generation_seed\\\": 35243, \\\"project_name\\\": \\\"Project Gaia — Data Governance Platform [61395]\\\", \\\"project_code\\\": \\\"61395\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Sofia Volkov-35243-SP\\\", \\\"project_manager\\\": \\\"Omar Martin-35243-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35243-BO\\\", \\\"service_owner\\\": \\\"Samir Ivanov-35243-SO\\\", \\\"risk_owner\\\": \\\"Samir Dubois-35243-RO\\\", \\\"start_date\\\": \\\"2026-12-10\\\", \\\"target_go_live\\\": \\\"2027-05-12\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 93, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 1189, \\\"unit_test_coverage_pct\\\": 83, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 2015, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-LOAD-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035243\\\", \\\"generation_seed\\\": 35243, \\\"project_name\\\": \\\"Project Gaia — Data Governance Platform [61395]\\\", \\\"project_code\\\": \\\"61395\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Sofia Volkov-35243-SP\\\", \\\"project_manager\\\": \\\"Omar Martin-35243-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35243-BO\\\", \\\"service_owner\\\": \\\"Samir Ivanov-35243-SO\\\", \\\"risk_owner\\\": \\\"Samir Dubois-35243-RO\\\", \\\"start_date\\\": \\\"2026-12-10\\\", \\\"target_go_live\\\": \\\"2027-05-12\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 93, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 1189, \\\"unit_test_coverage_pct\\\": 83, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 2015, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-CODE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035243\\\", \\\"generation_seed\\\": 35243, \\\"project_name\\\": \\\"Project Gaia — Data Governance Platform [61395]\\\", \\\"project_code\\\": \\\"61395\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Sofia Volkov-35243-SP\\\", \\\"project_manager\\\": \\\"Omar Martin-35243-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35243-BO\\\", \\\"service_owner\\\": \\\"Samir Ivanov-35243-SO\\\", \\\"risk_owner\\\": \\\"Samir Dubois-35243-RO\\\", \\\"start_date\\\": \\\"2026-12-10\\\", \\\"target_go_live\\\": \\\"2027-05-12\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 93, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 1189, \\\"unit_test_coverage_pct\\\": 83, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 2015, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035243\\\", \\\"generation_seed\\\": 35243, \\\"project_name\\\": \\\"Project Gaia — Data Governance Platform [61395]\\\", \\\"project_code\\\": \\\"61395\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Sofia Volkov-35243-SP\\\", \\\"project_manager\\\": \\\"Omar Martin-35243-PM\\\", \\\"business_owner\\\": \\\"Elena Haddad-35243-BO\\\", \\\"service_owner\\\": \\\"Samir Ivanov-35243-SO\\\", \\\"risk_owner\\\": \\\"Samir Dubois-35243-RO\\\", \\\"start_date\\\": \\\"2026-12-10\\\", \\\"target_go_live\\\": \\\"2027-05-12\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 93, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 50, \\\"p95_ms\\\": 1189, \\\"unit_test_coverage_pct\\\": 83, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 6.8, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 2015, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

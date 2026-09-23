@@ -1,0 +1,650 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-REF-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035091\", \"generation_seed\": 35091, \"project_name\": \"Project Aster — Cloud Landing Zone Extension [D8DCC]\", \"project_code\": \"D8DCC\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Nadia Dubois-35091-SP\", \"project_manager\": \"Adam Benali-35091-PM\", \"business_owner\": \"Adam Martin-35091-BO\", \"service_owner\": \"Nadia Khan-35091-SO\", \"risk_owner\": \"Lucas Martin-35091-RO\", \"start_date\": \"2026-09-09\", \"target_go_live\": \"2027-08-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Fluxbridge Labs D8DCC-1\", \"functional_score\": 83, \"security_score\": 81, \"tco_3y_eur\": 1303020, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 78.2}, {\"vendor\": \"GranitePeak Systems D8DCC-2\", \"functional_score\": 89, \"security_score\": 80, \"tco_3y_eur\": 2731605, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 70.4}, {\"vendor\": \"HelioStack Cloud D8DCC-3\", \"functional_score\": 88, \"security_score\": 78, \"tco_3y_eur\": 2416057, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 71.6}, {\"vendor\": \"Asterion Cloud D8DCC-4\", \"functional_score\": 74, \"security_score\": 56, \"tco_3y_eur\": 287553, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 68.3}], \"selected_vendor\": \"Asterion Cloud D8DCC-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 86, \"purchasing_budget_eur\": 250000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035091",
+              "generation_seed": 35091,
+              "project_name": "Project Aster — Cloud Landing Zone Extension [D8DCC]",
+              "project_code": "D8DCC",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Nadia Dubois-35091-SP",
+              "project_manager": "Adam Benali-35091-PM",
+              "business_owner": "Adam Martin-35091-BO",
+              "service_owner": "Nadia Khan-35091-SO",
+              "risk_owner": "Lucas Martin-35091-RO",
+              "start_date": "2026-09-09",
+              "target_go_live": "2027-08-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Fluxbridge Labs D8DCC-1",
+                  "functional_score": 83,
+                  "security_score": 81,
+                  "tco_3y_eur": 1303020,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "pending",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 78.2
+                },
+                {
+                  "vendor": "GranitePeak Systems D8DCC-2",
+                  "functional_score": 89,
+                  "security_score": 80,
+                  "tco_3y_eur": 2731605,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 70.4
+                },
+                {
+                  "vendor": "HelioStack Cloud D8DCC-3",
+                  "functional_score": 88,
+                  "security_score": 78,
+                  "tco_3y_eur": 2416057,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 71.6
+                },
+                {
+                  "vendor": "Asterion Cloud D8DCC-4",
+                  "functional_score": 74,
+                  "security_score": 56,
+                  "tco_3y_eur": 287553,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "complete",
+                  "weighted_score": 68.3
+                }
+              ],
+              "selected_vendor": "Asterion Cloud D8DCC-4",
+              "competition": "open_tender",
+              "rfp_requirements": 86,
+              "purchasing_budget_eur": 250000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035091\", \"generation_seed\": 35091, \"project_name\": \"Project Aster — Cloud Landing Zone Extension [D8DCC]\", \"project_code\": \"D8DCC\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Nadia Dubois-35091-SP\", \"project_manager\": \"Adam Benali-35091-PM\", \"business_owner\": \"Adam Martin-35091-BO\", \"service_owner\": \"Nadia Khan-35091-SO\", \"risk_owner\": \"Lucas Martin-35091-RO\", \"start_date\": \"2026-09-09\", \"target_go_live\": \"2027-08-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D8DCC-12.5\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035091",
+              "generation_seed": 35091,
+              "project_name": "Project Aster — Cloud Landing Zone Extension [D8DCC]",
+              "project_code": "D8DCC",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Nadia Dubois-35091-SP",
+              "project_manager": "Adam Benali-35091-PM",
+              "business_owner": "Adam Martin-35091-BO",
+              "service_owner": "Nadia Khan-35091-SO",
+              "risk_owner": "Lucas Martin-35091-RO",
+              "start_date": "2026-09-09",
+              "target_go_live": "2027-08-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-D8DCC-12.5",
+              "governing_law": "England & Wales",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 2,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 0,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "missing",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035091",
+              "generation_seed": 35091,
+              "project_name": "Project Aster — Cloud Landing Zone Extension [D8DCC]",
+              "project_code": "D8DCC",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Nadia Dubois-35091-SP",
+              "project_manager": "Adam Benali-35091-PM",
+              "business_owner": "Adam Martin-35091-BO",
+              "service_owner": "Nadia Khan-35091-SO",
+              "risk_owner": "Lucas Martin-35091-RO",
+              "start_date": "2026-09-09",
+              "target_go_live": "2027-08-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "NIS2",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 7,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "pass",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "none",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035091",
+              "generation_seed": 35091,
+              "project_name": "Project Aster — Cloud Landing Zone Extension [D8DCC]",
+              "project_code": "D8DCC",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Nadia Dubois-35091-SP",
+              "project_manager": "Adam Benali-35091-PM",
+              "business_owner": "Adam Martin-35091-BO",
+              "service_owner": "Nadia Khan-35091-SO",
+              "risk_owner": "Lucas Martin-35091-RO",
+              "start_date": "2026-09-09",
+              "target_go_live": "2027-08-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": 365,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "Azure NPM",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CMDB-001"
+      ],
+      "actions": [
+        "CREATE_CMDB_RECORD"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CMDB-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035091\", \"generation_seed\": 35091, \"project_name\": \"Project Aster — Cloud Landing Zone Extension [D8DCC]\", \"project_code\": \"D8DCC\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Nadia Dubois-35091-SP\", \"project_manager\": \"Adam Benali-35091-PM\", \"business_owner\": \"Adam Martin-35091-BO\", \"service_owner\": \"Nadia Khan-35091-SO\", \"risk_owner\": \"Lucas Martin-35091-RO\", \"start_date\": \"2026-09-09\", \"target_go_live\": \"2027-08-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 285212, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 60, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035091",
+              "generation_seed": 35091,
+              "project_name": "Project Aster — Cloud Landing Zone Extension [D8DCC]",
+              "project_code": "D8DCC",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Nadia Dubois-35091-SP",
+              "project_manager": "Adam Benali-35091-PM",
+              "business_owner": "Adam Martin-35091-BO",
+              "service_owner": "Nadia Khan-35091-SO",
+              "risk_owner": "Lucas Martin-35091-RO",
+              "start_date": "2026-09-09",
+              "target_go_live": "2027-08-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 285212,
+              "cmdb_record_present": false,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 60,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "silver",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035091",
+              "generation_seed": 35091,
+              "project_name": "Project Aster — Cloud Landing Zone Extension [D8DCC]",
+              "project_code": "D8DCC",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Nadia Dubois-35091-SP",
+              "project_manager": "Adam Benali-35091-PM",
+              "business_owner": "Adam Martin-35091-BO",
+              "service_owner": "Nadia Khan-35091-SO",
+              "risk_owner": "Lucas Martin-35091-RO",
+              "start_date": "2026-09-09",
+              "target_go_live": "2027-08-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 250000,
+              "budget_approved_eur": 250000,
+              "roi": 0.395,
+              "npv_eur": 200221,
+              "payback_months": 11,
+              "schedule_slip_weeks": 2,
+              "fte_needed": 12.5,
+              "fte_available": 25.8,
+              "change_plan_status": "partial",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Nadia Haddad-1035094-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "PROC-REF-001"
+              ],
+              "actions": [
+                "CHECK_VENDOR_REFERENCES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-REF-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035091\", \"generation_seed\": 35091, \"project_name\": \"Project Aster — Cloud Landing Zone Extension [D8DCC]\", \"project_code\": \"D8DCC\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Nadia Dubois-35091-SP\", \"project_manager\": \"Adam Benali-35091-PM\", \"business_owner\": \"Adam Martin-35091-BO\", \"service_owner\": \"Nadia Khan-35091-SO\", \"risk_owner\": \"Lucas Martin-35091-RO\", \"start_date\": \"2026-09-09\", \"target_go_live\": \"2027-08-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Fluxbridge Labs D8DCC-1\", \"functional_score\": 83, \"security_score\": 81, \"tco_3y_eur\": 1303020, \"mandatory_criteria_failed\": 2, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 78.2}, {\"vendor\": \"GranitePeak Systems D8DCC-2\", \"functional_score\": 89, \"security_score\": 80, \"tco_3y_eur\": 2731605, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 70.4}, {\"vendor\": \"HelioStack Cloud D8DCC-3\", \"functional_score\": 88, \"security_score\": 78, \"tco_3y_eur\": 2416057, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 71.6}, {\"vendor\": \"Asterion Cloud D8DCC-4\", \"functional_score\": 74, \"security_score\": 56, \"tco_3y_eur\": 287553, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 68.3}], \"selected_vendor\": \"Asterion Cloud D8DCC-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 86, \"purchasing_budget_eur\": 250000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035091\", \"generation_seed\": 35091, \"project_name\": \"Project Aster — Cloud Landing Zone Extension [D8DCC]\", \"project_code\": \"D8DCC\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Nadia Dubois-35091-SP\", \"project_manager\": \"Adam Benali-35091-PM\", \"business_owner\": \"Adam Martin-35091-BO\", \"service_owner\": \"Nadia Khan-35091-SO\", \"risk_owner\": \"Lucas Martin-35091-RO\", \"start_date\": \"2026-09-09\", \"target_go_live\": \"2027-08-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D8DCC-12.5\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "IT-CMDB-001"
+              ],
+              "actions": [
+                "CREATE_CMDB_RECORD"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CMDB-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035091\", \"generation_seed\": 35091, \"project_name\": \"Project Aster — Cloud Landing Zone Extension [D8DCC]\", \"project_code\": \"D8DCC\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Nadia Dubois-35091-SP\", \"project_manager\": \"Adam Benali-35091-PM\", \"business_owner\": \"Adam Martin-35091-BO\", \"service_owner\": \"Nadia Khan-35091-SO\", \"risk_owner\": \"Lucas Martin-35091-RO\", \"start_date\": \"2026-09-09\", \"target_go_live\": \"2027-08-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 285212, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 60, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

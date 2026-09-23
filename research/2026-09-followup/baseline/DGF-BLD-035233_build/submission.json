@@ -1,0 +1,100 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035233\", \"generation_seed\": 35233, \"project_name\": \"Project Atlas — Digital Onboarding [C5A98]\", \"project_code\": \"C5A98\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Sales\", \"sponsor\": \"Lucas Khan-35233-SP\", \"project_manager\": \"Victor Bennett-35233-PM\", \"business_owner\": \"Maya Santos-35233-BO\", \"service_owner\": \"Victor Benali-35233-SO\", \"risk_owner\": \"Elena Rossi-35233-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-08-13\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 180, \"duplicate_capability\": false, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 365980, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 18, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"container_apps\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035233\", \"generation_seed\": 35233, \"project_name\": \"Project Atlas — Digital Onboarding [C5A98]\", \"project_code\": \"C5A98\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Sales\", \"sponsor\": \"Lucas Khan-35233-SP\", \"project_manager\": \"Victor Bennett-35233-PM\", \"business_owner\": \"Maya Santos-35233-BO\", \"service_owner\": \"Victor Benali-35233-SO\", \"risk_owner\": \"Elena Rossi-35233-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-08-13\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-C5A98-v3.4\", \"lld_version\": \"LLD-C5A98-v2.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 1, \"adr_count\": 7, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.16.0/24\", \"10.18.17.0/24\", \"10.18.18.0/24\"], \"dns_zone\": \"dgf-bld-035233.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-CATALOG-001\"], \"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CATALOG-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035233\\\", \\\"generation_seed\\\": 35233, \\\"project_name\\\": \\\"Project Atlas — Digital Onboarding [C5A98]\\\", \\\"project_code\\\": \\\"C5A98\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Sales\\\", \\\"sponsor\\\": \\\"Lucas Khan-35233-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35233-PM\\\", \\\"business_owner\\\": \\\"Maya Santos-35233-BO\\\", \\\"service_owner\\\": \\\"Victor Benali-35233-SO\\\", \\\"risk_owner\\\": \\\"Elena Rossi-35233-RO\\\", \\\"start_date\\\": \\\"2026-10-16\\\", \\\"target_go_live\\\": \\\"2027-08-13\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 365980, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"container_apps\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-PERF-001\"], \"actions\": [\"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035233\\\", \\\"generation_seed\\\": 35233, \\\"project_name\\\": \\\"Project Atlas — Digital Onboarding [C5A98]\\\", \\\"project_code\\\": \\\"C5A98\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Sales\\\", \\\"sponsor\\\": \\\"Lucas Khan-35233-SP\\\", \\\"project_manager\\\": \\\"Victor Bennett-35233-PM\\\", \\\"business_owner\\\": \\\"Maya Santos-35233-BO\\\", \\\"service_owner\\\": \\\"Victor Benali-35233-SO\\\", \\\"risk_owner\\\": \\\"Elena Rossi-35233-RO\\\", \\\"start_date\\\": \\\"2026-10-16\\\", \\\"target_go_live\\\": \\\"2027-08-13\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-C5A98-v3.4\\\", \\\"lld_version\\\": \\\"LLD-C5A98-v2.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 7, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.16.0/24\\\", \\\"10.18.17.0/24\\\", \\\"10.18.18.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035233.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

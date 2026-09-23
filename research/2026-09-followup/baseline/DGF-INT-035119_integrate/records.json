@@ -1,0 +1,656 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035119",
+              "generation_seed": 35119,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [B3686]",
+              "project_code": "B3686",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Maya Costa-35119-SP",
+              "project_manager": "David Haddad-35119-PM",
+              "business_owner": "Victor Ivanov-35119-BO",
+              "service_owner": "Noor Volkov-35119-SO",
+              "risk_owner": "Amira Khan-35119-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2028-01-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 101683,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 36,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "bronze",
+              "hosting_model": "functions"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B3686-v2.4\", \"lld_version\": \"LLD-B3686-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 50, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 6, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.240.0/24\", \"10.210.241.0/24\", \"10.210.242.0/24\"], \"dns_zone\": \"dgf-int-035119.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B3686-v2.4\", \"lld_version\": \"LLD-B3686-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 50, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 6, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.240.0/24\", \"10.210.241.0/24\", \"10.210.242.0/24\"], \"dns_zone\": \"dgf-int-035119.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B3686-v2.4\", \"lld_version\": \"LLD-B3686-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 50, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 6, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.240.0/24\", \"10.210.241.0/24\", \"10.210.242.0/24\"], \"dns_zone\": \"dgf-int-035119.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035119",
+              "generation_seed": 35119,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [B3686]",
+              "project_code": "B3686",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Maya Costa-35119-SP",
+              "project_manager": "David Haddad-35119-PM",
+              "business_owner": "Victor Ivanov-35119-BO",
+              "service_owner": "Noor Volkov-35119-SO",
+              "risk_owner": "Amira Khan-35119-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2028-01-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-B3686-v2.4",
+              "lld_version": "LLD-B3686-v2.5",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": false,
+              "latency_target_ms": 50,
+              "measured_latency_ms": 180,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 6,
+              "adr_count": 14,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.210.240.0/24",
+                "10.210.241.0/24",
+                "10.210.242.0/24"
+              ],
+              "dns_zone": "dgf-int-035119.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035119",
+              "generation_seed": 35119,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [B3686]",
+              "project_code": "B3686",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Maya Costa-35119-SP",
+              "project_manager": "David Haddad-35119-PM",
+              "business_owner": "Victor Ivanov-35119-BO",
+              "service_owner": "Noor Volkov-35119-SO",
+              "risk_owner": "Amira Khan-35119-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2028-01-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": false,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 60,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 9,
+              "pentest_age_days": 90,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035119",
+              "generation_seed": 35119,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [B3686]",
+              "project_code": "B3686",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Maya Costa-35119-SP",
+              "project_manager": "David Haddad-35119-PM",
+              "business_owner": "Victor Ivanov-35119-BO",
+              "service_owner": "Noor Volkov-35119-SO",
+              "risk_owner": "Amira Khan-35119-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2028-01-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-B3686-7.5",
+              "governing_law": "France",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 60,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "missing",
+              "sla_penalties": false,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+        },
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035119",
+              "generation_seed": 35119,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [B3686]",
+              "project_code": "B3686",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Maya Costa-35119-SP",
+              "project_manager": "David Haddad-35119-PM",
+              "business_owner": "Victor Ivanov-35119-BO",
+              "service_owner": "Noor Volkov-35119-SO",
+              "risk_owner": "Amira Khan-35119-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2028-01-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR"
+              ],
+              "dpia_required": true,
+              "dpia_status": "missing",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "minor_findings",
+              "ethics_review": "missing",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035119\\\", \\\"generation_seed\\\": 35119, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [B3686]\\\", \\\"project_code\\\": \\\"B3686\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Maya Costa-35119-SP\\\", \\\"project_manager\\\": \\\"David Haddad-35119-PM\\\", \\\"business_owner\\\": \\\"Victor Ivanov-35119-BO\\\", \\\"service_owner\\\": \\\"Noor Volkov-35119-SO\\\", \\\"risk_owner\\\": \\\"Amira Khan-35119-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2028-01-08\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B3686-v2.4\\\", \\\"lld_version\\\": \\\"LLD-B3686-v2.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 6, \\\"adr_count\\\": 14, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.240.0/24\\\", \\\"10.210.241.0/24\\\", \\\"10.210.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035119.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035119\\\", \\\"generation_seed\\\": 35119, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [B3686]\\\", \\\"project_code\\\": \\\"B3686\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Maya Costa-35119-SP\\\", \\\"project_manager\\\": \\\"David Haddad-35119-PM\\\", \\\"business_owner\\\": \\\"Victor Ivanov-35119-BO\\\", \\\"service_owner\\\": \\\"Noor Volkov-35119-SO\\\", \\\"risk_owner\\\": \\\"Amira Khan-35119-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2028-01-08\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B3686-v2.4\\\", \\\"lld_version\\\": \\\"LLD-B3686-v2.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 6, \\\"adr_count\\\": 14, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.240.0/24\\\", \\\"10.210.241.0/24\\\", \\\"10.210.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035119.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035119\\\", \\\"generation_seed\\\": 35119, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [B3686]\\\", \\\"project_code\\\": \\\"B3686\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Maya Costa-35119-SP\\\", \\\"project_manager\\\": \\\"David Haddad-35119-PM\\\", \\\"business_owner\\\": \\\"Victor Ivanov-35119-BO\\\", \\\"service_owner\\\": \\\"Noor Volkov-35119-SO\\\", \\\"risk_owner\\\": \\\"Amira Khan-35119-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2028-01-08\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B3686-v2.4\\\", \\\"lld_version\\\": \\\"LLD-B3686-v2.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 6, \\\"adr_count\\\": 14, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.240.0/24\\\", \\\"10.210.241.0/24\\\", \\\"10.210.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035119.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-AUDIT-001\"], \"actions\": [\"COMPLETE_DPIA\", \"IMPLEMENT_AUDIT_TRAIL\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035119\\\", \\\"generation_seed\\\": 35119, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [B3686]\\\", \\\"project_code\\\": \\\"B3686\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Maya Costa-35119-SP\\\", \\\"project_manager\\\": \\\"David Haddad-35119-PM\\\", \\\"business_owner\\\": \\\"Victor Ivanov-35119-BO\\\", \\\"service_owner\\\": \\\"Noor Volkov-35119-SO\\\", \\\"risk_owner\\\": \\\"Amira Khan-35119-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2028-01-08\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"minor_findings\\\", \\\"ethics_review\\\": \\\"missing\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}, {\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035119\\\", \\\"generation_seed\\\": 35119, \\\"project_name\\\": \\\"Willow Acquisition Integration — Employee Experience Portal [B3686]\\\", \\\"project_code\\\": \\\"B3686\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Maya Costa-35119-SP\\\", \\\"project_manager\\\": \\\"David Haddad-35119-PM\\\", \\\"business_owner\\\": \\\"Victor Ivanov-35119-BO\\\", \\\"service_owner\\\": \\\"Noor Volkov-35119-SO\\\", \\\"risk_owner\\\": \\\"Amira Khan-35119-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2028-01-08\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"minor_findings\\\", \\\"ethics_review\\\": \\\"missing\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035119",
+              "generation_seed": 35119,
+              "project_name": "Willow Acquisition Integration — Employee Experience Portal [B3686]",
+              "project_code": "B3686",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Maya Costa-35119-SP",
+              "project_manager": "David Haddad-35119-PM",
+              "business_owner": "Victor Ivanov-35119-BO",
+              "service_owner": "Noor Volkov-35119-SO",
+              "risk_owner": "Amira Khan-35119-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2028-01-08",
+              "users_impacted": 5000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 900000,
+              "roi": 0.089,
+              "npv_eur": 914555,
+              "payback_months": 9,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 7.0,
+              "fte_available": 18.8,
+              "change_plan_status": "missing",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Ines Dubois-3035128-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B3686-v2.4\", \"lld_version\": \"LLD-B3686-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 50, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 6, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.240.0/24\", \"10.210.241.0/24\", \"10.210.242.0/24\"], \"dns_zone\": \"dgf-int-035119.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B3686-v2.4\", \"lld_version\": \"LLD-B3686-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 50, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 6, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.240.0/24\", \"10.210.241.0/24\", \"10.210.242.0/24\"], \"dns_zone\": \"dgf-int-035119.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B3686-v2.4\", \"lld_version\": \"LLD-B3686-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 50, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 6, \"adr_count\": 14, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.240.0/24\", \"10.210.241.0/24\", \"10.210.242.0/24\"], \"dns_zone\": \"dgf-int-035119.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-AUDIT-001"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "IMPLEMENT_AUDIT_TRAIL"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+                },
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035119\", \"generation_seed\": 35119, \"project_name\": \"Willow Acquisition Integration — Employee Experience Portal [B3686]\", \"project_code\": \"B3686\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Maya Costa-35119-SP\", \"project_manager\": \"David Haddad-35119-PM\", \"business_owner\": \"Victor Ivanov-35119-BO\", \"service_owner\": \"Noor Volkov-35119-SO\", \"risk_owner\": \"Amira Khan-35119-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2028-01-08\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"minor_findings\", \"ethics_review\": \"missing\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

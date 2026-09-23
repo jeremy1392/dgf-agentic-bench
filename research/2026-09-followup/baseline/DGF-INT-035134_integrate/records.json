@@ -1,0 +1,751 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 278660, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035134",
+              "generation_seed": 35134,
+              "project_name": "Helix Acquisition Integration — Enterprise Workflow Platform [CB191]",
+              "project_code": "CB191",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Adam Rossi-35134-SP",
+              "project_manager": "Yusuf Costa-35134-PM",
+              "business_owner": "Thomas Smith-35134-BO",
+              "service_owner": "Omar Smith-35134-SO",
+              "risk_owner": "Ines Rahman-35134-RO",
+              "start_date": "2026-11-10",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 80,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": false,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": true,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 278660,
+              "cmdb_record_present": false,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "silver",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CB191-v4.9\", \"lld_version\": \"LLD-CB191-v1.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 3, \"adr_count\": 5, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.224.0/24\", \"10.211.225.0/24\", \"10.211.226.0/24\"], \"dns_zone\": \"dgf-int-035134.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CB191-v4.9\", \"lld_version\": \"LLD-CB191-v1.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 3, \"adr_count\": 5, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.224.0/24\", \"10.211.225.0/24\", \"10.211.226.0/24\"], \"dns_zone\": \"dgf-int-035134.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CB191-v4.9\", \"lld_version\": \"LLD-CB191-v1.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 3, \"adr_count\": 5, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.224.0/24\", \"10.211.225.0/24\", \"10.211.226.0/24\"], \"dns_zone\": \"dgf-int-035134.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035134",
+              "generation_seed": 35134,
+              "project_name": "Helix Acquisition Integration — Enterprise Workflow Platform [CB191]",
+              "project_code": "CB191",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Adam Rossi-35134-SP",
+              "project_manager": "Yusuf Costa-35134-PM",
+              "business_owner": "Thomas Smith-35134-BO",
+              "service_owner": "Omar Smith-35134-SO",
+              "risk_owner": "Ines Rahman-35134-RO",
+              "start_date": "2026-11-10",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 80,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-CB191-v4.9",
+              "lld_version": "LLD-CB191-v1.6",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 700,
+              "load_test_peak_pct": 50,
+              "architecture_debt_items": 3,
+              "adr_count": 5,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.211.224.0/24",
+                "10.211.225.0/24",
+                "10.211.226.0/24"
+              ],
+              "dns_zone": "dgf-int-035134.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": 30, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035134",
+              "generation_seed": 35134,
+              "project_name": "Helix Acquisition Integration — Enterprise Workflow Platform [CB191]",
+              "project_code": "CB191",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Adam Rossi-35134-SP",
+              "project_manager": "Yusuf Costa-35134-PM",
+              "business_owner": "Thomas Smith-35134-BO",
+              "service_owner": "Omar Smith-35134-SO",
+              "risk_owner": "Ines Rahman-35134-RO",
+              "start_date": "2026-11-10",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 80,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 3,
+              "pentest_age_days": 30,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "None",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-EXIT-001",
+        "LEGAL-IP-001",
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "ADD_EXIT_ASSISTANCE",
+        "CLARIFY_IP_OWNERSHIP",
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        },
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035134",
+              "generation_seed": 35134,
+              "project_name": "Helix Acquisition Integration — Enterprise Workflow Platform [CB191]",
+              "project_code": "CB191",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Adam Rossi-35134-SP",
+              "project_manager": "Yusuf Costa-35134-PM",
+              "business_owner": "Thomas Smith-35134-BO",
+              "service_owner": "Omar Smith-35134-SO",
+              "risk_owner": "Ines Rahman-35134-RO",
+              "start_date": "2026-11-10",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 80,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-CB191-8.2",
+              "governing_law": "UAE",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "none",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "ambiguous",
+              "insurance_valid": false,
+              "cyber_insurance_m": 1,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "missing",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-MAP-001"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035134",
+              "generation_seed": 35134,
+              "project_name": "Helix Acquisition Integration — Enterprise Workflow Platform [CB191]",
+              "project_code": "CB191",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Adam Rossi-35134-SP",
+              "project_manager": "Yusuf Costa-35134-PM",
+              "business_owner": "Thomas Smith-35134-BO",
+              "service_owner": "Omar Smith-35134-SO",
+              "risk_owner": "Ines Rahman-35134-RO",
+              "start_date": "2026-11-10",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 80,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "complete",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "continuous",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P2\", \"budget_requested_eur\": 500000, \"budget_approved_eur\": 425000, \"roi\": 0.359, \"npv_eur\": -45422, \"payback_months\": 42, \"schedule_slip_weeks\": 4, \"fte_needed\": 7.1, \"fte_available\": 24.2, \"change_plan_status\": \"draft\", \"benefits_kpi\": \"cost_to_serve\", \"benefits_owner\": \"Lucas Haddad-35134-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 278660, \\\"cmdb_record_present\\\": false, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"aks\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-CB191-v4.9\\\", \\\"lld_version\\\": \\\"LLD-CB191-v1.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 5, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.211.224.0/24\\\", \\\"10.211.225.0/24\\\", \\\"10.211.226.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035134.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-CB191-v4.9\\\", \\\"lld_version\\\": \\\"LLD-CB191-v1.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 5, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.211.224.0/24\\\", \\\"10.211.225.0/24\\\", \\\"10.211.226.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035134.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-CB191-v4.9\\\", \\\"lld_version\\\": \\\"LLD-CB191-v1.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 5, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.211.224.0/24\\\", \\\"10.211.225.0/24\\\", \\\"10.211.226.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035134.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"SEC-KEY-001\"], \"actions\": [\"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": 30, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"None\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-EXIT-001\", \"LEGAL-IP-001\", \"LEGAL-INS-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\", \"ADD_EXIT_ASSISTANCE\", \"CLARIFY_IP_OWNERSHIP\", \"OBTAIN_VALID_INSURANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-CB191-8.2\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 1, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-EXIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-CB191-8.2\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 1, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-IP-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-CB191-8.2\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 1, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}, {\"finding_id\": \"LEGAL-INS-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-CB191-8.2\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 1, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-MAP-001\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035134\\\", \\\"generation_seed\\\": 35134, \\\"project_name\\\": \\\"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\\\", \\\"project_code\\\": \\\"CB191\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Technology\\\", \\\"sponsor\\\": \\\"Adam Rossi-35134-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35134-PM\\\", \\\"business_owner\\\": \\\"Thomas Smith-35134-BO\\\", \\\"service_owner\\\": \\\"Omar Smith-35134-SO\\\", \\\"risk_owner\\\": \\\"Ines Rahman-35134-RO\\\", \\\"start_date\\\": \\\"2026-11-10\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035134",
+              "generation_seed": 35134,
+              "project_name": "Helix Acquisition Integration — Enterprise Workflow Platform [CB191]",
+              "project_code": "CB191",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Technology",
+              "sponsor": "Adam Rossi-35134-SP",
+              "project_manager": "Yusuf Costa-35134-PM",
+              "business_owner": "Thomas Smith-35134-BO",
+              "service_owner": "Omar Smith-35134-SO",
+              "risk_owner": "Ines Rahman-35134-RO",
+              "start_date": "2026-11-10",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 80,
+              "budget_requested_eur": 500000,
+              "data_classification": "Internal",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 425000,
+              "roi": 0.359,
+              "npv_eur": -45422,
+              "payback_months": 42,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 7.1,
+              "fte_available": 24.2,
+              "change_plan_status": "draft",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Lucas Haddad-35134-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 278660, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CB191-v4.9\", \"lld_version\": \"LLD-CB191-v1.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 3, \"adr_count\": 5, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.224.0/24\", \"10.211.225.0/24\", \"10.211.226.0/24\"], \"dns_zone\": \"dgf-int-035134.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CB191-v4.9\", \"lld_version\": \"LLD-CB191-v1.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 3, \"adr_count\": 5, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.224.0/24\", \"10.211.225.0/24\", \"10.211.226.0/24\"], \"dns_zone\": \"dgf-int-035134.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CB191-v4.9\", \"lld_version\": \"LLD-CB191-v1.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 3, \"adr_count\": 5, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.224.0/24\", \"10.211.225.0/24\", \"10.211.226.0/24\"], \"dns_zone\": \"dgf-int-035134.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": 30, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "LEGAL-AUDIT-001",
+                "LEGAL-EXIT-001",
+                "LEGAL-IP-001",
+                "LEGAL-INS-001"
+              ],
+              "actions": [
+                "REDLINE_AUDIT_RIGHT",
+                "ADD_EXIT_ASSISTANCE",
+                "CLARIFY_IP_OWNERSHIP",
+                "OBTAIN_VALID_INSURANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-IP-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-INS-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-CB191-8.2\", \"governing_law\": \"UAE\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-MAP-001"
+              ],
+              "actions": [
+                "COMPLETE_CONTROL_MAPPING"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035134\", \"generation_seed\": 35134, \"project_name\": \"Helix Acquisition Integration — Enterprise Workflow Platform [CB191]\", \"project_code\": \"CB191\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Technology\", \"sponsor\": \"Adam Rossi-35134-SP\", \"project_manager\": \"Yusuf Costa-35134-PM\", \"business_owner\": \"Thomas Smith-35134-BO\", \"service_owner\": \"Omar Smith-35134-SO\", \"risk_owner\": \"Ines Rahman-35134-RO\", \"start_date\": \"2026-11-10\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 80, \"budget_requested_eur\": 500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

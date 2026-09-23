@@ -1,0 +1,144 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035139\", \"generation_seed\": 35139, \"project_name\": \"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\", \"project_code\": \"0AABE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Meyer-35139-SP\", \"project_manager\": \"Thomas Ivanov-35139-PM\", \"business_owner\": \"Ines Canale-35139-BO\", \"service_owner\": \"Victor Nguyen-35139-SO\", \"risk_owner\": \"Omar Meyer-35139-RO\", \"start_date\": \"2026-10-31\", \"target_go_live\": \"2027-11-27\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 180, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 30, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-IP-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "CLARIFY_IP_OWNERSHIP"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035139\", \"generation_seed\": 35139, \"project_name\": \"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\", \"project_code\": \"0AABE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Meyer-35139-SP\", \"project_manager\": \"Thomas Ivanov-35139-PM\", \"business_owner\": \"Ines Canale-35139-BO\", \"service_owner\": \"Victor Nguyen-35139-SO\", \"risk_owner\": \"Omar Meyer-35139-RO\", \"start_date\": \"2026-10-31\", \"target_go_live\": \"2027-11-27\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-0AABE-6.4\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+        },
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035139\", \"generation_seed\": 35139, \"project_name\": \"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\", \"project_code\": \"0AABE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Meyer-35139-SP\", \"project_manager\": \"Thomas Ivanov-35139-PM\", \"business_owner\": \"Ines Canale-35139-BO\", \"service_owner\": \"Victor Nguyen-35139-SO\", \"risk_owner\": \"Omar Meyer-35139-RO\", \"start_date\": \"2026-10-31\", \"target_go_live\": \"2027-11-27\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-0AABE-6.4\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035139\", \"generation_seed\": 35139, \"project_name\": \"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\", \"project_code\": \"0AABE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Meyer-35139-SP\", \"project_manager\": \"Thomas Ivanov-35139-PM\", \"business_owner\": \"Ines Canale-35139-BO\", \"service_owner\": \"Victor Nguyen-35139-SO\", \"risk_owner\": \"Omar Meyer-35139-RO\", \"start_date\": \"2026-10-31\", \"target_go_live\": \"2027-11-27\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"pass\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"annual\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-BC-001",
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "REVISE_BUSINESS_CASE",
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035139\", \"generation_seed\": 35139, \"project_name\": \"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\", \"project_code\": \"0AABE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Meyer-35139-SP\", \"project_manager\": \"Thomas Ivanov-35139-PM\", \"business_owner\": \"Ines Canale-35139-BO\", \"service_owner\": \"Victor Nguyen-35139-SO\", \"risk_owner\": \"Omar Meyer-35139-RO\", \"start_date\": \"2026-10-31\", \"target_go_live\": \"2027-11-27\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"partial\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 900000, \"budget_approved_eur\": 765000, \"roi\": 0.018, \"npv_eur\": 1053126, \"payback_months\": 44, \"schedule_slip_weeks\": 2, \"fte_needed\": 27.9, \"fte_available\": 18.6, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"availability\", \"benefits_owner\": \"David Volkov-35139-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035139\", \"generation_seed\": 35139, \"project_name\": \"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\", \"project_code\": \"0AABE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Daria Meyer-35139-SP\", \"project_manager\": \"Thomas Ivanov-35139-PM\", \"business_owner\": \"Ines Canale-35139-BO\", \"service_owner\": \"Victor Nguyen-35139-SO\", \"risk_owner\": \"Omar Meyer-35139-RO\", \"start_date\": \"2026-10-31\", \"target_go_live\": \"2027-11-27\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"partial\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 900000, \"budget_approved_eur\": 765000, \"roi\": 0.018, \"npv_eur\": 1053126, \"payback_months\": 44, \"schedule_slip_weeks\": 2, \"fte_needed\": 27.9, \"fte_available\": 18.6, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"availability\", \"benefits_owner\": \"David Volkov-35139-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-LOG-001\"], \"actions\": [\"CONNECT_LOGS_TO_SIEM\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035139\\\", \\\"generation_seed\\\": 35139, \\\"project_name\\\": \\\"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\\\", \\\"project_code\\\": \\\"0AABE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Daria Meyer-35139-SP\\\", \\\"project_manager\\\": \\\"Thomas Ivanov-35139-PM\\\", \\\"business_owner\\\": \\\"Ines Canale-35139-BO\\\", \\\"service_owner\\\": \\\"Victor Nguyen-35139-SO\\\", \\\"risk_owner\\\": \\\"Omar Meyer-35139-RO\\\", \\\"start_date\\\": \\\"2026-10-31\\\", \\\"target_go_live\\\": \\\"2027-11-27\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 180, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 30, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"None\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-IP-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\", \"CLARIFY_IP_OWNERSHIP\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035139\\\", \\\"generation_seed\\\": 35139, \\\"project_name\\\": \\\"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\\\", \\\"project_code\\\": \\\"0AABE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Daria Meyer-35139-SP\\\", \\\"project_manager\\\": \\\"Thomas Ivanov-35139-PM\\\", \\\"business_owner\\\": \\\"Ines Canale-35139-BO\\\", \\\"service_owner\\\": \\\"Victor Nguyen-35139-SO\\\", \\\"risk_owner\\\": \\\"Omar Meyer-35139-RO\\\", \\\"start_date\\\": \\\"2026-10-31\\\", \\\"target_go_live\\\": \\\"2027-11-27\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-0AABE-6.4\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 10, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"included\\\"}}\"}, {\"finding_id\": \"LEGAL-IP-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035139\\\", \\\"generation_seed\\\": 35139, \\\"project_name\\\": \\\"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\\\", \\\"project_code\\\": \\\"0AABE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Daria Meyer-35139-SP\\\", \\\"project_manager\\\": \\\"Thomas Ivanov-35139-PM\\\", \\\"business_owner\\\": \\\"Ines Canale-35139-BO\\\", \\\"service_owner\\\": \\\"Victor Nguyen-35139-SO\\\", \\\"risk_owner\\\": \\\"Omar Meyer-35139-RO\\\", \\\"start_date\\\": \\\"2026-10-31\\\", \\\"target_go_live\\\": \\\"2027-11-27\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-0AABE-6.4\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 10, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"included\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-EXPORT-002\"], \"actions\": [\"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035139\\\", \\\"generation_seed\\\": 35139, \\\"project_name\\\": \\\"Meridian Acquisition Integration — Employee Experience Portal [0AABE]\\\", \\\"project_code\\\": \\\"0AABE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Daria Meyer-35139-SP\\\", \\\"project_manager\\\": \\\"Thomas Ivanov-35139-PM\\\", \\\"business_owner\\\": \\\"Ines Canale-35139-BO\\\", \\\"service_owner\\\": \\\"Victor Nguyen-35139-SO\\\", \\\"risk_owner\\\": \\\"Omar Meyer-35139-RO\\\", \\\"start_date\\\": \\\"2026-10-31\\\", \\\"target_go_live\\\": \\\"2027-11-27\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035101\", \"generation_seed\": 35101, \"project_name\": \"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\", \"project_code\": \"DB6BE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Maya Meyer-35101-SP\", \"project_manager\": \"Marc Benali-35101-PM\", \"business_owner\": \"Sofia Garcia-35101-BO\", \"service_owner\": \"Noor Nguyen-35101-SO\", \"risk_owner\": \"Jeremy Costa-35101-RO\", \"start_date\": \"2026-09-04\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 500, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Critical\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 536377, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 36, \"change_record_status\": \"missing\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"aks\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035101\", \"generation_seed\": 35101, \"project_name\": \"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\", \"project_code\": \"DB6BE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Maya Meyer-35101-SP\", \"project_manager\": \"Marc Benali-35101-PM\", \"business_owner\": \"Sofia Garcia-35101-BO\", \"service_owner\": \"Noor Nguyen-35101-SO\", \"risk_owner\": \"Jeremy Costa-35101-RO\", \"start_date\": \"2026-09-04\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 500, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Critical\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-DB6BE-v4.4\", \"lld_version\": \"LLD-DB6BE-v1.7\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 50, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 3, \"reversibility_status\": \"documented\", \"data_export_supported\": false, \"private_cidrs\": [\"10.209.208.0/24\", \"10.209.209.0/24\", \"10.209.210.0/24\"], \"dns_zone\": \"dgf-int-035101.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-LOG-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035101\", \"generation_seed\": 35101, \"project_name\": \"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\", \"project_code\": \"DB6BE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Maya Meyer-35101-SP\", \"project_manager\": \"Marc Benali-35101-PM\", \"business_owner\": \"Sofia Garcia-35101-BO\", \"service_owner\": \"Noor Nguyen-35101-SO\", \"risk_owner\": \"Jeremy Costa-35101-RO\", \"start_date\": \"2026-09-04\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 500, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Critical\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 7, \"pentest_age_days\": 365, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035101\", \"generation_seed\": 35101, \"project_name\": \"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\", \"project_code\": \"DB6BE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Maya Meyer-35101-SP\", \"project_manager\": \"Marc Benali-35101-PM\", \"business_owner\": \"Sofia Garcia-35101-BO\", \"service_owner\": \"Noor Nguyen-35101-SO\", \"risk_owner\": \"Jeremy Costa-35101-RO\", \"start_date\": \"2026-09-04\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 500, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Critical\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-DB6BE-9.5\", \"governing_law\": \"France\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": \"unlimited\", \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-MAP-001"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035101\", \"generation_seed\": 35101, \"project_name\": \"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\", \"project_code\": \"DB6BE\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Data Office\", \"sponsor\": \"Maya Meyer-35101-SP\", \"project_manager\": \"Marc Benali-35101-PM\", \"business_owner\": \"Sofia Garcia-35101-BO\", \"service_owner\": \"Noor Nguyen-35101-SO\", \"risk_owner\": \"Jeremy Costa-35101-RO\", \"start_date\": \"2026-09-04\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 500, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"Critical\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035101\\\", \\\"generation_seed\\\": 35101, \\\"project_name\\\": \\\"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\\\", \\\"project_code\\\": \\\"DB6BE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Maya Meyer-35101-SP\\\", \\\"project_manager\\\": \\\"Marc Benali-35101-PM\\\", \\\"business_owner\\\": \\\"Sofia Garcia-35101-BO\\\", \\\"service_owner\\\": \\\"Noor Nguyen-35101-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35101-RO\\\", \\\"start_date\\\": \\\"2026-09-04\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 536377, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"aks\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-PERF-001\"], \"actions\": [\"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035101\\\", \\\"generation_seed\\\": 35101, \\\"project_name\\\": \\\"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\\\", \\\"project_code\\\": \\\"DB6BE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Maya Meyer-35101-SP\\\", \\\"project_manager\\\": \\\"Marc Benali-35101-PM\\\", \\\"business_owner\\\": \\\"Sofia Garcia-35101-BO\\\", \\\"service_owner\\\": \\\"Noor Nguyen-35101-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35101-RO\\\", \\\"start_date\\\": \\\"2026-09-04\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-DB6BE-v4.4\\\", \\\"lld_version\\\": \\\"LLD-DB6BE-v1.7\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 3, \\\"reversibility_status\\\": \\\"documented\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.209.208.0/24\\\", \\\"10.209.209.0/24\\\", \\\"10.209.210.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035101.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-LOG-001\"], \"actions\": [\"CONNECT_LOGS_TO_SIEM\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035101\\\", \\\"generation_seed\\\": 35101, \\\"project_name\\\": \\\"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\\\", \\\"project_code\\\": \\\"DB6BE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Maya Meyer-35101-SP\\\", \\\"project_manager\\\": \\\"Marc Benali-35101-PM\\\", \\\"business_owner\\\": \\\"Sofia Garcia-35101-BO\\\", \\\"service_owner\\\": \\\"Noor Nguyen-35101-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35101-RO\\\", \\\"start_date\\\": \\\"2026-09-04\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 7, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"None\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"LEGAL-EXIT-001\"], \"actions\": [\"ADD_EXIT_ASSISTANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-EXIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035101\\\", \\\"generation_seed\\\": 35101, \\\"project_name\\\": \\\"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\\\", \\\"project_code\\\": \\\"DB6BE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Maya Meyer-35101-SP\\\", \\\"project_manager\\\": \\\"Marc Benali-35101-PM\\\", \\\"business_owner\\\": \\\"Sofia Garcia-35101-BO\\\", \\\"service_owner\\\": \\\"Noor Nguyen-35101-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35101-RO\\\", \\\"start_date\\\": \\\"2026-09-04\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-DB6BE-9.5\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": \\\"unlimited\\\", \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"customer\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 10, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-MAP-001\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035101\\\", \\\"generation_seed\\\": 35101, \\\"project_name\\\": \\\"Quartz Acquisition Integration — Cloud Landing Zone Extension [DB6BE]\\\", \\\"project_code\\\": \\\"DB6BE\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Maya Meyer-35101-SP\\\", \\\"project_manager\\\": \\\"Marc Benali-35101-PM\\\", \\\"business_owner\\\": \\\"Sofia Garcia-35101-BO\\\", \\\"service_owner\\\": \\\"Noor Nguyen-35101-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35101-RO\\\", \\\"start_date\\\": \\\"2026-09-04\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

@@ -1,0 +1,583 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": false, \"annual_license_cost_eur\": 569678, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+        },
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": false, \"annual_license_cost_eur\": 569678, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035286",
+              "generation_seed": 35286,
+              "project_name": "Project Helix — Regulatory Reporting Modernization [BD040]",
+              "project_code": "BD040",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Omar Rossi-35286-SP",
+              "project_manager": "Lucas Costa-35286-PM",
+              "business_owner": "Marc Moreau-35286-BO",
+              "service_owner": "David Laurent-35286-SO",
+              "risk_owner": "Thomas Meyer-35286-RO",
+              "start_date": "2026-10-17",
+              "target_go_live": "2027-07-02",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": true,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": false,
+              "annual_license_cost_eur": 569678,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 18,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "gold",
+              "hosting_model": "vm_ha"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-BD040-v2.5\", \"lld_version\": \"LLD-BD040-v2.5\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 7, \"adr_count\": 10, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.21.96.0/24\", \"10.21.97.0/24\", \"10.21.98.0/24\"], \"dns_zone\": \"dgf-bld-035286.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035286",
+              "generation_seed": 35286,
+              "project_name": "Project Helix — Regulatory Reporting Modernization [BD040]",
+              "project_code": "BD040",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Omar Rossi-35286-SP",
+              "project_manager": "Lucas Costa-35286-PM",
+              "business_owner": "Marc Moreau-35286-BO",
+              "service_owner": "David Laurent-35286-SO",
+              "risk_owner": "Thomas Meyer-35286-RO",
+              "start_date": "2026-10-17",
+              "target_go_live": "2027-07-02",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-BD040-v2.5",
+              "lld_version": "LLD-BD040-v2.5",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 95,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 7,
+              "adr_count": 10,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.21.96.0/24",
+                "10.21.97.0/24",
+                "10.21.98.0/24"
+              ],
+              "dns_zone": "dgf-bld-035286.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-002"
+      ],
+      "actions": [
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 90, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035286",
+              "generation_seed": 35286,
+              "project_name": "Project Helix — Regulatory Reporting Modernization [BD040]",
+              "project_code": "BD040",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Omar Rossi-35286-SP",
+              "project_manager": "Lucas Costa-35286-PM",
+              "business_owner": "Marc Moreau-35286-BO",
+              "service_owner": "David Laurent-35286-SO",
+              "risk_owner": "Thomas Meyer-35286-RO",
+              "start_date": "2026-10-17",
+              "target_go_live": "2027-07-02",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 9,
+              "pentest_age_days": 90,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": false,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "TR-ROLLBACK-001"
+      ],
+      "actions": [
+        "TEST_ROLLBACK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-ROLLBACK-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 78, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 1170, \"unit_test_coverage_pct\": 50, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 4.4, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": false, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035286",
+              "generation_seed": 35286,
+              "project_name": "Project Helix — Regulatory Reporting Modernization [BD040]",
+              "project_code": "BD040",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Omar Rossi-35286-SP",
+              "project_manager": "Lucas Costa-35286-PM",
+              "business_owner": "Marc Moreau-35286-BO",
+              "service_owner": "David Laurent-35286-SO",
+              "risk_owner": "Thomas Meyer-35286-RO",
+              "start_date": "2026-10-17",
+              "target_go_live": "2027-07-02",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 78,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 100,
+              "p95_ms": 1170,
+              "unit_test_coverage_pct": 50,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 8,
+              "measured_restore_hours": 4.4,
+              "target_rpo_minutes": 15,
+              "measured_data_loss_minutes": 0,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": false,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\", \"IT-LICENSE-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\", \"REMEDIATE_LICENSE_POSITION\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035286\\\", \\\"generation_seed\\\": 35286, \\\"project_name\\\": \\\"Project Helix — Regulatory Reporting Modernization [BD040]\\\", \\\"project_code\\\": \\\"BD040\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Omar Rossi-35286-SP\\\", \\\"project_manager\\\": \\\"Lucas Costa-35286-PM\\\", \\\"business_owner\\\": \\\"Marc Moreau-35286-BO\\\", \\\"service_owner\\\": \\\"David Laurent-35286-SO\\\", \\\"risk_owner\\\": \\\"Thomas Meyer-35286-RO\\\", \\\"start_date\\\": \\\"2026-10-17\\\", \\\"target_go_live\\\": \\\"2027-07-02\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 569678, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vm_ha\\\"}}\"}, {\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035286\\\", \\\"generation_seed\\\": 35286, \\\"project_name\\\": \\\"Project Helix — Regulatory Reporting Modernization [BD040]\\\", \\\"project_code\\\": \\\"BD040\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Omar Rossi-35286-SP\\\", \\\"project_manager\\\": \\\"Lucas Costa-35286-PM\\\", \\\"business_owner\\\": \\\"Marc Moreau-35286-BO\\\", \\\"service_owner\\\": \\\"David Laurent-35286-SO\\\", \\\"risk_owner\\\": \\\"Thomas Meyer-35286-RO\\\", \\\"start_date\\\": \\\"2026-10-17\\\", \\\"target_go_live\\\": \\\"2027-07-02\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 569678, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vm_ha\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-REV-001\"], \"actions\": [\"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035286\\\", \\\"generation_seed\\\": 35286, \\\"project_name\\\": \\\"Project Helix — Regulatory Reporting Modernization [BD040]\\\", \\\"project_code\\\": \\\"BD040\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Omar Rossi-35286-SP\\\", \\\"project_manager\\\": \\\"Lucas Costa-35286-PM\\\", \\\"business_owner\\\": \\\"Marc Moreau-35286-BO\\\", \\\"service_owner\\\": \\\"David Laurent-35286-SO\\\", \\\"risk_owner\\\": \\\"Thomas Meyer-35286-RO\\\", \\\"start_date\\\": \\\"2026-10-17\\\", \\\"target_go_live\\\": \\\"2027-07-02\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-BD040-v2.5\\\", \\\"lld_version\\\": \\\"LLD-BD040-v2.5\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 7, \\\"adr_count\\\": 10, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.21.96.0/24\\\", \\\"10.21.97.0/24\\\", \\\"10.21.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035286.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-IAM-002\"], \"actions\": [\"CREATE_DEDICATED_WORKLOAD_IDENTITY\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035286\\\", \\\"generation_seed\\\": 35286, \\\"project_name\\\": \\\"Project Helix — Regulatory Reporting Modernization [BD040]\\\", \\\"project_code\\\": \\\"BD040\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Omar Rossi-35286-SP\\\", \\\"project_manager\\\": \\\"Lucas Costa-35286-PM\\\", \\\"business_owner\\\": \\\"Marc Moreau-35286-BO\\\", \\\"service_owner\\\": \\\"David Laurent-35286-SO\\\", \\\"risk_owner\\\": \\\"Thomas Meyer-35286-RO\\\", \\\"start_date\\\": \\\"2026-10-17\\\", \\\"target_go_live\\\": \\\"2027-07-02\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 30, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 9, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": false, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"TR-ROLLBACK-001\"], \"actions\": [\"TEST_ROLLBACK\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-ROLLBACK-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035286\\\", \\\"generation_seed\\\": 35286, \\\"project_name\\\": \\\"Project Helix — Regulatory Reporting Modernization [BD040]\\\", \\\"project_code\\\": \\\"BD040\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Omar Rossi-35286-SP\\\", \\\"project_manager\\\": \\\"Lucas Costa-35286-PM\\\", \\\"business_owner\\\": \\\"Marc Moreau-35286-BO\\\", \\\"service_owner\\\": \\\"David Laurent-35286-SO\\\", \\\"risk_owner\\\": \\\"Thomas Meyer-35286-RO\\\", \\\"start_date\\\": \\\"2026-10-17\\\", \\\"target_go_live\\\": \\\"2027-07-02\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 78, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 1170, \\\"unit_test_coverage_pct\\\": 50, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 8, \\\"measured_restore_hours\\\": 4.4, \\\"target_rpo_minutes\\\": 15, \\\"measured_data_loss_minutes\\\": 0, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": false, \\\"open_blockers\\\": 0}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035286",
+              "generation_seed": 35286,
+              "project_name": "Project Helix — Regulatory Reporting Modernization [BD040]",
+              "project_code": "BD040",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Omar Rossi-35286-SP",
+              "project_manager": "Lucas Costa-35286-PM",
+              "business_owner": "Marc Moreau-35286-BO",
+              "service_owner": "David Laurent-35286-SO",
+              "risk_owner": "Thomas Meyer-35286-RO",
+              "start_date": "2026-10-17",
+              "target_go_live": "2027-07-02",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 990000,
+              "roi": 0.197,
+              "npv_eur": 143192,
+              "payback_months": 30,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 3.4,
+              "fte_available": 10.9,
+              "change_plan_status": "partial",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Yusuf Bennett-35286-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001",
+                "IT-LICENSE-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY",
+                "REMEDIATE_LICENSE_POSITION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": false, \"annual_license_cost_eur\": 569678, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+                },
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": false, \"annual_license_cost_eur\": 569678, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-BD040-v2.5\", \"lld_version\": \"LLD-BD040-v2.5\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 7, \"adr_count\": 10, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.21.96.0/24\", \"10.21.97.0/24\", \"10.21.98.0/24\"], \"dns_zone\": \"dgf-bld-035286.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-IAM-002"
+              ],
+              "actions": [
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 90, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "TR-ROLLBACK-001"
+              ],
+              "actions": [
+                "TEST_ROLLBACK"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-ROLLBACK-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035286\", \"generation_seed\": 35286, \"project_name\": \"Project Helix — Regulatory Reporting Modernization [BD040]\", \"project_code\": \"BD040\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Omar Rossi-35286-SP\", \"project_manager\": \"Lucas Costa-35286-PM\", \"business_owner\": \"Marc Moreau-35286-BO\", \"service_owner\": \"David Laurent-35286-SO\", \"risk_owner\": \"Thomas Meyer-35286-RO\", \"start_date\": \"2026-10-17\", \"target_go_live\": \"2027-07-02\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 78, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 1170, \"unit_test_coverage_pct\": 50, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 8, \"measured_restore_hours\": 4.4, \"target_rpo_minutes\": 15, \"measured_data_loss_minutes\": 0, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": false, \"open_blockers\": 0}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

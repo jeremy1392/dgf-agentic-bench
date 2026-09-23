@@ -1,0 +1,772 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-BUDGET-001"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_ARBITRATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software F4793-1\", \"functional_score\": 94, \"security_score\": 77, \"tco_3y_eur\": 255579, \"mandatory_criteria_failed\": 1, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 87.8}, {\"vendor\": \"Fluxbridge Labs F4793-2\", \"functional_score\": 81, \"security_score\": 55, \"tco_3y_eur\": 2022582, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 64.9}, {\"vendor\": \"GranitePeak Systems F4793-3\", \"functional_score\": 90, \"security_score\": 56, \"tco_3y_eur\": 1918209, \"mandatory_criteria_failed\": 0, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 69.0}, {\"vendor\": \"HelioStack Cloud F4793-4\", \"functional_score\": 92, \"security_score\": 65, \"tco_3y_eur\": 1509964, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.1}], \"selected_vendor\": \"HelioStack Cloud F4793-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 104, \"purchasing_budget_eur\": 900000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035080",
+              "generation_seed": 35080,
+              "project_name": "Project Nova — Observability Platform [F4793]",
+              "project_code": "F4793",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Treasury",
+              "sponsor": "Marc Santos-35080-SP",
+              "project_manager": "Amira Canale-35080-PM",
+              "business_owner": "Noor Costa-35080-BO",
+              "service_owner": "Ines Rahman-35080-SO",
+              "risk_owner": "Maya Benali-35080-RO",
+              "start_date": "2026-11-19",
+              "target_go_live": "2027-05-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Everline Software F4793-1",
+                  "functional_score": 94,
+                  "security_score": 77,
+                  "tco_3y_eur": 255579,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "hit",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 87.8
+                },
+                {
+                  "vendor": "Fluxbridge Labs F4793-2",
+                  "functional_score": 81,
+                  "security_score": 55,
+                  "tco_3y_eur": 2022582,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 64.9
+                },
+                {
+                  "vendor": "GranitePeak Systems F4793-3",
+                  "functional_score": 90,
+                  "security_score": 56,
+                  "tco_3y_eur": 1918209,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "hit",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 69.0
+                },
+                {
+                  "vendor": "HelioStack Cloud F4793-4",
+                  "functional_score": 92,
+                  "security_score": 65,
+                  "tco_3y_eur": 1509964,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 75.1
+                }
+              ],
+              "selected_vendor": "HelioStack Cloud F4793-4",
+              "competition": "open_tender",
+              "rfp_requirements": 104,
+              "purchasing_budget_eur": 900000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-F4793-8.4\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": false, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035080",
+              "generation_seed": 35080,
+              "project_name": "Project Nova — Observability Platform [F4793]",
+              "project_code": "F4793",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Treasury",
+              "sponsor": "Marc Santos-35080-SP",
+              "project_manager": "Amira Canale-35080-PM",
+              "business_owner": "Noor Costa-35080-BO",
+              "service_owner": "Ines Rahman-35080-SO",
+              "risk_owner": "Maya Benali-35080-RO",
+              "start_date": "2026-11-19",
+              "target_go_live": "2027-05-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-F4793-8.4",
+              "governing_law": "Ireland",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 0,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "contractual_only",
+              "sla_penalties": false,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-AUDIT-001",
+        "COMP-A11Y-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL",
+        "REMEDIATE_ACCESSIBILITY",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UK\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UK\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UK\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035080",
+              "generation_seed": 35080,
+              "project_name": "Project Nova — Observability Platform [F4793]",
+              "project_code": "F4793",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Treasury",
+              "sponsor": "Marc Santos-35080-SP",
+              "project_manager": "Amira Canale-35080-PM",
+              "business_owner": "Noor Costa-35080-BO",
+              "service_owner": "Ines Rahman-35080-SO",
+              "risk_owner": "Maya Benali-35080-RO",
+              "start_date": "2026-11-19",
+              "target_go_live": "2027-05-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "PCI-DSS",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "UK",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "major_findings",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "none",
+              "export_control": "pending"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-IAM-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "ENFORCE_MFA"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035080",
+              "generation_seed": 35080,
+              "project_name": "Project Nova — Observability Platform [F4793]",
+              "project_code": "F4793",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Treasury",
+              "sponsor": "Marc Santos-35080-SP",
+              "project_manager": "Amira Canale-35080-PM",
+              "business_owner": "Noor Costa-35080-BO",
+              "service_owner": "Ines Rahman-35080-SO",
+              "risk_owner": "Maya Benali-35080-RO",
+              "start_date": "2026-11-19",
+              "target_go_live": "2027-05-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "missing",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 9,
+              "pentest_age_days": 90,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-LICENSE-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "REMEDIATE_LICENSE_POSITION",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 322517, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"app_service\"}}"
+        },
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 322517, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"app_service\"}}"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 322517, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"app_service\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035080",
+              "generation_seed": 35080,
+              "project_name": "Project Nova — Observability Platform [F4793]",
+              "project_code": "F4793",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Treasury",
+              "sponsor": "Marc Santos-35080-SP",
+              "project_manager": "Amira Canale-35080-PM",
+              "business_owner": "Noor Costa-35080-BO",
+              "service_owner": "Ines Rahman-35080-SO",
+              "risk_owner": "Maya Benali-35080-RO",
+              "start_date": "2026-11-19",
+              "target_go_live": "2027-05-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": true,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": false,
+              "annual_license_cost_eur": 322517,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 90,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 4,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "bronze",
+              "hosting_model": "app_service"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"PROC-BUDGET-001\"], \"actions\": [\"OBTAIN_BUDGET_ARBITRATION\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-BUDGET-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"Everline Software F4793-1\\\", \\\"functional_score\\\": 94, \\\"security_score\\\": 77, \\\"tco_3y_eur\\\": 255579, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"hit\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 87.8}, {\\\"vendor\\\": \\\"Fluxbridge Labs F4793-2\\\", \\\"functional_score\\\": 81, \\\"security_score\\\": 55, \\\"tco_3y_eur\\\": 2022582, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 64.9}, {\\\"vendor\\\": \\\"GranitePeak Systems F4793-3\\\", \\\"functional_score\\\": 90, \\\"security_score\\\": 56, \\\"tco_3y_eur\\\": 1918209, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"hit\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 69.0}, {\\\"vendor\\\": \\\"HelioStack Cloud F4793-4\\\", \\\"functional_score\\\": 92, \\\"security_score\\\": 65, \\\"tco_3y_eur\\\": 1509964, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 75.1}], \\\"selected_vendor\\\": \\\"HelioStack Cloud F4793-4\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 104, \\\"purchasing_budget_eur\\\": 900000}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"LEGAL-EXIT-001\"], \"actions\": [\"ADD_EXIT_ASSISTANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-EXIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-F4793-8.4\\\", \\\"governing_law\\\": \\\"Ireland\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 0, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"contractual_only\\\", \\\"sla_penalties\\\": false, \\\"log_export_clause\\\": \\\"limited\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-AUDIT-001\", \"COMP-A11Y-001\", \"COMP-EXPORT-002\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\", \"REMEDIATE_ACCESSIBILITY\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"UK\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"UK\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"UK\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\", \"SEC-IAM-001\"], \"actions\": [\"ENABLE_WAF_PREVENTION\", \"ENFORCE_MFA\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 9, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-IAM-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 9, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\", \"IT-LICENSE-001\", \"IT-EOL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\", \"REMEDIATE_LICENSE_POSITION\", \"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 322517, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 90, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"app_service\\\"}}\"}, {\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 322517, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 90, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"app_service\\\"}}\"}, {\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035080\\\", \\\"generation_seed\\\": 35080, \\\"project_name\\\": \\\"Project Nova — Observability Platform [F4793]\\\", \\\"project_code\\\": \\\"F4793\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Marc Santos-35080-SP\\\", \\\"project_manager\\\": \\\"Amira Canale-35080-PM\\\", \\\"business_owner\\\": \\\"Noor Costa-35080-BO\\\", \\\"service_owner\\\": \\\"Ines Rahman-35080-SO\\\", \\\"risk_owner\\\": \\\"Maya Benali-35080-RO\\\", \\\"start_date\\\": \\\"2026-11-19\\\", \\\"target_go_live\\\": \\\"2027-05-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 322517, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 90, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"app_service\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035080",
+              "generation_seed": 35080,
+              "project_name": "Project Nova — Observability Platform [F4793]",
+              "project_code": "F4793",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Treasury",
+              "sponsor": "Marc Santos-35080-SP",
+              "project_manager": "Amira Canale-35080-PM",
+              "business_owner": "Noor Costa-35080-BO",
+              "service_owner": "Ines Rahman-35080-SO",
+              "risk_owner": "Maya Benali-35080-RO",
+              "start_date": "2026-11-19",
+              "target_go_live": "2027-05-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 990000,
+              "roi": 0.333,
+              "npv_eur": 43519,
+              "payback_months": 29,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 14.0,
+              "fte_available": 4.6,
+              "change_plan_status": "missing",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Marc Moreau-35080-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "PROC-BUDGET-001"
+              ],
+              "actions": [
+                "OBTAIN_BUDGET_ARBITRATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-BUDGET-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software F4793-1\", \"functional_score\": 94, \"security_score\": 77, \"tco_3y_eur\": 255579, \"mandatory_criteria_failed\": 1, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 87.8}, {\"vendor\": \"Fluxbridge Labs F4793-2\", \"functional_score\": 81, \"security_score\": 55, \"tco_3y_eur\": 2022582, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 64.9}, {\"vendor\": \"GranitePeak Systems F4793-3\", \"functional_score\": 90, \"security_score\": 56, \"tco_3y_eur\": 1918209, \"mandatory_criteria_failed\": 0, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 69.0}, {\"vendor\": \"HelioStack Cloud F4793-4\", \"functional_score\": 92, \"security_score\": 65, \"tco_3y_eur\": 1509964, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.1}], \"selected_vendor\": \"HelioStack Cloud F4793-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 104, \"purchasing_budget_eur\": 900000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-F4793-8.4\", \"governing_law\": \"Ireland\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"contractual_only\", \"sla_penalties\": false, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "COMP-AUDIT-001",
+                "COMP-A11Y-001",
+                "COMP-EXPORT-002"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL",
+                "REMEDIATE_ACCESSIBILITY",
+                "COMPLETE_EXPORT_CONTROL_REVIEW"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UK\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-A11Y-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UK\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-002",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UK\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-WAF-002",
+                "SEC-IAM-001"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION",
+                "ENFORCE_MFA"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-IAM-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001",
+                "IT-LICENSE-001",
+                "IT-EOL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY",
+                "REMEDIATE_LICENSE_POSITION",
+                "CREATE_CONVERGENCE_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 322517, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"app_service\"}}"
+                },
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 322517, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"app_service\"}}"
+                },
+                {
+                  "finding_id": "IT-EOL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035080\", \"generation_seed\": 35080, \"project_name\": \"Project Nova — Observability Platform [F4793]\", \"project_code\": \"F4793\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Treasury\", \"sponsor\": \"Marc Santos-35080-SP\", \"project_manager\": \"Amira Canale-35080-PM\", \"business_owner\": \"Noor Costa-35080-BO\", \"service_owner\": \"Ines Rahman-35080-SO\", \"risk_owner\": \"Maya Benali-35080-RO\", \"start_date\": \"2026-11-19\", \"target_go_live\": \"2027-05-07\", \"users_impacted\": 80, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 322517, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"app_service\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

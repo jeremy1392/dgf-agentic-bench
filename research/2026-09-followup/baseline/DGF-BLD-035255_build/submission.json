@@ -1,0 +1,114 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035255\", \"generation_seed\": 35255, \"project_name\": \"Project Aster — Customer 360 CRM [D0239]\", \"project_code\": \"D0239\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"David Santos-35255-SP\", \"project_manager\": \"David Benali-35255-PM\", \"business_owner\": \"Noor Dubois-35255-BO\", \"service_owner\": \"Maya Dubois-35255-SO\", \"risk_owner\": \"Leila Benali-35255-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-10-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 423241, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 60, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"vm_ha\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035255\", \"generation_seed\": 35255, \"project_name\": \"Project Aster — Customer 360 CRM [D0239]\", \"project_code\": \"D0239\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"David Santos-35255-SP\", \"project_manager\": \"David Benali-35255-PM\", \"business_owner\": \"Noor Dubois-35255-BO\", \"service_owner\": \"Maya Dubois-35255-SO\", \"risk_owner\": \"Leila Benali-35255-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-10-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-D0239-v2.5\", \"lld_version\": \"LLD-D0239-v2.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 3, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.19.112.0/24\", \"10.19.113.0/24\", \"10.19.114.0/24\"], \"dns_zone\": \"dgf-bld-035255.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035255\", \"generation_seed\": 35255, \"project_name\": \"Project Aster — Customer 360 CRM [D0239]\", \"project_code\": \"D0239\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"David Santos-35255-SP\", \"project_manager\": \"David Benali-35255-PM\", \"business_owner\": \"Noor Dubois-35255-BO\", \"service_owner\": \"Maya Dubois-35255-SO\", \"risk_owner\": \"Leila Benali-35255-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-10-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-D0239-v2.5\", \"lld_version\": \"LLD-D0239-v2.6\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 3, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.19.112.0/24\", \"10.19.113.0/24\", \"10.19.114.0/24\"], \"dns_zone\": \"dgf-bld-035255.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035255\", \"generation_seed\": 35255, \"project_name\": \"Project Aster — Customer 360 CRM [D0239]\", \"project_code\": \"D0239\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"HR\", \"sponsor\": \"David Santos-35255-SP\", \"project_manager\": \"David Benali-35255-PM\", \"business_owner\": \"Noor Dubois-35255-BO\", \"service_owner\": \"Maya Dubois-35255-SO\", \"risk_owner\": \"Leila Benali-35255-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-10-23\", \"users_impacted\": 2000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 7700000, \"roi\": 0.274, \"npv_eur\": -257500, \"payback_months\": 23, \"schedule_slip_weeks\": 0, \"fte_needed\": 29.7, \"fte_available\": 25.3, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"David Rahman-1035258-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-LICENSE-001\"], \"actions\": [\"REMEDIATE_LICENSE_POSITION\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035255\\\", \\\"generation_seed\\\": 35255, \\\"project_name\\\": \\\"Project Aster — Customer 360 CRM [D0239]\\\", \\\"project_code\\\": \\\"D0239\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"David Santos-35255-SP\\\", \\\"project_manager\\\": \\\"David Benali-35255-PM\\\", \\\"business_owner\\\": \\\"Noor Dubois-35255-BO\\\", \\\"service_owner\\\": \\\"Maya Dubois-35255-SO\\\", \\\"risk_owner\\\": \\\"Leila Benali-35255-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-10-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 423241, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"vm_ha\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035255\\\", \\\"generation_seed\\\": 35255, \\\"project_name\\\": \\\"Project Aster — Customer 360 CRM [D0239]\\\", \\\"project_code\\\": \\\"D0239\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"David Santos-35255-SP\\\", \\\"project_manager\\\": \\\"David Benali-35255-PM\\\", \\\"business_owner\\\": \\\"Noor Dubois-35255-BO\\\", \\\"service_owner\\\": \\\"Maya Dubois-35255-SO\\\", \\\"risk_owner\\\": \\\"Leila Benali-35255-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-10-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-D0239-v2.5\\\", \\\"lld_version\\\": \\\"LLD-D0239-v2.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 55, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 12, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.19.112.0/24\\\", \\\"10.19.113.0/24\\\", \\\"10.19.114.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035255.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035255\\\", \\\"generation_seed\\\": 35255, \\\"project_name\\\": \\\"Project Aster — Customer 360 CRM [D0239]\\\", \\\"project_code\\\": \\\"D0239\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"David Santos-35255-SP\\\", \\\"project_manager\\\": \\\"David Benali-35255-PM\\\", \\\"business_owner\\\": \\\"Noor Dubois-35255-BO\\\", \\\"service_owner\\\": \\\"Maya Dubois-35255-SO\\\", \\\"risk_owner\\\": \\\"Leila Benali-35255-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-10-23\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-D0239-v2.5\\\", \\\"lld_version\\\": \\\"LLD-D0239-v2.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 55, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 12, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.19.112.0/24\\\", \\\"10.19.113.0/24\\\", \\\"10.19.114.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035255.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

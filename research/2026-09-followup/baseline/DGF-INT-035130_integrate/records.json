@@ -1,0 +1,696 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001",
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION",
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 278849, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+        },
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 278849, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035130",
+              "generation_seed": 35130,
+              "project_name": "Juno Acquisition Integration — Observability Platform [9CD5E]",
+              "project_code": "9CD5E",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Finance",
+              "sponsor": "Sofia Nguyen-35130-SP",
+              "project_manager": "Noor Canale-35130-PM",
+              "business_owner": "Maya Petrescu-35130-BO",
+              "service_owner": "Daria Dubois-35130-SO",
+              "risk_owner": "Adam Petrescu-35130-RO",
+              "start_date": "2026-12-19",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": false,
+              "annual_license_cost_eur": 278849,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 4,
+              "change_record_status": "missing",
+              "service_continuity_class": "gold",
+              "hosting_model": "vm_ha"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-9CD5E-v4.2\", \"lld_version\": \"LLD-9CD5E-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.160.0/24\", \"10.211.161.0/24\", \"10.211.162.0/24\"], \"dns_zone\": \"dgf-int-035130.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-9CD5E-v4.2\", \"lld_version\": \"LLD-9CD5E-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.160.0/24\", \"10.211.161.0/24\", \"10.211.162.0/24\"], \"dns_zone\": \"dgf-int-035130.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-9CD5E-v4.2\", \"lld_version\": \"LLD-9CD5E-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.160.0/24\", \"10.211.161.0/24\", \"10.211.162.0/24\"], \"dns_zone\": \"dgf-int-035130.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035130",
+              "generation_seed": 35130,
+              "project_name": "Juno Acquisition Integration — Observability Platform [9CD5E]",
+              "project_code": "9CD5E",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Finance",
+              "sponsor": "Sofia Nguyen-35130-SP",
+              "project_manager": "Noor Canale-35130-PM",
+              "business_owner": "Maya Petrescu-35130-BO",
+              "service_owner": "Daria Dubois-35130-SO",
+              "risk_owner": "Adam Petrescu-35130-RO",
+              "start_date": "2026-12-19",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-9CD5E-v4.2",
+              "lld_version": "LLD-9CD5E-v1.4",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": true,
+              "latency_target_ms": 50,
+              "measured_latency_ms": 700,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 2,
+              "adr_count": 4,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.211.160.0/24",
+                "10.211.161.0/24",
+                "10.211.162.0/24"
+              ],
+              "dns_zone": "dgf-int-035130.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035130",
+              "generation_seed": 35130,
+              "project_name": "Juno Acquisition Integration — Observability Platform [9CD5E]",
+              "project_code": "9CD5E",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Finance",
+              "sponsor": "Sofia Nguyen-35130-SP",
+              "project_manager": "Noor Canale-35130-PM",
+              "business_owner": "Maya Petrescu-35130-BO",
+              "service_owner": "Daria Dubois-35130-SO",
+              "risk_owner": "Adam Petrescu-35130-RO",
+              "start_date": "2026-12-19",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 0,
+              "pentest_age_days": null,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-9CD5E-10.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035130",
+              "generation_seed": 35130,
+              "project_name": "Juno Acquisition Integration — Observability Platform [9CD5E]",
+              "project_code": "9CD5E",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Finance",
+              "sponsor": "Sofia Nguyen-35130-SP",
+              "project_manager": "Noor Canale-35130-PM",
+              "business_owner": "Maya Petrescu-35130-BO",
+              "service_owner": "Daria Dubois-35130-SO",
+              "risk_owner": "Adam Petrescu-35130-RO",
+              "start_date": "2026-12-19",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-9CD5E-10.9",
+              "governing_law": "England & Wales",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": false,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-MAP-001"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"Internal policy baseline\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035130",
+              "generation_seed": 35130,
+              "project_name": "Juno Acquisition Integration — Observability Platform [9CD5E]",
+              "project_code": "9CD5E",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Finance",
+              "sponsor": "Sofia Nguyen-35130-SP",
+              "project_manager": "Noor Canale-35130-PM",
+              "business_owner": "Maya Petrescu-35130-BO",
+              "service_owner": "Daria Dubois-35130-SO",
+              "risk_owner": "Adam Petrescu-35130-RO",
+              "start_date": "2026-12-19",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "Internal policy baseline"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 7,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "complete",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-LICENSE-001\", \"IT-EOL-001\"], \"actions\": [\"REMEDIATE_LICENSE_POSITION\", \"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035130\\\", \\\"generation_seed\\\": 35130, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [9CD5E]\\\", \\\"project_code\\\": \\\"9CD5E\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Sofia Nguyen-35130-SP\\\", \\\"project_manager\\\": \\\"Noor Canale-35130-PM\\\", \\\"business_owner\\\": \\\"Maya Petrescu-35130-BO\\\", \\\"service_owner\\\": \\\"Daria Dubois-35130-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35130-RO\\\", \\\"start_date\\\": \\\"2026-12-19\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 278849, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vm_ha\\\"}}\"}, {\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035130\\\", \\\"generation_seed\\\": 35130, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [9CD5E]\\\", \\\"project_code\\\": \\\"9CD5E\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Sofia Nguyen-35130-SP\\\", \\\"project_manager\\\": \\\"Noor Canale-35130-PM\\\", \\\"business_owner\\\": \\\"Maya Petrescu-35130-BO\\\", \\\"service_owner\\\": \\\"Daria Dubois-35130-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35130-RO\\\", \\\"start_date\\\": \\\"2026-12-19\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 278849, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 4, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vm_ha\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035130\\\", \\\"generation_seed\\\": 35130, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [9CD5E]\\\", \\\"project_code\\\": \\\"9CD5E\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Sofia Nguyen-35130-SP\\\", \\\"project_manager\\\": \\\"Noor Canale-35130-PM\\\", \\\"business_owner\\\": \\\"Maya Petrescu-35130-BO\\\", \\\"service_owner\\\": \\\"Daria Dubois-35130-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35130-RO\\\", \\\"start_date\\\": \\\"2026-12-19\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-9CD5E-v4.2\\\", \\\"lld_version\\\": \\\"LLD-9CD5E-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 4, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.211.160.0/24\\\", \\\"10.211.161.0/24\\\", \\\"10.211.162.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035130.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035130\\\", \\\"generation_seed\\\": 35130, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [9CD5E]\\\", \\\"project_code\\\": \\\"9CD5E\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Sofia Nguyen-35130-SP\\\", \\\"project_manager\\\": \\\"Noor Canale-35130-PM\\\", \\\"business_owner\\\": \\\"Maya Petrescu-35130-BO\\\", \\\"service_owner\\\": \\\"Daria Dubois-35130-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35130-RO\\\", \\\"start_date\\\": \\\"2026-12-19\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-9CD5E-v4.2\\\", \\\"lld_version\\\": \\\"LLD-9CD5E-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 4, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.211.160.0/24\\\", \\\"10.211.161.0/24\\\", \\\"10.211.162.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035130.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035130\\\", \\\"generation_seed\\\": 35130, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [9CD5E]\\\", \\\"project_code\\\": \\\"9CD5E\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Sofia Nguyen-35130-SP\\\", \\\"project_manager\\\": \\\"Noor Canale-35130-PM\\\", \\\"business_owner\\\": \\\"Maya Petrescu-35130-BO\\\", \\\"service_owner\\\": \\\"Daria Dubois-35130-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35130-RO\\\", \\\"start_date\\\": \\\"2026-12-19\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-9CD5E-v4.2\\\", \\\"lld_version\\\": \\\"LLD-9CD5E-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 700, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 4, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.211.160.0/24\\\", \\\"10.211.161.0/24\\\", \\\"10.211.162.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035130.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"LEGAL-EXIT-001\"], \"actions\": [\"ADD_EXIT_ASSISTANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-EXIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035130\\\", \\\"generation_seed\\\": 35130, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [9CD5E]\\\", \\\"project_code\\\": \\\"9CD5E\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Sofia Nguyen-35130-SP\\\", \\\"project_manager\\\": \\\"Noor Canale-35130-PM\\\", \\\"business_owner\\\": \\\"Maya Petrescu-35130-BO\\\", \\\"service_owner\\\": \\\"Daria Dubois-35130-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35130-RO\\\", \\\"start_date\\\": \\\"2026-12-19\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-9CD5E-10.9\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"limited\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 0, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": false, \\\"log_export_clause\\\": \\\"included\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-MAP-001\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035130\\\", \\\"generation_seed\\\": 35130, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [9CD5E]\\\", \\\"project_code\\\": \\\"9CD5E\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Sofia Nguyen-35130-SP\\\", \\\"project_manager\\\": \\\"Noor Canale-35130-PM\\\", \\\"business_owner\\\": \\\"Maya Petrescu-35130-BO\\\", \\\"service_owner\\\": \\\"Daria Dubois-35130-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35130-RO\\\", \\\"start_date\\\": \\\"2026-12-19\\\", \\\"target_go_live\\\": \\\"2027-06-12\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"Internal policy baseline\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035130",
+              "generation_seed": 35130,
+              "project_name": "Juno Acquisition Integration — Observability Platform [9CD5E]",
+              "project_code": "9CD5E",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Finance",
+              "sponsor": "Sofia Nguyen-35130-SP",
+              "project_manager": "Noor Canale-35130-PM",
+              "business_owner": "Maya Petrescu-35130-BO",
+              "service_owner": "Daria Dubois-35130-SO",
+              "risk_owner": "Adam Petrescu-35130-RO",
+              "start_date": "2026-12-19",
+              "target_go_live": "2027-06-12",
+              "users_impacted": 5000,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 3000000,
+              "roi": 0.238,
+              "npv_eur": 641258,
+              "payback_months": 52,
+              "schedule_slip_weeks": 8,
+              "fte_needed": 8.2,
+              "fte_available": 10.1,
+              "change_plan_status": "missing",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Elena Khan-1035133-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-LICENSE-001",
+                "IT-EOL-001"
+              ],
+              "actions": [
+                "REMEDIATE_LICENSE_POSITION",
+                "CREATE_CONVERGENCE_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 278849, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+                },
+                {
+                  "finding_id": "IT-EOL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 278849, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 4, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-9CD5E-v4.2\", \"lld_version\": \"LLD-9CD5E-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.160.0/24\", \"10.211.161.0/24\", \"10.211.162.0/24\"], \"dns_zone\": \"dgf-int-035130.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-9CD5E-v4.2\", \"lld_version\": \"LLD-9CD5E-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.160.0/24\", \"10.211.161.0/24\", \"10.211.162.0/24\"], \"dns_zone\": \"dgf-int-035130.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-9CD5E-v4.2\", \"lld_version\": \"LLD-9CD5E-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 700, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 2, \"adr_count\": 4, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.211.160.0/24\", \"10.211.161.0/24\", \"10.211.162.0/24\"], \"dns_zone\": \"dgf-int-035130.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-9CD5E-10.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"limited\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-MAP-001"
+              ],
+              "actions": [
+                "COMPLETE_CONTROL_MAPPING"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035130\", \"generation_seed\": 35130, \"project_name\": \"Juno Acquisition Integration — Observability Platform [9CD5E]\", \"project_code\": \"9CD5E\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Finance\", \"sponsor\": \"Sofia Nguyen-35130-SP\", \"project_manager\": \"Noor Canale-35130-PM\", \"business_owner\": \"Maya Petrescu-35130-BO\", \"service_owner\": \"Daria Dubois-35130-SO\", \"risk_owner\": \"Adam Petrescu-35130-RO\", \"start_date\": \"2026-12-19\", \"target_go_live\": \"2027-06-12\", \"users_impacted\": 5000, \"budget_requested_eur\": 3000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"Internal policy baseline\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

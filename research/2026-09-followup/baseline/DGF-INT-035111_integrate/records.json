@@ -1,0 +1,621 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035111",
+              "generation_seed": 35111,
+              "project_name": "Atlas Acquisition Integration — Identity Modernization [12AED]",
+              "project_code": "12AED",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Victor Martin-35111-SP",
+              "project_manager": "Ines Rossi-35111-PM",
+              "business_owner": "Sofia Volkov-35111-BO",
+              "service_owner": "Lucas Smith-35111-SO",
+              "risk_owner": "David Garcia-35111-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-18",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 505081,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 60,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "app_service"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035111\", \"generation_seed\": 35111, \"project_name\": \"Atlas Acquisition Integration — Identity Modernization [12AED]\", \"project_code\": \"12AED\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Risk\", \"sponsor\": \"Victor Martin-35111-SP\", \"project_manager\": \"Ines Rossi-35111-PM\", \"business_owner\": \"Sofia Volkov-35111-BO\", \"service_owner\": \"Lucas Smith-35111-SO\", \"risk_owner\": \"David Garcia-35111-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-12AED-v1.5\", \"lld_version\": \"LLD-12AED-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 3, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.112.0/24\", \"10.210.113.0/24\", \"10.210.114.0/24\"], \"dns_zone\": \"dgf-int-035111.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035111",
+              "generation_seed": 35111,
+              "project_name": "Atlas Acquisition Integration — Identity Modernization [12AED]",
+              "project_code": "12AED",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Victor Martin-35111-SP",
+              "project_manager": "Ines Rossi-35111-PM",
+              "business_owner": "Sofia Volkov-35111-BO",
+              "service_owner": "Lucas Smith-35111-SO",
+              "risk_owner": "David Garcia-35111-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-18",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-12AED-v1.5",
+              "lld_version": "LLD-12AED-v2.5",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": false,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 180,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 2,
+              "adr_count": 3,
+              "reversibility_status": "tested",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.210.112.0/24",
+                "10.210.113.0/24",
+                "10.210.114.0/24"
+              ],
+              "dns_zone": "dgf-int-035111.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035111",
+              "generation_seed": 35111,
+              "project_name": "Atlas Acquisition Integration — Identity Modernization [12AED]",
+              "project_code": "12AED",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Victor Martin-35111-SP",
+              "project_manager": "Ines Rossi-35111-PM",
+              "business_owner": "Sofia Volkov-35111-BO",
+              "service_owner": "Lucas Smith-35111-SO",
+              "risk_owner": "David Garcia-35111-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-18",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 180,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 7,
+              "pentest_age_days": null,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035111",
+              "generation_seed": 35111,
+              "project_name": "Atlas Acquisition Integration — Identity Modernization [12AED]",
+              "project_code": "12AED",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Victor Martin-35111-SP",
+              "project_manager": "Ines Rossi-35111-PM",
+              "business_owner": "Sofia Volkov-35111-BO",
+              "service_owner": "Lucas Smith-35111-SO",
+              "risk_owner": "David Garcia-35111-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-18",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-12AED-9.6",
+              "governing_law": "Ireland",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 60,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "contractual_only",
+              "sla_penalties": true,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-MAP-001"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035111\", \"generation_seed\": 35111, \"project_name\": \"Atlas Acquisition Integration — Identity Modernization [12AED]\", \"project_code\": \"12AED\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Risk\", \"sponsor\": \"Victor Martin-35111-SP\", \"project_manager\": \"Ines Rossi-35111-PM\", \"business_owner\": \"Sofia Volkov-35111-BO\", \"service_owner\": \"Lucas Smith-35111-SO\", \"risk_owner\": \"David Garcia-35111-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"DORA\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035111",
+              "generation_seed": 35111,
+              "project_name": "Atlas Acquisition Integration — Identity Modernization [12AED]",
+              "project_code": "12AED",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Victor Martin-35111-SP",
+              "project_manager": "Ines Rossi-35111-PM",
+              "business_owner": "Sofia Volkov-35111-BO",
+              "service_owner": "Lucas Smith-35111-SO",
+              "risk_owner": "David Garcia-35111-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-18",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "DORA"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "UAE",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": false,
+              "deletion_enforced": true,
+              "audit_trail": "complete",
+              "accessibility_status": "pass",
+              "ethics_review": "passed",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "none",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-BC-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "REVISE_BUSINESS_CASE",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035111\", \"generation_seed\": 35111, \"project_name\": \"Atlas Acquisition Integration — Identity Modernization [12AED]\", \"project_code\": \"12AED\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Risk\", \"sponsor\": \"Victor Martin-35111-SP\", \"project_manager\": \"Ines Rossi-35111-PM\", \"business_owner\": \"Sofia Volkov-35111-BO\", \"service_owner\": \"Lucas Smith-35111-SO\", \"risk_owner\": \"David Garcia-35111-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"partial\", \"portfolio_priority\": \"P0\", \"budget_requested_eur\": 1500000, \"budget_approved_eur\": 1500000, \"roi\": -0.018, \"npv_eur\": 280568, \"payback_months\": 22, \"schedule_slip_weeks\": 0, \"fte_needed\": 10.2, \"fte_available\": 27.8, \"change_plan_status\": \"missing\", \"benefits_kpi\": \"availability\", \"benefits_owner\": \"Marc Bennett-35111-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035111\\\", \\\"generation_seed\\\": 35111, \\\"project_name\\\": \\\"Atlas Acquisition Integration — Identity Modernization [12AED]\\\", \\\"project_code\\\": \\\"12AED\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Victor Martin-35111-SP\\\", \\\"project_manager\\\": \\\"Ines Rossi-35111-PM\\\", \\\"business_owner\\\": \\\"Sofia Volkov-35111-BO\\\", \\\"service_owner\\\": \\\"Lucas Smith-35111-SO\\\", \\\"risk_owner\\\": \\\"David Garcia-35111-RO\\\", \\\"start_date\\\": \\\"2026-10-10\\\", \\\"target_go_live\\\": \\\"2027-04-18\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-12AED-v1.5\\\", \\\"lld_version\\\": \\\"LLD-12AED-v2.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 2, \\\"adr_count\\\": 3, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.210.112.0/24\\\", \\\"10.210.113.0/24\\\", \\\"10.210.114.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035111.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-MAP-001\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035111\\\", \\\"generation_seed\\\": 35111, \\\"project_name\\\": \\\"Atlas Acquisition Integration — Identity Modernization [12AED]\\\", \\\"project_code\\\": \\\"12AED\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Risk\\\", \\\"sponsor\\\": \\\"Victor Martin-35111-SP\\\", \\\"project_manager\\\": \\\"Ines Rossi-35111-PM\\\", \\\"business_owner\\\": \\\"Sofia Volkov-35111-BO\\\", \\\"service_owner\\\": \\\"Lucas Smith-35111-SO\\\", \\\"risk_owner\\\": \\\"David Garcia-35111-RO\\\", \\\"start_date\\\": \\\"2026-10-10\\\", \\\"target_go_live\\\": \\\"2027-04-18\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"DORA\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035111",
+              "generation_seed": 35111,
+              "project_name": "Atlas Acquisition Integration — Identity Modernization [12AED]",
+              "project_code": "12AED",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Victor Martin-35111-SP",
+              "project_manager": "Ines Rossi-35111-PM",
+              "business_owner": "Sofia Volkov-35111-BO",
+              "service_owner": "Lucas Smith-35111-SO",
+              "risk_owner": "David Garcia-35111-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-18",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UAE Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1500000,
+              "roi": -0.018,
+              "npv_eur": 280568,
+              "payback_months": 22,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 10.2,
+              "fte_available": 27.8,
+              "change_plan_status": "missing",
+              "benefits_kpi": "availability",
+              "benefits_owner": "Marc Bennett-35111-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035111\", \"generation_seed\": 35111, \"project_name\": \"Atlas Acquisition Integration — Identity Modernization [12AED]\", \"project_code\": \"12AED\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Risk\", \"sponsor\": \"Victor Martin-35111-SP\", \"project_manager\": \"Ines Rossi-35111-PM\", \"business_owner\": \"Sofia Volkov-35111-BO\", \"service_owner\": \"Lucas Smith-35111-SO\", \"risk_owner\": \"David Garcia-35111-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-12AED-v1.5\", \"lld_version\": \"LLD-12AED-v2.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 2, \"adr_count\": 3, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.210.112.0/24\", \"10.210.113.0/24\", \"10.210.114.0/24\"], \"dns_zone\": \"dgf-int-035111.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-MAP-001"
+              ],
+              "actions": [
+                "COMPLETE_CONTROL_MAPPING"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035111\", \"generation_seed\": 35111, \"project_name\": \"Atlas Acquisition Integration — Identity Modernization [12AED]\", \"project_code\": \"12AED\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Risk\", \"sponsor\": \"Victor Martin-35111-SP\", \"project_manager\": \"Ines Rossi-35111-PM\", \"business_owner\": \"Sofia Volkov-35111-BO\", \"service_owner\": \"Lucas Smith-35111-SO\", \"risk_owner\": \"David Garcia-35111-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UAE Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"DORA\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

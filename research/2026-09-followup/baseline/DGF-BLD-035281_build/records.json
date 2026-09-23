@@ -1,0 +1,498 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035281",
+              "generation_seed": 35281,
+              "project_name": "Project Cobalt — Cloud Landing Zone Extension [0B8D1]",
+              "project_code": "0B8D1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Technology",
+              "sponsor": "Nadia Smith-35281-SP",
+              "project_manager": "Thomas Benali-35281-PM",
+              "business_owner": "Omar Meyer-35281-BO",
+              "service_owner": "David Martin-35281-SO",
+              "risk_owner": "Yusuf Haddad-35281-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-05-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": true,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 66548,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 60,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "silver",
+              "hosting_model": "container_apps"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035281\", \"generation_seed\": 35281, \"project_name\": \"Project Cobalt — Cloud Landing Zone Extension [0B8D1]\", \"project_code\": \"0B8D1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Nadia Smith-35281-SP\", \"project_manager\": \"Thomas Benali-35281-PM\", \"business_owner\": \"Omar Meyer-35281-BO\", \"service_owner\": \"David Martin-35281-SO\", \"risk_owner\": \"Yusuf Haddad-35281-RO\", \"start_date\": \"2026-10-18\", \"target_go_live\": \"2027-05-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-0B8D1-v3.4\", \"lld_version\": \"LLD-0B8D1-v1.6\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 100, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 7, \"adr_count\": 8, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.21.16.0/24\", \"10.21.17.0/24\", \"10.21.18.0/24\"], \"dns_zone\": \"dgf-bld-035281.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035281",
+              "generation_seed": 35281,
+              "project_name": "Project Cobalt — Cloud Landing Zone Extension [0B8D1]",
+              "project_code": "0B8D1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Technology",
+              "sponsor": "Nadia Smith-35281-SP",
+              "project_manager": "Thomas Benali-35281-PM",
+              "business_owner": "Omar Meyer-35281-BO",
+              "service_owner": "David Martin-35281-SO",
+              "risk_owner": "Yusuf Haddad-35281-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-05-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-0B8D1-v3.4",
+              "lld_version": "LLD-0B8D1-v1.6",
+              "api_gateway_required": false,
+              "api_gateway_present": false,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 100,
+              "measured_latency_ms": 350,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 7,
+              "adr_count": 8,
+              "reversibility_status": "documented",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.21.16.0/24",
+                "10.21.17.0/24",
+                "10.21.18.0/24"
+              ],
+              "dns_zone": "dgf-bld-035281.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035281",
+              "generation_seed": 35281,
+              "project_name": "Project Cobalt — Cloud Landing Zone Extension [0B8D1]",
+              "project_code": "0B8D1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Technology",
+              "sponsor": "Nadia Smith-35281-SP",
+              "project_manager": "Thomas Benali-35281-PM",
+              "business_owner": "Omar Meyer-35281-BO",
+              "service_owner": "David Martin-35281-SO",
+              "risk_owner": "Yusuf Haddad-35281-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-05-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 60,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 1,
+              "pentest_age_days": 180,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035281",
+              "generation_seed": 35281,
+              "project_name": "Project Cobalt — Cloud Landing Zone Extension [0B8D1]",
+              "project_code": "0B8D1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Technology",
+              "sponsor": "Nadia Smith-35281-SP",
+              "project_manager": "Thomas Benali-35281-PM",
+              "business_owner": "Omar Meyer-35281-BO",
+              "service_owner": "David Martin-35281-SO",
+              "risk_owner": "Yusuf Haddad-35281-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-05-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 80,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 150,
+              "p95_ms": 1624,
+              "unit_test_coverage_pct": 46,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 0.25,
+              "measured_restore_hours": 0.14,
+              "target_rpo_minutes": 15,
+              "measured_data_loss_minutes": 15,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035281",
+              "generation_seed": 35281,
+              "project_name": "Project Cobalt — Cloud Landing Zone Extension [0B8D1]",
+              "project_code": "0B8D1",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Technology",
+              "sponsor": "Nadia Smith-35281-SP",
+              "project_manager": "Thomas Benali-35281-PM",
+              "business_owner": "Omar Meyer-35281-BO",
+              "service_owner": "David Martin-35281-SO",
+              "risk_owner": "Yusuf Haddad-35281-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-05-09",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Restricted",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1650000,
+              "roi": 0.228,
+              "npv_eur": -36406,
+              "payback_months": 46,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 12.2,
+              "fte_available": 15.8,
+              "change_plan_status": "complete",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Jeremy Ivanov-5035296-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-PERF-001"
+              ],
+              "actions": [
+                "REMEDIATE_LATENCY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035281\", \"generation_seed\": 35281, \"project_name\": \"Project Cobalt — Cloud Landing Zone Extension [0B8D1]\", \"project_code\": \"0B8D1\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Technology\", \"sponsor\": \"Nadia Smith-35281-SP\", \"project_manager\": \"Thomas Benali-35281-PM\", \"business_owner\": \"Omar Meyer-35281-BO\", \"service_owner\": \"David Martin-35281-SO\", \"risk_owner\": \"Yusuf Haddad-35281-RO\", \"start_date\": \"2026-10-18\", \"target_go_live\": \"2027-05-09\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-0B8D1-v3.4\", \"lld_version\": \"LLD-0B8D1-v1.6\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 100, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 7, \"adr_count\": 8, \"reversibility_status\": \"documented\", \"data_export_supported\": true, \"private_cidrs\": [\"10.21.16.0/24\", \"10.21.17.0/24\", \"10.21.18.0/24\"], \"dns_zone\": \"dgf-bld-035281.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

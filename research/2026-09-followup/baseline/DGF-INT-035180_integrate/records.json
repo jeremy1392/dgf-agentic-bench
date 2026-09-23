@@ -1,0 +1,618 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035180",
+              "generation_seed": 35180,
+              "project_name": "Vertex Acquisition Integration — Secure Vendor Portal [642B8]",
+              "project_code": "642B8",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Nadia Garcia-35180-SP",
+              "project_manager": "David Santos-35180-PM",
+              "business_owner": "Maya Costa-35180-BO",
+              "service_owner": "Amira Dubois-35180-SO",
+              "risk_owner": "Ines Nguyen-35180-RO",
+              "start_date": "2026-10-20",
+              "target_go_live": "2027-10-27",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 150619,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 60,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "gold",
+              "hosting_model": "app_service"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035180\", \"generation_seed\": 35180, \"project_name\": \"Vertex Acquisition Integration — Secure Vendor Portal [642B8]\", \"project_code\": \"642B8\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Nadia Garcia-35180-SP\", \"project_manager\": \"David Santos-35180-PM\", \"business_owner\": \"Maya Costa-35180-BO\", \"service_owner\": \"Amira Dubois-35180-SO\", \"risk_owner\": \"Ines Nguyen-35180-RO\", \"start_date\": \"2026-10-20\", \"target_go_live\": \"2027-10-27\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-642B8-v1.6\", \"lld_version\": \"LLD-642B8-v1.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 7, \"adr_count\": 8, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.214.192.0/24\", \"10.214.193.0/24\", \"10.214.194.0/24\"], \"dns_zone\": \"dgf-int-035180.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035180\", \"generation_seed\": 35180, \"project_name\": \"Vertex Acquisition Integration — Secure Vendor Portal [642B8]\", \"project_code\": \"642B8\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Nadia Garcia-35180-SP\", \"project_manager\": \"David Santos-35180-PM\", \"business_owner\": \"Maya Costa-35180-BO\", \"service_owner\": \"Amira Dubois-35180-SO\", \"risk_owner\": \"Ines Nguyen-35180-RO\", \"start_date\": \"2026-10-20\", \"target_go_live\": \"2027-10-27\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-642B8-v1.6\", \"lld_version\": \"LLD-642B8-v1.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 7, \"adr_count\": 8, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.214.192.0/24\", \"10.214.193.0/24\", \"10.214.194.0/24\"], \"dns_zone\": \"dgf-int-035180.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035180",
+              "generation_seed": 35180,
+              "project_name": "Vertex Acquisition Integration — Secure Vendor Portal [642B8]",
+              "project_code": "642B8",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Nadia Garcia-35180-SP",
+              "project_manager": "David Santos-35180-PM",
+              "business_owner": "Maya Costa-35180-BO",
+              "service_owner": "Amira Dubois-35180-SO",
+              "risk_owner": "Ines Nguyen-35180-RO",
+              "start_date": "2026-10-20",
+              "target_go_live": "2027-10-27",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-642B8-v1.6",
+              "lld_version": "LLD-642B8-v1.9",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": false,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 180,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 7,
+              "adr_count": 8,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.214.192.0/24",
+                "10.214.193.0/24",
+                "10.214.194.0/24"
+              ],
+              "dns_zone": "dgf-int-035180.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035180",
+              "generation_seed": 35180,
+              "project_name": "Vertex Acquisition Integration — Secure Vendor Portal [642B8]",
+              "project_code": "642B8",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Nadia Garcia-35180-SP",
+              "project_manager": "David Santos-35180-PM",
+              "business_owner": "Maya Costa-35180-BO",
+              "service_owner": "Amira Dubois-35180-SO",
+              "risk_owner": "Ines Nguyen-35180-RO",
+              "start_date": "2026-10-20",
+              "target_go_live": "2027-10-27",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 7,
+              "pentest_age_days": null,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035180\", \"generation_seed\": 35180, \"project_name\": \"Vertex Acquisition Integration — Secure Vendor Portal [642B8]\", \"project_code\": \"642B8\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Nadia Garcia-35180-SP\", \"project_manager\": \"David Santos-35180-PM\", \"business_owner\": \"Maya Costa-35180-BO\", \"service_owner\": \"Amira Dubois-35180-SO\", \"risk_owner\": \"Ines Nguyen-35180-RO\", \"start_date\": \"2026-10-20\", \"target_go_live\": \"2027-10-27\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-642B8-3.3\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": \"unlimited\", \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": false, \"exit_assistance_days\": 0, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035180",
+              "generation_seed": 35180,
+              "project_name": "Vertex Acquisition Integration — Secure Vendor Portal [642B8]",
+              "project_code": "642B8",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Nadia Garcia-35180-SP",
+              "project_manager": "David Santos-35180-PM",
+              "business_owner": "Maya Costa-35180-BO",
+              "service_owner": "Amira Dubois-35180-SO",
+              "risk_owner": "Ines Nguyen-35180-RO",
+              "start_date": "2026-10-20",
+              "target_go_live": "2027-10-27",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-642B8-3.3",
+              "governing_law": "France",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": "unlimited",
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 0,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 10,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035180",
+              "generation_seed": 35180,
+              "project_name": "Vertex Acquisition Integration — Secure Vendor Portal [642B8]",
+              "project_code": "642B8",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Nadia Garcia-35180-SP",
+              "project_manager": "David Santos-35180-PM",
+              "business_owner": "Maya Costa-35180-BO",
+              "service_owner": "Amira Dubois-35180-SO",
+              "risk_owner": "Ines Nguyen-35180-RO",
+              "start_date": "2026-10-20",
+              "target_go_live": "2027-10-27",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "PCI-DSS",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 7,
+              "legal_hold_supported": true,
+              "deletion_enforced": false,
+              "audit_trail": "complete",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "missing",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035180",
+              "generation_seed": 35180,
+              "project_name": "Vertex Acquisition Integration — Secure Vendor Portal [642B8]",
+              "project_code": "642B8",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Retail",
+              "sponsor": "Nadia Garcia-35180-SP",
+              "project_manager": "David Santos-35180-PM",
+              "business_owner": "Maya Costa-35180-BO",
+              "service_owner": "Amira Dubois-35180-SO",
+              "risk_owner": "Ines Nguyen-35180-RO",
+              "start_date": "2026-10-20",
+              "target_go_live": "2027-10-27",
+              "users_impacted": 5000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "UK South",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1500000,
+              "roi": 0.267,
+              "npv_eur": 1497369,
+              "payback_months": 11,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 8.5,
+              "fte_available": 14.9,
+              "change_plan_status": "draft",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Samir Dubois-3035189-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035180\", \"generation_seed\": 35180, \"project_name\": \"Vertex Acquisition Integration — Secure Vendor Portal [642B8]\", \"project_code\": \"642B8\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Nadia Garcia-35180-SP\", \"project_manager\": \"David Santos-35180-PM\", \"business_owner\": \"Maya Costa-35180-BO\", \"service_owner\": \"Amira Dubois-35180-SO\", \"risk_owner\": \"Ines Nguyen-35180-RO\", \"start_date\": \"2026-10-20\", \"target_go_live\": \"2027-10-27\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-642B8-v1.6\", \"lld_version\": \"LLD-642B8-v1.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 7, \"adr_count\": 8, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.214.192.0/24\", \"10.214.193.0/24\", \"10.214.194.0/24\"], \"dns_zone\": \"dgf-int-035180.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035180\", \"generation_seed\": 35180, \"project_name\": \"Vertex Acquisition Integration — Secure Vendor Portal [642B8]\", \"project_code\": \"642B8\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Nadia Garcia-35180-SP\", \"project_manager\": \"David Santos-35180-PM\", \"business_owner\": \"Maya Costa-35180-BO\", \"service_owner\": \"Amira Dubois-35180-SO\", \"risk_owner\": \"Ines Nguyen-35180-RO\", \"start_date\": \"2026-10-20\", \"target_go_live\": \"2027-10-27\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-642B8-v1.6\", \"lld_version\": \"LLD-642B8-v1.9\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 7, \"adr_count\": 8, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.214.192.0/24\", \"10.214.193.0/24\", \"10.214.194.0/24\"], \"dns_zone\": \"dgf-int-035180.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035180\", \"generation_seed\": 35180, \"project_name\": \"Vertex Acquisition Integration — Secure Vendor Portal [642B8]\", \"project_code\": \"642B8\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Retail\", \"sponsor\": \"Nadia Garcia-35180-SP\", \"project_manager\": \"David Santos-35180-PM\", \"business_owner\": \"Maya Costa-35180-BO\", \"service_owner\": \"Amira Dubois-35180-SO\", \"risk_owner\": \"Ines Nguyen-35180-RO\", \"start_date\": \"2026-10-20\", \"target_go_live\": \"2027-10-27\", \"users_impacted\": 5000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"UK South\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-642B8-3.3\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": \"unlimited\", \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": false, \"exit_assistance_days\": 0, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -2,7 +2,11 @@
 
 **Status: no enrolled organizations, no baseline audit, no preregistration identifier.**
 
-## Original dated hypothesis
+## Primary prospective hypothesis
+
+Register baseline start `t0` before collection, observe twelve months ending at `tB`, and fix the endpoint `tF = tB + 7 calendar years`. The primary hypothesis is that standardized required FTE in the twelve months ending `tF` is at most 20% of baseline, with quality and service preserved. Dates are assigned at actual registration, not invented in this manuscript. A hypothetical 1 October 2026 baseline start gives a 30 September 2027 baseline end and 30 September 2034 endpoint.
+
+## Original dated hypothesis (historical context only)
 
 At comparable governed output, quality, and service, required DGF workload-equivalent FTE in the twelve months ending 20 September 2033 is at most 20% of that in the twelve months ending 20 September 2026. Include internal effort, contractors, suppliers, oversight, rework, and recurring maintenance. Convert hours using one fixed FTE convention. Record staffing and headcount separately.
 

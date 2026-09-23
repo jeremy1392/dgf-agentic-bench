@@ -1,0 +1,700 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "PROC-DD-001"
+      ],
+      "actions": [
+        "COMPLETE_VENDOR_DUE_DILIGENCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-DD-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"HelioStack Cloud A9290-1\", \"functional_score\": 92, \"security_score\": 97, \"tco_3y_eur\": 997128, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 88.2}, {\"vendor\": \"Asterion Cloud A9290-2\", \"functional_score\": 74, \"security_score\": 95, \"tco_3y_eur\": 1498081, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 77.9}, {\"vendor\": \"BlueMesa Systems A9290-3\", \"functional_score\": 94, \"security_score\": 76, \"tco_3y_eur\": 555733, \"mandatory_criteria_failed\": 1, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 85.5}, {\"vendor\": \"CedarPoint Digital A9290-4\", \"functional_score\": 88, \"security_score\": 76, \"tco_3y_eur\": 807964, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 81.7}], \"selected_vendor\": \"CedarPoint Digital A9290-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 153, \"purchasing_budget_eur\": 3000000}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035060",
+              "generation_seed": 35060,
+              "project_name": "Project Xenon — Observability Platform [A9290]",
+              "project_code": "A9290",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Finance",
+              "sponsor": "Nadia Laurent-35060-SP",
+              "project_manager": "Marc Bennett-35060-PM",
+              "business_owner": "Yusuf Smith-35060-BO",
+              "service_owner": "Jeremy Martin-35060-SO",
+              "risk_owner": "Amira Benali-35060-RO",
+              "start_date": "2026-10-28",
+              "target_go_live": "2027-12-16",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "HelioStack Cloud A9290-1",
+                  "functional_score": 92,
+                  "security_score": 97,
+                  "tco_3y_eur": 997128,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 88.2
+                },
+                {
+                  "vendor": "Asterion Cloud A9290-2",
+                  "functional_score": 74,
+                  "security_score": 95,
+                  "tco_3y_eur": 1498081,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "partial",
+                  "weighted_score": 77.9
+                },
+                {
+                  "vendor": "BlueMesa Systems A9290-3",
+                  "functional_score": 94,
+                  "security_score": 76,
+                  "tco_3y_eur": 555733,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "pending",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 85.5
+                },
+                {
+                  "vendor": "CedarPoint Digital A9290-4",
+                  "functional_score": 88,
+                  "security_score": 76,
+                  "tco_3y_eur": 807964,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 81.7
+                }
+              ],
+              "selected_vendor": "CedarPoint Digital A9290-4",
+              "competition": "open_tender",
+              "rfp_requirements": 153,
+              "purchasing_budget_eur": 3000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-AUDIT-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-A9290-5.9\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 60, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035060",
+              "generation_seed": 35060,
+              "project_name": "Project Xenon — Observability Platform [A9290]",
+              "project_code": "A9290",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Finance",
+              "sponsor": "Nadia Laurent-35060-SP",
+              "project_manager": "Marc Bennett-35060-PM",
+              "business_owner": "Yusuf Smith-35060-BO",
+              "service_owner": "Jeremy Martin-35060-SO",
+              "risk_owner": "Amira Benali-35060-RO",
+              "start_date": "2026-10-28",
+              "target_go_live": "2027-12-16",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-A9290-5.9",
+              "governing_law": "France",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "none",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 60,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 1,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-MAP-001"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035060",
+              "generation_seed": 35060,
+              "project_name": "Project Xenon — Observability Platform [A9290]",
+              "project_code": "A9290",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Finance",
+              "sponsor": "Nadia Laurent-35060-SP",
+              "project_manager": "Marc Bennett-35060-PM",
+              "business_owner": "Yusuf Smith-35060-BO",
+              "service_owner": "Jeremy Martin-35060-SO",
+              "risk_owner": "Amira Benali-35060-RO",
+              "start_date": "2026-10-28",
+              "target_go_live": "2027-12-16",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "PCI-DSS"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "UAE",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": false,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "none",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 60, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035060",
+              "generation_seed": 35060,
+              "project_name": "Project Xenon — Observability Platform [A9290]",
+              "project_code": "A9290",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Finance",
+              "sponsor": "Nadia Laurent-35060-SP",
+              "project_manager": "Marc Bennett-35060-PM",
+              "business_owner": "Yusuf Smith-35060-BO",
+              "service_owner": "Jeremy Martin-35060-SO",
+              "risk_owner": "Amira Benali-35060-RO",
+              "start_date": "2026-10-28",
+              "target_go_live": "2027-12-16",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 2,
+              "pentest_age_days": 60,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": false,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": false, \"annual_license_cost_eur\": 166581, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"container_apps\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035060",
+              "generation_seed": 35060,
+              "project_name": "Project Xenon — Observability Platform [A9290]",
+              "project_code": "A9290",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Finance",
+              "sponsor": "Nadia Laurent-35060-SP",
+              "project_manager": "Marc Bennett-35060-PM",
+              "business_owner": "Yusuf Smith-35060-BO",
+              "service_owner": "Jeremy Martin-35060-SO",
+              "risk_owner": "Amira Benali-35060-RO",
+              "start_date": "2026-10-28",
+              "target_go_live": "2027-12-16",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": false,
+              "annual_license_cost_eur": 166581,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 18,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "silver",
+              "hosting_model": "container_apps"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"PROC-DD-001\"], \"actions\": [\"COMPLETE_VENDOR_DUE_DILIGENCE\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-DD-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035060\\\", \\\"generation_seed\\\": 35060, \\\"project_name\\\": \\\"Project Xenon — Observability Platform [A9290]\\\", \\\"project_code\\\": \\\"A9290\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Nadia Laurent-35060-SP\\\", \\\"project_manager\\\": \\\"Marc Bennett-35060-PM\\\", \\\"business_owner\\\": \\\"Yusuf Smith-35060-BO\\\", \\\"service_owner\\\": \\\"Jeremy Martin-35060-SO\\\", \\\"risk_owner\\\": \\\"Amira Benali-35060-RO\\\", \\\"start_date\\\": \\\"2026-10-28\\\", \\\"target_go_live\\\": \\\"2027-12-16\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"HelioStack Cloud A9290-1\\\", \\\"functional_score\\\": 92, \\\"security_score\\\": 97, \\\"tco_3y_eur\\\": 997128, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 88.2}, {\\\"vendor\\\": \\\"Asterion Cloud A9290-2\\\", \\\"functional_score\\\": 74, \\\"security_score\\\": 95, \\\"tco_3y_eur\\\": 1498081, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"partial\\\", \\\"weighted_score\\\": 77.9}, {\\\"vendor\\\": \\\"BlueMesa Systems A9290-3\\\", \\\"functional_score\\\": 94, \\\"security_score\\\": 76, \\\"tco_3y_eur\\\": 555733, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 85.5}, {\\\"vendor\\\": \\\"CedarPoint Digital A9290-4\\\", \\\"functional_score\\\": 88, \\\"security_score\\\": 76, \\\"tco_3y_eur\\\": 807964, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 81.7}], \\\"selected_vendor\\\": \\\"CedarPoint Digital A9290-4\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 153, \\\"purchasing_budget_eur\\\": 3000000}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-AUDIT-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035060\\\", \\\"generation_seed\\\": 35060, \\\"project_name\\\": \\\"Project Xenon — Observability Platform [A9290]\\\", \\\"project_code\\\": \\\"A9290\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Nadia Laurent-35060-SP\\\", \\\"project_manager\\\": \\\"Marc Bennett-35060-PM\\\", \\\"business_owner\\\": \\\"Yusuf Smith-35060-BO\\\", \\\"service_owner\\\": \\\"Jeremy Martin-35060-SO\\\", \\\"risk_owner\\\": \\\"Amira Benali-35060-RO\\\", \\\"start_date\\\": \\\"2026-10-28\\\", \\\"target_go_live\\\": \\\"2027-12-16\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-A9290-5.9\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"not_required\\\", \\\"liability_cap_multiplier\\\": 1, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 60, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 1, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-MAP-001\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035060\\\", \\\"generation_seed\\\": 35060, \\\"project_name\\\": \\\"Project Xenon — Observability Platform [A9290]\\\", \\\"project_code\\\": \\\"A9290\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Nadia Laurent-35060-SP\\\", \\\"project_manager\\\": \\\"Marc Bennett-35060-PM\\\", \\\"business_owner\\\": \\\"Yusuf Smith-35060-BO\\\", \\\"service_owner\\\": \\\"Jeremy Martin-35060-SO\\\", \\\"risk_owner\\\": \\\"Amira Benali-35060-RO\\\", \\\"start_date\\\": \\\"2026-10-28\\\", \\\"target_go_live\\\": \\\"2027-12-16\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"PCI-DSS\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\"], \"actions\": [\"ENABLE_WAF_PREVENTION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035060\\\", \\\"generation_seed\\\": 35060, \\\"project_name\\\": \\\"Project Xenon — Observability Platform [A9290]\\\", \\\"project_code\\\": \\\"A9290\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Nadia Laurent-35060-SP\\\", \\\"project_manager\\\": \\\"Marc Bennett-35060-PM\\\", \\\"business_owner\\\": \\\"Yusuf Smith-35060-BO\\\", \\\"service_owner\\\": \\\"Jeremy Martin-35060-SO\\\", \\\"risk_owner\\\": \\\"Amira Benali-35060-RO\\\", \\\"start_date\\\": \\\"2026-10-28\\\", \\\"target_go_live\\\": \\\"2027-12-16\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 30, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 60, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-LICENSE-001\"], \"actions\": [\"REMEDIATE_LICENSE_POSITION\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035060\\\", \\\"generation_seed\\\": 35060, \\\"project_name\\\": \\\"Project Xenon — Observability Platform [A9290]\\\", \\\"project_code\\\": \\\"A9290\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Nadia Laurent-35060-SP\\\", \\\"project_manager\\\": \\\"Marc Bennett-35060-PM\\\", \\\"business_owner\\\": \\\"Yusuf Smith-35060-BO\\\", \\\"service_owner\\\": \\\"Jeremy Martin-35060-SO\\\", \\\"risk_owner\\\": \\\"Amira Benali-35060-RO\\\", \\\"start_date\\\": \\\"2026-10-28\\\", \\\"target_go_live\\\": \\\"2027-12-16\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 166581, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 14, \\\"capacity_headroom_pct\\\": 20, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"container_apps\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035060",
+              "generation_seed": 35060,
+              "project_name": "Project Xenon — Observability Platform [A9290]",
+              "project_code": "A9290",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Finance",
+              "sponsor": "Nadia Laurent-35060-SP",
+              "project_manager": "Marc Bennett-35060-PM",
+              "business_owner": "Yusuf Smith-35060-BO",
+              "service_owner": "Jeremy Martin-35060-SO",
+              "risk_owner": "Amira Benali-35060-RO",
+              "start_date": "2026-10-28",
+              "target_go_live": "2027-12-16",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Medium",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 3000000,
+              "roi": 0.184,
+              "npv_eur": 417995,
+              "payback_months": 24,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 15.4,
+              "fte_available": 11.3,
+              "change_plan_status": "complete",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Victor Meyer-35060-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "PROC-DD-001"
+              ],
+              "actions": [
+                "COMPLETE_VENDOR_DUE_DILIGENCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-DD-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"HelioStack Cloud A9290-1\", \"functional_score\": 92, \"security_score\": 97, \"tco_3y_eur\": 997128, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 88.2}, {\"vendor\": \"Asterion Cloud A9290-2\", \"functional_score\": 74, \"security_score\": 95, \"tco_3y_eur\": 1498081, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 77.9}, {\"vendor\": \"BlueMesa Systems A9290-3\", \"functional_score\": 94, \"security_score\": 76, \"tco_3y_eur\": 555733, \"mandatory_criteria_failed\": 1, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 85.5}, {\"vendor\": \"CedarPoint Digital A9290-4\", \"functional_score\": 88, \"security_score\": 76, \"tco_3y_eur\": 807964, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 81.7}], \"selected_vendor\": \"CedarPoint Digital A9290-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 153, \"purchasing_budget_eur\": 3000000}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-AUDIT-001"
+              ],
+              "actions": [
+                "REDLINE_AUDIT_RIGHT"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-A9290-5.9\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 60, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-MAP-001"
+              ],
+              "actions": [
+                "COMPLETE_CONTROL_MAPPING"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-WAF-002"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 30, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 60, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-LICENSE-001"
+              ],
+              "actions": [
+                "REMEDIATE_LICENSE_POSITION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035060\", \"generation_seed\": 35060, \"project_name\": \"Project Xenon — Observability Platform [A9290]\", \"project_code\": \"A9290\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Finance\", \"sponsor\": \"Nadia Laurent-35060-SP\", \"project_manager\": \"Marc Bennett-35060-PM\", \"business_owner\": \"Yusuf Smith-35060-BO\", \"service_owner\": \"Jeremy Martin-35060-SO\", \"risk_owner\": \"Amira Benali-35060-RO\", \"start_date\": \"2026-10-28\", \"target_go_live\": \"2027-12-16\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": false, \"annual_license_cost_eur\": 166581, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"product_team\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 18, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"container_apps\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

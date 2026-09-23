@@ -1,0 +1,585 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035181",
+              "generation_seed": 35181,
+              "project_name": "Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]",
+              "project_code": "53C05",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Clara Smith-35181-SP",
+              "project_manager": "Omar Costa-35181-PM",
+              "business_owner": "Amira Rahman-35181-BO",
+              "service_owner": "Omar Santos-35181-SO",
+              "risk_owner": "Maya Garcia-35181-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-10-22",
+              "users_impacted": 500,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 264540,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "product_team",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 36,
+              "change_record_status": "approved",
+              "service_continuity_class": "bronze",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035181",
+              "generation_seed": 35181,
+              "project_name": "Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]",
+              "project_code": "53C05",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Clara Smith-35181-SP",
+              "project_manager": "Omar Costa-35181-PM",
+              "business_owner": "Amira Rahman-35181-BO",
+              "service_owner": "Omar Santos-35181-SO",
+              "risk_owner": "Maya Garcia-35181-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-10-22",
+              "users_impacted": 500,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-53C05-v3.1",
+              "lld_version": "LLD-53C05-v2.9",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 55,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 5,
+              "adr_count": 7,
+              "reversibility_status": "documented",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.214.208.0/24",
+                "10.214.209.0/24",
+                "10.214.210.0/24"
+              ],
+              "dns_zone": "dgf-int-035181.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035181\", \"generation_seed\": 35181, \"project_name\": \"Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]\", \"project_code\": \"53C05\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Risk\", \"sponsor\": \"Clara Smith-35181-SP\", \"project_manager\": \"Omar Costa-35181-PM\", \"business_owner\": \"Amira Rahman-35181-BO\", \"service_owner\": \"Omar Santos-35181-SO\", \"risk_owner\": \"Maya Garcia-35181-RO\", \"start_date\": \"2026-10-18\", \"target_go_live\": \"2027-10-22\", \"users_impacted\": 500, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Cilium\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035181",
+              "generation_seed": 35181,
+              "project_name": "Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]",
+              "project_code": "53C05",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Clara Smith-35181-SP",
+              "project_manager": "Omar Costa-35181-PM",
+              "business_owner": "Amira Rahman-35181-BO",
+              "service_owner": "Omar Santos-35181-SO",
+              "risk_owner": "Maya Garcia-35181-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-10-22",
+              "users_impacted": 500,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": false,
+              "private_endpoints": true,
+              "managed_identity": false,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 1,
+              "pentest_age_days": null,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "Cilium",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035181",
+              "generation_seed": 35181,
+              "project_name": "Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]",
+              "project_code": "53C05",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Clara Smith-35181-SP",
+              "project_manager": "Omar Costa-35181-PM",
+              "business_owner": "Amira Rahman-35181-BO",
+              "service_owner": "Omar Santos-35181-SO",
+              "risk_owner": "Maya Garcia-35181-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-10-22",
+              "users_impacted": 500,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-53C05-10.2",
+              "governing_law": "England & Wales",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 2,
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 180,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 10,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "adequate",
+              "sla_penalties": true,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035181",
+              "generation_seed": 35181,
+              "project_name": "Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]",
+              "project_code": "53C05",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Clara Smith-35181-SP",
+              "project_manager": "Omar Costa-35181-PM",
+              "business_owner": "Amira Rahman-35181-BO",
+              "service_owner": "Omar Santos-35181-SO",
+              "risk_owner": "Maya Garcia-35181-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-10-22",
+              "users_impacted": 500,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "DORA",
+                "NIS2",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "UAE",
+              "residency_compliant": true,
+              "retention_years": 1,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "pass",
+              "ethics_review": "passed",
+              "regulatory_mapping": "complete",
+              "third_party_monitoring": "continuous",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035181",
+              "generation_seed": 35181,
+              "project_name": "Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]",
+              "project_code": "53C05",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Risk",
+              "sponsor": "Clara Smith-35181-SP",
+              "project_manager": "Omar Costa-35181-PM",
+              "business_owner": "Amira Rahman-35181-BO",
+              "service_owner": "Omar Santos-35181-SO",
+              "risk_owner": "Maya Garcia-35181-RO",
+              "start_date": "2026-10-18",
+              "target_go_live": "2027-10-22",
+              "users_impacted": 500,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 550000,
+              "roi": 0.056,
+              "npv_eur": 114182,
+              "payback_months": 42,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 26.2,
+              "fte_available": 7.4,
+              "change_plan_status": "draft",
+              "benefits_kpi": "processing_time",
+              "benefits_owner": "Victor Khan-35181-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035181\", \"generation_seed\": 35181, \"project_name\": \"Gaia Acquisition Integration — Cloud Landing Zone Extension [53C05]\", \"project_code\": \"53C05\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Risk\", \"sponsor\": \"Clara Smith-35181-SP\", \"project_manager\": \"Omar Costa-35181-PM\", \"business_owner\": \"Amira Rahman-35181-BO\", \"service_owner\": \"Omar Santos-35181-SO\", \"risk_owner\": \"Maya Garcia-35181-RO\", \"start_date\": \"2026-10-18\", \"target_go_live\": \"2027-10-22\", \"users_impacted\": 500, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": false, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 1, \"pentest_age_days\": null, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Cilium\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

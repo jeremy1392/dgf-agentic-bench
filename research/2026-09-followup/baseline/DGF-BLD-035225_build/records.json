@@ -1,0 +1,498 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035225",
+              "generation_seed": 35225,
+              "project_name": "Project Aster — Supply Chain Integration [FEAA8]",
+              "project_code": "FEAA8",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Nadia Moreau-35225-SP",
+              "project_manager": "Ines Dubois-35225-PM",
+              "business_owner": "Marc Rossi-35225-BO",
+              "service_owner": "Noor Benali-35225-SO",
+              "risk_owner": "Ines Meyer-35225-RO",
+              "start_date": "2026-12-02",
+              "target_go_live": "2027-09-21",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 31402,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "gold",
+              "hosting_model": "vmss"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035225",
+              "generation_seed": 35225,
+              "project_name": "Project Aster — Supply Chain Integration [FEAA8]",
+              "project_code": "FEAA8",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Nadia Moreau-35225-SP",
+              "project_manager": "Ines Dubois-35225-PM",
+              "business_owner": "Marc Rossi-35225-BO",
+              "service_owner": "Noor Benali-35225-SO",
+              "risk_owner": "Ines Meyer-35225-RO",
+              "start_date": "2026-12-02",
+              "target_go_live": "2027-09-21",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-FEAA8-v4.7",
+              "lld_version": "LLD-FEAA8-v2.5",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": false,
+              "latency_target_ms": 100,
+              "measured_latency_ms": 95,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 6,
+              "adr_count": 16,
+              "reversibility_status": "tested",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.17.144.0/24",
+                "10.17.145.0/24",
+                "10.17.146.0/24"
+              ],
+              "dns_zone": "dgf-bld-035225.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035225\", \"generation_seed\": 35225, \"project_name\": \"Project Aster — Supply Chain Integration [FEAA8]\", \"project_code\": \"FEAA8\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Nadia Moreau-35225-SP\", \"project_manager\": \"Ines Dubois-35225-PM\", \"business_owner\": \"Marc Rossi-35225-BO\", \"service_owner\": \"Noor Benali-35225-SO\", \"risk_owner\": \"Ines Meyer-35225-RO\", \"start_date\": \"2026-12-02\", \"target_go_live\": \"2027-09-21\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 8, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035225",
+              "generation_seed": 35225,
+              "project_name": "Project Aster — Supply Chain Integration [FEAA8]",
+              "project_code": "FEAA8",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Nadia Moreau-35225-SP",
+              "project_manager": "Ines Dubois-35225-PM",
+              "business_owner": "Marc Rossi-35225-BO",
+              "service_owner": "Noor Benali-35225-SO",
+              "risk_owner": "Ines Meyer-35225-RO",
+              "start_date": "2026-12-02",
+              "target_go_live": "2027-09-21",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 8,
+              "pentest_age_days": 14,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035225",
+              "generation_seed": 35225,
+              "project_name": "Project Aster — Supply Chain Integration [FEAA8]",
+              "project_code": "FEAA8",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Nadia Moreau-35225-SP",
+              "project_manager": "Ines Dubois-35225-PM",
+              "business_owner": "Marc Rossi-35225-BO",
+              "service_owner": "Noor Benali-35225-SO",
+              "risk_owner": "Ines Meyer-35225-RO",
+              "start_date": "2026-12-02",
+              "target_go_live": "2027-09-21",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 75,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 125,
+              "p95_ms": 1685,
+              "unit_test_coverage_pct": 35,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 4,
+              "measured_restore_hours": 4.0,
+              "target_rpo_minutes": 0,
+              "measured_data_loss_minutes": 0,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035225",
+              "generation_seed": 35225,
+              "project_name": "Project Aster — Supply Chain Integration [FEAA8]",
+              "project_code": "FEAA8",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Nadia Moreau-35225-SP",
+              "project_manager": "Ines Dubois-35225-PM",
+              "business_owner": "Marc Rossi-35225-BO",
+              "service_owner": "Noor Benali-35225-SO",
+              "risk_owner": "Ines Meyer-35225-RO",
+              "start_date": "2026-12-02",
+              "target_go_live": "2027-09-21",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 7000000,
+              "budget_approved_eur": 7000000,
+              "roi": 0.304,
+              "npv_eur": -51614,
+              "payback_months": 53,
+              "schedule_slip_weeks": 2,
+              "fte_needed": 12.9,
+              "fte_available": 6.0,
+              "change_plan_status": "draft",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Yusuf Garcia-4035237-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035225\", \"generation_seed\": 35225, \"project_name\": \"Project Aster — Supply Chain Integration [FEAA8]\", \"project_code\": \"FEAA8\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Nadia Moreau-35225-SP\", \"project_manager\": \"Ines Dubois-35225-PM\", \"business_owner\": \"Marc Rossi-35225-BO\", \"service_owner\": \"Noor Benali-35225-SO\", \"risk_owner\": \"Ines Meyer-35225-RO\", \"start_date\": \"2026-12-02\", \"target_go_live\": \"2027-09-21\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 8, \"pentest_age_days\": 14, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

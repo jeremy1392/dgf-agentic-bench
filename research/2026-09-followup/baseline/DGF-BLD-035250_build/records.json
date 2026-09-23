@@ -1,0 +1,563 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035250",
+              "generation_seed": 35250,
+              "project_name": "Project Zephyr — Observability Platform [92BD2]",
+              "project_code": "92BD2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Treasury",
+              "sponsor": "Nadia Nguyen-35250-SP",
+              "project_manager": "Leila Ivanov-35250-PM",
+              "business_owner": "Jeremy Benali-35250-BO",
+              "service_owner": "Nadia Ivanov-35250-SO",
+              "risk_owner": "Lucas Smith-35250-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2027-10-02",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 325661,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 36,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "bronze",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-92BD2-v1.3\", \"lld_version\": \"LLD-92BD2-v4.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 100, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 0, \"adr_count\": 9, \"reversibility_status\": \"draft\", \"data_export_supported\": false, \"private_cidrs\": [\"10.19.32.0/24\", \"10.19.33.0/24\", \"10.19.34.0/24\"], \"dns_zone\": \"dgf-bld-035250.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035250",
+              "generation_seed": 35250,
+              "project_name": "Project Zephyr — Observability Platform [92BD2]",
+              "project_code": "92BD2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Treasury",
+              "sponsor": "Nadia Nguyen-35250-SP",
+              "project_manager": "Leila Ivanov-35250-PM",
+              "business_owner": "Jeremy Benali-35250-BO",
+              "service_owner": "Nadia Ivanov-35250-SO",
+              "risk_owner": "Lucas Smith-35250-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2027-10-02",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-92BD2-v1.3",
+              "lld_version": "LLD-92BD2-v4.5",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 100,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 0,
+              "adr_count": 9,
+              "reversibility_status": "draft",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.19.32.0/24",
+                "10.19.33.0/24",
+                "10.19.34.0/24"
+              ],
+              "dns_zone": "dgf-bld-035250.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 30, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035250",
+              "generation_seed": 35250,
+              "project_name": "Project Zephyr — Observability Platform [92BD2]",
+              "project_code": "92BD2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Treasury",
+              "sponsor": "Nadia Nguyen-35250-SP",
+              "project_manager": "Leila Ivanov-35250-PM",
+              "business_owner": "Jeremy Benali-35250-BO",
+              "service_owner": "Nadia Ivanov-35250-SO",
+              "risk_owner": "Lucas Smith-35250-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2027-10-02",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 2,
+              "pentest_age_days": 30,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "TR-RESTORE-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "RUN_RESTORE_TEST",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-RESTORE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": false, \"load_test_pct_of_peak\": 100, \"p95_ms\": 619, \"unit_test_coverage_pct\": 85, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 240, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": false, \"load_test_pct_of_peak\": 100, \"p95_ms\": 619, \"unit_test_coverage_pct\": 85, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 240, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035250",
+              "generation_seed": 35250,
+              "project_name": "Project Zephyr — Observability Platform [92BD2]",
+              "project_code": "92BD2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Treasury",
+              "sponsor": "Nadia Nguyen-35250-SP",
+              "project_manager": "Leila Ivanov-35250-PM",
+              "business_owner": "Jeremy Benali-35250-BO",
+              "service_owner": "Nadia Ivanov-35250-SO",
+              "risk_owner": "Lucas Smith-35250-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2027-10-02",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 89,
+              "pilot_completed": false,
+              "load_test_pct_of_peak": 100,
+              "p95_ms": 619,
+              "unit_test_coverage_pct": 85,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": false,
+              "target_rto_hours": 24,
+              "measured_restore_hours": 20.4,
+              "target_rpo_minutes": 240,
+              "measured_data_loss_minutes": 240,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 2
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-REV-001\"], \"actions\": [\"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035250\\\", \\\"generation_seed\\\": 35250, \\\"project_name\\\": \\\"Project Zephyr — Observability Platform [92BD2]\\\", \\\"project_code\\\": \\\"92BD2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Nadia Nguyen-35250-SP\\\", \\\"project_manager\\\": \\\"Leila Ivanov-35250-PM\\\", \\\"business_owner\\\": \\\"Jeremy Benali-35250-BO\\\", \\\"service_owner\\\": \\\"Nadia Ivanov-35250-SO\\\", \\\"risk_owner\\\": \\\"Lucas Smith-35250-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2027-10-02\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-92BD2-v1.3\\\", \\\"lld_version\\\": \\\"LLD-92BD2-v4.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 9, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.19.32.0/24\\\", \\\"10.19.33.0/24\\\", \\\"10.19.34.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035250.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"SEC-KEY-001\"], \"actions\": [\"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035250\\\", \\\"generation_seed\\\": 35250, \\\"project_name\\\": \\\"Project Zephyr — Observability Platform [92BD2]\\\", \\\"project_code\\\": \\\"92BD2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Nadia Nguyen-35250-SP\\\", \\\"project_manager\\\": \\\"Leila Ivanov-35250-PM\\\", \\\"business_owner\\\": \\\"Jeremy Benali-35250-BO\\\", \\\"service_owner\\\": \\\"Nadia Ivanov-35250-SO\\\", \\\"risk_owner\\\": \\\"Lucas Smith-35250-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2027-10-02\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 30, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"TR-RESTORE-001\", \"TR-BLOCKER-001\"], \"actions\": [\"RUN_RESTORE_TEST\", \"CLOSE_PRODUCTION_BLOCKERS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-RESTORE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035250\\\", \\\"generation_seed\\\": 35250, \\\"project_name\\\": \\\"Project Zephyr — Observability Platform [92BD2]\\\", \\\"project_code\\\": \\\"92BD2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Nadia Nguyen-35250-SP\\\", \\\"project_manager\\\": \\\"Leila Ivanov-35250-PM\\\", \\\"business_owner\\\": \\\"Jeremy Benali-35250-BO\\\", \\\"service_owner\\\": \\\"Nadia Ivanov-35250-SO\\\", \\\"risk_owner\\\": \\\"Lucas Smith-35250-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2027-10-02\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 89, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 619, \\\"unit_test_coverage_pct\\\": 85, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 20.4, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 240, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}, {\"finding_id\": \"TR-BLOCKER-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035250\\\", \\\"generation_seed\\\": 35250, \\\"project_name\\\": \\\"Project Zephyr — Observability Platform [92BD2]\\\", \\\"project_code\\\": \\\"92BD2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Treasury\\\", \\\"sponsor\\\": \\\"Nadia Nguyen-35250-SP\\\", \\\"project_manager\\\": \\\"Leila Ivanov-35250-PM\\\", \\\"business_owner\\\": \\\"Jeremy Benali-35250-BO\\\", \\\"service_owner\\\": \\\"Nadia Ivanov-35250-SO\\\", \\\"risk_owner\\\": \\\"Lucas Smith-35250-RO\\\", \\\"start_date\\\": \\\"2026-11-14\\\", \\\"target_go_live\\\": \\\"2027-10-02\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"North Europe\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 89, \\\"pilot_completed\\\": false, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 619, \\\"unit_test_coverage_pct\\\": 85, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 20.4, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 240, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 2}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035250",
+              "generation_seed": 35250,
+              "project_name": "Project Zephyr — Observability Platform [92BD2]",
+              "project_code": "92BD2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Treasury",
+              "sponsor": "Nadia Nguyen-35250-SP",
+              "project_manager": "Leila Ivanov-35250-PM",
+              "business_owner": "Jeremy Benali-35250-BO",
+              "service_owner": "Nadia Ivanov-35250-SO",
+              "risk_owner": "Lucas Smith-35250-RO",
+              "start_date": "2026-11-14",
+              "target_go_live": "2027-10-02",
+              "users_impacted": 2000,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 990000,
+              "roi": 0.27,
+              "npv_eur": 379546,
+              "payback_months": 18,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 27.0,
+              "fte_available": 13.2,
+              "change_plan_status": "draft",
+              "benefits_kpi": "processing_time",
+              "benefits_owner": "Victor Santos-35250-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-92BD2-v1.3\", \"lld_version\": \"LLD-92BD2-v4.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 100, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 0, \"adr_count\": 9, \"reversibility_status\": \"draft\", \"data_export_supported\": false, \"private_cidrs\": [\"10.19.32.0/24\", \"10.19.33.0/24\", \"10.19.34.0/24\"], \"dns_zone\": \"dgf-bld-035250.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 2, \"pentest_age_days\": 30, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "TR-RESTORE-001",
+                "TR-BLOCKER-001"
+              ],
+              "actions": [
+                "RUN_RESTORE_TEST",
+                "CLOSE_PRODUCTION_BLOCKERS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-RESTORE-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": false, \"load_test_pct_of_peak\": 100, \"p95_ms\": 619, \"unit_test_coverage_pct\": 85, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 240, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                },
+                {
+                  "finding_id": "TR-BLOCKER-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035250\", \"generation_seed\": 35250, \"project_name\": \"Project Zephyr — Observability Platform [92BD2]\", \"project_code\": \"92BD2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Treasury\", \"sponsor\": \"Nadia Nguyen-35250-SP\", \"project_manager\": \"Leila Ivanov-35250-PM\", \"business_owner\": \"Jeremy Benali-35250-BO\", \"service_owner\": \"Nadia Ivanov-35250-SO\", \"risk_owner\": \"Lucas Smith-35250-RO\", \"start_date\": \"2026-11-14\", \"target_go_live\": \"2027-10-02\", \"users_impacted\": 2000, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 89, \"pilot_completed\": false, \"load_test_pct_of_peak\": 100, \"p95_ms\": 619, \"unit_test_coverage_pct\": 85, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": true, \"restore_tested\": false, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 240, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 2}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

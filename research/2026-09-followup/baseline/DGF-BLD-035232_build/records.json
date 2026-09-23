@@ -1,0 +1,668 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035232",
+              "generation_seed": 35232,
+              "project_name": "Project Titan — Payments API Hub [3DFC2]",
+              "project_code": "3DFC2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Procurement",
+              "sponsor": "Thomas Petrescu-35232-SP",
+              "project_manager": "Yusuf Costa-35232-PM",
+              "business_owner": "Adam Haddad-35232-BO",
+              "service_owner": "Thomas Moreau-35232-SO",
+              "risk_owner": "Jeremy Meyer-35232-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-02-21",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 496189,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 60,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "gold",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-DATA-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "ASSIGN_DATA_OWNER",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3DFC2-v1.8\", \"lld_version\": \"LLD-3DFC2-v2.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.0.0/24\", \"10.18.1.0/24\", \"10.18.2.0/24\"], \"dns_zone\": \"dgf-bld-035232.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3DFC2-v1.8\", \"lld_version\": \"LLD-3DFC2-v2.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.0.0/24\", \"10.18.1.0/24\", \"10.18.2.0/24\"], \"dns_zone\": \"dgf-bld-035232.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3DFC2-v1.8\", \"lld_version\": \"LLD-3DFC2-v2.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.0.0/24\", \"10.18.1.0/24\", \"10.18.2.0/24\"], \"dns_zone\": \"dgf-bld-035232.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035232",
+              "generation_seed": 35232,
+              "project_name": "Project Titan — Payments API Hub [3DFC2]",
+              "project_code": "3DFC2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Procurement",
+              "sponsor": "Thomas Petrescu-35232-SP",
+              "project_manager": "Yusuf Costa-35232-PM",
+              "business_owner": "Adam Haddad-35232-BO",
+              "service_owner": "Thomas Moreau-35232-SO",
+              "risk_owner": "Jeremy Meyer-35232-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-02-21",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-3DFC2-v1.8",
+              "lld_version": "LLD-3DFC2-v2.3",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": false,
+              "data_lineage_complete": true,
+              "latency_target_ms": 500,
+              "measured_latency_ms": 15,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 1,
+              "adr_count": 9,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.18.0.0/24",
+                "10.18.1.0/24",
+                "10.18.2.0/24"
+              ],
+              "dns_zone": "dgf-bld-035232.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-NET-001",
+        "SEC-IAM-002",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENABLE_PRIVATE_ENDPOINTS",
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-NET-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035232",
+              "generation_seed": 35232,
+              "project_name": "Project Titan — Payments API Hub [3DFC2]",
+              "project_code": "3DFC2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Procurement",
+              "sponsor": "Thomas Petrescu-35232-SP",
+              "project_manager": "Yusuf Costa-35232-PM",
+              "business_owner": "Adam Haddad-35232-BO",
+              "service_owner": "Thomas Moreau-35232-SO",
+              "risk_owner": "Jeremy Meyer-35232-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-02-21",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": 14,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "TR-BACKUP-001",
+        "TR-RPO-001",
+        "TR-CODE-001",
+        "TR-OPS-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "ENABLE_BACKUP",
+        "REMEDIATE_RECOVERY_POINT",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-BACKUP-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035232",
+              "generation_seed": 35232,
+              "project_name": "Project Titan — Payments API Hub [3DFC2]",
+              "project_code": "3DFC2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Procurement",
+              "sponsor": "Thomas Petrescu-35232-SP",
+              "project_manager": "Yusuf Costa-35232-PM",
+              "business_owner": "Adam Haddad-35232-BO",
+              "service_owner": "Thomas Moreau-35232-SO",
+              "risk_owner": "Jeremy Meyer-35232-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-02-21",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "tech_readiness": {
+              "test_completion_pct": 85,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 100,
+              "p95_ms": 103,
+              "unit_test_coverage_pct": 84,
+              "critical_static_findings": 1,
+              "observability_metrics": false,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": false,
+              "restore_tested": true,
+              "target_rto_hours": 24,
+              "measured_restore_hours": 20.4,
+              "target_rpo_minutes": 60,
+              "measured_data_loss_minutes": 120,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "missing",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 3
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"strong\", \"portfolio_priority\": \"P1\", \"budget_requested_eur\": 3000000, \"budget_approved_eur\": 2100000, \"roi\": 0.412, \"npv_eur\": -247347, \"payback_months\": 55, \"schedule_slip_weeks\": 1, \"fte_needed\": 26.3, \"fte_available\": 16.5, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"processing_time\", \"benefits_owner\": \"Nadia Bennett-35232-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-DATA-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"ASSIGN_DATA_OWNER\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-3DFC2-v1.8\\\", \\\"lld_version\\\": \\\"LLD-3DFC2-v2.3\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 15, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 9, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.0.0/24\\\", \\\"10.18.1.0/24\\\", \\\"10.18.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035232.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-3DFC2-v1.8\\\", \\\"lld_version\\\": \\\"LLD-3DFC2-v2.3\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 15, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 9, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.0.0/24\\\", \\\"10.18.1.0/24\\\", \\\"10.18.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035232.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-3DFC2-v1.8\\\", \\\"lld_version\\\": \\\"LLD-3DFC2-v2.3\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 500, \\\"measured_latency_ms\\\": 15, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 9, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.0.0/24\\\", \\\"10.18.1.0/24\\\", \\\"10.18.2.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035232.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-NET-001\", \"SEC-IAM-002\", \"SEC-KEY-001\"], \"actions\": [\"ENABLE_PRIVATE_ENDPOINTS\", \"CREATE_DEDICATED_WORKLOAD_IDENTITY\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-NET-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"TR-BACKUP-001\", \"TR-RPO-001\", \"TR-CODE-001\", \"TR-OPS-001\", \"TR-BLOCKER-001\"], \"actions\": [\"ENABLE_BACKUP\", \"REMEDIATE_RECOVERY_POINT\", \"REMEDIATE_BUILD_FINDINGS\", \"COMPLETE_OPERATIONAL_HANDOVER\", \"CLOSE_PRODUCTION_BLOCKERS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-BACKUP-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 85, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 103, \\\"unit_test_coverage_pct\\\": 84, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 20.4, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 120, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 3}}\"}, {\"finding_id\": \"TR-RPO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 85, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 103, \\\"unit_test_coverage_pct\\\": 84, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 20.4, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 120, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 3}}\"}, {\"finding_id\": \"TR-CODE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 85, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 103, \\\"unit_test_coverage_pct\\\": 84, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 20.4, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 120, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 3}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 85, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 103, \\\"unit_test_coverage_pct\\\": 84, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 20.4, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 120, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 3}}\"}, {\"finding_id\": \"TR-BLOCKER-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035232\\\", \\\"generation_seed\\\": 35232, \\\"project_name\\\": \\\"Project Titan — Payments API Hub [3DFC2]\\\", \\\"project_code\\\": \\\"3DFC2\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Procurement\\\", \\\"sponsor\\\": \\\"Thomas Petrescu-35232-SP\\\", \\\"project_manager\\\": \\\"Yusuf Costa-35232-PM\\\", \\\"business_owner\\\": \\\"Adam Haddad-35232-BO\\\", \\\"service_owner\\\": \\\"Thomas Moreau-35232-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Meyer-35232-RO\\\", \\\"start_date\\\": \\\"2026-10-19\\\", \\\"target_go_live\\\": \\\"2027-02-21\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 85, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 103, \\\"unit_test_coverage_pct\\\": 84, \\\"critical_static_findings\\\": 1, \\\"observability_metrics\\\": false, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 24, \\\"measured_restore_hours\\\": 20.4, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 120, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 3}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035232",
+              "generation_seed": 35232,
+              "project_name": "Project Titan — Payments API Hub [3DFC2]",
+              "project_code": "3DFC2",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Procurement",
+              "sponsor": "Thomas Petrescu-35232-SP",
+              "project_manager": "Yusuf Costa-35232-PM",
+              "business_owner": "Adam Haddad-35232-BO",
+              "service_owner": "Thomas Moreau-35232-SO",
+              "risk_owner": "Jeremy Meyer-35232-RO",
+              "start_date": "2026-10-19",
+              "target_go_live": "2027-02-21",
+              "users_impacted": 500,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Confidential",
+              "business_criticality": "Low",
+              "primary_region": "East US",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 2100000,
+              "roi": 0.412,
+              "npv_eur": -247347,
+              "payback_months": 55,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 26.3,
+              "fte_available": 16.5,
+              "change_plan_status": "partial",
+              "benefits_kpi": "processing_time",
+              "benefits_owner": "Nadia Bennett-35232-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-DATA-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "ASSIGN_DATA_OWNER",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3DFC2-v1.8\", \"lld_version\": \"LLD-3DFC2-v2.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.0.0/24\", \"10.18.1.0/24\", \"10.18.2.0/24\"], \"dns_zone\": \"dgf-bld-035232.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3DFC2-v1.8\", \"lld_version\": \"LLD-3DFC2-v2.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.0.0/24\", \"10.18.1.0/24\", \"10.18.2.0/24\"], \"dns_zone\": \"dgf-bld-035232.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3DFC2-v1.8\", \"lld_version\": \"LLD-3DFC2-v2.3\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 500, \"measured_latency_ms\": 15, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 9, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.0.0/24\", \"10.18.1.0/24\", \"10.18.2.0/24\"], \"dns_zone\": \"dgf-bld-035232.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-NET-001",
+                "SEC-IAM-002",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "ENABLE_PRIVATE_ENDPOINTS",
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-NET-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 14, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "TR-BACKUP-001",
+                "TR-RPO-001",
+                "TR-CODE-001",
+                "TR-OPS-001",
+                "TR-BLOCKER-001"
+              ],
+              "actions": [
+                "ENABLE_BACKUP",
+                "REMEDIATE_RECOVERY_POINT",
+                "REMEDIATE_BUILD_FINDINGS",
+                "COMPLETE_OPERATIONAL_HANDOVER",
+                "CLOSE_PRODUCTION_BLOCKERS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-BACKUP-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+                },
+                {
+                  "finding_id": "TR-RPO-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+                },
+                {
+                  "finding_id": "TR-CODE-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+                },
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+                },
+                {
+                  "finding_id": "TR-BLOCKER-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035232\", \"generation_seed\": 35232, \"project_name\": \"Project Titan — Payments API Hub [3DFC2]\", \"project_code\": \"3DFC2\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Procurement\", \"sponsor\": \"Thomas Petrescu-35232-SP\", \"project_manager\": \"Yusuf Costa-35232-PM\", \"business_owner\": \"Adam Haddad-35232-BO\", \"service_owner\": \"Thomas Moreau-35232-SO\", \"risk_owner\": \"Jeremy Meyer-35232-RO\", \"start_date\": \"2026-10-19\", \"target_go_live\": \"2027-02-21\", \"users_impacted\": 500, \"budget_requested_eur\": 3000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Low\", \"primary_region\": \"East US\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 85, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 103, \"unit_test_coverage_pct\": 84, \"critical_static_findings\": 1, \"observability_metrics\": false, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 24, \"measured_restore_hours\": 20.4, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 120, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"missing\", \"on_call_defined\": true, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 3}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

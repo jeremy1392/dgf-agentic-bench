@@ -1,0 +1,716 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": false, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 649424, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 8, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"mixed\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035166",
+              "generation_seed": 35166,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]",
+              "project_code": "5C0B7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Victor Dubois-35166-SP",
+              "project_manager": "Lucas Rossi-35166-PM",
+              "business_owner": "Adam Meyer-35166-BO",
+              "service_owner": "Leila Petrescu-35166-SO",
+              "risk_owner": "Leila Rossi-35166-RO",
+              "start_date": "2026-09-08",
+              "target_go_live": "2027-07-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 649424,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 8,
+              "change_record_status": "missing",
+              "service_continuity_class": "silver",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5C0B7-v1.2\", \"lld_version\": \"LLD-5C0B7-v2.0\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.224.0/24\", \"10.213.225.0/24\", \"10.213.226.0/24\"], \"dns_zone\": \"dgf-int-035166.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5C0B7-v1.2\", \"lld_version\": \"LLD-5C0B7-v2.0\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.224.0/24\", \"10.213.225.0/24\", \"10.213.226.0/24\"], \"dns_zone\": \"dgf-int-035166.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5C0B7-v1.2\", \"lld_version\": \"LLD-5C0B7-v2.0\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.224.0/24\", \"10.213.225.0/24\", \"10.213.226.0/24\"], \"dns_zone\": \"dgf-int-035166.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035166",
+              "generation_seed": 35166,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]",
+              "project_code": "5C0B7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Victor Dubois-35166-SP",
+              "project_manager": "Lucas Rossi-35166-PM",
+              "business_owner": "Adam Meyer-35166-BO",
+              "service_owner": "Leila Petrescu-35166-SO",
+              "risk_owner": "Leila Rossi-35166-RO",
+              "start_date": "2026-09-08",
+              "target_go_live": "2027-07-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-5C0B7-v1.2",
+              "lld_version": "LLD-5C0B7-v2.0",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": false,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 350,
+              "load_test_peak_pct": 150,
+              "architecture_debt_items": 1,
+              "adr_count": 13,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.213.224.0/24",
+                "10.213.225.0/24",
+                "10.213.226.0/24"
+              ],
+              "dns_zone": "dgf-int-035166.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-002"
+      ],
+      "actions": [
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 30, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035166",
+              "generation_seed": 35166,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]",
+              "project_code": "5C0B7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Victor Dubois-35166-SP",
+              "project_manager": "Lucas Rossi-35166-PM",
+              "business_owner": "Adam Meyer-35166-BO",
+              "service_owner": "Leila Petrescu-35166-SO",
+              "risk_owner": "Leila Rossi-35166-RO",
+              "start_date": "2026-09-08",
+              "target_go_live": "2027-07-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": false,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 60,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 6,
+              "pentest_age_days": 30,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-AUDIT-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "REDLINE_AUDIT_RIGHT"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-5C0B7-8.6\", \"governing_law\": \"UAE\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": \"unlimited\", \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-5C0B7-8.6\", \"governing_law\": \"UAE\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": \"unlimited\", \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035166",
+              "generation_seed": 35166,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]",
+              "project_code": "5C0B7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Victor Dubois-35166-SP",
+              "project_manager": "Lucas Rossi-35166-PM",
+              "business_owner": "Adam Meyer-35166-BO",
+              "service_owner": "Leila Petrescu-35166-SO",
+              "risk_owner": "Leila Rossi-35166-RO",
+              "start_date": "2026-09-08",
+              "target_go_live": "2027-07-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-5C0B7-8.6",
+              "governing_law": "UAE",
+              "dpa_status": "missing",
+              "liability_cap_multiplier": "unlimited",
+              "security_carveout": true,
+              "audit_right": "none",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 90,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 2,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "adequate",
+              "sla_penalties": true,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-MAP-001"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035166",
+              "generation_seed": 35166,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]",
+              "project_code": "5C0B7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Victor Dubois-35166-SP",
+              "project_manager": "Lucas Rossi-35166-PM",
+              "business_owner": "Adam Meyer-35166-BO",
+              "service_owner": "Leila Petrescu-35166-SO",
+              "risk_owner": "Leila Rossi-35166-RO",
+              "start_date": "2026-09-08",
+              "target_go_live": "2027-07-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "NIS2"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 10,
+              "legal_hold_supported": true,
+              "deletion_enforced": false,
+              "audit_trail": "complete",
+              "accessibility_status": "pass",
+              "ethics_review": "passed",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-EOL-001\"], \"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 30, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 649424, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 14, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 8, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-5C0B7-v1.2\\\", \\\"lld_version\\\": \\\"LLD-5C0B7-v2.0\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.213.224.0/24\\\", \\\"10.213.225.0/24\\\", \\\"10.213.226.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035166.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-5C0B7-v1.2\\\", \\\"lld_version\\\": \\\"LLD-5C0B7-v2.0\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.213.224.0/24\\\", \\\"10.213.225.0/24\\\", \\\"10.213.226.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035166.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-5C0B7-v1.2\\\", \\\"lld_version\\\": \\\"LLD-5C0B7-v2.0\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 150, \\\"architecture_debt_items\\\": 1, \\\"adr_count\\\": 13, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.213.224.0/24\\\", \\\"10.213.225.0/24\\\", \\\"10.213.226.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035166.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-IAM-002\"], \"actions\": [\"CREATE_DEDICATED_WORKLOAD_IDENTITY\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 6, \\\"pentest_age_days\\\": 30, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-DPA-001\", \"LEGAL-AUDIT-001\"], \"actions\": [\"EXECUTE_DPA\", \"REDLINE_AUDIT_RIGHT\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-5C0B7-8.6\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": \\\"unlimited\\\", \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 90, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"adequate\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"included\\\"}}\"}, {\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-5C0B7-8.6\\\", \\\"governing_law\\\": \\\"UAE\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": \\\"unlimited\\\", \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"none\\\", \\\"termination_for_convenience\\\": true, \\\"exit_assistance_days\\\": 90, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 2, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"adequate\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"included\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-MAP-001\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035166\\\", \\\"generation_seed\\\": 35166, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\\\", \\\"project_code\\\": \\\"5C0B7\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Victor Dubois-35166-SP\\\", \\\"project_manager\\\": \\\"Lucas Rossi-35166-PM\\\", \\\"business_owner\\\": \\\"Adam Meyer-35166-BO\\\", \\\"service_owner\\\": \\\"Leila Petrescu-35166-SO\\\", \\\"risk_owner\\\": \\\"Leila Rossi-35166-RO\\\", \\\"start_date\\\": \\\"2026-09-08\\\", \\\"target_go_live\\\": \\\"2027-07-03\\\", \\\"users_impacted\\\": 500, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": false, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035166",
+              "generation_seed": 35166,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]",
+              "project_code": "5C0B7",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Operations",
+              "sponsor": "Victor Dubois-35166-SP",
+              "project_manager": "Lucas Rossi-35166-PM",
+              "business_owner": "Adam Meyer-35166-BO",
+              "service_owner": "Leila Petrescu-35166-SO",
+              "risk_owner": "Leila Rossi-35166-RO",
+              "start_date": "2026-09-08",
+              "target_go_live": "2027-07-03",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "partial",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 900000,
+              "roi": 0.259,
+              "npv_eur": 476837,
+              "payback_months": 44,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 13.4,
+              "fte_available": 10.7,
+              "change_plan_status": "draft",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Noor Canale-10035196-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-EOL-001"
+              ],
+              "actions": [
+                "CREATE_CONVERGENCE_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-EOL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": false, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 649424, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 8, \"change_record_status\": \"missing\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"mixed\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5C0B7-v1.2\", \"lld_version\": \"LLD-5C0B7-v2.0\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.224.0/24\", \"10.213.225.0/24\", \"10.213.226.0/24\"], \"dns_zone\": \"dgf-int-035166.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5C0B7-v1.2\", \"lld_version\": \"LLD-5C0B7-v2.0\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.224.0/24\", \"10.213.225.0/24\", \"10.213.226.0/24\"], \"dns_zone\": \"dgf-int-035166.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-5C0B7-v1.2\", \"lld_version\": \"LLD-5C0B7-v2.0\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 150, \"architecture_debt_items\": 1, \"adr_count\": 13, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.213.224.0/24\", \"10.213.225.0/24\", \"10.213.226.0/24\"], \"dns_zone\": \"dgf-int-035166.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-IAM-002"
+              ],
+              "actions": [
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 6, \"pentest_age_days\": 30, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-DPA-001",
+                "LEGAL-AUDIT-001"
+              ],
+              "actions": [
+                "EXECUTE_DPA",
+                "REDLINE_AUDIT_RIGHT"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-DPA-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-5C0B7-8.6\", \"governing_law\": \"UAE\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": \"unlimited\", \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-5C0B7-8.6\", \"governing_law\": \"UAE\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": \"unlimited\", \"security_carveout\": true, \"audit_right\": \"none\", \"termination_for_convenience\": true, \"exit_assistance_days\": 90, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 2, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-MAP-001"
+              ],
+              "actions": [
+                "COMPLETE_CONTROL_MAPPING"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035166\", \"generation_seed\": 35166, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [5C0B7]\", \"project_code\": \"5C0B7\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Operations\", \"sponsor\": \"Victor Dubois-35166-SP\", \"project_manager\": \"Lucas Rossi-35166-PM\", \"business_owner\": \"Adam Meyer-35166-BO\", \"service_owner\": \"Leila Petrescu-35166-SO\", \"risk_owner\": \"Leila Rossi-35166-RO\", \"start_date\": \"2026-09-08\", \"target_go_live\": \"2027-07-03\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"NIS2\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": false, \"audit_trail\": \"complete\", \"accessibility_status\": \"pass\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

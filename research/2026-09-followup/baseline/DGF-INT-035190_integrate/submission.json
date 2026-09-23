@@ -1,0 +1,165 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3FF6C-v4.8\", \"lld_version\": \"LLD-3FF6C-v3.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 3, \"adr_count\": 9, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.96.0/24\", \"10.215.97.0/24\", \"10.215.98.0/24\"], \"dns_zone\": \"dgf-int-035190.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-3FF6C-v4.8\", \"lld_version\": \"LLD-3FF6C-v3.5\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 100, \"architecture_debt_items\": 3, \"adr_count\": 9, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.215.96.0/24\", \"10.215.97.0/24\", \"10.215.98.0/24\"], \"dns_zone\": \"dgf-int-035190.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-IAM-002",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Cilium\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Cilium\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": null, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Cilium\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-A11Y-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "REMEDIATE_ACCESSIBILITY",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"PCI-DSS\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BUDGET-001",
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "OBTAIN_BUDGET_APPROVAL",
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P2\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 4900000, \"roi\": 0.343, \"npv_eur\": 5593584, \"payback_months\": 27, \"schedule_slip_weeks\": 0, \"fte_needed\": 27.6, \"fte_available\": 17.5, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"conversion_rate\", \"benefits_owner\": \"Victor Petrescu-35190-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035190\", \"generation_seed\": 35190, \"project_name\": \"Juno Acquisition Integration — Observability Platform [3FF6C]\", \"project_code\": \"3FF6C\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"HR\", \"sponsor\": \"Marc Petrescu-35190-SP\", \"project_manager\": \"Ines Bennett-35190-PM\", \"business_owner\": \"Samir Volkov-35190-BO\", \"service_owner\": \"Thomas Dubois-35190-SO\", \"risk_owner\": \"Ines Rossi-35190-RO\", \"start_date\": \"2026-12-01\", \"target_go_live\": \"2027-06-10\", \"users_impacted\": 12000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE Central\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P2\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 4900000, \"roi\": 0.343, \"npv_eur\": 5593584, \"payback_months\": 27, \"schedule_slip_weeks\": 0, \"fte_needed\": 27.6, \"fte_available\": 17.5, \"change_plan_status\": \"complete\", \"benefits_kpi\": \"conversion_rate\", \"benefits_owner\": \"Victor Petrescu-35190-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035190\\\", \\\"generation_seed\\\": 35190, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [3FF6C]\\\", \\\"project_code\\\": \\\"3FF6C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Marc Petrescu-35190-SP\\\", \\\"project_manager\\\": \\\"Ines Bennett-35190-PM\\\", \\\"business_owner\\\": \\\"Samir Volkov-35190-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35190-SO\\\", \\\"risk_owner\\\": \\\"Ines Rossi-35190-RO\\\", \\\"start_date\\\": \\\"2026-12-01\\\", \\\"target_go_live\\\": \\\"2027-06-10\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-3FF6C-v4.8\\\", \\\"lld_version\\\": \\\"LLD-3FF6C-v3.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 9, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.215.96.0/24\\\", \\\"10.215.97.0/24\\\", \\\"10.215.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035190.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035190\\\", \\\"generation_seed\\\": 35190, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [3FF6C]\\\", \\\"project_code\\\": \\\"3FF6C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Marc Petrescu-35190-SP\\\", \\\"project_manager\\\": \\\"Ines Bennett-35190-PM\\\", \\\"business_owner\\\": \\\"Samir Volkov-35190-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35190-SO\\\", \\\"risk_owner\\\": \\\"Ines Rossi-35190-RO\\\", \\\"start_date\\\": \\\"2026-12-01\\\", \\\"target_go_live\\\": \\\"2027-06-10\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-3FF6C-v4.8\\\", \\\"lld_version\\\": \\\"LLD-3FF6C-v3.5\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 100, \\\"architecture_debt_items\\\": 3, \\\"adr_count\\\": 9, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.215.96.0/24\\\", \\\"10.215.97.0/24\\\", \\\"10.215.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035190.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-WAF-002\", \"SEC-IAM-002\", \"SEC-KEY-001\"], \"actions\": [\"ENABLE_WAF_PREVENTION\", \"CREATE_DEDICATED_WORKLOAD_IDENTITY\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035190\\\", \\\"generation_seed\\\": 35190, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [3FF6C]\\\", \\\"project_code\\\": \\\"3FF6C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Marc Petrescu-35190-SP\\\", \\\"project_manager\\\": \\\"Ines Bennett-35190-PM\\\", \\\"business_owner\\\": \\\"Samir Volkov-35190-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35190-SO\\\", \\\"risk_owner\\\": \\\"Ines Rossi-35190-RO\\\", \\\"start_date\\\": \\\"2026-12-01\\\", \\\"target_go_live\\\": \\\"2027-06-10\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Cilium\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035190\\\", \\\"generation_seed\\\": 35190, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [3FF6C]\\\", \\\"project_code\\\": \\\"3FF6C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Marc Petrescu-35190-SP\\\", \\\"project_manager\\\": \\\"Ines Bennett-35190-PM\\\", \\\"business_owner\\\": \\\"Samir Volkov-35190-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35190-SO\\\", \\\"risk_owner\\\": \\\"Ines Rossi-35190-RO\\\", \\\"start_date\\\": \\\"2026-12-01\\\", \\\"target_go_live\\\": \\\"2027-06-10\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Cilium\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035190\\\", \\\"generation_seed\\\": 35190, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [3FF6C]\\\", \\\"project_code\\\": \\\"3FF6C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Marc Petrescu-35190-SP\\\", \\\"project_manager\\\": \\\"Ines Bennett-35190-PM\\\", \\\"business_owner\\\": \\\"Samir Volkov-35190-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35190-SO\\\", \\\"risk_owner\\\": \\\"Ines Rossi-35190-RO\\\", \\\"start_date\\\": \\\"2026-12-01\\\", \\\"target_go_live\\\": \\\"2027-06-10\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Cilium\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-A11Y-001\", \"COMP-EXPORT-002\"], \"actions\": [\"REMEDIATE_ACCESSIBILITY\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035190\\\", \\\"generation_seed\\\": 35190, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [3FF6C]\\\", \\\"project_code\\\": \\\"3FF6C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Marc Petrescu-35190-SP\\\", \\\"project_manager\\\": \\\"Ines Bennett-35190-PM\\\", \\\"business_owner\\\": \\\"Samir Volkov-35190-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35190-SO\\\", \\\"risk_owner\\\": \\\"Ines Rossi-35190-RO\\\", \\\"start_date\\\": \\\"2026-12-01\\\", \\\"target_go_live\\\": \\\"2027-06-10\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"PCI-DSS\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035190\\\", \\\"generation_seed\\\": 35190, \\\"project_name\\\": \\\"Juno Acquisition Integration — Observability Platform [3FF6C]\\\", \\\"project_code\\\": \\\"3FF6C\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Marc Petrescu-35190-SP\\\", \\\"project_manager\\\": \\\"Ines Bennett-35190-PM\\\", \\\"business_owner\\\": \\\"Samir Volkov-35190-BO\\\", \\\"service_owner\\\": \\\"Thomas Dubois-35190-SO\\\", \\\"risk_owner\\\": \\\"Ines Rossi-35190-RO\\\", \\\"start_date\\\": \\\"2026-12-01\\\", \\\"target_go_live\\\": \\\"2027-06-10\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE Central\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"PCI-DSS\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

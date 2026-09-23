@@ -1,0 +1,694 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "PROC-DD-001"
+      ],
+      "actions": [
+        "COMPLETE_VENDOR_DUE_DILIGENCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-DD-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"BlueMesa Systems 52D94-1\", \"functional_score\": 90, \"security_score\": 61, \"tco_3y_eur\": 2303768, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 67.9}, {\"vendor\": \"CedarPoint Digital 52D94-2\", \"functional_score\": 98, \"security_score\": 84, \"tco_3y_eur\": 2240873, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 72.1}, {\"vendor\": \"DeltaForge Technologies 52D94-3\", \"functional_score\": 75, \"security_score\": 91, \"tco_3y_eur\": 658680, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 76.7}, {\"vendor\": \"Everline Software 52D94-4\", \"functional_score\": 73, \"security_score\": 67, \"tco_3y_eur\": 715024, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 74.4}], \"selected_vendor\": \"Everline Software 52D94-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 97, \"purchasing_budget_eur\": 500000}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035064",
+              "generation_seed": 35064,
+              "project_name": "Project Vega — Enterprise Workflow Platform [52D94]",
+              "project_code": "52D94",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "HR",
+              "sponsor": "Clara Benali-35064-SP",
+              "project_manager": "Maya Meyer-35064-PM",
+              "business_owner": "Omar Khan-35064-BO",
+              "service_owner": "Sofia Meyer-35064-SO",
+              "risk_owner": "Noor Khan-35064-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-30",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "BlueMesa Systems 52D94-1",
+                  "functional_score": 90,
+                  "security_score": 61,
+                  "tco_3y_eur": 2303768,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 67.9
+                },
+                {
+                  "vendor": "CedarPoint Digital 52D94-2",
+                  "functional_score": 98,
+                  "security_score": 84,
+                  "tco_3y_eur": 2240873,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "complete",
+                  "weighted_score": 72.1
+                },
+                {
+                  "vendor": "DeltaForge Technologies 52D94-3",
+                  "functional_score": 75,
+                  "security_score": 91,
+                  "tco_3y_eur": 658680,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "hit",
+                  "references_checked": false,
+                  "due_diligence": "complete",
+                  "weighted_score": 76.7
+                },
+                {
+                  "vendor": "Everline Software 52D94-4",
+                  "functional_score": 73,
+                  "security_score": 67,
+                  "tco_3y_eur": 715024,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 74.4
+                }
+              ],
+              "selected_vendor": "Everline Software 52D94-4",
+              "competition": "open_tender",
+              "rfp_requirements": 97,
+              "purchasing_budget_eur": 500000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035064",
+              "generation_seed": 35064,
+              "project_name": "Project Vega — Enterprise Workflow Platform [52D94]",
+              "project_code": "52D94",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "HR",
+              "sponsor": "Clara Benali-35064-SP",
+              "project_manager": "Maya Meyer-35064-PM",
+              "business_owner": "Omar Khan-35064-BO",
+              "service_owner": "Sofia Meyer-35064-SO",
+              "risk_owner": "Noor Khan-35064-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-30",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-52D94-10.7",
+              "governing_law": "England & Wales",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 0.5,
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 30,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 10,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-MAP-001"
+      ],
+      "actions": [
+        "COMPLETE_CONTROL_MAPPING"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035064",
+              "generation_seed": 35064,
+              "project_name": "Project Vega — Enterprise Workflow Platform [52D94]",
+              "project_code": "52D94",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "HR",
+              "sponsor": "Clara Benali-35064-SP",
+              "project_manager": "Maya Meyer-35064-PM",
+              "business_owner": "Omar Khan-35064-BO",
+              "service_owner": "Sofia Meyer-35064-SO",
+              "risk_owner": "Noor Khan-35064-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-30",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "annual",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": 90, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": 90, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035064",
+              "generation_seed": 35064,
+              "project_name": "Project Vega — Enterprise Workflow Platform [52D94]",
+              "project_code": "52D94",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "HR",
+              "sponsor": "Clara Benali-35064-SP",
+              "project_manager": "Maya Meyer-35064-PM",
+              "business_owner": "Omar Khan-35064-BO",
+              "service_owner": "Sofia Meyer-35064-SO",
+              "risk_owner": "Noor Khan-35064-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-30",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": false,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 3,
+              "pentest_age_days": 90,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 54903, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 8, \"change_record_status\": \"draft\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"functions\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035064",
+              "generation_seed": 35064,
+              "project_name": "Project Vega — Enterprise Workflow Platform [52D94]",
+              "project_code": "52D94",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "HR",
+              "sponsor": "Clara Benali-35064-SP",
+              "project_manager": "Maya Meyer-35064-PM",
+              "business_owner": "Omar Khan-35064-BO",
+              "service_owner": "Sofia Meyer-35064-SO",
+              "risk_owner": "Noor Khan-35064-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-30",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 54903,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 8,
+              "change_record_status": "draft",
+              "service_continuity_class": "silver",
+              "hosting_model": "functions"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"PROC-DD-001\"], \"actions\": [\"COMPLETE_VENDOR_DUE_DILIGENCE\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-DD-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035064\\\", \\\"generation_seed\\\": 35064, \\\"project_name\\\": \\\"Project Vega — Enterprise Workflow Platform [52D94]\\\", \\\"project_code\\\": \\\"52D94\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Clara Benali-35064-SP\\\", \\\"project_manager\\\": \\\"Maya Meyer-35064-PM\\\", \\\"business_owner\\\": \\\"Omar Khan-35064-BO\\\", \\\"service_owner\\\": \\\"Sofia Meyer-35064-SO\\\", \\\"risk_owner\\\": \\\"Noor Khan-35064-RO\\\", \\\"start_date\\\": \\\"2026-10-10\\\", \\\"target_go_live\\\": \\\"2027-04-30\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"BlueMesa Systems 52D94-1\\\", \\\"functional_score\\\": 90, \\\"security_score\\\": 61, \\\"tco_3y_eur\\\": 2303768, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 67.9}, {\\\"vendor\\\": \\\"CedarPoint Digital 52D94-2\\\", \\\"functional_score\\\": 98, \\\"security_score\\\": 84, \\\"tco_3y_eur\\\": 2240873, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 72.1}, {\\\"vendor\\\": \\\"DeltaForge Technologies 52D94-3\\\", \\\"functional_score\\\": 75, \\\"security_score\\\": 91, \\\"tco_3y_eur\\\": 658680, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"hit\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 76.7}, {\\\"vendor\\\": \\\"Everline Software 52D94-4\\\", \\\"functional_score\\\": 73, \\\"security_score\\\": 67, \\\"tco_3y_eur\\\": 715024, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 74.4}], \\\"selected_vendor\\\": \\\"Everline Software 52D94-4\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 97, \\\"purchasing_budget_eur\\\": 500000}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-MAP-001\"], \"actions\": [\"COMPLETE_CONTROL_MAPPING\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035064\\\", \\\"generation_seed\\\": 35064, \\\"project_name\\\": \\\"Project Vega — Enterprise Workflow Platform [52D94]\\\", \\\"project_code\\\": \\\"52D94\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Clara Benali-35064-SP\\\", \\\"project_manager\\\": \\\"Maya Meyer-35064-PM\\\", \\\"business_owner\\\": \\\"Omar Khan-35064-BO\\\", \\\"service_owner\\\": \\\"Sofia Meyer-35064-SO\\\", \\\"risk_owner\\\": \\\"Noor Khan-35064-RO\\\", \\\"start_date\\\": \\\"2026-10-10\\\", \\\"target_go_live\\\": \\\"2027-04-30\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"annual\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-LOG-001\", \"SEC-KEY-001\"], \"actions\": [\"CONNECT_LOGS_TO_SIEM\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035064\\\", \\\"generation_seed\\\": 35064, \\\"project_name\\\": \\\"Project Vega — Enterprise Workflow Platform [52D94]\\\", \\\"project_code\\\": \\\"52D94\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Clara Benali-35064-SP\\\", \\\"project_manager\\\": \\\"Maya Meyer-35064-PM\\\", \\\"business_owner\\\": \\\"Omar Khan-35064-BO\\\", \\\"service_owner\\\": \\\"Sofia Meyer-35064-SO\\\", \\\"risk_owner\\\": \\\"Noor Khan-35064-RO\\\", \\\"start_date\\\": \\\"2026-10-10\\\", \\\"target_go_live\\\": \\\"2027-04-30\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035064\\\", \\\"generation_seed\\\": 35064, \\\"project_name\\\": \\\"Project Vega — Enterprise Workflow Platform [52D94]\\\", \\\"project_code\\\": \\\"52D94\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Clara Benali-35064-SP\\\", \\\"project_manager\\\": \\\"Maya Meyer-35064-PM\\\", \\\"business_owner\\\": \\\"Omar Khan-35064-BO\\\", \\\"service_owner\\\": \\\"Sofia Meyer-35064-SO\\\", \\\"risk_owner\\\": \\\"Noor Khan-35064-RO\\\", \\\"start_date\\\": \\\"2026-10-10\\\", \\\"target_go_live\\\": \\\"2027-04-30\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-EOL-001\"], \"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035064\\\", \\\"generation_seed\\\": 35064, \\\"project_name\\\": \\\"Project Vega — Enterprise Workflow Platform [52D94]\\\", \\\"project_code\\\": \\\"52D94\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"HR\\\", \\\"sponsor\\\": \\\"Clara Benali-35064-SP\\\", \\\"project_manager\\\": \\\"Maya Meyer-35064-PM\\\", \\\"business_owner\\\": \\\"Omar Khan-35064-BO\\\", \\\"service_owner\\\": \\\"Sofia Meyer-35064-SO\\\", \\\"risk_owner\\\": \\\"Noor Khan-35064-RO\\\", \\\"start_date\\\": \\\"2026-10-10\\\", \\\"target_go_live\\\": \\\"2027-04-30\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 500000, \\\"data_classification\\\": \\\"Restricted\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"East US\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 54903, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 45, \\\"technology_eol_months\\\": 8, \\\"change_record_status\\\": \\\"draft\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"functions\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035064",
+              "generation_seed": 35064,
+              "project_name": "Project Vega — Enterprise Workflow Platform [52D94]",
+              "project_code": "52D94",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "HR",
+              "sponsor": "Clara Benali-35064-SP",
+              "project_manager": "Maya Meyer-35064-PM",
+              "business_owner": "Omar Khan-35064-BO",
+              "service_owner": "Sofia Meyer-35064-SO",
+              "risk_owner": "Noor Khan-35064-RO",
+              "start_date": "2026-10-10",
+              "target_go_live": "2027-04-30",
+              "users_impacted": 5000,
+              "budget_requested_eur": 500000,
+              "data_classification": "Restricted",
+              "business_criticality": "Medium",
+              "primary_region": "East US",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 500000,
+              "budget_approved_eur": 500000,
+              "roi": 0.264,
+              "npv_eur": 239066,
+              "payback_months": 48,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 15.0,
+              "fte_available": 18.7,
+              "change_plan_status": "missing",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Adam Benali-2035070-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "PROC-DD-001"
+              ],
+              "actions": [
+                "COMPLETE_VENDOR_DUE_DILIGENCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-DD-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"BlueMesa Systems 52D94-1\", \"functional_score\": 90, \"security_score\": 61, \"tco_3y_eur\": 2303768, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 67.9}, {\"vendor\": \"CedarPoint Digital 52D94-2\", \"functional_score\": 98, \"security_score\": 84, \"tco_3y_eur\": 2240873, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 72.1}, {\"vendor\": \"DeltaForge Technologies 52D94-3\", \"functional_score\": 75, \"security_score\": 91, \"tco_3y_eur\": 658680, \"mandatory_criteria_failed\": 2, \"sanctions\": \"hit\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 76.7}, {\"vendor\": \"Everline Software 52D94-4\", \"functional_score\": 73, \"security_score\": 67, \"tco_3y_eur\": 715024, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 74.4}], \"selected_vendor\": \"Everline Software 52D94-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 97, \"purchasing_budget_eur\": 500000}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-MAP-001"
+              ],
+              "actions": [
+                "COMPLETE_CONTROL_MAPPING"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"annual\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-LOG-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "CONNECT_LOGS_TO_SIEM",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": 90, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": 90, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-EOL-001"
+              ],
+              "actions": [
+                "CREATE_CONVERGENCE_PLAN"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-EOL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035064\", \"generation_seed\": 35064, \"project_name\": \"Project Vega — Enterprise Workflow Platform [52D94]\", \"project_code\": \"52D94\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"HR\", \"sponsor\": \"Clara Benali-35064-SP\", \"project_manager\": \"Maya Meyer-35064-PM\", \"business_owner\": \"Omar Khan-35064-BO\", \"service_owner\": \"Sofia Meyer-35064-SO\", \"risk_owner\": \"Noor Khan-35064-RO\", \"start_date\": \"2026-10-10\", \"target_go_live\": \"2027-04-30\", \"users_impacted\": 5000, \"budget_requested_eur\": 500000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Medium\", \"primary_region\": \"East US\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 54903, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 45, \"technology_eol_months\": 8, \"change_record_status\": \"draft\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"functions\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "status": "prepared_not_run",
+  "selection": "5 cases per route sampled without replacement from sorted IDs; Python random.Random(23092026); selection does not use outcomes",
+  "seed": 23092026,
+  "cases": [
+    "DGF-BUY-035090_buy",
+    "DGF-BUY-035051_buy",
+    "DGF-BUY-035008_buy",
+    "DGF-BUY-035001_buy",
+    "DGF-BUY-035000_buy",
+    "DGF-INT-035198_integrate",
+    "DGF-INT-035113_integrate",
+    "DGF-INT-035138_integrate",
+    "DGF-INT-035173_integrate",
+    "DGF-INT-035125_integrate",
+    "DGF-BLD-035210_build",
+    "DGF-BLD-035272_build",
+    "DGF-BLD-035232_build",
+    "DGF-BLD-035298_build",
+    "DGF-BLD-035217_build"
+  ],
+  "models": [
+    "deepseek/deepseek-v4.1-flash",
+    "google/gemini-3.8-flash",
+    "openai/gpt-5.6-luna"
+  ],
+  "new_trajectories_per_model_case": 3,
+  "planned_model_case_runs": 135,
+  "estimated_usd_by_model_directory": {
+    "deepseek__deepseek-v4.1-flash__b75e488c1a8d": 1.4270391186000002,
+    "google__gemini-3.8-flash__0bb591b009df": 10.540379024999996,
+    "openai__gpt-5.6-luna__5eac84a8bed2": 0.7541774099999998
+  },
+  "estimated_total_usd": 12.721595553599997,
+  "proposed_global_cap_usd": 20,
+  "settings": {
+    "temperature": 0,
+    "vision": "auto",
+    "handoff_mode": "agent",
+    "max_turns": 20,
+    "max_tool_calls": 40,
+    "max_tokens": 8192,
+    "workers": 3
+  },
+  "primary_outcomes": [
+    "strict gate rate per trajectory",
+    "complete-route rate per trajectory",
+    "all-three-success proportion per model-case",
+    "disposition and evidence variability"
+  ],
+  "analysis": "Report all three fresh trajectories; historical run is separate context, not a fourth exchangeable repeat. Cluster uncertainty by case; small exploratory sample. No selection of best-of-three. Retain API failures and all costs.",
+  "preregistration": "local analysis plan only; not an external preregistration",
+  "cost_basis": "3 times original selected final checkpoint costs; excludes historical failed attempts; new provider pricing, routing, caching and retries may differ"
+}

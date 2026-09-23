@@ -1,0 +1,629 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035076",
+              "generation_seed": 35076,
+              "project_name": "Project Pulse — Regulatory Reporting Modernization [E19B4]",
+              "project_code": "E19B4",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Ines Volkov-35076-SP",
+              "project_manager": "David Volkov-35076-PM",
+              "business_owner": "Nadia Haddad-35076-BO",
+              "service_owner": "Jeremy Garcia-35076-SO",
+              "risk_owner": "Daria Rossi-35076-RO",
+              "start_date": "2026-10-24",
+              "target_go_live": "2027-05-14",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Asterion Cloud E19B4-1",
+                  "functional_score": 80,
+                  "security_score": 62,
+                  "tco_3y_eur": 2151223,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 65.8
+                },
+                {
+                  "vendor": "BlueMesa Systems E19B4-2",
+                  "functional_score": 66,
+                  "security_score": 91,
+                  "tco_3y_eur": 1425366,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 74.4
+                },
+                {
+                  "vendor": "CedarPoint Digital E19B4-3",
+                  "functional_score": 84,
+                  "security_score": 96,
+                  "tco_3y_eur": 372998,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "partial",
+                  "weighted_score": 89.2
+                },
+                {
+                  "vendor": "DeltaForge Technologies E19B4-4",
+                  "functional_score": 88,
+                  "security_score": 56,
+                  "tco_3y_eur": 2067303,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 67.3
+                }
+              ],
+              "selected_vendor": "Asterion Cloud E19B4-1",
+              "competition": "open_tender",
+              "rfp_requirements": 134,
+              "purchasing_budget_eur": 1500000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035076\", \"generation_seed\": 35076, \"project_name\": \"Project Pulse — Regulatory Reporting Modernization [E19B4]\", \"project_code\": \"E19B4\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Ines Volkov-35076-SP\", \"project_manager\": \"David Volkov-35076-PM\", \"business_owner\": \"Nadia Haddad-35076-BO\", \"service_owner\": \"Jeremy Garcia-35076-SO\", \"risk_owner\": \"Daria Rossi-35076-RO\", \"start_date\": \"2026-10-24\", \"target_go_live\": \"2027-05-14\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-E19B4-9.0\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035076",
+              "generation_seed": 35076,
+              "project_name": "Project Pulse — Regulatory Reporting Modernization [E19B4]",
+              "project_code": "E19B4",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Ines Volkov-35076-SP",
+              "project_manager": "David Volkov-35076-PM",
+              "business_owner": "Nadia Haddad-35076-BO",
+              "service_owner": "Jeremy Garcia-35076-SO",
+              "risk_owner": "Daria Rossi-35076-RO",
+              "start_date": "2026-10-24",
+              "target_go_live": "2027-05-14",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-E19B4-9.0",
+              "governing_law": "England & Wales",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 0,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 1,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": false,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035076",
+              "generation_seed": 35076,
+              "project_name": "Project Pulse — Regulatory Reporting Modernization [E19B4]",
+              "project_code": "E19B4",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Ines Volkov-35076-SP",
+              "project_manager": "David Volkov-35076-PM",
+              "business_owner": "Nadia Haddad-35076-BO",
+              "service_owner": "Jeremy Garcia-35076-SO",
+              "risk_owner": "Daria Rossi-35076-RO",
+              "start_date": "2026-10-24",
+              "target_go_live": "2027-05-14",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "PCI-DSS"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 10,
+              "legal_hold_supported": true,
+              "deletion_enforced": false,
+              "audit_trail": "complete",
+              "accessibility_status": "minor_findings",
+              "ethics_review": "passed",
+              "regulatory_mapping": "complete",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035076",
+              "generation_seed": 35076,
+              "project_name": "Project Pulse — Regulatory Reporting Modernization [E19B4]",
+              "project_code": "E19B4",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Ines Volkov-35076-SP",
+              "project_manager": "David Volkov-35076-PM",
+              "business_owner": "Nadia Haddad-35076-BO",
+              "service_owner": "Jeremy Garcia-35076-SO",
+              "risk_owner": "Daria Rossi-35076-RO",
+              "start_date": "2026-10-24",
+              "target_go_live": "2027-05-14",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": false,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 2,
+              "pentest_age_days": 180,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": false,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CAPACITY-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035076\", \"generation_seed\": 35076, \"project_name\": \"Project Pulse — Regulatory Reporting Modernization [E19B4]\", \"project_code\": \"E19B4\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Ines Volkov-35076-SP\", \"project_manager\": \"David Volkov-35076-PM\", \"business_owner\": \"Nadia Haddad-35076-BO\", \"service_owner\": \"Jeremy Garcia-35076-SO\", \"risk_owner\": \"Daria Rossi-35076-RO\", \"start_date\": \"2026-10-24\", \"target_go_live\": \"2027-05-14\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 401732, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 18, \"change_record_status\": \"draft\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035076",
+              "generation_seed": 35076,
+              "project_name": "Project Pulse — Regulatory Reporting Modernization [E19B4]",
+              "project_code": "E19B4",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Ines Volkov-35076-SP",
+              "project_manager": "David Volkov-35076-PM",
+              "business_owner": "Nadia Haddad-35076-BO",
+              "service_owner": "Jeremy Garcia-35076-SO",
+              "risk_owner": "Daria Rossi-35076-RO",
+              "start_date": "2026-10-24",
+              "target_go_live": "2027-05-14",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 401732,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 90,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 18,
+              "change_record_status": "draft",
+              "service_continuity_class": "gold",
+              "hosting_model": "vm_ha"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035076",
+              "generation_seed": 35076,
+              "project_name": "Project Pulse — Regulatory Reporting Modernization [E19B4]",
+              "project_code": "E19B4",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Data Office",
+              "sponsor": "Ines Volkov-35076-SP",
+              "project_manager": "David Volkov-35076-PM",
+              "business_owner": "Nadia Haddad-35076-BO",
+              "service_owner": "Jeremy Garcia-35076-SO",
+              "risk_owner": "Daria Rossi-35076-RO",
+              "start_date": "2026-10-24",
+              "target_go_live": "2027-05-14",
+              "users_impacted": 1000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "North Europe",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1650000,
+              "roi": 0.137,
+              "npv_eur": -53521,
+              "payback_months": 40,
+              "schedule_slip_weeks": 8,
+              "fte_needed": 7.3,
+              "fte_available": 3.0,
+              "change_plan_status": "missing",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Leila Rahman-35076-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035076\", \"generation_seed\": 35076, \"project_name\": \"Project Pulse — Regulatory Reporting Modernization [E19B4]\", \"project_code\": \"E19B4\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Ines Volkov-35076-SP\", \"project_manager\": \"David Volkov-35076-PM\", \"business_owner\": \"Nadia Haddad-35076-BO\", \"service_owner\": \"Jeremy Garcia-35076-SO\", \"risk_owner\": \"Daria Rossi-35076-RO\", \"start_date\": \"2026-10-24\", \"target_go_live\": \"2027-05-14\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"legal\": {\"contract_version\": \"MSA-E19B4-9.0\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 1, \"security_carveout\": true, \"audit_right\": \"full\", \"termination_for_convenience\": true, \"exit_assistance_days\": 0, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "IT-CAPACITY-001"
+              ],
+              "actions": [
+                "INCREASE_CAPACITY_HEADROOM"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CAPACITY-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035076\", \"generation_seed\": 35076, \"project_name\": \"Project Pulse — Regulatory Reporting Modernization [E19B4]\", \"project_code\": \"E19B4\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Data Office\", \"sponsor\": \"Ines Volkov-35076-SP\", \"project_manager\": \"David Volkov-35076-PM\", \"business_owner\": \"Nadia Haddad-35076-BO\", \"service_owner\": \"Jeremy Garcia-35076-SO\", \"risk_owner\": \"Daria Rossi-35076-RO\", \"start_date\": \"2026-10-24\", \"target_go_live\": \"2027-05-14\", \"users_impacted\": 1000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"North Europe\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 401732, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 90, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 18, \"change_record_status\": \"draft\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vm_ha\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

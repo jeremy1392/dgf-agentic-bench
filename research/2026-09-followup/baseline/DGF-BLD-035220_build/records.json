@@ -1,0 +1,597 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 177716, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"vm_ha\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035220",
+              "generation_seed": 35220,
+              "project_name": "Project Zephyr — Secure Vendor Portal [B7BE4]",
+              "project_code": "B7BE4",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "David Khan-35220-SP",
+              "project_manager": "Amira Costa-35220-PM",
+              "business_owner": "Jeremy Costa-35220-BO",
+              "service_owner": "Clara Moreau-35220-SO",
+              "risk_owner": "Samir Ivanov-35220-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-05-29",
+              "users_impacted": 2000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": true,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 177716,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 20,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "bronze",
+              "hosting_model": "vm_ha"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B7BE4-v2.4\", \"lld_version\": \"LLD-B7BE4-v3.8\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 4, \"adr_count\": 5, \"reversibility_status\": \"tested\", \"data_export_supported\": false, \"private_cidrs\": [\"10.17.64.0/24\", \"10.17.65.0/24\", \"10.17.66.0/24\"], \"dns_zone\": \"dgf-bld-035220.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B7BE4-v2.4\", \"lld_version\": \"LLD-B7BE4-v3.8\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 4, \"adr_count\": 5, \"reversibility_status\": \"tested\", \"data_export_supported\": false, \"private_cidrs\": [\"10.17.64.0/24\", \"10.17.65.0/24\", \"10.17.66.0/24\"], \"dns_zone\": \"dgf-bld-035220.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035220",
+              "generation_seed": 35220,
+              "project_name": "Project Zephyr — Secure Vendor Portal [B7BE4]",
+              "project_code": "B7BE4",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "David Khan-35220-SP",
+              "project_manager": "Amira Costa-35220-PM",
+              "business_owner": "Jeremy Costa-35220-BO",
+              "service_owner": "Clara Moreau-35220-SO",
+              "risk_owner": "Samir Ivanov-35220-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-05-29",
+              "users_impacted": 2000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-B7BE4-v2.4",
+              "lld_version": "LLD-B7BE4-v3.8",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": false,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 30,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 4,
+              "adr_count": 5,
+              "reversibility_status": "tested",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.17.64.0/24",
+                "10.17.65.0/24",
+                "10.17.66.0/24"
+              ],
+              "dns_zone": "dgf-bld-035220.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-IAM-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "ENFORCE_MFA",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035220",
+              "generation_seed": 35220,
+              "project_name": "Project Zephyr — Secure Vendor Portal [B7BE4]",
+              "project_code": "B7BE4",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "David Khan-35220-SP",
+              "project_manager": "Amira Costa-35220-PM",
+              "business_owner": "Jeremy Costa-35220-BO",
+              "service_owner": "Clara Moreau-35220-SO",
+              "risk_owner": "Samir Ivanov-35220-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-05-29",
+              "users_impacted": 2000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "missing",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 4,
+              "pentest_age_days": 14,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": false,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 97, \"pilot_completed\": true, \"load_test_pct_of_peak\": 150, \"p95_ms\": 670, \"unit_test_coverage_pct\": 50, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035220",
+              "generation_seed": 35220,
+              "project_name": "Project Zephyr — Secure Vendor Portal [B7BE4]",
+              "project_code": "B7BE4",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "David Khan-35220-SP",
+              "project_manager": "Amira Costa-35220-PM",
+              "business_owner": "Jeremy Costa-35220-BO",
+              "service_owner": "Clara Moreau-35220-SO",
+              "risk_owner": "Samir Ivanov-35220-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-05-29",
+              "users_impacted": 2000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 97,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 150,
+              "p95_ms": 670,
+              "unit_test_coverage_pct": 50,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": false,
+              "observability_traces": false,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 0.25,
+              "measured_restore_hours": 0.21,
+              "target_rpo_minutes": 60,
+              "measured_data_loss_minutes": 60,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "draft",
+              "on_call_defined": true,
+              "handover_signed": false,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035220\\\", \\\"generation_seed\\\": 35220, \\\"project_name\\\": \\\"Project Zephyr — Secure Vendor Portal [B7BE4]\\\", \\\"project_code\\\": \\\"B7BE4\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"David Khan-35220-SP\\\", \\\"project_manager\\\": \\\"Amira Costa-35220-PM\\\", \\\"business_owner\\\": \\\"Jeremy Costa-35220-BO\\\", \\\"service_owner\\\": \\\"Clara Moreau-35220-SO\\\", \\\"risk_owner\\\": \\\"Samir Ivanov-35220-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-05-29\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"approved_exception\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 177716, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 14, \\\"capacity_headroom_pct\\\": 20, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"vm_ha\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035220\\\", \\\"generation_seed\\\": 35220, \\\"project_name\\\": \\\"Project Zephyr — Secure Vendor Portal [B7BE4]\\\", \\\"project_code\\\": \\\"B7BE4\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"David Khan-35220-SP\\\", \\\"project_manager\\\": \\\"Amira Costa-35220-PM\\\", \\\"business_owner\\\": \\\"Jeremy Costa-35220-BO\\\", \\\"service_owner\\\": \\\"Clara Moreau-35220-SO\\\", \\\"risk_owner\\\": \\\"Samir Ivanov-35220-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-05-29\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B7BE4-v2.4\\\", \\\"lld_version\\\": \\\"LLD-B7BE4-v3.8\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 5, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.17.64.0/24\\\", \\\"10.17.65.0/24\\\", \\\"10.17.66.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035220.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035220\\\", \\\"generation_seed\\\": 35220, \\\"project_name\\\": \\\"Project Zephyr — Secure Vendor Portal [B7BE4]\\\", \\\"project_code\\\": \\\"B7BE4\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"David Khan-35220-SP\\\", \\\"project_manager\\\": \\\"Amira Costa-35220-PM\\\", \\\"business_owner\\\": \\\"Jeremy Costa-35220-BO\\\", \\\"service_owner\\\": \\\"Clara Moreau-35220-SO\\\", \\\"risk_owner\\\": \\\"Samir Ivanov-35220-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-05-29\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-B7BE4-v2.4\\\", \\\"lld_version\\\": \\\"LLD-B7BE4-v3.8\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 30, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 5, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.17.64.0/24\\\", \\\"10.17.65.0/24\\\", \\\"10.17.66.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035220.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-IAM-001\", \"SEC-KEY-001\"], \"actions\": [\"ENFORCE_MFA\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035220\\\", \\\"generation_seed\\\": 35220, \\\"project_name\\\": \\\"Project Zephyr — Secure Vendor Portal [B7BE4]\\\", \\\"project_code\\\": \\\"B7BE4\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"David Khan-35220-SP\\\", \\\"project_manager\\\": \\\"Amira Costa-35220-PM\\\", \\\"business_owner\\\": \\\"Jeremy Costa-35220-BO\\\", \\\"service_owner\\\": \\\"Clara Moreau-35220-SO\\\", \\\"risk_owner\\\": \\\"Samir Ivanov-35220-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-05-29\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": false, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035220\\\", \\\"generation_seed\\\": 35220, \\\"project_name\\\": \\\"Project Zephyr — Secure Vendor Portal [B7BE4]\\\", \\\"project_code\\\": \\\"B7BE4\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"David Khan-35220-SP\\\", \\\"project_manager\\\": \\\"Amira Costa-35220-PM\\\", \\\"business_owner\\\": \\\"Jeremy Costa-35220-BO\\\", \\\"service_owner\\\": \\\"Clara Moreau-35220-SO\\\", \\\"risk_owner\\\": \\\"Samir Ivanov-35220-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-05-29\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"missing\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 4, \\\"pentest_age_days\\\": 14, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": false, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"TR-OPS-001\"], \"actions\": [\"COMPLETE_OPERATIONAL_HANDOVER\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035220\\\", \\\"generation_seed\\\": 35220, \\\"project_name\\\": \\\"Project Zephyr — Secure Vendor Portal [B7BE4]\\\", \\\"project_code\\\": \\\"B7BE4\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"David Khan-35220-SP\\\", \\\"project_manager\\\": \\\"Amira Costa-35220-PM\\\", \\\"business_owner\\\": \\\"Jeremy Costa-35220-BO\\\", \\\"service_owner\\\": \\\"Clara Moreau-35220-SO\\\", \\\"risk_owner\\\": \\\"Samir Ivanov-35220-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-05-29\\\", \\\"users_impacted\\\": 2000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"UK South\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 97, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 150, \\\"p95_ms\\\": 670, \\\"unit_test_coverage_pct\\\": 50, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": false, \\\"backup_enabled\\\": true, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.21, \\\"target_rpo_minutes\\\": 60, \\\"measured_data_loss_minutes\\\": 60, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"draft\\\", \\\"on_call_defined\\\": true, \\\"handover_signed\\\": false, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035220",
+              "generation_seed": 35220,
+              "project_name": "Project Zephyr — Secure Vendor Portal [B7BE4]",
+              "project_code": "B7BE4",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "David Khan-35220-SP",
+              "project_manager": "Amira Costa-35220-PM",
+              "business_owner": "Jeremy Costa-35220-BO",
+              "service_owner": "Clara Moreau-35220-SO",
+              "risk_owner": "Samir Ivanov-35220-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-05-29",
+              "users_impacted": 2000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "UK South",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1500000,
+              "roi": 0.289,
+              "npv_eur": -36916,
+              "payback_months": 25,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 18.6,
+              "fte_available": 22.9,
+              "change_plan_status": "draft",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Maya Nguyen-35220-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"approved_exception\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 177716, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 20, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"vm_ha\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-PERF-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B7BE4-v2.4\", \"lld_version\": \"LLD-B7BE4-v3.8\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 4, \"adr_count\": 5, \"reversibility_status\": \"tested\", \"data_export_supported\": false, \"private_cidrs\": [\"10.17.64.0/24\", \"10.17.65.0/24\", \"10.17.66.0/24\"], \"dns_zone\": \"dgf-bld-035220.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-B7BE4-v2.4\", \"lld_version\": \"LLD-B7BE4-v3.8\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 20, \"measured_latency_ms\": 30, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 4, \"adr_count\": 5, \"reversibility_status\": \"tested\", \"data_export_supported\": false, \"private_cidrs\": [\"10.17.64.0/24\", \"10.17.65.0/24\", \"10.17.66.0/24\"], \"dns_zone\": \"dgf-bld-035220.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-IAM-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "ENFORCE_MFA",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"missing\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 4, \"pentest_age_days\": 14, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": true, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "TR-OPS-001"
+              ],
+              "actions": [
+                "COMPLETE_OPERATIONAL_HANDOVER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035220\", \"generation_seed\": 35220, \"project_name\": \"Project Zephyr — Secure Vendor Portal [B7BE4]\", \"project_code\": \"B7BE4\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"David Khan-35220-SP\", \"project_manager\": \"Amira Costa-35220-PM\", \"business_owner\": \"Jeremy Costa-35220-BO\", \"service_owner\": \"Clara Moreau-35220-SO\", \"risk_owner\": \"Samir Ivanov-35220-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-05-29\", \"users_impacted\": 2000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"UK South\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 97, \"pilot_completed\": true, \"load_test_pct_of_peak\": 150, \"p95_ms\": 670, \"unit_test_coverage_pct\": 50, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": false, \"backup_enabled\": true, \"restore_tested\": true, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 60, \"measured_data_loss_minutes\": 60, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"draft\", \"on_call_defined\": true, \"handover_signed\": false, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

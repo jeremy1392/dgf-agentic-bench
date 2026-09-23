@@ -1,0 +1,677 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-BUDGET-001"
+      ],
+      "actions": [
+        "OBTAIN_BUDGET_ARBITRATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Fluxbridge Labs CCD90-1\", \"functional_score\": 83, \"security_score\": 81, \"tco_3y_eur\": 2474181, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 70.4}, {\"vendor\": \"GranitePeak Systems CCD90-2\", \"functional_score\": 82, \"security_score\": 81, \"tco_3y_eur\": 2174700, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 72.0}, {\"vendor\": \"HelioStack Cloud CCD90-3\", \"functional_score\": 82, \"security_score\": 65, \"tco_3y_eur\": 720265, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 76.9}, {\"vendor\": \"Asterion Cloud CCD90-4\", \"functional_score\": 75, \"security_score\": 76, \"tco_3y_eur\": 2432759, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 66.3}], \"selected_vendor\": \"Fluxbridge Labs CCD90-1\", \"competition\": \"open_tender\", \"rfp_requirements\": 92, \"purchasing_budget_eur\": 1500000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035061",
+              "generation_seed": 35061,
+              "project_name": "Project Aster — Identity Modernization [CCD90]",
+              "project_code": "CCD90",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Elena Benali-35061-SP",
+              "project_manager": "Nadia Dubois-35061-PM",
+              "business_owner": "Daria Khan-35061-BO",
+              "service_owner": "Maya Rossi-35061-SO",
+              "risk_owner": "Daria Ivanov-35061-RO",
+              "start_date": "2026-10-16",
+              "target_go_live": "2027-04-07",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Fluxbridge Labs CCD90-1",
+                  "functional_score": 83,
+                  "security_score": 81,
+                  "tco_3y_eur": 2474181,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 70.4
+                },
+                {
+                  "vendor": "GranitePeak Systems CCD90-2",
+                  "functional_score": 82,
+                  "security_score": 81,
+                  "tco_3y_eur": 2174700,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 72.0
+                },
+                {
+                  "vendor": "HelioStack Cloud CCD90-3",
+                  "functional_score": 82,
+                  "security_score": 65,
+                  "tco_3y_eur": 720265,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 76.9
+                },
+                {
+                  "vendor": "Asterion Cloud CCD90-4",
+                  "functional_score": 75,
+                  "security_score": 76,
+                  "tco_3y_eur": 2432759,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "partial",
+                  "weighted_score": 66.3
+                }
+              ],
+              "selected_vendor": "Fluxbridge Labs CCD90-1",
+              "competition": "open_tender",
+              "rfp_requirements": 92,
+              "purchasing_budget_eur": 1500000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035061",
+              "generation_seed": 35061,
+              "project_name": "Project Aster — Identity Modernization [CCD90]",
+              "project_code": "CCD90",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Elena Benali-35061-SP",
+              "project_manager": "Nadia Dubois-35061-PM",
+              "business_owner": "Daria Khan-35061-BO",
+              "service_owner": "Maya Rossi-35061-SO",
+              "risk_owner": "Daria Ivanov-35061-RO",
+              "start_date": "2026-10-16",
+              "target_go_live": "2027-04-07",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-CCD90-12.2",
+              "governing_law": "Ireland",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 1,
+              "security_carveout": true,
+              "audit_right": "limited",
+              "termination_for_convenience": true,
+              "exit_assistance_days": 90,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 10,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-MAP-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "COMPLETE_CONTROL_MAPPING",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035061",
+              "generation_seed": 35061,
+              "project_name": "Project Aster — Identity Modernization [CCD90]",
+              "project_code": "CCD90",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Elena Benali-35061-SP",
+              "project_manager": "Nadia Dubois-35061-PM",
+              "business_owner": "Daria Khan-35061-BO",
+              "service_owner": "Maya Rossi-35061-SO",
+              "risk_owner": "Daria Ivanov-35061-RO",
+              "start_date": "2026-10-16",
+              "target_go_live": "2027-04-07",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "PCI-DSS",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "missing",
+              "required_residency": "EU",
+              "residency_compliant": true,
+              "retention_years": 10,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "pass",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "none",
+              "export_control": "pending"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035061",
+              "generation_seed": 35061,
+              "project_name": "Project Aster — Identity Modernization [CCD90]",
+              "project_code": "CCD90",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Elena Benali-35061-SP",
+              "project_manager": "Nadia Dubois-35061-PM",
+              "business_owner": "Daria Khan-35061-BO",
+              "service_owner": "Maya Rossi-35061-SO",
+              "risk_owner": "Daria Ivanov-35061-RO",
+              "start_date": "2026-10-16",
+              "target_go_live": "2027-04-07",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": false,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 60,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 2,
+              "pentest_age_days": 180,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035061",
+              "generation_seed": 35061,
+              "project_name": "Project Aster — Identity Modernization [CCD90]",
+              "project_code": "CCD90",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Elena Benali-35061-SP",
+              "project_manager": "Nadia Dubois-35061-PM",
+              "business_owner": "Daria Khan-35061-BO",
+              "service_owner": "Maya Rossi-35061-SO",
+              "risk_owner": "Daria Ivanov-35061-RO",
+              "start_date": "2026-10-16",
+              "target_go_live": "2027-04-07",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "approved_exception",
+              "waiver_present": false,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 523039,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "bronze",
+              "hosting_model": "mixed"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-SUSPEND"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "RESOLVE_SUSPENDED_PREREQUISITES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P0\", \"budget_requested_eur\": 1500000, \"budget_approved_eur\": 1650000, \"roi\": 0.168, \"npv_eur\": 1129457, \"payback_months\": 49, \"schedule_slip_weeks\": 4, \"fte_needed\": 26.8, \"fte_available\": 14.7, \"change_plan_status\": \"draft\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"Ines Costa-35061-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-SUSPEND",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"PROC-BUDGET-001\"], \"actions\": [\"OBTAIN_BUDGET_ARBITRATION\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-BUDGET-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035061\\\", \\\"generation_seed\\\": 35061, \\\"project_name\\\": \\\"Project Aster — Identity Modernization [CCD90]\\\", \\\"project_code\\\": \\\"CCD90\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Sales\\\", \\\"sponsor\\\": \\\"Elena Benali-35061-SP\\\", \\\"project_manager\\\": \\\"Nadia Dubois-35061-PM\\\", \\\"business_owner\\\": \\\"Daria Khan-35061-BO\\\", \\\"service_owner\\\": \\\"Maya Rossi-35061-SO\\\", \\\"risk_owner\\\": \\\"Daria Ivanov-35061-RO\\\", \\\"start_date\\\": \\\"2026-10-16\\\", \\\"target_go_live\\\": \\\"2027-04-07\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"Fluxbridge Labs CCD90-1\\\", \\\"functional_score\\\": 83, \\\"security_score\\\": 81, \\\"tco_3y_eur\\\": 2474181, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 70.4}, {\\\"vendor\\\": \\\"GranitePeak Systems CCD90-2\\\", \\\"functional_score\\\": 82, \\\"security_score\\\": 81, \\\"tco_3y_eur\\\": 2174700, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 72.0}, {\\\"vendor\\\": \\\"HelioStack Cloud CCD90-3\\\", \\\"functional_score\\\": 82, \\\"security_score\\\": 65, \\\"tco_3y_eur\\\": 720265, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 76.9}, {\\\"vendor\\\": \\\"Asterion Cloud CCD90-4\\\", \\\"functional_score\\\": 75, \\\"security_score\\\": 76, \\\"tco_3y_eur\\\": 2432759, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"partial\\\", \\\"weighted_score\\\": 66.3}], \\\"selected_vendor\\\": \\\"Fluxbridge Labs CCD90-1\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 92, \\\"purchasing_budget_eur\\\": 1500000}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-MAP-001\", \"COMP-EXPORT-002\"], \"actions\": [\"COMPLETE_DPIA\", \"COMPLETE_CONTROL_MAPPING\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035061\\\", \\\"generation_seed\\\": 35061, \\\"project_name\\\": \\\"Project Aster — Identity Modernization [CCD90]\\\", \\\"project_code\\\": \\\"CCD90\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Sales\\\", \\\"sponsor\\\": \\\"Elena Benali-35061-SP\\\", \\\"project_manager\\\": \\\"Nadia Dubois-35061-PM\\\", \\\"business_owner\\\": \\\"Daria Khan-35061-BO\\\", \\\"service_owner\\\": \\\"Maya Rossi-35061-SO\\\", \\\"risk_owner\\\": \\\"Daria Ivanov-35061-RO\\\", \\\"start_date\\\": \\\"2026-10-16\\\", \\\"target_go_live\\\": \\\"2027-04-07\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035061\\\", \\\"generation_seed\\\": 35061, \\\"project_name\\\": \\\"Project Aster — Identity Modernization [CCD90]\\\", \\\"project_code\\\": \\\"CCD90\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Sales\\\", \\\"sponsor\\\": \\\"Elena Benali-35061-SP\\\", \\\"project_manager\\\": \\\"Nadia Dubois-35061-PM\\\", \\\"business_owner\\\": \\\"Daria Khan-35061-BO\\\", \\\"service_owner\\\": \\\"Maya Rossi-35061-SO\\\", \\\"risk_owner\\\": \\\"Daria Ivanov-35061-RO\\\", \\\"start_date\\\": \\\"2026-10-16\\\", \\\"target_go_live\\\": \\\"2027-04-07\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035061\\\", \\\"generation_seed\\\": 35061, \\\"project_name\\\": \\\"Project Aster — Identity Modernization [CCD90]\\\", \\\"project_code\\\": \\\"CCD90\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Sales\\\", \\\"sponsor\\\": \\\"Elena Benali-35061-SP\\\", \\\"project_manager\\\": \\\"Nadia Dubois-35061-PM\\\", \\\"business_owner\\\": \\\"Daria Khan-35061-BO\\\", \\\"service_owner\\\": \\\"Maya Rossi-35061-SO\\\", \\\"risk_owner\\\": \\\"Daria Ivanov-35061-RO\\\", \\\"start_date\\\": \\\"2026-10-16\\\", \\\"target_go_live\\\": \\\"2027-04-07\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"partial\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035061",
+              "generation_seed": 35061,
+              "project_name": "Project Aster — Identity Modernization [CCD90]",
+              "project_code": "CCD90",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Sales",
+              "sponsor": "Elena Benali-35061-SP",
+              "project_manager": "Nadia Dubois-35061-PM",
+              "business_owner": "Daria Khan-35061-BO",
+              "service_owner": "Maya Rossi-35061-SO",
+              "risk_owner": "Daria Ivanov-35061-RO",
+              "start_date": "2026-10-16",
+              "target_go_live": "2027-04-07",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "weak",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1650000,
+              "roi": 0.168,
+              "npv_eur": 1129457,
+              "payback_months": 49,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 26.8,
+              "fte_available": 14.7,
+              "change_plan_status": "draft",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Ines Costa-35061-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "PROC-BUDGET-001"
+              ],
+              "actions": [
+                "OBTAIN_BUDGET_ARBITRATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-BUDGET-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Fluxbridge Labs CCD90-1\", \"functional_score\": 83, \"security_score\": 81, \"tco_3y_eur\": 2474181, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 70.4}, {\"vendor\": \"GranitePeak Systems CCD90-2\", \"functional_score\": 82, \"security_score\": 81, \"tco_3y_eur\": 2174700, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 72.0}, {\"vendor\": \"HelioStack Cloud CCD90-3\", \"functional_score\": 82, \"security_score\": 65, \"tco_3y_eur\": 720265, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 76.9}, {\"vendor\": \"Asterion Cloud CCD90-4\", \"functional_score\": 75, \"security_score\": 76, \"tco_3y_eur\": 2432759, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 66.3}], \"selected_vendor\": \"Fluxbridge Labs CCD90-1\", \"competition\": \"open_tender\", \"rfp_requirements\": 92, \"purchasing_budget_eur\": 1500000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-MAP-001",
+                "COMP-EXPORT-002"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "COMPLETE_CONTROL_MAPPING",
+                "COMPLETE_EXPORT_CONTROL_REVIEW"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-002",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035061\", \"generation_seed\": 35061, \"project_name\": \"Project Aster — Identity Modernization [CCD90]\", \"project_code\": \"CCD90\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Sales\", \"sponsor\": \"Elena Benali-35061-SP\", \"project_manager\": \"Nadia Dubois-35061-PM\", \"business_owner\": \"Daria Khan-35061-BO\", \"service_owner\": \"Maya Rossi-35061-SO\", \"risk_owner\": \"Daria Ivanov-35061-RO\", \"start_date\": \"2026-10-16\", \"target_go_live\": \"2027-04-07\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"partial\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"none\", \"export_control\": \"pending\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,829 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "PROC-SAN-002",
+        "PROC-BUDGET-001"
+      ],
+      "actions": [
+        "COMPLETE_SANCTIONS_SCREENING",
+        "OBTAIN_BUDGET_ARBITRATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-SAN-002",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Asterion Cloud BE302-1\", \"functional_score\": 84, \"security_score\": 61, \"tco_3y_eur\": 863826, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.4}, {\"vendor\": \"BlueMesa Systems BE302-2\", \"functional_score\": 82, \"security_score\": 72, \"tco_3y_eur\": 1003273, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"pending\", \"weighted_score\": 71.1}, {\"vendor\": \"CedarPoint Digital BE302-3\", \"functional_score\": 90, \"security_score\": 58, \"tco_3y_eur\": 2443038, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 66.1}, {\"vendor\": \"DeltaForge Technologies BE302-4\", \"functional_score\": 70, \"security_score\": 56, \"tco_3y_eur\": 698833, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 70.1}], \"selected_vendor\": \"CedarPoint Digital BE302-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 35, \"purchasing_budget_eur\": 1500000}}"
+        },
+        {
+          "finding_id": "PROC-BUDGET-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Asterion Cloud BE302-1\", \"functional_score\": 84, \"security_score\": 61, \"tco_3y_eur\": 863826, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.4}, {\"vendor\": \"BlueMesa Systems BE302-2\", \"functional_score\": 82, \"security_score\": 72, \"tco_3y_eur\": 1003273, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"pending\", \"weighted_score\": 71.1}, {\"vendor\": \"CedarPoint Digital BE302-3\", \"functional_score\": 90, \"security_score\": 58, \"tco_3y_eur\": 2443038, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 66.1}, {\"vendor\": \"DeltaForge Technologies BE302-4\", \"functional_score\": 70, \"security_score\": 56, \"tco_3y_eur\": 698833, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 70.1}], \"selected_vendor\": \"CedarPoint Digital BE302-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 35, \"purchasing_budget_eur\": 1500000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035045",
+              "generation_seed": 35045,
+              "project_name": "Project Ion — Customer 360 CRM [BE302]",
+              "project_code": "BE302",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Thomas Moreau-35045-SP",
+              "project_manager": "Omar Meyer-35045-PM",
+              "business_owner": "Nadia Rossi-35045-BO",
+              "service_owner": "Clara Canale-35045-SO",
+              "risk_owner": "Adam Petrescu-35045-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-19",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Asterion Cloud BE302-1",
+                  "functional_score": 84,
+                  "security_score": 61,
+                  "tco_3y_eur": 863826,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 75.4
+                },
+                {
+                  "vendor": "BlueMesa Systems BE302-2",
+                  "functional_score": 82,
+                  "security_score": 72,
+                  "tco_3y_eur": 1003273,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "pending",
+                  "weighted_score": 71.1
+                },
+                {
+                  "vendor": "CedarPoint Digital BE302-3",
+                  "functional_score": 90,
+                  "security_score": 58,
+                  "tco_3y_eur": 2443038,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "pending",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 66.1
+                },
+                {
+                  "vendor": "DeltaForge Technologies BE302-4",
+                  "functional_score": 70,
+                  "security_score": 56,
+                  "tco_3y_eur": 698833,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 70.1
+                }
+              ],
+              "selected_vendor": "CedarPoint Digital BE302-3",
+              "competition": "open_tender",
+              "rfp_requirements": 35,
+              "purchasing_budget_eur": 1500000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-IP-001",
+        "LEGAL-INS-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "CLARIFY_IP_OWNERSHIP",
+        "OBTAIN_VALID_INSURANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BE302-12.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+        },
+        {
+          "finding_id": "LEGAL-IP-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BE302-12.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+        },
+        {
+          "finding_id": "LEGAL-INS-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BE302-12.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035045",
+              "generation_seed": 35045,
+              "project_name": "Project Ion — Customer 360 CRM [BE302]",
+              "project_code": "BE302",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Thomas Moreau-35045-SP",
+              "project_manager": "Omar Meyer-35045-PM",
+              "business_owner": "Nadia Rossi-35045-BO",
+              "service_owner": "Clara Canale-35045-SO",
+              "risk_owner": "Adam Petrescu-35045-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-19",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-BE302-12.9",
+              "governing_law": "England & Wales",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": 0.5,
+              "security_carveout": true,
+              "audit_right": "reports_only",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 30,
+              "ip_ownership": "ambiguous",
+              "insurance_valid": false,
+              "cyber_insurance_m": 0,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "missing",
+              "sla_penalties": false,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-MAP-001",
+        "COMP-A11Y-001",
+        "COMP-EXPORT-002"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "COMPLETE_CONTROL_MAPPING",
+        "REMEDIATE_ACCESSIBILITY",
+        "COMPLETE_EXPORT_CONTROL_REVIEW"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-A11Y-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-002",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035045",
+              "generation_seed": 35045,
+              "project_name": "Project Ion — Customer 360 CRM [BE302]",
+              "project_code": "BE302",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Thomas Moreau-35045-SP",
+              "project_manager": "Omar Meyer-35045-PM",
+              "business_owner": "Nadia Rossi-35045-BO",
+              "service_owner": "Clara Canale-35045-SO",
+              "risk_owner": "Adam Petrescu-35045-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-19",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR",
+                "NIS2",
+                "PCI-DSS",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "missing",
+              "required_residency": "EU",
+              "residency_compliant": true,
+              "retention_years": 1,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "complete",
+              "accessibility_status": "major_findings",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "continuous",
+              "export_control": "pending"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-VULN-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "REMEDIATE_CRITICAL_VULNERABILITIES",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 5, \"pentest_age_days\": null, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 5, \"pentest_age_days\": null, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035045",
+              "generation_seed": 35045,
+              "project_name": "Project Ion — Customer 360 CRM [BE302]",
+              "project_code": "BE302",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Thomas Moreau-35045-SP",
+              "project_manager": "Omar Meyer-35045-PM",
+              "business_owner": "Nadia Rossi-35045-BO",
+              "service_owner": "Clara Canale-35045-SO",
+              "risk_owner": "Adam Petrescu-35045-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-19",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 2,
+              "high_vulns_open": 5,
+              "pentest_age_days": null,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001",
+        "IT-RUN-001",
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY",
+        "ASSIGN_RUN_OWNER",
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 301034, \"cmdb_record_present\": true, \"run_owner_present\": false, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+        },
+        {
+          "finding_id": "IT-RUN-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 301034, \"cmdb_record_present\": true, \"run_owner_present\": false, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+        },
+        {
+          "finding_id": "IT-CAPACITY-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 301034, \"cmdb_record_present\": true, \"run_owner_present\": false, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035045",
+              "generation_seed": 35045,
+              "project_name": "Project Ion — Customer 360 CRM [BE302]",
+              "project_code": "BE302",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Thomas Moreau-35045-SP",
+              "project_manager": "Omar Meyer-35045-PM",
+              "business_owner": "Nadia Rossi-35045-BO",
+              "service_owner": "Clara Canale-35045-SO",
+              "risk_owner": "Adam Petrescu-35045-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-19",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": true,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 301034,
+              "cmdb_record_present": true,
+              "run_owner_present": false,
+              "support_model": "product_team",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 36,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "vmss"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"PROC-SAN-002\", \"PROC-BUDGET-001\"], \"actions\": [\"COMPLETE_SANCTIONS_SCREENING\", \"OBTAIN_BUDGET_ARBITRATION\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-SAN-002\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"Asterion Cloud BE302-1\\\", \\\"functional_score\\\": 84, \\\"security_score\\\": 61, \\\"tco_3y_eur\\\": 863826, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 75.4}, {\\\"vendor\\\": \\\"BlueMesa Systems BE302-2\\\", \\\"functional_score\\\": 82, \\\"security_score\\\": 72, \\\"tco_3y_eur\\\": 1003273, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 71.1}, {\\\"vendor\\\": \\\"CedarPoint Digital BE302-3\\\", \\\"functional_score\\\": 90, \\\"security_score\\\": 58, \\\"tco_3y_eur\\\": 2443038, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 66.1}, {\\\"vendor\\\": \\\"DeltaForge Technologies BE302-4\\\", \\\"functional_score\\\": 70, \\\"security_score\\\": 56, \\\"tco_3y_eur\\\": 698833, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 70.1}], \\\"selected_vendor\\\": \\\"CedarPoint Digital BE302-3\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 35, \\\"purchasing_budget_eur\\\": 1500000}}\"}, {\"finding_id\": \"PROC-BUDGET-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"Asterion Cloud BE302-1\\\", \\\"functional_score\\\": 84, \\\"security_score\\\": 61, \\\"tco_3y_eur\\\": 863826, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 75.4}, {\\\"vendor\\\": \\\"BlueMesa Systems BE302-2\\\", \\\"functional_score\\\": 82, \\\"security_score\\\": 72, \\\"tco_3y_eur\\\": 1003273, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": false, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 71.1}, {\\\"vendor\\\": \\\"CedarPoint Digital BE302-3\\\", \\\"functional_score\\\": 90, \\\"security_score\\\": 58, \\\"tco_3y_eur\\\": 2443038, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"pending\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 66.1}, {\\\"vendor\\\": \\\"DeltaForge Technologies BE302-4\\\", \\\"functional_score\\\": 70, \\\"security_score\\\": 56, \\\"tco_3y_eur\\\": 698833, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 70.1}], \\\"selected_vendor\\\": \\\"CedarPoint Digital BE302-3\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 35, \\\"purchasing_budget_eur\\\": 1500000}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-IP-001\", \"LEGAL-INS-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\", \"CLARIFY_IP_OWNERSHIP\", \"OBTAIN_VALID_INSURANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-BE302-12.9\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 0, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": false, \\\"log_export_clause\\\": \\\"included\\\"}}\"}, {\"finding_id\": \"LEGAL-IP-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-BE302-12.9\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 0, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": false, \\\"log_export_clause\\\": \\\"included\\\"}}\"}, {\"finding_id\": \"LEGAL-INS-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-BE302-12.9\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"signed\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"ambiguous\\\", \\\"insurance_valid\\\": false, \\\"cyber_insurance_m\\\": 0, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"missing\\\", \\\"sla_penalties\\\": false, \\\"log_export_clause\\\": \\\"included\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"SUSPENSION\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-MAP-001\", \"COMP-A11Y-001\", \"COMP-EXPORT-002\"], \"actions\": [\"COMPLETE_DPIA\", \"COMPLETE_CONTROL_MAPPING\", \"REMEDIATE_ACCESSIBILITY\", \"COMPLETE_EXPORT_CONTROL_REVIEW\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-A11Y-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-002\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\", \\\"NIS2\\\", \\\"PCI-DSS\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 1, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"complete\\\", \\\"accessibility_status\\\": \\\"major_findings\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"continuous\\\", \\\"export_control\\\": \\\"pending\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-VULN-001\", \"SEC-KEY-001\"], \"actions\": [\"REMEDIATE_CRITICAL_VULNERABILITIES\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 5, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 365, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 5, \\\"pentest_age_days\\\": null, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\", \"IT-RUN-001\", \"IT-CAPACITY-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\", \"ASSIGN_RUN_OWNER\", \"INCREASE_CAPACITY_HEADROOM\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 301034, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": false, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vmss\\\"}}\"}, {\"finding_id\": \"IT-RUN-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 301034, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": false, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vmss\\\"}}\"}, {\"finding_id\": \"IT-CAPACITY-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035045\\\", \\\"generation_seed\\\": 35045, \\\"project_name\\\": \\\"Project Ion — Customer 360 CRM [BE302]\\\", \\\"project_code\\\": \\\"BE302\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Thomas Moreau-35045-SP\\\", \\\"project_manager\\\": \\\"Omar Meyer-35045-PM\\\", \\\"business_owner\\\": \\\"Nadia Rossi-35045-BO\\\", \\\"service_owner\\\": \\\"Clara Canale-35045-SO\\\", \\\"risk_owner\\\": \\\"Adam Petrescu-35045-RO\\\", \\\"start_date\\\": \\\"2026-10-29\\\", \\\"target_go_live\\\": \\\"2027-07-19\\\", \\\"users_impacted\\\": 250, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 365, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 301034, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": false, \\\"support_model\\\": \\\"product_team\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"vmss\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035045",
+              "generation_seed": 35045,
+              "project_name": "Project Ion — Customer 360 CRM [BE302]",
+              "project_code": "BE302",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Thomas Moreau-35045-SP",
+              "project_manager": "Omar Meyer-35045-PM",
+              "business_owner": "Nadia Rossi-35045-BO",
+              "service_owner": "Clara Canale-35045-SO",
+              "risk_owner": "Adam Petrescu-35045-RO",
+              "start_date": "2026-10-29",
+              "target_go_live": "2027-07-19",
+              "users_impacted": 250,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "Critical",
+              "primary_region": "West Europe",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1500000,
+              "roi": 0.293,
+              "npv_eur": 1093257,
+              "payback_months": 42,
+              "schedule_slip_weeks": 2,
+              "fte_needed": 11.0,
+              "fte_available": 5.9,
+              "change_plan_status": "partial",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Lucas Rahman-35045-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "PROC-SAN-002",
+                "PROC-BUDGET-001"
+              ],
+              "actions": [
+                "COMPLETE_SANCTIONS_SCREENING",
+                "OBTAIN_BUDGET_ARBITRATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-SAN-002",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Asterion Cloud BE302-1\", \"functional_score\": 84, \"security_score\": 61, \"tco_3y_eur\": 863826, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.4}, {\"vendor\": \"BlueMesa Systems BE302-2\", \"functional_score\": 82, \"security_score\": 72, \"tco_3y_eur\": 1003273, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"pending\", \"weighted_score\": 71.1}, {\"vendor\": \"CedarPoint Digital BE302-3\", \"functional_score\": 90, \"security_score\": 58, \"tco_3y_eur\": 2443038, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 66.1}, {\"vendor\": \"DeltaForge Technologies BE302-4\", \"functional_score\": 70, \"security_score\": 56, \"tco_3y_eur\": 698833, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 70.1}], \"selected_vendor\": \"CedarPoint Digital BE302-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 35, \"purchasing_budget_eur\": 1500000}}"
+                },
+                {
+                  "finding_id": "PROC-BUDGET-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"Asterion Cloud BE302-1\", \"functional_score\": 84, \"security_score\": 61, \"tco_3y_eur\": 863826, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 75.4}, {\"vendor\": \"BlueMesa Systems BE302-2\", \"functional_score\": 82, \"security_score\": 72, \"tco_3y_eur\": 1003273, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"pending\", \"weighted_score\": 71.1}, {\"vendor\": \"CedarPoint Digital BE302-3\", \"functional_score\": 90, \"security_score\": 58, \"tco_3y_eur\": 2443038, \"mandatory_criteria_failed\": 0, \"sanctions\": \"pending\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 66.1}, {\"vendor\": \"DeltaForge Technologies BE302-4\", \"functional_score\": 70, \"security_score\": 56, \"tco_3y_eur\": 698833, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 70.1}], \"selected_vendor\": \"CedarPoint Digital BE302-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 35, \"purchasing_budget_eur\": 1500000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "LEGAL-AUDIT-001",
+                "LEGAL-IP-001",
+                "LEGAL-INS-001"
+              ],
+              "actions": [
+                "REDLINE_AUDIT_RIGHT",
+                "CLARIFY_IP_OWNERSHIP",
+                "OBTAIN_VALID_INSURANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BE302-12.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-IP-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BE302-12.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-INS-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-BE302-12.9\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"signed\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"ambiguous\", \"insurance_valid\": false, \"cyber_insurance_m\": 0, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": false, \"log_export_clause\": \"included\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "SUSPENSION",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-MAP-001",
+                "COMP-A11Y-001",
+                "COMP-EXPORT-002"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "COMPLETE_CONTROL_MAPPING",
+                "REMEDIATE_ACCESSIBILITY",
+                "COMPLETE_EXPORT_CONTROL_REVIEW"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-A11Y-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-002",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"GDPR\", \"NIS2\", \"PCI-DSS\", \"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 1, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"complete\", \"accessibility_status\": \"major_findings\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"continuous\", \"export_control\": \"pending\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-VULN-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "REMEDIATE_CRITICAL_VULNERABILITIES",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 5, \"pentest_age_days\": null, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 5, \"pentest_age_days\": null, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001",
+                "IT-RUN-001",
+                "IT-CAPACITY-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY",
+                "ASSIGN_RUN_OWNER",
+                "INCREASE_CAPACITY_HEADROOM"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 301034, \"cmdb_record_present\": true, \"run_owner_present\": false, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+                },
+                {
+                  "finding_id": "IT-RUN-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 301034, \"cmdb_record_present\": true, \"run_owner_present\": false, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+                },
+                {
+                  "finding_id": "IT-CAPACITY-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035045\", \"generation_seed\": 35045, \"project_name\": \"Project Ion — Customer 360 CRM [BE302]\", \"project_code\": \"BE302\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Thomas Moreau-35045-SP\", \"project_manager\": \"Omar Meyer-35045-PM\", \"business_owner\": \"Nadia Rossi-35045-BO\", \"service_owner\": \"Clara Canale-35045-SO\", \"risk_owner\": \"Adam Petrescu-35045-RO\", \"start_date\": \"2026-10-29\", \"target_go_live\": \"2027-07-19\", \"users_impacted\": 250, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Critical\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 365, \"duplicate_capability\": true, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 301034, \"cmdb_record_present\": true, \"run_owner_present\": false, \"support_model\": \"product_team\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"vmss\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "gate_results": [
+    {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-EOL-001"
+      ],
+      "actions": [
+        "CREATE_CONVERGENCE_PLAN"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-EOL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035269\", \"generation_seed\": 35269, \"project_name\": \"Project Ion — AI Service Desk [CC635]\", \"project_code\": \"CC635\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Marc Garcia-35269-SP\", \"project_manager\": \"Sofia Moreau-35269-PM\", \"business_owner\": \"Leila Garcia-35269-BO\", \"service_owner\": \"Maya Garcia-35269-SO\", \"risk_owner\": \"Ines Petrescu-35269-RO\", \"start_date\": \"2026-10-25\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": false, \"waiver_expiry_days\": 30, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 429088, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 8, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"mixed\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-API-001"
+      ],
+      "actions": [
+        "ADD_API_GATEWAY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-API-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035269\", \"generation_seed\": 35269, \"project_name\": \"Project Ion — AI Service Desk [CC635]\", \"project_code\": \"CC635\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Marc Garcia-35269-SP\", \"project_manager\": \"Sofia Moreau-35269-PM\", \"business_owner\": \"Leila Garcia-35269-BO\", \"service_owner\": \"Maya Garcia-35269-SO\", \"risk_owner\": \"Ines Petrescu-35269-RO\", \"start_date\": \"2026-10-25\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-CC635-v1.3\", \"lld_version\": \"LLD-CC635-v2.6\", \"api_gateway_required\": true, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 95, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 4, \"adr_count\": 15, \"reversibility_status\": \"tested\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.80.0/24\", \"10.20.81.0/24\", \"10.20.82.0/24\"], \"dns_zone\": \"dgf-bld-035269.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035269\", \"generation_seed\": 35269, \"project_name\": \"Project Ion — AI Service Desk [CC635]\", \"project_code\": \"CC635\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Retail\", \"sponsor\": \"Marc Garcia-35269-SP\", \"project_manager\": \"Sofia Moreau-35269-PM\", \"business_owner\": \"Leila Garcia-35269-BO\", \"service_owner\": \"Maya Garcia-35269-SO\", \"risk_owner\": \"Ines Petrescu-35269-RO\", \"start_date\": \"2026-10-25\", \"target_go_live\": \"2027-05-18\", \"users_impacted\": 5000, \"budget_requested_eur\": 900000, \"data_classification\": \"Confidential\", \"business_criticality\": \"Medium\", \"primary_region\": \"West Europe\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": false, \"waf_present\": false, \"waf_mode\": \"None\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 3, \"pentest_age_days\": 365, \"pentest_status\": \"missing\", \"secrets_in_keyvault\": false, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-EOL-001\"], \"actions\": [\"CREATE_CONVERGENCE_PLAN\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-EOL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035269\\\", \\\"generation_seed\\\": 35269, \\\"project_name\\\": \\\"Project Ion — AI Service Desk [CC635]\\\", \\\"project_code\\\": \\\"CC635\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Marc Garcia-35269-SP\\\", \\\"project_manager\\\": \\\"Sofia Moreau-35269-PM\\\", \\\"business_owner\\\": \\\"Leila Garcia-35269-BO\\\", \\\"service_owner\\\": \\\"Maya Garcia-35269-SO\\\", \\\"risk_owner\\\": \\\"Ines Petrescu-35269-RO\\\", \\\"start_date\\\": \\\"2026-10-25\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 30, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 429088, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 8, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"mixed\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-API-001\"], \"actions\": [\"ADD_API_GATEWAY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-API-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035269\\\", \\\"generation_seed\\\": 35269, \\\"project_name\\\": \\\"Project Ion — AI Service Desk [CC635]\\\", \\\"project_code\\\": \\\"CC635\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Marc Garcia-35269-SP\\\", \\\"project_manager\\\": \\\"Sofia Moreau-35269-PM\\\", \\\"business_owner\\\": \\\"Leila Garcia-35269-BO\\\", \\\"service_owner\\\": \\\"Maya Garcia-35269-SO\\\", \\\"risk_owner\\\": \\\"Ines Petrescu-35269-RO\\\", \\\"start_date\\\": \\\"2026-10-25\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-CC635-v1.3\\\", \\\"lld_version\\\": \\\"LLD-CC635-v2.6\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 95, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 15, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.80.0/24\\\", \\\"10.20.81.0/24\\\", \\\"10.20.82.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035269.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"SEC-KEY-001\"], \"actions\": [\"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035269\\\", \\\"generation_seed\\\": 35269, \\\"project_name\\\": \\\"Project Ion — AI Service Desk [CC635]\\\", \\\"project_code\\\": \\\"CC635\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Retail\\\", \\\"sponsor\\\": \\\"Marc Garcia-35269-SP\\\", \\\"project_manager\\\": \\\"Sofia Moreau-35269-PM\\\", \\\"business_owner\\\": \\\"Leila Garcia-35269-BO\\\", \\\"service_owner\\\": \\\"Maya Garcia-35269-SO\\\", \\\"risk_owner\\\": \\\"Ines Petrescu-35269-RO\\\", \\\"start_date\\\": \\\"2026-10-25\\\", \\\"target_go_live\\\": \\\"2027-05-18\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 900000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"Medium\\\", \\\"primary_region\\\": \\\"West Europe\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": false, \\\"waf_present\\\": false, \\\"waf_mode\\\": \\\"None\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 3, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"missing\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    }
+  ]
+}

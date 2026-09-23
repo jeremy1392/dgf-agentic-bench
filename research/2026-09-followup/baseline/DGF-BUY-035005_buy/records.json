@@ -1,0 +1,695 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035005",
+              "generation_seed": 35005,
+              "project_name": "Project Saffron — Customer 360 CRM [D9AF5]",
+              "project_code": "D9AF5",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Customer Service",
+              "sponsor": "Clara Meyer-35005-SP",
+              "project_manager": "Samir Santos-35005-PM",
+              "business_owner": "Jeremy Rahman-35005-BO",
+              "service_owner": "Adam Khan-35005-SO",
+              "risk_owner": "Leila Bennett-35005-RO",
+              "start_date": "2026-12-03",
+              "target_go_live": "2027-08-31",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Asterion Cloud D9AF5-1",
+                  "functional_score": 88,
+                  "security_score": 75,
+                  "tco_3y_eur": 600614,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 82.8
+                },
+                {
+                  "vendor": "BlueMesa Systems D9AF5-2",
+                  "functional_score": 78,
+                  "security_score": 72,
+                  "tco_3y_eur": 273094,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 80.6
+                },
+                {
+                  "vendor": "CedarPoint Digital D9AF5-3",
+                  "functional_score": 88,
+                  "security_score": 56,
+                  "tco_3y_eur": 742283,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 76.2
+                },
+                {
+                  "vendor": "DeltaForge Technologies D9AF5-4",
+                  "functional_score": 71,
+                  "security_score": 85,
+                  "tco_3y_eur": 830187,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "partial",
+                  "weighted_score": 72.3
+                }
+              ],
+              "selected_vendor": "BlueMesa Systems D9AF5-2",
+              "competition": "open_tender",
+              "rfp_requirements": 137,
+              "purchasing_budget_eur": 250000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-DPA-001",
+        "LEGAL-AUDIT-001"
+      ],
+      "actions": [
+        "EXECUTE_DPA",
+        "REDLINE_AUDIT_RIGHT"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-DPA-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D9AF5-3.8\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+        },
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D9AF5-3.8\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035005",
+              "generation_seed": 35005,
+              "project_name": "Project Saffron — Customer 360 CRM [D9AF5]",
+              "project_code": "D9AF5",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Customer Service",
+              "sponsor": "Clara Meyer-35005-SP",
+              "project_manager": "Samir Santos-35005-PM",
+              "business_owner": "Jeremy Rahman-35005-BO",
+              "service_owner": "Adam Khan-35005-SO",
+              "risk_owner": "Leila Bennett-35005-RO",
+              "start_date": "2026-12-03",
+              "target_go_live": "2027-08-31",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-D9AF5-3.8",
+              "governing_law": "England & Wales",
+              "dpa_status": "missing",
+              "liability_cap_multiplier": 0.5,
+              "security_carveout": true,
+              "audit_right": "reports_only",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 180,
+              "ip_ownership": "shared",
+              "insurance_valid": true,
+              "cyber_insurance_m": 10,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": true,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035005",
+              "generation_seed": 35005,
+              "project_name": "Project Saffron — Customer 360 CRM [D9AF5]",
+              "project_code": "D9AF5",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Customer Service",
+              "sponsor": "Clara Meyer-35005-SP",
+              "project_manager": "Samir Santos-35005-PM",
+              "business_owner": "Jeremy Rahman-35005-BO",
+              "service_owner": "Adam Khan-35005-SO",
+              "risk_owner": "Leila Bennett-35005-RO",
+              "start_date": "2026-12-03",
+              "target_go_live": "2027-08-31",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": true,
+              "dpia_status": "complete",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 5,
+              "legal_hold_supported": false,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "pass",
+              "ethics_review": "not_required",
+              "regulatory_mapping": "complete",
+              "third_party_monitoring": "none",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "SEC-LOG-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 0, \"pentest_age_days\": 30, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 0, \"pentest_age_days\": 30, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035005",
+              "generation_seed": 35005,
+              "project_name": "Project Saffron — Customer 360 CRM [D9AF5]",
+              "project_code": "D9AF5",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Customer Service",
+              "sponsor": "Clara Meyer-35005-SP",
+              "project_manager": "Samir Santos-35005-PM",
+              "business_owner": "Jeremy Rahman-35005-BO",
+              "service_owner": "Adam Khan-35005-SO",
+              "risk_owner": "Leila Bennett-35005-RO",
+              "start_date": "2026-12-03",
+              "target_go_live": "2027-08-31",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": false,
+              "sentinel": false,
+              "defender": false,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 0,
+              "pentest_age_days": 30,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": false,
+              "edr_enabled": false,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035005",
+              "generation_seed": 35005,
+              "project_name": "Project Saffron — Customer 360 CRM [D9AF5]",
+              "project_code": "D9AF5",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Customer Service",
+              "sponsor": "Clara Meyer-35005-SP",
+              "project_manager": "Samir Santos-35005-PM",
+              "business_owner": "Jeremy Rahman-35005-BO",
+              "service_owner": "Adam Khan-35005-SO",
+              "risk_owner": "Leila Bennett-35005-RO",
+              "start_date": "2026-12-03",
+              "target_go_live": "2027-08-31",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 276539,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 90,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "vmss"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "SUSPENSION",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P2\", \"budget_requested_eur\": 250000, \"budget_approved_eur\": 250000, \"roi\": 0.302, \"npv_eur\": 77990, \"payback_months\": 26, \"schedule_slip_weeks\": 1, \"fte_needed\": 28.4, \"fte_available\": 21.9, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"availability\", \"benefits_owner\": \"Marc Haddad-35005-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-DPA-001\", \"LEGAL-AUDIT-001\"], \"actions\": [\"EXECUTE_DPA\", \"REDLINE_AUDIT_RIGHT\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-DPA-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035005\\\", \\\"generation_seed\\\": 35005, \\\"project_name\\\": \\\"Project Saffron — Customer 360 CRM [D9AF5]\\\", \\\"project_code\\\": \\\"D9AF5\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Clara Meyer-35005-SP\\\", \\\"project_manager\\\": \\\"Samir Santos-35005-PM\\\", \\\"business_owner\\\": \\\"Jeremy Rahman-35005-BO\\\", \\\"service_owner\\\": \\\"Adam Khan-35005-SO\\\", \\\"risk_owner\\\": \\\"Leila Bennett-35005-RO\\\", \\\"start_date\\\": \\\"2026-12-03\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-D9AF5-3.8\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 10, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"included\\\"}}\"}, {\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035005\\\", \\\"generation_seed\\\": 35005, \\\"project_name\\\": \\\"Project Saffron — Customer 360 CRM [D9AF5]\\\", \\\"project_code\\\": \\\"D9AF5\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Clara Meyer-35005-SP\\\", \\\"project_manager\\\": \\\"Samir Santos-35005-PM\\\", \\\"business_owner\\\": \\\"Jeremy Rahman-35005-BO\\\", \\\"service_owner\\\": \\\"Adam Khan-35005-SO\\\", \\\"risk_owner\\\": \\\"Leila Bennett-35005-RO\\\", \\\"start_date\\\": \\\"2026-12-03\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-D9AF5-3.8\\\", \\\"governing_law\\\": \\\"England & Wales\\\", \\\"dpa_status\\\": \\\"missing\\\", \\\"liability_cap_multiplier\\\": 0.5, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 180, \\\"ip_ownership\\\": \\\"shared\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 10, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"scc\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"included\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-AUDIT-001\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035005\\\", \\\"generation_seed\\\": 35005, \\\"project_name\\\": \\\"Project Saffron — Customer 360 CRM [D9AF5]\\\", \\\"project_code\\\": \\\"D9AF5\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Clara Meyer-35005-SP\\\", \\\"project_manager\\\": \\\"Samir Santos-35005-PM\\\", \\\"business_owner\\\": \\\"Jeremy Rahman-35005-BO\\\", \\\"service_owner\\\": \\\"Adam Khan-35005-SO\\\", \\\"risk_owner\\\": \\\"Leila Bennett-35005-RO\\\", \\\"start_date\\\": \\\"2026-12-03\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"complete\\\", \\\"required_residency\\\": \\\"No restriction\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 5, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"not_required\\\", \\\"regulatory_mapping\\\": \\\"complete\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"SEC-LOG-001\", \"SEC-KEY-001\"], \"actions\": [\"CONNECT_LOGS_TO_SIEM\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035005\\\", \\\"generation_seed\\\": 35005, \\\"project_name\\\": \\\"Project Saffron — Customer 360 CRM [D9AF5]\\\", \\\"project_code\\\": \\\"D9AF5\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Clara Meyer-35005-SP\\\", \\\"project_manager\\\": \\\"Samir Santos-35005-PM\\\", \\\"business_owner\\\": \\\"Jeremy Rahman-35005-BO\\\", \\\"service_owner\\\": \\\"Adam Khan-35005-SO\\\", \\\"risk_owner\\\": \\\"Leila Bennett-35005-RO\\\", \\\"start_date\\\": \\\"2026-12-03\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 30, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": false, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035005\\\", \\\"generation_seed\\\": 35005, \\\"project_name\\\": \\\"Project Saffron — Customer 360 CRM [D9AF5]\\\", \\\"project_code\\\": \\\"D9AF5\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Customer Service\\\", \\\"sponsor\\\": \\\"Clara Meyer-35005-SP\\\", \\\"project_manager\\\": \\\"Samir Santos-35005-PM\\\", \\\"business_owner\\\": \\\"Jeremy Rahman-35005-BO\\\", \\\"service_owner\\\": \\\"Adam Khan-35005-SO\\\", \\\"risk_owner\\\": \\\"Leila Bennett-35005-RO\\\", \\\"start_date\\\": \\\"2026-12-03\\\", \\\"target_go_live\\\": \\\"2027-08-31\\\", \\\"users_impacted\\\": 5000, \\\"budget_requested_eur\\\": 250000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": false, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": false, \\\"critical_vulns_open\\\": 0, \\\"high_vulns_open\\\": 0, \\\"pentest_age_days\\\": 30, \\\"pentest_status\\\": \\\"pass\\\", \\\"secrets_in_keyvault\\\": false, \\\"edr_enabled\\\": false, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035005",
+              "generation_seed": 35005,
+              "project_name": "Project Saffron — Customer 360 CRM [D9AF5]",
+              "project_code": "D9AF5",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Customer Service",
+              "sponsor": "Clara Meyer-35005-SP",
+              "project_manager": "Samir Santos-35005-PM",
+              "business_owner": "Jeremy Rahman-35005-BO",
+              "service_owner": "Adam Khan-35005-SO",
+              "risk_owner": "Leila Bennett-35005-RO",
+              "start_date": "2026-12-03",
+              "target_go_live": "2027-08-31",
+              "users_impacted": 5000,
+              "budget_requested_eur": 250000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "weak",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 250000,
+              "budget_approved_eur": 250000,
+              "roi": 0.302,
+              "npv_eur": 77990,
+              "payback_months": 26,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 28.4,
+              "fte_available": 21.9,
+              "change_plan_status": "partial",
+              "benefits_kpi": "availability",
+              "benefits_owner": "Marc Haddad-35005-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-DPA-001",
+                "LEGAL-AUDIT-001"
+              ],
+              "actions": [
+                "EXECUTE_DPA",
+                "REDLINE_AUDIT_RIGHT"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-DPA-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D9AF5-3.8\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D9AF5-3.8\", \"governing_law\": \"England & Wales\", \"dpa_status\": \"missing\", \"liability_cap_multiplier\": 0.5, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 180, \"ip_ownership\": \"shared\", \"insurance_valid\": true, \"cyber_insurance_m\": 10, \"signing_authority_valid\": true, \"data_transfer_clause\": \"scc\", \"sla_penalties\": true, \"log_export_clause\": \"included\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-AUDIT-001"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"EU AI Act / internal AI policy\"], \"dpia_required\": true, \"dpia_status\": \"complete\", \"required_residency\": \"No restriction\", \"residency_compliant\": true, \"retention_years\": 5, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"not_required\", \"regulatory_mapping\": \"complete\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "SEC-LOG-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "CONNECT_LOGS_TO_SIEM",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 0, \"pentest_age_days\": 30, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035005\", \"generation_seed\": 35005, \"project_name\": \"Project Saffron — Customer 360 CRM [D9AF5]\", \"project_code\": \"D9AF5\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Customer Service\", \"sponsor\": \"Clara Meyer-35005-SP\", \"project_manager\": \"Samir Santos-35005-PM\", \"business_owner\": \"Jeremy Rahman-35005-BO\", \"service_owner\": \"Adam Khan-35005-SO\", \"risk_owner\": \"Leila Bennett-35005-RO\", \"start_date\": \"2026-12-03\", \"target_go_live\": \"2027-08-31\", \"users_impacted\": 5000, \"budget_requested_eur\": 250000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": false, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": false, \"critical_vulns_open\": 0, \"high_vulns_open\": 0, \"pentest_age_days\": 30, \"pentest_status\": \"pass\", \"secrets_in_keyvault\": false, \"edr_enabled\": false, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

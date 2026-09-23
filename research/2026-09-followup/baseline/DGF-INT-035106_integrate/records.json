@@ -1,0 +1,759 @@
+{
+  "INTEGRATE-01-IT-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-CATALOG-001"
+      ],
+      "actions": [
+        "SUBMIT_TECHNOLOGY_WAIVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CATALOG-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 531018, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"container_apps\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035106",
+              "generation_seed": 35106,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]",
+              "project_code": "D5160",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Corporate Services",
+              "sponsor": "Ines Rossi-35106-SP",
+              "project_manager": "Leila Costa-35106-PM",
+              "business_owner": "Adam Rossi-35106-BO",
+              "service_owner": "Clara Volkov-35106-SO",
+              "risk_owner": "Jeremy Benali-35106-RO",
+              "start_date": "2026-10-14",
+              "target_go_live": "2027-07-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "non_standard",
+              "waiver_present": false,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "none",
+              "license_compliant": true,
+              "annual_license_cost_eur": 531018,
+              "cmdb_record_present": false,
+              "run_owner_present": true,
+              "support_model": "vendor_only",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 36,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "container_apps"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "ARCH-PERF-001"
+      ],
+      "actions": [
+        "REMEDIATE_LATENCY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-D5160-v1.4\", \"lld_version\": \"LLD-D5160-v2.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 0, \"adr_count\": 2, \"reversibility_status\": \"tested\", \"data_export_supported\": false, \"private_cidrs\": [\"10.210.32.0/24\", \"10.210.33.0/24\", \"10.210.34.0/24\"], \"dns_zone\": \"dgf-int-035106.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035106",
+              "generation_seed": 35106,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]",
+              "project_code": "D5160",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Corporate Services",
+              "sponsor": "Ines Rossi-35106-SP",
+              "project_manager": "Leila Costa-35106-PM",
+              "business_owner": "Adam Rossi-35106-BO",
+              "service_owner": "Clara Volkov-35106-SO",
+              "risk_owner": "Jeremy Benali-35106-RO",
+              "start_date": "2026-10-14",
+              "target_go_live": "2027-07-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-D5160-v1.4",
+              "lld_version": "LLD-D5160-v2.1",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": false,
+              "data_owner_present": true,
+              "data_lineage_complete": true,
+              "latency_target_ms": 200,
+              "measured_latency_ms": 350,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 0,
+              "adr_count": 2,
+              "reversibility_status": "tested",
+              "data_export_supported": false,
+              "private_cidrs": [
+                "10.210.32.0/24",
+                "10.210.33.0/24",
+                "10.210.34.0/24"
+              ],
+              "dns_zone": "dgf-int-035106.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-IAM-002",
+        "SEC-VULN-001",
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+        "REMEDIATE_CRITICAL_VULNERABILITIES",
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-IAM-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 8, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 8, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 8, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035106",
+              "generation_seed": 35106,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]",
+              "project_code": "D5160",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Corporate Services",
+              "sponsor": "Ines Rossi-35106-SP",
+              "project_manager": "Leila Costa-35106-PM",
+              "business_owner": "Adam Rossi-35106-BO",
+              "service_owner": "Clara Volkov-35106-SO",
+              "risk_owner": "Jeremy Benali-35106-RO",
+              "start_date": "2026-10-14",
+              "target_go_live": "2027-07-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": false,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": true,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": null,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 2,
+              "high_vulns_open": 8,
+              "pentest_age_days": 365,
+              "pentest_status": "pass_with_findings",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-04-LEGAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-04-LEGAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "LEGAL-AUDIT-001",
+        "LEGAL-LOG-001"
+      ],
+      "actions": [
+        "REDLINE_AUDIT_RIGHT",
+        "ADD_LOG_EXPORT_CLAUSE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D5160-3.8\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        },
+        {
+          "finding_id": "LEGAL-LOG-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D5160-3.8\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035106",
+              "generation_seed": 35106,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]",
+              "project_code": "D5160",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Corporate Services",
+              "sponsor": "Ines Rossi-35106-SP",
+              "project_manager": "Leila Costa-35106-PM",
+              "business_owner": "Adam Rossi-35106-BO",
+              "service_owner": "Clara Volkov-35106-SO",
+              "risk_owner": "Jeremy Benali-35106-RO",
+              "start_date": "2026-10-14",
+              "target_go_live": "2027-07-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-D5160-3.8",
+              "governing_law": "France",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 2,
+              "security_carveout": true,
+              "audit_right": "reports_only",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 30,
+              "ip_ownership": "vendor",
+              "insurance_valid": true,
+              "cyber_insurance_m": 20,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "adequate",
+              "sla_penalties": true,
+              "log_export_clause": "missing"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-05-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "COMP-AUDIT-001",
+        "COMP-MAP-001",
+        "COMP-EXPORT-001"
+      ],
+      "actions": [
+        "IMPLEMENT_AUDIT_TRAIL",
+        "COMPLETE_CONTROL_MAPPING",
+        "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"EU AI Act / internal AI policy\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-MAP-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"EU AI Act / internal AI policy\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        },
+        {
+          "finding_id": "COMP-EXPORT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"EU AI Act / internal AI policy\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035106",
+              "generation_seed": 35106,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]",
+              "project_code": "D5160",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Corporate Services",
+              "sponsor": "Ines Rossi-35106-SP",
+              "project_manager": "Leila Costa-35106-PM",
+              "business_owner": "Adam Rossi-35106-BO",
+              "service_owner": "Clara Volkov-35106-SO",
+              "risk_owner": "Jeremy Benali-35106-RO",
+              "start_date": "2026-10-14",
+              "target_go_live": "2027-07-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "NIS2",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "UAE",
+              "residency_compliant": true,
+              "retention_years": 10,
+              "legal_hold_supported": false,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "pass",
+              "ethics_review": "conditional",
+              "regulatory_mapping": "missing",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "restricted"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "INTEGRATE-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-BC-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "REVISE_BUSINESS_CASE",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P3\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 7700000, \"roi\": 0.009, \"npv_eur\": -989097, \"payback_months\": 52, \"schedule_slip_weeks\": 4, \"fte_needed\": 19.9, \"fte_available\": 12.8, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"Adam Bennett-35106-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-BC-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P3\", \"budget_requested_eur\": 7000000, \"budget_approved_eur\": 7700000, \"roi\": 0.009, \"npv_eur\": -989097, \"payback_months\": 52, \"schedule_slip_weeks\": 4, \"fte_needed\": 19.9, \"fte_available\": 12.8, \"change_plan_status\": \"partial\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"Adam Bennett-35106-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"INTEGRATE-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-CATALOG-001\"], \"actions\": [\"SUBMIT_TECHNOLOGY_WAIVER\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CATALOG-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"non_standard\\\", \\\"waiver_present\\\": false, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"none\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 531018, \\\"cmdb_record_present\\\": false, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"vendor_only\\\", \\\"patch_sla_days\\\": 7, \\\"capacity_headroom_pct\\\": 30, \\\"technology_eol_months\\\": 36, \\\"change_record_status\\\": \\\"approved\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"container_apps\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"framing\"}, {\"occurrence_id\": \"INTEGRATE-02-ARCHITECTURE-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"ARCH-PERF-001\"], \"actions\": [\"REMEDIATE_LATENCY\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-D5160-v1.4\\\", \\\"lld_version\\\": \\\"LLD-D5160-v2.1\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": true, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 200, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 2, \\\"reversibility_status\\\": \\\"tested\\\", \\\"data_export_supported\\\": false, \\\"private_cidrs\\\": [\\\"10.210.32.0/24\\\", \\\"10.210.33.0/24\\\", \\\"10.210.34.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-int-035106.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-IAM-002\", \"SEC-VULN-001\", \"SEC-KEY-001\"], \"actions\": [\"CREATE_DEDICATED_WORKLOAD_IDENTITY\", \"REMEDIATE_CRITICAL_VULNERABILITIES\", \"IMPROVE_KEY_ROTATION\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-IAM-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 8, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 8, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-KEY-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": false, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": true, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": null, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 2, \\\"high_vulns_open\\\": 8, \\\"pentest_age_days\\\": 365, \\\"pentest_status\\\": \\\"pass_with_findings\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-04-LEGAL-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"LEGAL-AUDIT-001\", \"LEGAL-LOG-001\"], \"actions\": [\"REDLINE_AUDIT_RIGHT\", \"ADD_LOG_EXPORT_CLAUSE\"], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [{\"finding_id\": \"LEGAL-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-D5160-3.8\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"not_required\\\", \\\"liability_cap_multiplier\\\": 2, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"adequate\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}, {\"finding_id\": \"LEGAL-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_LEGAL\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"legal\\\": {\\\"contract_version\\\": \\\"MSA-D5160-3.8\\\", \\\"governing_law\\\": \\\"France\\\", \\\"dpa_status\\\": \\\"not_required\\\", \\\"liability_cap_multiplier\\\": 2, \\\"security_carveout\\\": true, \\\"audit_right\\\": \\\"reports_only\\\", \\\"termination_for_convenience\\\": false, \\\"exit_assistance_days\\\": 30, \\\"ip_ownership\\\": \\\"vendor\\\", \\\"insurance_valid\\\": true, \\\"cyber_insurance_m\\\": 20, \\\"signing_authority_valid\\\": true, \\\"data_transfer_clause\\\": \\\"adequate\\\", \\\"sla_penalties\\\": true, \\\"log_export_clause\\\": \\\"missing\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"INTEGRATE-05-COMPLIANCE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"COMP-AUDIT-001\", \"COMP-MAP-001\", \"COMP-EXPORT-001\"], \"actions\": [\"IMPLEMENT_AUDIT_TRAIL\", \"COMPLETE_CONTROL_MAPPING\", \"OBTAIN_EXPORT_CONTROL_CLEARANCE\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-MAP-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}, {\"finding_id\": \"COMP-EXPORT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-INT-035106\\\", \\\"generation_seed\\\": 35106, \\\"project_name\\\": \\\"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\\\", \\\"project_code\\\": \\\"D5160\\\", \\\"project_type\\\": \\\"ma_integration\\\", \\\"route\\\": \\\"integrate\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Ines Rossi-35106-SP\\\", \\\"project_manager\\\": \\\"Leila Costa-35106-PM\\\", \\\"business_owner\\\": \\\"Adam Rossi-35106-BO\\\", \\\"service_owner\\\": \\\"Clara Volkov-35106-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Benali-35106-RO\\\", \\\"start_date\\\": \\\"2026-10-14\\\", \\\"target_go_live\\\": \\\"2027-07-07\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Critical\\\", \\\"primary_region\\\": \\\"UAE North\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": true}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"NIS2\\\", \\\"EU AI Act / internal AI policy\\\"], \\\"dpia_required\\\": false, \\\"dpia_status\\\": \\\"not_required\\\", \\\"required_residency\\\": \\\"UAE\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 10, \\\"legal_hold_supported\\\": false, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"pass\\\", \\\"ethics_review\\\": \\\"conditional\\\", \\\"regulatory_mapping\\\": \\\"missing\\\", \\\"third_party_monitoring\\\": \\\"onboarding_only\\\", \\\"export_control\\\": \\\"restricted\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-INT-035106",
+              "generation_seed": 35106,
+              "project_name": "Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]",
+              "project_code": "D5160",
+              "project_type": "ma_integration",
+              "route": "integrate",
+              "business_unit": "Corporate Services",
+              "sponsor": "Ines Rossi-35106-SP",
+              "project_manager": "Leila Costa-35106-PM",
+              "business_owner": "Adam Rossi-35106-BO",
+              "service_owner": "Clara Volkov-35106-SO",
+              "risk_owner": "Jeremy Benali-35106-RO",
+              "start_date": "2026-10-14",
+              "target_go_live": "2027-07-07",
+              "users_impacted": 80,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Critical",
+              "primary_region": "UAE North",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "weak",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 7000000,
+              "budget_approved_eur": 7700000,
+              "roi": 0.009,
+              "npv_eur": -989097,
+              "payback_months": 52,
+              "schedule_slip_weeks": 4,
+              "fte_needed": 19.9,
+              "fte_available": 12.8,
+              "change_plan_status": "partial",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "Adam Bennett-35106-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "INTEGRATE-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-CATALOG-001"
+              ],
+              "actions": [
+                "SUBMIT_TECHNOLOGY_WAIVER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CATALOG-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"it\": {\"catalog_status\": \"non_standard\", \"waiver_present\": false, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"none\", \"license_compliant\": true, \"annual_license_cost_eur\": 531018, \"cmdb_record_present\": false, \"run_owner_present\": true, \"support_model\": \"vendor_only\", \"patch_sla_days\": 7, \"capacity_headroom_pct\": 30, \"technology_eol_months\": 36, \"change_record_status\": \"approved\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"container_apps\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "framing"
+            },
+            {
+              "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "ARCH-PERF-001"
+              ],
+              "actions": [
+                "REMEDIATE_LATENCY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-D5160-v1.4\", \"lld_version\": \"LLD-D5160-v2.1\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": false, \"data_owner_present\": true, \"data_lineage_complete\": true, \"latency_target_ms\": 200, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 0, \"adr_count\": 2, \"reversibility_status\": \"tested\", \"data_export_supported\": false, \"private_cidrs\": [\"10.210.32.0/24\", \"10.210.33.0/24\", \"10.210.34.0/24\"], \"dns_zone\": \"dgf-int-035106.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-IAM-002",
+                "SEC-VULN-001",
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "CREATE_DEDICATED_WORKLOAD_IDENTITY",
+                "REMEDIATE_CRITICAL_VULNERABILITIES",
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-IAM-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 8, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 8, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": true, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": null, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 2, \"high_vulns_open\": 8, \"pentest_age_days\": 365, \"pentest_status\": \"pass_with_findings\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-04-LEGAL-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "LEGAL-AUDIT-001",
+                "LEGAL-LOG-001"
+              ],
+              "actions": [
+                "REDLINE_AUDIT_RIGHT",
+                "ADD_LOG_EXPORT_CLAUSE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D5160-3.8\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                },
+                {
+                  "finding_id": "LEGAL-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-D5160-3.8\", \"governing_law\": \"France\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 2, \"security_carveout\": true, \"audit_right\": \"reports_only\", \"termination_for_convenience\": false, \"exit_assistance_days\": 30, \"ip_ownership\": \"vendor\", \"insurance_valid\": true, \"cyber_insurance_m\": 20, \"signing_authority_valid\": true, \"data_transfer_clause\": \"adequate\", \"sla_penalties\": true, \"log_export_clause\": \"missing\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "COMP-AUDIT-001",
+                "COMP-MAP-001",
+                "COMP-EXPORT-001"
+              ],
+              "actions": [
+                "IMPLEMENT_AUDIT_TRAIL",
+                "COMPLETE_CONTROL_MAPPING",
+                "OBTAIN_EXPORT_CONTROL_CLEARANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"EU AI Act / internal AI policy\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-MAP-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"EU AI Act / internal AI policy\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                },
+                {
+                  "finding_id": "COMP-EXPORT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-INT-035106\", \"generation_seed\": 35106, \"project_name\": \"Vega Acquisition Integration — Regulatory Reporting Modernization [D5160]\", \"project_code\": \"D5160\", \"project_type\": \"ma_integration\", \"route\": \"integrate\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Ines Rossi-35106-SP\", \"project_manager\": \"Leila Costa-35106-PM\", \"business_owner\": \"Adam Rossi-35106-BO\", \"service_owner\": \"Clara Volkov-35106-SO\", \"risk_owner\": \"Jeremy Benali-35106-RO\", \"start_date\": \"2026-10-14\", \"target_go_live\": \"2027-07-07\", \"users_impacted\": 80, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Critical\", \"primary_region\": \"UAE North\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": true}, \"compliance\": {\"applicable_regulations\": [\"NIS2\", \"EU AI Act / internal AI policy\"], \"dpia_required\": false, \"dpia_status\": \"not_required\", \"required_residency\": \"UAE\", \"residency_compliant\": true, \"retention_years\": 10, \"legal_hold_supported\": false, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"pass\", \"ethics_review\": \"conditional\", \"regulatory_mapping\": \"missing\", \"third_party_monitoring\": \"onboarding_only\", \"export_control\": \"restricted\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

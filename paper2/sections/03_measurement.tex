@@ -6,11 +6,10 @@
 Gemini's 100\% disposition accuracy is a strong result under the declared conditions. It also
 indicates that this sample offers little remaining discrimination on that component for this
 endpoint. The model can read explicit rules and authoritative structured facts; this experiment
-does not isolate how much ability is needed to recover those facts from documents. A deterministic
-policy engine operating on the same permitted facts is therefore an important missing comparator.
-Without it, the additional contribution of a language model over explicit rule execution is not
-quantified. Its ability to interact, summarize, and assemble a submission is observed as part of
-the whole system, not identified by an ablation.
+does not isolate how much ability is needed to recover those facts from documents. The deterministic control now executed on the same 300 dossiers reaches full strict success.
+It demonstrates that the supplied executable rules and structured facts are sufficient to solve
+this instance of the task without model inference. Model success remains an observation about
+model-based execution, but does not establish an incremental benefit over direct rule execution.
 
 Strict success answers a different question: does the entire submitted review satisfy the
 implemented contract, including exact evidence provenance? It is useful when downstream processing
@@ -24,16 +23,16 @@ collapsed into a single narrative about reasoning failure.
 \centering\small
 \caption{Separate observed outcomes. Evidence-only failures have no other failing scored component;
 they are not all established to be harmless formatting errors.}
-\begin{tabularx}{\linewidth}{@{}Lrrr@{}}
+\begin{tabularx}{\linewidth}{@{}Lrrrr@{}}
 \toprule
-Outcome & DeepSeek & Gemini & Luna\\
+Outcome & DeepSeek & Gemini & Luna & Rules\\
 \midrule
-Correct dispositions / evaluable gates & 1,619/1,700 & 1,694/1,694 & 1,668/1,700\\
-Strictly successful gates & 1,261 & 1,609 & 1,416\\
-Evidence-only gate failures & 338 & 85 & 221\\
-Other strict gate failures & 101 & 0 & 63\\
-False approvals & 1 & 0 & 1\\
-Critical finding misses & 1 & 0 & 3\\
+Correct dispositions / evaluable gates & 1,619/1,700 & 1,694/1,694 & 1,668/1,700 & 1,700/1,700\\
+Strictly successful gates & 1,261 & 1,609 & 1,416 & 1,700\\
+Evidence-only gate failures & 338 & 85 & 221 & 0\\
+Other strict gate failures & 101 & 0 & 63 & 0\\
+False approvals & 1 & 0 & 1 & 0\\
+Critical finding misses & 1 & 0 & 3 & 0\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -45,10 +44,83 @@ figure 76.92\% must be read with that definition. We retain both the original sc
 the component breakdown. Neither retrospectively relaxing the rule nor interpreting every
 lexical failure as a dangerous decision is justified.
 
-The diagnostics do not provide an independently adjudicated fraction of harmless formatting
-errors among the 85 Gemini failures. The field-order example establishes that such a failure
-exists, not that it explains most of them. Missing references, unobserved sources, omitted
-qualifications, and incorrect substantive support would require separate classification.
+\subsection{Executed deterministic control}
+\label{sec:rules-control}
+
+A separate generation process reads each dossier's public route and gate contract. For each
+occurrence it reads the authoritative snapshot through the same public evidence reader, executes
+\texttt{rule\_definition\_python} from the supplied policy, combines finding dispositions using
+the declared priority order, and sets the authorization indicator using the declared disposition
+list. Finding construction and result aggregation are implemented from that public interface.
+The policy functions are the executable definitions supplied to the language models; they are
+not a separately learned policy or an independently validated governance standard.
+
+The comparator retains the base disposition and never requests optional conditional risk
+acceptance, a strategy explicitly permitted by the policy. It cites complete observed JSON
+snapshots as exact evidence excerpts and propagates its own earlier decisions to General.
+This exploits the absence of a quote-length cap; the program is not subject to the models'
+per-turn output-token limit. It does not attempt document extraction or
+image interpretation. A read guard blocks evaluator-only reference files during generation,
+and the generation process asserts that neither the evaluator nor scorer module was imported.
+All predictions and observation records are written before a second process invokes the frozen
+scorer, which is allowed to read the hidden references for evaluation.
+
+The result is \textbf{1,700/1,700 strict gate successes and 300/300 complete routes}, with no
+false approvals or critical misses. Model API expenditure is zero; programming and local
+compute are not costed. On the 299 cases shared with Gemini, the control also succeeds on all
+1,694 gates. Optional approval choices can differ between systems, and each is scored against
+the protocol's effective reference; full conformity does not mean identical submitted decisions.
+
+This is a scaffold-sufficiency control. It does not validate the business rules independently,
+because the public policy and evaluator share their definitions. It does show that an LLM is
+unnecessary for achieving the measured endpoint when those functions and structured facts are
+already available. The main unresolved model contribution therefore lies in tasks that this
+run did not isolate: recovering facts, resolving ambiguity, and interacting with less structured
+operational evidence. Claims about such a contribution require the proposed ablations and
+external validation, rather than a higher score on this saturated contract.
+
+\subsection{Executed structural audit of Gemini's 85 failures}
+\label{sec:structural-audit}
+
+We inspected every Gemini strict-failure gate against its saved submission and pre-submission
+read events. The 85 failed gates contain 84 flagged finding-support items: a gate may contain
+several items, while a citation-only failure may contain none. The audit parses each quote as
+a JSON object fragment, rejects duplicate keys, and checks all quoted field values against a
+single observed object while ignoring key order and numeric serialization such as 30 versus
+30.0. Booleans remain distinct from numbers; 10 cannot match 100. A second diagnostic records
+where values exist across different objects, without treating a flattened join as a faithful
+single-object excerpt. This is a post-hoc structural test, not independent expert adjudication.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Exhaustive post-hoc audit of Gemini strict failures. Categories describe recorded
+representation and observation defects, not new semantic pass rates.}
+\begin{tabularx}{\linewidth}{@{}LrL@{}}
+\toprule
+Gate category & Gates & Item-level explanation\\
+\midrule
+All flagged quotes match observed objects after structural normalization & 69 & 75 flagged finding items preserve the checked field values within an observed object.\\
+Flattened cross-object excerpts & 9 & 9 flagged items combine observed values from separate objects; paths are retained for inspection.\\
+Required evidence-tool observation absent & 7 & All cite \texttt{UPSTREAM\_DECISIONS} without the corresponding read event.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For example, a flattened high-availability excerpt combines business criticality from the
+project object with redundancy flags from the architecture-profile object. Those values are
+present, but the quoted combined object was not observed. In the seven citation cases, upstream
+reviews were also included in the gate prompt; the defect is the missing required evidence-tool
+read, not proof that the model never received the underlying information. Neither a corrected
+quote nor an invented read event is inserted into the original trace.
+
+The audit identifies representation-related causes for the 78 excerpt-failure gates and a
+separate observation-contract cause for seven gates. It supplies no independent judgment that
+every policy inference is justified or that every necessary premise was cited. The single-object
+matching check accepts relevant field values rather than proving full entailment, as does the
+original lexical checker. We retain the original 94.98\% strict gate and 76.92\% strict route
+rates and report the audit alongside them. No revised whole-benchmark semantic rate is claimed.
+Complete excerpts, observed contents, matched paths, categories, and source trace identifiers
+are released with the audit script.
 
 \subsection{A proposed semantic evidence assessment}
 \label{sec:semantic}
@@ -81,7 +153,7 @@ insufficient. Freeze the rubric on development examples and evaluate it on held-
 Because the existing traces have already been inspected, this is a declared post-hoc audit,
 not a preregistered re-evaluation of the original primary endpoint.
 
-This paper reports no semantic pass rate: the adjudication has not been performed. The practical
+This paper reports a structural audit but no independently adjudicated semantic pass rate. The practical
 value of the proposal is to make the next measurement answer a precise question: how often does
 strict trace failure indicate unsupported reasoning, and how often does it indicate a
 representation defect? The distinction matters for both reliability claims and engineering effort.

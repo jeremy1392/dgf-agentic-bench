@@ -1,0 +1,681 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-LICENSE-001"
+      ],
+      "actions": [
+        "REMEDIATE_LICENSE_POSITION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-LICENSE-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 553737, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035231",
+              "generation_seed": 35231,
+              "project_name": "Project Meridian — Identity Modernization [6B2DD]",
+              "project_code": "6B2DD",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Maya Rossi-35231-SP",
+              "project_manager": "Samir Canale-35231-PM",
+              "business_owner": "Leila Rahman-35231-BO",
+              "service_owner": "Nadia Moreau-35231-SO",
+              "risk_owner": "Jeremy Costa-35231-RO",
+              "start_date": "2026-10-15",
+              "target_go_live": "2027-05-03",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Low",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 30,
+              "duplicate_capability": false,
+              "existing_alternative": "shared_api_platform",
+              "license_compliant": false,
+              "annual_license_cost_eur": 553737,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "scheduled",
+              "service_continuity_class": "silver",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-DATA-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035231",
+              "generation_seed": 35231,
+              "project_name": "Project Meridian — Identity Modernization [6B2DD]",
+              "project_code": "6B2DD",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Maya Rossi-35231-SP",
+              "project_manager": "Samir Canale-35231-PM",
+              "business_owner": "Leila Rahman-35231-BO",
+              "service_owner": "Nadia Moreau-35231-SO",
+              "risk_owner": "Jeremy Costa-35231-RO",
+              "start_date": "2026-10-15",
+              "target_go_live": "2027-05-03",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Low",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "architecture": {
+              "hld_version": "HLD-6B2DD-v3.3",
+              "lld_version": "LLD-6B2DD-v1.4",
+              "api_gateway_required": true,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": false,
+              "data_lineage_complete": false,
+              "latency_target_ms": 100,
+              "measured_latency_ms": 180,
+              "load_test_peak_pct": 50,
+              "architecture_debt_items": 4,
+              "adr_count": 16,
+              "reversibility_status": "draft",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.17.240.0/24",
+                "10.17.241.0/24",
+                "10.17.242.0/24"
+              ],
+              "dns_zone": "dgf-bld-035231.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": false,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-LOG-001",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "CONNECT_LOGS_TO_SIEM",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-LOG-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 2, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 2, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035231",
+              "generation_seed": 35231,
+              "project_name": "Project Meridian — Identity Modernization [6B2DD]",
+              "project_code": "6B2DD",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Maya Rossi-35231-SP",
+              "project_manager": "Samir Canale-35231-PM",
+              "business_owner": "Leila Rahman-35231-BO",
+              "service_owner": "Nadia Moreau-35231-SO",
+              "risk_owner": "Jeremy Costa-35231-RO",
+              "start_date": "2026-10-15",
+              "target_go_live": "2027-05-03",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Low",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 90,
+              "logs_to_siem": false,
+              "sentinel": false,
+              "defender": true,
+              "critical_vulns_open": 1,
+              "high_vulns_open": 2,
+              "pentest_age_days": 90,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "Azure NPM",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "TR-BACKUP-001",
+        "TR-RTO-001",
+        "TR-LOAD-001",
+        "TR-CODE-001",
+        "TR-OPS-001"
+      ],
+      "actions": [
+        "ENABLE_BACKUP",
+        "REMEDIATE_RECOVERY_TIME",
+        "RERUN_LOAD_TEST_AT_PEAK",
+        "REMEDIATE_BUILD_FINDINGS",
+        "COMPLETE_OPERATIONAL_HANDOVER"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-BACKUP-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-RTO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-LOAD-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-CODE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035231",
+              "generation_seed": 35231,
+              "project_name": "Project Meridian — Identity Modernization [6B2DD]",
+              "project_code": "6B2DD",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Maya Rossi-35231-SP",
+              "project_manager": "Samir Canale-35231-PM",
+              "business_owner": "Leila Rahman-35231-BO",
+              "service_owner": "Nadia Moreau-35231-SO",
+              "risk_owner": "Jeremy Costa-35231-RO",
+              "start_date": "2026-10-15",
+              "target_go_live": "2027-05-03",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Low",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "tech_readiness": {
+              "test_completion_pct": 73,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 75,
+              "p95_ms": 1396,
+              "unit_test_coverage_pct": 76,
+              "critical_static_findings": 3,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": false,
+              "restore_tested": true,
+              "target_rto_hours": 4,
+              "measured_restore_hours": 5.0,
+              "target_rpo_minutes": 1440,
+              "measured_data_loss_minutes": 720,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "approved",
+              "on_call_defined": false,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-LICENSE-001\"], \"actions\": [\"REMEDIATE_LICENSE_POSITION\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-LICENSE-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 30, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"shared_api_platform\\\", \\\"license_compliant\\\": false, \\\"annual_license_cost_eur\\\": 553737, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"scheduled\\\", \\\"service_continuity_class\\\": \\\"silver\\\", \\\"hosting_model\\\": \\\"aks\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-DATA-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-6B2DD-v3.3\\\", \\\"lld_version\\\": \\\"LLD-6B2DD-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.17.240.0/24\\\", \\\"10.17.241.0/24\\\", \\\"10.17.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035231.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-6B2DD-v3.3\\\", \\\"lld_version\\\": \\\"LLD-6B2DD-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.17.240.0/24\\\", \\\"10.17.241.0/24\\\", \\\"10.17.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035231.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-6B2DD-v3.3\\\", \\\"lld_version\\\": \\\"LLD-6B2DD-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.17.240.0/24\\\", \\\"10.17.241.0/24\\\", \\\"10.17.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035231.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-6B2DD-v3.3\\\", \\\"lld_version\\\": \\\"LLD-6B2DD-v1.4\\\", \\\"api_gateway_required\\\": true, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": false, \\\"latency_target_ms\\\": 100, \\\"measured_latency_ms\\\": 180, \\\"load_test_peak_pct\\\": 50, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"draft\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.17.240.0/24\\\", \\\"10.17.241.0/24\\\", \\\"10.17.242.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035231.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": false, \\\"multi_region\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-LOG-001\", \"SEC-VULN-001\"], \"actions\": [\"CONNECT_LOGS_TO_SIEM\", \"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-LOG-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 1, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Azure NPM\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Prevention\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": false, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 90, \\\"logs_to_siem\\\": false, \\\"sentinel\\\": false, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 1, \\\"high_vulns_open\\\": 2, \\\"pentest_age_days\\\": 90, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"Azure NPM\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": false}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"TR-BACKUP-001\", \"TR-RTO-001\", \"TR-LOAD-001\", \"TR-CODE-001\", \"TR-OPS-001\"], \"actions\": [\"ENABLE_BACKUP\", \"REMEDIATE_RECOVERY_TIME\", \"RERUN_LOAD_TEST_AT_PEAK\", \"REMEDIATE_BUILD_FINDINGS\", \"COMPLETE_OPERATIONAL_HANDOVER\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-BACKUP-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 73, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1396, \\\"unit_test_coverage_pct\\\": 76, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 4, \\\"measured_restore_hours\\\": 5.0, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 720, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-RTO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 73, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1396, \\\"unit_test_coverage_pct\\\": 76, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 4, \\\"measured_restore_hours\\\": 5.0, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 720, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-LOAD-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 73, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1396, \\\"unit_test_coverage_pct\\\": 76, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 4, \\\"measured_restore_hours\\\": 5.0, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 720, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-CODE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 73, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1396, \\\"unit_test_coverage_pct\\\": 76, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 4, \\\"measured_restore_hours\\\": 5.0, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 720, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035231\\\", \\\"generation_seed\\\": 35231, \\\"project_name\\\": \\\"Project Meridian — Identity Modernization [6B2DD]\\\", \\\"project_code\\\": \\\"6B2DD\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Finance\\\", \\\"sponsor\\\": \\\"Maya Rossi-35231-SP\\\", \\\"project_manager\\\": \\\"Samir Canale-35231-PM\\\", \\\"business_owner\\\": \\\"Leila Rahman-35231-BO\\\", \\\"service_owner\\\": \\\"Nadia Moreau-35231-SO\\\", \\\"risk_owner\\\": \\\"Jeremy Costa-35231-RO\\\", \\\"start_date\\\": \\\"2026-10-15\\\", \\\"target_go_live\\\": \\\"2027-05-03\\\", \\\"users_impacted\\\": 1000, \\\"budget_requested_eur\\\": 7000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"Low\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": false, \\\"ai_enabled\\\": false, \\\"external_users\\\": true}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 73, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 75, \\\"p95_ms\\\": 1396, \\\"unit_test_coverage_pct\\\": 76, \\\"critical_static_findings\\\": 3, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": true, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": true, \\\"target_rto_hours\\\": 4, \\\"measured_restore_hours\\\": 5.0, \\\"target_rpo_minutes\\\": 1440, \\\"measured_data_loss_minutes\\\": 720, \\\"dr_required\\\": false, \\\"dr_tested\\\": false, \\\"runbook_status\\\": \\\"approved\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 0}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035231",
+              "generation_seed": 35231,
+              "project_name": "Project Meridian — Identity Modernization [6B2DD]",
+              "project_code": "6B2DD",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Finance",
+              "sponsor": "Maya Rossi-35231-SP",
+              "project_manager": "Samir Canale-35231-PM",
+              "business_owner": "Leila Rahman-35231-BO",
+              "service_owner": "Nadia Moreau-35231-SO",
+              "risk_owner": "Jeremy Costa-35231-RO",
+              "start_date": "2026-10-15",
+              "target_go_live": "2027-05-03",
+              "users_impacted": 1000,
+              "budget_requested_eur": 7000000,
+              "data_classification": "Public",
+              "business_criticality": "Low",
+              "primary_region": "West US 2",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": false,
+              "ai_enabled": false,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 7000000,
+              "budget_approved_eur": 7000000,
+              "roi": 0.355,
+              "npv_eur": -716847,
+              "payback_months": 33,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 19.2,
+              "fte_available": 12.4,
+              "change_plan_status": "draft",
+              "benefits_kpi": "cost_to_serve",
+              "benefits_owner": "Maya Moreau-35231-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-LICENSE-001"
+              ],
+              "actions": [
+                "REMEDIATE_LICENSE_POSITION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-LICENSE-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 30, \"duplicate_capability\": false, \"existing_alternative\": \"shared_api_platform\", \"license_compliant\": false, \"annual_license_cost_eur\": 553737, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"scheduled\", \"service_continuity_class\": \"silver\", \"hosting_model\": \"aks\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-DATA-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"architecture\": {\"hld_version\": \"HLD-6B2DD-v3.3\", \"lld_version\": \"LLD-6B2DD-v1.4\", \"api_gateway_required\": true, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": false, \"latency_target_ms\": 100, \"measured_latency_ms\": 180, \"load_test_peak_pct\": 50, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"draft\", \"data_export_supported\": true, \"private_cidrs\": [\"10.17.240.0/24\", \"10.17.241.0/24\", \"10.17.242.0/24\"], \"dns_zone\": \"dgf-bld-035231.corp.example\"}, \"architecture_profile\": {\"multi_az\": false, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-LOG-001",
+                "SEC-VULN-001"
+              ],
+              "actions": [
+                "CONNECT_LOGS_TO_SIEM",
+                "REMEDIATE_CRITICAL_VULNERABILITIES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-LOG-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 2, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": false, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 90, \"logs_to_siem\": false, \"sentinel\": false, \"defender\": true, \"critical_vulns_open\": 1, \"high_vulns_open\": 2, \"pentest_age_days\": 90, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"Azure NPM\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "TR-BACKUP-001",
+                "TR-RTO-001",
+                "TR-LOAD-001",
+                "TR-CODE-001",
+                "TR-OPS-001"
+              ],
+              "actions": [
+                "ENABLE_BACKUP",
+                "REMEDIATE_RECOVERY_TIME",
+                "RERUN_LOAD_TEST_AT_PEAK",
+                "REMEDIATE_BUILD_FINDINGS",
+                "COMPLETE_OPERATIONAL_HANDOVER"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-BACKUP-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-RTO-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-LOAD-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-CODE-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                },
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035231\", \"generation_seed\": 35231, \"project_name\": \"Project Meridian — Identity Modernization [6B2DD]\", \"project_code\": \"6B2DD\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Finance\", \"sponsor\": \"Maya Rossi-35231-SP\", \"project_manager\": \"Samir Canale-35231-PM\", \"business_owner\": \"Leila Rahman-35231-BO\", \"service_owner\": \"Nadia Moreau-35231-SO\", \"risk_owner\": \"Jeremy Costa-35231-RO\", \"start_date\": \"2026-10-15\", \"target_go_live\": \"2027-05-03\", \"users_impacted\": 1000, \"budget_requested_eur\": 7000000, \"data_classification\": \"Public\", \"business_criticality\": \"Low\", \"primary_region\": \"West US 2\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": false, \"ai_enabled\": false, \"external_users\": true}, \"tech_readiness\": {\"test_completion_pct\": 73, \"pilot_completed\": true, \"load_test_pct_of_peak\": 75, \"p95_ms\": 1396, \"unit_test_coverage_pct\": 76, \"critical_static_findings\": 3, \"observability_metrics\": true, \"observability_logs\": true, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": true, \"target_rto_hours\": 4, \"measured_restore_hours\": 5.0, \"target_rpo_minutes\": 1440, \"measured_data_loss_minutes\": 720, \"dr_required\": false, \"dr_tested\": false, \"runbook_status\": \"approved\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 0}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

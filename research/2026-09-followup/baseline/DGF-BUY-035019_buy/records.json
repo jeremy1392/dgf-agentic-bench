@@ -1,0 +1,650 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "PROC-REF-001"
+      ],
+      "actions": [
+        "CHECK_VENDOR_REFERENCES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-REF-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035019\", \"generation_seed\": 35019, \"project_name\": \"Project Gaia — AI Service Desk [C6F06]\", \"project_code\": \"C6F06\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Procurement\", \"sponsor\": \"Leila Laurent-35019-SP\", \"project_manager\": \"Daria Meyer-35019-PM\", \"business_owner\": \"Yusuf Petrescu-35019-BO\", \"service_owner\": \"Lucas Laurent-35019-SO\", \"risk_owner\": \"Lucas Costa-35019-RO\", \"start_date\": \"2026-09-05\", \"target_go_live\": \"2027-02-01\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"HelioStack Cloud C6F06-1\", \"functional_score\": 82, \"security_score\": 90, \"tco_3y_eur\": 2443282, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 72.9}, {\"vendor\": \"Asterion Cloud C6F06-2\", \"functional_score\": 74, \"security_score\": 90, \"tco_3y_eur\": 1886402, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 73.8}, {\"vendor\": \"BlueMesa Systems C6F06-3\", \"functional_score\": 69, \"security_score\": 75, \"tco_3y_eur\": 1472327, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 70.3}, {\"vendor\": \"CedarPoint Digital C6F06-4\", \"functional_score\": 69, \"security_score\": 71, \"tco_3y_eur\": 611202, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 68.9}], \"selected_vendor\": \"CedarPoint Digital C6F06-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 50, \"purchasing_budget_eur\": 900000}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035019",
+              "generation_seed": 35019,
+              "project_name": "Project Gaia — AI Service Desk [C6F06]",
+              "project_code": "C6F06",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Procurement",
+              "sponsor": "Leila Laurent-35019-SP",
+              "project_manager": "Daria Meyer-35019-PM",
+              "business_owner": "Yusuf Petrescu-35019-BO",
+              "service_owner": "Lucas Laurent-35019-SO",
+              "risk_owner": "Lucas Costa-35019-RO",
+              "start_date": "2026-09-05",
+              "target_go_live": "2027-02-01",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "HelioStack Cloud C6F06-1",
+                  "functional_score": 82,
+                  "security_score": 90,
+                  "tco_3y_eur": 2443282,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "partial",
+                  "weighted_score": 72.9
+                },
+                {
+                  "vendor": "Asterion Cloud C6F06-2",
+                  "functional_score": 74,
+                  "security_score": 90,
+                  "tco_3y_eur": 1886402,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 73.8
+                },
+                {
+                  "vendor": "BlueMesa Systems C6F06-3",
+                  "functional_score": 69,
+                  "security_score": 75,
+                  "tco_3y_eur": 1472327,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 70.3
+                },
+                {
+                  "vendor": "CedarPoint Digital C6F06-4",
+                  "functional_score": 69,
+                  "security_score": 71,
+                  "tco_3y_eur": 611202,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": false,
+                  "due_diligence": "complete",
+                  "weighted_score": 68.9
+                }
+              ],
+              "selected_vendor": "CedarPoint Digital C6F06-4",
+              "competition": "open_tender",
+              "rfp_requirements": 50,
+              "purchasing_budget_eur": 900000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "LEGAL-EXIT-001"
+      ],
+      "actions": [
+        "ADD_EXIT_ASSISTANCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "LEGAL-EXIT-001",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035019\", \"generation_seed\": 35019, \"project_name\": \"Project Gaia — AI Service Desk [C6F06]\", \"project_code\": \"C6F06\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Procurement\", \"sponsor\": \"Leila Laurent-35019-SP\", \"project_manager\": \"Daria Meyer-35019-PM\", \"business_owner\": \"Yusuf Petrescu-35019-BO\", \"service_owner\": \"Lucas Laurent-35019-SO\", \"risk_owner\": \"Lucas Costa-35019-RO\", \"start_date\": \"2026-09-05\", \"target_go_live\": \"2027-02-01\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-C6F06-9.7\", \"governing_law\": \"Ireland\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"full\", \"termination_for_convenience\": false, \"exit_assistance_days\": 0, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035019",
+              "generation_seed": 35019,
+              "project_name": "Project Gaia — AI Service Desk [C6F06]",
+              "project_code": "C6F06",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Procurement",
+              "sponsor": "Leila Laurent-35019-SP",
+              "project_manager": "Daria Meyer-35019-PM",
+              "business_owner": "Yusuf Petrescu-35019-BO",
+              "service_owner": "Lucas Laurent-35019-SO",
+              "risk_owner": "Lucas Costa-35019-RO",
+              "start_date": "2026-09-05",
+              "target_go_live": "2027-02-01",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "legal": {
+              "contract_version": "MSA-C6F06-9.7",
+              "governing_law": "Ireland",
+              "dpa_status": "not_required",
+              "liability_cap_multiplier": 5,
+              "security_carveout": false,
+              "audit_right": "full",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 0,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 1,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "missing",
+              "sla_penalties": true,
+              "log_export_clause": "limited"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035019",
+              "generation_seed": 35019,
+              "project_name": "Project Gaia — AI Service Desk [C6F06]",
+              "project_code": "C6F06",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Procurement",
+              "sponsor": "Leila Laurent-35019-SP",
+              "project_manager": "Daria Meyer-35019-PM",
+              "business_owner": "Yusuf Petrescu-35019-BO",
+              "service_owner": "Lucas Laurent-35019-SO",
+              "risk_owner": "Lucas Costa-35019-RO",
+              "start_date": "2026-09-05",
+              "target_go_live": "2027-02-01",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "NIS2",
+                "EU AI Act / internal AI policy"
+              ],
+              "dpia_required": false,
+              "dpia_status": "not_required",
+              "required_residency": "No restriction",
+              "residency_compliant": true,
+              "retention_years": 10,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "partial",
+              "accessibility_status": "minor_findings",
+              "ethics_review": "missing",
+              "regulatory_mapping": "complete",
+              "third_party_monitoring": "onboarding_only",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "SEC-KEY-001"
+      ],
+      "actions": [
+        "IMPROVE_KEY_ROTATION"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-KEY-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035019\", \"generation_seed\": 35019, \"project_name\": \"Project Gaia — AI Service Desk [C6F06]\", \"project_code\": \"C6F06\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Procurement\", \"sponsor\": \"Leila Laurent-35019-SP\", \"project_manager\": \"Daria Meyer-35019-PM\", \"business_owner\": \"Yusuf Petrescu-35019-BO\", \"service_owner\": \"Lucas Laurent-35019-SO\", \"risk_owner\": \"Lucas Costa-35019-RO\", \"start_date\": \"2026-09-05\", \"target_go_live\": \"2027-02-01\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035019",
+              "generation_seed": 35019,
+              "project_name": "Project Gaia — AI Service Desk [C6F06]",
+              "project_code": "C6F06",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Procurement",
+              "sponsor": "Leila Laurent-35019-SP",
+              "project_manager": "Daria Meyer-35019-PM",
+              "business_owner": "Yusuf Petrescu-35019-BO",
+              "service_owner": "Lucas Laurent-35019-SO",
+              "risk_owner": "Lucas Costa-35019-RO",
+              "start_date": "2026-09-05",
+              "target_go_live": "2027-02-01",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": false,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 365,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 9,
+              "pentest_age_days": 365,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "None",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035019",
+              "generation_seed": 35019,
+              "project_name": "Project Gaia — AI Service Desk [C6F06]",
+              "project_code": "C6F06",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Procurement",
+              "sponsor": "Leila Laurent-35019-SP",
+              "project_manager": "Daria Meyer-35019-PM",
+              "business_owner": "Yusuf Petrescu-35019-BO",
+              "service_owner": "Lucas Laurent-35019-SO",
+              "risk_owner": "Lucas Costa-35019-RO",
+              "start_date": "2026-09-05",
+              "target_go_live": "2027-02-01",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": false,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 487638,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 45,
+              "technology_eol_months": 36,
+              "change_record_status": "missing",
+              "service_continuity_class": "gold",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035019",
+              "generation_seed": 35019,
+              "project_name": "Project Gaia — AI Service Desk [C6F06]",
+              "project_code": "C6F06",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Procurement",
+              "sponsor": "Leila Laurent-35019-SP",
+              "project_manager": "Daria Meyer-35019-PM",
+              "business_owner": "Yusuf Petrescu-35019-BO",
+              "service_owner": "Lucas Laurent-35019-SO",
+              "risk_owner": "Lucas Costa-35019-RO",
+              "start_date": "2026-09-05",
+              "target_go_live": "2027-02-01",
+              "users_impacted": 500,
+              "budget_requested_eur": 900000,
+              "data_classification": "Restricted",
+              "business_criticality": "Critical",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": true
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P3",
+              "budget_requested_eur": 900000,
+              "budget_approved_eur": 900000,
+              "roi": 0.381,
+              "npv_eur": 439398,
+              "payback_months": 48,
+              "schedule_slip_weeks": 0,
+              "fte_needed": 6.5,
+              "fte_available": 6.9,
+              "change_plan_status": "partial",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Omar Rahman-1035022-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "PROC-REF-001"
+              ],
+              "actions": [
+                "CHECK_VENDOR_REFERENCES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-REF-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035019\", \"generation_seed\": 35019, \"project_name\": \"Project Gaia — AI Service Desk [C6F06]\", \"project_code\": \"C6F06\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Procurement\", \"sponsor\": \"Leila Laurent-35019-SP\", \"project_manager\": \"Daria Meyer-35019-PM\", \"business_owner\": \"Yusuf Petrescu-35019-BO\", \"service_owner\": \"Lucas Laurent-35019-SO\", \"risk_owner\": \"Lucas Costa-35019-RO\", \"start_date\": \"2026-09-05\", \"target_go_live\": \"2027-02-01\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"procurement\": {\"offers\": [{\"vendor\": \"HelioStack Cloud C6F06-1\", \"functional_score\": 82, \"security_score\": 90, \"tco_3y_eur\": 2443282, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"partial\", \"weighted_score\": 72.9}, {\"vendor\": \"Asterion Cloud C6F06-2\", \"functional_score\": 74, \"security_score\": 90, \"tco_3y_eur\": 1886402, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 73.8}, {\"vendor\": \"BlueMesa Systems C6F06-3\", \"functional_score\": 69, \"security_score\": 75, \"tco_3y_eur\": 1472327, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 70.3}, {\"vendor\": \"CedarPoint Digital C6F06-4\", \"functional_score\": 69, \"security_score\": 71, \"tco_3y_eur\": 611202, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": false, \"due_diligence\": \"complete\", \"weighted_score\": 68.9}], \"selected_vendor\": \"CedarPoint Digital C6F06-4\", \"competition\": \"open_tender\", \"rfp_requirements\": 50, \"purchasing_budget_eur\": 900000}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "LEGAL-EXIT-001"
+              ],
+              "actions": [
+                "ADD_EXIT_ASSISTANCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "LEGAL-EXIT-001",
+                  "evidence_id": "REVIEW_FACTS_LEGAL",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035019\", \"generation_seed\": 35019, \"project_name\": \"Project Gaia — AI Service Desk [C6F06]\", \"project_code\": \"C6F06\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Procurement\", \"sponsor\": \"Leila Laurent-35019-SP\", \"project_manager\": \"Daria Meyer-35019-PM\", \"business_owner\": \"Yusuf Petrescu-35019-BO\", \"service_owner\": \"Lucas Laurent-35019-SO\", \"risk_owner\": \"Lucas Costa-35019-RO\", \"start_date\": \"2026-09-05\", \"target_go_live\": \"2027-02-01\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"legal\": {\"contract_version\": \"MSA-C6F06-9.7\", \"governing_law\": \"Ireland\", \"dpa_status\": \"not_required\", \"liability_cap_multiplier\": 5, \"security_carveout\": false, \"audit_right\": \"full\", \"termination_for_convenience\": false, \"exit_assistance_days\": 0, \"ip_ownership\": \"customer\", \"insurance_valid\": true, \"cyber_insurance_m\": 1, \"signing_authority_valid\": true, \"data_transfer_clause\": \"missing\", \"sla_penalties\": true, \"log_export_clause\": \"limited\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "SEC-KEY-001"
+              ],
+              "actions": [
+                "IMPROVE_KEY_ROTATION"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-KEY-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035019\", \"generation_seed\": 35019, \"project_name\": \"Project Gaia — AI Service Desk [C6F06]\", \"project_code\": \"C6F06\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Procurement\", \"sponsor\": \"Leila Laurent-35019-SP\", \"project_manager\": \"Daria Meyer-35019-PM\", \"business_owner\": \"Yusuf Petrescu-35019-BO\", \"service_owner\": \"Lucas Laurent-35019-SO\", \"risk_owner\": \"Lucas Costa-35019-RO\", \"start_date\": \"2026-09-05\", \"target_go_live\": \"2027-02-01\", \"users_impacted\": 500, \"budget_requested_eur\": 900000, \"data_classification\": \"Restricted\", \"business_criticality\": \"Critical\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": true}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Prevention\", \"azure_firewall\": false, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 365, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 0, \"high_vulns_open\": 9, \"pentest_age_days\": 365, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"None\", \"image_scanning\": true, \"residual_risk_acceptance\": false}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

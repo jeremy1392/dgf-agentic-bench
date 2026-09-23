@@ -19,6 +19,14 @@ The dataset contains 300 fictional projects: 100 Buy, 100 Integrate, and 100 Bui
 Buy and Integrate contain six gate occurrences each, and Build contains five, for 1,700 occurrences
 per model and 5,100 planned observations across three models. Cases were generated before these
 evaluations at difficulty setting 4, with sampling conditioned to improve decision coverage.
+Difficulty 4 is a generator configuration, not a validated scale of cognitive difficulty.
+For example, before decision-balancing rejection sampling, the architecture IP-overlap draw
+has probability $0.08+0.03\times4=0.20$ and the shared-service-principal draw has probability
+$0.10+0.03\times4=0.22$. Supplier generation permits sanctions hits and up to two failed
+mandatory criteria, and may select a non-optimal offer. Subsequent balanced sampling changes
+accepted outcome frequencies; these generator probabilities are not observed failure rates.
+The executable frozen source defines the setting, and no difficulty-level ablation is reported.
+
 Project context, owners, budgets, data classifications, technical architectures, documents, and
 simulated system records derive from canonical case facts. Documents can be missing, stale, or
 inconsistent. Specialist reviews precede a final General review; the routes are examples rather

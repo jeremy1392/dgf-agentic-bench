@@ -1,0 +1,688 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "IT-RATIONAL-001"
+      ],
+      "actions": [
+        "ASSESS_EXISTING_CAPABILITY"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-RATIONAL-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 95149, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"vmss\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035270",
+              "generation_seed": 35270,
+              "project_name": "Project Pulse — Observability Platform [1AD71]",
+              "project_code": "1AD71",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Ines Petrescu-35270-SP",
+              "project_manager": "Yusuf Santos-35270-PM",
+              "business_owner": "Adam Benali-35270-BO",
+              "service_owner": "Amira Bennett-35270-SO",
+              "risk_owner": "Omar Costa-35270-RO",
+              "start_date": "2026-12-09",
+              "target_go_live": "2027-12-25",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 180,
+              "duplicate_capability": true,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 95149,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "business_hours",
+              "patch_sla_days": 30,
+              "capacity_headroom_pct": 15,
+              "technology_eol_months": 60,
+              "change_record_status": "missing",
+              "service_continuity_class": "bronze",
+              "hosting_model": "vmss"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "ARCH-IP-001",
+        "ARCH-DATA-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "REDESIGN_IP_PLAN",
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-IP-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035270",
+              "generation_seed": 35270,
+              "project_name": "Project Pulse — Observability Platform [1AD71]",
+              "project_code": "1AD71",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Ines Petrescu-35270-SP",
+              "project_manager": "Yusuf Santos-35270-PM",
+              "business_owner": "Adam Benali-35270-BO",
+              "service_owner": "Amira Bennett-35270-SO",
+              "risk_owner": "Omar Costa-35270-RO",
+              "start_date": "2026-12-09",
+              "target_go_live": "2027-12-25",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-1AD71-v1.2",
+              "lld_version": "LLD-1AD71-v3.6",
+              "api_gateway_required": false,
+              "api_gateway_present": true,
+              "ip_overlap": true,
+              "data_owner_present": false,
+              "data_lineage_complete": true,
+              "latency_target_ms": 50,
+              "measured_latency_ms": 55,
+              "load_test_peak_pct": 125,
+              "architecture_debt_items": 4,
+              "adr_count": 16,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.20.96.0/24",
+                "10.20.97.0/24",
+                "10.20.98.0/24"
+              ],
+              "dns_zone": "dgf-bld-035270.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "SEC-WAF-002",
+        "SEC-VULN-001"
+      ],
+      "actions": [
+        "ENABLE_WAF_PREVENTION",
+        "REMEDIATE_CRITICAL_VULNERABILITIES"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "SEC-WAF-002",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        },
+        {
+          "finding_id": "SEC-VULN-001",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035270",
+              "generation_seed": 35270,
+              "project_name": "Project Pulse — Observability Platform [1AD71]",
+              "project_code": "1AD71",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Ines Petrescu-35270-SP",
+              "project_manager": "Yusuf Santos-35270-PM",
+              "business_owner": "Adam Benali-35270-BO",
+              "service_owner": "Amira Bennett-35270-SO",
+              "risk_owner": "Omar Costa-35270-RO",
+              "start_date": "2026-12-09",
+              "target_go_live": "2027-12-25",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Detection",
+              "azure_firewall": true,
+              "private_endpoints": true,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 60,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 3,
+              "high_vulns_open": 7,
+              "pentest_age_days": 180,
+              "pentest_status": "pending",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "TR-BACKUP-001",
+        "TR-RESTORE-001",
+        "TR-RPO-001",
+        "TR-OPS-001",
+        "TR-BLOCKER-001"
+      ],
+      "actions": [
+        "ENABLE_BACKUP",
+        "RUN_RESTORE_TEST",
+        "REMEDIATE_RECOVERY_POINT",
+        "COMPLETE_OPERATIONAL_HANDOVER",
+        "CLOSE_PRODUCTION_BLOCKERS"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "TR-BACKUP-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-RESTORE-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-RPO-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-OPS-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        },
+        {
+          "finding_id": "TR-BLOCKER-001",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035270",
+              "generation_seed": 35270,
+              "project_name": "Project Pulse — Observability Platform [1AD71]",
+              "project_code": "1AD71",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Ines Petrescu-35270-SP",
+              "project_manager": "Yusuf Santos-35270-PM",
+              "business_owner": "Adam Benali-35270-BO",
+              "service_owner": "Amira Bennett-35270-SO",
+              "risk_owner": "Omar Costa-35270-RO",
+              "start_date": "2026-12-09",
+              "target_go_live": "2027-12-25",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 81,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 100,
+              "p95_ms": 368,
+              "unit_test_coverage_pct": 45,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": false,
+              "observability_traces": true,
+              "backup_enabled": false,
+              "restore_tested": false,
+              "target_rto_hours": 0.25,
+              "measured_restore_hours": 0.21,
+              "target_rpo_minutes": 240,
+              "measured_data_loss_minutes": 336,
+              "dr_required": true,
+              "dr_tested": true,
+              "runbook_status": "missing",
+              "on_call_defined": false,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 1
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "NO_GO",
+      "finding_ids": [
+        "GEN-STRAT-001",
+        "GEN-UPSTREAM-NOGO"
+      ],
+      "actions": [
+        "OBTAIN_STRATEGIC_ARBITRATION",
+        "RESOLVE_UPSTREAM_NO_GO"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-STRAT-001",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"general\": {\"strategic_alignment\": \"weak\", \"portfolio_priority\": \"P0\", \"budget_requested_eur\": 1500000, \"budget_approved_eur\": 1500000, \"roi\": 0.266, \"npv_eur\": 976984, \"payback_months\": 54, \"schedule_slip_weeks\": 2, \"fte_needed\": 11.8, \"fte_available\": 12.2, \"change_plan_status\": \"draft\", \"benefits_kpi\": \"NPS\", \"benefits_owner\": \"David Laurent-35270-BEN\"}}"
+        },
+        {
+          "finding_id": "GEN-UPSTREAM-NOGO",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"IT-RATIONAL-001\"], \"actions\": [\"ASSESS_EXISTING_CAPABILITY\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-RATIONAL-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 180, \\\"duplicate_capability\\\": true, \\\"existing_alternative\\\": \\\"legacy_crm\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 95149, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"business_hours\\\", \\\"patch_sla_days\\\": 30, \\\"capacity_headroom_pct\\\": 15, \\\"technology_eol_months\\\": 60, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"bronze\\\", \\\"hosting_model\\\": \\\"vmss\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"ARCH-IP-001\", \"ARCH-DATA-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"REDESIGN_IP_PLAN\", \"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-IP-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-1AD71-v1.2\\\", \\\"lld_version\\\": \\\"LLD-1AD71-v3.6\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 55, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.96.0/24\\\", \\\"10.20.97.0/24\\\", \\\"10.20.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035270.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-1AD71-v1.2\\\", \\\"lld_version\\\": \\\"LLD-1AD71-v3.6\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 55, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.96.0/24\\\", \\\"10.20.97.0/24\\\", \\\"10.20.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035270.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-1AD71-v1.2\\\", \\\"lld_version\\\": \\\"LLD-1AD71-v3.6\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 55, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.96.0/24\\\", \\\"10.20.97.0/24\\\", \\\"10.20.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035270.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-1AD71-v1.2\\\", \\\"lld_version\\\": \\\"LLD-1AD71-v3.6\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": true, \\\"ip_overlap\\\": true, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 50, \\\"measured_latency_ms\\\": 55, \\\"load_test_peak_pct\\\": 125, \\\"architecture_debt_items\\\": 4, \\\"adr_count\\\": 16, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.20.96.0/24\\\", \\\"10.20.97.0/24\\\", \\\"10.20.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035270.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"SEC-WAF-002\", \"SEC-VULN-001\"], \"actions\": [\"ENABLE_WAF_PREVENTION\", \"REMEDIATE_CRITICAL_VULNERABILITIES\"], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [{\"finding_id\": \"SEC-WAF-002\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 7, \\\"pentest_age_days\\\": 180, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}, {\"finding_id\": \"SEC-VULN-001\", \"evidence_id\": \"REVIEW_FACTS_SECURITY\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"security\\\": {\\\"internet_exposed\\\": true, \\\"waf_present\\\": true, \\\"waf_mode\\\": \\\"Detection\\\", \\\"azure_firewall\\\": true, \\\"private_endpoints\\\": true, \\\"managed_identity\\\": true, \\\"mfa\\\": \\\"mandatory\\\", \\\"pim\\\": true, \\\"shared_service_principal\\\": false, \\\"encryption_in_transit\\\": true, \\\"encryption_at_rest\\\": true, \\\"key_rotation_days\\\": 60, \\\"logs_to_siem\\\": true, \\\"sentinel\\\": true, \\\"defender\\\": true, \\\"critical_vulns_open\\\": 3, \\\"high_vulns_open\\\": 7, \\\"pentest_age_days\\\": 180, \\\"pentest_status\\\": \\\"pending\\\", \\\"secrets_in_keyvault\\\": true, \\\"edr_enabled\\\": true, \\\"network_policy\\\": \\\"N/A\\\", \\\"image_scanning\\\": true, \\\"residual_risk_acceptance\\\": true}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"NO_GO\", \"finding_ids\": [\"TR-BACKUP-001\", \"TR-RESTORE-001\", \"TR-RPO-001\", \"TR-OPS-001\", \"TR-BLOCKER-001\"], \"actions\": [\"ENABLE_BACKUP\", \"RUN_RESTORE_TEST\", \"REMEDIATE_RECOVERY_POINT\", \"COMPLETE_OPERATIONAL_HANDOVER\", \"CLOSE_PRODUCTION_BLOCKERS\"], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [{\"finding_id\": \"TR-BACKUP-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 81, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 368, \\\"unit_test_coverage_pct\\\": 45, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.21, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 336, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-RESTORE-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 81, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 368, \\\"unit_test_coverage_pct\\\": 45, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.21, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 336, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-RPO-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 81, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 368, \\\"unit_test_coverage_pct\\\": 45, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.21, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 336, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-OPS-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 81, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 368, \\\"unit_test_coverage_pct\\\": 45, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.21, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 336, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}, {\"finding_id\": \"TR-BLOCKER-001\", \"evidence_id\": \"REVIEW_FACTS_TECH_READINESS\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035270\\\", \\\"generation_seed\\\": 35270, \\\"project_name\\\": \\\"Project Pulse — Observability Platform [1AD71]\\\", \\\"project_code\\\": \\\"1AD71\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Operations\\\", \\\"sponsor\\\": \\\"Ines Petrescu-35270-SP\\\", \\\"project_manager\\\": \\\"Yusuf Santos-35270-PM\\\", \\\"business_owner\\\": \\\"Adam Benali-35270-BO\\\", \\\"service_owner\\\": \\\"Amira Bennett-35270-SO\\\", \\\"risk_owner\\\": \\\"Omar Costa-35270-RO\\\", \\\"start_date\\\": \\\"2026-12-09\\\", \\\"target_go_live\\\": \\\"2027-12-25\\\", \\\"users_impacted\\\": 12000, \\\"budget_requested_eur\\\": 1500000, \\\"data_classification\\\": \\\"Confidential\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": true, \\\"employee_data\\\": true, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"tech_readiness\\\": {\\\"test_completion_pct\\\": 81, \\\"pilot_completed\\\": true, \\\"load_test_pct_of_peak\\\": 100, \\\"p95_ms\\\": 368, \\\"unit_test_coverage_pct\\\": 45, \\\"critical_static_findings\\\": 0, \\\"observability_metrics\\\": true, \\\"observability_logs\\\": false, \\\"observability_traces\\\": true, \\\"backup_enabled\\\": false, \\\"restore_tested\\\": false, \\\"target_rto_hours\\\": 0.25, \\\"measured_restore_hours\\\": 0.21, \\\"target_rpo_minutes\\\": 240, \\\"measured_data_loss_minutes\\\": 336, \\\"dr_required\\\": true, \\\"dr_tested\\\": true, \\\"runbook_status\\\": \\\"missing\\\", \\\"on_call_defined\\\": false, \\\"handover_signed\\\": true, \\\"rollback_tested\\\": true, \\\"open_blockers\\\": 1}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035270",
+              "generation_seed": 35270,
+              "project_name": "Project Pulse — Observability Platform [1AD71]",
+              "project_code": "1AD71",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Operations",
+              "sponsor": "Ines Petrescu-35270-SP",
+              "project_manager": "Yusuf Santos-35270-PM",
+              "business_owner": "Adam Benali-35270-BO",
+              "service_owner": "Amira Bennett-35270-SO",
+              "risk_owner": "Omar Costa-35270-RO",
+              "start_date": "2026-12-09",
+              "target_go_live": "2027-12-25",
+              "users_impacted": 12000,
+              "budget_requested_eur": 1500000,
+              "data_classification": "Confidential",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": true,
+              "employee_data": true,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "weak",
+              "portfolio_priority": "P0",
+              "budget_requested_eur": 1500000,
+              "budget_approved_eur": 1500000,
+              "roi": 0.266,
+              "npv_eur": 976984,
+              "payback_months": 54,
+              "schedule_slip_weeks": 2,
+              "fte_needed": 11.8,
+              "fte_available": 12.2,
+              "change_plan_status": "draft",
+              "benefits_kpi": "NPS",
+              "benefits_owner": "David Laurent-35270-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "IT-RATIONAL-001"
+              ],
+              "actions": [
+                "ASSESS_EXISTING_CAPABILITY"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-RATIONAL-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 180, \"duplicate_capability\": true, \"existing_alternative\": \"legacy_crm\", \"license_compliant\": true, \"annual_license_cost_eur\": 95149, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"business_hours\", \"patch_sla_days\": 30, \"capacity_headroom_pct\": 15, \"technology_eol_months\": 60, \"change_record_status\": \"missing\", \"service_continuity_class\": \"bronze\", \"hosting_model\": \"vmss\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "ARCH-IP-001",
+                "ARCH-DATA-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "REDESIGN_IP_PLAN",
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-IP-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-1AD71-v1.2\", \"lld_version\": \"LLD-1AD71-v3.6\", \"api_gateway_required\": false, \"api_gateway_present\": true, \"ip_overlap\": true, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 50, \"measured_latency_ms\": 55, \"load_test_peak_pct\": 125, \"architecture_debt_items\": 4, \"adr_count\": 16, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.20.96.0/24\", \"10.20.97.0/24\", \"10.20.98.0/24\"], \"dns_zone\": \"dgf-bld-035270.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "SEC-WAF-002",
+                "SEC-VULN-001"
+              ],
+              "actions": [
+                "ENABLE_WAF_PREVENTION",
+                "REMEDIATE_CRITICAL_VULNERABILITIES"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "SEC-WAF-002",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                },
+                {
+                  "finding_id": "SEC-VULN-001",
+                  "evidence_id": "REVIEW_FACTS_SECURITY",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"security\": {\"internet_exposed\": true, \"waf_present\": true, \"waf_mode\": \"Detection\", \"azure_firewall\": true, \"private_endpoints\": true, \"managed_identity\": true, \"mfa\": \"mandatory\", \"pim\": true, \"shared_service_principal\": false, \"encryption_in_transit\": true, \"encryption_at_rest\": true, \"key_rotation_days\": 60, \"logs_to_siem\": true, \"sentinel\": true, \"defender\": true, \"critical_vulns_open\": 3, \"high_vulns_open\": 7, \"pentest_age_days\": 180, \"pentest_status\": \"pending\", \"secrets_in_keyvault\": true, \"edr_enabled\": true, \"network_policy\": \"N/A\", \"image_scanning\": true, \"residual_risk_acceptance\": true}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "NO_GO",
+              "finding_ids": [
+                "TR-BACKUP-001",
+                "TR-RESTORE-001",
+                "TR-RPO-001",
+                "TR-OPS-001",
+                "TR-BLOCKER-001"
+              ],
+              "actions": [
+                "ENABLE_BACKUP",
+                "RUN_RESTORE_TEST",
+                "REMEDIATE_RECOVERY_POINT",
+                "COMPLETE_OPERATIONAL_HANDOVER",
+                "CLOSE_PRODUCTION_BLOCKERS"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "TR-BACKUP-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-RESTORE-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-RPO-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-OPS-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                },
+                {
+                  "finding_id": "TR-BLOCKER-001",
+                  "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035270\", \"generation_seed\": 35270, \"project_name\": \"Project Pulse — Observability Platform [1AD71]\", \"project_code\": \"1AD71\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Operations\", \"sponsor\": \"Ines Petrescu-35270-SP\", \"project_manager\": \"Yusuf Santos-35270-PM\", \"business_owner\": \"Adam Benali-35270-BO\", \"service_owner\": \"Amira Bennett-35270-SO\", \"risk_owner\": \"Omar Costa-35270-RO\", \"start_date\": \"2026-12-09\", \"target_go_live\": \"2027-12-25\", \"users_impacted\": 12000, \"budget_requested_eur\": 1500000, \"data_classification\": \"Confidential\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": true, \"employee_data\": true, \"ai_enabled\": true, \"external_users\": false}, \"tech_readiness\": {\"test_completion_pct\": 81, \"pilot_completed\": true, \"load_test_pct_of_peak\": 100, \"p95_ms\": 368, \"unit_test_coverage_pct\": 45, \"critical_static_findings\": 0, \"observability_metrics\": true, \"observability_logs\": false, \"observability_traces\": true, \"backup_enabled\": false, \"restore_tested\": false, \"target_rto_hours\": 0.25, \"measured_restore_hours\": 0.21, \"target_rpo_minutes\": 240, \"measured_data_loss_minutes\": 336, \"dr_required\": true, \"dr_tested\": true, \"runbook_status\": \"missing\", \"on_call_defined\": false, \"handover_signed\": true, \"rollback_tested\": true, \"open_blockers\": 1}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

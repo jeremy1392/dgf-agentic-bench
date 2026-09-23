@@ -54,10 +54,17 @@ def main():
     D = Decimal
     assert D('.4')*D('.25') + D('.6')*D('.05') + D('.02') + D('.05') == D('.20')
     assert D('.4')*D('1.5') + D('.6')*D('.5') + D('.10') + D('.10') == D('1.10')
+    followup=ROOT/'research/2026-09-followup'
+    control=json.loads((followup/'baseline_summary.json').read_text(encoding='utf-8'))
+    assert (control['cases'],control['gates'],control['strict_gate_success'],control['route_success'])==(300,1700,1700,300)
+    audit=json.loads((followup/'gemini_evidence_audit.json').read_text(encoding='utf-8'))
+    assert len(audit['gates'])==85
+    assert audit['gate_counts']=={'all_failed_items_structurally_supported':69,'citation_defect':7,'includes_flattened_cross_object_excerpt':9}
+    assert audit['failed_finding_item_counts']=={'structured_field_values_match':75,'flattened_cross_object_values_present':9}
     result = {"status": "pass", "evaluable_runs": 899, "evaluable_gates": 5094,
               "figures_and_tables": checked,
               "checks": ["original figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "explicit sensitivity arithmetic"],
+                         "rounded total cost", "explicit sensitivity arithmetic", "executed rules control", "85-gate structural audit"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 

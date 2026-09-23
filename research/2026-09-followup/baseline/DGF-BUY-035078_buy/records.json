@@ -1,0 +1,674 @@
+{
+  "BUY-01-PROCUREMENT-1": {
+    "result": {
+      "occurrence_id": "BUY-01-PROCUREMENT-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "PROC-DD-001"
+      ],
+      "actions": [
+        "COMPLETE_VENDOR_DUE_DILIGENCE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_PROCUREMENT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "PROC-DD-001",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software 6028A-1\", \"functional_score\": 79, \"security_score\": 85, \"tco_3y_eur\": 459780, \"mandatory_criteria_failed\": 1, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 83.6}, {\"vendor\": \"Fluxbridge Labs 6028A-2\", \"functional_score\": 82, \"security_score\": 67, \"tco_3y_eur\": 2362961, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 66.5}, {\"vendor\": \"GranitePeak Systems 6028A-3\", \"functional_score\": 67, \"security_score\": 61, \"tco_3y_eur\": 2755346, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 56.9}, {\"vendor\": \"HelioStack Cloud 6028A-4\", \"functional_score\": 80, \"security_score\": 84, \"tco_3y_eur\": 846459, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 81.1}], \"selected_vendor\": \"GranitePeak Systems 6028A-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 121, \"purchasing_budget_eur\": 3000000}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/procurement/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035078",
+              "generation_seed": 35078,
+              "project_name": "Project Vertex — Risk Analytics Platform [6028A]",
+              "project_code": "6028A",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Laurent-35078-SP",
+              "project_manager": "Adam Moreau-35078-PM",
+              "business_owner": "Jeremy Meyer-35078-BO",
+              "service_owner": "Daria Garcia-35078-SO",
+              "risk_owner": "Clara Martin-35078-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-02-11",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "procurement": {
+              "offers": [
+                {
+                  "vendor": "Everline Software 6028A-1",
+                  "functional_score": 79,
+                  "security_score": 85,
+                  "tco_3y_eur": 459780,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "hit",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 83.6
+                },
+                {
+                  "vendor": "Fluxbridge Labs 6028A-2",
+                  "functional_score": 82,
+                  "security_score": 67,
+                  "tco_3y_eur": 2362961,
+                  "mandatory_criteria_failed": 1,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 66.5
+                },
+                {
+                  "vendor": "GranitePeak Systems 6028A-3",
+                  "functional_score": 67,
+                  "security_score": 61,
+                  "tco_3y_eur": 2755346,
+                  "mandatory_criteria_failed": 0,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "pending",
+                  "weighted_score": 56.9
+                },
+                {
+                  "vendor": "HelioStack Cloud 6028A-4",
+                  "functional_score": 80,
+                  "security_score": 84,
+                  "tco_3y_eur": 846459,
+                  "mandatory_criteria_failed": 2,
+                  "sanctions": "clear",
+                  "references_checked": true,
+                  "due_diligence": "complete",
+                  "weighted_score": 81.1
+                }
+              ],
+              "selected_vendor": "GranitePeak Systems 6028A-3",
+              "competition": "open_tender",
+              "rfp_requirements": 121,
+              "purchasing_budget_eur": 3000000
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-02-LEGAL-1": {
+    "result": {
+      "occurrence_id": "BUY-02-LEGAL-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_LEGAL"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_LEGAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_LEGAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/legal/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035078",
+              "generation_seed": 35078,
+              "project_name": "Project Vertex — Risk Analytics Platform [6028A]",
+              "project_code": "6028A",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Laurent-35078-SP",
+              "project_manager": "Adam Moreau-35078-PM",
+              "business_owner": "Jeremy Meyer-35078-BO",
+              "service_owner": "Daria Garcia-35078-SO",
+              "risk_owner": "Clara Martin-35078-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-02-11",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "legal": {
+              "contract_version": "MSA-6028A-7.2",
+              "governing_law": "France",
+              "dpa_status": "signed",
+              "liability_cap_multiplier": "unlimited",
+              "security_carveout": true,
+              "audit_right": "full",
+              "termination_for_convenience": false,
+              "exit_assistance_days": 180,
+              "ip_ownership": "customer",
+              "insurance_valid": true,
+              "cyber_insurance_m": 10,
+              "signing_authority_valid": true,
+              "data_transfer_clause": "scc",
+              "sla_penalties": false,
+              "log_export_clause": "included"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-03-COMPLIANCE-1": {
+    "result": {
+      "occurrence_id": "BUY-03-COMPLIANCE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "COMP-DPIA-001",
+        "COMP-AUDIT-001"
+      ],
+      "actions": [
+        "COMPLETE_DPIA",
+        "IMPLEMENT_AUDIT_TRAIL"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_COMPLIANCE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "COMP-DPIA-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+        },
+        {
+          "finding_id": "COMP-AUDIT-001",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/compliance/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035078",
+              "generation_seed": 35078,
+              "project_name": "Project Vertex — Risk Analytics Platform [6028A]",
+              "project_code": "6028A",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Laurent-35078-SP",
+              "project_manager": "Adam Moreau-35078-PM",
+              "business_owner": "Jeremy Meyer-35078-BO",
+              "service_owner": "Daria Garcia-35078-SO",
+              "risk_owner": "Clara Martin-35078-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-02-11",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "compliance": {
+              "applicable_regulations": [
+                "GDPR"
+              ],
+              "dpia_required": true,
+              "dpia_status": "missing",
+              "required_residency": "EU",
+              "residency_compliant": true,
+              "retention_years": 7,
+              "legal_hold_supported": true,
+              "deletion_enforced": true,
+              "audit_trail": "missing",
+              "accessibility_status": "not_assessed",
+              "ethics_review": "passed",
+              "regulatory_mapping": "partial",
+              "third_party_monitoring": "none",
+              "export_control": "clear"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-04-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUY-04-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035078",
+              "generation_seed": 35078,
+              "project_name": "Project Vertex — Risk Analytics Platform [6028A]",
+              "project_code": "6028A",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Laurent-35078-SP",
+              "project_manager": "Adam Moreau-35078-PM",
+              "business_owner": "Jeremy Meyer-35078-BO",
+              "service_owner": "Daria Garcia-35078-SO",
+              "risk_owner": "Clara Martin-35078-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-02-11",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": false,
+              "waf_present": false,
+              "waf_mode": "None",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": false,
+              "mfa": "mandatory",
+              "pim": false,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": true,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 2,
+              "pentest_age_days": 60,
+              "pentest_status": "pass",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "Cilium",
+              "image_scanning": true,
+              "residual_risk_acceptance": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-05-IT-1": {
+    "result": {
+      "occurrence_id": "BUY-05-IT-1",
+      "disposition": "GO_WITH_RESERVATIONS",
+      "finding_ids": [
+        "IT-CAPACITY-001"
+      ],
+      "actions": [
+        "INCREASE_CAPACITY_HEADROOM"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "IT-CAPACITY-001",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 261103, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 18, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"aks\"}}"
+        }
+      ],
+      "authorization_required": true,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035078",
+              "generation_seed": 35078,
+              "project_name": "Project Vertex — Risk Analytics Platform [6028A]",
+              "project_code": "6028A",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Laurent-35078-SP",
+              "project_manager": "Adam Moreau-35078-PM",
+              "business_owner": "Jeremy Meyer-35078-BO",
+              "service_owner": "Daria Garcia-35078-SO",
+              "risk_owner": "Clara Martin-35078-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-02-11",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 90,
+              "duplicate_capability": false,
+              "existing_alternative": "enterprise_data_platform",
+              "license_compliant": true,
+              "annual_license_cost_eur": 261103,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 14,
+              "capacity_headroom_pct": 8,
+              "technology_eol_months": 18,
+              "change_record_status": "missing",
+              "service_continuity_class": "gold",
+              "hosting_model": "aks"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUY-06-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUY-01-PROCUREMENT-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"PROC-DD-001\"], \"actions\": [\"COMPLETE_VENDOR_DUE_DILIGENCE\"], \"evidence_refs\": [\"REVIEW_FACTS_PROCUREMENT\"], \"evidence_support\": [{\"finding_id\": \"PROC-DD-001\", \"evidence_id\": \"REVIEW_FACTS_PROCUREMENT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035078\\\", \\\"generation_seed\\\": 35078, \\\"project_name\\\": \\\"Project Vertex — Risk Analytics Platform [6028A]\\\", \\\"project_code\\\": \\\"6028A\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Laurent-35078-SP\\\", \\\"project_manager\\\": \\\"Adam Moreau-35078-PM\\\", \\\"business_owner\\\": \\\"Jeremy Meyer-35078-BO\\\", \\\"service_owner\\\": \\\"Daria Garcia-35078-SO\\\", \\\"risk_owner\\\": \\\"Clara Martin-35078-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-02-11\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"procurement\\\": {\\\"offers\\\": [{\\\"vendor\\\": \\\"Everline Software 6028A-1\\\", \\\"functional_score\\\": 79, \\\"security_score\\\": 85, \\\"tco_3y_eur\\\": 459780, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"hit\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 83.6}, {\\\"vendor\\\": \\\"Fluxbridge Labs 6028A-2\\\", \\\"functional_score\\\": 82, \\\"security_score\\\": 67, \\\"tco_3y_eur\\\": 2362961, \\\"mandatory_criteria_failed\\\": 1, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 66.5}, {\\\"vendor\\\": \\\"GranitePeak Systems 6028A-3\\\", \\\"functional_score\\\": 67, \\\"security_score\\\": 61, \\\"tco_3y_eur\\\": 2755346, \\\"mandatory_criteria_failed\\\": 0, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"pending\\\", \\\"weighted_score\\\": 56.9}, {\\\"vendor\\\": \\\"HelioStack Cloud 6028A-4\\\", \\\"functional_score\\\": 80, \\\"security_score\\\": 84, \\\"tco_3y_eur\\\": 846459, \\\"mandatory_criteria_failed\\\": 2, \\\"sanctions\\\": \\\"clear\\\", \\\"references_checked\\\": true, \\\"due_diligence\\\": \\\"complete\\\", \\\"weighted_score\\\": 81.1}], \\\"selected_vendor\\\": \\\"GranitePeak Systems 6028A-3\\\", \\\"competition\\\": \\\"open_tender\\\", \\\"rfp_requirements\\\": 121, \\\"purchasing_budget_eur\\\": 3000000}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"procurement\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-02-LEGAL-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_LEGAL\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"legal\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-03-COMPLIANCE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"COMP-DPIA-001\", \"COMP-AUDIT-001\"], \"actions\": [\"COMPLETE_DPIA\", \"IMPLEMENT_AUDIT_TRAIL\"], \"evidence_refs\": [\"REVIEW_FACTS_COMPLIANCE\"], \"evidence_support\": [{\"finding_id\": \"COMP-DPIA-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035078\\\", \\\"generation_seed\\\": 35078, \\\"project_name\\\": \\\"Project Vertex — Risk Analytics Platform [6028A]\\\", \\\"project_code\\\": \\\"6028A\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Laurent-35078-SP\\\", \\\"project_manager\\\": \\\"Adam Moreau-35078-PM\\\", \\\"business_owner\\\": \\\"Jeremy Meyer-35078-BO\\\", \\\"service_owner\\\": \\\"Daria Garcia-35078-SO\\\", \\\"risk_owner\\\": \\\"Clara Martin-35078-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-02-11\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}, {\"finding_id\": \"COMP-AUDIT-001\", \"evidence_id\": \"REVIEW_FACTS_COMPLIANCE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035078\\\", \\\"generation_seed\\\": 35078, \\\"project_name\\\": \\\"Project Vertex — Risk Analytics Platform [6028A]\\\", \\\"project_code\\\": \\\"6028A\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Laurent-35078-SP\\\", \\\"project_manager\\\": \\\"Adam Moreau-35078-PM\\\", \\\"business_owner\\\": \\\"Jeremy Meyer-35078-BO\\\", \\\"service_owner\\\": \\\"Daria Garcia-35078-SO\\\", \\\"risk_owner\\\": \\\"Clara Martin-35078-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-02-11\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"compliance\\\": {\\\"applicable_regulations\\\": [\\\"GDPR\\\"], \\\"dpia_required\\\": true, \\\"dpia_status\\\": \\\"missing\\\", \\\"required_residency\\\": \\\"EU\\\", \\\"residency_compliant\\\": true, \\\"retention_years\\\": 7, \\\"legal_hold_supported\\\": true, \\\"deletion_enforced\\\": true, \\\"audit_trail\\\": \\\"missing\\\", \\\"accessibility_status\\\": \\\"not_assessed\\\", \\\"ethics_review\\\": \\\"passed\\\", \\\"regulatory_mapping\\\": \\\"partial\\\", \\\"third_party_monitoring\\\": \\\"none\\\", \\\"export_control\\\": \\\"clear\\\"}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"compliance\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-04-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUY-05-IT-1\", \"disposition\": \"GO_WITH_RESERVATIONS\", \"finding_ids\": [\"IT-CAPACITY-001\"], \"actions\": [\"INCREASE_CAPACITY_HEADROOM\"], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [{\"finding_id\": \"IT-CAPACITY-001\", \"evidence_id\": \"REVIEW_FACTS_IT\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BUY-035078\\\", \\\"generation_seed\\\": 35078, \\\"project_name\\\": \\\"Project Vertex — Risk Analytics Platform [6028A]\\\", \\\"project_code\\\": \\\"6028A\\\", \\\"project_type\\\": \\\"new_platform\\\", \\\"route\\\": \\\"buy\\\", \\\"business_unit\\\": \\\"Corporate Services\\\", \\\"sponsor\\\": \\\"Maya Laurent-35078-SP\\\", \\\"project_manager\\\": \\\"Adam Moreau-35078-PM\\\", \\\"business_owner\\\": \\\"Jeremy Meyer-35078-BO\\\", \\\"service_owner\\\": \\\"Daria Garcia-35078-SO\\\", \\\"risk_owner\\\": \\\"Clara Martin-35078-RO\\\", \\\"start_date\\\": \\\"2026-10-07\\\", \\\"target_go_live\\\": \\\"2027-02-11\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Public\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"France Central\\\", \\\"personal_data\\\": true, \\\"payment_data\\\": false, \\\"employee_data\\\": true, \\\"ai_enabled\\\": false, \\\"external_users\\\": false}, \\\"it\\\": {\\\"catalog_status\\\": \\\"standard\\\", \\\"waiver_present\\\": true, \\\"waiver_expiry_days\\\": 90, \\\"duplicate_capability\\\": false, \\\"existing_alternative\\\": \\\"enterprise_data_platform\\\", \\\"license_compliant\\\": true, \\\"annual_license_cost_eur\\\": 261103, \\\"cmdb_record_present\\\": true, \\\"run_owner_present\\\": true, \\\"support_model\\\": \\\"24x7_internal\\\", \\\"patch_sla_days\\\": 14, \\\"capacity_headroom_pct\\\": 8, \\\"technology_eol_months\\\": 18, \\\"change_record_status\\\": \\\"missing\\\", \\\"service_continuity_class\\\": \\\"gold\\\", \\\"hosting_model\\\": \\\"aks\\\"}}\"}], \"authorization_required\": true, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BUY-035078",
+              "generation_seed": 35078,
+              "project_name": "Project Vertex — Risk Analytics Platform [6028A]",
+              "project_code": "6028A",
+              "project_type": "new_platform",
+              "route": "buy",
+              "business_unit": "Corporate Services",
+              "sponsor": "Maya Laurent-35078-SP",
+              "project_manager": "Adam Moreau-35078-PM",
+              "business_owner": "Jeremy Meyer-35078-BO",
+              "service_owner": "Daria Garcia-35078-SO",
+              "risk_owner": "Clara Martin-35078-RO",
+              "start_date": "2026-10-07",
+              "target_go_live": "2027-02-11",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Public",
+              "business_criticality": "High",
+              "primary_region": "France Central",
+              "personal_data": true,
+              "payment_data": false,
+              "employee_data": true,
+              "ai_enabled": false,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P1",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 3000000,
+              "roi": 0.215,
+              "npv_eur": 941727,
+              "payback_months": 23,
+              "schedule_slip_weeks": 1,
+              "fte_needed": 25.4,
+              "fte_available": 22.3,
+              "change_plan_status": "complete",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Yusuf Khan-3035087-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUY-01-PROCUREMENT-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "PROC-DD-001"
+              ],
+              "actions": [
+                "COMPLETE_VENDOR_DUE_DILIGENCE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_PROCUREMENT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "PROC-DD-001",
+                  "evidence_id": "REVIEW_FACTS_PROCUREMENT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"procurement\": {\"offers\": [{\"vendor\": \"Everline Software 6028A-1\", \"functional_score\": 79, \"security_score\": 85, \"tco_3y_eur\": 459780, \"mandatory_criteria_failed\": 1, \"sanctions\": \"hit\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 83.6}, {\"vendor\": \"Fluxbridge Labs 6028A-2\", \"functional_score\": 82, \"security_score\": 67, \"tco_3y_eur\": 2362961, \"mandatory_criteria_failed\": 1, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 66.5}, {\"vendor\": \"GranitePeak Systems 6028A-3\", \"functional_score\": 67, \"security_score\": 61, \"tco_3y_eur\": 2755346, \"mandatory_criteria_failed\": 0, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"pending\", \"weighted_score\": 56.9}, {\"vendor\": \"HelioStack Cloud 6028A-4\", \"functional_score\": 80, \"security_score\": 84, \"tco_3y_eur\": 846459, \"mandatory_criteria_failed\": 2, \"sanctions\": \"clear\", \"references_checked\": true, \"due_diligence\": \"complete\", \"weighted_score\": 81.1}], \"selected_vendor\": \"GranitePeak Systems 6028A-3\", \"competition\": \"open_tender\", \"rfp_requirements\": 121, \"purchasing_budget_eur\": 3000000}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "procurement",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-02-LEGAL-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_LEGAL"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "legal",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-03-COMPLIANCE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "COMP-DPIA-001",
+                "COMP-AUDIT-001"
+              ],
+              "actions": [
+                "COMPLETE_DPIA",
+                "IMPLEMENT_AUDIT_TRAIL"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_COMPLIANCE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "COMP-DPIA-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+                },
+                {
+                  "finding_id": "COMP-AUDIT-001",
+                  "evidence_id": "REVIEW_FACTS_COMPLIANCE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"compliance\": {\"applicable_regulations\": [\"GDPR\"], \"dpia_required\": true, \"dpia_status\": \"missing\", \"required_residency\": \"EU\", \"residency_compliant\": true, \"retention_years\": 7, \"legal_hold_supported\": true, \"deletion_enforced\": true, \"audit_trail\": \"missing\", \"accessibility_status\": \"not_assessed\", \"ethics_review\": \"passed\", \"regulatory_mapping\": \"partial\", \"third_party_monitoring\": \"none\", \"export_control\": \"clear\"}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "compliance",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-04-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUY-05-IT-1",
+              "disposition": "GO_WITH_RESERVATIONS",
+              "finding_ids": [
+                "IT-CAPACITY-001"
+              ],
+              "actions": [
+                "INCREASE_CAPACITY_HEADROOM"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "IT-CAPACITY-001",
+                  "evidence_id": "REVIEW_FACTS_IT",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BUY-035078\", \"generation_seed\": 35078, \"project_name\": \"Project Vertex — Risk Analytics Platform [6028A]\", \"project_code\": \"6028A\", \"project_type\": \"new_platform\", \"route\": \"buy\", \"business_unit\": \"Corporate Services\", \"sponsor\": \"Maya Laurent-35078-SP\", \"project_manager\": \"Adam Moreau-35078-PM\", \"business_owner\": \"Jeremy Meyer-35078-BO\", \"service_owner\": \"Daria Garcia-35078-SO\", \"risk_owner\": \"Clara Martin-35078-RO\", \"start_date\": \"2026-10-07\", \"target_go_live\": \"2027-02-11\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Public\", \"business_criticality\": \"High\", \"primary_region\": \"France Central\", \"personal_data\": true, \"payment_data\": false, \"employee_data\": true, \"ai_enabled\": false, \"external_users\": false}, \"it\": {\"catalog_status\": \"standard\", \"waiver_present\": true, \"waiver_expiry_days\": 90, \"duplicate_capability\": false, \"existing_alternative\": \"enterprise_data_platform\", \"license_compliant\": true, \"annual_license_cost_eur\": 261103, \"cmdb_record_present\": true, \"run_owner_present\": true, \"support_model\": \"24x7_internal\", \"patch_sla_days\": 14, \"capacity_headroom_pct\": 8, \"technology_eol_months\": 18, \"change_record_status\": \"missing\", \"service_continuity_class\": \"gold\", \"hosting_model\": \"aks\"}}"
+                }
+              ],
+              "authorization_required": true,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "BUILD-01-IT-1": {
+    "result": {
+      "occurrence_id": "BUILD-01-IT-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_IT"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_IT"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_IT",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/it/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035238",
+              "generation_seed": 35238,
+              "project_name": "Project Boreal — Data Quality Modernization [A0829]",
+              "project_code": "A0829",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Data Office",
+              "sponsor": "Sofia Rossi-35238-SP",
+              "project_manager": "Samir Garcia-35238-PM",
+              "business_owner": "Marc Bennett-35238-BO",
+              "service_owner": "Maya Canale-35238-SO",
+              "risk_owner": "Maya Costa-35238-RO",
+              "start_date": "2026-11-06",
+              "target_go_live": "2027-04-02",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "it": {
+              "catalog_status": "standard",
+              "waiver_present": true,
+              "waiver_expiry_days": 365,
+              "duplicate_capability": false,
+              "existing_alternative": "legacy_crm",
+              "license_compliant": true,
+              "annual_license_cost_eur": 399644,
+              "cmdb_record_present": true,
+              "run_owner_present": true,
+              "support_model": "24x7_internal",
+              "patch_sla_days": 7,
+              "capacity_headroom_pct": 30,
+              "technology_eol_months": 18,
+              "change_record_status": "approved",
+              "service_continuity_class": "gold",
+              "hosting_model": "container_apps"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-02-ARCHITECTURE-1": {
+    "result": {
+      "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "ARCH-DATA-001",
+        "ARCH-PERF-001",
+        "ARCH-REV-001"
+      ],
+      "actions": [
+        "ASSIGN_DATA_OWNER",
+        "REMEDIATE_LATENCY",
+        "COMPLETE_EXIT_ARCHITECTURE"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_ARCHITECTURE"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "ARCH-DATA-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035238\", \"generation_seed\": 35238, \"project_name\": \"Project Boreal — Data Quality Modernization [A0829]\", \"project_code\": \"A0829\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Data Office\", \"sponsor\": \"Sofia Rossi-35238-SP\", \"project_manager\": \"Samir Garcia-35238-PM\", \"business_owner\": \"Marc Bennett-35238-BO\", \"service_owner\": \"Maya Canale-35238-SO\", \"risk_owner\": \"Maya Costa-35238-RO\", \"start_date\": \"2026-11-06\", \"target_go_live\": \"2027-04-02\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0829-v2.5\", \"lld_version\": \"LLD-A0829-v1.0\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 0, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.96.0/24\", \"10.18.97.0/24\", \"10.18.98.0/24\"], \"dns_zone\": \"dgf-bld-035238.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-PERF-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035238\", \"generation_seed\": 35238, \"project_name\": \"Project Boreal — Data Quality Modernization [A0829]\", \"project_code\": \"A0829\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Data Office\", \"sponsor\": \"Sofia Rossi-35238-SP\", \"project_manager\": \"Samir Garcia-35238-PM\", \"business_owner\": \"Marc Bennett-35238-BO\", \"service_owner\": \"Maya Canale-35238-SO\", \"risk_owner\": \"Maya Costa-35238-RO\", \"start_date\": \"2026-11-06\", \"target_go_live\": \"2027-04-02\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0829-v2.5\", \"lld_version\": \"LLD-A0829-v1.0\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 0, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.96.0/24\", \"10.18.97.0/24\", \"10.18.98.0/24\"], \"dns_zone\": \"dgf-bld-035238.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        },
+        {
+          "finding_id": "ARCH-REV-001",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035238\", \"generation_seed\": 35238, \"project_name\": \"Project Boreal — Data Quality Modernization [A0829]\", \"project_code\": \"A0829\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Data Office\", \"sponsor\": \"Sofia Rossi-35238-SP\", \"project_manager\": \"Samir Garcia-35238-PM\", \"business_owner\": \"Marc Bennett-35238-BO\", \"service_owner\": \"Maya Canale-35238-SO\", \"risk_owner\": \"Maya Costa-35238-RO\", \"start_date\": \"2026-11-06\", \"target_go_live\": \"2027-04-02\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0829-v2.5\", \"lld_version\": \"LLD-A0829-v1.0\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 0, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.96.0/24\", \"10.18.97.0/24\", \"10.18.98.0/24\"], \"dns_zone\": \"dgf-bld-035238.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/architecture/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035238",
+              "generation_seed": 35238,
+              "project_name": "Project Boreal — Data Quality Modernization [A0829]",
+              "project_code": "A0829",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Data Office",
+              "sponsor": "Sofia Rossi-35238-SP",
+              "project_manager": "Samir Garcia-35238-PM",
+              "business_owner": "Marc Bennett-35238-BO",
+              "service_owner": "Maya Canale-35238-SO",
+              "risk_owner": "Maya Costa-35238-RO",
+              "start_date": "2026-11-06",
+              "target_go_live": "2027-04-02",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "architecture": {
+              "hld_version": "HLD-A0829-v2.5",
+              "lld_version": "LLD-A0829-v1.0",
+              "api_gateway_required": false,
+              "api_gateway_present": false,
+              "ip_overlap": false,
+              "data_owner_present": false,
+              "data_lineage_complete": true,
+              "latency_target_ms": 20,
+              "measured_latency_ms": 350,
+              "load_test_peak_pct": 75,
+              "architecture_debt_items": 0,
+              "adr_count": 12,
+              "reversibility_status": "missing",
+              "data_export_supported": true,
+              "private_cidrs": [
+                "10.18.96.0/24",
+                "10.18.97.0/24",
+                "10.18.98.0/24"
+              ],
+              "dns_zone": "dgf-bld-035238.corp.example"
+            },
+            "architecture_profile": {
+              "multi_az": true,
+              "multi_region": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-03-SECURITY-1": {
+    "result": {
+      "occurrence_id": "BUILD-03-SECURITY-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_SECURITY"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_SECURITY"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_SECURITY",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/security/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035238",
+              "generation_seed": 35238,
+              "project_name": "Project Boreal — Data Quality Modernization [A0829]",
+              "project_code": "A0829",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Data Office",
+              "sponsor": "Sofia Rossi-35238-SP",
+              "project_manager": "Samir Garcia-35238-PM",
+              "business_owner": "Marc Bennett-35238-BO",
+              "service_owner": "Maya Canale-35238-SO",
+              "risk_owner": "Maya Costa-35238-RO",
+              "start_date": "2026-11-06",
+              "target_go_live": "2027-04-02",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "security": {
+              "internet_exposed": true,
+              "waf_present": true,
+              "waf_mode": "Prevention",
+              "azure_firewall": true,
+              "private_endpoints": false,
+              "managed_identity": true,
+              "mfa": "mandatory",
+              "pim": true,
+              "shared_service_principal": false,
+              "encryption_in_transit": true,
+              "encryption_at_rest": true,
+              "key_rotation_days": 30,
+              "logs_to_siem": true,
+              "sentinel": true,
+              "defender": false,
+              "critical_vulns_open": 0,
+              "high_vulns_open": 4,
+              "pentest_age_days": null,
+              "pentest_status": "missing",
+              "secrets_in_keyvault": true,
+              "edr_enabled": true,
+              "network_policy": "N/A",
+              "image_scanning": true,
+              "residual_risk_acceptance": true
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-04-TECH_READINESS-1": {
+    "result": {
+      "occurrence_id": "BUILD-04-TECH_READINESS-1",
+      "disposition": "GO",
+      "finding_ids": [],
+      "actions": [],
+      "evidence_refs": [
+        "REVIEW_FACTS_TECH_READINESS"
+      ],
+      "evidence_support": [],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_TECH_READINESS",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/tech_readiness/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035238",
+              "generation_seed": 35238,
+              "project_name": "Project Boreal — Data Quality Modernization [A0829]",
+              "project_code": "A0829",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Data Office",
+              "sponsor": "Sofia Rossi-35238-SP",
+              "project_manager": "Samir Garcia-35238-PM",
+              "business_owner": "Marc Bennett-35238-BO",
+              "service_owner": "Maya Canale-35238-SO",
+              "risk_owner": "Maya Costa-35238-RO",
+              "start_date": "2026-11-06",
+              "target_go_live": "2027-04-02",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "tech_readiness": {
+              "test_completion_pct": 98,
+              "pilot_completed": true,
+              "load_test_pct_of_peak": 150,
+              "p95_ms": 293,
+              "unit_test_coverage_pct": 81,
+              "critical_static_findings": 0,
+              "observability_metrics": true,
+              "observability_logs": true,
+              "observability_traces": true,
+              "backup_enabled": true,
+              "restore_tested": true,
+              "target_rto_hours": 24,
+              "measured_restore_hours": 24.0,
+              "target_rpo_minutes": 240,
+              "measured_data_loss_minutes": 0,
+              "dr_required": false,
+              "dr_tested": false,
+              "runbook_status": "approved",
+              "on_call_defined": true,
+              "handover_signed": true,
+              "rollback_tested": true,
+              "open_blockers": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "BUILD-05-GENERAL-1": {
+    "result": {
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "disposition": "REWORK",
+      "finding_ids": [
+        "GEN-UPSTREAM-REWORK"
+      ],
+      "actions": [
+        "CLOSE_UPSTREAM_REWORK"
+      ],
+      "evidence_refs": [
+        "REVIEW_FACTS_GENERAL",
+        "UPSTREAM_DECISIONS"
+      ],
+      "evidence_support": [
+        {
+          "finding_id": "GEN-UPSTREAM-REWORK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "quote": "[{\"occurrence_id\": \"BUILD-01-IT-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_IT\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"it\", \"phase\": \"opportunity\"}, {\"occurrence_id\": \"BUILD-02-ARCHITECTURE-1\", \"disposition\": \"REWORK\", \"finding_ids\": [\"ARCH-DATA-001\", \"ARCH-PERF-001\", \"ARCH-REV-001\"], \"actions\": [\"ASSIGN_DATA_OWNER\", \"REMEDIATE_LATENCY\", \"COMPLETE_EXIT_ARCHITECTURE\"], \"evidence_refs\": [\"REVIEW_FACTS_ARCHITECTURE\"], \"evidence_support\": [{\"finding_id\": \"ARCH-DATA-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035238\\\", \\\"generation_seed\\\": 35238, \\\"project_name\\\": \\\"Project Boreal — Data Quality Modernization [A0829]\\\", \\\"project_code\\\": \\\"A0829\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Sofia Rossi-35238-SP\\\", \\\"project_manager\\\": \\\"Samir Garcia-35238-PM\\\", \\\"business_owner\\\": \\\"Marc Bennett-35238-BO\\\", \\\"service_owner\\\": \\\"Maya Canale-35238-SO\\\", \\\"risk_owner\\\": \\\"Maya Costa-35238-RO\\\", \\\"start_date\\\": \\\"2026-11-06\\\", \\\"target_go_live\\\": \\\"2027-04-02\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-A0829-v2.5\\\", \\\"lld_version\\\": \\\"LLD-A0829-v1.0\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 12, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.96.0/24\\\", \\\"10.18.97.0/24\\\", \\\"10.18.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035238.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-PERF-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035238\\\", \\\"generation_seed\\\": 35238, \\\"project_name\\\": \\\"Project Boreal — Data Quality Modernization [A0829]\\\", \\\"project_code\\\": \\\"A0829\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Sofia Rossi-35238-SP\\\", \\\"project_manager\\\": \\\"Samir Garcia-35238-PM\\\", \\\"business_owner\\\": \\\"Marc Bennett-35238-BO\\\", \\\"service_owner\\\": \\\"Maya Canale-35238-SO\\\", \\\"risk_owner\\\": \\\"Maya Costa-35238-RO\\\", \\\"start_date\\\": \\\"2026-11-06\\\", \\\"target_go_live\\\": \\\"2027-04-02\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-A0829-v2.5\\\", \\\"lld_version\\\": \\\"LLD-A0829-v1.0\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 12, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.96.0/24\\\", \\\"10.18.97.0/24\\\", \\\"10.18.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035238.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}, {\"finding_id\": \"ARCH-REV-001\", \"evidence_id\": \"REVIEW_FACTS_ARCHITECTURE\", \"quote\": \"{\\\"project\\\": {\\\"project_id\\\": \\\"DGF-BLD-035238\\\", \\\"generation_seed\\\": 35238, \\\"project_name\\\": \\\"Project Boreal — Data Quality Modernization [A0829]\\\", \\\"project_code\\\": \\\"A0829\\\", \\\"project_type\\\": \\\"new_project\\\", \\\"route\\\": \\\"build\\\", \\\"business_unit\\\": \\\"Data Office\\\", \\\"sponsor\\\": \\\"Sofia Rossi-35238-SP\\\", \\\"project_manager\\\": \\\"Samir Garcia-35238-PM\\\", \\\"business_owner\\\": \\\"Marc Bennett-35238-BO\\\", \\\"service_owner\\\": \\\"Maya Canale-35238-SO\\\", \\\"risk_owner\\\": \\\"Maya Costa-35238-RO\\\", \\\"start_date\\\": \\\"2026-11-06\\\", \\\"target_go_live\\\": \\\"2027-04-02\\\", \\\"users_impacted\\\": 80, \\\"budget_requested_eur\\\": 3000000, \\\"data_classification\\\": \\\"Internal\\\", \\\"business_criticality\\\": \\\"High\\\", \\\"primary_region\\\": \\\"West US 2\\\", \\\"personal_data\\\": false, \\\"payment_data\\\": true, \\\"employee_data\\\": false, \\\"ai_enabled\\\": true, \\\"external_users\\\": false}, \\\"architecture\\\": {\\\"hld_version\\\": \\\"HLD-A0829-v2.5\\\", \\\"lld_version\\\": \\\"LLD-A0829-v1.0\\\", \\\"api_gateway_required\\\": false, \\\"api_gateway_present\\\": false, \\\"ip_overlap\\\": false, \\\"data_owner_present\\\": false, \\\"data_lineage_complete\\\": true, \\\"latency_target_ms\\\": 20, \\\"measured_latency_ms\\\": 350, \\\"load_test_peak_pct\\\": 75, \\\"architecture_debt_items\\\": 0, \\\"adr_count\\\": 12, \\\"reversibility_status\\\": \\\"missing\\\", \\\"data_export_supported\\\": true, \\\"private_cidrs\\\": [\\\"10.18.96.0/24\\\", \\\"10.18.97.0/24\\\", \\\"10.18.98.0/24\\\"], \\\"dns_zone\\\": \\\"dgf-bld-035238.corp.example\\\"}, \\\"architecture_profile\\\": {\\\"multi_az\\\": true, \\\"multi_region\\\": false}}\"}], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"architecture\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-03-SECURITY-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_SECURITY\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"security\", \"phase\": \"design\"}, {\"occurrence_id\": \"BUILD-04-TECH_READINESS-1\", \"disposition\": \"GO\", \"finding_ids\": [], \"actions\": [], \"evidence_refs\": [\"REVIEW_FACTS_TECH_READINESS\"], \"evidence_support\": [], \"authorization_required\": false, \"rationale\": \"Execute supplied rule on observed public facts; keep base disposition.\", \"confidence\": 1.0, \"gate\": \"tech_readiness\", \"phase\": \"build_acceptance\"}]"
+        }
+      ],
+      "authorization_required": false,
+      "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+      "confidence": 1.0
+    },
+    "tool_trace": [
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "REVIEW_FACTS_GENERAL"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "REVIEW_FACTS_GENERAL",
+          "authoritative": true,
+          "version": 1,
+          "age_days": 0,
+          "path": "gate_evidence/general/review_facts.json",
+          "content": {
+            "project": {
+              "project_id": "DGF-BLD-035238",
+              "generation_seed": 35238,
+              "project_name": "Project Boreal — Data Quality Modernization [A0829]",
+              "project_code": "A0829",
+              "project_type": "new_project",
+              "route": "build",
+              "business_unit": "Data Office",
+              "sponsor": "Sofia Rossi-35238-SP",
+              "project_manager": "Samir Garcia-35238-PM",
+              "business_owner": "Marc Bennett-35238-BO",
+              "service_owner": "Maya Canale-35238-SO",
+              "risk_owner": "Maya Costa-35238-RO",
+              "start_date": "2026-11-06",
+              "target_go_live": "2027-04-02",
+              "users_impacted": 80,
+              "budget_requested_eur": 3000000,
+              "data_classification": "Internal",
+              "business_criticality": "High",
+              "primary_region": "West US 2",
+              "personal_data": false,
+              "payment_data": true,
+              "employee_data": false,
+              "ai_enabled": true,
+              "external_users": false
+            },
+            "general": {
+              "strategic_alignment": "strong",
+              "portfolio_priority": "P2",
+              "budget_requested_eur": 3000000,
+              "budget_approved_eur": 3000000,
+              "roi": 0.125,
+              "npv_eur": 257240,
+              "payback_months": 13,
+              "schedule_slip_weeks": 2,
+              "fte_needed": 25.2,
+              "fte_available": 18.4,
+              "change_plan_status": "complete",
+              "benefits_kpi": "conversion_rate",
+              "benefits_owner": "Samir Martin-5035253-BEN"
+            }
+          }
+        }
+      },
+      {
+        "tool": "read_evidence",
+        "args": {
+          "evidence_id": "UPSTREAM_DECISIONS"
+        },
+        "result": {
+          "status": "OK",
+          "evidence_id": "UPSTREAM_DECISIONS",
+          "content": [
+            {
+              "occurrence_id": "BUILD-01-IT-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_IT"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "it",
+              "phase": "opportunity"
+            },
+            {
+              "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+              "disposition": "REWORK",
+              "finding_ids": [
+                "ARCH-DATA-001",
+                "ARCH-PERF-001",
+                "ARCH-REV-001"
+              ],
+              "actions": [
+                "ASSIGN_DATA_OWNER",
+                "REMEDIATE_LATENCY",
+                "COMPLETE_EXIT_ARCHITECTURE"
+              ],
+              "evidence_refs": [
+                "REVIEW_FACTS_ARCHITECTURE"
+              ],
+              "evidence_support": [
+                {
+                  "finding_id": "ARCH-DATA-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035238\", \"generation_seed\": 35238, \"project_name\": \"Project Boreal — Data Quality Modernization [A0829]\", \"project_code\": \"A0829\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Data Office\", \"sponsor\": \"Sofia Rossi-35238-SP\", \"project_manager\": \"Samir Garcia-35238-PM\", \"business_owner\": \"Marc Bennett-35238-BO\", \"service_owner\": \"Maya Canale-35238-SO\", \"risk_owner\": \"Maya Costa-35238-RO\", \"start_date\": \"2026-11-06\", \"target_go_live\": \"2027-04-02\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0829-v2.5\", \"lld_version\": \"LLD-A0829-v1.0\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 0, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.96.0/24\", \"10.18.97.0/24\", \"10.18.98.0/24\"], \"dns_zone\": \"dgf-bld-035238.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-PERF-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035238\", \"generation_seed\": 35238, \"project_name\": \"Project Boreal — Data Quality Modernization [A0829]\", \"project_code\": \"A0829\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Data Office\", \"sponsor\": \"Sofia Rossi-35238-SP\", \"project_manager\": \"Samir Garcia-35238-PM\", \"business_owner\": \"Marc Bennett-35238-BO\", \"service_owner\": \"Maya Canale-35238-SO\", \"risk_owner\": \"Maya Costa-35238-RO\", \"start_date\": \"2026-11-06\", \"target_go_live\": \"2027-04-02\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0829-v2.5\", \"lld_version\": \"LLD-A0829-v1.0\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 0, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.96.0/24\", \"10.18.97.0/24\", \"10.18.98.0/24\"], \"dns_zone\": \"dgf-bld-035238.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                },
+                {
+                  "finding_id": "ARCH-REV-001",
+                  "evidence_id": "REVIEW_FACTS_ARCHITECTURE",
+                  "quote": "{\"project\": {\"project_id\": \"DGF-BLD-035238\", \"generation_seed\": 35238, \"project_name\": \"Project Boreal — Data Quality Modernization [A0829]\", \"project_code\": \"A0829\", \"project_type\": \"new_project\", \"route\": \"build\", \"business_unit\": \"Data Office\", \"sponsor\": \"Sofia Rossi-35238-SP\", \"project_manager\": \"Samir Garcia-35238-PM\", \"business_owner\": \"Marc Bennett-35238-BO\", \"service_owner\": \"Maya Canale-35238-SO\", \"risk_owner\": \"Maya Costa-35238-RO\", \"start_date\": \"2026-11-06\", \"target_go_live\": \"2027-04-02\", \"users_impacted\": 80, \"budget_requested_eur\": 3000000, \"data_classification\": \"Internal\", \"business_criticality\": \"High\", \"primary_region\": \"West US 2\", \"personal_data\": false, \"payment_data\": true, \"employee_data\": false, \"ai_enabled\": true, \"external_users\": false}, \"architecture\": {\"hld_version\": \"HLD-A0829-v2.5\", \"lld_version\": \"LLD-A0829-v1.0\", \"api_gateway_required\": false, \"api_gateway_present\": false, \"ip_overlap\": false, \"data_owner_present\": false, \"data_lineage_complete\": true, \"latency_target_ms\": 20, \"measured_latency_ms\": 350, \"load_test_peak_pct\": 75, \"architecture_debt_items\": 0, \"adr_count\": 12, \"reversibility_status\": \"missing\", \"data_export_supported\": true, \"private_cidrs\": [\"10.18.96.0/24\", \"10.18.97.0/24\", \"10.18.98.0/24\"], \"dns_zone\": \"dgf-bld-035238.corp.example\"}, \"architecture_profile\": {\"multi_az\": true, \"multi_region\": false}}"
+                }
+              ],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "architecture",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-03-SECURITY-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_SECURITY"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "security",
+              "phase": "design"
+            },
+            {
+              "occurrence_id": "BUILD-04-TECH_READINESS-1",
+              "disposition": "GO",
+              "finding_ids": [],
+              "actions": [],
+              "evidence_refs": [
+                "REVIEW_FACTS_TECH_READINESS"
+              ],
+              "evidence_support": [],
+              "authorization_required": false,
+              "rationale": "Execute supplied rule on observed public facts; keep base disposition.",
+              "confidence": 1.0,
+              "gate": "tech_readiness",
+              "phase": "build_acceptance"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
