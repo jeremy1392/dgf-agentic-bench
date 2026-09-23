@@ -70,8 +70,8 @@ def test_milestones_and_workforce_hypothesis():
     assert [x["total"] for x in R["calendar"]] == [59, 73, 101]
     assert P["workforce_hypothesis"]["baseline_year"] == 2026
     assert P["workforce_hypothesis"]["deadline_year"] == 2033
-    assert close(100 * P["workforce_hypothesis"]["remaining_headcount_ratio_max"], 20)
-    assert close(R["baseline_total"] * P["workforce_hypothesis"]["remaining_headcount_ratio_max"], 28)
+    assert close(100 * P["workforce_hypothesis"]["remaining_fte_ratio_max"], 20)
+    assert close(R["baseline_total"] * P["workforce_hypothesis"]["remaining_fte_ratio_max"], 28)
     assert P["tail"]["qualification_window_months"] == 76
     assert [x["total"] <= P["tail"]["qualification_window_months"] for x in R["calendar"]] == [True, True, False]
     assert close(R["tail"][0]["nu_max_for_qualification_window"], 13.47, 0.01)

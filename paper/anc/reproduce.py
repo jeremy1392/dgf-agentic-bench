@@ -186,6 +186,9 @@ def write_outputs(P: dict, R: dict) -> None:
           for a, row in zip(P["trajectory"]["displaced"], R["floors"])])
 
     summary = {
+        "workforce_hypothesis": {**P["workforce_hypothesis"],
+            "illustrative_baseline_fte": R["baseline_total"],
+            "illustrative_target_fte": R["baseline_total"] * P["workforce_hypothesis"]["remaining_fte_ratio_max"]},
         "totals_fte": {s: round(R["totals"][s]["total"], 2) for s in REGIMES},
         "weighted_exception_share": round(R["weighted_q"], 4),
         "weighted_baseline_labor_in_residual": round(R["weighted_phi"], 4),
@@ -230,33 +233,7 @@ def figures(P: dict, R: dict) -> None:
                loc="upper left", frameon=False, fontsize=8.5, bbox_to_anchor=(0.14, 1.0))
     fig.tight_layout(rect=(0, 0, 1, 0.92)); fig.savefig(FIGURES / "fig_frontiers.pdf"); plt.close(fig)
 
-    comps = [("exception", "Exception handling", "#1f77b4"), ("review", "Standard-path review", "#ff7f0e"),
-             ("rework", "Additional rework", "#2ca02c"), ("upkeep", "Fixed human upkeep", "#d62728")]
-    fig, ax = plt.subplots(figsize=(6.6, 3.6)); bottom = np.zeros(4); hs, ns = [], []
-    for key, name, col in comps:
-        v = np.array([R["totals"][s][key] for s in REGIMES])
-        hs.append(ax.bar(REGIMES, v, bottom=bottom, color=col, width=0.8)); ns.append(name); bottom += v
-    for i, s in enumerate(REGIMES):
-        ax.text(i, bottom[i] + 2.5, f"{R['totals'][s]['total']:.2f}", ha="center", fontsize=9)
-    b = ax.axhline(140, ls="--", lw=1.2, color="0.35")
-    ax.set_ylim(0, 205); ax.set_ylabel("Workload-equivalent FTE (120 hours/month)")
-    ax.set_xlabel("Fixed coverage and baseline selection; different operating burdens")
-    ax.legend([b] + hs, ["Manual benchmark: 140"] + ns, ncol=2, fontsize=8, frameon=False, loc="upper left")
-    fig.tight_layout(); fig.savefig(FIGURES / "fig_components.pdf"); plt.close(fig)
-
-    names = [c["name"].replace(" ", "\n", 1) for c in R["configurations"]]
-    cols = ["#f2c744", "#4fc3e8", "#36bfa8", "#8a8f98"]
-    labels = ["Buy (W1)", "Integrate (W2)", "Build (W3)", "Human support"]
-    fig, ax = plt.subplots(figsize=(6.6, 3.4)); bottom = np.zeros(len(names))
-    for j in range(4):
-        v = np.array([(c["routes"] + [c["support"]])[j] for c in R["configurations"]])
-        ax.bar(names, v, bottom=bottom, color=cols[j], label=labels[j], width=0.7); bottom += v
-    for i, c in enumerate(R["configurations"]):
-        ax.text(i, c["total"] + 3, r2(c["total"]), ha="center", fontsize=9)
-    ax.axhline(140, ls="--", lw=1.0, color="0.35"); ax.set_ylim(0, 170)
-    ax.set_ylabel("Required human workload (FTE-equivalent)")
-    ax.legend(ncol=2, fontsize=8, frameon=False, loc="upper right"); ax.tick_params(axis="x", labelsize=8)
-    fig.tight_layout(); fig.savefig(FIGURES / "fig_trajectory.pdf"); plt.close(fig)
+    workforce_figures(P, R)
 
     ms = P["milestones"]; t = np.linspace(0, 42, 200)
     fig, ax = plt.subplots(figsize=(6.6, 3.2))
@@ -271,6 +248,71 @@ def figures(P: dict, R: dict) -> None:
     ax.set_ylabel("Human-task hours at the\nchosen 80% criterion")
     ax.legend(fontsize=8, frameon=False, loc="upper left")
     fig.tight_layout(); fig.savefig(FIGURES / "fig_doublings.pdf"); plt.close(fig)
+
+
+def workforce_figures(P: dict, R: dict) -> None:
+    """Reuse the paper's FTE charts in PDF, SVG, and PNG; no fitted time series."""
+    exports = ROOT.parent / "assets" / "readme"
+    exports.mkdir(parents=True, exist_ok=True)
+    baseline = R["baseline_total"]
+    threshold = baseline * P["workforce_hypothesis"]["remaining_fte_ratio_max"]
+    year = P["workforce_hypothesis"]["deadline_year"]
+    reduction = 100 * (1 - P["workforce_hypothesis"]["remaining_fte_ratio_max"])
+
+    def save(fig, stem):
+        fig.savefig(FIGURES / f"{stem}.pdf", metadata={"CreationDate": None, "ModDate": None})
+        fig.savefig(exports / f"{stem}.svg", metadata={"Date": None})
+        svg = exports / f"{stem}.svg"
+        svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
+        fig.savefig(exports / f"{stem}.png", dpi=280)
+        plt.close(fig)
+
+    with plt.rc_context({"font.size": 10, "axes.spines.top": False,
+                         "axes.spines.right": False, "svg.fonttype": "none", "svg.hashsalt": "dgf-fte"}):
+        comps = [("exception", "Exception handling", "#2369a0"),
+                 ("review", "Standard-path review", "#e5af32"),
+                 ("rework", "Additional rework", "#309c89"),
+                 ("upkeep", "Human upkeep", "#a95959")]
+        fig, ax = plt.subplots(figsize=(8.0, 4.8))
+        bottom = np.zeros(4)
+        for key, name, col in comps:
+            values = np.array([R["totals"][regime][key] for regime in REGIMES])
+            ax.bar(REGIMES, values, bottom=bottom, color=col, width=0.65, label=name)
+            bottom += values
+        for i, value in enumerate(bottom):
+            ax.text(i, value + 3, f"{value:.2f}", ha="center", fontsize=10)
+        ax.axhline(baseline, ls="--", lw=1.2, color="#35465c", label=f"Manual baseline: {baseline} FTE")
+        ax.set_ylim(0, max(bottom.max(), baseline) * 1.22)
+        ax.set_ylabel("Required human work (FTE-equivalent)")
+        ax.set_xlabel("Operating scenarios at the same volume and coverage")
+        ax.legend(ncol=2, fontsize=9, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.01))
+        fig.text(0.5, 0.015, f"Synthetic calculations | {P['useful_hours_per_fte']} useful hours/month per FTE | Not measured deployments",
+                 ha="center", fontsize=8, color="#526176")
+        fig.tight_layout(rect=(0, 0.055, 1, 1))
+        save(fig, "fig_components")
+
+        names = [c["name"].replace(" ", "\n", 1) for c in R["configurations"]]
+        colors = ["#e5af32", "#53b8d3", "#309c89", "#8b96a5"]
+        labels = ["Buy (W1)", "Integrate (W2)", "Build (W3)", "Human support"]
+        fig, ax = plt.subplots(figsize=(8.0, 4.8))
+        bottom = np.zeros(len(names))
+        for j in range(4):
+            values = np.array([(c["routes"] + [c["support"]])[j] for c in R["configurations"]])
+            ax.bar(names, values, bottom=bottom, color=colors[j], label=labels[j], width=0.65)
+            bottom += values
+        for i, c in enumerate(R["configurations"]):
+            ax.text(i, c["total"] + 3, r2(c["total"]), ha="center", fontsize=10)
+        ax.axhline(threshold, ls=":", lw=1.8, color="#a83732",
+                   label=f"{year} hypothesis: at most {threshold:g} FTE (-{reduction:g}%)")
+        ax.set_ylim(0, baseline * 1.18)
+        ax.set_ylabel("Required human work (FTE-equivalent)")
+        ax.set_xlabel("Illustrative configurations, not dated stages")
+        ax.tick_params(axis="x", labelsize=9)
+        ax.legend(ncol=2, fontsize=9, frameon=False, loc="lower left", bbox_to_anchor=(0, 1.01))
+        fig.text(0.5, 0.015, "Synthetic calculations | Support included | The 2033 threshold is a hypothesis, not an observed result",
+                 ha="center", fontsize=8, color="#526176")
+        fig.tight_layout(rect=(0, 0.055, 1, 1))
+        save(fig, "fig_trajectory")
 
 
 def main() -> dict:

@@ -21,6 +21,21 @@ SVG generation uses Python's standard library. PNG rendering uses CairoSVG, alre
 
 For a paper or slide, use the SVG when possible; all labels remain vector text. The main comparison and full-lifecycle example are distinct configurations and must not be combined into a single case count. The research questions in the README are proposed evaluation questions, not established findings.
 
+## FTE charts reused from the paper
+
+| Chart | Downloads | Meaning |
+|---|---|---|
+| Substitution configurations | [SVG](fig_trajectory.svg) / [PNG](fig_trajectory.png) / [paper PDF figure](../../paper/figures/fig_trajectory.pdf) | Original 140, 60.56, 16.35, 5, and 0 FTE configurations; dotted 28-FTE threshold for the 2033 hypothesis |
+| Operating burdens | [SVG](fig_components.svg) / [PNG](fig_components.png) / [paper PDF figure](../../paper/figures/fig_components.pdf) | Original S0-S3 decomposition into exceptions, review, rework, and upkeep at fixed coverage |
+
+These charts are rendered by the paper's [reproduction script](../../paper/anc/reproduce.py) from its [parameters](../../paper/anc/parameters.json). They are synthetic calculations, not empirical results or a fitted calendar trajectory. The paper uses 120 useful hours/month per FTE. All support is included in the displayed totals; the illustrative enterprise pool is not an ecosystem census.
+
+To regenerate the paper's outputs and the matching README SVG/PNG charts, run from the repository root:
+
+```text
+python paper/anc/reproduce.py
+```
+
 ## Editorial assets
 
 | Asset | Purpose | Production |

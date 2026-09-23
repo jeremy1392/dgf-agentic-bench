@@ -39,15 +39,15 @@ Before a company buys software, connects two systems, or launches a new applicat
 
 A **gate** is one review checkpoint, such as Security or Legal. A **Digital Governance Framework (DGF)** is the way a company organizes these checkpoints. A **route** is the sequence of checkpoints followed by a project. A **dossier**, or case, is the project's collection of facts and documents.
 
-### The bigger question: will IT need fewer people?
+### The bigger question: how much human work will DGF still need?
 
-**Jeremy Canale's dated hypothesis: by 2033, the DGF ecosystem will have 80% fewer people working in it than in 2026. That means 20 people remaining for every 100 today, including supervision and support.** Jeremy Canale's research aims to explain this mechanism and test the conditions under which it actually happens.
+**Jeremy Canale's hypothesis: by 2033, the DGF ecosystem will require 80% fewer full-time equivalents (FTE) than in 2026, for comparable project volume, quality, and service.** In the paper's illustrative baseline, that means **140 FTE today and at most 28 FTE in 2033**, including human supervision and support.
 
-The population considered spans architecture, security, IT operations and standards, technical readiness, compliance and privacy, project and portfolio support, plus related procurement, legal, and finance work. The common feature is recurring work that turns project information into reviews, decisions, and commitments. This is a broad set of roles involved in IT projects, not a forecast covering every job in the IT sector.
+**FTE means full-time equivalent, or ETP in French.** It measures an amount of work. Two people each spending half their working time on DGF contribute one FTE together. It does not mean one individual employee. The paper converts human work into FTE using a stated convention of 120 useful hours per month.
 
-The mechanism is simple: **if the same volume of projects can be reviewed correctly with fewer human hours, fewer people are required to deliver that work.** Actual headcount falls when staffing adjusts to that lower requirement. Companies can also use the released capacity for additional projects or other work. Supervision, difficult exceptions, maintenance, and recovery must all be counted: shifting work to another team is not the same as eliminating it.
+The scope spans architecture, security, operations, technical readiness, compliance, project support, and related procurement, legal, and finance work. Exceptions, rework, maintenance, and supplier support stay in the account. Moving work to a contractor does not eliminate it.
 
-DGF-Bench measures an early part of this chain: whether AI can make the required review decisions reliably. Further studies must measure the human work that remains in real organizations and whether their staffing changes. The expected reduction is the hypothesis being investigated, not a result already established by the current model experiment.
+DGF-Bench tests an early part of the argument: whether AI performs reviews reliably. The FTE reduction is a research hypothesis; confirming it requires measuring human work in organizations. Individual headcount, staffing choices, and employment effects are separate outcomes.
 
 ### A concrete example
 
@@ -144,27 +144,47 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 
 **DGF-Bench tests a narrower part of that argument:** can AI models perform the specified review tasks reliably? Model results, synthetic workforce calculations, and claims about real-world automation must remain clearly distinguished. [Paper sources](paper/main.tex) · [Reproduction package](paper/anc/).
 
+## The paper's FTE model
+
+The two charts below come directly from the paper's reproduction code and parameters. **They are synthetic calculations, not measured staffing reductions.**
+
+<p align="center">
+  <a href="assets/readme/fig_trajectory.svg"><img src="assets/readme/fig_trajectory.svg" alt="Paper configurations: 140, 60.56, 16.35, 5, and 0 required FTE, split across Buy, Integrate, Build, and support. A dotted line marks the 2033 hypothesis of at most 28 FTE, 80 percent below the illustrative baseline. The configurations have no assigned dates." width="1100" /></a>
+</p>
+
+**From 140 FTE to different levels of remaining work.** The bars reuse the paper's configurations. The **28-FTE line** is the 2033 hypothesis applied to this example; the bars are not a year-by-year forecast.
+
+| Configuration from the paper | Required FTE, support included | Reading |
+|---|---:|---|
+| Manual baseline | **140.00** | The illustrative starting workload. |
+| Uneven substitution | **60.56** | Progress differs across routes; this remains above 28 FTE. |
+| All routes advanced | **16.35** | This configuration falls below the 28-FTE threshold. |
+| Full gate execution | **5.00** | Direct execution is automated, but human support remains. |
+| Closed-support endpoint | **0.00** | Complete closure is assumed in this stronger, undated configuration. |
+
+**Support is inside the target.** If 5 FTE of support remain, at most 23 other FTE can remain to meet the 28-FTE threshold. The 140-FTE pool illustrates an enterprise's governance work; it is not a census of the ecosystem. A real study must include supplier work consistently at baseline and follow-up. [Paper configuration appendix](paper/sections/s_appE_trajectory.tex).
+
+<p align="center">
+  <a href="assets/readme/fig_components.svg"><img src="assets/readme/fig_components.svg" alt="Four paper scenarios at the same task coverage and volume require 43.52, 85.32, 89.07, or 168.92 FTE. Bars include exceptions, review, rework, and human upkeep. The manual baseline is 140 FTE." width="1100" /></a>
+</p>
+
+**The same automation coverage can save work or create more of it.** These four operating scenarios hold case volume and coverage fixed. Their costs in exceptions, review, rework, and support differ. In the most burdensome scenario, the requirement rises to **168.92 FTE**, above the 140-FTE baseline. This is why we measure the whole human-work account. [Paper workload example](paper/sections/06_example.tex).
+
 ## The paper's timeline
 
-**The prediction for 2033 is 80% fewer people in the DGF ecosystem than in 2026.** It covers people doing governance work inside companies and through contractors and suppliers, including those supervising, maintaining, and supporting AI systems. It is the author's research hypothesis, not an observed result of DGF-Bench.
+**2033 hypothesis: 80% fewer required FTE than in 2026, at comparable governed output, quality, and service.** This means 20 FTE remaining per 100 baseline FTE, or 28 per 140. It does not predict an identical percentage decline in individual employees.
 
-| When | What we propose to measure | What it means |
+| When | What we measure | What it means |
 |---|---|---|
-| **2026: establish the baseline** | Record people, assigned full-time equivalents (FTE), human hours, project volume, quality, and authority. | Use the twelve months ending on 20 September 2026 as the baseline. No enterprise cohort has yet been enrolled. Historical records will be needed. |
-| **2027 to 2032: follow adoption** | Track which reviews become reliable enough to automate, how staffing changes, and which new support jobs appear. | The paper's task-length and qualification scenarios explore possible progress; they do not calculate an 80% headcount reduction. |
-| **September 2032 to September 2033: observe the final year** | Measure average monthly headcount across the full DGF boundary, alongside workload and service quality. | Count people working on DGF activities, including part-time contributors, once per month. Moving them to a supplier or a supervision team does not remove them from the count. |
-| **20 September 2033: test the prediction** | Compare final-year headcount with baseline-year headcount: **20% or less remaining**. | Starting with 100 people, the threshold is 20 or fewer. A reliably measured count above 20 rejects the prediction for that population. Missing data or uncertainty around the threshold can leave the result inconclusive. |
-| **Longer term: investigate complete automation** | Test whether every necessary human execution and support task can eventually be automated. | This stronger conjecture has no fixed date. An 80% workforce reduction can coexist with an indispensable human team. |
+| **2026: establish the baseline** | Human hours, converted into FTE under a fixed convention, including execution and support. | Baseline records cover the year ending on 20 September 2026. No enterprise cohort has yet been enrolled. |
+| **2027 to 2032: follow adoption** | Review capability, remaining human effort, exceptions, new support work, quality, and authority. | The existing capability scenarios explore possible progress; they do not establish the FTE prediction. |
+| **September 2032 to September 2033: observe the final year** | Average monthly FTE, with both actual workload and a comparison standardized to baseline project volume and case mix. | Include periodic maintenance and shared support. Fewer projects alone cannot establish an efficiency gain. |
+| **20 September 2033: test the threshold** | Required FTE at comparable output must be **20% or less of baseline**, with quality, service, and authority requirements met. | Above 20%, the prediction fails for that population. Missing data or uncertainty around the threshold can leave the result inconclusive. |
+| **Longer term: investigate complete automation** | Test whether every necessary execution and support task can be automated. | The zero-FTE configuration remains a stronger conjecture without a fixed date. |
 
-**People, working hours, and FTE are different measures.** An 80% reduction in the synthetic 140-FTE example would leave 28 FTE of work. It would not establish that only 28 people are employed. The workforce prediction needs actual staffing data. People reassigned entirely outside DGF leave this population, but may remain employed elsewhere.
+The paper's task-length and reliability scenarios retain their explicit assumptions. Qualification of an individual work package is different from reducing total required FTE. Broad inference to the DGF ecosystem requires representative coverage, and attributing a reduction to AI requires a comparative study.
 
-**Why might this happen?** If AI handles more reviews reliably, organizations may need fewer people for recurring governance work. Whether they actually reduce staffing depends on adoption, demand, new tasks, and the support that AI needs. We must count those effects. A decline in headcount caused by fewer projects would not, by itself, establish an effect of AI.
-
-The paper's illustrative capability scenarios retain a chosen three-hour task horizon on 8 May 2026, a seven-month doubling, and separate reliability and organizational delays. The example qualification dates of April 2031, June 2032, and October 2034 are sensitivity calculations for individual work packages. None proves the 2033 workforce prediction.
-
-The study must report project volume, case mix, quality, service, and authority alongside staffing. Evidence from a few selected companies cannot establish an 80% reduction across the whole DGF ecosystem; that broader claim requires representative coverage. DGF-Bench supplies an early test of review capability, while the workforce hypothesis requires a separate organizational study.
-
-Sources: [workforce prediction and mechanism](paper/sections/s11_workforce.tex) · [dated scenarios and assumptions](paper/sections/s14_milestones.tex) · [proposed workforce study](paper/anc/cohort_protocol.md).
+Sources: [FTE mechanism and hypothesis](paper/sections/s11_workforce.tex) · [study protocol](paper/anc/cohort_protocol.md) · [figure parameters and reproduction code](paper/anc/) · [SVG/PNG downloads](assets/readme/README.md).
 
 ## Get started
 
