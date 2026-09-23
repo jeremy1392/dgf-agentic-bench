@@ -7,83 +7,125 @@
 <h1 align="center">DGF-Bench</h1>
 
 <p align="center">
-  <strong>Research artifacts for evidence-grounded governance decisions.</strong><br />
-  A synthetic enterprise governance benchmark and research companion to <em>The Last Human Gate</em>.
+  <strong>Can an AI review a project, spot problems, and make the right decision?</strong><br />
+  A research test for AI-assisted project reviews, accompanying <em>The Last Human Gate</em>.
 </p>
 
 <p align="center">
-  <code>8 gate families</code> &nbsp; <code>3 core routes</code> &nbsp; <code>5 dispositions</code>
+  <code>8 types of review</code> &nbsp; <code>3 project paths</code> &nbsp; <code>5 possible decisions</code>
 </p>
 
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf"><strong>Read the paper ↗</strong></a> &nbsp; · &nbsp;
-  <a href="#research-framework">Research framework</a> &nbsp; · &nbsp;
+  <a href="#what-we-want-to-measure">What we measure</a> &nbsp; · &nbsp;
   <a href="#get-started">Get started</a> &nbsp; · &nbsp;
   <a href="CITATION.cff">Cite this work</a>
 </p>
 
 ---
 
-DGF-Bench evaluates tool-using AI agents on governance review tasks: inspect evidence, identify findings, choose a disposition, propose actions, respect authorization rules, and pass structured results to the next gate. Reference outcomes are derived from generated enterprise facts.
+## The idea in plain language
 
-| 01 / RESEARCH | 02 / BENCHMARK | 03 / REPRODUCIBILITY |
-|---|---|---|
-| **The Last Human Gate** | **Governance as a testable task** | **Inspect the assumptions** |
-| A theoretical framework for governance automation and residual human work. | Synthetic dossiers, evidence tools, authorization rules, and route-level evaluation. | LaTeX sources, numerical parameters, generated tables, and model traces. |
-| [Read the manuscript](paper/The_Last_Human_Gate.pdf) | [Explore the protocol](#research-framework) | [Open the research package](paper/anc/) |
+Before a company buys software, connects two systems, or launches a new application, people review the project. They check its security, contracts, budget, technical design, and readiness for use. They decide whether it can proceed and what needs to change.
 
-*Jeremy Canale · September 2026. The paper's workforce calculations are synthetic scenarios, not measured deployments. Model evaluations are separate empirical results.*
+**We want to measure how reliably an AI can perform these reviews when it has documents, clear rules, and tools to investigate.** Can it find the important problems, justify its decision with evidence, respect its authority, and pass useful information to the next reviewer?
 
-## Research framework
+A **gate** is one review checkpoint, such as Security or Legal. A **Digital Governance Framework (DGF)** is the way a company organizes these checkpoints. A **route** is the sequence of checkpoints followed by a project. A **dossier**, or case, is the project's collection of facts and documents.
 
-A **Digital Governance Framework (DGF)** organizes the reviews through which an enterprise change is assessed and authorized. Specialist gates issue findings and opinions; a General gate consolidates them and arbitrates commitments. Gate families, ordering, and tasks can vary across organizations.
+### A concrete example
 
-### 1. Position gates across the lifecycle
+Imagine a company wants to buy a cloud application. The supplier looks suitable, but some customer references have not been checked and a contract clause needs attention.
 
-<p align="center">
-  <a href="assets/readme/dgf-lifecycle-matrix.svg"><img src="assets/readme/dgf-lifecycle-matrix.svg" alt="DGF activity matrix: eight gate families across Opportunity, Framing, Design, Build and Acceptance, and Deployment and Closure. General arbitration occurs in each phase. The full-lifecycle example contains 26 gate occurrences." width="1200" /></a>
-</p>
+The AI must read the relevant evidence, identify which rules apply, explain the problems, and propose the required next steps. It may need to ask for information or check whether someone has authorized acceptance of a particular risk. Then it must choose the decision allowed by the rules.
 
-**Figure 1 — A configurable DGF lifecycle.** Generated from the `full_lifecycle` definition in [routes.py](routes.py). Filled circles identify specialist reviews; diamonds identify General arbitration. The same gate family can return under a different phase contract. This example is separate from the three shorter routes used in the main comparison. See the [paper's framework definition](paper/sections/s02_dgf.tex).
+**An approval is not automatically a success.** If the correct response is to request changes, wait, or reject the project, that is what a successful AI should do.
 
-### 2. Define an explicit review contract
+## What we want to measure
 
-<p align="center">
-  <a href="assets/readme/gate-contract.svg"><img src="assets/readme/gate-contract.svg" alt="Gate contract: a dossier owner provides versioned evidence; an agent or expert investigates it; the review yields findings, a disposition, proposed actions, citations, and authorization state. A separately validated mandate controls permitted actions. Rework can return the dossier for revision." width="1200" /></a>
-</p>
-
-**Figure 2 — Inputs, obligations, authority, and outputs.** The unit of analysis is a gate occurrence, not a job title. A favorable assessment and permission to commit are distinct. The dashed return illustrates the governance meaning of `REWORK`; it does not claim that the fixed-route benchmark completes a real remediation cycle. See the [gate-contract appendix](paper/sections/s_appF_contract.tex).
-
-### 3. Compose and evaluate routes
-
-<p align="center">
-  <a href="assets/readme/dgf-main-routes.svg"><img src="assets/readme/dgf-main-routes.svg" alt="Buy has six reviews: Procurement, Legal, Compliance, Security, IT, General. Integrate has six: IT, Architecture, Security, Legal, Compliance, General. Build has five: IT, Architecture, Security, Tech Readiness, General. Each node also identifies its review phase." width="1200" /></a>
-</p>
-
-**Figure 3 — Main benchmark routes and phases.** Sequences and phase labels are generated directly from [routes.py](routes.py). Within a route, gates run sequentially. In `agent` handoff mode, downstream gates receive the model's upstream outputs; `oracle` and `none` provide comparison conditions.
-
-## Experimental design
-
-<p align="center">
-  <a href="assets/readme/research-design.svg"><img src="assets/readme/research-design.svg" alt="Example experimental design: 100 Buy, 100 Integrate, and 100 Build dossiers evaluated by three models on the same cases. This schedules 900 model-case runs and 5,100 gate occurrences. These are planned counts, not reported completion or performance results." width="1200" /></a>
-</p>
-
-**Figure 4 — A matched comparison on shared dossiers.** The illustrated configuration uses 300 cases and three models. Its counts describe the design, not experiment completion. Gate counts are derived from the route definitions. Model comparisons retain the dossier as the sampling unit and report technical exclusions separately.
-
-| Research question | Observable quantities |
+| In everyday terms | What we check |
 |---|---|
-| **RQ1. Can an agent produce a correct gate review?** | Disposition accuracy, finding/action precision and recall, evidence support |
-| **RQ2. Does it respect authorization boundaries?** | Authorization correctness, false approvals, critical misses |
-| **RQ3. How does reliability change across a route?** | Strict gate success, complete-route success, handoff-condition comparisons |
-| **RQ4. What resources does the evaluation require?** | Calls, tokens, cost, availability, and unfinished or excluded cases |
+| **Does it make the right decision?** | Does its decision match the rules for this particular case? |
+| **Does it find the problems and suggest the right fixes?** | Which required problems and actions did it identify, miss, or invent? |
+| **Can it show why?** | Did it actually read the relevant evidence and provide valid supporting excerpts? |
+| **Does it stay within its authority?** | Does it respect approval conditions and permissions? Does it approve something that should be blocked? |
+| **Can it get the whole project review right?** | Does every required checkpoint succeed, including those that receive information from earlier reviews? |
+| **What does it cost, and does it finish?** | How many calls and tokens are used, what is the recorded cost, and how many cases complete or fail technically? |
 
-The five dispositions are `GO`, `GO_WITH_RESERVATIONS`, `REWORK`, `SUSPENSION`, and `NO_GO`; applicability depends on the gate and phase. A valid refusal can be the correct answer. Report the scoring version and sampling policy alongside every result.
+### How to read a score
 
-> **Study boundary**
->
-> The benchmark measures review decisions, proposed actions, and simulated authorization. It does not establish completed enterprise remediation, production deployment, hours saved, or workforce replacement. A high score on this synthetic population does not by itself establish the paper's broader automation thesis.
+The strict **gate success rate**, called **Gate CSR** in the reports, is the percentage of review checkpoints that meet *all* the scoring requirements: decision, identified problems, proposed actions, evidence, and authorization.
 
-The figures are available as editable SVGs and high-resolution PNGs. Their [sources, definitions, and regeneration command](assets/readme/README.md) are included in the repository.
+**Complete-route success** is stricter: every checkpoint in the project's route must pass. For example, if an AI gets four of a five-checkpoint project's reviews completely right, its gate success rate on that project is 80%, but that project's route is not complete. This is an illustration, not an experimental result.
+
+The reports also show the individual components. This matters because an AI can reach the correct decision yet fail the evidence requirement. For example, an excerpt that rearranges source text can fail the exact-quotation rule. We distinguish those errors from an incorrect decision.
+
+A **critical miss** means the AI failed to identify a problem classified as critical by the benchmark. A **false approval** means it allowed a project to proceed when the applicable rules and validated permissions required changes, a pause, or rejection.
+
+## How we test it
+
+We generate **fictional company projects** with known facts. Documents, technical diagrams, and expected review outcomes are derived from those facts. The model receives the allowed evidence and rules, but not the answer key.
+
+Each model works through the same cases using tools to inspect evidence, ask questions, and submit decisions. The evaluator then compares its work with the expected outcome and the recorded actions. The files preserve what the model read, what it submitted, and what the provider charged.
+
+## How project reviews work
+
+### Where reviews happen during a project
+
+<p align="center">
+  <a href="assets/readme/dgf-lifecycle-matrix.svg"><img src="assets/readme/dgf-lifecycle-matrix.svg" alt="A project moves from an initial idea to planning, design, testing, and closure. The grid shows which review teams are involved at each stage. A General review brings their conclusions together at every stage." width="1200" /></a>
+</p>
+
+**Figure 1 — A project can be reviewed more than once.** Read this grid from left to right as the project progresses. A blue dot means that type of specialist review is used at that stage. An amber diamond is the General review, which brings the other conclusions together. This full-lifecycle example contains 26 reviews; it is separate from the shorter Buy, Integrate, and Build routes below. Companies can organize these reviews differently. [Source: route definitions](routes.py).
+
+### What happens inside one review
+
+<p align="center">
+  <a href="assets/readme/gate-contract.svg"><img src="assets/readme/gate-contract.svg" alt="A project team supplies facts and documents. A reviewer checks them against the rules and records problems, evidence, proposed fixes, and a decision. Approval authority is checked separately. A request for changes sends the dossier back for revision." width="1200" /></a>
+</p>
+
+**Figure 2 — Read, investigate, explain, decide.** Having an opinion that a risk is acceptable does not automatically give the reviewer permission to accept it. The authorization checks establish what is allowed. The return arrow shows what requesting changes means; it does not claim that the benchmark carries out those changes in a real company. [Source: the paper's gate example](paper/sections/s_appF_contract.tex).
+
+| Decision in the report | Plain-language meaning |
+|---|---|
+| `GO` | Proceed. |
+| `GO_WITH_RESERVATIONS` | Proceed with stated conditions, under the applicable authorization rules. |
+| `REWORK` | Make the required changes and bring the dossier back for review. |
+| `SUSPENSION` | Wait for a prerequisite, information, funding, or arbitration. |
+| `NO_GO` | Do not proceed with the proposal as submitted. |
+
+### Three kinds of project
+
+<p align="center">
+  <a href="assets/readme/dgf-main-routes.svg"><img src="assets/readme/dgf-main-routes.svg" alt="Buy means purchasing a solution, Integrate means connecting systems, and Build means developing a new solution. Each project follows a different sequence of specialist reviews, ending with a General review." width="1200" /></a>
+</p>
+
+**Figure 3 — Different projects follow different paths.** Buy and Integrate use six checkpoints; Build uses five. In the normal `agent` setting, the next checkpoint receives the AI's earlier review outputs. The `oracle` setting supplies reference outputs instead, and `none` omits those messages. Comparing these settings can help study whether the information passed between reviews affects performance. [Source: route definitions](routes.py).
+
+## How we compare models
+
+<p align="center">
+  <a href="assets/readme/research-design.svg"><img src="assets/readme/research-design.svg" alt="Example study: three models each review the same 300 fictional projects. There are 100 Buy, 100 Integrate, and 100 Build cases, giving 900 model-case runs and 5,100 review checkpoints in total. These are planned counts, not results." width="1200" /></a>
+</p>
+
+**Figure 4 — The comparison plan.** The illustrated setup uses 300 different projects, each reviewed by three models. That means 900 runs, not 900 different projects. The 5,100 checkpoints include repeated reviews of the same projects across models. These numbers describe the study design; they do not say how much of an experiment has finished.
+
+We compare models on cases they have all completed. A provider outage or an exhausted API-key budget is recorded separately from a wrong answer. If a run stops early, the remaining cases are missing observations, not evidence that the AI passed or failed their reviews.
+
+The [figure sources and regeneration command](assets/readme/README.md) are included, with SVG and high-resolution PNG downloads.
+
+## What this study can tell us
+
+It can show **how reliably the tested models review these fictional cases under the stated rules**, where they make mistakes, how errors affect later reviews, and what the evaluation costs.
+
+It cannot, on its own, show that an AI can run every real company's governance process, fix the problems it identifies, save a measured number of working hours, or replace employees. Those questions need additional studies in real organizations.
+
+The test cases are generated, so their variety and rules matter. Balancing the dataset to include different decisions helps test more situations; it does not tell us how common those situations are in business. The answer key also needs independent checking: agreement with the program that generated it is not proof that every business rule is sound.
+
+### How this relates to the paper
+
+**[The Last Human Gate: Can AI Automate Enterprise Governance?](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument and its research hypotheses. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
+
+**DGF-Bench tests a narrower part of that argument:** can AI models perform the specified review tasks reliably? Model results, synthetic workforce calculations, and claims about real-world automation must remain clearly distinguished. [Paper sources](paper/main.tex) · [Reproduction package](paper/anc/).
 
 ## Get started
 
@@ -147,7 +189,7 @@ Each new one-command experiment writes to `experiments/run_<timestamp>/`:
 | `paper_outputs/PAPER_RESULTS.md` | Human-readable results |
 | `paper_outputs/` | Aggregate JSON, CSV tables, and a LaTeX summary table |
 
-Inspect evaluated, excluded, and unfinished case counts before interpreting scores. Infrastructure failures are not evidence of incorrect model decisions. Compare models on common completed cases and report coverage by route. Gates from the same case are dependent observations; 1,700 gates from 300 dossiers are not 1,700 independent dossiers.
+Start with `PAPER_RESULTS.md`, then check how many cases each model actually completed. A high score on a small, incomplete subset is not a result for the whole dataset. Check the separate Buy, Integrate, and Build results, and keep provider errors visible. Reviews from the same project share information, so uncertainty should be assessed at the project level.
 
 <details>
 <summary><strong>Resume an interrupted experiment</strong></summary>
@@ -164,7 +206,10 @@ This updates the aggregate JSON in the results directory. It does not refresh th
 
 </details>
 
-## Research use and reproducibility
+## For researchers: make the comparison reproducible
+
+<details>
+<summary><strong>Protocol, sampling, and statistical details</strong></summary>
 
 - Freeze the dataset, prompts, model settings, and scoring protocol before evaluation. Keep development cases separate from the final test set.
 - Record the repository commit and local changes, model/provider identity, seed, difficulty, routes, sampling policy, exclusions, and costs.
@@ -174,6 +219,8 @@ This updates the aggregate JSON in the results directory. It does not refresh th
 - Report uncertainty at the case level and distinguish decision correctness from evidence-format compliance. Do not treat partial runs as completed studies.
 
 Historical datasets and generators remain in the repository for reproducibility; they are not automatically compatible with newer scoring protocols or suitable as held-out evaluation data.
+
+</details>
 
 ## Offline checks and paper build
 
