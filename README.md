@@ -23,6 +23,7 @@
 
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf"><strong>Read the paper ↗</strong></a> &nbsp; · &nbsp;
+  <a href="#forward-deployed-engineers-dgf-first-business-functions-next">The role of FDEs</a> &nbsp; &middot; &nbsp;
   <a href="#what-we-want-to-measure">What we measure</a> &nbsp; · &nbsp;
   <a href="#the-papers-timeline">Timeline</a> &nbsp; · &nbsp;
   <a href="#get-started">Get started</a> &nbsp; · &nbsp;
@@ -49,11 +50,22 @@ The scope spans architecture, security, operations, technical readiness, complia
 
 DGF-Bench tests an early part of the argument: whether AI performs reviews reliably. The FTE reduction is a research hypothesis; confirming it requires measuring human work in organizations. Individual headcount, staffing choices, and employment effects are separate outcomes.
 
-### Why Forward Deployed Engineering?
+### Forward Deployed Engineers: DGF first, business functions next
 
-Forward Deployed Engineers work with customer teams to turn technology into operational systems. The paper already examines their role: connect the evidence sources, implement the review rules and permissions, evaluate the agents, and make the handoffs work across the whole DGF. This deployment perspective is now explicit in the title. [Read the paper's FDE section](paper/sections/s17_fde.tex).
+A **Forward Deployed Engineer (FDE)** works alongside a company's teams to make software and AI work in their real environment. In the paper's proposed approach, the FDE connects the documents and systems, turns review rules into executable checks, tests the agents with domain experts, obtains the necessary permissions, and makes information flow between reviews.
 
-Their work is part of the accounting. Initial implementation is a transition investment; recurring adaptation, evaluation, maintenance, and support remain in the required FTE. The 2033 hypothesis cannot be met by moving work from governance teams to uncounted engineers. The current benchmark does not measure FDE productivity or establish these savings.
+**Jeremy Canale's hypothesis is that FDEs will likely tackle the DGF first, then extend the same approach to the company's core business activities.** The DGF is a likely starting point because governance reviews have recurring inputs, evidence requirements, rules, and decisions. Security, architecture, procurement, and compliance also recur across companies, making some deployment patterns reusable. An AI project itself must pass through these reviews: the FDE encounters the DGF both as a process to navigate and as a process to automate.
+
+| Proposed progression | In plain language | Examples |
+|---|---|---|
+| **First: automate DGF work** | Help automate how the company checks, authorizes, and prepares its projects. | Review a supplier dossier, check security evidence, identify a contract issue, or verify readiness for deployment. |
+| **Then: extend to business activities** | Apply the methods to the work through which the company delivers its products and services. | Assess an insurance claim, prepare an underwriting decision, or evaluate a loan application. |
+
+The connection is the workflow: **read a dossier, investigate missing information, apply rules, produce a justified decision, and pass it to the next step.** An FDE can reuse evidence handling, permissions, evaluation methods, and monitoring while adapting them to each profession's rules and risks. The paper argues for designing this across the whole process, even when deployment proceeds one gate at a time.
+
+This is a proposed order of development, not a claim that every company will follow it or that business automation must wait until every DGF gate is automated. Sector-specific rules, available data, and economics can change the order. **DGF-Bench evaluates the governance-review part; it does not test insurance or banking work, establish this adoption sequence, or measure FDE productivity.**
+
+The FDE's own effort stays in the labor account. Initial implementation is a transition investment; recurring adaptation, evaluation, maintenance, and support remain in the required FTE. The **80% FTE-reduction hypothesis for 2033 concerns the DGF ecosystem**, including that support; it is not automatically a forecast for every business profession. [Read the paper's FDE and business-automation section](paper/sections/s17_fde.tex).
 
 ### A concrete example
 
