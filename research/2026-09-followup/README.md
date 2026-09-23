@@ -34,17 +34,17 @@ The original strict scores are unchanged. This is structural provenance analysis
 
 ## Repetitions: prepared, user-run
 
-The [fixed plan](repetition_plan.json) samples five dossiers per route without replacement using seed 23092026, then schedules three fresh trajectories for each of three models: **135 model-case runs**. Original selected checkpoint costs imply approximately **$12.72**, not a guaranteed price. The user authorized a $20 envelope and chose to launch from the terminal containing their API key.
+The [fixed plan](repetition_plan.json) samples five dossiers per route without replacement using seed 23092026, then schedules three fresh trajectories for each of three models: **135 model-case runs**. Original selected checkpoint costs imply approximately **$12.72**, not a guaranteed price. The user initially authorized a $20 envelope, then raised the total authorization to **$50** to finish the same repetitions. Prior spending remains included. The user launches from the terminal containing their API key.
 
 The plan's `prepared_not_run` value records its preparation status and is retained as historical metadata. Live progress is written separately to `repetition_results.json`, which is excluded from publication until the run is finalized and audited.
 
 From the repository root:
 
 ```powershell
-python research/2026-09-followup/run_repetitions.py --execute --cap-usd 20
+python research/2026-09-followup/run_repetitions.py --execute --cap-usd 50
 ```
 
-The wrapper verifies the frozen benchmark source fingerprint, copies and byte-checks the selected dossiers, and writes separate `repeat_1`, `repeat_2`, and `repeat_3` outputs under `experiments/followup_repetitions_20260923/`. Resume retains compatible checkpoints within each repeat. Recorded expenditure from earlier repeats reduces the remaining common envelope. The runner uses an $18 admission/response-boundary ceiling with $2 headroom because the historical provider client knows billed cost only after a response; an independently limited API key provides a stronger provider-side limit. Unknown billing stops further execution. Never publish the API key.
+The wrapper verifies the frozen benchmark source fingerprint, copies and byte-checks the selected dossiers, and writes separate `repeat_1`, `repeat_2`, and `repeat_3` outputs under `experiments/followup_repetitions_20260923/`. Resume retains compatible checkpoints within each repeat. Recorded expenditure from earlier repeats reduces the remaining common envelope. The runner reserves $2 headroom below the requested cap ($48 operating ceiling for `--cap-usd 50`) because the historical provider client knows billed cost only after a response; an independently limited API key provides a stronger provider-side limit. The default remains $20 unless a higher cap is explicitly supplied. The OpenRouter key limit is separate and must allow further calls. Unknown billing stops further execution. Never publish the API key.
 
 `--execute` is required for any inference. Without it, the command only prepares and verifies the dataset. The key can be provided through OPENROUTER_API_KEY in the process, Windows user environment, or the ignored repository `.env` file. The wrapper never prints it or accepts it in command-line arguments.
 

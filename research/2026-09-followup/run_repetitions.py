@@ -17,6 +17,7 @@ HERE=Path(__file__).resolve().parent
 SOURCE=ROOT/'experiments/reproduction_check_20260923/verified_inputs/benchmark_source'
 DATA=ROOT/'experiments/preflight_balanced_300_20260922/dataset'
 OUT=ROOT/'experiments/followup_repetitions_20260923'
+APPROVED_CAP_USD=50
 
 
 def ledger_cost(folder):
@@ -32,9 +33,11 @@ def ledger_cost(folder):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--execute',action='store_true')
-    ap.add_argument('--cap-usd',type=float,default=20)
+    ap.add_argument('--cap-usd',type=float,default=20,
+                    help='Total envelope across all repetitions, including prior spending (maximum USD 50; default 20).')
     args=ap.parse_args()
-    if not 0 < args.cap_usd <= 20:raise ValueError('This approved plan permits at most USD 20.')
+    if not 0 < args.cap_usd <= APPROVED_CAP_USD:
+        ap.error(f'--cap-usd must be greater than zero and at most {APPROVED_CAP_USD} (total envelope, including prior spending).')
     plan=json.loads((HERE/'repetition_plan.json').read_text(encoding='utf-8'))
     sys.path.insert(0,str(SOURCE))
     from benchmark_protocol import source_fingerprint
