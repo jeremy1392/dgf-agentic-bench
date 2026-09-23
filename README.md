@@ -13,8 +13,8 @@
 </p>
 
 <p align="center">
-  <strong>Can an AI review a project, spot problems, and make the right decision?</strong><br />
-  A research test for AI-assisted project reviews, accompanying <em>The Last Human Gate</em>.
+  <strong>The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance</strong><br />
+  DGF-Bench tests whether AI agents can review projects, spot problems, and make justified decisions.
 </p>
 
 <p align="center">
