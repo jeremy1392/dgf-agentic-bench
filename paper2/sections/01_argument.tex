@@ -1,0 +1,82 @@
+\section{Introduction: a gate is a contract, not a profession}
+
+A proposed enterprise project is examined by several groups before it proceeds. A legal reviewer
+checks contractual prerequisites; an architecture reviewer checks the technical design; security
+and readiness reviewers check protections and operational evidence. Each review consumes
+information and produces a decision with reasons, conditions, and obligations. The institutional
+label of the reviewer does not determine whether this transformation must always be performed
+by a person. The useful unit of analysis is the review contract: the inputs, rule, output,
+evidence, and authority that make a particular review acceptable.
+
+This observation motivates a task-substitution hypothesis. If software can satisfy a review
+contract and its operational assurance requirements, it can replace some of the human execution
+of that review. If it does so across a connected process while reducing total human work, the
+same volume of governed projects may require fewer staff. Neither implication requires
+abolishing the gate or lowering its standard. Nor does successful execution of a synthetic
+contract establish that every enterprise contract has already been captured.
+
+The empirical question in this paper is specific: how reliably do three model endpoints apply
+explicit governance rules to synthetic dossiers, investigate with tools, produce evidence-bearing
+decisions, and continue through a sequence of gates? The experiment provides a useful early
+measurement because it exposes what an agent must return and retains what it actually read and
+did. It is also deliberately scaffolded: decision-relevant structured facts and policy rules are
+available to the model. Success is evidence about this policy-application task, rather than a
+direct comparison with unaided professional judgment.
+
+\subsection{Contributions and claim structure}
+
+The paper has three contributions. First, it documents a released benchmark with 300 distinct
+projects, 899 evaluable model--project runs, component-level scores, paired comparisons, and
+recorded costs. Second, it separates decision agreement, strict evidence conformity, and
+whole-route success, including concrete examples where their interpretations differ. Third, it
+defines an implementation and measurement agenda linking task automation to human work: the
+engineering artifacts an FDE must build, a minimal labor account, and follow-up studies that
+could substantiate or reject the workforce hypothesis.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Three different claim levels. A stronger claim needs an additional measurement.}
+\begin{tabularx}{\linewidth}{@{}P{3.1cm}LL@{}}
+\toprule
+Level & Claim in this paper & Evidence required\\
+\midrule
+Measured performance & Models often satisfy specified synthetic review contracts. & Released submissions, traces, scores, and uncertainty conditional on the dataset.\\
+Deployment hypothesis & Comparable review tasks can be executed with less total human work. & Independent review quality and measured human hours in operational workflows.\\
+Workforce projection & Required DGF FTE may fall by 80\% by 2033 at comparable output. & A defined cohort, credible baseline, all-in labor boundary, and endpoint observations.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The second and third levels are research hypotheses. We do not call eventual complete
+automation a law: without a deadline or a specified comparison population, that endpoint cannot
+be rejected by a finite observation period. The useful empirical target is a change in required
+human work over a stated period with quality preserved. A substantial reduction can occur while
+some human tasks remain necessary.
+
+\subsection{Relation to prior research and to the companion manuscript}
+
+WorkArena evaluates agents performing enterprise-software tasks \citep{drouin2024}. DGF-Bench
+focuses instead on connected governance reviews with explicit decisions, supporting findings,
+authority, and evidence. AgentDojo evaluates tool-using agents exposed to untrusted data and
+prompt injection \citep{debenedetti2024}; the present run does not provide that adversarial
+evaluation. These comparisons locate the task rather than establish superiority across benchmarks.
+
+The workload interpretation follows a task-level distinction between automation and aggregate
+employment: displacement of particular tasks can coexist with new tasks and changing demand
+\citep{acemoglu2019}. Bainbridge's analysis of automation motivates explicit attention to the
+work left for human operators \citep{bainbridge1983}. Field evidence such as
+\citet{brynjolfsson2025} illustrates a different empirical object: productivity observed in an
+operating organization. We do not transfer a productivity effect from another occupation to DGF
+reviewers or infer employment effects from model scores.
+
+This is a shorter, empirical companion to \emph{The Last Human Gate: Forward Deployed Engineering
+and the Automation of Enterprise Governance}, by the same author. Both manuscripts use the same
+September 2026 DGF-Bench experiment; they are not independent replications. This paper removes
+the universal-law framing, reduces the scenario apparatus, and makes the validation gap an
+operational research plan. The original manuscript and data remain available separately.
+
+The routes are author-designed synthetic workflows informed by practitioner experience. Their
+definitions, generated artifacts, rule implementation, and scoring interface are public, so
+the benchmark specification can be inspected without access to an unpublished practitioner
+document. This makes the implemented task inspectable; it does not establish that its rules
+represent a particular enterprise or an independently validated professional standard.

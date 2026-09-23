@@ -1,0 +1,91 @@
+\section{From task success to required human work}
+\label{sec:labor}
+
+\subsection{A minimal accounting identity}
+
+Automating a review can remove reading, comparison, documentation, and coordination work. It
+can also add exception handling, monitoring, correction, and maintenance. To determine the net
+effect, first define the same organizational boundary and project volume in both regimes.
+Let $V$ be reviews per measurement period and $h_0$ the baseline mean human hours per review.
+Let $p$ be the fraction routed to substantive human exception handling, $h_E$ the total human
+hours on each such review, $h_S$ the human hours on a standard-path review, and $h_W$ additional
+rework averaged over all reviews. Let $B_0$ and $B_1$ denote case-independent support hours before
+and after deployment. Then
+\begin{align}
+L_0 &= Vh_0+B_0,\\
+L_1 &= V\{ph_E+(1-p)h_S+h_W\}+B_1,\label{eq:labor}\quad
+N_j=L_j/K\quad (j=0,1).
+\end{align}
+Here $K$ is a fixed useful-hours convention per FTE per period. The same convention is used
+in both regimes. Exception time includes any preliminary review of those same cases. Rework
+excludes activities already counted in exception time, ordinary review, or separately counted
+repeat visits. Support includes internal and external work within the registered function.
+
+Equation~\eqref{eq:labor} is accounting, not an estimated response to AI adoption. With consistent
+inputs it is equivalent to adding the underlying activity hours directly. We make no hypothesis
+that it outperforms an algebraically identical comparator. Its purpose is to expose omissions
+and make an empirical claim about savings auditable. Gate success, approval rate, and the share
+of tool calls completed are not substitutes for any of these human-time variables.
+
+\subsection{Why remaining cases can retain disproportionate work}
+
+Let $w$ denote the exception group's share of baseline case-handling hours, under a fixed
+partition of the same case population. Let $a$ be its post-deployment effort divided by its own
+baseline effort, and $u$ the corresponding ratio for the standard group. Put
+$r=h_W/h_0$ and $b_j=B_j/(Vh_0)$. For positive baseline group means,
+\begin{equation}
+R:=\frac{N_1}{N_0}=\frac{wa+(1-w)u+r+b_1}{1+b_0}.\label{eq:ratio}
+\end{equation}
+This is the same labor decomposition as the companion manuscript's
+$\phi\eta+(1-\phi)\mu+r+b_A$ numerator, with a smaller, non-reused notation set.
+All quantities are defined once in Appendix~\ref{app:notation}. If a group's baseline mean is
+zero, use the hours identity instead of an undefined effort ratio.
+
+The exception case share $p$ and its baseline labor share $w$ need not coincide. A small group
+of difficult projects may retain much of the original work. The relation follows from the
+covariance of routing and baseline effort; Appendix~\ref{app:selection} gives the short proof.
+This is a property of selection, not evidence that the benchmark's failing cases are the costly
+enterprise cases. Human timing data are needed to establish that relationship.
+
+\begin{table}[!htb]
+\centering\small
+\caption{One transparent sensitivity illustration, not fitted to DGF-Bench. Both rows set
+$w=0.40$, $b_0=0$ and use the same case partition.}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Assumed regime & $a$ & $u$ & $r$ & $b_1$ & $R$ & FTE from 100\\
+\midrule
+Low residual effort & 0.25 & 0.05 & 0.02 & 0.05 & 0.20 & 20\\
+High residual effort & 1.50 & 0.50 & 0.10 & 0.10 & 1.10 & 110\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The difference in the table is produced by the stated assumptions. It is not a discovered
+effect, a fitted forecast, or an estimate obtained from the model success rates. Its use is
+to show exactly what would need to be measured: assistance on exceptions, residual standard
+review, additional rework, and recurring support. The long manuscript's multiple workforce
+scenarios are omitted here because repeating such arithmetic does not add empirical evidence.
+
+\subsection{Implications for staffing and employment}
+
+If validated review automation lowers $L_1$ at comparable output and quality, fewer
+workload-equivalent FTE are required for those activities. This is a mechanism through which
+work previously performed by employees can be replaced. A company may then reduce staffing,
+avoid new hires, redeploy people, or increase reviewed volume. Those are observable choices,
+not identical outcomes. Required hours, allocated staffing, headcount, and hiring should be
+reported separately so that the workforce claim can be evaluated rather than inferred from
+a technology demonstration.
+
+An organization could reduce headcount while leaving unmet review demand or transferring
+unpaid work to another team. Conversely, it could preserve headcount while governing more projects
+with the same effort. The primary comparison therefore standardizes volume and case mix,
+retains quality and service requirements, and includes shared supplier support. Initial
+implementation effort should also be reported for the investment decision, even when the
+primary endpoint concerns recurring annual work.
+
+The benchmark supports the technical premise that models can execute many represented tasks.
+It contains no human hours and cannot estimate $R$. The author's projection of an 80\% reduction
+in required DGF FTE by 2033 is a hypothesis about a possible deployment outcome, rather than
+the numerical complement of any model's accuracy. The next section makes its measurement
+conditions and calendar explicit.

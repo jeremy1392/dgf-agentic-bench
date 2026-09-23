@@ -1,0 +1,156 @@
+\section{A feasible validation program}
+\label{sec:validation}
+
+The empirical gaps require additional observations. The following studies are proposed; no
+human participants, enterprise cohort, or independent semantic adjudication have been collected
+for this paper. Their protocols should be finalized, independently reviewed, and registered
+before new outcome collection. Existing benchmark inspections and design choices must be
+disclosed as prior information. The companion files in \nolinkurl{paper2/protocols/} provide
+an operational starting point rather than a claim of preregistration.
+
+\subsection{Human and deterministic baselines}
+
+A fair baseline must first specify which ability is being compared. A human with only Word
+documents and a model with authoritative structured facts are not solving the same information
+problem. The first comparison should therefore give qualified reviewers and agents the same
+policy, accessible evidence, mandate information, output requirements, and case population.
+Humans can use a form that captures structured outputs; record form-entry time separately
+from investigation and deliberation. The exact-quotation requirement should be explained to
+both groups, while a separate semantic evaluation tests support independently of serialization.
+
+Evaluate at least three conditions: unaided human review, agent review, and human review of an
+agent-produced draft. Add a deterministic policy engine that reads only the permitted facts and
+mandates, without access to evaluator-only answers. This comparator tests whether the explicit
+rule system itself accounts for disposition performance. Keep extraction from unstructured
+documents as a separate experimental condition. An oracle that reads the answer key can check
+the harness, but cannot serve as a substantive baseline.
+
+Recruit domain-qualified participants, record relevant experience, and train them on development
+cases excluded from evaluation. Assign held-out cases with counterbalanced order so that a
+participant does not review the same case once unaided and again with an agent draft. Preserve
+route-level context when measuring complete routes. Independently adjudicate answer quality
+without revealing the review condition where practical. Report compensation, missing sessions,
+exclusions, and any identifiable information retained under the study's ethics requirements.
+
+Primary outcomes should include independently adjudicated disposition quality, false approval
+and critical-miss rates, semantic evidence support, and active human minutes. Total cycle time
+and exact-format conformity are secondary outcomes. For the assisted arm, count time verifying
+the draft, finding errors, rewriting outputs, and escalating issues; a short initial reading
+time alone is not an efficiency gain. Record time spent by other specialists who receive
+questions from the assigned reviewer.
+
+The number of cases and reviewers should follow a prospective power and precision analysis
+using a stated noninferiority margin, expected paired disagreements, and participant/case
+clustering. Three hundred synthetic cases do not by themselves determine the sample size needed
+to establish rare-error safety or workforce effects. A small pilot may estimate variance and
+operational burden, but its outcomes must not be used repeatedly to choose a favorable primary
+metric. A confirmatory set should remain untouched until the analysis is frozen.
+
+\subsection{Independent cases, scaffold removal, and repeated trials}
+
+The generator and evaluator share an underlying rule system. An independent set should be
+written or adjudicated by specialists who did not construct those rules, using policies and
+documents whose ambiguities are documented. Specialists should be allowed to conclude that
+a case is underdetermined. Such cases test escalation rather than forcing a single convenient
+answer. Keep both policy disagreements and unambiguous implementation errors visible.
+
+On a held-out synthetic set, compare full structured facts with a document-only condition,
+then introduce stale evidence, conflicting versions, and incomplete records using frozen
+transformations. Validate that the necessary facts remain recoverable when the task is intended
+to be solvable. A drop after hiding \texttt{REVIEW\_FACTS} would quantify dependence on the
+scaffold; it would not by itself distinguish extraction difficulty from reasoning difficulty.
+Add an extraction-only measurement so that these components can be examined separately.
+
+Repeat trajectories for every selected model--case pair using a predeclared repeat count,
+reporting all attempts rather than selecting the best. Record provider, timestamps, resolved
+model identifiers, inference settings, resource limits, and retries. Separate sampling over
+projects from variability over repeated executions. If costs constrain replication, use a
+stratified case sample whose selection is fixed before outcomes and retain its inclusion
+probabilities. Expand the endpoint set to test whether the observed ranking survives a broader
+model selection; the current three endpoints are not a population sample of AI systems.
+
+Adversarial document content and prompt injection should form a separately declared condition.
+Such tests concern whether the reviewer maintains its rules and authority while reading
+untrusted evidence, as distinct from applying a trusted snapshot correctly. A favorable score
+on the current dataset provides no estimate of that failure rate.
+
+\subsection{Enterprise deployment: quality and labor together}
+
+Field evaluation should begin with shadow review: the system produces outputs while existing
+authority remains unchanged. Independently compare the outputs and measure the human work needed
+to correct them. Shadow operation establishes review performance and integration burden; it
+does not by itself demonstrate savings because it may add a parallel review. A later controlled
+stage must measure actual substitution of defined activities under the approved operating design.
+
+Where feasible, randomize comparable workflows or teams to staged adoption and retain a
+contemporaneous comparison group. If randomization is not feasible, register a design using
+pre-adoption trends, case-mix adjustment, and explicit confounders such as policy changes,
+reorganization, demand changes, and other automation. A before--after reduction alone establishes
+a temporal change, not attribution to the agent. Report both the volume-standardized effect
+and the actual workload trajectory.
+
+The activity ledger should include evidence preparation, ordinary review, exception handling,
+remediation coordination, quality checks, incident work, and recurring system support. Shared
+platform teams and supplier operators must be counted once, then allocated under a frozen rule.
+Unobserved external effort is missing, not zero. Maintain an obligation register so that apparent
+savings cannot be achieved by leaving corrective work unfinished or pushing it beyond the
+measurement window. The observation period must include scheduled maintenance and policy updates.
+
+Quality requirements should be registered with domain owners before deployment: admissible
+decision error, critical misses, unauthorized actions, evidence validity, and service delay.
+Noninferiority on an average score is insufficient if it hides unacceptable critical failures.
+The primary labor reduction is interpretable only while those requirements are met. If a
+site reverts to manual review, its recovery and manual effort remain part of the outcome.
+
+\subsection{Repairing the 2026--2033 calendar}
+\label{sec:calendar}
+
+The original dated hypothesis is that required DGF FTE will be at most 20\% of the 2026
+baseline by 20 September 2033, at comparable governed output, quality, and service, including
+recurring support. Its baseline is the twelve-month period ending 20 September 2026; its
+endpoint is the twelve-month period ending 20 September 2033. As of this manuscript, the
+baseline window has already closed and no cohort is enrolled. It cannot be opened prospectively
+after the fact.
+
+There are two legitimate paths. The first is a historical-baseline study: enroll organizations
+with auditable records covering the original window, reconstruct the activity boundary, validate
+time attribution, and freeze the reconstruction before examining endpoint outcomes. Register
+record eligibility and missingness rules before selecting sites. Include an audit of contracts,
+timesheets, case volumes, supplier effort, and support allocation. Retrospective estimates and
+their uncertainty must be disclosed; missing history cannot be replaced by recollection without
+changing the evidential status of the comparison.
+
+The second is a prospective cohort with a new baseline. Fix a registration date $t_0$, measure
+twelve months of baseline activity, and specify a follow-up period before observing its outcomes.
+It can test subsequent labor reduction, but it is a new dated hypothesis. A seven-year comparison
+from a later baseline has a later endpoint. A comparison ending in 2033 instead has a shorter
+interval. Neither should be reported as confirmation of the original 2026--2033 prediction.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Calendar rules. Neither cohort exists at publication; the table specifies eligible designs.}
+\begin{tabularx}{\linewidth}{@{}P{3.2cm}LL@{}}
+\toprule
+Design & Required baseline & Interpretation\\
+\midrule
+Original 2033 test & Auditable reconstruction of the year ending 20 September 2026 & Tests the dated ratio for the covered population if endpoint and quality data are complete.\\
+New prospective cohort & Twelve months collected after registered $t_0$ & Tests a newly stated baseline and horizon; cannot silently replace the original prediction.\\
+Insufficient records & Missing historical hours or unmeasured material supplier effort & Original dated test remains untestable for that population; no confirmation claim.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For the original test, estimate a volume- and case-mix-standardized final/baseline labor ratio
+including support. Register organizational weighting, clustering, attrition treatment, and
+uncertainty from time reconstruction. Confirmation requires the upper bound of the registered
+uncertainty interval to be at most 0.20 and all quality and service criteria to pass. A lower
+bound above 0.20 contradicts the threshold for that population. An interval spanning the
+threshold is inconclusive; an estimate below it with missing material labor is not confirmation.
+Failure to enroll an eligible cohort leaves the forecast untested rather than moving its date.
+
+A convenience cohort supports claims about its participating organizations. Ecosystem-wide
+inference requires a defensible sampling frame, coverage of functions and suppliers, and
+appropriate weighting. Employment consequences also require reporting staffing and headcount
+separately. The causal claim that AI produced the change requires the comparison design in
+addition to observing the threshold. These distinctions specify what data must be collected;
+they do not weaken the possibility of a large reduction when those data support it.

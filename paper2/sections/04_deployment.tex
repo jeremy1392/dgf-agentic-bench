@@ -1,0 +1,99 @@
+\section{The role of forward deployed engineers}
+\label{sec:deployment}
+
+Here, a forward deployed engineer (FDE) denotes an engineer working with an organization's
+domain owners to integrate and operate a review system. The contribution of the role is not
+assumed from its title. It consists of deliverables that make a review contract executable,
+observable, and maintainable. The benchmark already supplies many of these prerequisites;
+in an enterprise they must be built and kept correct.
+
+\subsection{From a generated contract to an operational service}
+
+The first task is policy formalization. A specialist and the policy owner must agree which
+decision conditions are mandatory, which permit an exception, and which require interpretation.
+The implementation should record version, scope, effective date, and responsible authority for
+each rule. A model's explanation is not a substitute for resolving contradictory policies.
+Ambiguities discovered during formalization are findings about the organization's process and
+should remain visible in the deployment record.
+
+The second task is evidence integration. Synthetic snapshots make facts convenient to read;
+real evidence comes from versioned repositories, identity services, ticketing systems, monitoring,
+contracts, and people. Each connector needs access control, freshness checks, stable source
+identifiers, and recorded observations. If two sources disagree, the system needs an escalation
+or precedence rule rather than silently selecting whichever supports approval. The cost of
+producing a reliable snapshot belongs in the deployment, even if the subsequent model review
+becomes almost trivial.
+
+The third task is authority. Recommendation, conditional approval, and execution are distinct
+capabilities. The reviewer must act within a versioned mandate whose scope includes the project,
+action, and any conditions. An exception mechanism must retain the unresolved finding and identify
+who accepts it. Approval status must not be inferred solely from a fluent rationale. The benchmark's
+rejected conditional-approval attempts make this distinction concrete: a proposed call can be
+invalid even when a later submitted decision is correct.
+
+The fourth task is a shared case state. Later gates need to know which obligations remain open,
+which evidence is stale, and which prior opinions have been superseded. Passing an unstructured
+summary alone can lose conditions; copying every historical record can create contradictions.
+An implementation should retain typed decisions, evidence references, policy versions, unresolved
+obligations, and the causal relationship between reviews. Gates can be introduced incrementally
+while using the same state and interface design.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Proposed FDE deliverables and independently checkable acceptance evidence. These are
+implementation requirements, not deployment outcomes measured in this benchmark.}
+\begin{tabularx}{\linewidth}{@{}P{3.0cm}LL@{}}
+\toprule
+Deliverable & Concrete artifact & Acceptance evidence\\
+\midrule
+Policy contract & Versioned rules, exception scope, output schema & Specialist adjudication of held-out cases and documented disagreements.\\
+Evidence interface & Connectors, timestamps, source IDs, read log & Tests of stale, missing, contradictory, and access-restricted records.\\
+Authority boundary & Mandate registry and enforced action checks & Invalid calls rejected; accepted actions trace to an active mandate.\\
+Connected case state & Findings, obligations, decisions, dependency graph & Replayed handoffs preserve open issues and invalidate stale approvals.\\
+Review service & Agent, validator, escalation and recovery behavior & Held-out quality results including resource exhaustion and provider failure.\\
+Operating account & Human activity ledger and support allocation & Measured effort includes specialists, engineers, suppliers, and rework.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Failure-informed engineering priorities}
+
+The observed failure classes suggest testable interventions. An evidence serializer could attach
+verbatim spans and stable source identifiers directly from the read log, avoiding a model's
+reconstruction of exact quotations. A consistency check could flag a submitted approval whose
+rationale explicitly asks for rework. A finalization contract could require abstention or
+escalation when resource limits prevent a supported answer, instead of permitting a placeholder
+approval. A handoff validator could ensure that an unresolved upstream prohibition cannot
+silently disappear from the final review.
+
+These interventions could reduce particular failures, but their effects are not measured here.
+Each should be evaluated as a new system version on held-out cases, recording any new failure
+modes and human burden. A validator that catches an error but routes every case to a specialist
+may improve decision safety without reducing labor. A serializer that makes quotes exact may
+raise strict CSR without improving substantive judgment. The outcome attributed to an
+intervention should match what it changes.
+
+Operational performance is a property of the complete system: policy owners, evidence systems,
+model, validators, authorization controls, and exception handling. The FDE's recurring work is
+part of that system. Initial integration hours are a transition investment; repeated policy
+changes, connector repairs, evaluations, incident investigations, and model migrations are
+recurring work. Moving them into an external supplier does not remove them from the DGF labor
+boundary. Separate reporting of build effort and recurring effort enables both an annual
+capacity estimate and a cumulative payback analysis.
+
+\subsection{Testing the implementation hypothesis}
+
+We hypothesize that a connected implementation with shared evidence and obligations can avoid
+some re-reading, re-entry, and reconciliation across review teams. The relevant comparison is
+with locally optimized gate tools at comparable project mix, authority, quality, and automation
+scope. Deployment can remain incremental in both conditions. Measure duplicated evidence
+collection, downstream correction, specialist review hours, recurring support, and total
+quality-constrained human work. Assign implementation approaches across comparable workflows
+where feasible, or use a staged comparison with explicit confounding controls.
+
+An improvement would support the value of the shared implementation, not prove that a particular
+job title caused it. No FDE deployment is included in the current experiment. Likewise, the idea
+that governance will automate before other business functions is a comparative hypothesis: it
+requires matched functions, comparable outcome definitions, and observed deployment times.
+The present results do not establish a universal ordering. They identify a concrete candidate
+for further study because much of the review contract can be specified and inspected.

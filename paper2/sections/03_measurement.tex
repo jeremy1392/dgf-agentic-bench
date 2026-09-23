@@ -1,0 +1,110 @@
+\section{What the scores establish}
+\label{sec:measurement}
+
+\subsection{A near-saturated disposition task and a stricter trace contract}
+
+Gemini's 100\% disposition accuracy is a strong result under the declared conditions. It also
+indicates that this sample offers little remaining discrimination on that component for this
+endpoint. The model can read explicit rules and authoritative structured facts; this experiment
+does not isolate how much ability is needed to recover those facts from documents. A deterministic
+policy engine operating on the same permitted facts is therefore an important missing comparator.
+Without it, the additional contribution of a language model over explicit rule execution is not
+quantified. Its ability to interact, summarize, and assemble a submission is observed as part of
+the whole system, not identified by an ablation.
+
+Strict success answers a different question: does the entire submitted review satisfy the
+implemented contract, including exact evidence provenance? It is useful when downstream processing
+requires precise traceability, but it is not a direct measure of independent expert judgment.
+The selected Architecture example shows a correct decision and correct values with a failed
+excerpt because two fields were reversed. The Legal false approval by Luna and DeepSeek's
+placeholder approval illustrate materially different errors. Those classes should not be
+collapsed into a single narrative about reasoning failure.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Separate observed outcomes. Evidence-only failures have no other failing scored component;
+they are not all established to be harmless formatting errors.}
+\begin{tabularx}{\linewidth}{@{}Lrrr@{}}
+\toprule
+Outcome & DeepSeek & Gemini & Luna\\
+\midrule
+Correct dispositions / evaluable gates & 1,619/1,700 & 1,694/1,694 & 1,668/1,700\\
+Strictly successful gates & 1,261 & 1,609 & 1,416\\
+Evidence-only gate failures & 338 & 85 & 221\\
+Other strict gate failures & 101 & 0 & 63\\
+False approvals & 1 & 0 & 1\\
+Critical finding misses & 1 & 0 & 3\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The strict gate--route gap for Gemini is consequently a compounding of evidence-conformity
+failures across routes, not evidence of incorrect final dispositions. A strict route fails
+when any component at any gate fails. This is the intended operational definition, but the
+figure 76.92\% must be read with that definition. We retain both the original scoring rule and
+the component breakdown. Neither retrospectively relaxing the rule nor interpreting every
+lexical failure as a dangerous decision is justified.
+
+The diagnostics do not provide an independently adjudicated fraction of harmless formatting
+errors among the 85 Gemini failures. The field-order example establishes that such a failure
+exists, not that it explains most of them. Missing references, unobserved sources, omitted
+qualifications, and incorrect substantive support would require separate classification.
+
+\subsection{A proposed semantic evidence assessment}
+\label{sec:semantic}
+
+A semantic assessment should supplement, rather than replace, the frozen lexical score.
+Its object would be the relationship between an output claim and evidence the agent actually
+observed. A correct conclusion based on an unseen file would not pass an observed-evidence
+requirement. A correctly observed passage that does not support the conclusion would not pass
+semantic support. Harmless serialization changes should be distinguished from both.
+
+We propose four separately recorded judgments for each required finding: whether the source
+was available and read before submission; whether the cited span is correctly identified;
+whether it entails the factual claim with its scope, date, and qualifications intact; and whether
+the claim is sufficient to support the relevant policy finding. Each receives a supported,
+unsupported, or ambiguous label and a written reason. Disputed policy interpretation is recorded
+separately from a disputed quote. Unsupported observations must not be repaired by showing the
+adjudicator the hidden reference answer as if the agent had seen it.
+
+Two domain-qualified adjudicators would label the same items independently, with model names and
+original pass/fail outcomes masked where feasible. A third adjudicator would resolve disagreements
+under a written rubric. Report raw agreement, a chance-corrected agreement statistic, the
+disagreement categories, and results both before and after adjudication. Model-generated judging
+can assist triage only after comparison with the human labels; it must not define its own validity.
+
+For an initial audit, include all strict evidence failures and a probability sample of passing
+items stratified by model, route, and gate. Use the sampling probabilities for any population
+estimate. If the goal is a new complete-route semantic score, adjudicate every required evidence
+item on the routes used for that estimate; a convenience sample of failing excerpts is
+insufficient. Freeze the rubric on development examples and evaluate it on held-out items.
+Because the existing traces have already been inspected, this is a declared post-hoc audit,
+not a preregistered re-evaluation of the original primary endpoint.
+
+This paper reports no semantic pass rate: the adjudication has not been performed. The practical
+value of the proposal is to make the next measurement answer a precise question: how often does
+strict trace failure indicate unsupported reasoning, and how often does it indicate a
+representation defect? The distinction matters for both reliability claims and engineering effort.
+
+\subsection{Dependence, uncertainty, and error propagation}
+
+The benchmark contains 300 underlying projects, not 5,094 independent enterprises. Multiple
+gates within a project share facts and handoffs; multiple models review the same project.
+The released case-cluster and paired analyses preserve those dependencies for the reported
+intervals. Those intervals still condition on the generated population and one retained trajectory
+per model and case. They do not measure uncertainty over organizations, model versions, or
+repeated inference runs. Temperature zero does not supply a replication study.
+
+Sequential handoffs allow an upstream output to affect a later review. They make propagation
+observable in traces, but this single handoff condition does not identify a causal propagation
+effect. A controlled comparison would run the same cases with agent handoffs, reference handoffs,
+and no prior-review content, with matched resource budgets and repeated trajectories. Report
+downstream changes conditional on the upstream error class, rather than treating every repeated
+mention of one defect as an independent safety event.
+
+The original gate definition is a useful strict endpoint; it is not the only endpoint an
+operating organization would choose. A deployment evaluation should separately register
+false approvals, missed critical findings, evidence validity, unauthorized actions, cycle time,
+and human work. Acceptance thresholds should follow the consequence of each error. The present
+study supplies observations for several of those outcomes, but no enterprise has validated its
+contract as a sufficient production acceptance test.

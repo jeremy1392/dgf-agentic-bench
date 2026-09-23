@@ -1,0 +1,63 @@
+\pdfoutput=1
+\pdfminorversion=7
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.25cm]{geometry}
+\usepackage{microtype,parskip}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,booktabs,tabularx,array}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[round,authoryear]{natbib}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers},pdfauthor={Jeremy Canale},pdfsubject={Synthetic governance review evaluation and a field-validation agenda}}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newtheorem{proposition}{Proposition}
+\makeatletter
+\newcommand{\rowsinput}[1]{\@@input #1.tex }
+\makeatother
+\setlength{\emergencystretch}{2em}
+\title{\textbf{From Governance Reviews to Task Substitution}\\[0.4em]
+\large DGF-Bench and the Role of Forward Deployed Engineers}
+\author{Jeremy Canale\\\normalsize\texttt{contact@jeremycanale.com}\\
+\normalsize\url{https://www.jeremycanale.com}}
+\date{September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Enterprise governance reviews transform project evidence into decisions, conditions, and actions.
+We evaluate whether tool-using language models can perform this work under explicit policies,
+using DGF-Bench: 300 synthetic Buy, Integrate, and Build projects with generated documents,
+architectures, simulated records, and sequential review gates. Agents have access to authoritative
+structured facts as well as documents. Across 899 evaluable model--project runs, Gemini 3.8 Flash,
+GPT-5.6 Luna, and DeepSeek v4.1 Flash achieve strict gate success of 94.98\%, 83.29\%, and
+74.18\%, respectively. Complete-route success is 76.92\%, 42.33\%, and 24.67\%; recorded
+API cost totals USD~87.02. Gemini has 100\% disposition accuracy: all its strict failures concern
+evidence conformity. We therefore distinguish decision quality from lexical traceability instead
+of interpreting the gate--route gap as a general reasoning failure. These results support the
+technical prospect of automating the represented review tasks. We formulate a conditional
+task-substitution hypothesis and specify how forward deployed engineers could connect review
+automation to operational evidence, authority, exception handling, and measurement of human work.
+A compact labor account shows why benchmark accuracy is not a staffing-reduction estimate.
+Independent human comparison, semantic evidence adjudication, scaffold-removal tests, and a
+prospective enterprise cohort are specified as follow-up studies, not completed experiments.
+The hypothesis of 80\% fewer required DGF FTE by 2033 is retained as a field-testable projection
+with an explicit historical-baseline requirement. All benchmark sources, traces, and datasets
+are public. This manuscript reorganizes an existing experiment; it reports no new model trials.
+\end{abstract}
+\noindent\textbf{Keywords:} governance reviews; AI agents; forward deployed engineering; benchmark; task substitution; human workload.
+
+\input{sections/01_argument}
+\input{sections/02_experiment}
+\input{sections/03_measurement}
+\input{sections/04_deployment}
+\input{sections/05_labor}
+\input{sections/06_validation}
+\input{sections/07_conclusion}
+\input{sections/references}
+\appendix
+\input{sections/appendix}
+\end{document}

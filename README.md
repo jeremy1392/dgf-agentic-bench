@@ -263,6 +263,8 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 
 ### How this relates to the paper
 
+**Second manuscript:** [*From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers*](paper2/From_Governance_Reviews_to_Task_Substitution.pdf) offers a shorter, benchmark-centered treatment with a conditional task-substitution hypothesis, separate decision and evidence metrics, concrete FDE deliverables, and proposed human/semantic/field validation protocols. It uses the **same experiment**, not a new replication. [Sources and review response](paper2/). The original manuscript remains available below.
+
 **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)**, by Jeremy Canale (September 2026), sets out the broader argument, its research hypotheses, and the measured 300-project benchmark results above. Its numerical examples about human work are calculations based on stated assumptions, not measured deployments.
 
 **DGF-Bench tests a narrower part of that argument:** can AI models perform the specified review tasks reliably? Model results, synthetic workforce calculations, and claims about real-world automation must remain clearly distinguished. [Paper sources](paper/main.tex) · [Reproduction package](paper/anc/).
