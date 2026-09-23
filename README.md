@@ -233,7 +233,7 @@ The [paper's experimental section](paper/sections/s18_benchmark_results.tex) exp
 
 **Some failures are substantive.** DeepSeek records one critical omission and one incorrect approval; Luna records three critical omissions and one incorrect approval. Gemini records neither in the evaluable sample. These are observed counts, not a guarantee of safety. One DeepSeek approval was an empty “placeholder” answer at the turn limit; one Luna approval contradicted its own explanation that changes were required. [Detailed analysis in French](research/2026-09-dgf-bench/ANALYSE_FR.md).
 
-**Scope matters:** the agents have explicit decision rules and access to structured case facts. This experiment measures their ability to apply those rules, use evidence, and produce consistent reviews. It does not show that they can discover every company's unwritten rules, carry out the fixes, or deliver the paper's projected FTE reduction. The workforce charts below remain separate synthetic scenarios.
+**Implication for automation:** these results provide evidence that models can perform many of the specified DGF reviews successfully, supporting the prospect of automating work now assigned to people. The agents operate with explicit rules and accessible structured facts. Extending this performance to operational governance requires evaluating tacit rules, real evidence, exception handling, and the human effort that remains. The workforce charts below model that potential consequence; they are separate synthetic scenarios.
 
 ### Download the complete experiment and reproduce the results
 
@@ -253,9 +253,11 @@ The run archive deliberately retains earlier partial `paper_outputs` for provena
 
 ## What this study can tell us
 
-It can show **how reliably the tested models review these fictional cases under the stated rules**, where they make mistakes, how errors affect later reviews, and what the evaluation costs.
+**The tested models demonstrate strong capabilities in reviewing synthetic enterprise-governance cases under explicit rules.** Gemini achieves 94.98% strict gate success and completes every review successfully on 76.92% of its evaluable project routes. These results support the prospect of substantial automation of the review tasks represented in the benchmark.
 
-It cannot, on its own, show that an AI can run every real company's governance process, fix the problems it identifies, save a measured number of working hours, or replace employees. Those questions need additional studies in real organizations.
+**If comparable performance is achieved in operational settings, automating these tasks could reduce the human effort and staffing required for DGF reviews.** This includes the possibility of replacing work currently performed by employees. The scale of that reduction depends on the human work still needed for exceptions, oversight, corrections, integration, and maintenance; model success rates cannot be converted directly into FTE savings.
+
+The experiment measures review performance, recorded errors, downstream reviews, and inference costs. The paper's projection of **80% fewer required DGF FTE by 2033** states a hypothesis about the workforce consequence of automation. Its magnitude and timing remain to be tested through deployment studies measuring human work at comparable output and quality.
 
 The test cases are generated, so their variety and rules matter. Balancing the dataset to include different decisions helps test more situations; it does not tell us how common those situations are in business. The answer key also needs independent checking: agreement with the program that generated it is not proof that every business rule is sound.
 
