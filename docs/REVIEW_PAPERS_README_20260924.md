@@ -1,6 +1,6 @@
 # Revue des deux manuscrits et du README — 24 septembre 2026
 
-**Résultat : revue du contenu et vérifications locales terminées.** Les chiffres principaux ne changent pas. La diffusion publique reste un point distinct : lors du contrôle, GitHub a confirmé que le dépôt était privé et les liens sans authentification renvoyaient HTTP 404. Une décision de visibilité a été demandée à l'auteur ; aucune mise en accès public n'est présumée.
+**Résultat : revue du contenu et vérifications locales terminées ; accès public vérifié.** Les chiffres principaux ne changent pas. Le dépôt était initialement privé. Après autorisation explicite de l'auteur le 24 septembre 2026, il a été rendu public. Le dépôt, la page de release, le README et les 24 téléchargements de release répondent sans authentification. Les deux PDF et les deux paquets arXiv minimaux ont aussi été téléchargés sans connexion : leurs empreintes correspondent aux fichiers vérifiés localement.
 
 ## Périmètre
 
@@ -45,4 +45,4 @@ Les rapports techniques et empreintes sont dans [paper/arxiv_verification.json](
 
 Le scan de motifs de secrets a couvert les 30 commits accessibles au début de la revue, 4 297 blobs Git uniques, HEAD/index et les fichiers modifiés pertinents, y compris les contenus ZIP et XML des DOCX. Aucun motif ciblé n'a été détecté. Cela n'est pas une garantie exhaustive de confidentialité ; un passage public exposerait également l'historique et les métadonnées de provenance conservées dans les archives.
 
-Les accès GitHub authentifiés ne prouvent pas un accès public. Avant de soumettre un PDF annonçant des sources publiques, vérifier le dépôt et les téléchargements sans connexion. Cette revue ne constitue ni une soumission arXiv, ni une décision de ses modérateurs, ni une validation indépendante des politiques métier du générateur.
+La vérification d'accès public a été effectuée sans authentification après le changement de visibilité. Elle résout le défaut d'accès constaté pendant la revue. Cette revue ne constitue ni une soumission arXiv, ni une décision de ses modérateurs, ni une validation indépendante des politiques métier du générateur.

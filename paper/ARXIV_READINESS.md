@@ -2,7 +2,7 @@
 
 **Statut : préparation seulement. Aucune soumission arXiv effectuée.** Ce document distingue les règles publiées par arXiv des recommandations propres à ce manuscrit. Les références officielles ont été consultées le 24 septembre 2026.
 
-**Point de diffusion à résoudre :** la revue complète a constaté que le dépôt GitHub est privé et que ses liens renvoient HTTP 404 sans authentification. Les fichiers sont présents sur GitHub, mais les PDF annonçant des sources publiques ne doivent pas être déposés tels quels avant ouverture de l'accès ou adaptation de cette déclaration. Le passage public attend une décision explicite de l'auteur. Voir le [rapport de revue](../docs/REVIEW_PAPERS_README_20260924.md).
+**Accès public vérifié le 24 septembre 2026 :** après autorisation explicite de l'auteur, le dépôt a été rendu public. Le dépôt, la page de release, le README et les 24 téléchargements ont été contrôlés sans authentification. Les deux PDF et leurs paquets arXiv minimaux ont été téléchargés et leurs empreintes comparées aux fichiers vérifiés. Le défaut d'accès initial est résolu. Voir le [rapport de revue](../docs/REVIEW_PAPERS_README_20260924.md).
 
 **Vérifications locales terminées :** premier PDF de 66 pages, marges de 2,54 cm, 10 vérifications des calculs théoriques réussies, 48 clés bibliographiques sans référence manquante. Son ZIP final contient 44 dépendances (37 fichiers TeX et 7 figures). L'extraction dans un dossier vierge puis trois compilations PDFLaTeX produisent le même texte que le PDF publié, sans référence indéfinie ni débordement. Le rendu des 66 pages a été inspecté. [Rapport et empreintes](arxiv_verification.json). La compilation par les serveurs d'arXiv reste à effectuer lors du dépôt.
 
