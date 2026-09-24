@@ -1,7 +1,8 @@
 # Source map
 
 This file lists every external reference, how the manuscript uses it, the locator cited, and the
-actual verification status. It distinguishes three states:
+verification status. The initial entries record the 19–20 September review; dated follow-ups
+below supersede older entries for the same source. It distinguishes three states:
 
 - **Checked online** – bibliographic details or content confirmed against a publisher, NBER, arXiv or
   ACL Anthology page during the review of 19–20 September 2026.
@@ -67,7 +68,7 @@ Responsibility for every reference rests with the author.
 | Statement | Status |
 |---|---|
 | Azure AI Foundry was renamed Microsoft Foundry (announced November 2025) | Checked online |
-| All page locators to Canale (2026) | Author's own document; reproduced in `dgf_source_excerpt.pdf` |
+| Historical page locators to the author's practitioner framework | The current manuscript reproduces its three illustrative routes and relevant framework facts in the worked-routes section and Appendix A. Legacy locators in `dgf_cases.json` describe provenance; an unpublished source or a separate excerpt PDF is not required to follow the argument. |
 
 ## References added for the thesis argument
 
@@ -95,3 +96,12 @@ Responsibility for every reference rests with the author.
 | AWS (2026b), What is AWS Audit Manager? | Evidence collection that explicitly does not assess compliance | Checked online (URL and statement). The service closed to new customers in 2026; the documentation remains. |
 | Fu et al. (2026), CI-Work | Contextual integrity in enterprise agents | Checked online (ACL 2026 Industry Track, pages 1483-1508, DOI) |
 | Vu et al. (2025) | Agentic BPM, practitioner perspectives | Checked online; reference updated to the published BPM 2025 forum version, arXiv:2504.03693 |
+
+## Follow-up verification — 24 September 2026
+
+| Reference | Current status |
+|---|---|
+| Vu et al., published forum chapter | Bibliography now uses the publisher's 2026 citation year (online publication 30 August 2025), DOI `10.1007/978-3-032-02936-2_3`; the 2025 preprint remains linked. This supersedes the earlier v1-only entry. |
+| Upstart Q2 2026 | The official earnings presentation was inspected and linked in the bibliography for the manual-review proportion, resolving the earlier presentation-check item. |
+| GDPR Article 22 | Official EUR-Lex text checked: the scope concerns solely automated decisions producing legal or similarly significant effects, with exceptions and safeguards. The FDE section now states that scope. |
+| Citation integrity | All 48 keys in the first manuscript resolve; no missing or duplicate bibliography keys. This is not a claim that every external publication has been independently revalidated in full. |

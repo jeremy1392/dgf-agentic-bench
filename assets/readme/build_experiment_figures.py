@@ -19,7 +19,7 @@ def overview():
         (48, 175, "01 / PROJECT CONTEXT", "A business scenario", ["Buy, integrate, or build", "Users, budget, data, owners", "Constraints and target dates"]),
         (493, 175, "02 / TECHNICAL DESIGN", "An architecture", ["Applications, networks, identity", "Data stores and information flows", "Backup and recovery design"]),
         (938, 175, "03 / REVIEW DOSSIER", "Evidence to examine", ["Project brief and review requests", "Diagrams, contracts, test records", "Some evidence may be incomplete"]),
-        (48, 470, "04 / AI INVESTIGATION", "Read and cross-check", ["Inspect documents and diagrams*", "Query simulated company systems", "Resolve gaps and contradictions"]),
+        (48, 470, "04 / AI INVESTIGATION", "Read and cross-check", ["Read documents and diagrams*", "Read facts and query records", "Resolve gaps and contradictions"]),
         (493, 470, "05 / GATE DECISIONS", "Explain and hand over", ["Findings, evidence, required actions", "Decision and authorization checks", "Earlier reviews inform later ones**"]),
         (938, 470, "06 / EVALUATION", "Compare with the reference", ["Decision, findings, actions, evidence", "Permissions and route completion", "Recorded cost and technical failures"]),
     ]
@@ -34,7 +34,7 @@ def overview():
     f.path("M1145 395 V428 H255 V462", "#627f90", arrow=True)
     f.rect(48, 727, 842, 77, "#fbf3e7", "#d8bb90")
     f.text(70, 756, "EVALUATOR ONLY / HIDDEN REFERENCE", 13, GOLD, weight="700", spacing="1")
-    f.text(70, 786, "Known case facts + expected findings, actions, and decisions", 20, INK)
+    f.text(70, 786, "Derived answer key: expected findings, actions, and decisions", 20, INK)
     f.path("M890 766 H1145 V695", GOLD, arrow=True, dash=True)
     f.text(48, 840, "* Image inspection depends on the vision setting and model.  ** In agent handoff mode.", 16, MUTED)
     f.footer("Sources: facts_engine.py · generate_dgfbench_v6.py · document_factory.py · openrouter_eval/ · evaluator.py")

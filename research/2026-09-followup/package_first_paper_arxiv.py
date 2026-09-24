@@ -1,4 +1,4 @@
-"""Prepare a minimal first-paper LaTeX upload and external integrity records.
+"""Prepare a minimal manuscript LaTeX upload and external integrity records.
 
 This never submits to arXiv, edits TeX, chooses a license, or compiles a PDF.
 Pass the publisher-verified final PDF explicitly. Dependencies are followed from
@@ -124,12 +124,23 @@ def load_scanner():
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source-dir',type=Path,default=ROOT/'paper',help='Directory containing main.tex and dependencies')
+    parser.add_argument('--manuscript',choices=('first','second'),default='first')
+    parser.add_argument('--source-dir',type=Path,help='Directory containing main.tex and dependencies')
     parser.add_argument('--pdf',type=Path,required=True,help='Explicit final PDF, already compiled and visually verified by the publisher')
-    parser.add_argument('--output-dir',type=Path,default=DEFAULT_OUTPUT)
+    parser.add_argument('--output-dir',type=Path)
     parser.add_argument('--manifest-dir',type=Path,default=HERE)
     args=parser.parse_args()
-    source=args.source_dir.resolve();pdf=args.pdf.resolve();output=args.output_dir.resolve()
+    second=args.manuscript=='second'
+    zip_name='DGF_Bench_arXiv_source.zip' if second else ZIP_NAME
+    pdf_name='From_Governance_Reviews_to_Task_Substitution.pdf' if second else PDF_NAME
+    manifest_name='second_paper_arxiv_manifest.json' if second else 'first_paper_arxiv_manifest.json'
+    checksum_name='second-paper-arxiv-SHA256SUMS.txt' if second else 'first-paper-SHA256SUMS.txt'
+    title=('DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews'
+           if second else 'The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance')
+    bibliography='sections/references.tex' if second else 'sections/91_references.tex'
+    source=(args.source_dir or ROOT/('paper2' if second else 'paper')).resolve()
+    pdf=args.pdf.resolve()
+    output=(args.output_dir or (ROOT/'experiments/publication_20260924_second_paper' if second else DEFAULT_OUTPUT)).resolve()
     if not pdf.is_file() or pdf.suffix.lower()!='.pdf':raise FileNotFoundError('A final PDF must be supplied')
     files,edges=collect_dependencies(source)
     scanner=load_scanner()
@@ -137,8 +148,8 @@ def main():
     for path in files:
         rel=path.relative_to(source).as_posix();data=path.read_bytes();scanner(data,rel)
         inventory.append({'path':rel,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()})
-    scanner(pdf.read_bytes(),PDF_NAME)
-    output.mkdir(parents=True,exist_ok=True);archive=output/ZIP_NAME
+    scanner(pdf.read_bytes(),pdf_name)
+    output.mkdir(parents=True,exist_ok=True);archive=output/zip_name
     with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as bundle:
         for path,row in zip(files,inventory):
             # Fixed timestamps avoid timestamp-only differences on repackaging.
@@ -151,13 +162,13 @@ def main():
         assert 'main.tex' in bundle.namelist()
         for row in inventory:assert hashlib.sha256(bundle.read(row['path'])).hexdigest()==row['sha256']
         assert not any(name.lower().endswith(('.aux','.log','.out','.toc','.md','.json','.zip')) for name in bundle.namelist())
-    published_pdf=output/PDF_NAME
+    published_pdf=output/pdf_name
     if pdf!=published_pdf:shutil.copyfile(pdf,published_pdf)
     assert sha256(pdf)==sha256(published_pdf)
-    assets=[{'asset':ZIP_NAME,'bytes':archive.stat().st_size,'sha256':sha256(archive)},
-            {'asset':PDF_NAME,'bytes':published_pdf.stat().st_size,'sha256':sha256(published_pdf)}]
-    manifest={'status':'PREPARED_FOR_AUTHOR_REVIEW_NOT_SUBMITTED','title':'The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance',
-        'entry_point':'main.tex','compiler':'PDFLaTeX','bibliography':'Inline thebibliography in sections/91_references.tex; no BibTeX step required',
+    assets=[{'asset':zip_name,'bytes':archive.stat().st_size,'sha256':sha256(archive)},
+            {'asset':pdf_name,'bytes':published_pdf.stat().st_size,'sha256':sha256(published_pdf)}]
+    manifest={'status':'PREPARED_FOR_AUTHOR_REVIEW_NOT_SUBMITTED','title':title,
+        'entry_point':'main.tex','compiler':'PDFLaTeX','bibliography':f'Inline thebibliography in {bibliography}; no BibTeX step required',
         'source_directory':str(source),'supplied_final_pdf':str(pdf),'assets':assets,
         'source_file_count':len(inventory),'source_inventory':inventory,'dependency_edges':edges,
         'source_archive_scope':'Only main.tex, recursively used TeX/table fragments, used figures and any local TeX styles. No compiled article PDF or inventory is injected into the source ZIP.',
@@ -167,10 +178,10 @@ def main():
         'license_choice':'Reserved to the author during arXiv submission; preparing this package does not select or change a license.',
         'submitted_to_arxiv':False,'script_sha256':sha256(Path(__file__))}
     args.manifest_dir.mkdir(parents=True,exist_ok=True)
-    for path in (args.manifest_dir/'first_paper_arxiv_manifest.json',output/'first_paper_arxiv_manifest.json'):
+    for path in (args.manifest_dir/manifest_name,output/manifest_name):
         path.write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     checksum=''.join(f"{asset['sha256']}  {asset['asset']}\n" for asset in assets)
-    for path in (args.manifest_dir/'first-paper-SHA256SUMS.txt',output/'first-paper-SHA256SUMS.txt'):
+    for path in (args.manifest_dir/checksum_name,output/checksum_name):
         path.write_text(checksum,encoding='utf-8')
     print(json.dumps({'status':manifest['status'],'source_file_count':len(inventory),'assets':assets},indent=2))
 

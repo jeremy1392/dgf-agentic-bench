@@ -282,7 +282,7 @@ The follow-up completed **135 additional runs** on **15 existing dossiers**: fiv
 | **GPT-5.6 Luna** | **82.75%** (211/255) | **42.22%** (19/45) | **3/15** |
 | **DeepSeek v4.1 Flash** | **73.33%** (187/255) | **24.44%** (11/45) | **0/15** |
 
-**The ranking holds in each repeat, but reliability for a particular project varies.** Gemini makes the correct disposition at all 255 gates; its ten strict failures concern evidence conformity. None of the models records a scored false approval or critical miss in this small follow-up. DeepSeek completes some routes in each repeat, but no dossier succeeds on all three attempts.
+**The gate-success ranking holds in each repeat, but reliability for a particular project varies.** Luna and DeepSeek tie on complete-route success in the third repeat, with 4/15 routes each. Gemini makes the correct disposition at all 255 gates; its ten strict failures concern evidence conformity. None of the models records a scored false approval or critical miss in this small follow-up. DeepSeek completes some routes in each repeat, but no dossier succeeds on all three attempts.
 
 The sample contains only 15 distinct dossiers. Uncertainty calculations resample whole dossiers within each route, keeping their gates and three trajectories together. Provider routing and infrastructure resumes are recorded; the results do not isolate intrinsic model randomness. The original 300-project results remain separate.
 
@@ -308,8 +308,8 @@ Both papers are by **Jeremy Canale** and use the same original September 2026 mo
 
 | Publication | What to read it for | Workforce hypothesis |
 |---|---|---|
-| **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)** — 65 pages | The broader automation argument, role of FDEs, detailed labor accounting, illustrative scenarios, and benchmark, now including the rules control, evidence audits, and repetitions. | 80% fewer required DGF FTE in 2033 than in 2026; testing requires auditable historical baseline records. |
-| **[DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 21 pages | The focused empirical study, executed rules comparator, structural evidence audit, repeated trajectories, decision confusion matrices, procurement diagnostics, and document-ablation preflight. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
+| **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)** — 66 pages | The broader automation argument, role of FDEs, detailed labor accounting, illustrative scenarios, and benchmark, now including the rules control, evidence audits, and repetitions. | 80% fewer required DGF FTE in 2033 than in 2026; testing requires auditable historical baseline records. |
+| **[DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 22 pages | The focused empirical study, executed rules comparator, structural evidence audit, repeated trajectories, decision confusion matrices, procurement diagnostics, and document-ablation preflight. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
 
 **The shorter paper preserves the original experimental measurements.** Detailed theoretical developments and workforce scenarios remain available in the first paper and on this page. All released dossiers, architecture documents, traces, and scores remain accessible. The completed follow-up repeats 15 existing dossiers three times per model; its 135 runs are reported separately from the original 300-project results. The current programme focuses on model experiments; independent human evaluation is outside its scope. No measured comparison with human reviewers is claimed.
 
@@ -398,7 +398,9 @@ python discover_openrouter_models.py --min-context 100000 --limit 20
 python run_full_experiment.py --models MODEL_ID --preset smoke --regenerate-smoke --workers 1 --max-cost-usd 5
 ```
 
-The launcher reads `OPENROUTER_API_KEY` from the environment or local `.env`, or prompts for it with hidden input. The smoke command makes paid API calls; offline checks do not. OpenRouter's account balance and API-key spending limit are separate from the script's budget cap.
+Set `OPENROUTER_API_KEY` in your terminal's environment before launching, or enter it at the launcher's hidden prompt. The smoke command makes paid API calls; offline checks do not. OpenRouter's account balance and API-key spending limit are separate from the script's budget cap.
+
+To reproduce the published results, use the [exact benchmark source snapshot](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-300-source.zip) and [offline reproduction instructions](research/2026-09-dgf-bench/README.md). That frozen protocol includes collection-time changes; the default-branch checkout is not a substitute for it. Reproducing the released measurements requires no new model calls.
 
 | Preset | Cases per route | Total cases |
 |---|---:|---:|
@@ -461,6 +463,12 @@ Historical datasets and generators remain in the repository for reproducibility;
 </details>
 
 ## Offline checks and paper build
+
+The paper's arithmetic checks and figure regeneration also require NumPy and Matplotlib:
+
+```text
+python -m pip install "numpy>=1.24" "matplotlib>=3.7"
+```
 
 The following checks do not call paid model APIs:
 

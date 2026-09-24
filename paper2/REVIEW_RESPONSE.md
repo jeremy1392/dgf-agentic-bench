@@ -1,6 +1,6 @@
 # Response to methodological and scope critiques
 
-The second manuscript is now **DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews** (21 pages). The first paper has subsequently been updated on 24 September to summarize the same controls and follow-ups while retaining its broader contribution; its previous 59-page version is preserved in repository history. The second paper's stable PDF filename is retained for existing links.
+The second manuscript is now **DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews** (22 pages). The first paper has subsequently been updated on 24 September to summarize the same controls and follow-ups while retaining its broader contribution; its previous 59-page version is preserved in repository history. The second paper's stable PDF filename is retained for existing links.
 
 | Criticism | Completed response | Remaining boundary |
 |---|---|---|

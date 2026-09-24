@@ -20,6 +20,11 @@ The dataset contains 300 fictional projects: 100 Buy, 100 Integrate, and 100 Bui
 Buy and Integrate contain six gate occurrences each, and Build contains five, for 1,700 occurrences
 per model and 5,100 planned observations across three models. Cases were generated before these
 evaluations at difficulty setting 4, with sampling conditioned to improve decision coverage.
+The setting controls candidate fault patterns, including address overlap, supplier sanctions,
+and mandatory-criterion failures; it is not an empirically calibrated measure of task difficulty.
+Facts are rejection-sampled to balance base General dispositions and approximately balance feasible
+specialist dispositions while preserving route consistency. This conditioning changes the raw
+generator frequencies; no comparison across difficulty settings is reported.
 Project context, owners, budgets, data classifications, technical architectures, documents, and
 simulated system records derive from canonical case facts. Documents can be missing, stale, or
 inconsistent. Specialist reviews precede a final General review; the routes are examples rather
@@ -106,8 +111,7 @@ Readiness & Backup, restore/failover and load-test records; runbook & Can the pr
 
 \begin{table}[!htb]
 \centering\small
-\caption{The three routes actually evaluated; each project ends with General. The separate
-26-occurrence full-lifecycle illustration elsewhere in the paper is not the tested route.}
+\caption{The three complete route sequences evaluated in this study; each project ends with General.}
 \label{tab:bench-sequences}
 \begin{tabularx}{\linewidth}{@{}l r L@{}}
 \toprule

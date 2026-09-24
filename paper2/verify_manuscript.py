@@ -6,10 +6,37 @@ research artifacts; does not independently adjudicate enterprise governance rule
 import csv
 import hashlib
 import json
+import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
+
+
+def check_confusion_table(models):
+    """Check the actual TeX cells included in Appendix A, including zero cells."""
+    text = (HERE / "generated/table_decision_confusion.tex").read_text(encoding="utf-8")
+    names = {
+        "DeepSeek": "deepseek/deepseek-v4.1-flash",
+        "Gemini": "google/gemini-3.8-flash",
+        "Luna": "openai/gpt-5.6-luna",
+    }
+    labels = dict(zip("GCRSN", ("GO", "GO_WITH_RESERVATIONS", "REWORK", "SUSPENSION", "NO_GO")))
+    tables = re.findall(
+        r"\\captionof\{table\}\{(\w+) disposition confusion; (\d+) evaluable gates\.\}"
+        r".*?\\begin\{tabular\}(.*?)\\end\{tabular\}", text, re.S)
+    assert len(tables) == len(names) == 3
+    assert {name for name, _, _ in tables} == names.keys()
+    for name, denominator, body in tables:
+        data = models[names[name]]
+        assert int(denominator) == data["gates"], name
+        rows = re.findall(r"^([GCRSN])\s*&\s*(\d+)\s*&\s*(\d+)\s*&\s*(\d+)\s*&\s*(\d+)\s*&\s*(\d+)\s*\\\\", body, re.M)
+        assert [row[0] for row in rows] == list(labels), name
+        expected = {(row["reference"], row["prediction"]): row["count"]
+                    for row in data["decision_confusion"]}
+        for row in rows:
+            for column, count in zip(labels.values(), row[1:]):
+                assert int(count) == expected.get((labels[row[0]], column), 0), (name, row[0], column)
 
 
 def main():
@@ -82,6 +109,7 @@ def main():
         assert sum(a['evidence_only_gate_categories'].values())==a['evidence_only_failed_gates']
         assert a['posthoc_relaxed_gates']-a['strict_gates']==a['evidence_only_gate_categories']['all_failed_items_structurally_supported']
         assert sum(r['relaxed'] for r in a['route_details'])==a['posthoc_relaxed_routes']
+    check_confusion_table(all_models)
     preflight=json.loads((followup/'document_ablation_preflight.json').read_text(encoding='utf-8'))
     assert preflight['identical_docx_text_count']==len(preflight['document_text_sha256'])==26
     assert [v['reference_disposition'] for v in preflight['variants'].values()]==['GO','REWORK']
@@ -118,10 +146,23 @@ def main():
     assert extension['status']=='PASS' and len(extension['development_cases'])==3
     assert all(row['unchanged'] for row in extension['protected_tree_integrity'])
     assert coverage['model_calls']==extension['model_calls']==0
+    replay=json.loads((followup/'general_replay_targeted_plan.json').read_text(encoding='utf-8'))
+    assert replay['status']=='proposed_not_authorized_not_run' and replay['paid_calls_made']==0
+    assert replay['planned_general_executions']==270 and replay['fresh_trajectories_per_model_case_per_arm']==3
+    for model, difference_cases in {
+        'deepseek/deepseek-v4.1-flash':15,
+        'google/gemini-3.8-flash':0,
+        'openai/gpt-5.6-luna':15,
+    }.items():
+        entry=replay['models'][model]
+        assert entry['common_cases']==299
+        assert (entry['proposed_difference_cases'],entry['proposed_control_cases'])==(difference_cases,5)
+        assert entry['proposed_fresh_general_executions']==(difference_cases+5)*6
+    assert replay['models']['google/gemini-3.8-flash']['different_histories']==0
     result = {"status": "pass", "evaluable_runs": 899, "evaluable_gates": 5094,
               "figures_and_tables": checked,
-              "checks": ["original figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension"],
+              "checks": ["shared first-paper figure bytes and LF-normalized table text", "headline and component counts",
+                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices and actual Appendix A TeX cells", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension", "General-only targeted preparation counts and unexecuted status"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 

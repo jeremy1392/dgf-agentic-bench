@@ -5,7 +5,7 @@ Jeremy Canale · September 2026
 
 [Read the second paper](From_Governance_Reviews_to_Task_Substitution.pdf) · [LaTeX source](main.tex) · [Response to the review](REVIEW_RESPONSE.md)
 
-**21 pages: deterministic control, all-model evidence sensitivity, complete decision confusion matrices, Procurement diagnostics, 135 repeated runs, conditional-approval behavior, and source-coverage diagnostics.**
+**22 pages: deterministic control, all-model evidence sensitivity, complete decision confusion matrices, Procurement diagnostics, 135 repeated runs, conditional-approval behavior, and source-coverage diagnostics.**
 
 This is a separate, shorter manuscript based on the **same September 2026 experiment** as [The Last Human Gate](../paper/The_Last_Human_Gate.pdf). It now adds three fresh trajectories per model on 15 existing dossiers. These repetitions assess within-sample stability, not independent dataset validation. The first paper's 24 September revision includes a concise account of these same follow-up results while retaining its theoretical and workforce contribution; its earlier 59-page version remains in the repository history.
 
@@ -45,6 +45,8 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
 The output is `main.pdf`; the published copy retains the stable filename `From_Governance_Reviews_to_Task_Substitution.pdf` so existing links keep working. Its title is now *DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews*. Figures and table fragments are included, so compilation does not require Python or API access. From the repository root, `python paper2/verify_manuscript.py` checks table/figure provenance, headline counts, all-model audit results, confusion matrices, and counterexample counts against the released local research artifacts. It does not independently validate the governance rules.
+
+The final review uses one-inch margins and also checks the actual Appendix A matrix cells and the unexecuted General-replay plan. A separate minimal [arXiv source package](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip) contains only compilation dependencies. The broader `DGF_Bench_Second_Paper_Source.zip` retains the documentation and protocols. See [technical verification](arxiv_verification.json) and the [submission guide](../paper/ARXIV_READINESS.md); preparation does not constitute submission or acceptance.
 
 ## Follow-up protocols
 
