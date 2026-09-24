@@ -230,8 +230,9 @@ between a project's gates (2,000 draws, seed 81931; a case-count Wilson fallback
 intervals). Route intervals use Wilson bounds. Pairwise differences use the same 299 cases for
 all models, resampled together within routes (10,000 draws, NumPy seed 81931). These are descriptive
 intervals conditional on the synthetic sampling design. No preregistered analysis or independently
-adjudicated ground truth is claimed, and one trajectory per model and case does not estimate
-run-to-run inference variability.
+adjudicated ground truth is claimed. The original 300-case study contains one trajectory per
+model and case; the subsequent repeated-trajectory study in Section~\ref{sec:bench-followup}
+addresses variability on a separately identified 15-case subset.
 
 \subsection{Overall and route-level results}
 
@@ -311,9 +312,10 @@ Disposition accuracy alone is 100\% for Gemini, 98.12\% for Luna, and 95.24\% fo
 All 85 Gemini strict failures concern evidence conformity; findings, actions, dispositions, and
 authorization indicators match the reference. Evidence is the sole failing component in 221 of
 284 Luna failures and 338 of 439 DeepSeek failures. Invalid excerpts and missing or unobserved
-references are grouped by these diagnostics; not all are harmless formatting defects. Changing
-the evidence rule after observing results would change the estimand. A semantic evidence metric
-would require a separately declared analysis.
+references are grouped by these diagnostics; not all are harmless formatting defects. The
+post-hoc structural sensitivity and source audit below now separate some of these causes.
+Their alternative endpoint is explicitly labelled and does not replace the original strict
+score or claim to measure general semantic entailment.
 
 \paragraph{A recorded example of a correct decision with a failed proof.}
 In \nolinkurl{DGF-BLD-035201_build}, Gemini reads the Architecture facts: an API gateway is
@@ -328,8 +330,9 @@ The gateway excerpt reverses two fields. It places \nolinkurl{api_gateway_presen
 correct but the excerpt is not an exact observed sequence. Evidence fidelity is 0.5 for the
 two findings, so strict success is zero while disposition, finding, action, and authorization
 scores are all one. The weighted component score is 0.95. This selected trace explains exactly
-how a fluent, substantively correct review can fail this benchmark's evidence contract; it does
-not justify silently relaxing that contract after seeing the results.
+how a substantively correct review can fail this benchmark's evidence contract. The original
+strict outcome is retained; the following sensitivity reports the effect of accepting exact
+field/value equivalence separately.
 
 DeepSeek records one critical finding miss and one false approval, both in the Architecture
 review of \texttt{DGF-INT-035136\_integrate}. An address overlap required \texttt{NO\_GO}; at
@@ -353,12 +356,138 @@ Luna therefore combines a higher overall strict score with lower recorded cost t
 in this execution. Costs depend on provider routing, caching, price, and retry history; they are
 not a labor-cost comparison or a permanent pricing claim.
 
+\subsection{Completed controls, evidence audits, and repeated trajectories}
+\label{sec:bench-followup}
+
+The following additions distinguish completed analyses from development work and proposed
+experiments. They preserve every original score above. Detailed methods and machine-readable
+results accompany the focused companion manuscript,
+\href{https://github.com/jeremy1392/dgf-agentic-bench/blob/main/paper2/From_Governance_Reviews_to_Task_Substitution.pdf}{\emph{DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews}}.
+The companion analyzes the same original population and the completed repetitions; it is not
+an additional independent 300-project replication.
+
+\paragraph{An executable-rule control.}
+A deterministic comparator applies the policy already supplied to agents to the public factual
+snapshots. Generation blocks hidden-reference reads and is separated from scoring. It passes
+1,700/1,700 gates and 300/300 routes, with no model API cost. It retains base decisions rather
+than requesting conditional approvals and may cite complete observed snapshots under the
+original unrestricted excerpt contract. This establishes that the scaffolded task is solvable
+without a language model. High LLM decision accuracy therefore demonstrates an ability to
+apply these rules through the interface; it does not establish added accuracy over the rule
+control or the ability to recover the necessary inputs from arbitrary documents.
+
+\paragraph{Structural sensitivity on all three models.}
+All 690 originally evidence-failed gates were audited. The alternative endpoint retains
+original lexical successes and additionally accepts exact field/value subsets within a single
+observed object, ignoring field order and equivalent numeric serialization. Required source
+reads, citations, relevance to a rule field, and all other score components remain unchanged;
+cross-object joins are not promoted. Table~\ref{tab:bench-followup-original} shows the paired
+results. These are post-hoc provenance sensitivities, not a new semantic score: an observed
+value need not supply every premise of an argument. In particular, failure to parse an
+excerpt as one JSON object does not show that its factual claims are false.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Original trajectories: strict (S) and post-hoc structural (R) success counts.
+Original primary outcomes remain unchanged.}
+\label{tab:bench-followup-original}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{Gates} & \multicolumn{2}{c}{Complete routes}\\
+\cmidrule(lr){2-3}\cmidrule(l){4-5}
+Model & S & R & S & R\\
+\midrule
+DeepSeek & 1261/1700 & 1313/1700 & 74/300 & 85/300\\
+Gemini & 1609/1694 & 1678/1694 & 230/299 & 284/299\\
+Luna & 1416/1700 & 1454/1700 & 127/300 & 144/300\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A separate Procurement audit examined 205 submitted support entries across 185 failed findings
+in 127 gates. DeepSeek supplied 25 exact rows from genuinely read and cited CSVs, covering
+25 findings in 23 gates; each identifies the selected vendor. The snapshot-only source-ID
+requirement excludes these alternatives. Another CSV excerpt joins observed rows with ellipses.
+All 205 support entries cite observed sources. This supports distinguishing contract violations from
+fabricated evidence, while retaining incomplete quotations and unproven relationships as
+separate limitations. A pricing row alone, for example, does not establish the budget envelope.
+
+\paragraph{Authority is exercised differently by each agent.}
+On the 299 common cases, the same 391 non-General gate occurrences are eligible for conditional
+approval under the supplied policy and active mandate. Revalidated approvals are used on
+391/391 by Gemini, 347/391 by Luna, and 201/391 by DeepSeek. Eligibility alone is not counted:
+the recorded action must validate and the final decision must use it. Separately, Gemini makes
+466 rejected approval calls across its original retained checkpoints, sometimes repeatedly
+within a gate. Its absence of false final approvals therefore describes the model-plus-tool
+system, including enforcement by the environment. Conditions are checked as nonempty strings,
+not assessed for their business adequacy. Base-reference agreement and effective-reference
+agreement must likewise remain distinct; authorized actions legitimately change some targets.
+
+\paragraph{Completed repetition study.}
+Fifteen existing dossiers, five per route, were selected with a fixed seed before new outcomes.
+Three additional trajectories per model--case yield 135 evaluable runs and 765 gates; historical
+trajectories are not pooled as a fourth repeat. Table~\ref{tab:bench-followup-repeats} reports
+strict and identically computed structural outcomes. Dispositions are correct on 245/255
+DeepSeek, 255/255 Gemini, and 246/255 Luna gates. No false approval or critical miss occurs in
+these repetitions. All-three success concerns only 15 distinct dossiers per model, and the
+repeated gates are not independent observations. Two Gemini trajectories retain seven previously
+completed prefix gates after infrastructure resumption; those gates count once. There is no
+best-of-three selection.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Completed repetitions: S denotes strict success and R the same post-hoc structural
+endpoint as above. All-three counts dossiers whose entire route passes in each trajectory.}
+\label{tab:bench-followup-repeats}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{Gates /255} & \multicolumn{2}{c}{Routes /45} & \multicolumn{2}{c}{All three /15}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+Model & S & R & S & R & S & R\\
+\midrule
+DeepSeek & 187 & 195 & 11 & 11 & 0 & 0\\
+Gemini & 245 & 249 & 35 & 39 & 9 & 12\\
+Luna & 211 & 217 & 19 & 23 & 3 & 5\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Recorded repetition spending, including failed attempts, is USD~12.5598870228. Together with
+the unchanged original USD~87.015829172, the total is USD~99.5757161948. Route-stratified
+case-cluster bootstrap intervals retain all three trajectories of each sampled dossier;
+the small subset supports exploratory repeatability estimates rather than enterprise prevalence.
+
+\paragraph{Input sufficiency and work not yet evaluated.}
+A source inventory covers all 300 dossiers and 1,700 scheduled gates, with explicit decoders
+for 72 of 76 inventoried fields. Two counterfactual generator checks prove omissions from
+non-snapshot artifact contents: changing \nolinkurl{it.duplicate_capability} or
+\nolinkurl{compliance.audit_trail} changes the corresponding decision while all non-snapshot
+artifact payloads and rendering inputs remain identical. Uncertified fields are not automatically absent;
+phase access and alternative tools matter. In particular, \texttt{request\_evidence} can return
+the full factual snapshot and must be controlled in any removal experiment.
+
+Separate extensions add the two missing records to three new development cases, with access
+and counterfactual checks. A source-location citation prototype copies observed values by
+pointer or text span. Neither is an evaluated model improvement or a held-out benchmark.
+A targeted General-only study is prepared but unrun: 270 fresh reviews compare normalized
+agent histories with references adjusted to the same validated approvals. Its selected
+disagreement cases estimate a conditional handoff effect, with identical-history controls;
+no result or expense from this preparation enters the measurements above.
+
+Reproduction records and linked item-level inventories are under
+\nolinkurl{research/2026-09-followup/}. Its README links the rules-control summary,
+all-model evidence audit, approval events, Procurement sources, repetition sensitivities,
+and source-coverage inventory.
+The \href{https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923}{public release}
+retains the source dossiers, traces, repetition archive, and follow-up artifacts.
+
 \subsection{Interpretation and reproducibility boundary}
 
 The empirical conclusions are concrete. \textbf{First}, Gemini has the highest overall strict
 review success under this protocol, including in the paired comparison. \textbf{Second}, a
-project-level requirement amplifies remaining defects: 94.98\% gate success still leaves 69 of
-Gemini's 299 evaluable projects without a completely conforming route. \textbf{Third}, evidence
+project-level requirement amplifies remaining strict-contract defects: 94.98\% gate success leaves
+69 of Gemini's 299 evaluable projects without a completely conforming route; the separately
+labelled structural endpoint reduces that count to 15. \textbf{Third}, evidence
 conformity is the sole failing component in all Gemini strict failures and most failures of the
 other models. \textbf{Fourth}, Luna achieves higher overall strict success than DeepSeek at
 approximately half the recorded cost, while both retain substantive errors. Finally, the zero
@@ -367,12 +496,15 @@ observed false approvals for Gemini are an observation about this sample, not a 
 For an FDE, these results identify implementation work to investigate: preserving observed evidence
 through structured submissions, checking agreement between a rationale and its typed decision,
 handling turn-limit finalization, and inspecting downstream consequences. These are proposed
-engineering responses to observed failure modes; their effects have not been evaluated in this run.
+engineering responses to observed failure modes. The completed diagnostics and repetitions above
+clarify those modes; the development prototypes have not yet demonstrated a model-performance gain.
 
 The experiment demonstrates strong review performance under an explicit rule system: Gemini
 satisfies every strict requirement on 94.98\% of evaluable gates and on every gate of 76.92\%
 of evaluable project routes. This is empirical support for the technical prospect of substantial
-automation of the review tasks represented here. If comparable performance transfers to operational
+automation of the review tasks represented here. The rule control also completes this fully
+specified task, so the observed LLM capability is not an accuracy advantage over deterministic
+software. If comparable performance transfers to operational
 settings, these tasks could require less human effort and fewer staff, including substitution for
 work currently performed by employees. That implication is conditional on the human work needed
 for exceptions, oversight, corrections, integration, and maintenance; a gate success percentage

@@ -5,7 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\usepackage[a4paper,margin=2.25cm]{geometry}
+\usepackage[a4paper,margin=1in]{geometry}
 \usepackage{microtype}
 \usepackage{parskip}
 \usepackage{amsmath,amssymb,amsthm}
@@ -32,6 +32,7 @@
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
 \AtBeginDocument{\predisplaypenalty=0 }
 \newcommand{\law}[3]{\medskip\noindent\textbf{#1 --- #2.}\quad\textbf{#3}}
 \newcommand{\failure}[1]{\par\noindent\emph{#1}}
@@ -68,11 +69,14 @@ There are 899 evaluable model--case runs out of 900; one provider failure is exc
 gate success is 94.98\% for Gemini, 83.29\% for Luna, and 74.18\% for DeepSeek. Requiring every
 gate of a project to succeed reduces those rates to 76.92\%, 42.33\%, and 24.67\%. All 85
 Gemini strict failures concern evidence conformity, despite correct dispositions throughout its
-evaluable runs. Total recorded API cost is USD~87.02. These observations distinguish choosing
-the correct decision from completing an auditable review under explicit rules and accessible
-structured facts. They support the prospect of substantial automation of the represented review
-tasks and, if performance transfers to operational settings, reduced human effort and staffing.
-Autonomous remediation and human equivalence are not measured.
+evaluable runs. A deterministic control succeeds on all 1,700 gates under the same supplied
+rules and facts. An all-model, post-hoc structural evidence audit yields gate success of
+99.06\%, 85.53\%, and 77.24\%, without replacing the strict scores. Another 135 runs on
+15 existing dossiers test repeated execution: nine Gemini, three Luna, and zero DeepSeek
+dossiers pass all three strict trajectories. Original and repeated inference cost USD~99.58.
+These results demonstrate model capability to perform specified review tasks, while establishing
+no incremental model advantage over the rule program in this information condition. Operational
+transfer, autonomous remediation, human equivalence, and labor savings are not measured.
 
 The theoretical contribution treats gates as information-transforming contracts and identifies
 the implementation role of Forward Deployed Engineers. A complete labor account explains why,

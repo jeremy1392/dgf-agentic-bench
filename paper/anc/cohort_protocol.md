@@ -1,6 +1,6 @@
 # DGF FTE protocol (proposed)
 
-Status: proposed in the paper. No enterprise cohort has been enrolled and no preregistration identifier exists.
+Status: proposed field-research framework, outside the current LLM capability experiments. No enterprise cohort has been enrolled and no preregistration identifier exists. As of 24 September 2026, the baseline year has closed: testing the original 2033 prediction now requires an auditable retrospective reconstruction. A newly registered baseline and seven-year follow-up would be a separate hypothesis, not a postponed test of this one. No human-comparison study or recruitment is planned in the current experimental programme.
 
 ## Primary dated hypothesis
 

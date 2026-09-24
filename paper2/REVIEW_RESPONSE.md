@@ -1,6 +1,6 @@
 # Response to methodological and scope critiques
 
-The second manuscript is now **DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews** (21 pages). The 59-page first paper remains unchanged. The second paper's stable PDF filename is retained for existing links.
+The second manuscript is now **DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews** (21 pages). The first paper has subsequently been updated on 24 September to summarize the same controls and follow-ups while retaining its broader contribution; its previous 59-page version is preserved in repository history. The second paper's stable PDF filename is retained for existing links.
 
 | Criticism | Completed response | Remaining boundary |
 |---|---|---|
@@ -18,7 +18,7 @@ The second manuscript is now **DGF-Bench: Rule Application and Evidence Reliabil
 
 The additional all-model audit and document preflight use no model calls. Original inference expenditure is $87.015829172; completed repetitions add $12.5598870228. No new paid scaffold ablation, human experiment, independent semantic adjudication, or enterprise enrollment is represented as completed.
 
-The original primary scores, first-paper PDF, original dataset/source/run archives, and completed repetition archive are preserved. Supporting scripts and item-level results are released with the manuscript. The next comparison is specified in [the matched-information protocol](protocols/scaffold_ablation.md), with explicit information-sufficiency and scoring-contract acceptance criteria before cost authorization.
+The original primary scores, archived earlier first-paper PDF, original dataset/source/run archives, and completed repetition archive are preserved. Supporting scripts and item-level results are released with the manuscript. The next comparison is specified in [the matched-information protocol](protocols/scaffold_ablation.md), with explicit information-sufficiency and scoring-contract acceptance criteria before cost authorization.
 
 ## Latest review: additional work completed
 

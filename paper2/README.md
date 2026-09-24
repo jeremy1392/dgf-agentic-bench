@@ -7,7 +7,7 @@ Jeremy Canale · September 2026
 
 **21 pages: deterministic control, all-model evidence sensitivity, complete decision confusion matrices, Procurement diagnostics, 135 repeated runs, conditional-approval behavior, and source-coverage diagnostics.**
 
-This is a separate, shorter manuscript based on the **same September 2026 experiment** as [The Last Human Gate](../paper/The_Last_Human_Gate.pdf). It now adds three fresh trajectories per model on 15 existing dossiers. These repetitions assess within-sample stability, not independent dataset validation. The original paper remains available unchanged.
+This is a separate, shorter manuscript based on the **same September 2026 experiment** as [The Last Human Gate](../paper/The_Last_Human_Gate.pdf). It now adds three fresh trajectories per model on 15 existing dossiers. These repetitions assess within-sample stability, not independent dataset validation. The first paper's 24 September revision includes a concise account of these same follow-up results while retaining its theoretical and workforce contribution; its earlier 59-page version remains in the repository history.
 
 The second paper centers rule application and evidence reliability on the 300-project benchmark. It preserves original strict scores and reports the more permissive, post-hoc lexical-or-structural endpoint separately. The FDE and workforce argument remains in the first paper and project README; in this empirical manuscript it is a short discussion. The prospective seven-year 80% FTE hypothesis remains an untested proposal with no enrolled cohort. It does not confirm the historical 2033 forecast.
 
