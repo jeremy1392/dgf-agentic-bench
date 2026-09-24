@@ -1,88 +1,18 @@
-\section{Notation and accounting boundary}
-\label{app:notation}
+\section{Complete decision confusion matrices}
 
-\begin{table}[!htb]
-\centering\small
-\caption{Workload notation. Each symbol has a single role within this manuscript.}
-\begin{tabularx}{\linewidth}{@{}P{2.0cm}L@{}}
-\toprule
-Symbol & Definition\\
-\midrule
-$V$ & Reviews per period, held comparable between regimes.\\
-$h_0$ & Mean baseline case-handling hours.\\
-$p$ & Share of cases assigned to human exception handling.\\
-$h_E,h_S$ & Post-deployment human hours per exception and standard case.\\
-$h_W$ & Additional rework hours per review, averaged over all cases.\\
-$B_0,B_1$ & Case-independent support hours in baseline and deployment regimes.\\
-$L_0,L_1$ & Total human hours per period within the same boundary.\\
-$K$ & Fixed useful-hours convention per FTE per period.\\
-$N_0,N_1$ & Required workload-equivalent FTE; $N_j=L_j/K$.\\
-$w$ & Exception group's share of baseline case-handling labor.\\
-$a,u$ & Post-deployment effort ratios against each group's own baseline.\\
-$r,b_0,b_1$ & Rework and support normalized by baseline case-handling effort.\\
-$R$ & Required FTE ratio at comparable volume and quality.\\
-\bottomrule
-\end{tabularx}
-\end{table}
+Rows use the effective reference after validated authority actions; columns are the model's
+submitted disposition. G = GO, C = GO\_WITH\_RESERVATIONS, R = REWORK, S = SUSPENSION,
+N = NO\_GO. All original evaluable gates are included. The released summary also permits comparison
+with the separately reported initial-reference agreement.
 
-The dimensional identity is valid at $p=0$ or $p=1$ using only the group that exists.
-Group-relative ratios require positive baseline group means. The constraint $0\leq w\leq1$
-does not constrain $a$ or $u$ to be at most one: review or exception work can increase after
-deployment. Fixed support is not eliminated by multiplying every term by a volume adjustment.
-If volumes change, separate fixed support from variable review effort before standardization.
+\input{generated/table_decision_confusion}
 
-An activity should be counted exactly once regardless of departmental ownership or supplier
-boundary. For example, a specialist's correction after an agent approval is either exception
-handling or additional rework under the declared coding rule, not both. A shared evaluation
-team's hours are counted once before allocation across workflows. A repeat gate visit may be
-included in review volume or in per-project effort; the study must choose a consistent basis.
-Elapsed waiting time and active human time are distinct, although exclusive monitoring may
-consume human capacity. Record the rule used for that case.
+\section{Reproduction record}
 
-\section{Residual selection: the short result}
-\label{app:selection}
-
-\begin{proposition}
-Let $T\geq0$ be integrable baseline handling time with mean $h_0>0$. Let $J$ indicate
-assignment to human exception handling, $p=\Pr(J=1)>0$, and $e(T)=\Pr(J=1\mid T)$.
-The exception group's baseline labor share satisfies
-\[
-w=\frac{\mathbb{E}[TJ]}{h_0}
- =p+\frac{\operatorname{Cov}(T,e(T))}{h_0}.
-\]
-Consequently it exceeds the case share exactly when routing is positively associated with
-baseline effort. If $e$ is nondecreasing, this covariance is nonnegative.
-\end{proposition}
-\begin{proof}
-Conditional expectation gives $\mathbb{E}[TJ]=\mathbb{E}[Te(T)]$ and
-$\mathbb{E}[e(T)]=p$, giving the identity. For independent copies $T,T'$,
-$2\operatorname{Cov}(T,e(T))=\mathbb{E}[(T-T')(e(T)-e(T'))]$.
-The integrand is nonnegative when $e$ is nondecreasing.
-\end{proof}
-
-No claim about the conditional variance of exception times follows from the proposition.
-Estimating $w$ requires baseline hours under a frozen routing partition, not just a count of
-cases later failed by a model. Changes in the routing rule require a new partition or a
-documented reweighting. The identity supports measurement of concentration of remaining work;
-it does not predict its size without those measurements.
-
-\section{Verification and follow-up record}
-
-The original strict outcomes remain the primary results of the existing experiment. A future
-semantic audit should retain item identifiers, observed evidence paths, cited claims, independent
-labels, disagreement reasons, adjudicated labels, and sampling probabilities. Release the
-rubric and analysis version with the results. Keep the lexical and semantic scores side by
-side so that differences can be traced to particular findings rather than only to a revised
-headline rate.
-
-The field protocol must record registration identifier, enrollment date, eligible population,
-baseline provenance, operating boundary, quality thresholds, primary labor outcome, uncertainty
-procedure, and missing-data rules before outcome analysis. None of those identifiers is invented
-for this manuscript. If historical records cannot support the 2026 baseline, a new prospective
-study must state its own dates and hypothesis explicitly.
-
-The repository's \nolinkurl{paper2/REVIEW_RESPONSE.md} maps the methodological criticisms to
-editorial changes and outstanding empirical work. The \nolinkurl{paper2/verify_manuscript.py}
-utility checks the inherited tables, figure hashes, headline result counts, and the declared
-sensitivity illustration against the released sources. These checks concern internal consistency
-and provenance, not independent validation of the underlying enterprise rules.
+The public research package contains the complete original and repeated-run traces, unchanged
+primary scores, per-item all-model evidence classifications, strict and post-hoc route outcomes,
+confusion matrices, and counterfactual document hashes. Analysis scripts use the frozen benchmark
+source archive. They make no inference calls and do not overwrite original scores. The manuscript
+verification script checks published counts and the provenance of inherited tables and figures.
+These checks establish reproducibility and internal consistency; they do not provide independent
+professional validation of the rule system.

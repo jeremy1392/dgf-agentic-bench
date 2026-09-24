@@ -1,0 +1,58 @@
+{
+  "status": "DOCX_ONLY_ABLATION_NOT_IDENTIFIABLE_UNDER_FROZEN_REFERENCE",
+  "original_case": "DGF-BUY-035004_buy",
+  "phase": "design",
+  "counterfactual_field": "procurement.offers[selected_vendor].due_diligence",
+  "variants": {
+    "complete": {
+      "value": "complete",
+      "reference_disposition": "GO",
+      "finding_ids": []
+    },
+    "pending": {
+      "value": "pending",
+      "reference_disposition": "REWORK",
+      "finding_ids": [
+        "PROC-DD-001"
+      ]
+    }
+  },
+  "identical_docx_text_count": 26,
+  "document_text_sha256": {
+    "gate_evidence/architecture/00_Review_Request.docx": "c0fde1a9564517a2079c7def73e84ad7ac4c03a8498e3fe12c285ada34c61dfc",
+    "gate_evidence/architecture/LLD_Architecture_Notes.docx": "831ebaa6bbd341ae045487039c3576eb5f5cf094b5dd1258de12939fd6be101d",
+    "gate_evidence/compliance/00_Review_Request.docx": "884a4fc10118b1085955a2d10da7c899e93275c031e6d606b7c35ed39e06d474",
+    "gate_evidence/compliance/AI_Impact_Assessment.docx": "f63992fba5ef0d31bae2ab350af2a48f1f96341d4d16a11baf226a245d9b86b1",
+    "gate_evidence/compliance/DPIA.docx": "85c429b7222a1f02e9c999f8f3f66f09b430ef83d193daf1bb4387ecf2bad2ea",
+    "gate_evidence/general/00_Review_Request.docx": "0dfb3cfaf70563d31a515254729fda7fb3c67f8bda43b7c53b8cd5242fcc80dc",
+    "gate_evidence/general/benefits_plan.docx": "fb8469281b057920e8a989b05900ac5fc0777bc377c9143fde18a168fd3b6fb5",
+    "gate_evidence/general/committee_briefing.docx": "1576e4ec1fe16bc840e9157c151f4cd598a8ef34a66674e64fbdb51f1949b72f",
+    "gate_evidence/it/00_Review_Request.docx": "e432d482491acf095da60d98a4e786f73a12afe59b11ce6680e4378a2bc5ddf7",
+    "gate_evidence/it/support_raci.docx": "70b471e4ce811650a1ccf2c1c7cf09aac494d79ccc270354e435051b04d1a215",
+    "gate_evidence/it/technology_waiver.docx": "aa060145b96750a6e2f33e624557ef5daaa89e3fa9e14f5b37133ecf88db6114",
+    "gate_evidence/legal/00_Review_Request.docx": "c8dc7cdd38c319164122ce23b050b21556f8c77729a7b151a0e45e9012b4cca1",
+    "gate_evidence/legal/DPA.docx": "abef89fa9a8f18ef759f67cf6a1d3305fbe88145c3dbb3fa9889af8408f8575e",
+    "gate_evidence/legal/Insurance_Certificate.docx": "a316f84e4c6fc28bceb24f983c4ed1f3ae14774cfaa5008a3d5118f996ee38b5",
+    "gate_evidence/legal/MSA.docx": "aad0eac80a09b927b5439ad1603fbfa64cc83c1c882e6c05c08df144a7bb8f8f",
+    "gate_evidence/legal/negotiation_log.docx": "ffd048670931e73eb6ecf75c96b86a9688ea843e851c8f2cd0d0b780525558cf",
+    "gate_evidence/legal/SLA_Annex.docx": "ae413ccd07ce5af8e37e1aae948356e6e680b188583723dad38d920b91b42143",
+    "gate_evidence/procurement/00_Review_Request.docx": "a40cb3906fbf076ca6d4ec64cf89baa7a5b1cbb86d8767216e7c528febcf8d12",
+    "gate_evidence/procurement/RFP.docx": "25b109b0349f5347d9c5dbb98b9aaa46ee6ef549f54860ed3b859acbb9fdd54c",
+    "gate_evidence/procurement/vendor_evidence_request.docx": "484f81d431d5ce9dbca59b7ec6818e3b6999f40b2d84eb16b432342ee4061530",
+    "gate_evidence/security/00_Review_Request.docx": "806bd30895c505b2eab6a6ad220f43f65b7989aa5e094ad05c6b0e463eaad9f6",
+    "gate_evidence/security/pentest_report.docx": "c108efc729ac78d1b94ced6652879ffe91e0d77d8b820253920326c0847b83f8",
+    "gate_evidence/security/threat_model.docx": "3faae6655dee8260cdb91171ba7bfedfc6fa11b556168148edcfbbb5903e298f",
+    "gate_evidence/tech_readiness/00_Review_Request.docx": "57d50e31d2a596259ca9e84fc67120bfd22524cb07ca3e1f5905d92f8bfbe213",
+    "gate_evidence/tech_readiness/production_runbook.docx": "6efff2cf9272bf05d2a043d2160888473326daa9c78e094552f896156d19e358",
+    "shared/project_charter.docx": "bee9f1168228f9d73e2046525843e5c62c44d2d5d03735b48d5070aa4dfbdea0"
+  },
+  "differing_non_docx_evidence": [
+    "gate_evidence/procurement/due_diligence.csv",
+    "gate_evidence/procurement/review_facts.json",
+    "gate_evidence/procurement/vendor_offers.csv"
+  ],
+  "interpretation": "The same DOCX paragraphs and tables correspond to two different required procurement decisions. A Word-only reviewer cannot identify the true due diligence state from these documents. This counterexample does not establish insufficiency of a broader document-plus-CSV condition.",
+  "additional_contract_blocker": "Frozen evidence scoring requires findings to cite REVIEW_FACTS_GATE. Removing that evidence while retaining the strict score makes citation conformity impossible even when a decision can be inferred. A common versioned evidence contract must be designed for every ablation cell.",
+  "model_calls": 0,
+  "canonical_truth_use": "Used offline to construct and evaluate the counterfactual, never supplied to a model."
+}

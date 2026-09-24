@@ -32,6 +32,14 @@ The original strict scores are unchanged. This is structural provenance analysis
 
 [All gate/item classifications, excerpts, observed objects, and trace paths](gemini_evidence_audit.json) · [Audit script](audit_evidence.py)
 
+## All-model audit and document preflight: completed
+
+The audit now includes all **690 evidence-failed gates** across DeepSeek, Gemini, and Luna. The [full report](ALL_MODELS_AUDIT.md) adds a declared lexical-or-structural sensitivity endpoint, Procurement diagnostics, decision confusion matrices, and initial-versus-effective reference agreement. Original primary scores remain unchanged.
+
+The [complete offline-audit archive](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-evidence-audit-20260924.zip) includes all artifacts from both counterexample variants, including 52 Word files (26 per variant), alongside the audit records and scripts. [Inventory and scope](evidence_audit_archive_manifest.json) · [SHA-256](evidence-audit-SHA256SUMS.txt).
+
+The [document-only counterexample](document_ablation_preflight.json) produces identical text in 26 Word documents but different required Procurement decisions. The [ablation protocol](../../paper2/protocols/scaffold_ablation.md) specifies matched information and a common evidence contract before further paid calls.
+
 ## Repetitions: completed on 24 September 2026
 
 The [fixed plan](repetition_plan.json) samples five dossiers per route without replacement using seed 23092026, then schedules three fresh trajectories for each of three models: **135 model-case runs**. Original selected checkpoint costs imply approximately **$12.72**, not a guaranteed price. The user initially authorized a $20 envelope, then raised the total authorization to **$50** to finish the same repetitions. Prior spending remains included. The user launches from the terminal containing their API key.
@@ -64,6 +72,8 @@ Defaults use the already verified extraction of the immutable 300-case release a
 python research/2026-09-followup/rules_baseline.py generate
 python research/2026-09-followup/rules_baseline.py score
 python research/2026-09-followup/audit_evidence.py
+python research/2026-09-followup/audit_all_models.py
+python research/2026-09-followup/check_document_ablation.py
 ```
 
 Author: [Jeremy Canale](https://www.jeremycanale.com) · contact@jeremycanale.com

@@ -12,7 +12,7 @@
 \usepackage[round,authoryear]{natbib}
 \usepackage{xcolor}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue!45!black]{hyperref}
-\hypersetup{pdftitle={From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers},pdfauthor={Jeremy Canale},pdfsubject={Synthetic governance review evaluation and a field-validation agenda}}
+\hypersetup{pdftitle={DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews},pdfauthor={Jeremy Canale},pdfsubject={Synthetic governance reviews, deterministic control, provenance, and repeatability}}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newtheorem{proposition}{Proposition}
@@ -20,43 +20,34 @@
 \newcommand{\rowsinput}[1]{\@@input #1.tex }
 \makeatother
 \setlength{\emergencystretch}{2em}
-\title{\textbf{From Governance Reviews to Task Substitution}\\[0.4em]
-\large DGF-Bench and the Role of Forward Deployed Engineers}
+\title{\textbf{DGF-Bench}\\[0.4em]
+\large Rule Application and Evidence Reliability\\in Synthetic Governance Reviews}
 \author{Jeremy Canale\\\normalsize\texttt{contact@jeremycanale.com}\\
 \normalsize\url{https://www.jeremycanale.com}}
 \date{September 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
-Enterprise governance reviews transform project evidence into decisions, conditions, and actions.
-We evaluate whether tool-using language models can perform this work under explicit policies,
-using DGF-Bench: 300 synthetic Buy, Integrate, and Build projects with generated documents,
-architectures, simulated records, and sequential review gates. Agents have access to authoritative
-structured facts as well as documents. Across 899 evaluable model--project runs, Gemini 3.8 Flash,
-GPT-5.6 Luna, and DeepSeek v4.1 Flash achieve strict gate success of 94.98\%, 83.29\%, and
-74.18\%, respectively. Complete-route success is 76.92\%, 42.33\%, and 24.67\%; recorded
-API cost totals USD~87.02. Gemini has 100\% disposition accuracy: all its strict failures concern
-evidence conformity. We therefore distinguish decision quality from lexical traceability instead
-of interpreting the gate--route gap as a general reasoning failure. A new deterministic control executes the supplied public rules on the same structured facts
-and attains 1,700/1,700 strict gate successes and 300/300 complete routes without model calls.
-A post-hoc audit separates Gemini's 85 evidence failures into 69 gates with structurally matching
-excerpts, nine with flattened cross-object excerpts, and seven lacking a required tool read.
-Thus this scaffolded task demonstrates review automation but no incremental LLM advantage. We formulate a conditional
-task-substitution hypothesis. A follow-up repeats 15 fixed dossiers three times per model:
-135 completed runs and 765 gates cost USD~12.56, including failed attempts. Pooled strict gate
-success is 96.08\% for Gemini, 82.75\% for Luna, and 73.33\% for DeepSeek; all three routes
-succeed on 9/15, 3/15, and 0/15 dossiers, respectively. We specify how
-forward deployed engineers could connect review
-automation to operational evidence, authority, exception handling, and measurement of human work.
-A compact labor account shows why benchmark accuracy is not a staffing-reduction estimate.
-Independent human comparison, semantic evidence adjudication, scaffold-removal tests, and a
-prospective enterprise cohort are specified as follow-up studies, not completed experiments.
-A prospective seven-year hypothesis of 80\% lower required FTE is specified relative to
-a future registered baseline; no enterprise cohort is yet enrolled. All benchmark sources, traces, and datasets
-are public. The control and structural audit use existing materials; the repeated model trials
-use an existing case subset and do not constitute independent dataset validation.
+Can tool-using language models apply explicit governance rules and preserve evidence through
+sequential project reviews? DGF-Bench contains 300 synthetic projects with documents, executable
+policies, authoritative structured facts, and scored review contracts. Across 899 evaluable
+model--project runs, strict gate success is 94.98\% for Gemini 3.8 Flash, 83.29\% for GPT-5.6 Luna,
+and 74.18\% for DeepSeek v4.1 Flash; complete-route success is 76.92\%, 42.33\%, and 24.67\%.
+A deterministic control executes the supplied rules and succeeds on all 1,700 gates: this
+information condition establishes no incremental language-model advantage. We audit all 690
+gates with failed evidence components. A post-hoc lexical-or-structural provenance criterion,
+which tolerates field order but preserves other requirements, yields gate success of 99.06\%,
+85.53\%, and 77.24\%. These sensitivity results are not semantic adjudication. Decision confusion
+matrices and procurement diagnostics distinguish representation defects from substantive errors.
+A follow-up completes 135 runs on 15 existing dossiers; only nine, three, and zero dossiers,
+respectively, pass all three trajectories. An offline counterexample produces identical text
+in 26 Word documents despite different required decisions, showing why removing structured
+facts requires an information-sufficiency check. Total recorded API expenditure is USD~99.58.
+We release sources, documents, traces, unchanged primary scores, and analyses. The results
+characterize scaffolded rule application and evidence reliability; they motivate matched-input
+extraction studies rather than establish workforce effects.
 \end{abstract}
-\noindent\textbf{Keywords:} governance reviews; AI agents; forward deployed engineering; benchmark; task substitution; human workload.
+\noindent\textbf{Keywords:} governance reviews; AI agents; rule application; evidence attribution; benchmark; repeatability.
 
 \input{sections/01_argument}
 \input{sections/02_experiment}
@@ -66,6 +57,7 @@ use an existing case subset and do not constitute independent dataset validation
 \input{sections/06_validation}
 \input{sections/07_conclusion}
 \input{sections/references}
+\clearpage
 \appendix
 \input{sections/appendix}
 \end{document}

@@ -6,7 +6,6 @@ research artifacts; does not independently adjudicate enterprise governance rule
 import csv
 import hashlib
 import json
-from decimal import Decimal
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -51,9 +50,6 @@ def main():
     assert sum(int(r["cases"]) for r in overall) == 899
     assert sum(int(r["gate_occurrences"]) for r in overall) == 5094
     assert round(sum(float(r["total_cost_usd"]) for r in overall), 2) == 87.02
-    D = Decimal
-    assert D('.4')*D('.25') + D('.6')*D('.05') + D('.02') + D('.05') == D('.20')
-    assert D('.4')*D('1.5') + D('.6')*D('.5') + D('.10') + D('.10') == D('1.10')
     followup=ROOT/'research/2026-09-followup'
     control=json.loads((followup/'baseline_summary.json').read_text(encoding='utf-8'))
     assert (control['cases'],control['gates'],control['strict_gate_success'],control['route_success'])==(300,1700,1700,300)
@@ -73,10 +69,27 @@ def main():
         assert (p['strict_gates'],p['complete_routes'],p['correct_dispositions'],item['all_three_successful_cases'])==counts
         assert p['gates']==255 and p['cases']==45
         assert p['false_approvals']==p['critical_misses']==0
+    all_models=json.loads((followup/'all_models_evidence_summary.json').read_text(encoding='utf-8'))['models']
+    for model, counts in {
+        'google/gemini-3.8-flash': (1678,284,85,0,96,96),
+        'openai/gpt-5.6-luna': (1454,144,251,32,33,34),
+        'deepseek/deepseek-v4.1-flash': (1313,85,354,81,43,43),
+    }.items():
+        a=all_models[model]
+        assert (a['posthoc_relaxed_gates'],a['posthoc_relaxed_routes'],a['evidence_failed_gates'],a['wrong_decisions'],a['procurement']['strict'],a['procurement']['relaxed'])==counts
+        assert sum(r['count'] for r in a['decision_confusion'])==a['gates']
+        assert sum(r['count'] for r in a['decision_confusion'] if r['reference']!=r['prediction'])==a['wrong_decisions']
+        assert sum(a['evidence_only_gate_categories'].values())==a['evidence_only_failed_gates']
+        assert a['posthoc_relaxed_gates']-a['strict_gates']==a['evidence_only_gate_categories']['all_failed_items_structurally_supported']
+        assert sum(r['relaxed'] for r in a['route_details'])==a['posthoc_relaxed_routes']
+    preflight=json.loads((followup/'document_ablation_preflight.json').read_text(encoding='utf-8'))
+    assert preflight['identical_docx_text_count']==len(preflight['document_text_sha256'])==26
+    assert [v['reference_disposition'] for v in preflight['variants'].values()]==['GO','REWORK']
+    assert preflight['model_calls']==0
     result = {"status": "pass", "evaluable_runs": 899, "evaluable_gates": 5094,
               "figures_and_tables": checked,
               "checks": ["original figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "explicit sensitivity arithmetic", "executed rules control", "85-gate structural audit", "135-run repetition results"],
+                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices", "26-document counterexample"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 

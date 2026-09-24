@@ -1,113 +1,67 @@
-\section{Introduction: a gate is a contract, not a profession}
+\section{Introduction}
 
-A proposed enterprise project is examined by several groups before it proceeds. A legal reviewer
-checks contractual prerequisites; an architecture reviewer checks the technical design; security
-and readiness reviewers check protections and operational evidence. Each review consumes
-information and produces a decision with reasons, conditions, and obligations. The institutional
-label of the reviewer does not determine whether this transformation must always be performed
-by a person. The useful unit of analysis is the review contract: the inputs, rule, output,
-evidence, and authority that make a particular review acceptable.
+Enterprise project reviews transform evidence into a decision, findings, and required actions.
+A legal review checks contractual prerequisites; architecture and security reviews examine
+technical choices and protections. Software can implement a review when its inputs, policy,
+authority, and output contract are explicit. The relevant empirical questions are which parts
+require a language model and whether the resulting decisions remain grounded in observed evidence.
 
-This observation motivates a task-substitution hypothesis. If software can satisfy a review
-contract and its operational assurance requirements, it can replace some of the human execution
-of that review. If it does so across a connected process while reducing total human work, the
-same volume of governed projects may require fewer staff. Neither implication requires
-abolishing the gate or lowering its standard. Nor does successful execution of a synthetic
-contract establish that every enterprise contract has already been captured.
+DGF-Bench evaluates three tool-using model endpoints on connected synthetic governance reviews.
+The information condition is deliberately favorable: agents can inspect executable policies
+and authoritative structured facts as well as generated documents. This separates execution
+of a specified contract from discovery of tacit rules or extraction of every premise from prose.
+A deterministic comparator succeeds on the entire measured task. Consequently, the contribution
+is an inspectable measurement of rule application, evidence conformity, and repeatability under
+that condition, rather than an advantage over conventional rule execution.
 
-The empirical question in this paper is specific: how reliably do three model endpoints apply
-explicit governance rules to synthetic dossiers, investigate with tools, produce evidence-bearing
-decisions, and continue through a sequence of gates? The experiment provides a useful early
-measurement because it exposes what an agent must return and retains what it actually read and
-did. It is also deliberately scaffolded: decision-relevant structured facts and policy rules are
-available to the model. Success is evidence about this policy-application task, rather than a
-direct comparison with unaided professional judgment.
+We report 899 original model--project runs on 300 projects, a 300-project deterministic control,
+an exhaustive structural audit of the 690 gates with failed evidence components across all three
+models, complete decision confusion matrices, and procurement diagnostics. Another 135 runs
+repeat 15 existing dossiers three times per model. An offline document counterexample establishes
+an information-sufficiency requirement for subsequent extraction experiments. Primary scores,
+post-hoc sensitivity measures, repeated-run outcomes, and unexecuted protocols remain distinct.
 
-\subsection{Contributions and claim structure}
+\subsection{Related work}
 
-The paper has three contributions. First, it documents a released benchmark with 300 distinct
-projects, 899 evaluable model--project runs, component-level scores, paired comparisons, and
-recorded costs, plus 135 follow-up runs on 15 existing projects. Second, it separates decision agreement, strict evidence conformity, and
-whole-route success, including concrete examples where their interpretations differ. Third, it
-defines an implementation and measurement agenda linking task automation to human work: the
-engineering artifacts an FDE must build, a minimal labor account, and follow-up studies that
-could substantiate or reject the workforce hypothesis.
+Rule and policy application are established evaluation objects. RuLES tests adherence to
+explicit conversational rules with programmatic evaluation \citep{mu2023}; LegalBench
+assembles expert-designed legal reasoning tasks \citep{guha2023}. Business-process compliance
+monitoring predates language-model agents and provides a basis for conventional rule-based
+comparators \citep{ly2015}. DGF-Bench adds connected project-review outputs and evidence
+contracts, but its synthetic rules are not an independently validated professional standard.
 
-\begin{table}[!htb]
-\centering\small
-\caption{Three different claim levels. A stronger claim needs an additional measurement.}
-\begin{tabularx}{\linewidth}{@{}P{3.1cm}LL@{}}
-\toprule
-Level & Claim in this paper & Evidence required\\
-\midrule
-Measured performance & Models often satisfy specified synthetic review contracts. & Released submissions, traces, scores, and uncertainty conditional on the dataset.\\
-Deployment hypothesis & Comparable review tasks can be executed with less total human work. & Independent review quality and measured human hours in operational workflows.\\
-Workforce projection & A registered cohort may test an 80\% FTE reduction over a seven-year horizon. & A defined cohort, credible baseline, all-in labor boundary, and endpoint observations.\\
-\bottomrule
-\end{tabularx}
-\end{table}
+Evidence attribution is a separate issue from a correct answer. ALCE evaluates text generation
+with citations \citep{gao2023}; the AIS framework specifies attribution to identified sources
+\citep{rashkin2023}. Our lexical checker is narrower: it checks required observed references
+and excerpts. Structural matching removes some serialization sensitivity but does not establish
+full entailment or premise coverage. This distinction explains why a high decision score can
+coexist with a substantially lower strict route score.
 
-The second and third levels are research hypotheses. We do not call eventual complete
-automation a law: without a deadline or a specified comparison population, that endpoint cannot
-be rejected by a finite observation period. The useful empirical target is a change in required
-human work over a stated period with quality preserved. A substantial reduction can occur while
-some human tasks remain necessary.
+WorkArena evaluates enterprise software interactions \citep{drouin2024}; ITBench covers
+operational IT scenarios across SRE, compliance/security, and FinOps \citep{itbench2025}.
+$\tau$-bench evaluates policy-guided tool/user interactions, final database state, and repeated
+reliability \citep{taubench2024}. CI-Work addresses contextual integrity in enterprise information
+flows \citep{ciwork2026}, while AgentDojo evaluates adversarial tool-use settings
+\citep{debenedetti2024}. DGF-Bench scores proposed reviews rather than completed operational
+remediation; it has no live user conversation or adversarial robustness condition. Their
+headline percentages are therefore not comparable. The importance of simple baselines, costs,
+and held-out evaluation follows the analysis of \citet{kapoor2024}.
 
-\subsection{Relation to prior research and to the companion manuscript}
+Agentic business process management raises broader questions of process-level integration,
+monitoring, and escalation \citep{agenticbpm2026}. DGF-Bench supplies a bounded review-workflow
+measurement within that agenda. Its released traces support studying where a model's contribution
+might lie before adding it to an otherwise sufficient rule engine.
 
-DGF-Bench belongs to a family of agent evaluations with different task and information
-contracts. WorkArena evaluates interactions with enterprise software \citep{drouin2024};
-ITBench evaluates operational IT scenarios across SRE, compliance/security, and FinOps
-\citep{itbench2025}. $\tau$-bench combines policy-following, domain tools, simulated users,
-and evaluation of final database state, and explicitly measures reliability across repeated
-trials \citep{taubench2024}. CI-Work examines whether enterprise agents preserve contextual
-integrity while conveying useful information \citep{ciwork2026}. AgentDojo evaluates tool
-use over untrusted data and prompt injection \citep{debenedetti2024}.
+\subsection{Research boundary and companion manuscript}
 
-\begin{table}[!htb]
-\centering\small
-\caption{Task distinctions relevant to DGF-Bench; headline success percentages across these
-benchmarks are not directly comparable.}
-\begin{tabularx}{\linewidth}{@{}P{2.1cm}LL@{}}
-\toprule
-Benchmark & Task and evaluation object & Distinction from this DGF run\\
-\midrule
-WorkArena & Enterprise web interactions and task completion & DGF uses a review/tool interface rather than browser interaction.\\
-ITBench & Operational IT scenarios in SRE, CISO, and FinOps & DGF scores proposed reviews; it does not demonstrate operational remediation.\\
-$\tau$-bench & Policy-guided user/tool interactions; goal database state and repeated reliability & DGF has no live user conversation and its original run has one trajectory per pair.\\
-CI-Work & Information flows, useful content, and privacy/contextual-integrity violations & DGF's present score does not measure confidentiality under dense retrieval.\\
-AgentDojo & Task execution and adversarial prompt-injection outcomes & DGF's original cases do not provide an adversarial robustness test.\\
-DGF-Bench & Connected gate decisions, findings, actions, lexical provenance, and mandates & Executable policy and authoritative structured facts strongly scaffold the task.\\
-\bottomrule
-\end{tabularx}
-\end{table}
+This empirical study shares its original September 2026 experiment with the same author's
+\emph{The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise
+Governance}. The control, saved-trace audit, and repeated trajectories supplement that experiment;
+they are not an independent replication on new projects. The companion retains the broader
+FDE argument, labor accounting, and workforce scenarios. Here those implications are a short
+discussion, not the principal empirical claim.
 
-The agentic BPM research agenda concerns process-level integration of agents, including planning,
-monitoring, and escalation \citep{agenticbpm2026}. This paper contributes a small, inspectable
-review-workflow measurement within that agenda, not evidence that an entire business process
-has been automated. Its distinctive feature is the connected review contract and auditable
-artifact collection. The deterministic control reported below shows why high model scores
-on this particular contract should not be treated as evidence of uniquely linguistic capability.
-
-The workload interpretation follows a task-level distinction between automation and aggregate
-employment: displacement of particular tasks can coexist with new tasks and changing demand
-\citep{acemoglu2019}. Bainbridge's analysis of automation motivates explicit attention to the
-work left for human operators \citep{bainbridge1983}. Field evidence such as
-\citet{brynjolfsson2025} illustrates a different empirical object: productivity observed in an
-operating organization. We do not transfer a productivity effect from another occupation to DGF
-reviewers or infer employment effects from model scores.
-
-This is a shorter, empirical companion to \emph{The Last Human Gate: Forward Deployed Engineering
-and the Automation of Enterprise Governance}, by the same author. Both manuscripts use the same
-September 2026 model experiment; they are not independent replications. This revision adds a
-deterministic control, a structural audit of saved evidence, and three new trajectories per
-model on a fixed 15-case subset. These repetitions test within-sample stability, not independent
-dataset replication. This paper removes
-the universal-law framing, reduces the scenario apparatus, and makes the validation gap an
-operational research plan. The original manuscript and data remain available separately.
-
-The routes are author-designed synthetic workflows informed by practitioner experience. Their
-definitions, generated artifacts, rule implementation, and scoring interface are public, so
-the benchmark specification can be inspected without access to an unpublished practitioner
-document. This makes the implemented task inspectable; it does not establish that its rules
-represent a particular enterprise or an independently validated professional standard.
+The workflows are author-designed and informed by practitioner experience. Their definitions,
+artifacts, public rules, and scoring interface are released. Inspectability does not establish
+that this policy represents any particular enterprise. The generator and evaluator share
+rule definitions, so their agreement is internal consistency rather than independent validation.

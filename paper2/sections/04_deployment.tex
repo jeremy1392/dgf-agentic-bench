@@ -1,99 +1,50 @@
-\section{The role of forward deployed engineers}
+\section{Discussion: where could a language model add value?}
 \label{sec:deployment}
 
-Here, a forward deployed engineer (FDE) denotes an engineer working with an organization's
-domain owners to integrate and operate a review system. The contribution of the role is not
-assumed from its title. It consists of deliverables that make a review contract executable,
-observable, and maintainable. The benchmark already supplies many of these prerequisites;
-in an enterprise they must be built and kept correct.
+Once facts and executable policies are supplied, the rule engine achieves the measured endpoint
+without a language model. The useful comparison is therefore the cost and reliability of producing
+those inputs: extracting facts, resolving conflicting documents, translating policy, and obtaining
+missing information. Those costs are outside the original benchmark's recorded API expenditure.
+A forward deployed engineer (FDE) would work with policy owners on these interfaces, exception
+handling, authority, and maintenance. These are deployment requirements, not measured productivity
+results.
 
-\subsection{From a generated contract to an operational service}
+An evidence interface should let the reviewer identify a source and a JSON path or document span,
+then attach the observed value deterministically. This avoids having a model reconstruct a literal
+quotation. Evaluation should separately check source access, value fidelity, premise coverage,
+and inference. The structural sensitivity analysis evaluates one specified relaxation; it does
+not evaluate a deployed serializer or a semantic judge.
 
-The first task is policy formalization. A specialist and the policy owner must agree which
-decision conditions are mandatory, which permit an exception, and which require interpretation.
-The implementation should record version, scope, effective date, and responsible authority for
-each rule. A model's explanation is not a substitute for resolving contradictory policies.
-Ambiguities discovered during formalization are findings about the organization's process and
-should remain visible in the deployment record.
+\subsection{An executed preflight for document-only evaluation}
 
-The second task is evidence integration. Synthetic snapshots make facts convenient to read;
-real evidence comes from versioned repositories, identity services, ticketing systems, monitoring,
-contracts, and people. Each connector needs access control, freshness checks, stable source
-identifiers, and recorded observations. If two sources disagree, the system needs an escalation
-or precedence rule rather than silently selecting whichever supports approval. The cost of
-producing a reliable snapshot belongs in the deployment, even if the subsequent model review
-becomes almost trivial.
+Before treating removal of \texttt{REVIEW\_FACTS} as an extraction benchmark, we tested whether
+remaining Word documents determine the reference decision. Using case
+\texttt{DGF-BUY-035004\_buy}, we generated two offline variants differing only in the selected
+vendor's due-diligence status: \texttt{complete} versus \texttt{pending}. The frozen evaluator
+requires GO in the first and REWORK with \texttt{PROC-DD-001} in the second. Yet all 26 generated
+Word documents have identical extracted paragraphs and table cells. The changed evidence is in
+the due-diligence and vendor-offer CSV records, and the procurement snapshot. The script, document text hashes, variant values,
+and reference outcomes are released. No model was called for this test.
 
-The third task is authority. Recommendation, conditional approval, and execution are distinct
-capabilities. The reviewer must act within a versioned mandate whose scope includes the project,
-action, and any conditions. An exception mechanism must retain the unresolved finding and identify
-who accepts it. Approval status must not be inferred solely from a fluent rationale. The benchmark's
-rejected conditional-approval attempts make this distinction concrete: a proposed call can be
-invalid even when a later submitted decision is correct.
+This is an identifiability counterexample for a Word-only condition: the same input text can
+require different answers. It does not show that a document-plus-CSV condition is unsolvable,
+nor that document interpretation has no value. Additionally, the frozen strict scorer requires
+finding support to cite the gate's \texttt{REVIEW\_FACTS} identifier. Hiding that source while
+keeping this score would force evidence failures even when other material permits the correct
+decision. A fair ablation needs both an information-sufficiency check and a common revised
+evidence contract before paid evaluation.
 
-The fourth task is a shared case state. Later gates need to know which obligations remain open,
-which evidence is stale, and which prior opinions have been superseded. Passing an unstructured
-summary alone can lose conditions; copying every historical record can create contradictions.
-An implementation should retain typed decisions, evidence references, policy versions, unresolved
-obligations, and the causal relationship between reviews. Gates can be introduced incrementally
-while using the same state and interface design.
+The proposed factorial comparison crosses executable versus prose policy with structured
+snapshots versus source documents and operational records. Every cell must contain equivalent
+policy semantics and recoverable information, or explicitly score justified abstention on
+underdetermined cases. A rule-engine comparison should include the extraction stage and its
+engineering cost. A held-out set must be fixed independently of failures used to design these
+conditions. The released ablation protocol specifies these checks; paid ablation outcomes are
+not reported here.
 
-\begin{table}[!htb]
-\centering\small
-\caption{Proposed FDE deliverables and independently checkable acceptance evidence. These are
-implementation requirements, not deployment outcomes measured in this benchmark.}
-\begin{tabularx}{\linewidth}{@{}P{3.0cm}LL@{}}
-\toprule
-Deliverable & Concrete artifact & Acceptance evidence\\
-\midrule
-Policy contract & Versioned rules, exception scope, output schema & Specialist adjudication of held-out cases and documented disagreements.\\
-Evidence interface & Connectors, timestamps, source IDs, read log & Tests of stale, missing, contradictory, and access-restricted records.\\
-Authority boundary & Mandate registry and enforced action checks & Invalid calls rejected; accepted actions trace to an active mandate.\\
-Connected case state & Findings, obligations, decisions, dependency graph & Replayed handoffs preserve open issues and invalidate stale approvals.\\
-Review service & Agent, validator, escalation and recovery behavior & Held-out quality results including resource exhaustion and provider failure.\\
-Operating account & Human activity ledger and support allocation & Measured effort includes specialists, engineers, suppliers, and rework.\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsection{Failure-informed engineering priorities}
-
-The observed failure classes suggest testable interventions. An evidence serializer could attach
-verbatim spans and stable source identifiers directly from the read log, avoiding a model's
-reconstruction of exact quotations. A consistency check could flag a submitted approval whose
-rationale explicitly asks for rework. A finalization contract could require abstention or
-escalation when resource limits prevent a supported answer, instead of permitting a placeholder
-approval. A handoff validator could ensure that an unresolved upstream prohibition cannot
-silently disappear from the final review.
-
-These interventions could reduce particular failures, but their effects are not measured here.
-Each should be evaluated as a new system version on held-out cases, recording any new failure
-modes and human burden. A validator that catches an error but routes every case to a specialist
-may improve decision safety without reducing labor. A serializer that makes quotes exact may
-raise strict CSR without improving substantive judgment. The outcome attributed to an
-intervention should match what it changes.
-
-Operational performance is a property of the complete system: policy owners, evidence systems,
-model, validators, authorization controls, and exception handling. The FDE's recurring work is
-part of that system. Initial integration hours are a transition investment; repeated policy
-changes, connector repairs, evaluations, incident investigations, and model migrations are
-recurring work. Moving them into an external supplier does not remove them from the DGF labor
-boundary. Separate reporting of build effort and recurring effort enables both an annual
-capacity estimate and a cumulative payback analysis.
-
-\subsection{Testing the implementation hypothesis}
-
-We hypothesize that a connected implementation with shared evidence and obligations can avoid
-some re-reading, re-entry, and reconciliation across review teams. The relevant comparison is
-with locally optimized gate tools at comparable project mix, authority, quality, and automation
-scope. Deployment can remain incremental in both conditions. Measure duplicated evidence
-collection, downstream correction, specialist review hours, recurring support, and total
-quality-constrained human work. Assign implementation approaches across comparable workflows
-where feasible, or use a staged comparison with explicit confounding controls.
-
-An improvement would support the value of the shared implementation, not prove that a particular
-job title caused it. No FDE deployment is included in the current experiment. Likewise, the idea
-that governance will automate before other business functions is a comparative hypothesis: it
-requires matched functions, comparable outcome definitions, and observed deployment times.
-The present results do not establish a universal ordering. They identify a concrete candidate
-for further study because much of the review contract can be specified and inspected.
+A separate handoff intervention would replay the final General gate with either saved agent
+history or validated reference history, keeping its dossier, mandate, budget, and prompt identical
+otherwise. References must preserve the same verified upstream conditional approvals; blindly
+substituting unmodified labels would change both information and authority. Paired repeated runs
+would estimate the effect of handoff content on this protocol, rather than attributing every
+downstream failure to propagation.

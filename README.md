@@ -36,7 +36,7 @@
 
 ---
 
-**One research project, two complementary papers.** This page brings together the project's broader vision, measured results, and proposed field studies. *The Last Human Gate* develops the automation argument and workforce scenarios. *From Governance Reviews to Task Substitution* focuses on the benchmark and adds an executed rules comparator, evidence audit, and repeated model trials. [Compare the two papers](#two-papers-one-research-project).
+**One research project, two complementary papers.** This page brings together the project's broader vision, measured results, and proposed field studies. *The Last Human Gate* develops the automation argument and workforce scenarios. *DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews* focuses on the benchmark and adds an executed rules comparator, evidence audit, and repeated model trials. [Compare the two papers](#two-papers-one-research-project).
 
 ## The idea in plain language
 
@@ -73,7 +73,7 @@ The connection is the workflow: **read a dossier, investigate missing informatio
 
 This is a proposed order of development, not a claim that every company will follow it or that business automation must wait until every DGF gate is automated. Sector-specific rules, available data, and economics can change the order. **DGF-Bench evaluates the governance-review part; it does not test insurance or banking work, establish this adoption sequence, or measure FDE productivity.**
 
-The FDE's own effort stays in the labor account. Initial implementation is a transition investment; recurring adaptation, evaluation, maintenance, and support remain in the required FTE. The first paper's **80% FTE-reduction hypothesis for 2033 concerns the DGF ecosystem**, including that support; it is not automatically a forecast for every business profession. [Broader FDE and business-automation argument](paper/sections/s17_fde.tex) · [Concrete FDE deliverables in the second paper](paper2/sections/04_deployment.tex).
+The FDE's own effort stays in the labor account. Initial implementation is a transition investment; recurring adaptation, evaluation, maintenance, and support remain in the required FTE. The first paper's **80% FTE-reduction hypothesis for 2033 concerns the DGF ecosystem**, including that support; it is not automatically a forecast for every business profession. [Broader FDE and business-automation argument](paper/sections/s17_fde.tex) · [Deployment discussion in the second paper](paper2/sections/04_deployment.tex).
 
 ### A concrete example
 
@@ -240,7 +240,9 @@ The [paper's experimental section](paper/sections/s18_benchmark_results.tex) exp
 
 This comparator quotes complete observed JSON records and has no model output-token limit. Its rules share their definitions with the evaluator, so it checks whether the supplied rules and facts suffice; it does not independently validate those business rules. Model API cost is zero; programming effort and local computation are not priced. [All comparator submissions, observations, scores, and methodology](research/2026-09-followup/).
 
-**The new structural evidence audit** separates Gemini's 85 failed gates into 69 with excerpts matching observed objects after normalization, 9 with excerpts combining fields from different objects, and 7 missing a required tool read. This analysis is not independent human semantic adjudication. Original model scores remain unchanged. [Complete audit](research/2026-09-followup/gemini_evidence_audit.json).
+**The structural audit now covers all three models:** 690 gates with failed evidence components. It asks whether a failed excerpt matches the field values in a source object the agent actually read, despite differences in field order. With this *post-hoc* tolerance, gate success is 99.06% for Gemini, 85.53% for Luna, and 77.24% for DeepSeek; complete-route success is 94.98%, 48.00%, and 28.33%. **These are sensitivity results, not replacements for the original strict scores or independently judged semantic accuracy.** No excerpts or tool reads were repaired. [Full analysis, Procurement errors, confusion matrices, and original quotes](research/2026-09-followup/ALL_MODELS_AUDIT.md). [Download all audit records and counterexample documents](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-evidence-audit-20260924.zip).
+
+**A fair document-reading test needs the right information.** Our offline check produced two variants with identical text in all 26 Word documents, yet one requires approval and the other rework: the distinguishing due-diligence status lives in a CSV. Simply hiding the structured facts and retaining only Word files would make this example unanswerable. We have published the counterexample and a [matched-information ablation protocol](paper2/protocols/scaffold_ablation.md); paid ablations have not been run.
 
 **A correct decision is only part of the job.** Gemini chooses the expected decision on every evaluable gate, but 85 gates fail the evidence requirements: supporting excerpts or observed references are missing or nonconforming. Evidence is also the only failing component in 221 of Luna's 284 failed gates and 338 of DeepSeek's 439. We retain the original strict rule: a convincing conclusion without the required trace is not a fully successful review.
 
@@ -299,7 +301,7 @@ Both papers are by **Jeremy Canale** and use the same original September 2026 mo
 | Publication | What to read it for | Workforce hypothesis |
 |---|---|---|
 | **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)** — 59 pages | The broader automation argument, role of FDEs, detailed labor accounting, illustrative scenarios, and original benchmark. | 80% fewer required DGF FTE in 2033 than in 2026; testing requires auditable historical baseline records. |
-| **[From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 23 pages | The focused empirical study, executed rules comparator, structural evidence audit, repeated trajectories, concrete FDE deliverables, and field-validation design. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
+| **[DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 19 pages | The focused empirical study, executed rules comparator, structural evidence audit, repeated trajectories, decision confusion matrices, procurement diagnostics, and document-ablation preflight. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
 
 **The shorter paper preserves the original experimental measurements.** Detailed theoretical developments and workforce scenarios remain available in the first paper and on this page. All released dossiers, architecture documents, traces, and scores remain accessible. The completed follow-up repeats 15 existing dossiers three times per model; its 135 runs are reported separately from the original 300-project results. Human baselines and independent semantic adjudication remain proposed studies.
 
@@ -307,7 +309,7 @@ Both papers are by **Jeremy Canale** and use the same original September 2026 mo
 
 ## Workforce scenarios from the first paper
 
-The two charts below come directly from *The Last Human Gate*'s reproduction code and parameters. **They are synthetic calculations, not measured staffing reductions.** They illustrate the broader research argument retained here; the second paper uses a shorter labor-accounting example.
+The two charts below come directly from *The Last Human Gate*'s reproduction code and parameters. **They are synthetic calculations, not measured staffing reductions.** They illustrate the broader research argument retained here; the second paper focuses on measured review performance and keeps workforce implications in its discussion.
 
 <p align="center">
   <a href="assets/readme/fig_trajectory.svg"><img src="assets/readme/fig_trajectory.svg" alt="Paper configurations: 140, 60.56, 16.35, 5, and 0 required FTE, split across Buy, Integrate, Build, and support. A dotted line marks the 2033 hypothesis of at most 28 FTE, 80 percent below the illustrative baseline. The configurations have no assigned dates." width="1100" /></a>
@@ -480,7 +482,7 @@ For the second paper, follow the [self-contained LaTeX build and verification in
 | `paper/` | First manuscript, compiled PDF, and synthetic workforce calculations |
 | `paper2/` | Second manuscript, compiled PDF, review response, and field-validation protocols |
 | `research/2026-09-dgf-bench/` | Original 300-project results, figures, and reproduction instructions |
-| `research/2026-09-followup/` | Executed rules comparator, structural evidence audit, and repetition plan |
+| `research/2026-09-followup/` | Executed rules comparator, all-model evidence audit, confusion matrices, completed repetitions, and ablation preflight |
 | `facts_engine.py`, `evaluator.py` | Case facts and reference rules |
 | `generate_dgfbench_v6.py`, `prepare_openrouter_experiment.py` | Case and dataset generation; filenames retain historical version names |
 | `openrouter_eval/` | Agent loop, tools, provider client, runner, and aggregation |
@@ -494,7 +496,7 @@ See [the paper/benchmark relationship](docs/PAPER_AND_BENCHMARK.md) for the boun
 
 ## Author and contact
 
-**Jeremy Canale** is the author of both papers, *The Last Human Gate* and *From Governance Reviews to Task Substitution*, and the creator of DGF-Bench.
+**Jeremy Canale** is the author of both papers, *The Last Human Gate* and *DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews*, and the creator of DGF-Bench.
 
 For research questions, feedback, or collaboration:
 
@@ -505,13 +507,13 @@ Please credit Jeremy Canale when citing or building on this research, and retain
 
 ## Citation and license
 
-Use [CITATION.cff](CITATION.cff) for the repository and its preferred citation to *The Last Human Gate*. When referring to the second paper's controls or conclusions, cite *From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers*, Jeremy Canale (2026), and identify the manuscript revision. For benchmark experiments, also identify the repository commit, protocol, and dataset configuration.
+Use [CITATION.cff](CITATION.cff) for the repository and its preferred citation to *The Last Human Gate*. When referring to the second paper's controls or conclusions, cite *DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews*, Jeremy Canale (2026), and identify the manuscript revision. For benchmark experiments, also identify the repository commit, protocol, and dataset configuration.
 
 Original benchmark code and documentation are dual-licensed under **MIT OR Apache-2.0**; see [LICENSE](LICENSE). The [paper has separate copyright terms](paper/LICENSE-NOTICE.md). Microsoft Azure icons and other third-party assets retain their own terms, documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 <p align="center">
   <a href="paper/The_Last_Human_Gate.pdf"><strong>The Last Human Gate</strong></a><br />
   <sub>Forward Deployed Engineering and the Automation of Enterprise Governance</sub><br /><br />
-  <a href="paper2/From_Governance_Reviews_to_Task_Substitution.pdf"><strong>From Governance Reviews to Task Substitution</strong></a><br />
+  <a href="paper2/From_Governance_Reviews_to_Task_Substitution.pdf"><strong>DGF-Bench: Rule Application and Evidence Reliability</strong></a><br />
   <sub>DGF-Bench and the Role of Forward Deployed Engineers</sub>
 </p>

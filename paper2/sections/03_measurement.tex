@@ -41,8 +41,8 @@ The strict gate--route gap for Gemini is consequently a compounding of evidence-
 failures across routes, not evidence of incorrect final dispositions. A strict route fails
 when any component at any gate fails. This is the intended operational definition, but the
 figure 76.92\% must be read with that definition. We retain both the original scoring rule and
-the component breakdown. Neither retrospectively relaxing the rule nor interpreting every
-lexical failure as a dangerous decision is justified.
+the component breakdown. A declared post-hoc sensitivity analysis can quantify representation effects, but cannot
+replace the primary score or imply that every lexical failure is a dangerous decision.
 
 \subsection{Executed deterministic control}
 \label{sec:rules-control}
@@ -122,41 +122,95 @@ rates and report the audit alongside them. No revised whole-benchmark semantic r
 Complete excerpts, observed contents, matched paths, categories, and source trace identifiers
 are released with the audit script.
 
-\subsection{A proposed semantic evidence assessment}
-\label{sec:semantic}
+\subsection{All-model structural sensitivity and procurement failures}
+\label{sec:all-model-audit}
 
-A semantic assessment should supplement, rather than replace, the frozen lexical score.
-Its object would be the relationship between an output claim and evidence the agent actually
-observed. A correct conclusion based on an unseen file would not pass an observed-evidence
-requirement. A correctly observed passage that does not support the conclusion would not pass
-semantic support. Harmless serialization changes should be distinguished from both.
+We apply the same post-hoc check to every original gate with evidence fidelity below one:
+354 DeepSeek, 85 Gemini, and 251 Luna gates. A gate passes the relaxed endpoint if it originally
+passed strictly, or if all unchanged non-evidence components pass, its required citations were
+observed, and each originally unsupported finding has a relevant exact field/value subset
+within one observed object. Cross-object joins are not promoted. Quotes and read events are
+not repaired. Original lexical successes remain accepted, so this is a lexical-or-structural
+sensitivity endpoint, not a replacement semantic metric. A matching relevant field need not
+supply every premise of a finding.
 
-We propose four separately recorded judgments for each required finding: whether the source
-was available and read before submission; whether the cited span is correctly identified;
-whether it entails the factual claim with its scope, date, and qualifications intact; and whether
-the claim is sufficient to support the relevant policy finding. Each receives a supported,
-unsupported, or ambiguous label and a written reason. Disputed policy interpretation is recorded
-separately from a disputed quote. Unsupported observations must not be repaired by showing the
-adjudicator the hidden reference answer as if the agent had seen it.
+\begin{table}[!htb]
+\centering\small
+\caption{Original strict versus post-hoc lexical-or-structural success on the same saved
+trajectories. Relaxation changes the evidence criterion only; it is not a new model result.}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{Gates} & \multicolumn{2}{c}{Complete routes}\\
+Model & Strict & Relaxed & Strict & Relaxed\\
+\midrule
+Gemini & 1,609/1,694 & 1,678/1,694 & 230/299 & 284/299\\
+Luna & 1,416/1,700 & 1,454/1,700 & 127/300 & 144/300\\
+DeepSeek & 1,261/1,700 & 1,313/1,700 & 74/300 & 85/300\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Two domain-qualified adjudicators would label the same items independently, with model names and
-original pass/fail outcomes masked where feasible. A third adjudicator would resolve disagreements
-under a written rubric. Report raw agreement, a chance-corrected agreement statistic, the
-disagreement categories, and results both before and after adjudication. Model-generated judging
-can assist triage only after comparison with the human labels; it must not define its own validity.
+Gate success rises from 94.98\% to 99.06\% for Gemini, 83.29\% to 85.53\% for Luna, and
+74.18\% to 77.24\% for DeepSeek. Complete-route success rises to 94.98\%, 48.00\%, and
+28.33\%, respectively. The large Gemini gate--route gap is therefore highly sensitive to
+serialization. The smaller changes for the other endpoints show that this explanation does
+not transfer uniformly across models.
 
-For an initial audit, include all strict evidence failures and a probability sample of passing
-items stratified by model, route, and gate. Use the sampling probabilities for any population
-estimate. If the goal is a new complete-route semantic score, adjudicate every required evidence
-item on the routes used for that estimate; a convenience sample of failing excerpts is
-insufficient. Freeze the rubric on development examples and evaluate it on held-out items.
-Because the existing traces have already been inspected, this is a declared post-hoc audit,
-not a preregistered re-evaluation of the original primary endpoint.
+\begin{table}[!htb]
+\centering\small
+\caption{Classification of evidence-only failed gates. ``Unresolved'' means not accepted by
+this structural parser, not a demonstrated false claim. Categories are mutually exclusive.}
+\begin{tabularx}{\linewidth}{@{}Lrrr@{}}
+\toprule
+Category & DeepSeek & Gemini & Luna\\
+\midrule
+Same-object matches for all failed finding items & 52 & 69 & 38\\
+Cross-object excerpt remains & 2 & 9 & 46\\
+Citation/observation defect & 109 & 7 & 1\\
+Unresolved structural or support defect & 175 & 0 & 136\\
+\midrule
+Total evidence-only failures & 338 & 85 & 221\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
-This paper reports a structural audit but no independently adjudicated semantic pass rate. The practical
-value of the proposal is to make the next measurement answer a precise question: how often does
-strict trace failure indicate unsupported reasoning, and how often does it indicate a
-representation defect? The distinction matters for both reliability claims and engineering effort.
+Procurement localizes an especially important contrast. There are 100 evaluable Procurement
+gates per model. Gemini makes 100 correct decisions and passes 96 strictly; all four failures
+are budget-related cross-object excerpts. DeepSeek makes 97 correct decisions but passes only
+43 strictly, with 54 evidence-only failures. Luna makes 96 correct decisions but passes 33
+strictly, with 63 evidence-only failures. Structural relaxation recovers no additional DeepSeek
+Procurement gate and only one Luna gate. Many failed items are not parseable as object fragments;
+others combine separate objects or lack valid support. These categories require semantic review
+before being called hallucinations. Procurement is thus mainly an evidence-contract bottleneck
+in this sample, despite some substantive decision errors. Per-rule classifications and original
+quotes are included in the released item-level audit.
+
+Independent semantic adjudication remains unperformed. A suitable rubric would separately
+label observed access, source/span fidelity, factual entailment, and sufficiency for the policy
+finding; two masked domain-qualified adjudicators would label independently and resolve disputes
+under a fixed procedure. Both failures and a probability sample of passes should be assessed.
+A full semantic route rate requires adjudicating all required support on the routes counted,
+not just forgiving selected failed quotes.
+
+\subsection{Decision confusion and the effective reference}
+
+The full confusion matrices in Appendix~A show 81 incorrect DeepSeek dispositions and 32
+incorrect Luna dispositions; Gemini has none under the effective-reference score. DeepSeek's
+errors are mostly more restrictive than the reference under the policy's priority order
+(76/81), including 35 GO-to-REWORK and 23 GO\_WITH\_RESERVATIONS-to-REWORK outcomes. Luna has
+10 more-restrictive and 22 less-restrictive errors, including 17 SUSPENSION-to-REWORK outcomes.
+A less-restrictive error between blocking decisions is not automatically a false approval;
+each of these two models has one scored false approval.
+
+The effective reference incorporates verified conditional approvals and their authorized
+upstream consequences. It is not always the initial label. Agreement with the unmodified base
+reference is 1,553/1,700 for DeepSeek, 1,553/1,694 for Gemini, and 1,568/1,700 for Luna, versus
+1,619/1,700, 1,694/1,694, and 1,668/1,700 with the effective reference. Gemini's 141 base-label
+differences comprise 139 local conditional approvals and two General outcomes reflecting
+upstream authorized changes. The evaluator checks mandate and approval conditions; the model
+cannot make a decision correct merely by declaring it approved. Reporting both agreements
+clarifies the target: the primary metric measures conformity after allowed actions, while
+initial-label agreement measures a different, action-insensitive target.
 
 \subsection{Executed repeated trajectories on 15 dossiers}
 \label{sec:repetitions}
