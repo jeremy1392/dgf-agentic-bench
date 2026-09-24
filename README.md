@@ -56,7 +56,7 @@ The second paper proposes a separate prospective test: measure a registered base
 
 The scope spans architecture, security, operations, technical readiness, compliance, project support, and related procurement, legal, and finance work. Exceptions, rework, maintenance, and supplier support stay in the account. Moving work to a contractor does not eliminate it.
 
-DGF-Bench tests an early part of the argument: whether AI performs reviews reliably. The FTE reduction is a research hypothesis; confirming it requires measuring human work in organizations. Individual headcount, staffing choices, and employment effects are separate outcomes.
+DGF-Bench tests an early part of the argument: whether AI performs reviews reliably. **The capability question is whether LLMs can carry out the decisions normally assigned to human gate reviewers: examine a dossier, identify problems, justify a decision, and act within their authority.** The FTE reduction is a research hypothesis; confirming it requires measuring human work in organizations. Individual headcount, staffing choices, and employment effects are separate outcomes.
 
 ### Forward Deployed Engineers: DGF first, business functions next
 
@@ -240,9 +240,15 @@ The [paper's experimental section](paper/sections/s18_benchmark_results.tex) exp
 
 This comparator quotes complete observed JSON records and has no model output-token limit. Its rules share their definitions with the evaluator, so it checks whether the supplied rules and facts suffice; it does not independently validate those business rules. Model API cost is zero; programming effort and local computation are not priced. [All comparator submissions, observations, scores, and methodology](research/2026-09-followup/).
 
-**The structural audit now covers all three models:** 690 gates with failed evidence components. It asks whether a failed excerpt matches the field values in a source object the agent actually read, despite differences in field order. With this *post-hoc* tolerance, gate success is 99.06% for Gemini, 85.53% for Luna, and 77.24% for DeepSeek; complete-route success is 94.98%, 48.00%, and 28.33%. **These are sensitivity results, not replacements for the original strict scores or independently judged semantic accuracy.** No excerpts or tool reads were repaired. [Full analysis, Procurement errors, confusion matrices, and original quotes](research/2026-09-followup/ALL_MODELS_AUDIT.md). [Download all audit records and counterexample documents](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-evidence-audit-20260924.zip).
+**The structural audit now covers all three models:** 690 gates with failed evidence components. It asks whether a failed excerpt preserves exact field values from one source object the agent actually read, allowing subsets of fields, different field order, and equivalent numeric formats. With this *post-hoc* tolerance, gate success is 99.06% for Gemini, 85.53% for Luna, and 77.24% for DeepSeek; complete-route success is 94.98%, 48.00%, and 28.33%. **These are sensitivity results, not replacements for the original strict scores or independently judged semantic accuracy.** No excerpts or tool reads were repaired. [Full analysis, Procurement errors, confusion matrices, and original quotes](research/2026-09-followup/ALL_MODELS_AUDIT.md). [Download all audit records and counterexample documents](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-evidence-audit-20260924.zip).
 
 **A fair document-reading test needs the right information.** Our offline check produced two variants with identical text in all 26 Word documents, yet one requires approval and the other rework: the distinguishing due-diligence status lives in a CSV. Simply hiding the structured facts and retaining only Word files would make this example unanswerable. We have published the counterexample and a [matched-information ablation protocol](paper2/protocols/scaffold_ablation.md); paid ablations have not been run.
+
+**The way a model uses permission also matters.** On the same 391 eligible specialist reviews, Gemini uses conditional approval on 391, Luna on 347, and DeepSeek on 201. These are authorized actions under this benchmark, including cases already conditional; they do not establish a general appetite for risk. Gemini also makes 466 rejected approval requests on 294 ineligible reviews, showing why the tool's authorization checks matter. [Exact counts and method](research/2026-09-followup/conditional_approval_audit.md).
+
+**Some rejected citations really do come from the right source.** In Procurement, DeepSeek supplies 25 exact rows from CSV files it read, covering 23 reviews. The frozen contract excludes those sources because it requires the snapshot identifier. All 205 support entries inspected in failed Procurement findings cite sources actually read. That does not make every argument complete: some quotes omit a necessary premise. [Trace-based source audit](research/2026-09-followup/procurement_source_report.md).
+
+**Removing the snapshots needs more preparation than hiding a file.** The audit now covers all 300 dossiers. Two missing facts are demonstrated in the generated source artifacts; an extension supplies targeted CSV records in three new development cases. A tool can also return the snapshot indirectly, so the future test needs a controlled source-only interface. [Coverage and limitations](research/2026-09-followup/source_coverage_audit.md) · [Prototype that copies cited values automatically](research/2026-09-followup/SOURCE_LOCATION_CONTRACT.md).
 
 **A correct decision is only part of the job.** Gemini chooses the expected decision on every evaluable gate, but 85 gates fail the evidence requirements: supporting excerpts or observed references are missing or nonconforming. Evidence is also the only failing component in 221 of Luna's 284 failed gates and 338 of DeepSeek's 439. We retain the original strict rule: a convincing conclusion without the required trace is not a fully successful review.
 
@@ -292,7 +298,9 @@ The rules comparator strengthens the finding that these structured reviews can b
 
 The experiment measures review performance, recorded errors, downstream reviews, and inference costs. The first paper's **80% fewer required DGF FTE by 2033** prediction and the second paper's **seven-year prospective hypothesis** concern workforce consequences. Neither is a measured staffing reduction; both require evidence on human work at comparable output and quality, under their respective timelines.
 
-The test cases are generated, so their variety and rules matter. Balancing the dataset to include different decisions helps test more situations; it does not tell us how common those situations are in business. The answer key also needs independent checking: agreement with the program that generated it is not proof that every business rule is sound.
+The test cases are generated, so their variety and rules matter. Balancing the dataset to include different decisions helps test more situations; it does not tell us how common those situations are in business. Agreement with the program that generated the answer key establishes internal consistency; it does not establish the business validity of every rule.
+
+The same post-hoc evidence audit has also been applied to the **135 repetition runs**. Relaxed gate counts are 249/255 for Gemini, 217/255 for Luna, and 195/255 for DeepSeek; complete-route counts are 39/45, 23/45, and 11/45. Original strict scores are unchanged. These are format/provenance sensitivity results, not human semantic judgments. [Repeated-run evidence audit](research/2026-09-followup/repetition_evidence_audit.md).
 
 ### Two papers, one research project
 
@@ -301,9 +309,9 @@ Both papers are by **Jeremy Canale** and use the same original September 2026 mo
 | Publication | What to read it for | Workforce hypothesis |
 |---|---|---|
 | **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)** — 59 pages | The broader automation argument, role of FDEs, detailed labor accounting, illustrative scenarios, and original benchmark. | 80% fewer required DGF FTE in 2033 than in 2026; testing requires auditable historical baseline records. |
-| **[DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 19 pages | The focused empirical study, executed rules comparator, structural evidence audit, repeated trajectories, decision confusion matrices, procurement diagnostics, and document-ablation preflight. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
+| **[DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 21 pages | The focused empirical study, executed rules comparator, structural evidence audit, repeated trajectories, decision confusion matrices, procurement diagnostics, and document-ablation preflight. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
 
-**The shorter paper preserves the original experimental measurements.** Detailed theoretical developments and workforce scenarios remain available in the first paper and on this page. All released dossiers, architecture documents, traces, and scores remain accessible. The completed follow-up repeats 15 existing dossiers three times per model; its 135 runs are reported separately from the original 300-project results. Human baselines and independent semantic adjudication remain proposed studies.
+**The shorter paper preserves the original experimental measurements.** Detailed theoretical developments and workforce scenarios remain available in the first paper and on this page. All released dossiers, architecture documents, traces, and scores remain accessible. The completed follow-up repeats 15 existing dossiers three times per model; its 135 runs are reported separately from the original 300-project results. The current programme focuses on model experiments; independent human evaluation is outside its scope. No measured comparison with human reviewers is claimed.
 
 [First-paper sources and calculations](paper/) · [Second-paper sources and review response](paper2/) · [Executed follow-up controls](research/2026-09-followup/).
 
@@ -445,7 +453,7 @@ This updates the aggregate JSON in the results directory. It does not refresh th
 - Record the repository commit and local changes, model/provider identity, seed, difficulty, routes, sampling policy, exclusions, and costs.
 - State whether sampling follows the generator distribution or conditions cases on target decisions. Coverage balancing is not an estimate of real enterprise prevalence.
 - Keep hidden reference files, including `99_hidden_ground_truth.json`, outside agent-visible evidence.
-- Validate a sample independently. Reusing the reference evaluator to check public observations establishes internal consistency, not independent business validity.
+- Interpret reference-evaluator checks as internal consistency; professional validity of the business rules is outside this experiment.
 - Report uncertainty at the case level and distinguish decision correctness from evidence-format compliance. Do not treat partial runs as completed studies.
 
 Historical datasets and generators remain in the repository for reproducibility; they are not automatically compatible with newer scoring protocols or suitable as held-out evaluation data.
@@ -515,5 +523,5 @@ Original benchmark code and documentation are dual-licensed under **MIT OR Apach
   <a href="paper/The_Last_Human_Gate.pdf"><strong>The Last Human Gate</strong></a><br />
   <sub>Forward Deployed Engineering and the Automation of Enterprise Governance</sub><br /><br />
   <a href="paper2/From_Governance_Reviews_to_Task_Substitution.pdf"><strong>DGF-Bench: Rule Application and Evidence Reliability</strong></a><br />
-  <sub>DGF-Bench and the Role of Forward Deployed Engineers</sub>
+  <sub>Rule Application and Evidence Reliability in Synthetic Governance Reviews</sub>
 </p>

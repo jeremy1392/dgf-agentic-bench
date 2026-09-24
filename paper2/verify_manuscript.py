@@ -86,10 +86,42 @@ def main():
     assert preflight['identical_docx_text_count']==len(preflight['document_text_sha256'])==26
     assert [v['reference_disposition'] for v in preflight['variants'].values()]==['GO','REWORK']
     assert preflight['model_calls']==0
+    approvals=json.loads((followup/'conditional_approval_summary.json').read_text(encoding='utf-8'))
+    repeat_audit=json.loads((followup/'repetition_evidence_summary.json').read_text(encoding='utf-8'))
+    for model, expected in {
+        'google/gemini-3.8-flash': (398,398,864,466,391,249,39,12),
+        'openai/gpt-5.6-luna': (353,398,394,40,347,217,23,5),
+        'deepseek/deepseek-v4.1-flash': (202,397,216,14,201,195,11,0),
+    }.items():
+        a=approvals['models'][model]['all_scored']
+        matched=approvals['models'][model]['common_cases_non_general']
+        rep=repeat_audit['models'][model]
+        assert (a['used_gates'],a['eligible_gates'],a['request_calls'],a['rejected_calls'],
+                matched['used_gates'],rep['pooled']['posthoc_relaxed_gates'],
+                rep['pooled']['posthoc_relaxed_routes'],rep['all_three_posthoc_relaxed_cases'])==expected
+        assert matched['eligible_gates']==391
+    proc=json.loads((followup/'procurement_source_summary.json').read_text(encoding='utf-8'))['models']
+    assert sum(v['counts']['submitted_support_entries'] for v in proc.values())==205
+    assert sum(v['counts']['failed_findings'] for v in proc.values())==185
+    assert sum(v['counts']['evidence_failed_gates'] for v in proc.values())==127
+    ds=proc['deepseek/deepseek-v4.1-flash']
+    assert ds['source_reference_status']['observed_cited_source_excluded_by_snapshot_only_contract']==26
+    assert ds['counts']['entries_exact_in_own_observed_cited_csv_or_docx']==25
+    assert ds['counts']['gates_with_exact_observed_csv_or_docx_alternative']==23
+    coverage=json.loads((followup/'source_coverage_audit.json').read_text(encoding='utf-8'))
+    assert (coverage['cases'],coverage['scheduled_occurrences'],coverage['unique_ast_fields'],
+            coverage['gate_field_pairs'],coverage['mapped_unique_fields'])==(300,1700,76,84,72)
+    assert coverage['physical_gate_field_counts']=={'MATCH_ESTABLISHED':21687,'NOT_ESTABLISHED':2840,'DECODED_VALUES_DISAGREE':673}
+    assert coverage['scheduled_occurrence_field_counts']=={'PHYSICAL_MATCH_ACCESS_BLOCKED':1402,'READABLE_MATCH_ESTABLISHED':13271,'NOT_ESTABLISHED':1967,'DECODED_VALUES_DISAGREE':460}
+    assert len(coverage['generator_omission_counterexamples'])==2
+    extension=json.loads((followup/'source_record_extensions_report.json').read_text(encoding='utf-8'))
+    assert extension['status']=='PASS' and len(extension['development_cases'])==3
+    assert all(row['unchanged'] for row in extension['protected_tree_integrity'])
+    assert coverage['model_calls']==extension['model_calls']==0
     result = {"status": "pass", "evaluable_runs": 899, "evaluable_gates": 5094,
               "figures_and_tables": checked,
               "checks": ["original figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices", "26-document counterexample"],
+                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 

@@ -1,0 +1,101 @@
+{
+  "scope": "Every originally evidence-failed Procurement occurrence in all 899 evaluable original model-case runs; failed finding diagnostics only. Includes all support alternatives, not only the first support.",
+  "observation_method": "Only read_evidence/request_evidence OK/RECEIVED results in the saved final checkpoint whose contents equal immutable PublicEvidenceReader outputs. Dynamic UPSTREAM_DECISIONS is excluded from this Procurement artifact audit. The frozen agent_runner returns at final submission before executing other tool calls in the same batch, so saved trace results precede final submission. Available but unread sources are recorded separately.",
+  "matching_method": "Literal quote substring in actual returned content serialized exactly as agent_runner JSON dumps (or extracted document text). Separately extract complete JSON scalar field/value pairs even from excerpts with ellipses/prose; locate every pair with strict type/value matching (numeric 30 equals 30.0; boolean is not numeric; CSV string 30 is not number 30). Retain all paths and duplicates; no source reads invented.",
+  "limits": "Pair occurrence is not full quote fidelity, correct association of fields across objects, full rule premise coverage, semantic entailment, or independent adjudication. A quote can have individually real values but misleading relationships. A valid observed CSV quote can still violate the original instructed snapshot-only support contract. No primary or post-hoc relaxed scores changed.",
+  "models": {
+    "deepseek/deepseek-v4.1-flash": {
+      "counts": {
+        "all_procurement_gates": 100,
+        "evidence_failed_gates": 56,
+        "failed_findings": 82,
+        "submitted_support_entries": 102,
+        "entries_all_extracted_scalar_pairs_in_own_observed_source": 102,
+        "entries_exact_in_observed_csv_or_docx": 25,
+        "entries_exact_in_own_observed_cited_csv_or_docx": 25,
+        "exact_csv_entries_identifying_observed_selected_vendor": 25,
+        "entries_exact_in_own_observed_cited_source": 29,
+        "failed_findings_with_exact_observed_csv_or_docx_alternative": 25,
+        "failed_findings_with_exact_own_observed_cited_csv_or_docx": 25,
+        "gates_with_exact_observed_csv_or_docx_alternative": 23,
+        "missing_support_findings": 2
+      },
+      "support_classifications": {
+        "all_extracted_scalar_pairs_in_observed_source_not_literal_quote": 73,
+        "exact_quote_in_observed_source": 29,
+        "matching_available_source_not_observed": 0,
+        "no_literal_or_complete_scalar_pair_match": 0
+      },
+      "source_reference_status": {
+        "observed_cited_required_snapshot": 76,
+        "observed_cited_source_excluded_by_snapshot_only_contract": 26
+      },
+      "parser_crosscheck": {
+        "not_parseable_as_object_fragment": 73,
+        "nonparseable_all_extracted_scalar_pairs_in_observed_source_not_literal_quote": 73,
+        "parseable_object_fragment": 29
+      }
+    },
+    "google/gemini-3.8-flash": {
+      "counts": {
+        "all_procurement_gates": 100,
+        "evidence_failed_gates": 4,
+        "failed_findings": 4,
+        "submitted_support_entries": 4,
+        "entries_all_extracted_scalar_pairs_in_own_observed_source": 4,
+        "missing_support_findings": 0,
+        "entries_exact_in_observed_csv_or_docx": 0,
+        "entries_exact_in_own_observed_cited_csv_or_docx": 0,
+        "failed_findings_with_exact_observed_csv_or_docx_alternative": 0,
+        "failed_findings_with_exact_own_observed_cited_csv_or_docx": 0,
+        "gates_with_exact_observed_csv_or_docx_alternative": 0,
+        "exact_csv_entries_identifying_observed_selected_vendor": 0,
+        "entries_exact_in_own_observed_cited_source": 0
+      },
+      "support_classifications": {
+        "all_extracted_scalar_pairs_in_observed_source_not_literal_quote": 4,
+        "exact_quote_in_observed_source": 0,
+        "matching_available_source_not_observed": 0,
+        "no_literal_or_complete_scalar_pair_match": 0
+      },
+      "source_reference_status": {
+        "observed_cited_required_snapshot": 4
+      },
+      "parser_crosscheck": {
+        "parseable_object_fragment": 4
+      }
+    },
+    "openai/gpt-5.6-luna": {
+      "counts": {
+        "all_procurement_gates": 100,
+        "evidence_failed_gates": 67,
+        "failed_findings": 99,
+        "submitted_support_entries": 99,
+        "entries_all_extracted_scalar_pairs_in_own_observed_source": 98,
+        "entries_exact_in_own_observed_cited_source": 2,
+        "missing_support_findings": 0,
+        "entries_exact_in_observed_csv_or_docx": 0,
+        "entries_exact_in_own_observed_cited_csv_or_docx": 0,
+        "failed_findings_with_exact_observed_csv_or_docx_alternative": 0,
+        "failed_findings_with_exact_own_observed_cited_csv_or_docx": 0,
+        "gates_with_exact_observed_csv_or_docx_alternative": 0,
+        "exact_csv_entries_identifying_observed_selected_vendor": 0
+      },
+      "support_classifications": {
+        "all_extracted_scalar_pairs_in_observed_source_not_literal_quote": 96,
+        "exact_quote_in_observed_source": 2,
+        "no_literal_or_complete_scalar_pair_match": 1,
+        "matching_available_source_not_observed": 0
+      },
+      "source_reference_status": {
+        "observed_cited_required_snapshot": 99
+      },
+      "parser_crosscheck": {
+        "not_parseable_as_object_fragment": 71,
+        "nonparseable_all_extracted_scalar_pairs_in_observed_source_not_literal_quote": 70,
+        "parseable_object_fragment": 28,
+        "nonparseable_no_literal_or_complete_scalar_pair_match": 1
+      }
+    }
+  }
+}

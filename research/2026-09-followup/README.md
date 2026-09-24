@@ -2,6 +2,20 @@
 
 This directory adds **executed offline measurements** to the September 2026 experiment. It does not replace the original model results or claim independent expert adjudication.
 
+## Latest review: executed offline checks
+
+- [Conditional approval behavior](conditional_approval_audit.md): exact tool calls, accepted uses, eligibility, matched comparisons and rejected requests.
+- [Procurement source provenance](procurement_source_report.md): actual observed CSV quotes, nonliteral field matches, and limits of the snapshot-only citation contract.
+- [Structural evidence audit of all 135 repeated runs](repetition_evidence_audit.md): identical method, unchanged primary scores, strict-versus-relaxed gate and route counts.
+- [Source inventory across all 300 dossiers](source_coverage_audit.md): explicit decoders, physical/access checks, contradictions, uncertified fields, and two proven generator omissions.
+- [Targeted source-record extension](source_record_extensions.py) and [verification report](source_record_extensions_report.json): three new DEVELOPMENT_NOT_EVALUATION dossiers, preserving original inputs.
+- [Source-location citation prototype](SOURCE_LOCATION_CONTRACT.md): copies values from an observed source location; no semantic or paid-experiment claim.
+- [General-only replay preparation](GENERAL_REPLAY_PREPARATION.md): an offline population scan and a fixed exploratory comparison of upstream histories; no new model outcomes collected.
+
+These analyses make no model calls. The full-factorial ablation and General replay are separate model studies until actually collected. Independent human labeling is outside the current programme; none is claimed.
+
+[Download the expanded review-follow-up archive](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-review-followup-20260924.zip): audit scripts and item records, all three development dossiers including their Word documents and architecture diagrams, and prepared General-replay inputs. Development cases and preparations are labeled separately from model results. [Inventory](review_followup_archive_manifest.json) · [SHA-256](review-followup-SHA256SUMS.txt).
+
 ## Deterministic rules control: completed
 
 | Outcome | Result |

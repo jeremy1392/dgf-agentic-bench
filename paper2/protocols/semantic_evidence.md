@@ -1,3 +1,5 @@
+> **Archived proposal, outside the current research programme (24 September 2026).** The current study focuses on LLM decision capability and controlled model experiments. No human evaluation or recruitment is planned or claimed. This earlier protocol is retained only for research history.
+
 # Proposed independent semantic evidence audit
 
 **Status: independent semantic adjudication remains unperformed.** A separate automated structural audit has now covered all 85 Gemini failed gates: 69 same-object matches, 9 flattened cross-object cases, and 7 missing required tool reads. See `research/2026-09-followup/`; those are not expert labels or semantic pass rates. The strict lexical metric and published rates remain frozen.

@@ -1,3 +1,5 @@
+> **Archived proposal, outside the current research programme (24 September 2026).** The current study focuses on LLM decision capability and controlled model experiments. No human evaluation or recruitment is planned or claimed. This earlier protocol is retained only for research history.
+
 # Proposed human, agent, and rules baseline
 
 **Status: design only. No participants, collected outcomes, or preregistration identifier.**

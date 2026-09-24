@@ -5,8 +5,11 @@
 
 Gemini's 100\% disposition accuracy is a strong result under the declared conditions. It also
 indicates that this sample offers little remaining discrimination on that component for this
-endpoint. The model can read explicit rules and authoritative structured facts; this experiment
-does not isolate how much ability is needed to recover those facts from documents. The deterministic control now executed on the same 300 dossiers reaches full strict success.
+endpoint. The 99.06\% post-hoc Gemini gate rate and the perfect rule-engine control also
+leave little discrimination at the top of this scaffolded condition. More difficult matched-input
+conditions, rather than larger samples of the same condition alone, are needed to separate
+strong systems. The model can read explicit rules and authoritative structured facts; this experiment
+does not isolate how much ability is needed to recover those facts from documents. The deterministic control on the same 300 dossiers reaches full strict success.
 It demonstrates that the supplied executable rules and structured facts are sufficient to solve
 this instance of the task without model inference. Model success remains an observation about
 model-based execution, but does not establish an incremental benefit over direct rule execution.
@@ -79,51 +82,23 @@ run did not isolate: recovering facts, resolving ambiguity, and interacting with
 operational evidence. Claims about such a contribution require the proposed ablations and
 external validation, rather than a higher score on this saturated contract.
 
-\subsection{Executed structural audit of Gemini's 85 failures}
+\subsection{All-model structural evidence audit and sensitivity}
 \label{sec:structural-audit}
-
-We inspected every Gemini strict-failure gate against its saved submission and pre-submission
-read events. The 85 failed gates contain 84 flagged finding-support items: a gate may contain
-several items, while a citation-only failure may contain none. The audit parses each quote as
-a JSON object fragment, rejects duplicate keys, and checks all quoted field values against a
-single observed object while ignoring key order and numeric serialization such as 30 versus
-30.0. Booleans remain distinct from numbers; 10 cannot match 100. A second diagnostic records
-where values exist across different objects, without treating a flattened join as a faithful
-single-object excerpt. This is a post-hoc structural test, not independent expert adjudication.
-
-\begin{table}[!htb]
-\centering\small
-\caption{Exhaustive post-hoc audit of Gemini strict failures. Categories describe recorded
-representation and observation defects, not new semantic pass rates.}
-\begin{tabularx}{\linewidth}{@{}LrL@{}}
-\toprule
-Gate category & Gates & Item-level explanation\\
-\midrule
-All flagged quotes match observed objects after structural normalization & 69 & 75 flagged finding items preserve the checked field values within an observed object.\\
-Flattened cross-object excerpts & 9 & 9 flagged items combine observed values from separate objects; paths are retained for inspection.\\
-Required evidence-tool observation absent & 7 & All cite \texttt{UPSTREAM\_DECISIONS} without the corresponding read event.\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-For example, a flattened high-availability excerpt combines business criticality from the
-project object with redundancy flags from the architecture-profile object. Those values are
-present, but the quoted combined object was not observed. In the seven citation cases, upstream
-reviews were also included in the gate prompt; the defect is the missing required evidence-tool
-read, not proof that the model never received the underlying information. Neither a corrected
-quote nor an invented read event is inserted into the original trace.
-
-The audit identifies representation-related causes for the 78 excerpt-failure gates and a
-separate observation-contract cause for seven gates. It supplies no independent judgment that
-every policy inference is justified or that every necessary premise was cited. The single-object
-matching check accepts relevant field values rather than proving full entailment, as does the
-original lexical checker. We retain the original 94.98\% strict gate and 76.92\% strict route
-rates and report the audit alongside them. No revised whole-benchmark semantic rate is claimed.
-Complete excerpts, observed contents, matched paths, categories, and source trace identifiers
-are released with the audit script.
-
-\subsection{All-model structural sensitivity and procurement failures}
 \label{sec:all-model-audit}
+
+The post-hoc audit compares saved finding support with pre-submission read events. It parses
+JSON object fragments, rejects duplicate keys, and checks relevant quoted field values against
+a single observed object, ignoring field order and equivalent numeric serialization such as
+30 versus 30.0. Booleans remain distinct from numbers; 10 cannot match 100. Exact field subsets
+are accepted, without establishing that every necessary premise is present. A separate diagnostic
+locates values across different objects without accepting the flattened join as one observed object.
+
+Gemini's 85 original strict failures contain 84 flagged finding-support items. A gate may contain
+several items, while citation-only failures may contain none. All flagged quotes pass the
+same-object check at 69 gates (75 finding items); nine gates contain flattened cross-object
+excerpts; seven cite \texttt{UPSTREAM\_DECISIONS} without its required tool-read event. Prior
+reviews also appeared in the prompt, so the latter does not imply that the model lacked the
+information. Neither corrected quotes nor invented read events are inserted into the traces.
 
 We apply the same post-hoc check to every original gate with evidence fidelity below one:
 354 DeepSeek, 85 Gemini, and 251 Luna gates. A gate passes the relaxed endpoint if it originally
@@ -185,12 +160,36 @@ before being called hallucinations. Procurement is thus mainly an evidence-contr
 in this sample, despite some substantive decision errors. Per-rule classifications and original
 quotes are included in the released item-level audit.
 
-Independent semantic adjudication remains unperformed. A suitable rubric would separately
-label observed access, source/span fidelity, factual entailment, and sufficiency for the policy
-finding; two masked domain-qualified adjudicators would label independently and resolve disputes
-under a fixed procedure. Both failures and a probability sample of passes should be assessed.
-A full semantic route rate requires adjudicating all required support on the routes counted,
-not just forgiving selected failed quotes.
+\paragraph{Do rejected Procurement excerpts come from CSV evidence?}
+A separate trace audit covers all 127 Procurement occurrences with an evidence failure,
+containing 185 failed finding items, 205 submitted support entries, and two findings without
+support. Multiple support alternatives can be attached to one finding. All 205 submitted
+entries cite a source actually read before submission and included in the final references.
+DeepSeek submits 26 entries citing CSV sources: 21 due-diligence, three vendor-offer, and two
+pricing records. Twenty-five are literal rows in the observed tool output, identify the selected
+vendor, and span 25 failed findings across 23 occurrences. The remaining entry joins two observed
+CSV rows with ellipses. No such CSV alternatives occur in the audited Gemini or Luna items.
+
+The frozen scorer requires the source identifier
+\texttt{REVIEW\_FACTS\_PROCUREMENT} and therefore excludes those entries. Thus some failures are observed but contract-excluded
+citations, not citations of unread evidence. The strict protocol was explicit and its scores
+remain unchanged. The diagnostic does not establish that each alternative supplies a complete
+argument: a price row alone, for example, omits the budget needed for a budget-comparison finding.
+
+Across the 205 entries, 31 are literal quotations from observed sources; 173 nonliteral excerpts
+have every mechanically extracted complete scalar field/value pair present in the cited source.
+The remaining entry is prose outside that parser. Of 144 excerpts rejected by the single-object
+parser, 143 have all extracted pairs present; the last names the selected supplier and its
+observed due-diligence status in a sentence. Field occurrence across objects does not validate
+relationships, omitted premises, or entailment. Six literal snapshot excerpts also omit the
+rule-relevant field. These examples demonstrate both directions: a formatting failure is not
+proof of a false factual assertion, and a literal quote is not sufficient support by itself.
+
+Independent semantic adjudication was not performed. These mechanical diagnostics establish
+observed access and specified value correspondences, not the completeness of the argument or
+agreement with an expert. The current research programme focuses on model capability under
+controlled policy, evidence, and handoff conditions. The reported contract scores supply the
+acceptance criterion for that task; no human-equivalence or human-superiority estimate is made.
 
 \subsection{Decision confusion and the effective reference}
 
@@ -200,7 +199,9 @@ errors are mostly more restrictive than the reference under the policy's priorit
 (76/81), including 35 GO-to-REWORK and 23 GO\_WITH\_RESERVATIONS-to-REWORK outcomes. Luna has
 10 more-restrictive and 22 less-restrictive errors, including 17 SUSPENSION-to-REWORK outcomes.
 A less-restrictive error between blocking decisions is not automatically a false approval;
-each of these two models has one scored false approval.
+each of these two models has one scored false approval. Extra restrictive decisions may
+produce delay and rework, but this experiment measures neither their cost nor the consequences
+of blocking a real project.
 
 The effective reference incorporates verified conditional approvals and their authorized
 upstream consequences. It is not always the initial label. Agreement with the unmodified base
@@ -211,6 +212,47 @@ upstream authorized changes. The evaluator checks mandate and approval condition
 cannot make a decision correct merely by declaring it approved. Reporting both agreements
 clarifies the target: the primary metric measures conformity after allowed actions, while
 initial-label agreement measures a different, action-insensitive target.
+
+\subsection{Conditional approval as a separate behavior}
+
+We reconstruct eligibility from public rules, findings, and active occurrence mandates, then
+replay approval events under the frozen environment to verify their effect. Eligibility requires
+at least one open finding, all findings risk-acceptable under that contract, and a valid mandate.
+Keeping the base decision is also permitted. A verified approval is counted as used only when
+the final submitted disposition uses the permitted conditional decision.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Approval behavior in original retained trajectories. Calls can repeat at one gate.
+Use is distinct from a change to the base label and from a rejected request.}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Model & Calls & Rejected & Used & Eligible gates & Use / eligible\\
+\midrule
+DeepSeek & 216 & 14 & 202 & 397 & 50.88\%\\
+Gemini & 864 & 466 & 398 & 398 & 100.00\%\\
+Luna & 394 & 40 & 353 & 398 & 88.69\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Gemini's 139 local label-changing approvals omit 259 uses where the base decision was already
+GO\_WITH\_RESERVATIONS. DeepSeek similarly uses 135 approvals and Luna 255 without changing
+that label. Subtracting initial-reference from effective-reference accuracy therefore cannot
+recover approval counts. Luna has one additional verified approval followed by a final REWORK
+submission, which is not counted as use.
+
+General eligibility depends on the authorized upstream history. For a matched comparison,
+the 299 common cases provide exactly the same 391 eligible non-General gates for all three
+models. Gemini uses approval on 391/391, Luna on 347/391 (88.75\%), and DeepSeek on 201/391
+(51.41\%): Gemini uses it 1.95 times as often as DeepSeek under these conditions. This measures
+behavior under one prompt, policy, and generated population, not a general risk preference.
+It includes approvals that do not make the base disposition less restrictive.
+
+All 466 rejected Gemini approval calls occur on 294 ineligible gates. Tool-side authorization
+therefore matters to the observed final safety result: no false final approval does not imply
+that the agent made no invalid approval request. The synthetic environment checks conditions
+as nonempty strings; their real operational adequacy is not independently adjudicated.
 
 \subsection{Executed repeated trajectories on 15 dossiers}
 \label{sec:repetitions}
@@ -279,8 +321,8 @@ success probability; its degenerate empirical bootstrap interval is not a useful
 
 Gemini has 255/255 correct dispositions, Luna 246/255, and DeepSeek 245/255. There are zero
 scored false approvals and critical misses for each model in this follow-up. Evidence fidelity
-fails on 10, 36, and 59 gates, respectively. These are new strict scores; the structural audit
-of the original 85 Gemini failures is not silently applied to these new traces.
+fails on 10, 36, and 59 gates, respectively. These are the unchanged primary strict scores. A separate post-hoc application of the same
+structural method to all 135 completed trajectories is reported below.
 
 The ranking persists in each repetition, but a similar overall rate does not imply repeatable
 success on every dossier. Complete-route pass/fail changes across repeats for five Gemini,
@@ -295,6 +337,17 @@ randomness. Temperature zero, small sample size, existing generated cases, and i
 resumption limit the interpretation to observed repeatability under this recorded protocol.
 All final scores, error checkpoints, costs, and supporting documents are released with the
 analysis script and per-repeat counts.
+
+\paragraph{Evidence sensitivity on the repeated trajectories.}
+The identical audit implementation was applied to the 765 final gate checkpoints, retaining
+resumed prefixes once and leaving original scores unchanged. Strict-to-relaxed gate counts are
+187 to 195 for DeepSeek, 245 to 249 for Gemini, and 211 to 217 for Luna, each out of 255.
+Complete-route counts change from 11 to 11, 35 to 39, and 19 to 23, respectively, out of 45;
+dossiers passing all three repetitions change from 0 to 0, 9 to 12, and 3 to 5, out of 15.
+These remain post-hoc lexical-or-structural sensitivity outcomes rather than semantic pass rates.
+In particular, Gemini's four recovered gates out of ten evidence failures are a smaller
+proportion than the 69/85 observed in the original experiment. The small fixed subset cannot
+establish that this recovery proportion is stable over new cases or provider conditions.
 
 \subsection{Dependence, uncertainty, and error propagation}
 

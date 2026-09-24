@@ -29,9 +29,17 @@ The frozen scorer also requires finding support to cite REVIEW_FACTS. Removing t
 - Prove that source collection C/D and snapshots A/B determine equivalent facts on the scored cases. If a case is intentionally underdetermined, define justified abstention in every relevant condition before collection; do not score a guessed hidden value as the only correct answer.
 - Introduce one common evidence interface: source identifier, observed JSON path or document span, and a verifiable value. Retain access logs. Score access, value fidelity, premise coverage, policy application, and authority separately. Validate conversions against the original frozen records without overwriting their scores.
 - Prevent alternate tools, search, document previews, filenames, metadata, or catalogs from leaking hidden snapshots or answers in C/D. Verify all tool surfaces with offline access tests.
-- Independently review policy equivalence and evidence sufficiency. The author-designed generator/scorer agreement cannot substitute for this check.
+- Verify policy equivalence and evidence sufficiency with explicit clause mappings, counterfactual tests, and held-out checks. This establishes internal consistency; independent professional validity remains outside the current study.
 
 These are release criteria, not completed results. Until they pass, launching C/D would confound extraction quality, missing information, and an impossible citation contract.
+
+## Additional offline checks now completed
+
+The [300-case source inventory](../../research/2026-09-followup/source_coverage_audit.md) identifies 76 static case fields, with 72 explicit decoders. It distinguishes matching sources, conflicting sources, and physical/phase/gate availability. Its static counts include inactive branches and output metadata; they are not impossibility rates. Two additional counterexamples show that `it.duplicate_capability` and `compliance.audit_trail` can change a decision while all non-snapshot generated artifacts remain identical.
+
+[Targeted generation extensions](../../research/2026-09-followup/source_record_extensions.py) add CSV records for these two omitted fields to **three new development dossiers**, not a held-out sample. [The source-location prototype](../../research/2026-09-followup/SOURCE_LOCATION_CONTRACT.md) copies values from immutable observed sources using pointers/spans; it is not integrated into a paid experiment or a semantic scorer.
+
+A specific access-path check is required: the frozen `request_evidence` tool returns the gate's full factual snapshot even when a non-snapshot document is requested. Other domain tools expose canonical fields too. C/D must use an audited source-only tool adapter, not simply hide files or remove `read_evidence(REVIEW_FACTS)`. The new prototype does not yet implement that adapter.
 
 ## Sampling, comparison, and analysis
 

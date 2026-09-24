@@ -13,7 +13,12 @@ An evidence interface should let the reviewer identify a source and a JSON path 
 then attach the observed value deterministically. This avoids having a model reconstruct a literal
 quotation. Evaluation should separately check source access, value fidelity, premise coverage,
 and inference. The structural sensitivity analysis evaluates one specified relaxation; it does
-not evaluate a deployed serializer or a semantic judge.
+not evaluate a deployed serializer or a semantic judge. A separate offline prototype now registers
+immutable public tool observations and resolves a source identifier plus JSON pointer or text
+span into a copied value. It accepts observed CSV, JSON, or document content without requiring
+a snapshot identifier. Its access and value-copying tests do not establish finding relevance;
+semantic support remains explicitly unevaluated. The prototype has not been used for model
+inference and does not change any score in this paper.
 
 \subsection{An executed preflight for document-only evaluation}
 
@@ -33,6 +38,33 @@ finding support to cite the gate's \texttt{REVIEW\_FACTS} identifier. Hiding tha
 keeping this score would force evidence failures even when other material permits the correct
 decision. A fair ablation needs both an information-sufficiency check and a common revised
 evidence contract before paid evaluation.
+
+\paragraph{Coverage across all 300 dossiers.}
+A conservative AST inventory identifies 76 distinct case fields (84 gate/field pairs), including
+risk-owner output metadata. Explicit template-specific CSV, JSON, and Word decoders cover 72
+fields; phase and upstream decisions are separate runtime inputs. Across 25,200 physical
+case/gate/field checks, 21,687 have a decoded match to the snapshot, 673 have only disagreeing
+decoded values, and 2,840 remain uncertified. For 17,100 static field requirements on the actual
+1,700 scheduled gates, 13,271 have a matching directly readable source; 1,402 have a physical
+match blocked by scope, phase, or availability; 460 disagree; and 1,967 are uncertified.
+These are coverage diagnostics, not rates of undecidable reviews: the static inventory includes
+inactive branches, exact-value requirements, and output metadata, and conflicting alternatives
+can coexist with a match. Absence of an implemented decoder does not prove absence of information.
+
+Two stronger counterexamples isolate generator omissions. Changing
+\texttt{it.duplicate\_capability} from false to true changes GO to REWORK while preserving all
+76 non-snapshot output payloads and diagram inputs in the selected case. Changing
+\texttt{compliance.audit\_trail} from complete to missing similarly preserves 77 such outputs.
+Only the relevant snapshot changes. The other uncertified scalar fields are residency compliance
+and the exact number of readiness blockers; no equivalent absence claim is made for them.
+
+The direct-file audit does not cover every tool. In particular, \texttt{request\_evidence}
+returns a full factual snapshot even when requesting a different gate document, and an
+additional regulatory tool exposes residency compliance. Merely hiding snapshot files would
+therefore fail to isolate an extraction condition. A separate development extension emits two
+targeted source CSVs for the proven omissions and registers their gate/phase access. Three new
+Buy/Integrate/Build dossiers test that extension offline. They are inspected development cases,
+not a held-out evaluation; neither the original corpus nor model scores are changed.
 
 The proposed factorial comparison crosses executable versus prose policy with structured
 snapshots versus source documents and operational records. Every cell must contain equivalent

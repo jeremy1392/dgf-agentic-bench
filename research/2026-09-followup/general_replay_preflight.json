@@ -1,0 +1,501 @@
+{
+  "schema": "general-normalized-history-replay-v1-prepared",
+  "status": "prepared_not_run",
+  "paid_calls_made": 0,
+  "source_fingerprint": "785241db12c0e34d0d41e21da4cc901d386879b2dcad03dbd348ceb014d51391",
+  "selected_dataset_fingerprint": "dba40b9aa7fbb36cc68b03132a2e12321a19934350817abc9374744be528f06d",
+  "selection_source": "research/2026-09-followup/repetition_plan.json",
+  "selection_sha256": "cb16ff0bb4574cc6e5f203c7d5aa3d96856665be184fc50f65d754a7e2acf43f",
+  "models": [
+    "deepseek/deepseek-v4.1-flash",
+    "google/gemini-3.8-flash",
+    "openai/gpt-5.6-luna"
+  ],
+  "cases": [
+    "DGF-BUY-035090_buy",
+    "DGF-BUY-035051_buy",
+    "DGF-BUY-035008_buy",
+    "DGF-BUY-035001_buy",
+    "DGF-BUY-035000_buy",
+    "DGF-INT-035198_integrate",
+    "DGF-INT-035113_integrate",
+    "DGF-INT-035138_integrate",
+    "DGF-INT-035173_integrate",
+    "DGF-INT-035125_integrate",
+    "DGF-BLD-035210_build",
+    "DGF-BLD-035272_build",
+    "DGF-BLD-035232_build",
+    "DGF-BLD-035298_build",
+    "DGF-BLD-035217_build"
+  ],
+  "model_case_pairs": 45,
+  "fresh_trajectories_per_pair_per_arm": 3,
+  "planned_general_executions": 270,
+  "arms": {
+    "A": "Historical actual upstream decisions, normalized",
+    "B": "Reference upstream decisions with the same revalidated historical approvals, normalized"
+  },
+  "normalization": "Keep only identity and decision/findings/actions/authorization fields; sort findings/actions lists without deduplication. Drop rationale, evidence refs/support and verification-status labels in both arms. Historical full handoffs are retained evaluator-only. This is a new normalized-content intervention, not an identical replay of historical prompts.",
+  "comparison": "Both arms are fresh executions. Historical General outcomes supply cost context only, not a treatment arm. Repeat index pairs execution order, not identical random seeds.",
+  "settings": {
+    "temperature": 0.0,
+    "max_tokens": 8192,
+    "max_turns": 20,
+    "max_tool_calls": 40,
+    "reasoning_effort": null,
+    "use_vision": false,
+    "require_parameters": true,
+    "http_retries": 8,
+    "fresh_environment_each_job": true,
+    "proposed_total_envelope_usd": 20,
+    "operating_headroom_usd": 2,
+    "workers": 1,
+    "reserve_per_job_usd": 0.5
+  },
+  "schedule_seed": 24092026,
+  "negative_control_pairs_by_model": {
+    "deepseek/deepseek-v4.1-flash": 9,
+    "google/gemini-3.8-flash": 15,
+    "openai/gpt-5.6-luna": 15
+  },
+  "cost_estimate": {
+    "basis": "Six times actual usage.cost from each of the 45 historical General final checkpoints; no route extrapolation.",
+    "historical_45_general_total_usd": "0.9427226473999999773",
+    "estimated_270_general_usd": "5.6563358843999998638",
+    "by_model_usd": {
+      "deepseek/deepseek-v4.1-flash": "0.4820001743999999934",
+      "google/gemini-3.8-flash": "4.901039549999999874",
+      "openai/gpt-5.6-luna": "0.2732961599999999964"
+    },
+    "uncertainty": "Not a bound: normalized shorter prompts, new routing/pricing/caching, tools, generated tokens and retries can alter cost. Historical failed-attempt costs are not included. Proposed USD 20 envelope has not been spent or newly authorized here."
+  },
+  "preflight": {
+    "passed": true,
+    "exact_historical_score_reproductions": 45,
+    "fixed_approvals_revalidated": true,
+    "only_allowed_history_fields_differ": true,
+    "identical_nonhistory_messages_tools_settings_sources_mandates": true,
+    "no_oracle_label_or_evaluator_target_in_model_content": true,
+    "model_visible_history_fields": [
+      "actions",
+      "authorization_required",
+      "case_id",
+      "disposition",
+      "finding_ids",
+      "gate",
+      "occurrence_id",
+      "phase",
+      "source_version"
+    ]
+  },
+  "prepared_directory": "experiments/general_replay_prepared_20260924",
+  "manifest_sha256": "0e838358006d569e45959a5989289d724c1abc5262eba4783ca0079e9fb13d42",
+  "manifest_path": "experiments/general_replay_prepared_20260924/manifest.json",
+  "historical_cost_records": [
+    {
+      "pair_id": "m01-c01",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035090_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035090_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "c163c9b691486514239b3feddb0deca54da15af512bab9414648b7f3f7f7e44b",
+      "historical_usage_cost_usd": "0.0051667952",
+      "six_fresh_executions_estimate_usd": "0.0310007712"
+    },
+    {
+      "pair_id": "m01-c02",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035051_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035051_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "171bc401459b65d318bb1b02068976c2f64030d2cc61bd3c6bddcd59a7b8f312",
+      "historical_usage_cost_usd": "0.0061620419999999995",
+      "six_fresh_executions_estimate_usd": "0.0369722519999999970"
+    },
+    {
+      "pair_id": "m01-c03",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035008_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035008_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "bd84b8024552d758cc9f20e8d6fcb3ff8110c4f7540ec555d0fe77bbe37ac56f",
+      "historical_usage_cost_usd": "0.00284899",
+      "six_fresh_executions_estimate_usd": "0.01709394"
+    },
+    {
+      "pair_id": "m01-c04",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035001_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035001_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "665cb2174bc28f93d8f845565a3908425de5e19ac6737d9137a6e66ea6c7ceb7",
+      "historical_usage_cost_usd": "0.00266138",
+      "six_fresh_executions_estimate_usd": "0.01596828"
+    },
+    {
+      "pair_id": "m01-c05",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035000_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035000_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "4987676aeb189174f4d5cb755d44dadd8a15491b62532f76d93b3fd5d2514628",
+      "historical_usage_cost_usd": "0.00259503",
+      "six_fresh_executions_estimate_usd": "0.01557018"
+    },
+    {
+      "pair_id": "m01-c06",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035198_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035198_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "df09e34dedc07bbfd439c0c0e807827a981b2bc48a118c30d24307b574700b7b",
+      "historical_usage_cost_usd": "0.0086785008",
+      "six_fresh_executions_estimate_usd": "0.0520710048"
+    },
+    {
+      "pair_id": "m01-c07",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035113_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035113_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "6bc310542cd5c071f3e2269e097bbd4aebc8067f54f54deb18c447acf7cea89f",
+      "historical_usage_cost_usd": "0.0021510664000000002",
+      "six_fresh_executions_estimate_usd": "0.0129063984000000012"
+    },
+    {
+      "pair_id": "m01-c08",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035138_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035138_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "017a4e3cf757612e825013614f1e760b5c4d66bfeed6757e635ed4851fe3ff84",
+      "historical_usage_cost_usd": "0.017390736",
+      "six_fresh_executions_estimate_usd": "0.104344416"
+    },
+    {
+      "pair_id": "m01-c09",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035173_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035173_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "c15ccf355f90caef2568c4f35c2a281c6e3c579d5623b31d4b470fb0bca0ed18",
+      "historical_usage_cost_usd": "0.0025697999999999997",
+      "six_fresh_executions_estimate_usd": "0.0154187999999999982"
+    },
+    {
+      "pair_id": "m01-c10",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035125_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035125_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "0e736f529a3fe00fbfc5bb11c27c197c67025b5cf9531b44d8c4a5d27989f52a",
+      "historical_usage_cost_usd": "0.003904432",
+      "six_fresh_executions_estimate_usd": "0.023426592"
+    },
+    {
+      "pair_id": "m01-c11",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035210_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035210_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "cef453902cda0f617afea34f4ddcda2b6ace0e004e89614b258cf1a11a13a998",
+      "historical_usage_cost_usd": "0.01072454",
+      "six_fresh_executions_estimate_usd": "0.06434724"
+    },
+    {
+      "pair_id": "m01-c12",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035272_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035272_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "469d61495d935b472014ab3ac8c3040bd5aadc7248fd36cff73c4a5816c83b7a",
+      "historical_usage_cost_usd": "0.00204172",
+      "six_fresh_executions_estimate_usd": "0.01225032"
+    },
+    {
+      "pair_id": "m01-c13",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035232_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035232_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "5471917d13fb02f39bcc93c4bbc468a0471fa18734f58bb18de7218671027294",
+      "historical_usage_cost_usd": "0.004734598",
+      "six_fresh_executions_estimate_usd": "0.028407588"
+    },
+    {
+      "pair_id": "m01-c14",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035298_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035298_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "2ba66d889090da8186c00bb5248e05a51f57cb4dd0b8767115d95d1eb7c36c4c",
+      "historical_usage_cost_usd": "0.003768996",
+      "six_fresh_executions_estimate_usd": "0.022613976"
+    },
+    {
+      "pair_id": "m01-c15",
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035217_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035217_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "3ec0de6270c673ddceb2bf0f4df7e614d414768d0b13f148aea3ec358d8d108c",
+      "historical_usage_cost_usd": "0.0049347359999999995",
+      "six_fresh_executions_estimate_usd": "0.0296084159999999970"
+    },
+    {
+      "pair_id": "m02-c01",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035090_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035090_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "4ba976c4b16e4bef2c28e23120d128eefacd435a732dd3ca942de820edd0fc09",
+      "historical_usage_cost_usd": "0.05731425",
+      "six_fresh_executions_estimate_usd": "0.34388550"
+    },
+    {
+      "pair_id": "m02-c02",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035051_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035051_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "4773bd750de35fd239b01a7f8ed9f572a9a572be64b38e450cee55f4b10e0f88",
+      "historical_usage_cost_usd": "0.0564345",
+      "six_fresh_executions_estimate_usd": "0.3386070"
+    },
+    {
+      "pair_id": "m02-c03",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035008_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035008_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "85878044db7fb7a5f4315623ffa92d9da7058ed908730986c71d57b758af4ffb",
+      "historical_usage_cost_usd": "0.055097999999999994",
+      "six_fresh_executions_estimate_usd": "0.330587999999999964"
+    },
+    {
+      "pair_id": "m02-c04",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035001_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035001_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "9d2f4f1cb6979616daf95dd26a7425049a79fc7dfc9dd0b4dca7508ea1da6273",
+      "historical_usage_cost_usd": "0.063605175",
+      "six_fresh_executions_estimate_usd": "0.381631050"
+    },
+    {
+      "pair_id": "m02-c05",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035000_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035000_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "0134ffbdb4eecb8a2e9b14b56d6121ee1f1d6aa1abeb941bc8c9c81f85a96188",
+      "historical_usage_cost_usd": "0.047321249999999995",
+      "six_fresh_executions_estimate_usd": "0.283927499999999970"
+    },
+    {
+      "pair_id": "m02-c06",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-INT-035198_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-INT-035198_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "9e7b6dc2e793aaf658b3003602de597686a47393e269eea27475a8d71fe61009",
+      "historical_usage_cost_usd": "0.04949025",
+      "six_fresh_executions_estimate_usd": "0.29694150"
+    },
+    {
+      "pair_id": "m02-c07",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-INT-035113_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-INT-035113_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "58f546522143b74799e334e5dc2d952a154a92d32a3b09bf8b674cb9ad290b6c",
+      "historical_usage_cost_usd": "0.05172375",
+      "six_fresh_executions_estimate_usd": "0.31034250"
+    },
+    {
+      "pair_id": "m02-c08",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-INT-035138_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-INT-035138_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "75a3b50394e5afd8c9f6d0d303233c99d1cb53149ceb3dc7ffe793372cce3c7f",
+      "historical_usage_cost_usd": "0.029280749999999998",
+      "six_fresh_executions_estimate_usd": "0.175684499999999988"
+    },
+    {
+      "pair_id": "m02-c09",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-INT-035173_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-INT-035173_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "e26bf1856741d20a09ecc59d64fa334878d375912b0f32316c4a9c74afad6458",
+      "historical_usage_cost_usd": "0.048213000000000006",
+      "six_fresh_executions_estimate_usd": "0.289278000000000036"
+    },
+    {
+      "pair_id": "m02-c10",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-INT-035125_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-INT-035125_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "bac400888bd9d6bc3a88f1b037776e57b7b7f67ee200a6c654edcd4a6945551c",
+      "historical_usage_cost_usd": "0.08416499999999999",
+      "six_fresh_executions_estimate_usd": "0.50498999999999994"
+    },
+    {
+      "pair_id": "m02-c11",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BLD-035210_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BLD-035210_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "b1287c6f130474564dfeda261ae2c565c60317e94becf99482d479cce7e81758",
+      "historical_usage_cost_usd": "0.0407265",
+      "six_fresh_executions_estimate_usd": "0.2443590"
+    },
+    {
+      "pair_id": "m02-c12",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BLD-035272_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BLD-035272_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "352f41af78294424ae8b4cbb976016722acc6c4876b72f2638e2ebe4b20a9163",
+      "historical_usage_cost_usd": "0.046947749999999996",
+      "six_fresh_executions_estimate_usd": "0.281686499999999976"
+    },
+    {
+      "pair_id": "m02-c13",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BLD-035232_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BLD-035232_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "adea18cf2e99691f4b2b087e20cf919e2a87e173a1bbc88d7a69c1ea7753d1f0",
+      "historical_usage_cost_usd": "0.07957725",
+      "six_fresh_executions_estimate_usd": "0.47746350"
+    },
+    {
+      "pair_id": "m02-c14",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BLD-035298_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BLD-035298_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "71d3d9022ae89b9dbfa3e0a92aca66443f8bc46827b209c1e32890ad941dfaa1",
+      "historical_usage_cost_usd": "0.0423375",
+      "six_fresh_executions_estimate_usd": "0.2540250"
+    },
+    {
+      "pair_id": "m02-c15",
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BLD-035217_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BLD-035217_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "d21eb5c06557e0f721bdbcf2b2cb46ceebbd35ca4a6e10ed5eb76a85244b840b",
+      "historical_usage_cost_usd": "0.064605",
+      "six_fresh_executions_estimate_usd": "0.387630"
+    },
+    {
+      "pair_id": "m03-c01",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035090_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035090_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "276cdd3f986fa1b069ade8aa27b28c3555209a4404b3af183d9dd79284f52ab3",
+      "historical_usage_cost_usd": "0.00284864",
+      "six_fresh_executions_estimate_usd": "0.01709184"
+    },
+    {
+      "pair_id": "m03-c02",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035051_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035051_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "ede6a24694d8c2efc411cb7b518fa2d707e128706b8f7be63ae030596a2842e4",
+      "historical_usage_cost_usd": "0.0032528899999999996",
+      "six_fresh_executions_estimate_usd": "0.0195173399999999976"
+    },
+    {
+      "pair_id": "m03-c03",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035008_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035008_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "3f9d27986dcadb8a02629df6528c82e4128a27cac1521167d5aeb3ff4fe4ec28",
+      "historical_usage_cost_usd": "0.0033676199999999996",
+      "six_fresh_executions_estimate_usd": "0.0202057199999999976"
+    },
+    {
+      "pair_id": "m03-c04",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035001_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035001_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "0bc5fa7570c27ce7ead608e4a681e4815876f755f0464b05a4935f45a6cf4d38",
+      "historical_usage_cost_usd": "0.0031490199999999998",
+      "six_fresh_executions_estimate_usd": "0.0188941199999999988"
+    },
+    {
+      "pair_id": "m03-c05",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035000_buy",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035000_buy/06_BUY-06-GENERAL-1.json",
+      "checkpoint_sha256": "8419165a8e3df907ed4b0fd344fc488f8b389fe890a855589267b26a8c0c1c6e",
+      "historical_usage_cost_usd": "0.00294778",
+      "six_fresh_executions_estimate_usd": "0.01768668"
+    },
+    {
+      "pair_id": "m03-c06",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035198_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035198_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "8eda17646fa556f2e8bda470a8d71785eb1d03ffa95beb0eb0d4dbc518c0b232",
+      "historical_usage_cost_usd": "0.0032828",
+      "six_fresh_executions_estimate_usd": "0.0196968"
+    },
+    {
+      "pair_id": "m03-c07",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035113_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035113_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "add7ccca33ef93d3e3b4b6f5a3e24fd9b31ea3acd976200401476b9884831460",
+      "historical_usage_cost_usd": "0.00285841",
+      "six_fresh_executions_estimate_usd": "0.01715046"
+    },
+    {
+      "pair_id": "m03-c08",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035138_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035138_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "582195392f2f8cb588b1a2fd1bb27c72e66cfef02788f47e3a1406582dcbfa4d",
+      "historical_usage_cost_usd": "0.00295217",
+      "six_fresh_executions_estimate_usd": "0.01771302"
+    },
+    {
+      "pair_id": "m03-c09",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035173_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035173_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "47ef4dd69b250ea79b259e9005eb60963d5ea8a9453cf5d46ce3cd745cf829b5",
+      "historical_usage_cost_usd": "0.0028301199999999998",
+      "six_fresh_executions_estimate_usd": "0.0169807199999999988"
+    },
+    {
+      "pair_id": "m03-c10",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035125_integrate",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035125_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "checkpoint_sha256": "0507489decbe84a334c2c34b784668fdb87c73a7a85d1b41dfaf3ad524436202",
+      "historical_usage_cost_usd": "0.0029408100000000003",
+      "six_fresh_executions_estimate_usd": "0.0176448600000000018"
+    },
+    {
+      "pair_id": "m03-c11",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035210_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035210_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "858e76754d9ac3ef648a1e5d9651eed678bd35826d6fc8fc7b2184de1c3e8174",
+      "historical_usage_cost_usd": "0.00280091",
+      "six_fresh_executions_estimate_usd": "0.01680546"
+    },
+    {
+      "pair_id": "m03-c12",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035272_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035272_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "efb0e69e6bd1cb86e07cc86460f43627a624ef46dd32f0ff50bd9c71f84c5d8e",
+      "historical_usage_cost_usd": "0.00267722",
+      "six_fresh_executions_estimate_usd": "0.01606332"
+    },
+    {
+      "pair_id": "m03-c13",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035232_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035232_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "4fcca876e0cc1a6731dcbffb6cd2bf0bf266a8f883b8a911cffa24dcd962d8ae",
+      "historical_usage_cost_usd": "0.00327078",
+      "six_fresh_executions_estimate_usd": "0.01962468"
+    },
+    {
+      "pair_id": "m03-c14",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035298_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035298_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "173d4f631ddce384dc47a295131e9b9e4ea7075772dfeaa2f7bb8a26ed875c28",
+      "historical_usage_cost_usd": "0.00329954",
+      "six_fresh_executions_estimate_usd": "0.01979724"
+    },
+    {
+      "pair_id": "m03-c15",
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035217_build",
+      "general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035217_build/05_BUILD-05-GENERAL-1.json",
+      "checkpoint_sha256": "b48eb132a98bc6ad22028bc5ee77bc18be747cf03d47a333bfae5d72c9465265",
+      "historical_usage_cost_usd": "0.0030706500000000003",
+      "six_fresh_executions_estimate_usd": "0.0184239000000000018"
+    }
+  ]
+}

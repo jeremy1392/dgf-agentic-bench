@@ -1,6 +1,8 @@
 \section{Conclusion}
 
-DGF-Bench measures rule application and evidence conformity under an explicit, favorable
+DGF-Bench demonstrates that the tested LLM agents can execute many of the decision tasks
+assigned to human governance reviewers: apply rules to a dossier, issue a disposition, identify
+required actions, and supply evidence. This capability is measured under an explicit, favorable
 information condition. The models often make correct decisions, but a deterministic program
 solves the entire supplied contract. These results establish no incremental LLM advantage over
 that control. Comparing systems that must first extract facts or formalize policy is the next
@@ -8,7 +10,10 @@ question, with the associated engineering and human costs included.
 
 The all-model audit changes the interpretation of strict failures. Gemini's scores are highly
 sensitive to excerpt serialization; the same relaxation removes substantially fewer DeepSeek
-and Luna failures. Complete confusion matrices, procurement diagnostics, and both initial and
+and Luna failures. A separate source audit finds authentic observed CSV rows excluded by the
+snapshot-only contract, so failure under either format criterion is not itself false evidence.
+Conditional-approval rates and rejected requests further separate final correctness from agent
+behavior and tool-enforced authority. Complete confusion matrices and both initial and
 effective-reference agreement make the remaining errors inspectable. The 135-run follow-up
 preserves the ranking while showing that similar aggregate rates do not imply stable success
 for every dossier. A Word-only counterexample demonstrates why an extraction ablation must
@@ -17,7 +22,9 @@ first preserve enough information to determine the required answer.
 These findings motivate an evidence interface that separates source attribution, premise
 coverage, rule application, and authorized decisions. They support testing how much review work
 such systems can perform in practice. They do not measure human work saved or a staffing effect;
-those hypotheses require operational observations under independent quality assessment.
+those hypotheses require operational workload and quality observations. The next model
+experiments target the main unresolved capability boundary: decisions from less prepared
+evidence and policies expressed in prose, with the same authority and information held constant.
 
 \section*{Data, code, and research status}
 
@@ -40,7 +47,12 @@ The follow-up also releases 135 completed model--case runs on 15 existing dossie
 765 scored gates, retained failed attempts, and USD~12.5598870228 in recorded costs. The new
 archive \texttt{dgf-bench-repetitions-20260924.zip} contains all 4,020 files retained in the
 repetition experiment directory, including the copied source dossiers and architecture documents.
-Decision confusion matrices and a reproducible document counterexample accompany these analyses.
+Decision confusion matrices, conditional-approval events, Procurement source diagnostics,
+repeated-trajectory evidence sensitivity, and a reproducible document counterexample accompany
+these analyses. The additional \texttt{dgf-bench-review-followup-20260924.zip} archive includes
+the source-coverage inventory, three development dossiers with their documents, the source-location
+prototype, and prepared General-replay inputs. Development cases and prepared inputs are not
+new model results. The prototype is released separately from the frozen scorer.
 No paid scaffold ablation, human adjudication, or enterprise enrollment has been completed.
 
 The author is Jeremy Canale, \texttt{contact@jeremycanale.com},

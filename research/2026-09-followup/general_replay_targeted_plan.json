@@ -1,0 +1,1322 @@
+{
+  "schema": "general-normalized-history-targeted-proposal-v1",
+  "status": "proposed_not_authorized_not_run",
+  "paid_calls_made": 0,
+  "sampling_seed": 24092026,
+  "sampling": "For each model separately, sample without replacement from lexicographically sorted 299 common case IDs using random.Random(str(seed)+\":\"+model). Select up to 15 cases with changed normalized upstream history, plus 5 identical-history controls. No selection by future outcomes or checkpoint cost. The difference stratum is deliberately selected on historical model/reference disagreement.",
+  "estimand": "Effect of replacing historical normalized decision content by approval-adjusted reference content conditional on historical disagreement; not a population-average effect. Identical-history controls estimate fresh-run variation and order effects, not correction benefits.",
+  "arms": {
+    "A": "Normalized actual historical upstream decisions",
+    "B": "Normalized approval-adjusted reference upstream decisions"
+  },
+  "fresh_trajectories_per_model_case_per_arm": 3,
+  "planned_general_executions": 270,
+  "models": {
+    "deepseek/deepseek-v4.1-flash": {
+      "common_cases": 299,
+      "different_histories": 63,
+      "identical_history_controls_available": 236,
+      "cases_by_changed_field": {
+        "actions": 43,
+        "disposition": 51,
+        "finding_ids": 43,
+        "authorization_required": 25
+      },
+      "upstream_occurrences_by_changed_field": {
+        "actions": 48,
+        "disposition": 58,
+        "finding_ids": 48,
+        "authorization_required": 27
+      },
+      "general_base_disposition_changes_under_history": 22,
+      "general_reference_finding_ids_change_under_history": 23,
+      "proposed_difference_cases": 15,
+      "proposed_control_cases": 5,
+      "proposed_fresh_general_executions": 120,
+      "estimated_general_cost_usd": "0.7834194959999999994"
+    },
+    "google/gemini-3.8-flash": {
+      "common_cases": 299,
+      "different_histories": 0,
+      "identical_history_controls_available": 299,
+      "cases_by_changed_field": {},
+      "upstream_occurrences_by_changed_field": {},
+      "general_base_disposition_changes_under_history": 0,
+      "general_reference_finding_ids_change_under_history": 0,
+      "proposed_difference_cases": 0,
+      "proposed_control_cases": 5,
+      "proposed_fresh_general_executions": 30,
+      "estimated_general_cost_usd": "1.88838090"
+    },
+    "openai/gpt-5.6-luna": {
+      "common_cases": 299,
+      "different_histories": 33,
+      "identical_history_controls_available": 266,
+      "cases_by_changed_field": {
+        "actions": 19,
+        "finding_ids": 19,
+        "authorization_required": 21,
+        "disposition": 17
+      },
+      "upstream_occurrences_by_changed_field": {
+        "actions": 27,
+        "finding_ids": 27,
+        "authorization_required": 24,
+        "disposition": 18
+      },
+      "general_base_disposition_changes_under_history": 3,
+      "general_reference_finding_ids_change_under_history": 3,
+      "proposed_difference_cases": 15,
+      "proposed_control_cases": 5,
+      "proposed_fresh_general_executions": 120,
+      "estimated_general_cost_usd": "0.3896665800000000054"
+    }
+  },
+  "selected_model_cases": [
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035273_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-04-TECH_READINESS-1",
+          "fields": [
+            "authorization_required"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035273_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "07dcea0177dfb7a77432edde4382d64d4238417d97275dd821095a5c7dcb3c9d",
+      "historical_general_cost_usd": "0.0024944",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035040_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "authorization_required",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "actions",
+            "authorization_required",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035040_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "1ec295fea9d953a75b45bca1ee3fe66927f6abe779c48323a31a591e2403c885",
+      "historical_general_cost_usd": "0.013410828000000001",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035038_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "authorization_required",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-04-SECURITY-1",
+          "fields": [
+            "actions",
+            "disposition",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "authorization_required",
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035038_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "9861b7056778c59b5ab3cc86ed0f7a56fc91d3536e875cee2a6f03f83bebb81d",
+      "historical_general_cost_usd": "0.00244196",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": true,
+      "general_reference_finding_ids_change_under_history": true,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035232_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-03-SECURITY-1",
+          "fields": [
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035232_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "5471917d13fb02f39bcc93c4bbc468a0471fa18734f58bb18de7218671027294",
+      "historical_general_cost_usd": "0.004734598",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035041_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required",
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "authorization_required",
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035041_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "07fa77f816e4196bcb39be122d391425c8071c856d4374536789d3c36871fbb6",
+      "historical_general_cost_usd": "0.0024952648",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035058_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-02-LEGAL-1",
+          "fields": [
+            "actions",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035058_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "e57126f5ad33c29357a0893db9049fd3a1d51aa27d3fe57f398e623a31365394",
+      "historical_general_cost_usd": "0.0020961699999999996",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035065_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "authorization_required",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "actions",
+            "authorization_required",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035065_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "d5967ee69288c5bb7d605aa3b2592c4a6da0f6131baf38bf2f3ad7e61d65cd51",
+      "historical_general_cost_usd": "0.013978848",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035113_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-01-IT-1",
+          "fields": [
+            "actions",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035113_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "6bc310542cd5c071f3e2269e097bbd4aebc8067f54f54deb18c447acf7cea89f",
+      "historical_general_cost_usd": "0.0021510664000000002",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": true,
+      "general_reference_finding_ids_change_under_history": true,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035062_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-02-LEGAL-1",
+          "fields": [
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035062_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "32cf16333057dd94efc7a4010b12315a1c8e18feb3fff43d7fc543af30c3ceb9",
+      "historical_general_cost_usd": "0.0031691408000000003",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": true,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035131_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-03-SECURITY-1",
+          "fields": [
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035131_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "44cc5f04143f7a34450b99289b84cf8285f0d38535d7c64e45699f434909e883",
+      "historical_general_cost_usd": "0.007977148",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035203_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-03-SECURITY-1",
+          "fields": [
+            "actions",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035203_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "ed081ef61ad852b70defe777bd700ff7ea29c102f59ed016c5e302c313b12550",
+      "historical_general_cost_usd": "0.0065056608",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": true,
+      "general_reference_finding_ids_change_under_history": true,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035108_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-04-LEGAL-1",
+          "fields": [
+            "disposition"
+          ]
+        },
+        {
+          "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035108_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "5c2972039ba78e9ca5606631e2a61d98e5078964291a8b4d42bfaf117d8e4f56",
+      "historical_general_cost_usd": "0.008057720800000001",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035213_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-03-SECURITY-1",
+          "fields": [
+            "actions",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035213_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "55ba6ca319ba0ddf9dab2ad45214d8927733623df845be901041eab3ca23a9c2",
+      "historical_general_cost_usd": "0.008047174",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": true,
+      "general_reference_finding_ids_change_under_history": true,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035278_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUILD-04-TECH_READINESS-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035278_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "90f040b0910733cb224ac9c4aa6a67514d91a5624b01af225b88e25f3d23bf7c",
+      "historical_general_cost_usd": "0.00240208",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035053_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "authorization_required",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "actions",
+            "authorization_required",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035053_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "9c2ff516dc25027c287f16e9c03688546c674c784a183bdecb3186eabe508b9e",
+      "historical_general_cost_usd": "0.0132244902",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035179_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035179_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "def65da39dc6267d49b71291e094c07b7e7268e50b8b240d758aea86ae44b7a2",
+      "historical_general_cost_usd": "0.01485318",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035067_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035067_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "3524553c353fc7181e57383c7bbbc6551fa78d5faf76f0a5bb393d6761771397",
+      "historical_general_cost_usd": "0.0029147272",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BLD-035290_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BLD-035290_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "78969007a6cea62a4e4449303deed9d70cb582f4f2783d42874b59ed7cb11fd2",
+      "historical_general_cost_usd": "0.013881551999999998",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-BUY-035025_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-BUY-035025_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "76a57c944940dbb0f6947d5263da7ca0121f8c3a8d70175f8a0f366bf4a5d97c",
+      "historical_general_cost_usd": "0.0022666",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "deepseek/deepseek-v4.1-flash",
+      "case": "DGF-INT-035184_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/deepseek__deepseek-v4.1-flash__b75e488c1a8d/DGF-INT-035184_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "45ac8ed44d43ad965c98598e8617a4f2345749cdd576ffa542c06e8d3d19ba6e",
+      "historical_general_cost_usd": "0.0034673069999999998",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "GO",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035066_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035066_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "fecbc29ea34ed390ceac1ff57a5d418f0f8681be80dabe89622f9d9b1b5e96e4",
+      "historical_general_cost_usd": "0.05090625",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035002_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035002_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "78ff4e3b64482fd2231407e0beaa9cf937d79c2be69640a5736283f9da61d1aa",
+      "historical_general_cost_usd": "0.06696075",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035057_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035057_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "73daeda92032cbdeaf3312b200fdc8fbb30e5c0d9256b8c2810f4d21259afee7",
+      "historical_general_cost_usd": "0.0769479",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035051_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035051_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "4773bd750de35fd239b01a7f8ed9f572a9a572be64b38e450cee55f4b10e0f88",
+      "historical_general_cost_usd": "0.0564345",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "google/gemini-3.8-flash",
+      "case": "DGF-BUY-035040_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/google__gemini-3.8-flash__0bb591b009df/DGF-BUY-035040_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "3b6584c3b7973e8c205ddcfbbcc4cfbe60ae17c89dbb39d4236e48a44c266fcc",
+      "historical_general_cost_usd": "0.06348075",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035075_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required",
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-02-LEGAL-1",
+          "fields": [
+            "authorization_required",
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035075_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "e8e3bca8919ff6bad1b2a6f6cfd57173456944894e314e3b4268c80ad563aa4c",
+      "historical_general_cost_usd": "0.00341027",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035136_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-03-SECURITY-1",
+          "fields": [
+            "authorization_required"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035136_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "283322d33b0108af7a741eb13cc659ca8872559255f25ea366142896a14dae45",
+      "historical_general_cost_usd": "0.0033610899999999997",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035276_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-03-SECURITY-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035276_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "a84705d63c034451469f25cc0bd06c577c5612fe2a9dad4a790b15a45559b073",
+      "historical_general_cost_usd": "0.00338244",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035052_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required",
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-01-PROCUREMENT-1",
+          "fields": [
+            "authorization_required",
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035052_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "9ea4890fa6435751c6664e9882f1008d9cd0b26a44bd07493470a9c82375eb14",
+      "historical_general_cost_usd": "0.0032927300000000002",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035110_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-02-ARCHITECTURE-1",
+          "fields": [
+            "authorization_required"
+          ]
+        },
+        {
+          "occurrence_id": "INTEGRATE-03-SECURITY-1",
+          "fields": [
+            "authorization_required"
+          ]
+        },
+        {
+          "occurrence_id": "INTEGRATE-05-COMPLIANCE-1",
+          "fields": [
+            "authorization_required"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035110_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "fee479670a0eb045f49aaa0960551283d811d3835e3ea1a2f1729d6a1f207d2f",
+      "historical_general_cost_usd": "0.0035825600000000003",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035006_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "authorization_required",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-02-LEGAL-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUY-03-COMPLIANCE-1",
+          "fields": [
+            "actions",
+            "authorization_required",
+            "disposition",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUY-04-SECURITY-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "actions",
+            "authorization_required",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035006_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "912e70a1ed29c07fdac9d8f94064b11b0d6f3a4ce3e39da227c8e88bd46e0c0c",
+      "historical_general_cost_usd": "0.0034046",
+      "validated_upstream_approvals": 3,
+      "used_upstream_approvals": 3,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": true,
+      "general_reference_finding_ids_change_under_history": true,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035045_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035045_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "99e7ae29ea3c83c218534e3a2c66df8214e98a0aa7094321a1b567101cabb12a",
+      "historical_general_cost_usd": "0.0033497100000000005",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035099_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-04-SECURITY-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035099_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "c7faa0e76b5f082ae1022320efb23c2609276079d80aa4a54ed1aae9e8992065",
+      "historical_general_cost_usd": "0.00324886",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035058_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "authorization_required",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUY-02-LEGAL-1",
+          "fields": [
+            "actions",
+            "authorization_required",
+            "disposition",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUY-03-COMPLIANCE-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUY-04-SECURITY-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        },
+        {
+          "occurrence_id": "BUY-05-IT-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035058_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "73658c0eb2940aa31e872dcf5d52d0462bab5af3489ea4f8a04abd52bb5f5d8f",
+      "historical_general_cost_usd": "0.0037646900000000002",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035132_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "authorization_required",
+        "disposition",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-04-LEGAL-1",
+          "fields": [
+            "actions",
+            "authorization_required",
+            "disposition",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035132_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "c86f7d10615a87ea72b843452ef7a43953f79e8aab74c4a088bd4500645ed447",
+      "historical_general_cost_usd": "0.0029746399999999997",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "GO",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035220_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-02-ARCHITECTURE-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035220_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "49b0481fae015e4ce6fcbf3684a046360eeb19f52c44c136f5fa5d4b24a32cb7",
+      "historical_general_cost_usd": "0.00316604",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "REWORK",
+      "common_reference_base_disposition": "REWORK",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035244_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-01-IT-1",
+          "fields": [
+            "authorization_required"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035244_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "b316f1a5a8ff39a3faa21818cac4752ea84551a60cd6c5aba283aa34a45b0344",
+      "historical_general_cost_usd": "0.0032246",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035278_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "actions",
+        "finding_ids"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "BUILD-03-SECURITY-1",
+          "fields": [
+            "actions",
+            "finding_ids"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035278_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "971164c97aaf31d96eaaf7ede0d87b023c99a63477626e2f6e8c67ce5a0f05d2",
+      "historical_general_cost_usd": "0.00302411",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035189_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required",
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-04-LEGAL-1",
+          "fields": [
+            "authorization_required",
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035189_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "42e0cdf77e7ebbef488a52be398577493b45e748f966d2f8e8dec3db7b6c93d9",
+      "historical_general_cost_usd": "0.00332667",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035115_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": true,
+      "changed_fields": [
+        "authorization_required",
+        "disposition"
+      ],
+      "history_differences": [
+        {
+          "occurrence_id": "INTEGRATE-04-LEGAL-1",
+          "fields": [
+            "authorization_required",
+            "disposition"
+          ]
+        }
+      ],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035115_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "6f10654ada8f3c8b1146d8dc04e2bbf62bd4c3711fe5e8614442de1d6a495f8c",
+      "historical_general_cost_usd": "0.00341164",
+      "validated_upstream_approvals": 1,
+      "used_upstream_approvals": 1,
+      "agent_history_environment_base_disposition": "SUSPENSION",
+      "common_reference_base_disposition": "SUSPENSION",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "changed_history"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035028_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035028_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "5b3a1a638de44ff9a3cb634b796e108dc38bdb34ce6d99c2fe4f4188d4ff2d3e",
+      "historical_general_cost_usd": "0.00287321",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "GO",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035050_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035050_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "f479bca9a01670d2ee9c93296232917495edba1d8042e8704abcd9c2fe0239d7",
+      "historical_general_cost_usd": "0.0028723100000000003",
+      "validated_upstream_approvals": 2,
+      "used_upstream_approvals": 2,
+      "agent_history_environment_base_disposition": "GO",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BLD-035246_build",
+      "occurrence_id": "BUILD-05-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BLD-035246_build/05_BUILD-05-GENERAL-1.json",
+      "general_checkpoint_sha256": "058796db3ccbf81e2c73d780300b4e906f5526d455afbd55f90e644a027885c9",
+      "historical_general_cost_usd": "0.00311289",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-INT-035124_integrate",
+      "occurrence_id": "INTEGRATE-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-INT-035124_integrate/06_INTEGRATE-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "ac437c136e0267ac5dcf73a21b6feedf5e1c723dcecdd8b3076617e13bb9860d",
+      "historical_general_cost_usd": "0.00264293",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "GO",
+      "common_reference_base_disposition": "GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    },
+    {
+      "model": "openai/gpt-5.6-luna",
+      "case": "DGF-BUY-035012_buy",
+      "occurrence_id": "BUY-06-GENERAL-1",
+      "history_differs": false,
+      "changed_fields": [],
+      "history_differences": [],
+      "original_general_checkpoint": "experiments/run_20260922_214402_941347/results/openai__gpt-5.6-luna__5eac84a8bed2/DGF-BUY-035012_buy/06_BUY-06-GENERAL-1.json",
+      "general_checkpoint_sha256": "62fc14a7205eb2e6689231ce5e5c2698e7cc9e2ae0f1387a8232e4039f97b244",
+      "historical_general_cost_usd": "0.00351844",
+      "validated_upstream_approvals": 0,
+      "used_upstream_approvals": 0,
+      "agent_history_environment_base_disposition": "NO_GO",
+      "common_reference_base_disposition": "NO_GO",
+      "general_base_disposition_changes_under_history": false,
+      "general_reference_finding_ids_change_under_history": false,
+      "selection_stratum": "identical_history_control"
+    }
+  ],
+  "estimated_total_usd": "3.0614669760000000048",
+  "proposed_total_envelope_usd": 10,
+  "cost_basis": "Six times usage.cost in each selected original final General checkpoint; excludes historical failed attempts. Pricing/routing/caching, normalized prompt length, tool choices and retries can change realized cost; estimate is not a hard bound.",
+  "authorization": "New targeted proposal only. No API key read, no paid calls, and no execution launcher included. Prior repetition authorization is not reused.",
+  "analysis": "Report each arm and repeat; paired differences by model within disagreement and control strata; uncertainty clustered by case. Keep every trace/error/cost and all fresh trajectories; do not pick best-of-three. Distinguish common approval-adjusted target accuracy from consistency with the supplied history. Do not pool the two strata into an unweighted population rate.",
+  "population_scan_sha256": "875422c2ce87d474930d6daa9d1461f2d3b65de362e56fd468f9739c4ff592af",
+  "population_scan_hash_scope": "sha256-canonical-json-v1: UTF-8; sorted keys; compact separators; ensure_ascii=False; allow_nan=False"
+}

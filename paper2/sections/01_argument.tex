@@ -3,16 +3,21 @@
 Enterprise project reviews transform evidence into a decision, findings, and required actions.
 A legal review checks contractual prerequisites; architecture and security reviews examine
 technical choices and protections. Software can implement a review when its inputs, policy,
-authority, and output contract are explicit. The relevant empirical questions are which parts
-require a language model and whether the resulting decisions remain grounded in observed evidence.
+authority, and output contract are explicit. The central capability question is whether LLM agents can execute the decision tasks normally
+assigned to human gate reviewers: inspect a dossier, identify applicable findings, select a
+disposition, justify it with observed evidence, and respect authority. The study evaluates these
+tasks under a declared contract; it does not compare model accuracy with measured human accuracy.
 
+A Digital Governance Framework (DGF) organizes these review checkpoints.
 DGF-Bench evaluates three tool-using model endpoints on connected synthetic governance reviews.
 The information condition is deliberately favorable: agents can inspect executable policies
 and authoritative structured facts as well as generated documents. This separates execution
 of a specified contract from discovery of tacit rules or extraction of every premise from prose.
 A deterministic comparator succeeds on the entire measured task. Consequently, the contribution
 is an inspectable measurement of rule application, evidence conformity, and repeatability under
-that condition, rather than an advantage over conventional rule execution.
+that condition. The control establishes task sufficiency; the model results measure execution
+of the same decision contracts. No advantage over direct rule execution is established in this
+information condition.
 
 We report 899 original model--project runs on 300 projects, a 300-project deterministic control,
 an exhaustive structural audit of the 690 gates with failed evidence components across all three
