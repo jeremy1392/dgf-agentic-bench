@@ -5,28 +5,13 @@
 DGF-Bench tests the execution of a specified review task: inspect permitted evidence, choose a
 disposition, identify findings and required actions, cite the supporting observations, and respect
 the authorization contract. A seeded generator constructs 300 fictional projects, 100 each on
-Buy, Integrate, and Build routes (Table~\ref{tab:experiment-routes}). This gives 1,700 gate occurrences
-per model. The dossiers include project charters and review requests, architecture diagrams,
+Buy, Integrate, and Build routes (Figure~\ref{fig:dgf-routes}). Buy and Integrate each contain six
+gates; Build contains five, giving 1,700 gate occurrences per model.
+The dossiers include project charters and review requests, architecture diagrams,
 technical designs, supplier and legal records, and operational test evidence. Decision-coverage
 sampling balances applicable outcomes. Difficulty setting 4 controls generator parameters;
 it is not a validated scale of reasoning difficulty. The 300 projects have distinct architecture
 and complete decision-fact signatures, although some gate-level patterns recur.
-
-\begin{table}[!htb]
-\centering\small
-\caption{Project populations and the complete review sequences evaluated. General consolidates
-the preceding specialist reviews; these routes are examples of governance design.}
-\label{tab:experiment-routes}
-\begin{tabularx}{\linewidth}{@{}lrL@{}}
-\toprule
-Route & Projects & Ordered checkpoints\\
-\midrule
-Buy & 100 & Procurement, Legal, Compliance, Security, IT, General\\
-Integrate & 100 & IT, Architecture, Security, Legal, Compliance, General\\
-Build & 100 & IT, Architecture, Security, Tech Readiness, General\\
-\bottomrule
-\end{tabularx}
-\end{table}
 
 Each project begins with canonical facts: an owner, a business context, requested budget, users,
 data classification, architecture, and operational or contractual constraints. Templates derive

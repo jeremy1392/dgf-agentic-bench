@@ -1,8 +1,10 @@
 # Expanded manuscript: editorial and verification record
 
-The current manuscript is **The Last Human Gate: Forward Deployed Engineering for Governance Automation**, by Jeremy Canale: **25 pages including one reproduction appendix and references, 4 figures, 10 tables, 14 references**.
+The current manuscript is **The Last Human Gate: Forward Deployed Engineering for Governance Automation**, by Jeremy Canale: **25 pages including one reproduction appendix and references, 5 figures, 9 tables, 14 references**.
 
 On 24 September 2026 the author requested expansion of the 12-page synthesis into a 25-page research article. The expansion adds substantive explanations, methods and recorded evidence. It preserves the 11-point main text and one-inch margins. References use 10-point text and occupy the last page. The 12-page version remains in history at commit `5de22b38d662a335b97edbc5257cad20e91c1ad6`; the former 22-page empirical companion remains at `c5db9e2b4b595e63a583e15fb0551da478d7cf8b`. The 66-page original is the extended treatment of the same research.
+
+The route diagram added on 24 September 2026 introduces Buy, Integrate, and Build on page 2. Its gate order was checked against both the current code and the frozen benchmark source. It replaces the duplicate methods route table; the methods retain the 100 projects per route and 1,700 gate occurrences per model.
 
 The expanded article includes:
 

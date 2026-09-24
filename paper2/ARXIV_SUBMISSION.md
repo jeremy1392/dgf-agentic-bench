@@ -1,6 +1,6 @@
 # Dépôt arXiv de la version courte de The Last Human Gate
 
-**Nouvelle version du 24 septembre 2026 : 25 pages, 4 figures, 14 références.** Elle remplace l'ancien deuxième paper. Aucune soumission arXiv n'a été effectuée ici.
+**Nouvelle version du 24 septembre 2026 : 25 pages, 5 figures, 14 références.** Elle remplace l'ancien deuxième paper. Aucune soumission arXiv n'a été effectuée ici.
 
 ## Fichiers et métadonnées
 
@@ -8,7 +8,7 @@ Téléverser le **[ZIP source actualisé](https://github.com/jeremy1392/dgf-agen
 
 Le titre à saisir est **The Last Human Gate: Forward Deployed Engineering for Governance Automation**. L'auteur est **Jeremy Canale**. Le fichier [arxiv_metadata.txt](arxiv_metadata.txt) fournit le résumé anglais du PDF en ASCII et le champ Comments. Laisser Journal-ref, DOI et Report-no vides tant qu'ils n'existent pas.
 
-Le ZIP contient 15 dépendances : 12 fichiers TeX, deux figures PDF et une figure PNG. La quatrième figure est produite par TikZ dans le source. Choisir `main.tex` et **PDFLaTeX**. La bibliographie est intégrée, sans BibTeX. arXiv demande les sources pour un article produit avec LaTeX ; ne déposer ni seulement le PDF ni l'archive élargie de documentation. [Instructions officielles](https://info.arxiv.org/help/submit/index.html).
+Le ZIP contient 16 dépendances : 13 fichiers TeX, deux figures PDF et une figure PNG. Deux autres figures, dont le schéma des trois parcours DGF en page 2, sont produites par TikZ dans les sources. Choisir `main.tex` et **PDFLaTeX**. La bibliographie est intégrée, sans BibTeX. arXiv demande les sources pour un article produit avec LaTeX ; ne déposer ni seulement le PDF ni l'archive élargie de documentation. [Instructions officielles](https://info.arxiv.org/help/submit/index.html).
 
 ## Positionnement et relation avec la version longue
 
@@ -20,7 +20,7 @@ Le choix de la licence revient à l'auteur. Cette préparation n'en sélectionne
 
 ## Vérification du dépôt
 
-Vérifier les [conditions de soumission et de modération](https://info.arxiv.org/help/moderation/index.html), puis utiliser le [formulaire arXiv](https://arxiv.org/submit/), importer les sources actuelles, renseigner les métadonnées et inspecter l'aperçu produit par arXiv. Contrôler le titre, les 25 pages, les quatre figures, les tableaux des résultats, les équations et les références. Les vérifications locales portent sur la compilation et l'intégrité des fichiers ; elles ne constituent pas une validation éditoriale par arXiv.
+Vérifier les [conditions de soumission et de modération](https://info.arxiv.org/help/moderation/index.html), puis utiliser le [formulaire arXiv](https://arxiv.org/submit/), importer les sources actuelles, renseigner les métadonnées et inspecter l'aperçu produit par arXiv. Contrôler le titre, les 25 pages, les cinq figures, les tableaux des résultats, les équations et les références. Les vérifications locales portent sur la compilation et l'intégrité des fichiers ; elles ne constituent pas une validation éditoriale par arXiv.
 
 Le [rapport technique](arxiv_verification.json) et les [empreintes des fichiers](../research/2026-09-followup/second-paper-arxiv-SHA256SUMS.txt) identifient les livrables. Après une modification, compiler et vérifier le PDF, actualiser sa copie publiée puis régénérer le paquet depuis la racine :
 

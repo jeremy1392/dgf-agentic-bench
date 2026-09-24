@@ -1,0 +1,48 @@
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[
+  x=2.5cm,y=1cm,
+  gate/.style={draw=black!55,rounded corners=2pt,minimum height=0.64cm,
+    text width=2.08cm,align=center,inner sep=2pt,font=\small},
+  consolidate/.style={gate,fill=black!8,draw=black!75},
+  flow/.style={-{Stealth[length=1.5mm]},draw=black!65,semithick},
+  route/.style={anchor=west,font=\small}
+]
+\node[route] at (-0.46,0.62) {\textbf{BUY} \quad Purchase a solution};
+\node[gate,fill=blue!5] (b1) at (0,0) {Procurement};
+\node[gate,fill=blue!5] (b2) at (1,0) {Legal};
+\node[gate,fill=blue!5] (b3) at (2,0) {Compliance};
+\node[gate,fill=blue!5] (b4) at (3,0) {Security};
+\node[gate,fill=blue!5] (b5) at (4,0) {IT};
+\node[consolidate] (b6) at (5,0) {General};
+\foreach \a/\b in {b1/b2,b2/b3,b3/b4,b4/b5,b5/b6}
+  \draw[flow] (\a) -- (\b);
+
+\node[route] at (-0.46,-0.73) {\textbf{INTEGRATE} \quad Connect existing systems};
+\node[gate,fill=teal!6] (i1) at (0,-1.35) {IT};
+\node[gate,fill=teal!6] (i2) at (1,-1.35) {Architecture};
+\node[gate,fill=teal!6] (i3) at (2,-1.35) {Security};
+\node[gate,fill=teal!6] (i4) at (3,-1.35) {Legal};
+\node[gate,fill=teal!6] (i5) at (4,-1.35) {Compliance};
+\node[consolidate] (i6) at (5,-1.35) {General};
+\foreach \a/\b in {i1/i2,i2/i3,i3/i4,i4/i5,i5/i6}
+  \draw[flow] (\a) -- (\b);
+
+\node[route] at (-0.46,-2.08) {\textbf{BUILD} \quad Develop an application};
+\node[gate,fill=orange!7] (d1) at (0,-2.7) {IT};
+\node[gate,fill=orange!7] (d2) at (1.25,-2.7) {Architecture};
+\node[gate,fill=orange!7] (d3) at (2.5,-2.7) {Security};
+\node[gate,fill=orange!7] (d4) at (3.75,-2.7) {Tech\\Readiness};
+\node[consolidate] (d5) at (5,-2.7) {General};
+\foreach \a/\b in {d1/d2,d2/d3,d3/d4,d4/d5}
+  \draw[flow] (\a) -- (\b);
+
+\node[font=\small,align=center] at (2.5,-3.48)
+  {\textbf{At each gate:} inspect the dossier; record findings, evidence, actions, and a decision.};
+\end{tikzpicture}
+\caption{Three DGF workflows evaluated in DGF-Bench. A project follows the route matching its
+need. Arrows show review order and information handoffs; General consolidates preceding reviews.
+The benchmark runs all scheduled gates, including after a refusal. These are example governance
+routes, not automatic approvals or a universal enterprise standard.}
+\label{fig:dgf-routes}
+\end{figure}

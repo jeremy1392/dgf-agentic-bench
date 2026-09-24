@@ -36,7 +36,7 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-Three included image files and the inline bibliography make the source archive self-contained. A fourth figure is drawn directly in LaTeX with TikZ. The published PDF keeps the historical filename `From_Governance_Reviews_to_Task_Substitution.pdf` so links continue to work; its title is the one above.
+Three included image files and the inline bibliography make the source archive self-contained. Two further figures are drawn directly in LaTeX with TikZ, including the three DGF workflows on page 2. The published PDF keeps the historical filename `From_Governance_Reviews_to_Task_Substitution.pdf` so links continue to work; its title is the one above.
 
 From the repository root:
 

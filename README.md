@@ -48,6 +48,10 @@ Before a company buys software, connects systems, or launches an application, pe
 
 A **gate** is one of these review checkpoints. A **Digital Governance Framework (DGF)** organizes them into a process. A **dossier** contains a project's facts and documents; its **route** is the sequence of reviews it must pass.
 
+![The three DGF workflows: Buy, Integrate, and Build](assets/readme/dgf-main-routes.svg)
+
+**Buy** means purchasing a solution; **Integrate** means connecting existing systems; **Build** means developing an application. Each box is a review of the same project dossier. Buy and Integrate contain six reviews, and Build contains five; **General** consolidates the specialist reviews. Arrows show review order and information handoffs. In the benchmark, scheduled reviews continue even after a refusal. These are the three routes evaluated here; organizations can configure others. [Route definitions](routes.py).
+
 **The research asks when agents and software can replace the review tasks now assigned to people, and how much human work would remain.** DGF is a useful candidate because many reviews have recurring inputs, explicit rules, evidence requirements, and bounded decisions. A governance function can remain necessary even when its execution becomes automated.
 
 ### Forward Deployed Engineers: DGF first, business functions next
@@ -80,11 +84,7 @@ Jeremy Canale's hypothesis is that **FDEs will likely tackle DGF before extendin
 *An actual architecture artifact from the synthetic dataset.* Project Falcon is a fictional HR portal for 1,000 users, with a €500,000 requested budget and confidential data. This is a generated review artifact, not a recommended production design. [Context and provenance](assets/readme/example-project-context.json).
 
 <details>
-<summary><strong>See the project routes and a concrete review example</strong></summary>
-
-![Buy, Integrate, and Build review routes](assets/readme/dgf-main-routes.svg)
-
-Buy and Integrate each contain six checkpoints; Build contains five. Together they cover eight review types. [Route definitions](routes.py).
+<summary><strong>See a concrete review example</strong></summary>
 
 ![Illustrative readiness review: a backup exists but no successful restore test is recorded](assets/readme/experiment-restore-example.png)
 
