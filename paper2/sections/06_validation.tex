@@ -42,6 +42,56 @@ both case-level human effort and the recurring support floor to disappear. No fi
 here establishes that endpoint. The scientifically actionable question is how much accepted
 task execution can already be transferred and what prevents further transfer.
 
+\subsection{Observing substitution without losing the work boundary}
+
+A deployment study needs to observe both accepted output and the effort that produces it.
+Begin with a defined population of review obligations, not a list of job titles. A project
+may trigger several gates, return for revision, or draw on a shared specialist. Activity
+records should preserve those relationships so that the same hour is not counted at every
+gate and a returned dossier does not disappear from the denominator. The endpoint is the
+delivery of the governed work, including obligations left open by conditional decisions.
+
+The baseline can combine case records, activity logs, timesheets, and supplier records under
+a common coding scheme. Evidence preparation, ordinary review, exception work, correction,
+handoffs, and support need distinct codes. Shared infrastructure work is allocated once using
+a declared rule, with an unallocated category when the attribution is unknown. Unobserved
+supplier hours are missing observations; a low internal headcount cannot stand in for them.
+Initial integration is reported separately from recurring operations, then included in any
+investment or payback calculation. A deployment with low steady-state effort can still have
+a substantial transition cost.
+
+There are two different comparisons. Actual total hours answer how much work the organization
+performed during the period. Standardized hours answer how much work comparable output would
+require. If case volume falls, simply comparing payroll totals can mistake reduced demand for
+automation. Conversely, rising project volume can conceal a reduction in effort per comparable
+case. A study should report both quantities, standardize the variable work for route and case
+mix, and retain a separately measured support term. Multiplying a fixed support burden by a
+case-volume adjustment would erase the very floor the accounting model is intended to expose.
+
+Quality and service are assessed alongside hours. Appropriate measures depend on the declared
+contract, but include missed mandatory findings, invalid commitments, uncompleted obligations,
+correction after acceptance, and time to a usable decision. The deployment must predeclare
+which errors invalidate an output and which service changes are tolerable. Faster approvals
+are not an efficiency improvement if blocking defects go undetected. Equally, a system that
+escalates every dossier may preserve final decision quality while adding an extra processing
+layer; the labor account exposes that outcome rather than rewarding abstention alone.
+
+For an enrolled population, uncertainty in the final workload ratio should include between-case
+variation, organizational clustering, and uncertainty in reconstructed baseline hours. An
+upper bound at or below 0.20, with the quality and service conditions met, supports the target
+for that population. A lower bound above 0.20 contradicts it; an interval crossing the threshold
+is inconclusive. Missing material work cannot be silently assigned zero. Attrition, failed
+deployments, and changes in the suppliers included in the account need explicit reporting.
+
+Observing a reduction and attributing it to agents are separate steps. Staged or randomized
+adoption, when feasible, supplies a comparison for changes that would have occurred anyway.
+Otherwise, a study must document contemporaneous process redesign, outsourcing, demand shifts,
+and other automation. An organization can meet the workload threshold while the causal share
+attributable to language models remains unresolved. Finally, a convenience sample of successful
+implementations does not establish an ecosystem-wide forecast. Such inference requires a
+declared sampling frame, weights, and coverage of organizations where integration fails or
+does not occur. No enterprise observations of this kind are claimed in the present paper.
+
 \subsection{The next discriminating experiment}
 
 The most useful extension varies information preparation while preserving answerability.
@@ -52,12 +102,54 @@ evidence contract before testing on held-out cases. Include the rule engine and 
 extraction pipeline in the comparison. Report decision quality, supported findings, complete
 routes, abstention, and all engineering and operating costs.
 
+\begin{table}[!htb]
+\centering\small
+\caption{Proposed matched-information design. These conditions describe an unexecuted
+extension, not four completed experiment arms.}
+\label{tab:proposed-ablation}
+\begin{tabularx}{\linewidth}{@{}P{1.6cm}LL@{}}
+\toprule
+Condition & Policy representation & Permitted evidence\\
+\midrule
+A & Executable definitions & Authoritative structured snapshots\\
+B & Semantically equivalent prose & The same snapshots\\
+C & The same executable definitions & Documents and operational records sufficient to recover the same facts\\
+D & The same prose as B & The same documents and records as C\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Table~\ref{tab:proposed-ablation} separates policy application from fact recovery. A versus B
+changes policy representation while holding information fixed. A versus C changes information
+presentation while retaining executable policy. The fourth condition checks the combined
+burden. Access to code execution must be held constant; otherwise a representation comparison
+also changes tool capability. Prose policies must preserve thresholds, priority rules, and
+exceptions, and finding catalogs must not reintroduce the executable predicates in an arm
+intended to omit them. These are controls on the experiment, not assumptions that the two
+representations have already been made equivalent.
+
 This extension does not require claiming human-level accuracy. It asks which parts of a review
 the system can perform when the required facts are no longer supplied as a ready-to-use snapshot.
 Our counterexample means that simply deleting snapshots is not a valid design. The released
 source audit also identifies runtime tools that can return snapshots, so changing file visibility
 alone would not isolate the intended condition. The existing extraction ablation and General-only
 intervention are preparations, not additional measured results in this paper.
+
+The evidence endpoint must also be common across the new conditions. The frozen benchmark
+requires some support to name a structured snapshot. Removing that source while retaining the
+same identifier requirement would penalize a source-reading agent even when it found the right
+fact. A new contract can instead require an observed source identifier, a field or document
+span, and a faithfully copied value. It must separately check whether those values support the
+finding's premises. Applying that contract prospectively creates a new endpoint; it does not
+retroactively change the original strict scores.
+
+For the handoff question, replay the General gate under saved model history and a reference
+history while preserving the same validated upstream conditional approvals. Replacing a
+lawful conditional decision with an unconditional blocking reference would change authority
+as well as information quality. The intervention should isolate the accuracy and completeness
+of the handoff, retain identical dossier access and budgets, and use paired repeated
+trajectories. Such a design could distinguish propagation of an earlier error from a fresh
+General-gate error; the observed whole-route scores alone cannot identify that causal effect.
 
 \subsection{Limits of the present evidence}
 

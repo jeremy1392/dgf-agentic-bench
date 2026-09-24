@@ -1,0 +1,55 @@
+\appendix
+\section{Reproducing the claims from the released artifacts}
+\label{sec:reproduction}
+
+The public release separates the experimental record from the current development checkout.
+Use the frozen benchmark source for the original run; later code changes need not implement
+the same scoring protocol. The dataset archive contains every generated dossier, including
+Word documents, architecture diagrams, policies, mandates, and evaluator references. The run
+archive contains model outputs and tool events as well as scores, failures, and cost records.
+Per-file inventories and archive SHA-256 values identify the inputs before recomputation.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Repository records for the principal claims. Paths are relative to the public
+repository; the release linked in the data statement contains the larger underlying archives.}
+\label{tab:reproduction-map}
+\begin{tabularx}{\linewidth}{@{}P{3.1cm}L@{}}
+\toprule
+Claim or operation & Inspectable record\\
+\midrule
+Original metrics and intervals & \nolinkurl{research/2026-09-dgf-bench/paper_results.json}\\
+Matched model comparisons & \nolinkurl{research/2026-09-dgf-bench/paired_comparisons.json}\\
+Falcon and Meridian traces & \nolinkurl{research/2026-09-dgf-bench/worked_examples.json}\\
+Structural evidence audit & \nolinkurl{research/2026-09-followup/ALL_MODELS_AUDIT.md}\\
+Repeated trajectories & \nolinkurl{research/2026-09-followup/repetition_analysis.json}\\
+Information counterexample & \nolinkurl{research/2026-09-followup/document_ablation_preflight.json}\\
+Workforce calculations & \nolinkurl{paper/anc/parameters.json}\\
+Printed-table consistency & \nolinkurl{paper2/verify_manuscript.py}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The original offline reproduction script verifies downloads against the inventories, checks
+the source and dataset identities, and recalculates aggregates and paired comparisons. The
+expected denominators are 899 evaluable trajectories and 5,094 gates, with 299 dossiers in
+the common comparison. Within the run archive, use \texttt{analysis\_20260923\_final}; earlier
+partial exports are retained as historical records. No new API calls are needed to reproduce
+these summaries. Recomputing saved-score aggregates verifies arithmetic and exclusions;
+rescoring saved submissions with the frozen evaluator is a separate check of implementation.
+Neither operation independently establishes the professional validity of the policy.
+
+For the repeated runs, keep every planned trajectory and its retained gate prefix once.
+Infrastructure errors remain in the archive and cost ledger but do not become extra completed
+trials. Reproduce the pooled rates by summing successful gates over 255 gates per model, and
+complete routes over 45. For the all-three endpoint, first group trajectories by dossier and
+require success in every repetition, then divide by 15. Resampling must retain this grouping;
+treating the 45 trajectories as 45 distinct projects would change the uncertainty calculation.
+
+For the labor figure, the parameter file supplies population FTE, visit counts, exception
+fractions, conditional effort assumptions, and operating scenarios. Evaluate the dimensional
+account separately for each population, sum hours, and divide by the declared 120-hour monthly
+FTE convention. This recovers 43.52, 85.32, 89.07, and 168.92 FTE. The computation validates
+the consequences of the specified assumptions; it does not estimate those assumptions from
+the benchmark. The manuscript verifier checks the printed numerical records and citations,
+while source-archive compilation checks that the document is self-contained.

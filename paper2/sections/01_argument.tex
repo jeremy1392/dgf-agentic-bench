@@ -34,31 +34,52 @@ of specified review tasks and their failure modes, including a deterministic con
 repeated trajectories. The purpose of linking them is to make the route from an agent score
 to a workforce claim inspectable; none of the three substitutes for the others.
 
-\subsection{Position relative to prior work}
+\subsection{Research questions and units of analysis}
 
-Task-based accounts of automation distinguish displacement of existing work from demand changes
-and the creation of new tasks \citep{acemoglu2019}. The persistence of difficult supervisory work
-after routine automation is a longstanding concern \citep{bainbridge1983}. Sequential task
-assignment and quality complementarities further make handoffs and bottlenecks relevant
-\citep{demirer2026,gans2026}. We apply these distinctions to the concrete boundary of a governance
-review, including cross-team handoffs and recurring engineering. The labor equations below
-are accounting identities and decision conditions, not a new macroeconomic theory or an
-employment forecast inferred from model accuracy.
+We organize the argument around three questions with different observational units.
+\emph{First, can software execute a specified gate contract?} Its unit is a review occurrence,
+with fixed inputs, rules, and acceptance conditions. DGF-Bench measures this question in a
+synthetic environment. \emph{Second, can that execution remain dependable across a project?}
+Its unit is the complete route, including the evidence and conditions passed between gates.
+Route success and repeated trajectories address parts of this question. \emph{Third, does
+deployment reduce the human work required to deliver the governed output?} Its unit is an
+operating population over a stated period. Answering it requires a labor account, including
+work added outside the nominal review team. This third quantity is not present in an API trace.
 
-Staged project gates predate agents \citep{cooper1990}. Business-process compliance monitoring
-formalizes obligations and checks their execution \citep{ly2015}; agentic process management
-extends the integration agenda \citep{calvanese2026}. WorkArena measures enterprise interface
-tasks, ITBench operational IT scenarios, and $\tau$-bench policy-guided tool interactions and
-repeated reliability \citep{drouin2024,itbench2025,taubench2024}. DGF-Bench joins
-specialist review decisions into project routes and evaluates the supporting findings,
-actions, evidence, and authorization. Its percentages are not directly comparable with those
-benchmarks. Evidence-attribution work \citep{gao2023,rashkin2023} motivates separating a correct
-answer from a supported one. Simple baselines and resource accounting matter when evaluating
-agents \citep{kapoor2024}.
+The units cannot be exchanged without assumptions. Five thousand scored gates are not five
+thousand independent companies. A successful run on a generated dossier is not a measured
+number of hours saved. A refusal may be a successful review even though the underlying project
+does not proceed. Defining these distinctions makes a positive replacement claim more precise:
+software can execute an accepted task while humans remain responsible for setting its scope,
+maintaining its infrastructure, or resolving a subset of exceptions.
 
-The contribution is this contract-to-workforce analysis supported by an inspectable review
-benchmark. It is narrower than a universal law of automation and more specific than a claim
-that language models improve productivity in general. This concise manuscript replaces the
-earlier empirical companion in the public repository and synthesizes the longer
-\emph{The Last Human Gate} manuscript. Both versions use the same experimental record;
-they are not independent studies.
+\begin{table}[!htb]
+\centering\small
+\caption{Claim structure and evidence required. A result at one level does not supply the
+missing observation at another.}
+\label{tab:claim-structure}
+\begin{tabularx}{\linewidth}{@{}P{2.8cm}LL@{}}
+\toprule
+Claim & Observable test & Evidence in this paper\\
+\midrule
+Contract execution & Decision, findings, actions, evidence, and mandate meet fixed criteria & Original runs and deterministic control\\
+Workflow reliability & Every required gate succeeds; repeated trajectories remain successful & Complete-route scores and 135 additional runs\\
+Net task substitution & Accepted output requires fewer total human hours & Accounting conditions and illustrative calculations\\
+Ecosystem workforce reduction & Comparable governed output and quality with a lower complete FTE account & Dated hypothesis and a measurement protocol\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The central thesis is consequently about the implementation of a function. Organizations may
+still require architecture assurance, a security judgment, or evidence of operational readiness.
+That continuing requirement does not establish that every dossier needs the same manual
+execution. At the same time, describing a function as a contract does not make its evidence
+available or resolve policy disagreement. The proposed engineering work is to turn the subset
+with adequate information and delegated authority into executable review services, and then
+measure the cost of the boundary that remains.
+
+The paper proceeds from the contract to the labor account, then to its FDE implementation and
+experimental evidence. We conclude with a deployment test for the workforce hypothesis.
+This manuscript synthesizes the longer \emph{The Last Human Gate} and replaces the previous
+empirical companion in the repository. The versions share their experimental record;
+the expanded exposition reports no additional model calls or enterprise observations.

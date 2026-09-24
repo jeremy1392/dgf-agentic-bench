@@ -1,0 +1,92 @@
+\section{Related work and the evaluation boundary}
+\label{sec:related}
+
+\subsection{From task automation to the organization of work}
+
+Task-based accounts separate the displacement of existing work from changes in demand and
+the creation of new tasks \citep{acemoglu2019}. That distinction matters for governance:
+an automated review can remove execution hours while the organization expands its project
+portfolio or assigns the released capacity elsewhere. We study the labor required for a
+comparable governed workload, before interpreting actual employment. This fixes an accounting
+question rather than assuming that every efficiency gain becomes a redundancy.
+
+Automation can also leave difficult monitoring and intervention work behind
+\citep{bainbridge1983}. A routine-case success rate does not say whether the remaining cases
+are more expensive than average. The selection identity in Section~\ref{sec:substitution}
+makes that concern explicit through the share of baseline labor located in exceptions.
+Sequential task assignment and complementary quality requirements motivate treating handoffs
+and bottlenecks as part of the process \citep{demirer2026,gans2026}. Our contribution applies
+these questions to a defined governance task and reports the quantities needed to move from
+an execution claim to a net-work claim. The equations are accounting relationships and
+conditional thresholds, not an alternative macroeconomic model.
+
+\subsection{Governance gates and executable process obligations}
+
+Stage-gate organization predates language-model agents \citep{cooper1990}. It supplies a
+recognizable decision boundary: a proposal arrives with evidence, reviewers assess it, and
+a decision controls the next step. Business-process compliance research studies how obligations
+can be represented and monitored during execution \citep{ly2015}. Agentic business-process
+management places agents within a broader process-engineering agenda \citep{calvanese2026}.
+These traditions make it unnecessary to claim that gates, rule engines, or workflow monitoring
+are new inventions.
+
+The question here is what must hold when execution of such a boundary is transferred from
+people to software. A review can include both a deterministic policy kernel and interpretation
+of evidence whose form is less regular. The kernel may be compiled into ordinary software;
+an agent may recover candidate facts, investigate inconsistencies, or assemble a justified
+record. The experiment deliberately exposes a highly formalized condition. Its perfect rules
+control is therefore a useful result about the task interface, while also limiting claims
+about what a language model contributes beyond that interface.
+
+\subsection{Enterprise-agent benchmarks}
+
+WorkArena evaluates browser-based tasks on enterprise software, using ServiceNow as its
+environment \citep{drouin2024}. ITBench concerns operational IT scenarios in site reliability,
+compliance and security operations, and financial operations \citep{itbench2025}.
+$\tau$-bench evaluates policy-guided interactions among tools, agents, and simulated users,
+and explicitly studies consistency across repeated trials \citep{taubench2024}.
+These benchmarks establish important neighboring evaluation problems. Table~\ref{tab:related}
+locates DGF-Bench by task and acceptance boundary, rather than comparing incompatible scores.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Neighboring evaluation tasks. The descriptions concern the cited releases; no
+cross-benchmark performance ordering is inferred.}
+\label{tab:related}
+\begin{tabularx}{\linewidth}{@{}P{2.4cm}LL@{}}
+\toprule
+Benchmark & Central task & Relation to this study\\
+\midrule
+WorkArena & Execute knowledge-work tasks through enterprise web interfaces & Interface operation can support evidence collection, but is not the gate-review endpoint here\\
+ITBench & Address operational IT automation scenarios & Operational execution and remediation differ from reviewing whether a project meets a governance contract\\
+$\tau$-bench & Use tools while following domain policies in a user interaction & Motivates repeated reliability and policy compliance; DGF-Bench follows specialist reviews through a dossier route\\
+DGF-Bench & Produce a disposition with findings, actions, observed evidence, and authorization & Measures complete review records and whole-route success under explicit supplied policies and facts\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The distinction is consequential. A governance agent that asks for a recovery test has
+completed one kind of work; an operational agent that repairs the service and demonstrates
+recovery has completed another. DGF-Bench scores the former contract and does not take credit
+for the latter. Likewise, the current review tools expose structured facts rather than
+requiring a browser agent to find every fact in a production interface. These choices define
+the measured task; they prevent interpreting a higher percentage as superiority over an
+agent evaluated on a broader or less prepared task.
+
+\subsection{Evidence quality and useful agent comparisons}
+
+Work on attribution and citation quality separates a correct answer from a supported one
+\citep{gao2023,rashkin2023}. The separation is central to an auditable review: the final
+disposition and the record supporting it can fail independently. Our frozen strict endpoint
+requires observed sources and conforming excerpts. A separate structural audit tests how
+sensitive the conclusions are to field order and numeric representation. It does not convert
+lexical or structural matching into an expert judgment about every premise.
+
+Agent evaluation also benefits from simple baselines and explicit resource accounting
+\citep{kapoor2024}. We therefore report the deterministic control, failed attempts, inference
+costs, and repeated trajectories together with model scores. In this study the strongest
+claim is that specified review tasks can execute in software and that their reliability can
+be inspected at several levels. Establishing the incremental value of an agent for less
+structured evidence requires the matched-information extension in Section~\ref{sec:implications}.
+The labor account then supplies a further test: whether the resulting system transfers work
+without recreating equivalent hours in verification, exceptions, or maintenance.

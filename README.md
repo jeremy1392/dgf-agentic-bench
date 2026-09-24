@@ -26,7 +26,7 @@
 
 | Read | What it contains |
 |---|---|
-| **[Short paper prepared for arXiv · PDF, 12 pages](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** | **The Last Human Gate: Forward Deployed Engineering for Governance Automation.** Start here: the task-substitution argument, gate contracts, two formal propositions, human-work accounting, and the consolidated experiments. |
+| **[Research paper prepared for arXiv · PDF, 25 pages](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** | **The Last Human Gate: Forward Deployed Engineering for Governance Automation.** Start here: the task-substitution argument, gate contracts, two formal propositions, human-work accounting, detailed methodology, recorded examples, and the consolidated experiments. |
 | **[Full thesis / extended manuscript · PDF, 66 pages](paper/The_Last_Human_Gate.pdf)** | **The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance.** The full research argument, detailed calculations, workforce scenarios, and appendices. |
 
 **[Download the arXiv source ZIP](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip)** · [Submission guide and remaining requirements](paper2/ARXIV_SUBMISSION.md) · [Title, abstract, and metadata](paper2/arxiv_metadata.txt)

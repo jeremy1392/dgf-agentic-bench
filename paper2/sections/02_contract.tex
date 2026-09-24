@@ -21,6 +21,28 @@ an approval is unsuccessful if it omits a mandatory defect or exceeds the review
 Completing the review is distinct from implementing the remediation it requests. The same
 boundary must apply to human and software work when estimating substitution.
 
+\subsection{What is held fixed when execution changes}
+
+A replacement is evaluated on a declared population: for example, supplier reviews below a
+specified purchasing threshold, or architecture reviews of services using a defined platform.
+The population includes difficult cases, missing evidence, and legitimate refusals. Excluding
+these after observing failures would change the task being automated. A narrower deployment
+can still be useful, but its scope and excluded work must be reported explicitly.
+
+The contract also identifies a review's start and end. Reading a complete dossier and issuing
+an opinion is a different work package from obtaining that dossier, negotiating a clause, or
+verifying a corrected deployment. A study of the first package can establish execution of that
+package. It cannot silently count the other packages as replaced. Conversely, the continued
+need for remediation does not mean that issuing the review remains a human task. These
+distinctions permit substitution to be measured at useful intermediate boundaries.
+
+Versioning makes the comparison inspectable. A decision record should identify the policy,
+source state, and mandate under which it was produced. A later policy change may justify a
+different decision on the same project; it does not retroactively make the earlier system
+inconsistent. If documents change during a review, the contract must specify whether the
+agent freezes an evidence version, refreshes affected checks, or reopens the gate. Such
+requirements apply to the whole implementation, including its tools and controller.
+
 \subsection{Three conditions for a replacement}
 
 \textbf{Information.} The permitted observations must contain what the policy needs, or the
@@ -43,6 +65,21 @@ These conditions describe functional replacement. Net substitution of human work
 requires a reduction in all human hours used to deliver that function, as derived next. Removing
 a routine reviewer while adding equivalent effort to project teams or support providers moves
 the work rather than reducing it.
+
+Quality and coverage must be reported together. An implementation that escalates every case
+may avoid unauthorized approvals while performing almost none of the review itself. At the
+other extreme, an implementation that approves every case completes many transactions but
+does not preserve the governance function. An abstention is valid only when the contract
+permits it for the observed information or uncertainty; the resulting human investigation
+still belongs in the labor account. Correct refusals, permitted abstentions, unresolved
+reviews, and technical failures therefore require distinct outcome labels.
+
+For an engineering comparison, acceptance is assessed on the final record and the path by
+which it became effective. If an enforcement tool rejects a forbidden request, the system
+has preserved that authority boundary. The rejected request remains evidence about the
+model's behavior. Similarly, a corrected evidence excerpt can make the final record usable
+while revealing a need for extra verification. Reporting only the final label would conceal
+these different mechanisms and their operating costs.
 
 \subsection{An information obstruction}
 
@@ -91,3 +128,20 @@ Observable acceptance criteria & Regression tests and monitored service & Evalua
 \bottomrule
 \end{tabularx}
 \end{table}
+
+These properties make the workflow an engineering candidate because its obligations can be
+named and inspected. They do not require a single agent to perform every operation. A rule
+engine can implement an explicit threshold; an agent can investigate a narrative discrepancy;
+an authorization service can enforce the resulting scope. The relevant comparison concerns
+whether the combined implementation executes the accepted work at the required quality and
+resource cost. The benchmark's deterministic control is consequently informative about the
+formalized decision kernel, even though it cannot establish the benefit of language models
+for extracting facts or resolving ambiguous policies.
+
+At route level, replacement also requires compatible handoffs. An upstream decision may be
+valid only subject to a condition that a later gate must verify. Dropping that condition changes
+the governed output. Merging two software services is acceptable if both obligations remain
+enforced; skipping a required check is not. Because failures and missing evidence can propagate,
+whole-route evaluation is necessary alongside individual gate scores. Multiplying average
+gate success rates would require assumptions about dependence that this benchmark does not
+establish.

@@ -6,6 +6,8 @@ into deployed systems; embedded implementation is explicit in the role described
 \citet{palantirfde2026}. Here the role has a concrete purpose: construct the information,
 policy, evidence, and authorization interfaces that let an accepted review be completed without
 requiring a person to reconstruct it. The job title itself does not establish an advantage.
+The engineering contribution is an operating arrangement: which tasks transfer to software,
+which commitments that software may make, and who handles the work it cannot complete.
 
 Figure~\ref{fig:implementation} separates responsibilities. Agents can investigate a dossier,
 extract candidate facts, interpret narrative material, and propose findings. Where policies
@@ -36,30 +38,137 @@ of complete substantive correctness.}
 \label{fig:implementation}
 \end{figure}
 
-The FDE's work has four measurable deliverables. First, connect the required facts to accessible
-sources and demonstrate that the source set is sufficient for the declared task. Second, encode
-policy versions and mandates with the responsible owners, including the treatment of exceptions.
-Third, make the accepted record usable by the next gate without re-reading and re-verifying the
-whole dossier. Fourth, measure failures and human hours across the process, including the FDE's
-own recurring work. Policy formalization and initial integration are transition investments;
-continued adaptation is an operating burden. Neither disappears because a supplier performs it.
+\subsection{Specify the transfer before building the agent}
+
+The first deliverable is a named task boundary agreed with the process owner. It identifies
+the input population, accessible systems, output record, service requirements, and decisions
+that remain outside the mandate. ``Review an architecture'' is too broad to assess a transfer.
+``Evaluate this submitted design against these network and recovery requirements, preserve
+unresolved conditions, and return a supported disposition'' identifies observable work.
+Implementing the requested design changes is a separate task unless the contract includes it.
+
+An acceptance set should cover approved, deficient, incomplete, conflicting, and out-of-scope
+inputs. Changing a material fact should change the required finding or disposition; changing
+only field order should not alter its meaning. Missing information must trigger the declared
+request or abstention behavior. These proposed tests expose contract defects before a model
+score is interpreted as substitution. The policy owner resolves disputed obligations; the
+engineer records that resolution rather than allowing a model to silently invent policy.
+
+\subsection{Make evidence usable without reconstructing the dossier}
+
+Source access requires more than a directory of documents. For every material premise, the
+implementation identifies its authoritative source, accessible representation, applicable
+version, and treatment of conflicting observations. The source counterexample in
+Section~\ref{sec:contract} gives a direct acceptance test: the permitted interface must
+distinguish cases whose required outputs differ, or permit an explicit request for the
+missing information. Preparing a snapshot manually for every project belongs in the human
+work account; it cannot be treated as free model input in a deployment comparison.
+
+The evidence service should preserve the observation used by the reviewer and attach its
+source location to the finding. A returned record can contain the case identifier, source
+version, field path, copied value, and observation time. This addresses the observed
+serialization failures without requiring a model to reproduce source text exactly. However,
+a copied value can still be irrelevant or incomplete. Checking that an excerpt was observed
+and checking that it supports every required premise remain distinct acceptance criteria.
+
+There is a tradeoff between a uniform evidence interface and the cost of maintaining it.
+Normalization may reduce repeated interpretation downstream, while connectors, changing
+schemas, and access controls add upkeep. Both effects need measurement. The interface should
+report inaccessible or stale sources explicitly; substituting a plausible value would hide
+the information failure from the next gate.
+
+\subsection{Separate policy execution, commitments, and failure handling}
+
+When policy is executable, the deterministic control supplies a reason to implement that
+kernel directly. Agents can propose findings and gather inputs around it. This division
+does not transfer responsibility for choosing the policy: responsible owners must approve
+its version and exceptions. Acceptance tests should include threshold cases, conflicts
+between rules, and cases requiring a refusal. The released benchmark establishes performance
+under its supplied policies, not the correctness of an organization's policy conversion.
+
+Authority enforcement needs a separate check of who may commit, what scope is covered, and
+which conditions remain open. A model asking for approval is not evidence that approval is
+permitted. The rejected conditional-approval requests in the experiment show the practical
+importance of that distinction. A denied request must remain denied in the final record;
+an executed conditional approval must retain the underlying finding until separate evidence
+establishes closure. Repeated calls must not create duplicate commitments.
+
+Failure behavior is part of the same contract. A timeout, exhausted tool budget, unavailable
+source, or malformed final record must produce the specified failure state. In particular,
+finalization must not silently supply a default approval, as the observed placeholder error
+illustrates. More retries may improve completion but consume time and resources; retries
+cannot resolve a missing mandate or make an unsupported premise true.
+
+\subsection{Preserve obligations across gate interfaces}
+
+Common interfaces matter even when rollout is incremental. Consider an Architecture review
+accepting a design only if a private endpoint is added. Security needs the condition, its
+owner, and its fulfillment status; an unqualified approval would change the meaning of the
+upstream review. A handoff should therefore preserve the disposition, unresolved findings,
+actions, evidence references, policy version, and effective authorization. General must
+consolidate that state rather than infer closure from the presence of an approval label.
+
+A useful acceptance test follows one unresolved condition through the entire route. Its
+status must change only when the declared closure evidence is supplied. Another deliberately
+replays an earlier record after its source or mandate changes: the system should follow the
+predeclared revalidation rule rather than silently treat an old decision as current. These
+are proposed integration tests, not additional experiments reported here. Their purpose is
+to prevent local convenience from creating verification work for downstream teams.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Proposed engineering deliverables and acceptance checks. Human hours are allocated
+once to the account in Section~\ref{sec:substitution}; these are deployment requirements,
+not measured savings.}
+\label{tab:fde-deliverables}
+\begin{tabularx}{\linewidth}{@{}P{2.65cm}LP{3.4cm}@{}}
+\toprule
+Deliverable & Acceptance criterion & Human-work location\\
+\midrule
+Source interface & Recover required premises or report their absence; preserve source identity
+& Preparation and verification; recurring connector upkeep in $B_A$\\
+Policy and mandate service & Apply the specified version; reject unauthorized commitments;
+retain unresolved conditions & Ordinary checks in $h_R$; exceptional decisions in $h_E$\\
+Evidence and handoff record & Findings retain observed support and their open obligations
+through downstream reviews & Repeated review in $h_R$ or $h_E$; additional repair in $h_W$\\
+Operating ledger & Record case work and shared support across teams and suppliers
+& Case work in $h_E,h_R,h_W$; shared recurring effort in $B_A$\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Roll out against quality and labor criteria}
+
+A proposed rollout starts with a frozen contract and representative operating cases, then
+tests the interfaces without allowing unapproved commitments. Shadow operation can reveal
+incorrect decisions and missing evidence, but it adds an agent beside existing work; it
+does not by itself demonstrate substitution. Transfer of a bounded task should begin only
+under a declared mandate, with the required quality and service criteria fixed beforehand.
+The retained human path needs the information necessary to resolve the exception, not merely
+an error message that forces the specialist to start again.
+
+Stopping criteria belong in the operating agreement. Unauthorized commitments, unsupported
+material findings, loss of open conditions, or failure of a required source trigger the
+specified containment and escalation response. Persistent deterioration in quality or
+service stops expansion even if more cases appear automated. A change in policy, source
+interface, or model configuration requires the relevant acceptance checks before expanding
+its use. A validator that escalates everything can satisfy a conservative commitment rule
+while transferring no execution; both acceptance and escalation volumes must be reported.
+
+The economic check uses the same population and boundary as the baseline. Record ordinary
+review, exception handling, additional correction, and recurring engineering separately,
+including project-team and supplier effort. Initial integration is a transition investment;
+continued adaptation belongs in $B_A$. A reduction in inference cost does not offset an
+unrecorded increase in specialist hours when the claim concerns human-work substitution.
+If a task no longer needs case-by-case human execution, its released hours count even when
+the organization redeploys the affected staff. If every output needs a lengthy signature
+or reconstruction, that work remains in $h_R$ or $h_E$.
 
 These deliverables explain the proposed DGF-first strategy. An FDE implementing an enterprise
-agent encounters project governance during deployment. The interfaces built to navigate it can
-also become interfaces through which its reviews execute. Policy ownership, evidence access,
-and repeated decision formats create reusable engineering opportunities. The claim is a plausible
-sequence of deployment work, not evidence that DGF must precede every business application.
-High-volume operational processes may justify automation earlier.
-
-Designing common interfaces across gates matters even when rollout is incremental. Consider an
-Architecture review accepting a design only if a private endpoint is added. Security must
-receive both the condition and whether it has been fulfilled; receiving an unqualified approval
-would change the contract. A system that preserves such state can reduce repeated interpretation.
-A system that drops it can create new human verification work. Whole-route outcomes and the
-shared labor account test these alternatives; adding local automation percentages does not.
-
-In deployment, the decisive object is therefore the \emph{accepted task}, not the number of
-generated reports. Routine cases can have no required human execution while rare cases retain
-specialist review. If every case requires a lengthy signature or reconstruction, that review
-appears in $h_R$ and can erase the gain. Conversely, keeping an accountable owner does not by
-itself imply keeping the same number of people executing each review.
+agent encounters governance during deployment; the interfaces built to navigate its gates
+can also support execution of their reviews. Recurring evidence, policies, and decision
+formats create opportunities for reuse. High-volume business operations may nevertheless
+justify earlier automation. The claim is a plausible engineering sequence, not an observed
+adoption ranking. What ultimately distinguishes substitution is an accepted task delivered
+with less total human work, rather than the number of reports generated or the engineer's
+job title.

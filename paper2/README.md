@@ -2,7 +2,7 @@
 
 **Forward Deployed Engineering for Governance Automation**
 
-Jeremy Canale · September 2026 · **12 pages**
+Jeremy Canale · September 2026 · **25 pages**
 
 [Read the concise paper](From_Governance_Reviews_to_Task_Substitution.pdf) · [LaTeX source](main.tex) · [arXiv package and metadata](ARXIV_SUBMISSION.md) · [Revision notes](REVIEW_RESPONSE.md)
 
@@ -23,7 +23,7 @@ The original **80% fewer required DGF FTE by 2033** hypothesis is retained in th
 
 ## Data and analyses
 
-The complete [experiment release](https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923) retains all original documents, Word files, architectures, traces, failures, scores, and source snapshots. Detailed tables and diagnostics remain in [original results](../research/2026-09-dgf-bench/) and [follow-up analyses](../research/2026-09-followup/). The concise PDF concentrates them in one results table; it does not delete or alter the underlying measurements.
+The complete [experiment release](https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923) retains all original documents, Word files, architectures, traces, failures, scores, and source snapshots. Detailed tables and diagnostics remain in [original results](../research/2026-09-dgf-bench/) and [follow-up analyses](../research/2026-09-followup/). The 25-page PDF includes aggregate and gate-family results, a detailed protocol, two recorded examples, and a reproduction appendix. It does not alter the underlying measurements.
 
 All original scores are unchanged. The rules control passes 1,700/1,700 gates; that structured condition establishes no incremental LLM advantage. The all-model evidence sensitivity remains a separate post-hoc criterion. The repetitions assess stability on 15 existing dossiers. Original and repeated inference total USD 99.5757161948.
 
@@ -36,7 +36,7 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The included figure and inline bibliography make the source archive self-contained. The second figure is drawn directly in LaTeX with TikZ. The published PDF keeps the historical filename `From_Governance_Reviews_to_Task_Substitution.pdf` so links continue to work; its title is the one above.
+Three included image files and the inline bibliography make the source archive self-contained. A fourth figure is drawn directly in LaTeX with TikZ. The published PDF keeps the historical filename `From_Governance_Reviews_to_Task_Substitution.pdf` so links continue to work; its title is the one above.
 
 From the repository root:
 
@@ -45,7 +45,7 @@ python paper2/verify_manuscript.py
 python paper2/build_labor_figure.py
 ```
 
-The verifier uses the standard library and checks the 56 numerical cells actually printed in the results table, abstract rates, confidence intervals, 14 citation keys, scenario calculations, and released supporting audit records. It checks consistency and provenance, not independent business validity. Rebuilding the workforce figure requires Matplotlib and reads the original `paper/anc/parameters.json`; compiling the paper does not require Python.
+The verifier uses the standard library and checks the 80 numerical cells printed in the aggregate and gate-family results tables, abstract rates, confidence intervals, 14 citation keys, scenario calculations, and released supporting audit records. It checks consistency and provenance, not independent business validity. Rebuilding the workforce figure requires Matplotlib and reads the original `paper/anc/parameters.json`; compiling the paper does not require Python.
 
 Some original benchmark figures and generated tables remain as supporting source artifacts and are checked against the original manuscript; they are not all included in the concise PDF. Its minimal [arXiv source ZIP](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip) contains only actual compilation dependencies. See [verification](arxiv_verification.json) and the [submission guide](ARXIV_SUBMISSION.md), including the outstanding disclosure requirement. No submission or acceptance is claimed.
 

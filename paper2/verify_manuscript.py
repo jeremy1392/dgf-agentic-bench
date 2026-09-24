@@ -63,6 +63,17 @@ def check_short_manuscript(expected, audits, repeats, control):
     desired['Dossiers passing all three / 15'] = [str(repeats['models'][m]['all_three_successful_cases']) for m in models]+['---']
     for label,cells in desired.items():
         assert rows[label] == cells,(label,rows[label],cells)
+    gate_text = (HERE/'generated/table_benchmark_gates.tex').read_text(encoding='utf-8')
+    with (ROOT/'research/2026-09-dgf-bench/paper_by_gate.csv').open(encoding='utf-8',newline='') as handle:
+        gate_scores = {(row['gate'],row['model']):float(row['csr']) for row in csv.DictReader(handle)}
+    gate_cells = 0
+    for line in gate_text.splitlines():
+        cells = [s.strip() for s in line.rstrip()[:-2].split('&')]
+        gate = cells[0].lower().replace(' ','_')
+        for model,value in zip([models[2],models[0],models[1]],cells[1:]):
+            assert value == f'{100*gate_scores[gate,model]:.2f}', (gate,model,value)
+            gate_cells += 1
+    assert gate_cells == 24 and r'\rowsinput{generated/table_benchmark_gates}' in text
     main = (HERE/'main.tex').read_text(encoding='utf-8')
     abstract = re.search(r'\\begin\{abstract\}(.*?)\\end\{abstract\}',main,re.S).group(1)
     for value in ['94.98','83.29','74.18','76.92','42.33','24.67']:
@@ -86,7 +97,13 @@ def check_short_manuscript(expected, audits, repeats, control):
     labor=(HERE/'sections/05_labor.tex').read_text(encoding='utf-8')
     assert all(f'{v:.2f}' in labor for v in totals) and r'\simeq0.427' in labor
     assert (HERE/'figures/fig_labor_scenarios.pdf').is_file()
-    return {'printed_numeric_cells':len(desired)*4,'references':len(defined),
+    appendix=(HERE/'sections/08_reproduction.tex').read_text(encoding='utf-8')
+    for path in re.findall(r'\\nolinkurl\{([^}]+)\}',appendix):
+        assert (ROOT/path).is_file(),path
+    assert abs((.18*36+.82*3.6)*100/120-7.86)<1e-12
+    assert abs((.18*72+.82*3.6)*100/120+1-14.26)<1e-12
+    return {'printed_numeric_cells':len(desired)*4+gate_cells,'compact_table_cells':len(desired)*4,
+            'gate_family_cells':gate_cells,'reproduction_paths_verified':True,'references':len(defined),
             'synthetic_fte':[round(x,2) for x in totals],'eta_bound':.2/phi}
 
 
@@ -215,7 +232,7 @@ def main():
               "concise_manuscript":short_checks,
               "figures_and_tables": checked,
               "checks": ["shared first-paper figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices and retained supporting table", "56 numerical cells printed in concise manuscript", "abstract rates and confidence intervals", "14 cited references", "synthetic FTE scenarios and 80-percent threshold", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension", "General-only targeted preparation counts and unexecuted status"],
+                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices and retained supporting table", "80 numerical results-table cells printed in manuscript", "abstract rates and confidence intervals", "14 cited references", "synthetic FTE scenarios, worked example, and 80-percent threshold", "reproduction appendix file paths", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension", "General-only targeted preparation counts and unexecuted status"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 

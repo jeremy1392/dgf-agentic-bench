@@ -1,6 +1,6 @@
 # Paper and benchmark
 
-Jeremy Canale's research is now presented in the **[12-page concise article, The Last Human Gate: Forward Deployed Engineering for Governance Automation](../paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** and the **[66-page extended original](../paper/The_Last_Human_Gate.pdf)**. The concise article replaces the former DGF-Bench empirical companion and is the recommended main manuscript. These are versions of a shared research contribution, not independent studies.
+Jeremy Canale's research is now presented in the **[25-page research article, The Last Human Gate: Forward Deployed Engineering for Governance Automation](../paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** and the **[66-page extended original](../paper/The_Last_Human_Gate.pdf)**. The concise article replaces the former DGF-Bench empirical companion and is the recommended main manuscript. These are versions of a shared research contribution, not independent studies.
 
 ## The paper
 

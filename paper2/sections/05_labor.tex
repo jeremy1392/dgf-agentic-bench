@@ -33,6 +33,30 @@ $r=h_W/h_0$ and $b_s=B_s/(\lambda h_0)$, the workload ratio is
 \end{equation}
 This is an accounting identity, not an estimated effect of agents.
 
+Table~\ref{tab:labor-measurement} identifies what must be recorded to use the identity in an
+organization. A common case identifier links human activities before and after routing. The
+comparison follows the same work across teams and suppliers, rather than assuming that an
+hour removed from one department has disappeared from the process.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Operational measurements behind the labor account. Conditional means use the same
+frozen routing partition; time categories must not overlap.}
+\label{tab:labor-measurement}
+\begin{tabularx}{\linewidth}{@{}P{2.5cm}LL@{}}
+\toprule
+Quantity & Required observation & Interpretation\\
+\midrule
+$\lambda,h_0$ & Review visits and baseline hours & Scale and baseline intensity\\
+$q,\phi$ & Routed cases and their baseline hours & Case coverage versus retained labor\\
+$h_E,\eta$ & Complete exception effort & Assistance or inflation on the residual\\
+$h_R,\mu$ & Ordinary review and audit effort & Human work remaining on the standard path\\
+$h_W$ & Additional correction and rework & Work created beyond the recorded paths\\
+$B_H,B_A$ & Allocated recurring support & Human upkeep in both regimes\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \begin{proposition}[Selection and the substitution frontier]
 \label{prop:short-frontier}
 Let $T\ge0$ be integrable with positive mean, and let
@@ -66,6 +90,15 @@ of human labor removed. For example, 20\% of cases retain 40\% of baseline labor
 baseline handling time is twice the overall mean. If their post-deployment effort rises by
 50\%, those exceptions alone consume 60\% of baseline handling hours. This is the
 mechanism by which a small exception queue can prevent a large workforce reduction.
+
+The selection distinction is measurable before interpreting any automation score. Apply a
+candidate routing rule to cases for which baseline effort is recorded, then compare the
+hours associated with its residual against total hours. This estimates $\phi$ for that
+partition; deployment is still needed to estimate $\eta$ and $\mu$. If the routing rule or
+case mix changes, the partition must be remeasured or reweighted. Holding $q$ constant is
+insufficient: two queues containing the same number of cases can retain different shares
+of baseline labor. Random auditing can add another reason for human involvement without
+making those selected cases inherently difficult.
 
 \paragraph{Reliability consumes the same budget.}
 If erroneous accepted outputs occur on a fraction $p$ of all cases and cause additional human
@@ -107,6 +140,45 @@ None of these four scenarios reaches an 80\% reduction. With $\phi\simeq0.4686$ 
 residual burden, that target already requires $\eta\le0.20/\phi\simeq0.427$.
 Thus the forecast requires further reduction in exception effort or in its retained labor
 share, even before allowing for ongoing review and support.
+
+\paragraph{A worked calculation.}
+The Architecture population supplies a self-contained example of the normalization. Its
+30 baseline FTE give $h_0=30\times120/100=36$ hours per visit. With $q=0.18$ and residual
+baseline effort twice the overall mean, an exception originally requires 72 hours. The
+ordinary group's baseline mean must therefore be
+$(36-0.18\times72)/0.82\simeq28.0976$ hours. The two conditional means reproduce the same
+36-hour baseline; assigning 36 hours to both groups would erase the selection effect.
+
+Under the first scenario, $\eta=0.5$ reduces exception effort to 36 hours, while
+$m=0.10$ gives ordinary review of 3.6 hours. Mean human effort is
+$0.18\times36+0.82\times3.6=9.432$ hours, hence
+$100\times9.432/120=7.86$ FTE. Under the second scenario, exceptions retain 72 hours:
+case work requires 13.26 FTE, and 120 monthly support hours add one FTE, producing 14.26.
+The third scenario adds 0.5 hours on each of 100 visits, or $50/120$ FTE, producing 14.68
+after rounding. Coverage is unchanged throughout. These calculations use the declared
+synthetic parameters and illustrate how effort and upkeep, rather than the case fraction
+alone, determine the result.
+
+The first scenario also illustrates why review ratios need their denominator stated:
+$m=3.6/36=0.10$, whereas $\mu=3.6/28.0976\simeq0.1281$. Substituting $m$ for $\mu$ in
+Equation~\eqref{eq:short-rho} would undercount review. The group-relative form makes
+selection explicit; the dimensional equation is usually the simplest way to calculate
+an observed operating total.
+
+\paragraph{Volume and the support boundary.}
+Recurring support is not automatically proportional to visits. With otherwise fixed
+conditions, more visits spread the same $B_A$ over more cases and lower its normalized
+burden $b_A$. Additional policy variants, incidents, or service requirements can instead
+increase support. The model therefore retains the recorded hours; it does not assume that
+scale makes them vanish. Shared services must be allocated once across the evaluated
+workflow, including supplier work needed to produce and maintain usable evidence.
+
+Repeated reviews also require a consistent convention. A failed submission may generate a
+new visit or additional rework within its original visit, but the same activity cannot be
+counted both ways. If automation changes visit frequency, equal visits no longer mean equal
+governed output. The deployment comparison should then follow complete cases to the same
+endpoint and account for each regime's visits. The fixed-volume frontier isolates the
+effort mechanism; it does not remove the need to measure changed demand or repeated work.
 
 \paragraph{From required work to staffing.}
 At fixed useful capacity $K>0$, required workload-equivalent FTE equal $L/K$. Under the
