@@ -3,7 +3,7 @@
 **Rule Application and Evidence Reliability in Synthetic Governance Reviews**
 Jeremy Canale · September 2026
 
-[Read the second paper](From_Governance_Reviews_to_Task_Substitution.pdf) · [LaTeX source](main.tex) · [Response to the review](REVIEW_RESPONSE.md)
+[Read the second paper](From_Governance_Reviews_to_Task_Substitution.pdf) · [LaTeX source](main.tex) · [Response to the review](REVIEW_RESPONSE.md) · [arXiv upload guide and metadata](ARXIV_SUBMISSION.md)
 
 **22 pages: deterministic control, all-model evidence sensitivity, complete decision confusion matrices, Procurement diagnostics, 135 repeated runs, conditional-approval behavior, and source-coverage diagnostics.**
 
@@ -46,7 +46,7 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 
 The output is `main.pdf`; the published copy retains the stable filename `From_Governance_Reviews_to_Task_Substitution.pdf` so existing links keep working. Its title is now *DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews*. Figures and table fragments are included, so compilation does not require Python or API access. From the repository root, `python paper2/verify_manuscript.py` checks table/figure provenance, headline counts, all-model audit results, confusion matrices, and counterexample counts against the released local research artifacts. It does not independently validate the governance rules.
 
-The final review uses one-inch margins and also checks the actual Appendix A matrix cells and the unexecuted General-replay plan. A separate minimal [arXiv source package](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip) contains only compilation dependencies. The broader `DGF_Bench_Second_Paper_Source.zip` retains the documentation and protocols. See [technical verification](arxiv_verification.json) and the [submission guide](../paper/ARXIV_READINESS.md); preparation does not constitute submission or acceptance.
+The final review uses one-inch margins and also checks the actual Appendix A matrix cells and the unexecuted General-replay plan. A separate minimal [arXiv source package](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip) contains only compilation dependencies. The broader `DGF_Bench_Second_Paper_Source.zip` retains the documentation and protocols. See [technical verification](arxiv_verification.json) and the [second-paper submission guide](ARXIV_SUBMISSION.md), which records a remaining arXiv disclosure requirement after the author's requested removal of the drafting-assistance statement. Technical preparation does not constitute editorial compliance, submission, or acceptance.
 
 ## Follow-up protocols
 

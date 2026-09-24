@@ -4,6 +4,8 @@
 
 ## Périmètre
 
+Mise à jour ultérieure le même jour : à la demande de l'auteur, la déclaration d'aide à la rédaction a été retirée du deuxième article. Le PDF reste à 22 pages ; seule la page 20 change. Le PDF et les archives correspondantes sont reconstruits et contrôlés. Les métadonnées et la [fiche de dépôt](../paper2/ARXIV_SUBMISSION.md) distinguent la préparation technique de l'exigence arXiv de déclaration d'un usage significatif d'IA, qui reste à résoudre avant validation du dépôt. Les résultats et le premier manuscrit ne changent pas.
+
 - Premier manuscrit : tous les 37 fichiers TeX réellement inclus, sections, annexes, tableaux, 48 références bibliographiques et notes mathématiques associées. PDF final de 66 pages ; notes de 3 pages.
 - Deuxième manuscrit : les 14 fichiers TeX inclus, tableaux et matrices, 16 références ; PDF final de 22 pages.
 - README principal lu en entier, ses 11 illustrations, les 65 chemins locaux distincts, les ancres et les commandes. Documentation de liaison et consignes de compilation actualisées.
