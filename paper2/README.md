@@ -47,7 +47,7 @@ python paper2/build_labor_figure.py
 
 The verifier uses the standard library and checks the 80 numerical cells printed in the aggregate and gate-family results tables, abstract rates, confidence intervals, 14 citation keys, scenario calculations, and released supporting audit records. It checks consistency and provenance, not independent business validity. Rebuilding the workforce figure requires Matplotlib and reads the original `paper/anc/parameters.json`; compiling the paper does not require Python.
 
-Some original benchmark figures and generated tables remain as supporting source artifacts and are checked against the original manuscript; they are not all included in the concise PDF. Its minimal [arXiv source ZIP](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip) contains only actual compilation dependencies. See [verification](arxiv_verification.json) and the [submission guide](ARXIV_SUBMISSION.md), including the outstanding disclosure requirement. No submission or acceptance is claimed.
+Some original benchmark figures and generated tables remain as supporting source artifacts and are checked against the original manuscript; they are not all included in the concise PDF. Its minimal [arXiv source ZIP](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip) contains only actual compilation dependencies. See [technical verification](arxiv_verification.json) and the [submission guide](ARXIV_SUBMISSION.md). No submission or acceptance is claimed.
 
 ## Separate unexecuted protocols
 

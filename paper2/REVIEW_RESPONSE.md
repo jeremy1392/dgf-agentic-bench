@@ -18,4 +18,4 @@ The expanded article includes:
 
 The original 56-cell summary table is preserved, with 24 gate-family cells added from the released CSV. The verifier checks all 80 cells, abstract rates, confidence intervals, 14 used references, workforce calculations, and reproduction paths. Recorded model scores and experimental archives are unchanged. No additional inference, human evaluation, enterprise observation, or cohort enrollment was performed for this expansion.
 
-Technical archive checks and visual inspection of all 25 pages are recorded separately. These are internal consistency and document checks, not independent scholarly peer review. The author's earlier removal of the drafting-assistance statement persists; the submission guide records the outstanding arXiv disclosure requirement. No submission or acceptance is claimed.
+Technical archive checks and visual inspection of all 25 pages are recorded separately. These are internal consistency and document checks, not independent scholarly peer review or editorial approval. No submission or acceptance is claimed.

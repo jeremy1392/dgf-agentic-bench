@@ -18,15 +18,9 @@ La version courte est désormais le manuscrit principal recommandé pour la lect
 
 Le choix de la licence revient à l'auteur. Cette préparation n'en sélectionne aucune. Consulter les [options arXiv](https://info.arxiv.org/help/license/index.html).
 
-## Point éditorial restant
-
-La demande précédente de retirer la déclaration d'aide à la rédaction est conservée. **arXiv exige néanmoins de signaler dans l'article l'usage significatif d'IA générative**, ce qui concerne l'aide apportée à ce projet. Cette fiche externe ne remplace pas une déclaration dans le manuscrit. Les contrôles techniques réussis ne résolvent pas ce point de conformité. [Politique officielle](https://info.arxiv.org/help/moderation/index.html#policy-for-authors-use-of-generative-ai-language-tools).
-
-Une phrase factuelle pourrait résoudre ce point après accord de l'auteur : « Generative AI tools assisted manuscript preparation and revision; the author takes responsibility for the content. » Elle n'est pas insérée dans l'archive actuelle. Toute modification exige de recompiler et de régénérer le paquet.
-
 ## Vérification du dépôt
 
-Après résolution du point éditorial, utiliser le [formulaire arXiv](https://arxiv.org/submit/), importer les sources actuelles, renseigner les métadonnées puis inspecter l'aperçu produit par arXiv. Contrôler le titre, les 25 pages, les quatre figures, les tableaux des résultats, les équations et les références. La compilation locale ne remplace pas celle du serveur.
+Vérifier les [conditions de soumission et de modération](https://info.arxiv.org/help/moderation/index.html), puis utiliser le [formulaire arXiv](https://arxiv.org/submit/), importer les sources actuelles, renseigner les métadonnées et inspecter l'aperçu produit par arXiv. Contrôler le titre, les 25 pages, les quatre figures, les tableaux des résultats, les équations et les références. Les vérifications locales portent sur la compilation et l'intégrité des fichiers ; elles ne constituent pas une validation éditoriale par arXiv.
 
 Le [rapport technique](arxiv_verification.json) et les [empreintes des fichiers](../research/2026-09-followup/second-paper-arxiv-SHA256SUMS.txt) identifient les livrables. Après une modification, compiler et vérifier le PDF, actualiser sa copie publiée puis régénérer le paquet depuis la racine :
 
