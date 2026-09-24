@@ -26,7 +26,7 @@
 
 | Read | What it contains |
 |---|---|
-| **[Research paper prepared for arXiv · PDF, 25 pages](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** | **The Last Human Gate: Forward Deployed Engineering for Governance Automation.** Start here: the task-substitution argument, gate contracts, two formal propositions, human-work accounting, detailed methodology, recorded examples, and the consolidated experiments. |
+| **[Research paper prepared for arXiv · PDF, 28 pages](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** | **The Last Human Gate: Forward Deployed Engineering for Governance Automation.** Start here: the task-substitution argument, gate contracts, two formal propositions, human-work accounting, detailed methodology, recorded examples, and the consolidated experiments. |
 | **[Full thesis / extended manuscript · PDF, 66 pages](paper/The_Last_Human_Gate.pdf)** | **The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance.** The full research argument, detailed calculations, workforce scenarios, and appendices. |
 
 **[Download the arXiv source ZIP](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip)** · [Submission guide and remaining requirements](paper2/ARXIV_SUBMISSION.md) · [Title, abstract, and metadata](paper2/arxiv_metadata.txt)
@@ -145,7 +145,7 @@ The gate-success ranking persists, but a particular dossier can succeed on one a
 
 **The models successfully perform many of the specified governance-review tasks normally assigned to people.** This supports a concrete path to task substitution: make evidence accessible, define the review contract, automate its execution, enforce authority, and route exceptions appropriately.
 
-Whether that reduces required staff depends on the work left for people: exceptions, verification, correction, integration, maintenance, and supplier support. The benchmark measures synthetic task execution; it contains no human-review comparison or measured enterprise labor savings. The paper connects these results to an explicit labor account so that deployment can test the replacement claim rather than equating a model score with a percentage of jobs removed.
+**Agents can progressively replace human execution across DGF workflows when they meet the review contract and operate under the required authority.** If accepted work needs fewer total human hours at comparable volume and quality, the need for personnel can fall under the staffing conditions specified in the paper. Exceptions, verification, correction, integration, maintenance, and supplier support belong in that total. The experiment measures synthetic review performance; the paper provides the separate operating measurements needed to quantify workforce substitution.
 
 ## Workforce scenarios and timelines
 

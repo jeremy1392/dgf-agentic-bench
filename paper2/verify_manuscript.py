@@ -39,6 +39,65 @@ def check_confusion_table(models):
                 assert int(count) == expected.get((labels[row[0]], column), 0), (name, row[0], column)
 
 
+def check_retained_explanations():
+    """Verify the printed route calculations and conditional-approval table."""
+    params = json.loads((ROOT/'paper/anc/parameters.json').read_text(encoding='utf-8'))
+    scenario = params['route_illustration']
+    source = (HERE/'sections/05_route_scale.tex').read_text(encoding='utf-8')
+    rows = {}
+    for line in source.splitlines():
+        if '&' in line and line.rstrip().endswith(r'\\'):
+            cells = [s.strip() for s in line.rstrip()[:-2].split('&')]
+            rows[cells[0]] = cells[1:]
+    support = scenario['shared_upkeep_hours'] + scenario['local_upkeep_hours']
+    total = 0
+    for label, inputs, visits in [
+        ('Integrate', scenario['routes'][0], scenario['routes'][0]['visits']),
+        ('Build', scenario['routes'][1], scenario['routes'][1]['visits']),
+        ('Integrate at higher volume', scenario['routes'][0], scenario['routes'][1]['visits']),
+    ]:
+        h0 = scenario['h0']
+        mean = (inputs['q'] * inputs['eta'] * inputs['kappa'] * h0
+                + (1-inputs['q']) * scenario['m'] * h0 + scenario['hW'])
+        hours = visits * mean + support
+        ratio = hours / (visits * h0)
+        wanted = [str(visits), f"{inputs['q']:.2f}", f"{inputs['kappa']:.1f}",
+                  f"{inputs['eta']:.1f}", f'{support/visits:.2f}', f'{ratio:.3f}']
+        assert rows[label] == wanted, (label, rows[label], wanted)
+        if label != 'Integrate at higher volume':
+            total += hours
+            assert f'{hours:,.2f}' in source
+    assert abs(total - 994.4) < 1e-9
+    assert f'{total/params["useful_hours_per_fte"]:.2f}' in source
+    assert f'{total/(100*scenario["h0"]):.3f}' in source
+    assert 'h_R=2.4' in source and 'h_W=0.5' in source and 'B_A=66' in source
+
+    approvals = json.loads((ROOT/'research/2026-09-followup/conditional_approval_summary.json').read_text(encoding='utf-8'))
+    source = (HERE/'sections/02_authorized_decisions.tex').read_text(encoding='utf-8')
+    rows = {}
+    for line in source.splitlines():
+        if '&' in line and line.rstrip().endswith(r'\\'):
+            cells = [s.strip() for s in line.rstrip()[:-2].split('&')]
+            rows[cells[0]] = cells[1:]
+    models = ['google/gemini-3.8-flash', 'openai/gpt-5.6-luna', 'deepseek/deepseek-v4.1-flash']
+    for label, scope, field in [
+        ('Approval calls', 'all_scored', 'request_calls'),
+        ('Rejected calls', 'all_scored', 'rejected_calls'),
+        ('Used conditional decisions', 'all_scored', 'used_gates'),
+        ('Eligible gates, all scored runs', 'all_scored', 'eligible_gates'),
+        ('Used on matched opportunities / 391', 'common_cases_non_general', 'used_gates'),
+    ]:
+        assert rows[label] == [str(approvals['models'][m][scope][field]) for m in models], label
+    assert approvals['common_case_count'] == 299
+    for model in models:
+        matched = approvals['models'][model]['common_cases_non_general']
+        assert matched['eligible_gates'] == 391
+        assert f"{100*matched['used_gates']/matched['eligible_gates']:.2f}" + r'\%' in source
+    luna = approvals['models'][models[1]]['all_scored']
+    assert luna['final_verified_gates'] == 354 and luna['used_gates'] == 353
+    return {'conditional_approval_cells': 15, 'route_scale_cells': 18}
+
+
 def check_short_manuscript(expected, audits, repeats, control):
     """Compare every numeric cell actually printed in the concise paper to its sources."""
     text = (HERE/'sections/02_experiment.tex').read_text(encoding='utf-8')
@@ -102,7 +161,9 @@ def check_short_manuscript(expected, audits, repeats, control):
         assert (ROOT/path).is_file(),path
     assert abs((.18*36+.82*3.6)*100/120-7.86)<1e-12
     assert abs((.18*72+.82*3.6)*100/120+1-14.26)<1e-12
-    return {'printed_numeric_cells':len(desired)*4+gate_cells,'compact_table_cells':len(desired)*4,
+    retained = check_retained_explanations()
+    return {'printed_numeric_cells':len(desired)*4+gate_cells+retained['conditional_approval_cells'],
+            'retained_explanations':retained,'compact_table_cells':len(desired)*4,
             'gate_family_cells':gate_cells,'reproduction_paths_verified':True,'references':len(defined),
             'synthetic_fte':[round(x,2) for x in totals],'eta_bound':.2/phi}
 
@@ -232,7 +293,7 @@ def main():
               "concise_manuscript":short_checks,
               "figures_and_tables": checked,
               "checks": ["shared first-paper figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices and retained supporting table", "80 numerical results-table cells printed in manuscript", "abstract rates and confidence intervals", "14 cited references", "synthetic FTE scenarios, worked example, and 80-percent threshold", "reproduction appendix file paths", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension", "General-only targeted preparation counts and unexecuted status"],
+                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices and retained supporting table", "95 numerical results-table cells and 18 synthetic route-scenario cells printed in manuscript", "abstract rates and confidence intervals", "14 cited references", "synthetic FTE scenarios, worked example, and 80-percent threshold", "reproduction appendix file paths", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension", "General-only targeted preparation counts and unexecuted status"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 

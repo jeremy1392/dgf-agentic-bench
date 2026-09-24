@@ -4,7 +4,7 @@
 
 ## Remplacement ultérieur du deuxième manuscrit
 
-À la demande de l'auteur, le deuxième article de 22 pages a ensuite été remplacé par **The Last Human Gate: Forward Deployed Engineering for Governance Automation**, une version initialement courte de 12 pages, puis développée en **25 pages** à sa demande. Le présent rapport décrit la revue des versions antérieures ; la [note de réécriture](../paper2/REVIEW_RESPONSE.md), le [rapport actuel](../paper2/arxiv_verification.json) et la [fiche de dépôt](../paper2/ARXIV_SUBMISSION.md) font référence pour le nouveau deuxième article. Les données expérimentales et le premier PDF de 66 pages sont conservés.
+À la demande de l'auteur, le deuxième article de 22 pages a ensuite été remplacé par **The Last Human Gate: Forward Deployed Engineering for Governance Automation**, une version initialement courte de 12 pages, puis développée en **25 pages**, et enrichie en **28 pages** pour conserver les explications importantes. Le présent rapport décrit la revue des versions antérieures ; la [note de réécriture](../paper2/REVIEW_RESPONSE.md), le [rapport actuel](../paper2/arxiv_verification.json) et la [fiche de dépôt](../paper2/ARXIV_SUBMISSION.md) font référence pour le nouveau deuxième article. Les données expérimentales et le premier PDF de 66 pages sont conservés.
 
 ## Périmètre
 

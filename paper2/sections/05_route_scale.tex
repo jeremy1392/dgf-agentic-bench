@@ -1,0 +1,50 @@
+\subsection{Route volume and the allocation of recurring support}
+\label{sec:route-scale}
+
+The same platform can have different effects on the human work required by different routes.
+The extended manuscript's second illustration makes this visible using one specialist team
+with 100 monthly review visits: five Integrate and 95 Build. Each visit has a baseline mean
+of 24 hours, so the combined 2,400 hours correspond to 20 FTE at the same 120-hour convention.
+These are selected operating assumptions, with review visits as the unit; the route names
+do not imply that their observed enterprise frequencies have been estimated.
+
+Both routes retain $h_R=2.4$ ordinary review hours and $h_W=0.5$ additional rework hours per
+visit. Each is allocated $B_A=66$ recurring support hours per month and $B_H=0$.
+Define $\kappa=\mathbb E[T\mid J=1]/h_0$, so $\phi=q\kappa$ and
+$h_E=\eta\kappa h_0$. Table~\ref{tab:route-scale} supplies the remaining inputs and results.
+The conditional ordinary baseline means are fixed by the common 24-hour mean; for Integrate,
+this gives $(24-0.60\times1.4\times24)/0.40=9.6$ hours. Thus the exception partition and
+baseline remain coherent.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Synthetic route-specific labor requirements on the same platform. The final row
+changes only Integrate's visit volume; it is an alternative scale calculation, not a third
+route added to the 20-FTE population.}
+\label{tab:route-scale}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Scenario & Visits & $q$ & $\kappa$ & $\eta$ & Support h/visit & $\rho$\\
+\midrule
+Integrate & 5 & 0.60 & 1.4 & 1.0 & 13.20 & 1.451\\
+Build & 95 & 0.14 & 2.0 & 0.8 & 0.69 & 0.360\\
+Integrate at higher volume & 95 & 0.60 & 1.4 & 1.0 & 0.69 & 0.930\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For Integrate at five visits, Equation~\eqref{eq:short-hours} gives
+$L_A=5\{0.60\times33.6+0.40\times2.4+0.5\}+66=174.10$ hours against 120 baseline
+hours. Build requires $L_A=95\{0.14\times38.4+0.86\times2.4+0.5\}+66=820.30$ hours
+against 2,280. Their combined 994.40 hours equal 8.29 FTE and a ratio of 0.414. The combined
+reduction therefore coexists with an increase on the low-volume route. At 95 Integrate visits,
+the same case effort and 66 support hours give a ratio of 0.930: the larger denominator spreads
+the fixed support term over more accepted review work.
+
+This calculation identifies a concrete FDE implementation choice. Reusing maintained
+connectors, policy tests, and evidence interfaces can distribute recurring work across a
+larger review population, while specialized exceptions still require their own effort.
+The operating ledger must record that allocation once and retain route-level results alongside
+the total. This lets an organization identify where task substitution already reduces required
+work and where a different operating design is needed. Quality and service remain separate
+acceptance conditions; the table evaluates the labor consequences of the stated assumptions.

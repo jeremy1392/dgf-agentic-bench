@@ -104,8 +104,10 @@ A deterministic control reads the same public snapshots and executes the public 
 then writes its predictions before a separate process invokes the frozen scorer. It does not
 read hidden references during generation, request optional conditional approvals, or extract
 facts from documents. It can quote full snapshots without the models' per-turn output-token
-limit. Its perfect score establishes that the formalized review kernel is software-executable;
-this condition establishes no incremental benefit from language-model inference.
+limit. Its perfect score establishes that the formalized review kernel is software-executable.
+The agent comparison therefore measures execution of that supplied kernel and its evidence
+contract. An incremental contribution to fact recovery requires the matched-information
+comparison specified in Section~\ref{sec:implications}.
 
 The control constructs findings and aggregates dispositions from the public interface. It
 propagates its own preceding decisions to General. A read guard blocks evaluator-only files,
@@ -201,6 +203,8 @@ handoff condition cannot isolate a causal propagation effect. Luna's missed upst
 \texttt{NO\_GO} in General illustrates why a downstream omission may repeat an earlier problem
 rather than constitute an independent safety event.
 
+\input{sections/02_authorized_decisions}
+
 \subsection{Evidence failures and two inspectable traces}
 
 An audit of all 690 gates with a failed evidence component leaves the primary scores unchanged
@@ -231,10 +235,8 @@ conditional-approval tool with a requirement to approve the runbook before produ
 The tool executes the authorization but explicitly leaves the finding unresolved. The model
 submits \texttt{GO\_WITH\_RESERVATIONS} with the finding and action retained, satisfying the
 strict contract. This post-hoc example demonstrates a performed review and authorized workflow
-transition, not completed remediation. Authority resides in the surrounding system: across the
-original experiment, Gemini makes 466 rejected conditional-approval calls as well as 398
-executed approvals. Its absence of scored false final approvals cannot be attributed solely
-to consistently correct initial action selection.
+transition, with the runbook condition still open. Table~\ref{tab:approval-behavior} places
+this event within the complete set of recorded approval requests and final decisions.
 
 The dossier is Project Falcon, a fictional HR vendor portal for 1,000 users, with a requested
 budget of EUR~500,000 and confidential data. Its architecture artifact is reproduced in

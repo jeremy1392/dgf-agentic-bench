@@ -1,0 +1,61 @@
+\subsection{The work behind the checkpoints}
+
+A project owner assembles a dossier describing the proposed change: its need, users, budget,
+technical design, supplier commitments, and readiness evidence. A specialist gate examines the
+parts relevant to its policy and returns a recorded opinion. The same dossier can therefore
+receive different findings from Architecture, Security, and Legal without those reviews being
+duplicates. General combines their effective opinions with its own governance checks.
+Table~\ref{tab:gate-guide} explains the eight families represented in the experiment.
+
+\begin{table}[!htb]
+\centering\small
+\caption{What each benchmark gate reviews. Questions summarize the supplied policies; listed
+records and checks are examples, not exhaustive definitions of the professions.}
+\label{tab:gate-guide}
+\begin{tabularx}{\linewidth}{@{}P{2.45cm}LL@{}}
+\toprule
+Gate & Review question & Examples of material examined\\
+\midrule
+Procurement & Does the selected supplier satisfy purchasing requirements?
+& Offers, mandatory criteria, due diligence, sanctions, and three-year cost\\
+Legal & Are the contractual prerequisites and signing authority present?
+& Data-processing agreement, liability, exit assistance, and signing authority\\
+Compliance & Does the proposal satisfy the applicable compliance checks?
+& Required impact assessment, residency, regulatory mapping, and audit trail\\
+Security & Does the design provide the protections required for its exposure and data?
+& Identity controls, private endpoints, monitoring, and vulnerability findings\\
+IT & Does the proposal fit the technology and operating environment?
+& Catalog status, existing capability, capacity, support ownership, and change records\\
+Architecture & Is the proposed system consistent with the declared design constraints?
+& Network overlap, interfaces, data ownership, latency, and reversibility\\
+Tech Readiness & Is the evidence of operational readiness sufficient?
+& Load, restore and recovery tests, runbook, rollback, and handover\\
+General & What governance disposition follows from the project and specialist reviews?
+& Effective upstream opinions, budget, strategic alignment, and change plan\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The five dispositions express different completed review outcomes. \texttt{GO} permits
+proceeding within the reviewed scope. \texttt{GO\_WITH\_RESERVATIONS} retains conditions
+alongside that permission. \texttt{REWORK} requests changes to the submitted proposal;
+\texttt{SUSPENSION} waits for a prerequisite; \texttt{NO\_GO} rejects proceeding as submitted.
+The policy and mandate determine which outcome is admissible. The experimental schedule
+collects every review in the route, including after a blocking opinion, to evaluate the
+remaining specialist work and final consolidation.
+
+Four responsibilities clarify the unit of substitution: preparing the dossier, examining
+it, making an authorized decision effective, and carrying out the resulting actions.
+An organization may allocate several of these responsibilities to one person, or distribute
+them across project teams, specialists, and decision owners. In the experiment, the agent
+performs the specified review and can use authorized simulated actions. The generator supplies
+the dossier; the trace records requested remediation and commitments. A deployment's labor
+account follows each responsibility wherever it is performed.
+
+For example, a readiness review may identify a draft runbook, require its completion, and
+record an authorized conditional decision. The review has then produced its required output;
+the runbook still has an owner and an open completion condition. The Falcon trace in
+Section~\ref{sec:benchmark} records precisely this separation. It explains how an agent can
+replace a review task while another person or system continues the operational work triggered
+by that decision. Extending substitution to that operational work requires its own accepted
+output and authority.

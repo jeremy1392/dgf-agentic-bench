@@ -1,0 +1,49 @@
+\subsection{Authorized conditional decisions}
+
+The review contract permits an agent to consult a standing mandate and request conditional
+approval for eligible findings. Eligibility requires open findings, permission to accept each
+finding under the public policy, and an active mandate for the particular gate and phase.
+The environment checks the request and records its effective authorization state. The final
+review retains the finding and the required action even when conditional approval is used.
+This operation represents bounded delegated decision-making within the synthetic workflow.
+
+Table~\ref{tab:approval-behavior} summarizes the released audit of the original retained
+checkpoints. Calls and gates are different units: one gate can contain several requests.
+An approval is counted as used when a replay-validated final approval accompanies the model's
+\texttt{GO\_WITH\_RESERVATIONS} submission. The all-gate eligibility denominator can differ
+between models because authorized upstream decisions affect General's consolidation.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Conditional-approval behavior in the original runs. The final row restricts the
+comparison to the same 391 eligible non-General gates in the 299 shared dossiers. Calls
+rejected by the environment are recorded separately from final review outcomes.}
+\label{tab:approval-behavior}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Recorded quantity & Gemini & Luna & DeepSeek\\
+\midrule
+Approval calls & 864 & 394 & 216\\
+Rejected calls & 466 & 40 & 14\\
+Used conditional decisions & 398 & 353 & 202\\
+Eligible gates, all scored runs & 398 & 398 & 397\\
+Used on matched opportunities / 391 & 391 & 347 & 201\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+On the matched opportunities, the corresponding use rates are 100.00\%, 88.75\%, and 51.41\%.
+The public contract permits retaining the base decision as well as requesting an eligible
+approval; use frequency is therefore a behavioral measurement. Some approvals preserve a
+disposition that was already conditional. Subtracting base-decision agreement from effective
+agreement would consequently measure a different quantity. Luna also has one validated
+approval followed by a final \texttt{REWORK}, which explains why its 354 validated approval
+states yield 353 used conditional decisions.
+
+The recorded outcome belongs to the agent operating with its authority-enforcement tool.
+A rejected request is contained by that tool; a successful request remains subject to its
+recorded conditions. The synthetic contract checks that condition strings are nonempty;
+their operational adequacy has no separate adjudication in this experiment. These explicit
+semantics make it possible to examine decision quality, delegated action, and retained
+obligations separately in a deployment. The Falcon example below shows one such conditional
+decision together with its supporting evidence and open action.
