@@ -1,0 +1,93 @@
+\section{A gate as a substitutable contract}
+\label{sec:contract}
+
+A DGF is an organization's composition of review checkpoints. It is not a universal sequence:
+enterprises can merge, split, or reorder gates while preserving their obligations and information
+dependencies. Typical tasks include supplier due diligence, contractual checks, technical
+architecture review, security assessment, readiness verification, and final consolidation.
+We study three example routes, Buy, Integrate, and Build; the argument applies to the review
+contract, not to these particular names.
+
+\begin{definition}[Review contract]
+A gate contract specifies permitted evidence and tools, a versioned policy, an authorization
+mandate, and the conditions for accepting an output. The output contains a disposition,
+findings, required actions, supporting evidence, and an authorization record. Its accepted
+form and substantive requirements are fixed before evaluating a proposed replacement.
+\end{definition}
+
+In DGF-Bench the dispositions are \texttt{GO}, \texttt{GO\_WITH\_RESERVATIONS}, \texttt{REWORK},
+\texttt{SUSPENSION}, and \texttt{NO\_GO}. A refusal can be a correct completed review. Conversely,
+an approval is unsuccessful if it omits a mandatory defect or exceeds the reviewer's mandate.
+Completing the review is distinct from implementing the remediation it requests. The same
+boundary must apply to human and software work when estimating substitution.
+
+\subsection{Three conditions for a replacement}
+
+\textbf{Information.} The permitted observations must contain what the policy needs, or the
+contract must allow a request for information or abstention. A model cannot recover a missing
+fact merely by generating a plausible answer. Source accessibility matters as much as physical
+file existence; the agent may lack permission to read a relevant record.
+
+\textbf{Validity.} The system must produce outputs satisfying the review's quality and service
+requirements on its declared operating population. These include evidence support and the
+handling of uncertainty, not just a disposition matching a label. A machine-readable schema
+can reject malformed records but cannot by itself prove the substantive decision correct.
+
+\textbf{Authority.} A valid mandate must permit the system's action. An agent's proposal and
+the mechanism that makes a commitment effective are separate. Deterministic enforcement can
+block forbidden commitments even when an agent requests them; a final authorized output does
+not establish that the model respected authority unaided. Delegating bounded execution does
+not eliminate the organization's accountability or resolve deployment-specific legal requirements.
+
+These conditions describe functional replacement. Net substitution of human work additionally
+requires a reduction in all human hours used to deliver that function, as derived next. Removing
+a routine reviewer while adding equivalent effort to project teams or support providers moves
+the work rather than reducing it.
+
+\subsection{An information obstruction}
+
+Let $I(x)$ denote all observations permitted in an evaluation condition for underlying case $x$,
+and $V(x)$ the set of outputs accepted by its fixed contract. Policy and mandate are held fixed.
+
+\begin{proposition}[Indistinguishable cases]
+If two admissible cases satisfy $I(x_1)=I(x_2)$ but
+$V(x_1)\cap V(x_2)=\varnothing$, no system using only $I$ can guarantee a valid output on both.
+\end{proposition}
+\begin{proof}
+Equal observations imply equal output distributions, including for a deterministic system.
+Guaranteed validity on both cases would require one distribution to assign probability one
+to both disjoint accepted sets, which is impossible.
+\end{proof}
+
+This elementary observation is an operational test for an automation boundary, not a new general
+impossibility theorem. Our offline counterexample makes it concrete: two variants have identical
+extracted text in all 26 Word documents, but changing the underlying supplier due-diligence
+status, recorded in CSV evidence, changes the fixed reference decision from GO to REWORK.
+A condition restricted to those Word
+texts therefore cannot reproduce both reference decisions. Allowing the CSV, or changing the
+contract to accept a justified request for missing information, changes the task. For the fixed
+reference test, the accepted disposition sets are disjoint. This obstruction applies to a human
+reader as well as a model; it identifies a deficient information interface.
+
+\subsection{Why the DGF is a candidate}
+
+Table~\ref{tab:candidate} turns the claim that DGF is suitable for automation into properties
+that can be checked in an organization. These are engineering advantages when present, not
+guarantees that every enterprise already has clean rules and accessible evidence.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Properties that make a governance workflow a candidate for task substitution.}
+\label{tab:candidate}
+\begin{tabularx}{\linewidth}{@{}P{3.1cm}LL@{}}
+\toprule
+Property & Potential advantage & Condition that can defeat it\\
+\midrule
+Recurring dossiers and outputs & Reusable extraction and decision interfaces & Material facts remain tacit or inaccessible\\
+Explicit policies and mandates & Executable checks and bounded delegation & Conflicting rules or discretionary commitments\\
+Recorded gate handoffs & Shared evidence and traceable dependencies & Work is repeated or lost between teams\\
+Repeated review populations & Integration cost spread across cases & Low volume or frequent policy change\\
+Observable acceptance criteria & Regression tests and monitored service & Evaluation rewards format instead of valid work\\
+\bottomrule
+\end{tabularx}
+\end{table}

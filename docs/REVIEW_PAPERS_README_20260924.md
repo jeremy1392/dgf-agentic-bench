@@ -2,6 +2,10 @@
 
 **Résultat : revue du contenu et vérifications locales terminées ; accès public vérifié.** Les chiffres principaux ne changent pas. Le dépôt était initialement privé. Après autorisation explicite de l'auteur le 24 septembre 2026, il a été rendu public. Le dépôt, la page de release, le README et les 24 téléchargements de release répondent sans authentification. Les deux PDF et les deux paquets arXiv minimaux ont aussi été téléchargés sans connexion : leurs empreintes correspondent aux fichiers vérifiés localement.
 
+## Remplacement ultérieur du deuxième manuscrit
+
+À la demande de l'auteur, le deuxième article de 22 pages a ensuite été remplacé par **The Last Human Gate: Forward Deployed Engineering for Governance Automation**, une version courte de 12 pages. Le présent rapport décrit la revue des versions antérieures ; la [note de réécriture](../paper2/REVIEW_RESPONSE.md), le [rapport actuel](../paper2/arxiv_verification.json) et la [fiche de dépôt](../paper2/ARXIV_SUBMISSION.md) font référence pour le nouveau deuxième article. Les données expérimentales et le premier PDF de 66 pages sont conservés.
+
 ## Périmètre
 
 Mise à jour ultérieure le même jour : à la demande de l'auteur, la déclaration d'aide à la rédaction a été retirée du deuxième article. Le PDF reste à 22 pages ; seule la page 20 change. Le PDF et les archives correspondantes sont reconstruits et contrôlés. Les métadonnées et la [fiche de dépôt](../paper2/ARXIV_SUBMISSION.md) distinguent la préparation technique de l'exigence arXiv de déclaration d'un usage significatif d'IA, qui reste à résoudre avant validation du dépôt. Les résultats et le premier manuscrit ne changent pas.

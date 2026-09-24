@@ -1,360 +1,131 @@
-\section{DGF-Bench: measured review performance on 300 synthetic projects}
+\section{Evidence: executing governance contracts}
 \label{sec:benchmark}
 
-\subsection{Question, population, and information available to the agents}
+\paragraph{Design and scope.}
+DGF-Bench tests the execution of a specified review task: inspect permitted evidence, choose a
+disposition, identify findings and required actions, cite the supporting observations, and respect
+the authorization contract. A seeded generator constructs 300 fictional projects, 100 each on
+Buy, Integrate, and Build routes. Buy follows Procurement, Legal, Compliance, Security, IT, and
+General; Integrate follows IT, Architecture, Security, Legal, Compliance, and General; Build
+follows IT, Architecture, Security, Tech Readiness, and General. This gives 1,700 gate occurrences
+per model. The dossiers include project charters and review requests, architecture diagrams,
+technical designs, supplier and legal records, and operational test evidence. Decision-coverage
+sampling balances applicable outcomes. Difficulty setting 4 controls generator parameters;
+it is not a validated scale of reasoning difficulty. The 300 projects have distinct architecture
+and complete decision-fact signatures, although some gate-level patterns recur.
 
-This experiment asks whether an AI agent can apply a declared governance policy, identify the
-required findings and actions, cite observed evidence, respect its authority, and carry a review
-through a connected route. It measures review decisions and proposed actions, not implementation
-of remediation or changes in human workload. The field-validation studies proposed later in this paper have not been conducted.
+The tested information condition supplies both executable policies and an authoritative
+structured \texttt{REVIEW\_FACTS} snapshot. Models can read allowed evidence and use simulated
+enterprise tools; evaluator-only reference files are inaccessible. The model is the reviewer,
+not the generator of the project. Every gate returns one of \texttt{GO},
+\texttt{GO\_WITH\_RESERVATIONS}, \texttt{REWORK}, \texttt{SUSPENSION}, or \texttt{NO\_GO}.
+Correctly refusing a deficient proposal counts as success. Later gates receive the model's actual
+upstream reviews, and General consolidates the route.
 
-Three practical questions organize the analysis: (1) does the model reach the disposition
-required by the rules, (2) does it produce all the supporting work needed for a valid review,
-and (3) does that reliability survive a sequence of reviews at an acceptable API cost?
-The unit called a \emph{case} or \emph{dossier} is one generated project; a \emph{gate} is one
-checkpoint on its route. Three models reviewing the same 300 projects produces 900 planned
-model--case runs, not 900 independent business projects.
+Three exact OpenRouter endpoint identifiers were evaluated on 22--23 September 2026:
+\nolinkurl{google/gemini-3.8-flash}, \nolinkurl{openai/gpt-5.6-luna}, and
+\nolinkurl{deepseek/deepseek-v4.1-flash}. Temperature was zero, vision was \texttt{auto},
+and each gate permitted at most 20 turns, 40 tool calls, and 8,192 output tokens per turn.
+Of 900 planned model--project runs, 899 and their 5,094 gates are evaluable. One Gemini
+Integrate run failed at its first gate because of a provider generation error; its six gates
+are excluded. Recorded failed attempts remain in the cost accounting and released traces.
 
-The dataset contains 300 fictional projects: 100 Buy, 100 Integrate, and 100 Build cases.
-Buy and Integrate contain six gate occurrences each, and Build contains five, for 1,700 occurrences
-per model and 5,100 planned observations across three models. Cases were generated before these
-evaluations at difficulty setting 4, with sampling conditioned to improve decision coverage.
-Difficulty 4 is a generator configuration, not a validated scale of cognitive difficulty.
-For example, before decision-balancing rejection sampling, the architecture IP-overlap draw
-has probability $0.08+0.03\times4=0.20$ and the shared-service-principal draw has probability
-$0.10+0.03\times4=0.22$. Supplier generation permits sanctions hits and up to two failed
-mandatory criteria, and may select a non-optimal offer. Subsequent balanced sampling changes
-accepted outcome frequencies; these generator probabilities are not observed failure rates.
-The executable frozen source defines the setting, and no difficulty-level ablation is reported.
+\paragraph{Outcomes and comparison.}
+The frozen deterministic evaluator requires a correct disposition, exact finding and action
+sets, observed evidence references and exact observed field/value excerpts, and the correct authorization
+indicator. A \emph{strict gate success} passes every component; a \emph{complete route} passes
+every gate. Disposition accuracy alone therefore does not measure a complete review. Validated
+conditional approvals can change the effective reference outcome. A false approval proceeds
+when that effective reference requires rework, suspension, or refusal; a critical miss omits
+a finding classified as critical by the policy.
 
-Project context, owners, budgets, data classifications, technical architectures, documents, and
-simulated system records derive from canonical case facts. Documents can be missing, stale, or
-inconsistent. Specialist reviews precede a final General review; the routes are examples rather
-than a universal enterprise standard.
-
-The agent receives gate objectives, a structured output contract, an explicit decision policy,
-and tools to read allowed evidence and query the synthetic environment. In particular, the policy
-includes executable rule definitions and identifies an authoritative structured
-\texttt{REVIEW\_FACTS} snapshot. The evaluator-only reference file is inaccessible through the
-agent's tools. This is nevertheless a strongly scaffolded test of policy application: the agent
-need not discover the rules or reconstruct every decision-relevant fact from unstructured documents.
-Architecture images are available under the vision setting; image availability is not evidence
-that image interpretation was necessary for success. These design choices limit claims about
-expert reasoning on independently collected enterprise dossiers.
-
-The dataset audit reports 300 distinct project identifiers, architecture signatures, and complete
-decision-fact signatures, but only 267 distinct whole-case finding patterns. Gate-specific relevant
-fact signatures include 142 of 200 Compliance cases and 241 of 300 Security cases. All rules
-applicable to the selected phases are covered according to the generator's audit. Phase-adjusted
-normalized decision entropy ranges from 0.9971 to 1.0000. Balanced labels improve coverage, but
-do not estimate enterprise prevalence or establish independent business validity.
-
-\subsection{What is generated, and what the model actually does}
-\label{sec:bench-walkthrough}
-
-The case generator is a program using seeded facts, rules, and document templates. The AI model
-under evaluation is the reviewer, not the author of the fictional need or architecture. A Buy
-scenario represents acquiring a solution; Integrate represents connecting existing systems;
-Build represents developing a new project. Those scenarios are given budgets, users, owners,
-dates, data classifications, and technical constraints. A generated name is a scenario label,
-not an independently elicited customer requirement.
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\linewidth]{figures/fig_benchmark_walkthrough.pdf}
-\caption{Experimental workflow. The generator constructs the project and evidence; the tested
-model investigates and submits reviews; the evaluator uses a separate reference. The diagram
-describes the implemented test, not a measured enterprise deployment.}
-\label{fig:bench-walkthrough}
-\end{figure}
-
-\begin{enumerate}
-\item \textbf{Construct the project facts.} The program fixes what is true in the synthetic
-case, such as the requested budget, whether a supplier has supplied a document, or whether a
-restore test succeeded. Decision-coverage sampling produces cases with different required outcomes.
-\item \textbf{Generate the design and dossier.} The same case drives an architecture diagram,
-project charter, gate review requests, and evidence files. A reviewer may receive a technical
-design, network/data-flow tables, contract records, security evidence, or readiness tests,
-depending on the gate (Table~\ref{tab:bench-dossier}). Some presented evidence is incomplete or stale.
-\item \textbf{Start a gate review.} The harness supplies the project context, gate and phase,
-applicable policy, permitted evidence and tools, and the answer schema. The model decides which
-allowed records to inspect. It can list and read evidence, query simulated systems, request
-information, and inspect existing authorization mandates.
-\item \textbf{Submit a decision.} The model returns a disposition, finding identifiers,
-proposed actions, evidence references and supporting excerpts, an authorization indicator, and
-a rationale. A typed submission is recorded. Producing a syntactically valid record alone does
-not satisfy the substantive score.
-\item \textbf{Continue the route.} In the tested \texttt{agent} mode, the harness passes actual
-upstream model reviews to later checkpoints. The final General review consolidates specialist
-opinions and its own checks. The tested routes are listed in Table~\ref{tab:bench-sequences}.
-\item \textbf{Evaluate and retain the trace.} A deterministic evaluator compares the submitted
-record and observed tool events with the reference. It records component scores, full gate and
-route success, critical misses, false approvals, provider failures, and usage. It is not another
-LLM judge. Failed or incorrect decisions are retained; infrastructure exclusions are reported.
-\end{enumerate}
+A deterministic control reads the same public snapshots and executes the public policy functions,
+then writes its predictions before a separate process invokes the frozen scorer. It does not
+read hidden references during generation, request optional conditional approvals, or extract
+facts from documents. It can quote full snapshots without the models' per-turn output-token
+limit. Its perfect score establishes that the formalized review kernel is software-executable;
+this condition establishes no incremental benefit from language-model inference.
 
 \begin{table}[!htb]
 \centering\small
-\caption{Concrete examples of generated review material. The contents vary with the route and
-gate. Authoritative structured snapshots are available in addition to these artifacts.}
-\label{tab:bench-dossier}
-\begin{tabularx}{\linewidth}{@{}P{2.5cm}LL@{}}
+\caption{Task execution on the original population and repeated trajectories. Counts preserve
+the original strict endpoint. Sensitivity accepts specified structural evidence matches;
+it is post-hoc and is not a semantic adjudication. The deterministic control was not repeated.}
+\label{tab:compact-evidence}
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\linewidth}{@{}Lrrrr@{}}
 \toprule
-Material & Examples in the case & Review question\\
+Outcome & Gemini & Luna & DeepSeek & Rules\\
 \midrule
-Project context & Charter and review request (Word), project context (JSON) & What is proposed, for whom, at what cost, and under whose ownership?\\
-Architecture & Diagram (SVG/PNG), technical design, network and flow tables & Do the design facts meet the declared constraints?\\
-Security & Identity, vulnerability, monitoring, and resource records & Are the protections required by the policy present?\\
-Supplier and legal & Vendor evidence, contract versions, data-processing agreement status & Are the supplier and contractual prerequisites satisfied?\\
-Readiness & Backup, restore/failover and load-test records; runbook & Can the proposal demonstrate the required operational readiness?\\
+Evaluable projects & 299 & 300 & 300 & 300\\
+Evaluable gates & 1,694 & 1,700 & 1,700 & 1,700\\
+Correct dispositions & 1,694 & 1,668 & 1,619 & 1,700\\
+Strict gate successes & 1,609 & 1,416 & 1,261 & 1,700\\
+Strict gate success (\%) & 94.98 & 83.29 & 74.18 & 100.00\\
+Complete routes & 230 & 127 & 74 & 300\\
+Complete routes (\%) & 76.92 & 42.33 & 24.67 & 100.00\\
+Evidence-only failures & 85 & 221 & 338 & 0\\
+False approvals / critical misses & 0 / 0 & 1 / 3 & 1 / 1 & 0 / 0\\
+Sensitivity: successful gates & 1,678 & 1,454 & 1,313 & ---\\
+Sensitivity: complete routes & 284 & 144 & 85 & ---\\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Follow-up: 15 existing dossiers, three trajectories per model}}\\
+Strict gates / 255 & 245 & 211 & 187 & ---\\
+Complete routes / 45 & 35 & 19 & 11 & ---\\
+Dossiers passing all three / 15 & 9 & 3 & 0 & ---\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\begin{table}[!htb]
-\centering\small
-\caption{The three routes actually evaluated; each project ends with General. These are the complete route sequences evaluated in this study.}
-\label{tab:bench-sequences}
-\begin{tabularx}{\linewidth}{@{}l r L@{}}
-\toprule
-Route & Cases & Ordered gates\\
-\midrule
-Buy & 100 & Procurement, Legal, Compliance, Security, IT, General\\
-Integrate & 100 & IT, Architecture, Security, Legal, Compliance, General\\
-Build & 100 & IT, Architecture, Security, Tech Readiness, General\\
-\bottomrule
-\end{tabularx}
-\end{table}
+\paragraph{What succeeds, and what still fails.}
+Gemini reaches the correct effective disposition on every evaluable gate and satisfies all
+non-evidence components; its 85 strict failures concern evidence conformity. Its strict gate
+rate is 94.98\% (95\% interval 93.86--96.04), but only 76.92\% of complete routes pass
+(71.82--81.34). Luna and DeepSeek also exhibit a large gate--route gap, alongside substantive
+errors: Luna approves one Legal review despite a missing data-processing agreement, and
+DeepSeek submits a placeholder \texttt{GO} at forced finalization when address overlap
+requires \texttt{NO\_GO}. The model comparison therefore distinguishes successful disposition,
+complete documented review, and dependable execution of a whole route.
 
-The five dispositions are \texttt{GO} (proceed), \texttt{GO\_WITH\_RESERVATIONS} (proceed under
-conditions), \texttt{REWORK} (revise the proposal), \texttt{SUSPENSION} (wait for a prerequisite),
-and \texttt{NO\_GO} (do not proceed as submitted). Approval is therefore not the target outcome
-for every dossier: a justified refusal is a successful review. Tool actions take place in the
-synthetic environment; a request to fix a defect is not evidence that the defect was fixed.
+Gate intervals resample whole cases within routes (2,000 draws, seed 81931); route intervals
+use Wilson bounds. They describe the generated population, retaining within-project dependence.
+They do not treat 5,094 gates as independent organizations. The common 299-case comparison
+preserves the ranking; its paired intervals and complete component tables are released.
 
-\subsection{A generated project and a recorded successful review}
-\label{sec:bench-falcon}
+An audit of all 690 gates with a failed evidence component leaves the primary scores unchanged
+and applies one declared sensitivity rule: accept exact relevant field/value subsets from one
+observed object despite field order or equivalent numeric serialization. No quote is repaired,
+no tool observation invented, and no join across different objects promoted. This recovers
+69 Gemini, 38 Luna, and 52 DeepSeek gates (Table~\ref{tab:compact-evidence}). Gemini's rate
+becomes 99.06\% at gate level and 94.98\% at route level. The interpretation is specific:
+much of this model's measured route failure depends on the evidence representation contract.
+The audit does not establish full premise coverage or independently validated semantic support.
 
-Case \nolinkurl{DGF-BLD-035200_build}, \emph{Project Falcon---Secure Vendor Portal}, provides a
-concrete example. Its generated HR context has 1,000 users, a requested budget of EUR~500,000,
-confidential data, high business criticality, and a primary region of UAE North.
-Figure~\ref{fig:bench-architecture} reproduces its actual evidence diagram. It depicts identity,
-application and data services, monitoring and backup, and a secondary recovery region. Its labels
-are claims in the dossier to be checked, not an independently validated production blueprint.
+\paragraph{A concrete delegated review.}
+In \nolinkurl{DGF-BLD-035200_build}, a generated vendor-portal project, Gemini's Tech Readiness
+review finds a draft runbook. It names \texttt{TR-OPS-001}, proposes
+\texttt{COMPLETE\_OPERATIONAL\_HANDOVER}, and cites the observed value
+\texttt{"runbook\_status": "draft"}. After consulting an active mandate, it invokes the
+conditional-approval tool with a requirement to approve the runbook before production cutover.
+The tool executes the authorization but explicitly leaves the finding unresolved. The model
+submits \texttt{GO\_WITH\_RESERVATIONS} with the finding and action retained, satisfying the
+strict contract. This post-hoc example demonstrates a performed review and authorized workflow
+transition, not completed remediation. Authority resides in the surrounding system: across the
+original experiment, Gemini makes 466 rejected conditional-approval calls as well as 398
+executed approvals. Its absence of scored false final approvals cannot be attributed solely
+to consistently correct initial action selection.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\linewidth]{figures/fig_benchmark_architecture.png}
-\caption{An actual generated architecture document from Project Falcon. Full-resolution evidence
-is in the released dataset. The figure illustrates what a dossier can contain; it does not imply
-that this image was necessary to obtain the correct review outcome.}
-\label{fig:bench-architecture}
-\end{figure}
+\paragraph{Repeatability and the remaining boundary.}
+The follow-up fixes 15 existing dossiers, five per route, before collecting three new
+trajectories for every model--dossier pair: 135 completed runs and 765 gates. No best-of-three
+selection is used. Gemini, Luna, and DeepSeek pass respectively 35, 19, and 11 of 45 routes;
+only nine, three, and zero dossiers pass on all three trajectories. All follow-up false-approval
+and critical-miss counts are zero. Provider routing is not fixed, so these observations measure
+repeatability of the recorded system rather than intrinsic model randomness. Original and
+follow-up recorded API costs are USD~87.015829172 and USD~12.5598870228, totaling USD~99.58;
+development, local computation, human review, and deployment are not costed.
 
-In Gemini's recorded Tech Readiness review, the authoritative record has a draft runbook.
-The agent identifies \texttt{TR-OPS-001} and proposes completing the operational handover.
-Other required readiness checks pass. It cites the observed excerpt
-\texttt{"runbook\_status": "draft"}, consults the active mandate, and executes the simulated
-conditional-approval tool with a condition to approve the runbook before production cutover.
-The tool reports \texttt{EXECUTED} and explicitly leaves the finding unresolved.
-The submitted outcome is therefore \texttt{GO\_WITH\_RESERVATIONS}, with the finding and
-required action retained and the authorization indicator set to true.
-
-All three models pass all five gates of this particular dossier. Their observed dispositions
-are \texttt{GO}, \texttt{GO}, \texttt{GO}, \texttt{GO\_WITH\_RESERVATIONS}, and \texttt{GO}
-in route order. This example was selected after evaluation to explain the mechanics, not as a
-representative sample or an additional experiment. The study-level counts include every evaluable
-case, including unsuccessful reviews.
-The public research directory includes \nolinkurl{worked_examples.json}, with the original
-archive-relative paths and selected recorded outputs for this example and the evidence-failure
-example below. The complete traces remain in the release.
-
-\subsection{Protocol, completion, and outcomes}
-
-Table~\ref{tab:bench-models} identifies the three tested endpoints. Each receives the same
-case population, policy, tool interface, and task limits; no model is trained or fine-tuned by
-this experiment. The comparison concerns these deployed endpoints under the recorded conditions,
-not different implementations of a human review process. Configuration was temperature
-0, vision \texttt{auto}, agent-produced handoffs, at most 20 turns and 40 tool calls per gate,
-and 8,192 output tokens per turn. Gates remained sequential within a project. The last resume
-used 12 workers, four per model, and a USD~110 cost cap; an earlier invocation used six workers
-and a USD~65 cap. Data collection spanned 22--23 September 2026. Resumption retained completed
-cases and valid gate checkpoints. Historical provider/key-limit failures remain in the released
-traces. The 78.73-minute elapsed time in the last run statistics describes that resume only.
-
-Of 900 planned model--case runs, 899 are evaluable: 300 for DeepSeek, 299 for Gemini, and 300
-for Luna. Gemini case \nolinkurl{DGF-INT-035128_integrate} failed at its first IT gate with
-a provider generation error (\texttt{finish\_reason=error}); it is excluded as an infrastructure failure. Thus 5,094 of 5,100
-planned gates are evaluable, with all expected gates attempted in the evaluable cases. There
-are no recorded final agent-protocol failures or model-identifier mismatches. Provider-reported
-identity is not an independent audit of underlying weights. DeepSeek was served by multiple
-OpenRouter providers; Gemini and Luna were recorded through Google AI Studio and OpenAI.
-
-\begin{table}[!htb]
-\centering\small
-\caption{Models used in the experiment. Names are short labels for the exact requested
-OpenRouter identifiers, not claims about independently verified model weights.}
-\label{tab:bench-models}
-\begin{tabularx}{\linewidth}{@{}P{2.8cm}L P{3.3cm}@{}}
-\toprule
-Model label & Requested identifier & Recorded serving provider\\
-\midrule
-DeepSeek v4.1 Flash & \nolinkurl{deepseek/deepseek-v4.1-flash} & Multiple providers\\
-Gemini 3.8 Flash & \nolinkurl{google/gemini-3.8-flash} & Google AI Studio\\
-GPT-5.6 Luna & \nolinkurl{openai/gpt-5.6-luna} & OpenAI\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-Scoring uses \texttt{DGF-decision-v8.2-authorized-review}. A gate succeeds strictly only if its
-disposition, finding set, action set, evidence provenance, and authorization indicator all satisfy
-the reference. Findings and actions require F1 equal to one. Evidence requires an observed
-reference and exact excerpts supporting the relevant field/value tokens. This is lexical
-provenance checking, not independent verification of arbitrary reasoning. Authorized conditional
-approvals can change the effective reference disposition; the evaluator verifies the mandate
-and recorded action. General combines effective reference opinions, so an upstream error can
-also cause a downstream failure. Complete-route success requires every gate to succeed strictly;
-it does not mean that remediation was executed.
-
-For model $m$, let $s_{mcg}$ be one when gate $g$ of case $c$ passes every component, and
-zero otherwise. The two principal rates are
-\[
-\mathrm{GateCSR}_m=\frac{\sum_c\sum_{g\in G_c}s_{mcg}}{\sum_c |G_c|},
-\qquad
-\mathrm{RouteSuccess}_m=\frac{\sum_c\prod_{g\in G_c}s_{mcg}}{|C_m|},
-\]
-where $C_m$ contains the evaluable cases and $G_c$ their expected gates. This gate rate is
-weighted by gate count: a six-gate route contributes six observations and a five-gate route
-contributes five. A model passing four gates of a five-gate case has 80\% gate success for that
-case but zero complete-route success. Decision-only accuracy checks just the submitted
-disposition. A critical miss is an omitted reference finding classified as critical; a false
-approval is \texttt{GO} or \texttt{GO\_WITH\_RESERVATIONS} when the effective reference requires
-rework, suspension, or refusal.
-
-Gate confidence intervals use a route-stratified bootstrap of whole cases, preserving dependence
-between a project's gates (2,000 draws, seed 81931; a case-count Wilson fallback handles degenerate
-intervals). Route intervals use Wilson bounds. Pairwise differences use the same 299 cases for
-all models, resampled together within routes (10,000 draws, NumPy seed 81931). These are descriptive
-intervals conditional on the synthetic sampling design. No preregistered analysis or independently
-adjudicated ground truth is claimed, and one trajectory per model and case does not estimate
-run-to-run inference variability.
-
-\subsection{Overall and route-level results}
-
-\begin{table}[!htb]
-\centering\small
-\caption{Measured synthetic benchmark outcomes. Gate CSR requires complete conformity; route success requires all gates. Cost includes recorded failed attempts.}
-\label{tab:bench-overall}
-\begin{tabularx}{\linewidth}{@{}l r L L r@{}}
-\toprule
-Model & Cases & Gate CSR [95\% CI] & Route success [95\% CI] & USD\\
-\midrule
-\rowsinput{generated/table_benchmark_overall}
-\bottomrule
-\end{tabularx}
-\end{table}
-
-Gemini succeeds strictly on 1,609 of 1,694 gates, Luna on 1,416 of 1,700, and DeepSeek on
-1,261 of 1,700. Corresponding complete-route counts are 230 of 299, 127 of 300, and 74 of 300
-(Table~\ref{tab:bench-overall}). Mean weighted component scores, which are not strict success
-rates, are 99.68\%, 97.67\%, and 95.02\%, respectively. The distinction matters: strong average
-components can coexist with many incomplete project reviews.
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\linewidth]{figures/fig_benchmark_results.pdf}
-\caption{Measured gate and complete-route review outcomes. Intervals are computed over independent
-case units rather than treating all gates as independent trials. These are model observations
-on synthetic dossiers.}
-\label{fig:benchmark-results}
-\end{figure}
-
-On the 299 common cases, CSR is 94.98\% for Gemini, 83.23\% for Luna, and 74.09\% for DeepSeek.
-Paired differences are 20.90 percentage points for Gemini minus DeepSeek (95\% interval
-18.30--23.44), 11.75 for Gemini minus Luna (9.62--13.93), and 9.15 for Luna minus DeepSeek
-(6.67--11.63). The ranking persists on the matched cohort; this is not a universal model ranking.
-
-\begin{table}[!htb]
-\centering\small
-\caption{CSR and complete-route counts by project route. Gemini excludes one Integrate case.}
-\label{tab:bench-routes}
-\begin{tabularx}{\linewidth}{@{}l L L L@{}}
-\toprule
-Route & DeepSeek: CSR; routes & Gemini: CSR; routes & Luna: CSR; routes\\
-\midrule
-\rowsinput{generated/table_benchmark_routes}
-\bottomrule
-\end{tabularx}
-\end{table}
-
-Gemini's route success falls from 87 of 100 Buy cases to 68 of 100 Build cases. Luna succeeds
-on 20 Buy, 52 Integrate, and 55 Build cases; DeepSeek succeeds on 13, 32, and 29, respectively
-(Table~\ref{tab:bench-routes}). These differences do not isolate the causal effect of route
-length, because gate composition and case content also differ.
-
-\begin{table}[!htb]
-\centering\small
-\caption{Strict success by gate family (percent). Counts vary by route composition; complete
-denominators and intervals are supplied in the released tables.}
-\label{tab:bench-gates}
-\begin{tabular}{@{}l r r r@{}}
-\toprule
-Gate & DeepSeek & Gemini & Luna\\
-\midrule
-\rowsinput{generated/table_benchmark_gates}
-\bottomrule
-\end{tabular}
-\end{table}
-
-Procurement is the lowest-CSR gate for both Luna (33\%) and DeepSeek (43\%). Luna's General
-CSR is 61.67\%. Luna exceeds Gemini's descriptive CSR in Architecture and Tech Readiness
-(Table~\ref{tab:bench-gates}); these local comparisons are exploratory, without multiplicity-adjusted
-tests or a claim of specialist superiority.
-
-\subsection{Evidence failures, unsafe approvals, and cost}
-
-Disposition accuracy alone is 100\% for Gemini, 98.12\% for Luna, and 95.24\% for DeepSeek.
-All 85 Gemini strict failures concern evidence conformity; findings, actions, dispositions, and
-authorization indicators match the reference. Evidence is the sole failing component in 221 of
-284 Luna failures and 338 of 439 DeepSeek failures. Invalid excerpts and missing or unobserved
-references are grouped by these diagnostics; not all are harmless formatting defects. Changing
-the evidence rule after observing results would change the estimand. A semantic evidence metric
-would require a separately declared analysis.
-
-\paragraph{A recorded example of a correct decision with a failed proof.}
-In \nolinkurl{DGF-BLD-035201_build}, Gemini reads the Architecture facts: an API gateway is
-required but absent, and measured latency is 55~ms against a 20~ms target. It correctly names
-\texttt{ARCH-API-001} and \texttt{ARCH-PERF-001}, proposes adding the gateway and remediating
-latency, and submits \texttt{REWORK}. Two attempted conditional approvals are rejected by the
-tool: one omits an open finding and the other includes a finding ineligible for risk acceptance.
-The submitted refusal to proceed is consistent with those restrictions.
-
-The gateway excerpt reverses two fields. It places \nolinkurl{api_gateway_present} before
-\nolinkurl{api_gateway_required}; the observed record has the reverse order. The values are
-correct but the excerpt is not an exact observed sequence. Evidence fidelity is 0.5 for the
-two findings, so strict success is zero while disposition, finding, action, and authorization
-scores are all one. The weighted component score is 0.95. This selected trace explains exactly
-how a fluent, substantively correct review can fail this benchmark's evidence contract; it does
-not justify silently relaxing that contract after seeing the results.
-
-DeepSeek records one critical finding miss and one false approval, both in the Architecture
-review of \texttt{DGF-INT-035136\_integrate}. An address overlap required \texttt{NO\_GO}; at
-forced finalization, the model submitted \texttt{GO} with an empty finding set, no evidence, and
-a ``placeholder'' rationale. The response passed the submission schema but failed the substantive
-score. This observation combines decision quality with the ability to finalize under resource limits.
-
-Luna records three critical misses and one false approval. In case
-\texttt{DGF-INT-035197\_integrate}, its Legal review approved a dossier with a missing DPA,
-while its own rationale said that \texttt{REWORK} was required. The other critical misses concern
-private endpoints in Security and an upstream \texttt{NO\_GO} in General. The latter can include
-error propagation and should not be interpreted as an independent new safety event. Gemini has
-no observed critical miss or false approval in its evaluable runs; this does not establish zero
-risk. Recorded truncated-response counts are 2 for DeepSeek, 14 for Gemini, and 0 for Luna,
-without implying that these counts equal incomplete cases.
-
-The usage ledgers sum to USD~87.015829172, agreeing with the cumulative budget counter.
-Gemini accounts for USD~71.88, DeepSeek USD~10.09, and Luna USD~5.05, including recorded retries
-and failures. Approximate cost per evaluated dossier is USD~0.240, 0.034, and 0.017, respectively.
-Luna therefore combines a higher overall strict score with lower recorded cost than DeepSeek
-in this execution. Costs depend on provider routing, caching, price, and retry history; they are
-not a labor-cost comparison or a permanent pricing claim.
+The information counterexample in Section~\ref{sec:contract} identifies a different failure
+boundary: some proposed document-only inputs cannot determine the required decision. Together,
+the observed executions and the source check show both an automatable formalized task and
+a specific obstruction that must be resolved before extending its scope.

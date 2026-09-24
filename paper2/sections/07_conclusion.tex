@@ -1,63 +1,39 @@
 \section{Conclusion}
 
-DGF-Bench demonstrates that the tested LLM agents can execute many of the decision tasks
-assigned to human governance reviewers: apply rules to a dossier, issue a disposition, identify
-required actions, and supply evidence. This capability is measured under an explicit, favorable
-information condition. The models often make correct decisions, but a deterministic program
-solves the entire supplied contract. These results establish no incremental LLM advantage over
-that control. Comparing systems that must first extract facts or formalize policy is the next
-question, with the associated engineering and human costs included.
+The last human gate is not defined by the last person to hold an approval title. It is the last
+task whose execution still requires human work after the evidence, policy, authority, and
+supporting services have been specified. A governance function can remain mandatory while
+software takes over tasks that previously required specialists to perform each review.
 
-The all-model audit changes the interpretation of strict failures. Gemini's scores are highly
-sensitive to excerpt serialization; the same relaxation removes substantially fewer DeepSeek
-and Luna failures. A separate source audit finds authentic observed CSV rows excluded by the
-snapshot-only contract, so failure under either format criterion is not itself false evidence.
-Conditional-approval rates and rejected requests further separate final correctness from agent
-behavior and tool-enforced authority. Complete confusion matrices and both initial and
-effective-reference agreement make the remaining errors inspectable. The 135-run follow-up
-preserves the ranking while showing that similar aggregate rates do not imply stable success
-for every dossier. A Word-only counterexample demonstrates why an extraction ablation must
-first preserve enough information to determine the required answer.
+The DGF is a credible candidate for this transition because it already packages many of those
+tasks into repeated, documented decision interfaces. Our contribution makes the substitution
+claim conditional and measurable: sufficient accessible information, valid authorized outputs,
+and a complete human-work account. The model explains why broad case coverage can coexist
+with either a large reduction or an increase in required labor. The FDE implementation connects
+these conditions to evidence services, policy checks, mandates, handoffs, and exception handling.
 
-These findings motivate an evidence interface that separates source attribution, premise
-coverage, rule application, and authorized decisions. They support testing how much review work
-such systems can perform in practice. They do not measure human work saved or a staffing effect;
-those hypotheses require operational workload and quality observations. The next model
-experiments target the main unresolved capability boundary: decisions from less prepared
-evidence and policies expressed in prose, with the same authority and information held constant.
+DGF-Bench demonstrates substantial execution capability for specified review tasks and exposes
+the limits of inferring workflow reliability from correct decisions. Its deterministic control
+also shows that a formalized review kernel can be executed without a language model. The
+consequent research question is where agents can extend that kernel into less formalized work
+at acceptable quality and lower total human effort. If they do so, replacement of human task
+execution is the result, not merely an improvement in report drafting. Whether that reaches the
+author's 80\% DGF-FTE reduction by 2033 requires the separate observations and fixed boundary
+specified here.
 
-\section*{Data, code, and research status}
+\section*{Data, code, and attribution}
 
-The public repository is \url{https://github.com/jeremy1392/dgf-agentic-bench}. The release
-\href{https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923}{\texttt{dgf-bench-300-20260923}}
-contains the full recorded run (17,700 original files), prepared dataset (27,947 files), and
-benchmark source snapshot (1,099 files). It includes Word documents, architecture diagrams,
-simulated records, policies, traces, scores, usage ledgers, and historical failed attempts.
-Checksums and per-file inventories preserve provenance. Evaluator-only references are released
-for audit; they were not exposed by agent tools during the run.
-
-The final data tables and reproduction instructions are in
-\nolinkurl{research/2026-09-dgf-bench/}. Offline reproduction uses the frozen source archive,
-not an assumption that the evolving default branch is identical. The earlier 15-project pilot
-is separately available, including its Word documents, under
-\nolinkurl{experiments/run_20260922_180730_063947/}; its outcomes are not pooled into this study.
-The second manuscript sources are in \nolinkurl{paper2/}. Its inherited benchmark tables and
-figures retain the original measurements. The 300-case deterministic control and exhaustive all-model structural audit are released in \nolinkurl{research/2026-09-followup/}.
-The follow-up also releases 135 completed model--case runs on 15 existing dossiers, their
-765 scored gates, retained failed attempts, and USD~12.5598870228 in recorded costs. The new
-archive \texttt{dgf-bench-repetitions-20260924.zip} contains all 4,020 files retained in the
-repetition experiment directory, including the copied source dossiers and architecture documents.
-Decision confusion matrices, conditional-approval events, Procurement source diagnostics,
-repeated-trajectory evidence sensitivity, and a reproducible document counterexample accompany
-these analyses. The additional \texttt{dgf-bench-review-followup-20260924.zip} archive includes
-the source-coverage inventory, three development dossiers with their documents, the source-location
-prototype, and prepared General-replay inputs. Development cases and prepared inputs are not
-new model results. The prototype is released separately from the frozen scorer.
-No paid scaffold ablation, human adjudication, or enterprise enrollment has been completed.
-
-The author is Jeremy Canale, \texttt{contact@jeremycanale.com},
-\url{https://www.jeremycanale.com},
-\url{https://www.linkedin.com/in/jcanale13}. The workflow specification is author-designed;
-no confidential enterprise documents or employment outcomes are represented as observations.
-The author remains responsible for checking the
-claims, artifacts, and interpretation before submission.
+Jeremy Canale is the author: \texttt{contact@jeremycanale.com},
+\url{https://www.jeremycanale.com}, \url{https://www.linkedin.com/in/jcanale13}.
+The public repository is \url{https://github.com/jeremy1392/dgf-agentic-bench}.
+Its \href{https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923}{\texttt{dgf-bench-300-20260923}}
+release contains the source snapshot, complete generated dossiers including Word documents and
+architectures, model traces, failed attempts, scores, and cost ledgers. Original results and
+offline reproduction are in \nolinkurl{research/2026-09-dgf-bench/}; controls, all-model evidence
+audits, repetitions, and source counterexamples are in \nolinkurl{research/2026-09-followup/}.
+Use the frozen experimental source to reproduce the collected run. Synthetic workforce
+parameters are in \nolinkurl{paper/anc/parameters.json}; this concise manuscript and its
+verification script are in \nolinkurl{paper2/}. The extended manuscript remains in
+\nolinkurl{paper/}. Earlier empirical-companion versions remain in repository history.
+No new model calls or human studies were conducted for this synthesis. The author is
+responsible for the claims, artifacts, and interpretation.

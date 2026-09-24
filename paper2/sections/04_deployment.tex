@@ -1,92 +1,65 @@
-\section{Discussion: where could a language model add value?}
-\label{sec:deployment}
+\section{The FDE implementation: engineering the whole workflow}
+\label{sec:fde}
 
-Once facts and executable policies are supplied, the rule engine achieves the measured endpoint
-without a language model. The useful comparison is therefore the cost and reliability of producing
-those inputs: extracting facts, resolving conflicting documents, translating policy, and obtaining
-missing information. Those costs are outside the original benchmark's recorded API expenditure.
-A forward deployed engineer (FDE) would work with policy owners on these interfaces, exception
-handling, authority, and maintenance. These are deployment requirements, not measured productivity
-results.
+Forward deployed engineers (FDEs) work alongside organizations to turn software capabilities
+into deployed systems; embedded implementation is explicit in the role described by
+\citet{palantirfde2026}. Here the role has a concrete purpose: construct the information,
+policy, evidence, and authorization interfaces that let an accepted review be completed without
+requiring a person to reconstruct it. The job title itself does not establish an advantage.
 
-An evidence interface should let the reviewer identify a source and a JSON path or document span,
-then attach the observed value deterministically. This avoids having a model reconstruct a literal
-quotation. Evaluation should separately check source access, value fidelity, premise coverage,
-and inference. The structural sensitivity analysis evaluates one specified relaxation; it does
-not evaluate a deployed serializer or a semantic judge. A separate offline prototype now registers
-immutable public tool observations and resolves a source identifier plus JSON pointer or text
-span into a copied value. It accepts observed CSV, JSON, or document content without requiring
-a snapshot identifier. Its access and value-copying tests do not establish finding relevance;
-semantic support remains explicitly unevaluated. The prototype has not been used for model
-inference and does not change any score in this paper.
+Figure~\ref{fig:implementation} separates responsibilities. Agents can investigate a dossier,
+extract candidate facts, interpret narrative material, and propose findings. Where policies
+are executable, a deterministic service evaluates them. Evidence services attach copied source
+values and locations rather than asking a model to reproduce quotations. Mandate checks govern
+commitments. The system escalates cases for which its evidence or delegated scope is inadequate.
+These are proposed deployment components, not a claim that this complete architecture was
+evaluated by the current benchmark.
 
-\subsection{An executed preflight for document-only evaluation}
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[>=Latex,box/.style={draw=black!65,rounded corners=2pt,fill=black!3,
+  text width=3.05cm,minimum height=1.25cm,align=center,font=\small},node distance=0.38cm]
+\node[box] (sources) {Source access\\Documents\\and records};
+\node[box,right=of sources] (agent) {Agent review\\Read, investigate,\\propose};
+\node[box,right=of agent] (check) {Contract checks\\Policy, evidence,\\mandate};
+\node[box,right=of check] (output) {Decision record\\Evidence\\and conditions};
+\draw[->,thick] (sources)--(agent);
+\draw[->,thick] (agent)--(check);
+\draw[->,thick] (check)--(output);
+\node[box,below=0.65cm of check,text width=4.2cm] (human) {Human exception handling\\Missing facts, disputed policy,\\or undelegated authority};
+\draw[->,thick] (check)--(human);
+\draw[->,thick] (human.west)-|(agent.south);
+\end{tikzpicture}
+\caption{Proposed gate implementation. Every human contribution, including support of these
+services, belongs in the labor account. Passing a technical check alone is not a certificate
+of complete substantive correctness.}
+\label{fig:implementation}
+\end{figure}
 
-Before treating removal of \texttt{REVIEW\_FACTS} as an extraction benchmark, we tested whether
-remaining Word documents determine the reference decision. Using case
-\texttt{DGF-BUY-035004\_buy}, we generated two offline variants differing only in the selected
-vendor's due-diligence status: \texttt{complete} versus \texttt{pending}. The frozen evaluator
-requires GO in the first and REWORK with \texttt{PROC-DD-001} in the second. Yet all 26 generated
-Word documents have identical extracted paragraphs and table cells. The changed evidence is in
-the due-diligence and vendor-offer CSV records, and the procurement snapshot. The script, document text hashes, variant values,
-and reference outcomes are released. No model was called for this test.
+The FDE's work has four measurable deliverables. First, connect the required facts to accessible
+sources and demonstrate that the source set is sufficient for the declared task. Second, encode
+policy versions and mandates with the responsible owners, including the treatment of exceptions.
+Third, make the accepted record usable by the next gate without re-reading and re-verifying the
+whole dossier. Fourth, measure failures and human hours across the process, including the FDE's
+own recurring work. Policy formalization and initial integration are transition investments;
+continued adaptation is an operating burden. Neither disappears because a supplier performs it.
 
-This is an identifiability counterexample for a Word-only condition: the same input text can
-require different answers. It does not show that a document-plus-CSV condition is unsolvable,
-nor that document interpretation has no value. Additionally, the frozen strict scorer requires
-finding support to cite the gate's \texttt{REVIEW\_FACTS} identifier. Hiding that source while
-keeping this score would force evidence failures even when other material permits the correct
-decision. A fair ablation needs both an information-sufficiency check and a common revised
-evidence contract before paid evaluation.
+These deliverables explain the proposed DGF-first strategy. An FDE implementing an enterprise
+agent encounters project governance during deployment. The interfaces built to navigate it can
+also become interfaces through which its reviews execute. Policy ownership, evidence access,
+and repeated decision formats create reusable engineering opportunities. The claim is a plausible
+sequence of deployment work, not evidence that DGF must precede every business application.
+High-volume operational processes may justify automation earlier.
 
-\paragraph{Coverage across all 300 dossiers.}
-A conservative AST inventory identifies 76 distinct case fields (84 gate/field pairs), including
-risk-owner output metadata. Explicit template-specific CSV, JSON, and Word decoders cover 72
-fields; phase and upstream decisions are separate runtime inputs. Across 25,200 physical
-case/gate/field checks, 21,687 have a decoded match to the snapshot, 673 have only disagreeing
-decoded values, and 2,840 remain uncertified. For 17,100 static field requirements on the actual
-1,700 scheduled gates, 13,271 have a matching directly readable source; 1,402 have a physical
-match blocked by scope, phase, or availability; 460 disagree; and 1,967 are uncertified.
-These are coverage diagnostics, not rates of undecidable reviews: the static inventory includes
-inactive branches, exact-value requirements, and output metadata, and conflicting alternatives
-can coexist with a match. Absence of an implemented decoder does not prove absence of information.
+Designing common interfaces across gates matters even when rollout is incremental. Consider an
+Architecture review accepting a design only if a private endpoint is added. Security must
+receive both the condition and whether it has been fulfilled; receiving an unqualified approval
+would change the contract. A system that preserves such state can reduce repeated interpretation.
+A system that drops it can create new human verification work. Whole-route outcomes and the
+shared labor account test these alternatives; adding local automation percentages does not.
 
-Two stronger counterexamples isolate generator omissions. Changing
-\texttt{it.duplicate\_capability} from false to true changes GO to REWORK while preserving all
-76 non-snapshot output payloads and diagram inputs in the selected case. Changing
-\texttt{compliance.audit\_trail} from complete to missing similarly preserves 77 such outputs.
-Only the relevant snapshot changes. The other uncertified scalar fields are residency compliance
-and the exact number of readiness blockers; no equivalent absence claim is made for them.
-
-The direct-file audit does not cover every tool. In particular, \texttt{request\_evidence}
-returns a full factual snapshot even when requesting a different gate document, and an
-additional regulatory tool exposes residency compliance. Merely hiding snapshot files would
-therefore fail to isolate an extraction condition. A separate development extension emits two
-targeted source CSVs for the proven omissions and registers their gate/phase access. Three new
-Buy/Integrate/Build dossiers test that extension offline. They are inspected development cases,
-not a held-out evaluation; neither the original corpus nor model scores are changed.
-
-The proposed factorial comparison crosses executable versus prose policy with structured
-snapshots versus source documents and operational records. Every cell must contain equivalent
-policy semantics and recoverable information, or explicitly score justified abstention on
-underdetermined cases. A rule-engine comparison should include the extraction stage and its
-engineering cost. A held-out set must be fixed independently of failures used to design these
-conditions. The released ablation protocol specifies these checks; paid ablation outcomes are
-not reported here.
-
-A prepared but unexecuted General-only intervention compares normalized upstream agent decisions
-with reference decisions adjusted to the same validated upstream conditional approvals. Both arms
-retain identifiers, dispositions, findings, actions, and authorization flags, and omit rationales
-and evidence quotations. This is a new intervention on decision content, not a verbatim replay of
-historical prompts. Dossiers, mandates, non-history messages, and resource settings are matched
-between arms. The common scoring target preserves the validated upstream approvals. Tool feedback
-can nevertheless change with the supplied history; environment-authorized actions and conformity
-to that common target must therefore be reported separately.
-
-The fixed exploratory sample contains 15 changed-history cases and five identical-history
-controls for each of DeepSeek and Luna, plus five Gemini controls. No changed Gemini history
-exists among the 299 common cases under this normalization. Three fresh General trajectories
-per arm yield 270 proposed executions. Selection deliberately conditions on historical
-disagreement; it cannot estimate a population-average improvement. The released preparation
-specifies the paired analysis and transport settings. No outcome or expenditure from this
-unexecuted intervention is included in the reported results.
+In deployment, the decisive object is therefore the \emph{accepted task}, not the number of
+generated reports. Routine cases can have no required human execution while rare cases retain
+specialist review. If every case requires a lengthy signature or reconstruction, that review
+appears in $h_R$ and can erase the gain. Conversely, keeping an accountable owner does not by
+itself imply keeping the same number of people executing each review.

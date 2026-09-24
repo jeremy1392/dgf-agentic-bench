@@ -135,7 +135,7 @@ def main():
     pdf_name='From_Governance_Reviews_to_Task_Substitution.pdf' if second else PDF_NAME
     manifest_name='second_paper_arxiv_manifest.json' if second else 'first_paper_arxiv_manifest.json'
     checksum_name='second-paper-arxiv-SHA256SUMS.txt' if second else 'first-paper-SHA256SUMS.txt'
-    title=('DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews'
+    title=('The Last Human Gate: Forward Deployed Engineering for Governance Automation'
            if second else 'The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance')
     bibliography='sections/references.tex' if second else 'sections/91_references.tex'
     source=(args.source_dir or ROOT/('paper2' if second else 'paper')).resolve()

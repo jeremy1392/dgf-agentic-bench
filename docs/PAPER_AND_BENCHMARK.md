@@ -1,6 +1,6 @@
 # Paper and benchmark
 
-Jeremy Canale's September 2026 research project includes **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](../paper/The_Last_Human_Gate.pdf)** and its empirical companion, **[DGF-Bench: Rule Application and Evidence Reliability in Synthetic Governance Reviews](../paper2/From_Governance_Reviews_to_Task_Substitution.pdf)**. They share the same experimental data and address complementary research questions.
+Jeremy Canale's research is now presented in the **[12-page concise article, The Last Human Gate: Forward Deployed Engineering for Governance Automation](../paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** and the **[66-page extended original](../paper/The_Last_Human_Gate.pdf)**. The concise article replaces the former DGF-Bench empirical companion and is the recommended main manuscript. These are versions of a shared research contribution, not independent studies.
 
 ## The paper
 
@@ -28,4 +28,4 @@ The manuscript now includes the September 2026 benchmark evaluation: 300 synthet
 
 Both papers also report the same completed follow-up: a deterministic control passing 1,700/1,700 gates, a structural provenance audit of all 690 evidence-failed gates, and 135 repeated model/case runs on 15 existing dossiers. Original and repeated inference cost USD 99.5757161948. Original strict scores remain unchanged; the structural criterion is a separate post-hoc sensitivity analysis. [Follow-up records](../research/2026-09-followup/).
 
-The source inventory, three development dossiers, and citation prototype are offline diagnostics. The prepared 270-execution General-only comparison and broader scaffold ablation have not run. The second paper's prospective seven-year workforce proposal is separate from the first paper's original 2033 deadline; neither is an active enrolled study.
+The source inventory, three development dossiers, and citation prototype are offline diagnostics. The prepared 270-execution General-only comparison and broader scaffold ablation have not run. The concise paper retains the original 2033 hypothesis and distinguishes a separate prospective seven-year protocol; neither is an active enrolled study.

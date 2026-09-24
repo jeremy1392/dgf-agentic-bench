@@ -14,7 +14,7 @@ ROOT = HERE.parent
 
 
 def check_confusion_table(models):
-    """Check the actual TeX cells included in Appendix A, including zero cells."""
+    """Check retained supporting table cells, no longer included in the short PDF."""
     text = (HERE / "generated/table_decision_confusion.tex").read_text(encoding="utf-8")
     names = {
         "DeepSeek": "deepseek/deepseek-v4.1-flash",
@@ -37,6 +37,57 @@ def check_confusion_table(models):
         for row in rows:
             for column, count in zip(labels.values(), row[1:]):
                 assert int(count) == expected.get((labels[row[0]], column), 0), (name, row[0], column)
+
+
+def check_short_manuscript(expected, audits, repeats, control):
+    """Compare every numeric cell actually printed in the concise paper to its sources."""
+    text = (HERE/'sections/02_experiment.tex').read_text(encoding='utf-8')
+    rows = {}
+    for line in text.splitlines():
+        if '&' in line and line.rstrip().endswith(r'\\'):
+            cells = [s.strip() for s in line.rstrip()[:-2].split('&')]
+            rows[cells[0]] = cells[1:]
+    models = ['google/gemini-3.8-flash','openai/gpt-5.6-luna','deepseek/deepseek-v4.1-flash']
+    desired = {}
+    for label,index,rule in [('Evaluable projects',0,control['cases']),('Evaluable gates',1,control['gates']),
+                             ('Correct dispositions',4,control['gates']),('Strict gate successes',2,control['strict_gate_success']),
+                             ('Complete routes',3,control['route_success']),('Evidence-only failures',5,0)]:
+        desired[label] = [f'{expected[m][index]:,}' for m in models] + [f'{rule:,}']
+    desired[r'Strict gate success (\%)'] = [f'{100*expected[m][2]/expected[m][1]:.2f}' for m in models]+['100.00']
+    desired[r'Complete routes (\%)'] = [f'{100*expected[m][3]/expected[m][0]:.2f}' for m in models]+['100.00']
+    desired['False approvals / critical misses'] = [f'{expected[m][6]} / {expected[m][7]}' for m in models]+['0 / 0']
+    for label,key in [('Sensitivity: successful gates','posthoc_relaxed_gates'),('Sensitivity: complete routes','posthoc_relaxed_routes')]:
+        desired[label] = [f'{audits[m][key]:,}' for m in models]+['---']
+    for label,key in [('Strict gates / 255','strict_gates'),('Complete routes / 45','complete_routes')]:
+        desired[label] = [str(repeats['models'][m]['pooled'][key]) for m in models]+['---']
+    desired['Dossiers passing all three / 15'] = [str(repeats['models'][m]['all_three_successful_cases']) for m in models]+['---']
+    for label,cells in desired.items():
+        assert rows[label] == cells,(label,rows[label],cells)
+    main = (HERE/'main.tex').read_text(encoding='utf-8')
+    abstract = re.search(r'\\begin\{abstract\}(.*?)\\end\{abstract\}',main,re.S).group(1)
+    for value in ['94.98','83.29','74.18','76.92','42.33','24.67']:
+        assert value+r'\%' in abstract,value
+    assert 'The Last Human Gate' in main and 'Forward Deployed Engineering for Governance Automation' in main
+    assert '93.86--96.04' in text and '71.82--81.34' in text
+    included = main + ''.join((HERE/(p+'.tex')).read_text(encoding='utf-8') for p in re.findall(r'\\input\{([^}]+)\}',main))
+    used = {key.strip() for group in re.findall(r'\\cite\w*(?:\[[^]]*\])*\{([^}]+)\}',included) for key in group.split(',')}
+    defined = set(re.findall(r'\\bibitem(?:\[[^]]*\])?\{([^}]+)\}',included))
+    assert used == defined and len(defined)==14,(used-defined,defined-used)
+    params = json.loads((ROOT/'paper/anc/parameters.json').read_text(encoding='utf-8'))
+    k,v = params['useful_hours_per_fte'],params['visits_per_population']
+    totals=[]
+    for regime in params['regimes'].values():
+        totals.append(sum(v*(p['q']*params['kappa']*regime['eta']*(k*p['people']/v)
+                       +(1-p['q'])*regime['m']*(k*p['people']/v)+regime['hW'])+regime['BA']
+                       for p in params['populations'])/k)
+    assert [round(x,2) for x in totals] == [43.52,85.32,89.07,168.92]
+    phi=sum(p['people']*p['q']*params['kappa'] for p in params['populations'])/140
+    assert abs(.2/phi-.426829268292683)<1e-12
+    labor=(HERE/'sections/05_labor.tex').read_text(encoding='utf-8')
+    assert all(f'{v:.2f}' in labor for v in totals) and r'\simeq0.427' in labor
+    assert (HERE/'figures/fig_labor_scenarios.pdf').is_file()
+    return {'printed_numeric_cells':len(desired)*4,'references':len(defined),
+            'synthetic_fte':[round(x,2) for x in totals],'eta_bound':.2/phi}
 
 
 def main():
@@ -110,6 +161,7 @@ def main():
         assert a['posthoc_relaxed_gates']-a['strict_gates']==a['evidence_only_gate_categories']['all_failed_items_structurally_supported']
         assert sum(r['relaxed'] for r in a['route_details'])==a['posthoc_relaxed_routes']
     check_confusion_table(all_models)
+    short_checks=check_short_manuscript(expected,all_models,repeats,control)
     preflight=json.loads((followup/'document_ablation_preflight.json').read_text(encoding='utf-8'))
     assert preflight['identical_docx_text_count']==len(preflight['document_text_sha256'])==26
     assert [v['reference_disposition'] for v in preflight['variants'].values()]==['GO','REWORK']
@@ -160,9 +212,10 @@ def main():
         assert entry['proposed_fresh_general_executions']==(difference_cases+5)*6
     assert replay['models']['google/gemini-3.8-flash']['different_histories']==0
     result = {"status": "pass", "evaluable_runs": 899, "evaluable_gates": 5094,
+              "concise_manuscript":short_checks,
               "figures_and_tables": checked,
               "checks": ["shared first-paper figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices and actual Appendix A TeX cells", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension", "General-only targeted preparation counts and unexecuted status"],
+                         "rounded total cost", "executed rules control", "85-gate structural audit", "135-run repetition results", "690-gate all-model sensitivity audit", "complete decision matrices and retained supporting table", "56 numerical cells printed in concise manuscript", "abstract rates and confidence intervals", "14 cited references", "synthetic FTE scenarios and 80-percent threshold", "26-document counterexample", "conditional approval behavior and eligible denominators", "observed Procurement CSV support", "repeated-trajectory evidence sensitivity", "300-case source inventory and development-only extension", "General-only targeted preparation counts and unexecuted status"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 

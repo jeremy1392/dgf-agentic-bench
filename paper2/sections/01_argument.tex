@@ -1,72 +1,64 @@
-\section{Introduction}
+\section{Introduction: replacing execution, preserving the function}
 
-Enterprise project reviews transform evidence into a decision, findings, and required actions.
-A legal review checks contractual prerequisites; architecture and security reviews examine
-technical choices and protections. Software can implement a review when its inputs, policy,
-authority, and output contract are explicit. The central capability question is whether LLM agents can execute the decision tasks normally
-assigned to human gate reviewers: inspect a dossier, identify applicable findings, select a
-disposition, justify it with observed evidence, and respect authority. The study evaluates these
-tasks under a declared contract; it does not compare model accuracy with measured human accuracy.
+Before an enterprise buys software, connects systems, or releases an application, people review
+its architecture, security, contracts, cost, and operational readiness. The required outputs are
+decisions and their supporting work: identify a missing agreement, reject an unsafe network
+design, require a recovery test, or authorize a conditional release. These functions persist
+even if software performs work previously assigned to analysts, architects, and committee
+support staff. A professional title is an organizational allocation of tasks, not a technical
+specification of how those tasks must be executed.
 
-A Digital Governance Framework (DGF) organizes these review checkpoints.
-DGF-Bench evaluates three tool-using model endpoints on connected synthetic governance reviews.
-The information condition is deliberately favorable: agents can inspect executable policies
-and authoritative structured facts as well as generated documents. This separates execution
-of a specified contract from discovery of tacit rules or extraction of every premise from prose.
-A deterministic comparator succeeds on the entire measured task. Consequently, the contribution
-is an inspectable measurement of rule application, evidence conformity, and repeatability under
-that condition. The control establishes task sufficiency; the model results measure execution
-of the same decision contracts. No advantage over direct rule execution is established in this
-information condition.
+This paper argues that a Digital Governance Framework (DGF), understood as an enterprise's
+connected review gates, is a tractable candidate for early substitution of human review tasks
+by agentic systems. The claim concerns execution: an agent that produces a draft for someone
+to redo has supplied assistance; a system that completes an accepted review has performed that
+task. A workflow can contain substituted tasks and remaining human decisions at the same time.
+The relevant system can combine language models, deterministic software, and escalation.
+Replacing every rule check with a language-model call is neither necessary nor desirable.
 
-We report 899 original model--project runs on 300 projects, a 300-project deterministic control,
-an exhaustive structural audit of the 690 gates with failed evidence components across all three
-models, complete decision confusion matrices, and procurement diagnostics. Another 135 runs
-repeat 15 existing dossiers three times per model. An offline document counterexample establishes
-an information-sufficiency requirement for subsequent extraction experiments. Primary scores,
-post-hoc sensitivity measures, repeated-run outcomes, and unexecuted protocols remain distinct.
+The DGF is attractive because it already organizes work into dossiers, policies, named
+authorities, bounded decisions, and recorded handoffs. This gives engineering a starting point
+that open-ended management lacks. The same features also reveal why a fluent agent is insufficient:
+facts may be missing, exceptions expensive, evidence unfaithful, and commitments unauthorized.
+Our claim is that these are explicit conditions of substitution, rather than reasons to assume
+that the current human task allocation must remain permanent. Whether DGF is earlier or easier
+to automate than every other business function is a comparative hypothesis, not an observed ranking.
 
-\subsection{Related work}
+We connect three contributions. First, a gate-contract formulation identifies information,
+validity, and authority requirements for delegating review execution. A source counterexample
+shows when no reviewer can satisfy a fixed decision contract from the permitted information.
+Second, a complete labor account gives a substitution threshold: reducing routine execution
+only reduces required human work if exception handling, verification, correction, and support
+remain below a computable budget. Third, DGF-Bench provides a public, controlled measurement
+of specified review tasks and their failure modes, including a deterministic control and
+repeated trajectories. The purpose of linking them is to make the route from an agent score
+to a workforce claim inspectable; none of the three substitutes for the others.
 
-Rule and policy application are established evaluation objects. RuLES tests adherence to
-explicit conversational rules with programmatic evaluation \citep{mu2023}; LegalBench
-assembles expert-designed legal reasoning tasks \citep{guha2023}. Business-process compliance
-monitoring predates language-model agents and provides a basis for conventional rule-based
-comparators \citep{ly2015}. DGF-Bench adds connected project-review outputs and evidence
-contracts, but its synthetic rules are not an independently validated professional standard.
+\subsection{Position relative to prior work}
 
-Evidence attribution is a separate issue from a correct answer. ALCE evaluates text generation
-with citations \citep{gao2023}; the AIS framework specifies attribution to identified sources
-\citep{rashkin2023}. Our lexical checker is narrower: it checks required observed references
-and excerpts. Structural matching removes some serialization sensitivity but does not establish
-full entailment or premise coverage. This distinction explains why a high decision score can
-coexist with a substantially lower strict route score.
+Task-based accounts of automation distinguish displacement of existing work from demand changes
+and the creation of new tasks \citep{acemoglu2019}. The persistence of difficult supervisory work
+after routine automation is a longstanding concern \citep{bainbridge1983}. Sequential task
+assignment and quality complementarities further make handoffs and bottlenecks relevant
+\citep{demirer2026,gans2026}. We apply these distinctions to the concrete boundary of a governance
+review, including cross-team handoffs and recurring engineering. The labor equations below
+are accounting identities and decision conditions, not a new macroeconomic theory or an
+employment forecast inferred from model accuracy.
 
-WorkArena evaluates enterprise software interactions \citep{drouin2024}; ITBench covers
-operational IT scenarios across SRE, compliance/security, and FinOps \citep{itbench2025}.
-$\tau$-bench evaluates policy-guided tool/user interactions, final database state, and repeated
-reliability \citep{taubench2024}. CI-Work addresses contextual integrity in enterprise information
-flows \citep{ciwork2026}, while AgentDojo evaluates adversarial tool-use settings
-\citep{debenedetti2024}. DGF-Bench scores proposed reviews rather than completed operational
-remediation; it has no live user conversation or adversarial robustness condition. Their
-headline percentages are therefore not comparable. The importance of simple baselines, costs,
-and held-out evaluation follows the analysis of \citet{kapoor2024}.
+Staged project gates predate agents \citep{cooper1990}. Business-process compliance monitoring
+formalizes obligations and checks their execution \citep{ly2015}; agentic process management
+extends the integration agenda \citep{calvanese2026}. WorkArena measures enterprise interface
+tasks, ITBench operational IT scenarios, and $\tau$-bench policy-guided tool interactions and
+repeated reliability \citep{drouin2024,itbench2025,taubench2024}. DGF-Bench joins
+specialist review decisions into project routes and evaluates the supporting findings,
+actions, evidence, and authorization. Its percentages are not directly comparable with those
+benchmarks. Evidence-attribution work \citep{gao2023,rashkin2023} motivates separating a correct
+answer from a supported one. Simple baselines and resource accounting matter when evaluating
+agents \citep{kapoor2024}.
 
-Agentic business process management raises broader questions of process-level integration,
-monitoring, and escalation \citep{agenticbpm2026}. DGF-Bench supplies a bounded review-workflow
-measurement within that agenda. Its released traces support studying where a model's contribution
-might lie before adding it to an otherwise sufficient rule engine.
-
-\subsection{Research boundary and companion manuscript}
-
-This empirical study shares its original September 2026 experiment with the same author's
-\emph{The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise
-Governance}. The control, saved-trace audit, and repeated trajectories supplement that experiment;
-they are not an independent replication on new projects. The companion retains the broader
-FDE argument, labor accounting, and workforce scenarios. Here those implications are a short
-discussion, not the principal empirical claim.
-
-The workflows are author-designed and informed by practitioner experience. Their definitions,
-artifacts, public rules, and scoring interface are released. Inspectability does not establish
-that this policy represents any particular enterprise. The generator and evaluator share
-rule definitions, so their agreement is internal consistency rather than independent validation.
+The contribution is this contract-to-workforce analysis supported by an inspectable review
+benchmark. It is narrower than a universal law of automation and more specific than a claim
+that language models improve productivity in general. This concise manuscript replaces the
+earlier empirical companion in the public repository and synthesizes the longer
+\emph{The Last Human Gate} manuscript. Both versions use the same experimental record;
+they are not independent studies.
