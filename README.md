@@ -103,6 +103,26 @@ Backups being enabled does not prove data can be restored. Under the readiness r
 
 **Strict gate success (Gate CSR)** requires every scoring component to pass. **Complete-route success** requires every gate to pass. A correct decision with a nonconforming citation can fail the strict score; the component breakdown separates these errors. [Scoring and methodology](paper2/sections/02_experiment.tex).
 
+### When and how the agent is checked
+
+**There are two checks at different moments.** During a gate, the simulated environment validates requests such as conditional approval: the agent needs a valid mandate, must cover all open findings, and can only accept risks that the policy permits. The tool executes or rejects the request and returns that result to the agent.
+
+**After the dossier's route, a Python scorer checks the submitted reviews and recorded tool actions against the reference.** Later gates receive the agent's actual earlier outputs, including any mistakes; the scorer does not correct those outputs before the handoff.
+
+<p align="center">
+  <a href="assets/readme/verification-timing.svg"><img src="assets/readme/verification-timing.png" alt="Two moments of verification: tool requests are checked during each gate; the submitted reviews are scored after the dossier route, without correcting earlier handoffs." width="1200" /></a>
+</p>
+
+**A strict gate passes only when all five scoring components pass:** decision, findings, required actions, evidence, and authorization. Valid conditional approvals are replayed against the policy when establishing the expected result. A correct refusal can therefore be a successful review.
+
+<p align="center">
+  <a href="assets/readme/verification-criteria.svg"><img src="assets/readme/verification-criteria.png" alt="The scorer compares the reference with the agent's result and tool trace across five criteria. All five must pass for a strict gate success, and every gate must pass for a complete-route success." width="1200" /></a>
+</p>
+
+For example, if a required successful restore test is missing, the reviewer should request the test and return `REWORK`, assuming the other checks pass and no authorized exception applies. The benchmark checks that review and its supporting evidence; it does not run a real restore test. [Illustrated example](assets/readme/experiment-restore-example.png).
+
+[Schémas en français : quand vérifier](assets/readme/verification-timing-fr.png) · [Critères de conformité](assets/readme/verification-criteria-fr.png) · [Diagram sources and code provenance](assets/readme/README.md#verification-diagrams)
+
 ## Measured results: 300 projects
 
 The September 2026 study assigned the same **300 dossiers — 100 Buy, 100 Integrate, 100 Build — to three models**. It produced **899 evaluable runs out of 900 planned**, covering **5,094 gates**. One Gemini provider failure is excluded; its recorded cost remains included.

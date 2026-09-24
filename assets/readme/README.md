@@ -20,6 +20,25 @@ The [builder](build_experiment_figures.py) reuses the research figures' visual p
 
 The architecture specimen comes from `gate_evidence/architecture/Architecture_Diagram_Detailed.svg` and its paired PNG. [Context and provenance](example-project-context.json) preserve an excerpt of the public project facts, seed, and architecture signature. It is evidence to review, not an independently validated design. Its labels can require cross-checking against other case evidence. The diagram builder does not regenerate this specimen, and its hidden answer key is not included here. Azure icon attribution and terms are documented in [third-party notices](../../THIRD_PARTY_NOTICES.md).
 
+## Verification diagrams
+
+| Visual | English | Français |
+|---|---|---|
+| When the agent is checked | [SVG](verification-timing.svg) / [PNG](verification-timing.png) | [SVG](verification-timing-fr.svg) / [PNG](verification-timing-fr.png) |
+| How a gate passes | [SVG](verification-criteria.svg) / [PNG](verification-criteria.png) | [SVG](verification-criteria-fr.svg) / [PNG](verification-criteria-fr.png) |
+
+These diagrams explain the original strict scoring protocol. They were checked against the frozen benchmark source extracted under `experiments/reproduction_check_20260923/verified_inputs/benchmark_source`: `synthetic_environment.py` validates conditional-approval tool requests during a gate; `openrouter_eval/benchmark_runner.py` preserves actual agent handoffs and calls the scorer after the route; `score_submission.py` checks the five components and replays conditional approvals. The frozen source archive is available in the [experiment release](https://github.com/jeremy1392/dgf-agentic-bench/releases/tag/dgf-bench-300-20260923).
+
+The diagrams distinguish review correctness from executing physical remediation. They describe the original strict evidence requirements, not the later structural-matching sensitivity analysis. No new experiment or performance measurement is represented.
+
+Rebuild all four language variants:
+
+```text
+python assets/readme/build_verification_figures.py --render-png
+```
+
+The [builder](build_verification_figures.py) uses the existing vector drawing primitives and CairoSVG for PNG export. It makes no network or model calls.
+
 ## Research figures
 
 | Figure | SVG / PNG | Grounding |
