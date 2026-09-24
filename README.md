@@ -36,7 +36,7 @@
 
 ---
 
-**One research project, two complementary papers.** This page brings together the project's broader vision, measured results, and proposed field studies. *The Last Human Gate* develops the automation argument and workforce scenarios. *From Governance Reviews to Task Substitution* focuses on the benchmark and adds an executed rules comparator and evidence audit. [Compare the two papers](#two-papers-one-research-project).
+**One research project, two complementary papers.** This page brings together the project's broader vision, measured results, and proposed field studies. *The Last Human Gate* develops the automation argument and workforce scenarios. *From Governance Reviews to Task Substitution* focuses on the benchmark and adds an executed rules comparator, evidence audit, and repeated model trials. [Compare the two papers](#two-papers-one-research-project).
 
 ## The idea in plain language
 
@@ -264,6 +264,22 @@ The run archive deliberately retains earlier partial `paper_outputs` for provena
 
 **Earlier pilot — all files browsable on GitHub:** [`run_20260922_180730_063947`](experiments/run_20260922_180730_063947/) contains all 15 original project dossiers, 380 Word documents, 15 architecture diagrams in PNG and SVG, and every recorded trace, score, configuration, and report (2,214 files). **[Open the Word dossiers and architecture diagrams](research/2026-09-pilot/SOURCE_DOCUMENTS.md)** · [Pilot inventory and context](research/2026-09-pilot/). This pilot used GLM alongside DeepSeek and Gemini; its historical results are separate from the 300-project evaluation above.
 
+## Repeated runs: does the same dossier succeed again?
+
+The follow-up completed **135 additional runs** on **15 existing dossiers**: five Buy, five Integrate, and five Build, reviewed three times by each model. All 765 gates were attempted. Total recorded cost was **$12.56**, including failed attempts. These are new executions of existing cases, not 135 new projects.
+
+| Model | Strict gates across all three repeats | Complete routes across all repeats | Dossiers passing all three times |
+|---|---:|---:|---:|
+| **Gemini 3.8 Flash** | **96.08%** (245/255) | **77.78%** (35/45) | **9/15** |
+| **GPT-5.6 Luna** | **82.75%** (211/255) | **42.22%** (19/45) | **3/15** |
+| **DeepSeek v4.1 Flash** | **73.33%** (187/255) | **24.44%** (11/45) | **0/15** |
+
+**The ranking holds in each repeat, but reliability for a particular project varies.** Gemini makes the correct disposition at all 255 gates; its ten strict failures concern evidence conformity. None of the models records a scored false approval or critical miss in this small follow-up. DeepSeek completes some routes in each repeat, but no dossier succeeds on all three attempts.
+
+The sample contains only 15 distinct dossiers. Uncertainty calculations resample whole dossiers within each route, keeping their gates and three trajectories together. Provider routing and infrastructure resumes are recorded; the results do not isolate intrinsic model randomness. The original 300-project results remain separate.
+
+[Per-repeat results, intervals, costs, and provenance](research/2026-09-followup/REPETITION_RESULTS.md) · [Complete follow-up archive](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/dgf-bench-repetitions-20260924.zip).
+
 ## What this study can tell us
 
 **The tested models demonstrate strong capabilities in reviewing synthetic enterprise-governance cases under explicit rules.** Gemini achieves 94.98% strict gate success and completes every review successfully on 76.92% of its evaluable project routes. These results support the prospect of substantial automation of the review tasks represented in the benchmark.
@@ -278,14 +294,14 @@ The test cases are generated, so their variety and rules matter. Balancing the d
 
 ### Two papers, one research project
 
-Both papers are by **Jeremy Canale** and use the same original September 2026 model experiment. The second adds offline controls using the existing dossiers and traces.
+Both papers are by **Jeremy Canale** and use the same original September 2026 model experiment. The second adds offline controls and 135 new runs on 15 existing dossiers.
 
 | Publication | What to read it for | Workforce hypothesis |
 |---|---|---|
 | **[The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance](paper/The_Last_Human_Gate.pdf)** — 59 pages | The broader automation argument, role of FDEs, detailed labor accounting, illustrative scenarios, and original benchmark. | 80% fewer required DGF FTE in 2033 than in 2026; testing requires auditable historical baseline records. |
-| **[From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 22 pages | The focused empirical study, executed rules comparator, structural evidence audit, concrete FDE deliverables, and field-validation design. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
+| **[From Governance Reviews to Task Substitution: DGF-Bench and the Role of Forward Deployed Engineers](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** — 23 pages | The focused empirical study, executed rules comparator, structural evidence audit, repeated trajectories, concrete FDE deliverables, and field-validation design. | A prospective 80% reduction seven years after a future registered baseline ends; no cohort enrolled. |
 
-**The shorter paper preserves the original experimental measurements.** Detailed theoretical developments and workforce scenarios remain available in the first paper and on this page. All released dossiers, architecture documents, traces, and scores remain accessible. Repeated model trajectories are a separate follow-up; completed repetition results are not reported in the current 22-page revision. Human baselines and independent semantic adjudication remain proposed studies.
+**The shorter paper preserves the original experimental measurements.** Detailed theoretical developments and workforce scenarios remain available in the first paper and on this page. All released dossiers, architecture documents, traces, and scores remain accessible. The completed follow-up repeats 15 existing dossiers three times per model; its 135 runs are reported separately from the original 300-project results. Human baselines and independent semantic adjudication remain proposed studies.
 
 [First-paper sources and calculations](paper/) · [Second-paper sources and review response](paper2/) · [Executed follow-up controls](research/2026-09-followup/).
 

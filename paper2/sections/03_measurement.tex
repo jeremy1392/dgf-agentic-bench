@@ -158,6 +158,90 @@ value of the proposal is to make the next measurement answer a precise question:
 strict trace failure indicate unsupported reasoning, and how often does it indicate a
 representation defect? The distinction matters for both reliability claims and engineering effort.
 
+\subsection{Executed repeated trajectories on 15 dossiers}
+\label{sec:repetitions}
+
+Before launching follow-up calls, we selected five dossiers without replacement per route
+from sorted identifiers with Python \texttt{random.Random(23092026)}. Selection did not use
+model outcomes. The local plan fixed three new trajectories per model--case pair, giving
+15 dossiers, three endpoints, 135 runs, and 765 gates. This is a local analysis plan, not an
+external preregistration. The original historical trajectories are not counted as a fourth
+exchangeable repeat and are not pooled into the follow-up rates.
+
+Collection on 23--24 September 2026 used byte-verified copies of the existing dossiers and the
+frozen benchmark source. All three repetitions have identical recorded protocol identities:
+temperature zero, agent handoffs, automatic vision, 20 turns, 40 tool calls, and 8,192 output
+tokens per turn. There were three workers, one per model. Each repeat had a separate output
+directory. Infrastructure recovery retained completed gate prefixes within that trajectory;
+successful completed routes were not rerun or selected on their score.
+
+All 135 final runs are evaluable and all 765 gates attempted. Retained error checkpoints
+record 46 key-limit refusals and two provider-finish errors. Two Gemini runs resumed seven
+completed gates in total. One truncated response is recorded for Gemini and no resolved-model
+mismatches are recorded. The total USD~12.5598870228 includes unsuccessful paid attempts;
+all ledger entries have known costs. The authorization was increased from USD~20 to USD~50
+after a separate API-key limit interrupted collection. This did not change the case sample,
+repeat count, or inference settings.
+
+\begin{table}[!htb]
+\centering\small
+\caption{Three fresh trajectories on the same 15 dossiers. Strict gate counts are out of 85
+per repeat; complete-route counts are out of 15. The last column requires all gates to pass
+on all three trajectories of a dossier.}
+\label{tab:repetitions}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+& \multicolumn{3}{c}{Strict gates / 85} & \multicolumn{3}{c}{Complete routes / 15} & All three\\
+Model & R1 & R2 & R3 & R1 & R2 & R3 & / 15\\
+\midrule
+Gemini & 82 & 82 & 81 & 12 & 12 & 11 & 9\\
+Luna & 73 & 71 & 67 & 8 & 7 & 4 & 3\\
+DeepSeek & 63 & 64 & 60 & 3 & 4 & 4 & 0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+\centering\small
+\caption{Follow-up rates pooled over three trajectories, with exploratory 95\% case-cluster
+bootstrap intervals in brackets. Every model has 255 scored gates and 45 completed runs.}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Model & Strict gate success & Complete-route success & API cost (USD)\\
+\midrule
+Gemini & 96.08\% [93.33, 98.43] & 77.78\% [62.22, 91.11] & 10.3889\\
+Luna & 82.75\% [75.29, 89.80] & 42.22\% [22.22, 62.22] & 0.7499\\
+DeepSeek & 73.33\% [66.67, 79.61] & 24.44\% [13.33, 37.78] & 1.4212\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The bootstrap uses 10,000 draws, seed 24092026, resampling five entire dossiers within each
+route with replacement. Each sampled dossier retains all its gates and all three trajectories.
+Percentile endpoints use linear interpolation. These intervals reflect only this small,
+stratified synthetic sample, not 255 independent observations or uncertainty over enterprises.
+In particular, zero observed all-three successes for DeepSeek is not proof of zero population
+success probability; its degenerate empirical bootstrap interval is not a useful risk bound.
+
+Gemini has 255/255 correct dispositions, Luna 246/255, and DeepSeek 245/255. There are zero
+scored false approvals and critical misses for each model in this follow-up. Evidence fidelity
+fails on 10, 36, and 59 gates, respectively. These are new strict scores; the structural audit
+of the original 85 Gemini failures is not silently applied to these new traces.
+
+The ranking persists in each repetition, but a similar overall rate does not imply repeatable
+success on every dossier. Complete-route pass/fail changes across repeats for five Gemini,
+six Luna, and eight DeepSeek dossiers. Only nine, three, and zero dossiers, respectively,
+pass all three times. Exact gate dispositions remain identical across repeats on all 15 Gemini
+dossiers, ten Luna dossiers, and six DeepSeek dossiers. Optional authorized conditional approvals
+can legitimately change a disposition, so disagreement is not by itself an error.
+
+Provider routing was not fixed: DeepSeek records eight providers, Gemini Google AI Studio,
+and Luna OpenAI. Consequently, variability cannot be attributed solely to intrinsic model
+randomness. Temperature zero, small sample size, existing generated cases, and infrastructure
+resumption limit the interpretation to observed repeatability under this recorded protocol.
+All final scores, error checkpoints, costs, and supporting documents are released with the
+analysis script and per-repeat counts.
+
 \subsection{Dependence, uncertainty, and error propagation}
 
 The benchmark contains 300 underlying projects, not 5,094 independent enterprises. Multiple
@@ -165,7 +249,8 @@ gates within a project share facts and handoffs; multiple models review the same
 The released case-cluster and paired analyses preserve those dependencies for the reported
 intervals. Those intervals still condition on the generated population and one retained trajectory
 per model and case. They do not measure uncertainty over organizations, model versions, or
-repeated inference runs. Temperature zero does not supply a replication study.
+repeated inference runs. The follow-up in Section~\ref{sec:repetitions} separately measures
+three trajectories on 15 existing cases; it does not change the original intervals.
 
 Sequential handoffs allow an upstream output to affect a later review. They make propagation
 observable in traces, but this single handoff condition does not identify a causal propagation

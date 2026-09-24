@@ -61,10 +61,22 @@ def main():
     assert len(audit['gates'])==85
     assert audit['gate_counts']=={'all_failed_items_structurally_supported':69,'citation_defect':7,'includes_flattened_cross_object_excerpt':9}
     assert audit['failed_finding_item_counts']=={'structured_field_values_match':75,'flattened_cross_object_values_present':9}
+    repeats=json.loads((followup/'repetition_analysis.json').read_text(encoding='utf-8'))
+    assert (repeats['model_case_runs'],repeats['gates'])==(135,765)
+    assert abs(repeats['known_cost_usd']-12.5598870228)<1e-10
+    for model, counts in {
+        'google/gemini-3.8-flash':(245,35,255,9),
+        'openai/gpt-5.6-luna':(211,19,246,3),
+        'deepseek/deepseek-v4.1-flash':(187,11,245,0),
+    }.items():
+        item=repeats['models'][model]; p=item['pooled']
+        assert (p['strict_gates'],p['complete_routes'],p['correct_dispositions'],item['all_three_successful_cases'])==counts
+        assert p['gates']==255 and p['cases']==45
+        assert p['false_approvals']==p['critical_misses']==0
     result = {"status": "pass", "evaluable_runs": 899, "evaluable_gates": 5094,
               "figures_and_tables": checked,
               "checks": ["original figure bytes and LF-normalized table text", "headline and component counts",
-                         "rounded total cost", "explicit sensitivity arithmetic", "executed rules control", "85-gate structural audit"],
+                         "rounded total cost", "explicit sensitivity arithmetic", "executed rules control", "85-gate structural audit", "135-run repetition results"],
               "boundary": "Internal consistency and provenance only; no new inference or independent expert validation."}
     print(json.dumps(result, indent=2))
 
