@@ -1,10 +1,15 @@
 <p align="center">
-  <a href="paper2/From_Governance_Reviews_to_Task_Substitution.pdf">
+  <a href="https://arxiv.org/abs/2609.29345">
     <img src="assets/readme/last-human-gate-fde-hero.png" alt="The Last Human Gate — research by Jeremy Canale" width="1200" />
   </a>
 </p>
 
 <h1 align="center">DGF-Bench · The Last Human Gate</h1>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2609.29345"><strong>Read the paper on arXiv · 2609.29345</strong></a> &nbsp; · &nbsp;
+  <a href="https://arxiv.org/pdf/2609.29345">Download PDF</a>
+</p>
 
 <p align="center">
   <strong>Can AI agents take over the project reviews people perform today?</strong><br />
@@ -26,12 +31,12 @@
 
 | Read | What it contains |
 |---|---|
-| **[Research paper prepared for arXiv · PDF, 28 pages](paper2/From_Governance_Reviews_to_Task_Substitution.pdf)** | **The Last Human Gate: Forward Deployed Engineering for Governance Automation.** Start here: the task-substitution argument, gate contracts, two formal propositions, human-work accounting, detailed methodology, recorded examples, and the consolidated experiments. |
+| **[Research paper on arXiv · 28 pages](https://arxiv.org/abs/2609.29345)** · [PDF](https://arxiv.org/pdf/2609.29345) | **The Last Human Gate: Forward Deployed Engineering for Governance Automation.** Start here: the task-substitution argument, gate contracts, two formal propositions, human-work accounting, detailed methodology, recorded examples, and the consolidated experiments. |
 | **[Full thesis / extended manuscript · PDF, 66 pages](paper/The_Last_Human_Gate.pdf)** | **The Last Human Gate: Forward Deployed Engineering and the Automation of Enterprise Governance.** The full research argument, detailed calculations, workforce scenarios, and appendices. |
 
-**[Download the arXiv source ZIP](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip)** · [Submission guide and remaining requirements](paper2/ARXIV_SUBMISSION.md) · [Title, abstract, and metadata](paper2/arxiv_metadata.txt)
+**[Download the source ZIP](https://github.com/jeremy1392/dgf-agentic-bench/releases/download/dgf-bench-300-20260923/DGF_Bench_arXiv_source.zip)** · [Repository PDF](paper2/From_Governance_Reviews_to_Task_Substitution.pdf) · [LaTeX sources](paper2/)
 
-The short paper replaces the previous empirical companion. Both manuscripts present the same research and share their data. **Publication status: prepared for submission; no arXiv identifier is confirmed.** The PDF link above is the submission manuscript, not an arXiv record.
+**Available on arXiv as [arXiv:2609.29345](https://arxiv.org/abs/2609.29345)**, with version 1 submitted on 24 September 2026, in **Artificial Intelligence (cs.AI)** and **Software Engineering (cs.SE)**. The short paper replaces the previous empirical companion. Both manuscripts present the same research and share their data.
 
 <p align="center">
   <a href="#the-idea-in-plain-language">The idea</a> &nbsp; · &nbsp;
@@ -233,6 +238,18 @@ The earlier **15-project pilot** is also fully retained: [Word dossiers and arch
 
 Research and project by **[Jeremy Canale](https://www.jeremycanale.com)** · [contact@jeremycanale.com](mailto:contact@jeremycanale.com) · [LinkedIn](https://www.linkedin.com/in/jcanale13).
 
-Use [CITATION.cff](CITATION.cff). The preferred manuscript citation is **Jeremy Canale (2026), *The Last Human Gate: Forward Deployed Engineering for Governance Automation*.** Identify the manuscript revision and, for experiments, the dataset, protocol, and source revision. The two manuscripts share evidence and should not be counted as independent studies.
+The preferred paper citation is **Jeremy Canale (2026), *The Last Human Gate: Forward Deployed Engineering for Governance Automation*, [arXiv:2609.29345](https://arxiv.org/abs/2609.29345).** For experiments, also identify the dataset, protocol, and source revision. The two manuscripts share evidence and should not be counted as independent studies. Repository citation metadata is available in [CITATION.cff](CITATION.cff).
+
+```bibtex
+@misc{canale2026lasthumangate,
+  title = {The Last Human Gate: Forward Deployed Engineering for Governance Automation},
+  author = {Jeremy Canale},
+  year = {2026},
+  eprint = {2609.29345},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2609.29345}
+}
+```
 
 Original benchmark code and documentation are **MIT OR Apache-2.0**: [LICENSE](LICENSE). The [papers have separate copyright terms](paper/LICENSE-NOTICE.md). Third-party assets, including Azure icons, retain their [own terms](THIRD_PARTY_NOTICES.md). Please preserve author attribution.
