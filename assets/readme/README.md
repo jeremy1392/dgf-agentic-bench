@@ -20,6 +20,8 @@ The [builder](build_experiment_figures.py) reuses the research figures' visual p
 
 The architecture specimen comes from `gate_evidence/architecture/Architecture_Diagram_Detailed.svg` and its paired PNG. [Context and provenance](example-project-context.json) preserve an excerpt of the public project facts, seed, and architecture signature. It is evidence to review, not an independently validated design. Its labels can require cross-checking against other case evidence. The diagram builder does not regenerate this specimen, and its hidden answer key is not included here. Azure icon attribution and terms are documented in [third-party notices](../../THIRD_PARTY_NOTICES.md).
 
+The README also includes [a terminal screenshot](benchmark-terminal-screenshot.png) supplied by Jeremy Canale, preserved without modification. It shows a 45-job benchmark batch with model/dossier identifiers, gate decisions, tool-call counts, progress, and costs. It illustrates execution and is not the aggregate results table for the 300-project study.
+
 ## Verification diagrams
 
 | Visual | English | Français |

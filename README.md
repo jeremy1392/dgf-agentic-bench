@@ -75,6 +75,12 @@ Jeremy Canale's hypothesis is that **FDEs will likely tackle DGF before extendin
 5. **Record and pass on its review.** Collect findings, evidence, required actions, a decision, and its authorization basis. Later gates receive its earlier outputs; General consolidates the route.
 6. **Score the work.** Compare the submissions and recorded actions with the evaluator's reference. Preserve the traces, errors, and cost records.
 
+<p align="center">
+  <a href="assets/readme/benchmark-terminal-screenshot.png"><img src="assets/readme/benchmark-terminal-screenshot.png" alt="Terminal capture from a 45-job benchmark batch showing DeepSeek and Gemini reviewing successive gates, returning decisions, calling tools, and recording costs." width="1200" /></a>
+</p>
+
+*The benchmark in progress.* This capture shows a 45-job batch: each job pairs a model with a dossier, and its gates run in sequence. Lines report decisions such as `GO`, `GO_WITH_RESERVATIONS`, and `SUSPENSION`, conversation turns, tool calls, and recorded costs. `DONE status=OK` means the job completed; correctness is reported by the scoring results. Click the image to read the full-size trace.
+
 **The information condition matters:** agents receive executable policies and authoritative structured `REVIEW_FACTS` alongside the documents. Evaluator-only answer files are hidden. The published scores therefore measure review execution with this support, not independent extraction of every fact from Word files or diagrams.
 
 <p align="center">
